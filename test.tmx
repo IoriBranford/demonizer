@@ -29,12 +29,13 @@
   <object id="31" name="ally2" gid="27" x="144" y="2128" width="64" height="64"/>
  </objectgroup>
  <objectgroup name="camera" visible="0">
-  <object id="7" name="camera" x="24" y="1800" width="240" height="320">
+  <object id="7" name="camera" x="24" y="1800" width="240" height="320" visible="0">
    <properties>
     <property name="category" value="Camera"/>
     <property name="collidable" value="true"/>
     <property name="dynamic" value="true"/>
     <property name="mask" value="Player,PlayerShot,Enemy,Enemyshot"/>
+    <property name="script" value="FreeCam"/>
     <property name="velocity_y" value="-30"/>
    </properties>
   </object>
