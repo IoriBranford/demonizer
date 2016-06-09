@@ -59,7 +59,10 @@
   <object id="15" gid="4" x="32" y="-48" width="16" height="32"/>
  </objectgroup>
  <objectgroup name="demonizing">
-  <object id="33" gid="6" x="155" y="1969" width="64" height="64"/>
+  <properties>
+   <property name="dynamic" value="true"/>
+  </properties>
   <object id="38" gid="219" x="175" y="1951" width="24" height="32"/>
+  <object id="33" gid="6" x="155" y="1968" width="64" height="64"/>
  </objectgroup>
 </map>

@@ -863,22 +863,10 @@ return {
       opacity = 1,
       offsetx = 0,
       offsety = 0,
-      properties = {},
+      properties = {
+        ["dynamic"] = "true"
+      },
       objects = {
-        {
-          id = 33,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 155,
-          y = 1969,
-          width = 64,
-          height = 64,
-          rotation = 0,
-          gid = 6,
-          visible = true,
-          properties = {}
-        },
         {
           id = 38,
           name = "",
@@ -890,6 +878,20 @@ return {
           height = 32,
           rotation = 0,
           gid = 219,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 33,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 155,
+          y = 1968,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 6,
           visible = true,
           properties = {}
         }
