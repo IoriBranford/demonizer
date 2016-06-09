@@ -9,7 +9,6 @@
   <property name="column_civ6" value="15"/>
   <property name="column_civ7" value="18"/>
   <property name="column_civ8" value="21"/>
-  <property name="column_civ9" value="24"/>
   <property name="commonanimation" value="0"/>
   <property name="commoncollision" value="0"/>
   <property name="row_down" value="2"/>
