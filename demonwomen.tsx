@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="dwomen" tilewidth="64" tileheight="64" tilecount="24" columns="3">
+<tileset name="demonwomen" tilewidth="64" tileheight="64" tilecount="24" columns="3">
  <properties>
   <property name="commonanimation" value="0"/>
-  <property name="commonobjectgroup" value="0"/>
+  <property name="commoncollision" value="0"/>
  </properties>
- <image source="dwomen.png" width="192" height="512"/>
+ <image source="demonwomen.png" width="192" height="512"/>
  <tile id="0">
   <objectgroup draworder="index">
    <object id="1" x="24" y="24" width="16" height="16">

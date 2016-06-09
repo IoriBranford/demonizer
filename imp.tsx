@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="imp" tilewidth="64" tileheight="64" tilecount="3" columns="3">
- <properties>
-  <property name="credit" value="TsarCube http://tsarcube.deviantart.com/ (CC BY 3.0)"/>
- </properties>
  <image source="imp.png" width="192" height="64"/>
  <tile id="0">
   <objectgroup draworder="index">
