@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="impshot" tilewidth="16" tileheight="32" tilecount="2" columns="2">
  <properties>
-  <property name="commoncollision" value="0"/>
+  <property name="commoncollision" type="int" value="0"/>
  </properties>
  <image source="impshot.png" width="32" height="32"/>
  <tile id="0">

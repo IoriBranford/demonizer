@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="demonwomen" tilewidth="64" tileheight="64" tilecount="39" columns="3">
  <properties>
-  <property name="commonanimation" value="0"/>
-  <property name="commoncollision" value="0"/>
-  <property name="row_archer" value="12"/>
-  <property name="row_civ1" value="0"/>
-  <property name="row_civ2" value="1"/>
-  <property name="row_civ3" value="2"/>
-  <property name="row_civ4" value="3"/>
-  <property name="row_civ5" value="4"/>
-  <property name="row_civ6" value="5"/>
-  <property name="row_civ7" value="6"/>
-  <property name="row_civ8" value="7"/>
-  <property name="row_knight1" value="8"/>
-  <property name="row_knight2" value="9"/>
-  <property name="row_priest" value="10"/>
-  <property name="row_wizard" value="11"/>
+  <property name="commonanimation" type="int" value="0"/>
+  <property name="commoncollision" type="int" value="0"/>
+  <property name="row_archer" type="int" value="12"/>
+  <property name="row_civ1" type="int" value="0"/>
+  <property name="row_civ2" type="int" value="1"/>
+  <property name="row_civ3" type="int" value="2"/>
+  <property name="row_civ4" type="int" value="3"/>
+  <property name="row_civ5" type="int" value="4"/>
+  <property name="row_civ6" type="int" value="5"/>
+  <property name="row_civ7" type="int" value="6"/>
+  <property name="row_civ8" type="int" value="7"/>
+  <property name="row_knight1" type="int" value="8"/>
+  <property name="row_knight2" type="int" value="9"/>
+  <property name="row_priest" type="int" value="10"/>
+  <property name="row_wizard" type="int" value="11"/>
  </properties>
  <image source="demonwomen.png" width="192" height="832"/>
  <tile id="0">

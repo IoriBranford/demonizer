@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="infmen" tilewidth="24" tileheight="32" tilecount="75" columns="15">
  <properties>
-  <property name="column_archer" value="12"/>
-  <property name="column_knight1" value="0"/>
-  <property name="column_knight2" value="3"/>
-  <property name="column_priest" value="6"/>
-  <property name="column_wizard" value="9"/>
-  <property name="commonanimation" value="0"/>
-  <property name="commoncollision" value="0"/>
-  <property name="row_down" value="2"/>
-  <property name="row_ko" value="4"/>
-  <property name="row_left" value="3"/>
-  <property name="row_right" value="1"/>
-  <property name="row_up" value="0"/>
+  <property name="column_archer" type="int" value="12"/>
+  <property name="column_knight1" type="int" value="0"/>
+  <property name="column_knight2" type="int" value="3"/>
+  <property name="column_priest" type="int" value="6"/>
+  <property name="column_wizard" type="int" value="9"/>
+  <property name="commonanimation" type="int" value="0"/>
+  <property name="commoncollision" type="int" value="0"/>
+  <property name="row_down" type="int" value="2"/>
+  <property name="row_ko" type="int" value="4"/>
+  <property name="row_left" type="int" value="3"/>
+  <property name="row_right" type="int" value="1"/>
+  <property name="row_up" type="int" value="0"/>
  </properties>
  <image source="infmen.png" width="360" height="160"/>
  <tile id="0">

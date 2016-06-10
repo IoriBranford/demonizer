@@ -16,13 +16,13 @@
  </layer>
  <objectgroup name="groundactors">
   <properties>
-   <property name="dynamic" value="true"/>
+   <property name="dynamic" type="bool" value="true"/>
   </properties>
   <object id="29" name="npc" gid="246" x="128" y="1944" width="24" height="32"/>
  </objectgroup>
  <objectgroup name="airactors">
   <properties>
-   <property name="dynamic" value="true"/>
+   <property name="dynamic" type="bool" value="true"/>
   </properties>
   <object id="1" name="player" gid="1" x="112" y="2120" width="64" height="64"/>
   <object id="30" name="ally1" gid="12" x="80" y="2128" width="64" height="64"/>
@@ -33,7 +33,7 @@
    <properties>
     <property name="category" value="Camera"/>
     <property name="collidable" value="true"/>
-    <property name="dynamic" value="true"/>
+    <property name="dynamic" type="bool" value="true"/>
     <property name="mask" value="Player,PlayerShot,Enemy,Enemyshot"/>
     <property name="script" value="FreeCam"/>
     <property name="velocity_y" value="-30"/>
@@ -60,7 +60,7 @@
  </objectgroup>
  <objectgroup name="demonizing">
   <properties>
-   <property name="dynamic" value="true"/>
+   <property name="dynamic" type="bool" value="true"/>
   </properties>
   <object id="38" gid="219" x="175" y="1951" width="24" height="32"/>
   <object id="33" gid="6" x="155" y="1968" width="64" height="64"/>

@@ -92,7 +92,7 @@ return {
         y = 0
       },
       properties = {
-        ["commoncollision"] = "0"
+        ["commoncollision"] = 0
       },
       terrains = {},
       tilecount = 2,
@@ -205,21 +205,21 @@ return {
         y = 0
       },
       properties = {
-        ["commonanimation"] = "0",
-        ["commoncollision"] = "0",
-        ["row_archer"] = "12",
-        ["row_civ1"] = "0",
-        ["row_civ2"] = "1",
-        ["row_civ3"] = "2",
-        ["row_civ4"] = "3",
-        ["row_civ5"] = "4",
-        ["row_civ6"] = "5",
-        ["row_civ7"] = "6",
-        ["row_civ8"] = "7",
-        ["row_knight1"] = "8",
-        ["row_knight2"] = "9",
-        ["row_priest"] = "10",
-        ["row_wizard"] = "11"
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_archer"] = 12,
+        ["row_civ1"] = 0,
+        ["row_civ2"] = 1,
+        ["row_civ3"] = 2,
+        ["row_civ4"] = 3,
+        ["row_civ5"] = 4,
+        ["row_civ6"] = 5,
+        ["row_civ7"] = 6,
+        ["row_civ8"] = 7,
+        ["row_knight1"] = 8,
+        ["row_knight2"] = 9,
+        ["row_priest"] = 10,
+        ["row_wizard"] = 11
       },
       terrains = {},
       tilecount = 39,
@@ -283,18 +283,18 @@ return {
         y = 0
       },
       properties = {
-        ["column_archer"] = "12",
-        ["column_knight1"] = "0",
-        ["column_knight2"] = "3",
-        ["column_priest"] = "6",
-        ["column_wizard"] = "9",
-        ["commonanimation"] = "0",
-        ["commoncollision"] = "0",
-        ["row_down"] = "2",
-        ["row_ko"] = "4",
-        ["row_left"] = "3",
-        ["row_right"] = "1",
-        ["row_up"] = "0"
+        ["column_archer"] = 12,
+        ["column_knight1"] = 0,
+        ["column_knight2"] = 3,
+        ["column_priest"] = 6,
+        ["column_wizard"] = 9,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_down"] = 2,
+        ["row_ko"] = 4,
+        ["row_left"] = 3,
+        ["row_right"] = 1,
+        ["row_up"] = 0
       },
       terrains = {},
       tilecount = 75,
@@ -365,18 +365,18 @@ return {
         y = 0
       },
       properties = {
-        ["column_archer"] = "12",
-        ["column_knight1"] = "0",
-        ["column_knight2"] = "3",
-        ["column_priest"] = "6",
-        ["column_wizard"] = "9",
-        ["commonanimation"] = "0",
-        ["commoncollision"] = "0",
-        ["row_down"] = "2",
-        ["row_ko"] = "4",
-        ["row_left"] = "3",
-        ["row_right"] = "1",
-        ["row_up"] = "0"
+        ["column_archer"] = 12,
+        ["column_knight1"] = 0,
+        ["column_knight2"] = 3,
+        ["column_priest"] = 6,
+        ["column_wizard"] = 9,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_down"] = 2,
+        ["row_ko"] = 4,
+        ["row_left"] = 3,
+        ["row_right"] = 1,
+        ["row_up"] = 0
       },
       terrains = {},
       tilecount = 75,
@@ -447,21 +447,21 @@ return {
         y = 0
       },
       properties = {
-        ["column_civ1"] = "0",
-        ["column_civ2"] = "3",
-        ["column_civ3"] = "6",
-        ["column_civ4"] = "9",
-        ["column_civ5"] = "12",
-        ["column_civ6"] = "15",
-        ["column_civ7"] = "18",
-        ["column_civ8"] = "21",
-        ["commonanimation"] = "0",
-        ["commoncollision"] = "0",
-        ["row_down"] = "2",
-        ["row_ko"] = "4",
-        ["row_left"] = "3",
-        ["row_right"] = "1",
-        ["row_up"] = "0"
+        ["column_civ1"] = 0,
+        ["column_civ2"] = 3,
+        ["column_civ3"] = 6,
+        ["column_civ4"] = 9,
+        ["column_civ5"] = 12,
+        ["column_civ6"] = 15,
+        ["column_civ7"] = 18,
+        ["column_civ8"] = 21,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_down"] = 2,
+        ["row_ko"] = 4,
+        ["row_left"] = 3,
+        ["row_right"] = 1,
+        ["row_up"] = 0
       },
       terrains = {},
       tilecount = 120,
@@ -532,22 +532,22 @@ return {
         y = 0
       },
       properties = {
-        ["column_civ1"] = "0",
-        ["column_civ2"] = "3",
-        ["column_civ3"] = "6",
-        ["column_civ4"] = "9",
-        ["column_civ5"] = "12",
-        ["column_civ6"] = "15",
-        ["column_civ7"] = "18",
-        ["column_civ8"] = "21",
-        ["column_civ9"] = "24",
-        ["commonanimation"] = "0",
-        ["commoncollision"] = "0",
-        ["row_down"] = "2",
-        ["row_ko"] = "4",
-        ["row_left"] = "3",
-        ["row_right"] = "1",
-        ["row_up"] = "0"
+        ["column_civ1"] = 0,
+        ["column_civ2"] = 3,
+        ["column_civ3"] = 6,
+        ["column_civ4"] = 9,
+        ["column_civ5"] = 12,
+        ["column_civ6"] = 15,
+        ["column_civ7"] = 18,
+        ["column_civ8"] = 21,
+        ["column_civ9"] = 24,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_down"] = 2,
+        ["row_ko"] = 4,
+        ["row_left"] = 3,
+        ["row_right"] = 1,
+        ["row_up"] = 0
       },
       terrains = {},
       tilecount = 135,
@@ -648,7 +648,7 @@ return {
       offsetx = 0,
       offsety = 0,
       properties = {
-        ["dynamic"] = "true"
+        ["dynamic"] = true
       },
       objects = {
         {
@@ -675,7 +675,7 @@ return {
       offsetx = 0,
       offsety = 0,
       properties = {
-        ["dynamic"] = "true"
+        ["dynamic"] = true
       },
       objects = {
         {
@@ -745,7 +745,7 @@ return {
           properties = {
             ["category"] = "Camera",
             ["collidable"] = "true",
-            ["dynamic"] = "true",
+            ["dynamic"] = true,
             ["mask"] = "Player,PlayerShot,Enemy,Enemyshot",
             ["script"] = "FreeCam",
             ["velocity_y"] = "-30"
@@ -864,7 +864,7 @@ return {
       offsetx = 0,
       offsety = 0,
       properties = {
-        ["dynamic"] = "true"
+        ["dynamic"] = true
       },
       objects = {
         {
