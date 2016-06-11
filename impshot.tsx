@@ -7,9 +7,6 @@
  <tile id="0">
   <objectgroup draworder="index">
    <object id="3" x="0" y="8" width="16" height="16">
-    <properties>
-     <property name="category" value="PlayerShot"/>
-    </properties>
     <ellipse/>
    </object>
   </objectgroup>

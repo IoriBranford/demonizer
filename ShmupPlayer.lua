@@ -2,23 +2,16 @@ local levity = require "levity"
 local CollisionRules = require "CollisionRules"
 require "class"
 
-local FreeCam = class(function(self, id)
+local ShmupPlayer = class(function(self, id)
 	self.object = levity.map.objects[id]
-	self.object.visible = false
+	self.object.body:setFixedRotation(true)
 	self.vx = 0
 	self.vy = 0
-	self.object.body:setFixedRotation(true)
-	for _, fixture in ipairs(self.object.body:getFixtureList()) do
-		fixture:setSensor(true)
-	end
-
-	local cx, cy = self.object.body:getWorldCenter()
-	levity.camera:set(cx, cy, self.object.width, self.object.height)
 end)
 
-local keyforce = 60
+ShmupPlayer.Speed = 120
 
-function FreeCam:keypressed(key, u)
+function ShmupPlayer:keypressed(key, u)
 	if key == "up" then
 		self.vy = self.vy - 1
 	elseif key == "down" then
@@ -30,7 +23,7 @@ function FreeCam:keypressed(key, u)
 	end
 end
 
-function FreeCam:keyreleased(key, u)
+function ShmupPlayer:keyreleased(key, u)
 	if key == "up" then
 		self.vy = self.vy + 1
 	elseif key == "down" then
@@ -42,18 +35,13 @@ function FreeCam:keyreleased(key, u)
 	end
 end
 
-function FreeCam:beginMove(dt)
+function ShmupPlayer:beginMove(dt)
 	local body = self.object.body
 
 	local vx0, vy0 = body:getLinearVelocity()
-	local vx1, vy1 = keyforce * self.vx, keyforce * self.vy
+	local vx1, vy1 = ShmupPlayer.Speed * self.vx, ShmupPlayer.Speed * self.vy
 	local mass = body:getMass()
 	body:applyLinearImpulse(mass * (vx1-vx0), mass * (vy1-vy0))
 end
 
-function FreeCam:endMove(dt)
-	local cx, cy = self.object.body:getWorldCenter()
-	levity.camera:set(cx, cy)
-end
-
-return FreeCam
+return ShmupPlayer

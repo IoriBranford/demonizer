@@ -18,10 +18,6 @@
  <tile id="0">
   <objectgroup draworder="index">
    <object id="1" x="0" y="4" width="24" height="24">
-    <properties>
-     <property name="category" value="Enemy"/>
-     <property name="mask" value="EnemyShot"/>
-    </properties>
     <ellipse/>
    </object>
   </objectgroup>

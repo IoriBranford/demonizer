@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 39,
+  nextobjectid = 47,
   properties = {},
   tilesets = {
     {
@@ -52,10 +52,7 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["category"] = "Player",
-                  ["mask"] = "PlayerShot"
-                }
+                properties = {}
               }
             }
           },
@@ -119,9 +116,7 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["category"] = "PlayerShot"
-                }
+                properties = {}
               }
             }
           },
@@ -321,10 +316,7 @@ return {
                 height = 24,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["category"] = "Enemy",
-                  ["mask"] = "EnemyShot"
-                }
+                properties = {}
               }
             }
           },
@@ -403,10 +395,7 @@ return {
                 height = 24,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["category"] = "Enemy",
-                  ["mask"] = "EnemyShot"
-                }
+                properties = {}
               }
             }
           },
@@ -488,10 +477,7 @@ return {
                 height = 24,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["category"] = "Enemy",
-                  ["mask"] = "EnemyShot"
-                }
+                properties = {}
               }
             }
           },
@@ -574,10 +560,7 @@ return {
                 height = 24,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["category"] = "Enemy",
-                  ["mask"] = "EnemyShot"
-                }
+                properties = {}
               }
             }
           },
@@ -642,7 +625,58 @@ return {
     },
     {
       type = "objectgroup",
-      name = "groundactors",
+      name = "camera",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      objects = {
+        {
+          id = 7,
+          name = "camera",
+          type = "",
+          shape = "rectangle",
+          x = 24,
+          y = 1800,
+          width = 240,
+          height = 320,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = "true",
+            ["dynamic"] = true,
+            ["script"] = "ShmupCam",
+            ["sensor"] = "true"
+          }
+        },
+        {
+          id = 44,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 32,
+          y = 2120,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = false,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = -1800 }
+          },
+          properties = {
+            ["collidable"] = "true",
+            ["sensor"] = "true",
+            ["time"] = 60,
+            ["triggertype"] = "camerapath"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "enemies1",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -663,13 +697,86 @@ return {
           rotation = 0,
           gid = 246,
           visible = true,
-          properties = {}
+          properties = {
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 43,
+          name = "trigger",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 1808,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = false,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["collidable"] = "true",
+            ["sensor"] = "true",
+            ["triggertype"] = "activategroup"
+          }
         }
       }
     },
     {
       type = "objectgroup",
-      name = "airactors",
+      name = "enemies2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["dynamic"] = true
+      },
+      objects = {
+        {
+          id = 41,
+          name = "enemy",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 1824,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 90,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 40,
+          name = "trigger",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 1744,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = false,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["collidable"] = "true",
+            ["sensor"] = "true",
+            ["triggertype"] = "activategroup"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "player",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -690,7 +797,9 @@ return {
           rotation = 0,
           gid = 1,
           visible = true,
-          properties = {}
+          properties = {
+            ["script"] = "ShmupPlayer"
+          }
         },
         {
           id = 30,
@@ -704,7 +813,9 @@ return {
           rotation = 0,
           gid = 12,
           visible = true,
-          properties = {}
+          properties = {
+            ["script"] = "ShmupPlayer"
+          }
         },
         {
           id = 31,
@@ -718,73 +829,8 @@ return {
           rotation = 0,
           gid = 27,
           visible = true,
-          properties = {}
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "camera",
-      visible = false,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      objects = {
-        {
-          id = 7,
-          name = "camera",
-          type = "",
-          shape = "rectangle",
-          x = 24,
-          y = 1800,
-          width = 240,
-          height = 320,
-          rotation = 0,
-          visible = false,
           properties = {
-            ["category"] = "Camera",
-            ["collidable"] = "true",
-            ["dynamic"] = true,
-            ["mask"] = "Player,PlayerShot,Enemy,Enemyshot",
-            ["script"] = "FreeCam",
-            ["velocity_y"] = "-30"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "collision",
-      visible = false,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {
-        ["collidable"] = "true"
-      },
-      objects = {
-        {
-          id = 9,
-          name = "bounds",
-          type = "",
-          shape = "polyline",
-          x = 0,
-          y = 0,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 288, y = 0 },
-            { x = 288, y = 2120 },
-            { x = 0, y = 2120 },
-            { x = 0, y = 0 }
-          },
-          properties = {
-            ["category"] = "Bounds",
-            ["mask"] = "PlayerShot,Enemy,EnemyShot"
+            ["script"] = "ShmupPlayer"
           }
         }
       }
