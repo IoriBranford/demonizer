@@ -7,10 +7,6 @@ local ShmupCam = class(function(self, id)
 	self.object.visible = false
 	self.object.body:setFixedRotation(true)
 
-	for _, fixture in ipairs(self.object.body:getFixtureList()) do
-		fixture:setSensor(true)
-	end
-
 	local playerboundfixture = love.physics.newFixture(self.object.body,
 		love.physics.newChainShape(true,
 			0, 0,
@@ -83,6 +79,8 @@ end
 
 function ShmupCam:beginMove(dt)
 	local body = self.object.body
+	body:setMass(0x40000000) -- don't let others push it around
+
 	local vx0, vy0 = body:getLinearVelocity()
 	local vx1, vy1 = self.vx, self.vy
 	local mass = body:getMass()
@@ -94,7 +92,7 @@ function ShmupCam:endMove(dt)
 	levity.camera:set(cx, cy)
 end
 
-function ShmupCam:moveWithPlayer(playerx)
+function ShmupCam:swayWithPlayer(playerx)
 	self.object.body:setX(playerx * self.mapwidthratio)
 	local cx, cy = self.object.body:getWorldCenter()
 	levity.camera:set(cx, cy)

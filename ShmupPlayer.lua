@@ -66,7 +66,7 @@ function ShmupPlayer:endMove(dt)
 	end
 	if camera then
 		local cx, cy = self.object.body:getWorldCenter()
-		levity.machine:call(cameraid, "moveWithPlayer", cx)
+		levity.machine:call(cameraid, "swayWithPlayer", cx)
 	end
 end
 
