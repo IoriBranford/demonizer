@@ -50,6 +50,12 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
+  <object id="38" name="demonizingnpc" gid="219" x="175" y="1951" width="24" height="32">
+   <properties>
+    <property name="script" value="ShmupNPC"/>
+   </properties>
+  </object>
+  <object id="33" name="demonizing" gid="6" x="155" y="1968" width="64" height="64"/>
  </objectgroup>
  <objectgroup name="enemies2">
   <properties>
@@ -79,20 +85,21 @@
     <property name="script" value="ShmupPlayer"/>
    </properties>
   </object>
-  <object id="30" name="ally1" gid="12" x="80" y="2128" width="64" height="64"/>
-  <object id="31" name="ally2" gid="27" x="144" y="2128" width="64" height="64"/>
+  <object id="30" name="ally1" gid="12" x="80" y="2128" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+  <object id="31" name="ally2" gid="27" x="144" y="2128" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="playershot">
   <object id="10" gid="4" x="16" y="-48" width="16" height="32"/>
   <object id="13" gid="5" x="4.4137" y="-30.4746" width="16" height="32" rotation="-15"/>
   <object id="14" gid="5" x="44.1315" y="-34.6157" width="16" height="32" rotation="15"/>
   <object id="15" gid="4" x="32" y="-48" width="16" height="32"/>
- </objectgroup>
- <objectgroup name="demonizing">
-  <properties>
-   <property name="dynamic" type="bool" value="true"/>
-  </properties>
-  <object id="38" gid="219" x="175" y="1951" width="24" height="32"/>
-  <object id="33" gid="6" x="155" y="1968" width="64" height="64"/>
  </objectgroup>
 </map>

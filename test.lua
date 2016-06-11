@@ -721,6 +721,36 @@ return {
             ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
+        },
+        {
+          id = 38,
+          name = "demonizingnpc",
+          type = "",
+          shape = "rectangle",
+          x = 175,
+          y = 1951,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 219,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 33,
+          name = "demonizing",
+          type = "",
+          shape = "rectangle",
+          x = 155,
+          y = 1968,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 6,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -814,7 +844,9 @@ return {
           rotation = 0,
           gid = 12,
           visible = true,
-          properties = {}
+          properties = {
+            ["script"] = "ShmupPlayer"
+          }
         },
         {
           id = 31,
@@ -828,7 +860,9 @@ return {
           rotation = 0,
           gid = 27,
           visible = true,
-          properties = {}
+          properties = {
+            ["script"] = "ShmupPlayer"
+          }
         }
       }
     },
@@ -894,47 +928,6 @@ return {
           height = 32,
           rotation = 0,
           gid = 4,
-          visible = true,
-          properties = {}
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "demonizing",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {
-        ["dynamic"] = true
-      },
-      objects = {
-        {
-          id = 38,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 175,
-          y = 1951,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 219,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 33,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 155,
-          y = 1968,
-          width = 64,
-          height = 64,
-          rotation = 0,
-          gid = 6,
           visible = true,
           properties = {}
         }

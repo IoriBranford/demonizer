@@ -5,8 +5,10 @@ require "class"
 local ShmupPlayer = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.object.body:setFixedRotation(true)
+	self.object.body:setBullet(true)
 	self.vx = 0
 	self.vy = 0
+	self.didmousemove = false
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setFriction(0)
 	end
@@ -16,32 +18,49 @@ ShmupPlayer.Speed = 180
 
 function ShmupPlayer:keypressed(key, u)
 	if key == "up" then
-		self.vy = self.vy - 1
+		self.vy = self.vy - ShmupPlayer.Speed
 	elseif key == "down" then
-		self.vy = self.vy + 1
+		self.vy = self.vy + ShmupPlayer.Speed
 	elseif key == "left" then
-		self.vx = self.vx - 1
+		self.vx = self.vx - ShmupPlayer.Speed
 	elseif key == "right" then
-		self.vx = self.vx + 1
+		self.vx = self.vx + ShmupPlayer.Speed
 	end
 end
 
 function ShmupPlayer:keyreleased(key, u)
 	if key == "up" then
-		self.vy = self.vy + 1
+		self.vy = self.vy + ShmupPlayer.Speed
 	elseif key == "down" then
-		self.vy = self.vy - 1
+		self.vy = self.vy - ShmupPlayer.Speed
 	elseif key == "left" then
-		self.vx = self.vx + 1
+		self.vx = self.vx + ShmupPlayer.Speed
 	elseif key == "right" then
-		self.vx = self.vx - 1
+		self.vx = self.vx - ShmupPlayer.Speed
 	end
+end
+
+function ShmupPlayer:touchmoved(touch, x, y, dx, dy)
+	self:mousemoved(x, y, dx, dy)
+end
+
+function ShmupPlayer:mousemoved(x, y, dx, dy)
+	self.vx = self.vx + (dx / levity.camera.scale)
+	self.vy = self.vy + (dy / levity.camera.scale)
+	self.didmousemove = true
 end
 
 function ShmupPlayer:beginMove(dt)
 	local body = self.object.body
 	local vx0, vy0 = body:getLinearVelocity()
-	local vx1, vy1 = ShmupPlayer.Speed * self.vx, ShmupPlayer.Speed * self.vy
+	local vx1, vy1 = self.vx, self.vy
+	if self.didmousemove then
+		vx1 = vx1 / dt
+		vy1 = vy1 / dt
+		self.vx = 0
+		self.vy = 0
+		didmousemove = false
+	end
 
 	local cameraid = self.object.properties.cameraid
 	local camera = nil
@@ -50,7 +69,6 @@ function ShmupPlayer:beginMove(dt)
 	end
 	if camera then
 		local camvx, camvy = camera.body:getLinearVelocity()
-		--vx1 = vx1 + camvx
 		vy1 = vy1 + camvy
 	end
 
