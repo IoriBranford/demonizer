@@ -17,16 +17,16 @@
  <objectgroup name="camera">
   <object id="7" name="camera" x="24" y="1800" width="240" height="320">
    <properties>
-    <property name="collidable" value="true"/>
+    <property name="collidable" type="bool" value="true"/>
     <property name="dynamic" type="bool" value="true"/>
     <property name="script" value="ShmupCam"/>
-    <property name="sensor" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="44" name="path" x="32" y="2120" visible="0">
+  <object id="44" name="path" x="144" y="2120" visible="0">
    <properties>
-    <property name="collidable" value="true"/>
-    <property name="sensor" value="true"/>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
     <property name="time" type="int" value="60"/>
     <property name="triggertype" value="camerapath"/>
    </properties>
@@ -44,8 +44,8 @@
   </object>
   <object id="43" name="trigger" x="0" y="1808" visible="0">
    <properties>
-    <property name="collidable" value="true"/>
-    <property name="sensor" value="true"/>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>
@@ -62,8 +62,8 @@
   </object>
   <object id="40" name="trigger" x="0" y="1744" visible="0">
    <properties>
-    <property name="collidable" value="true"/>
-    <property name="sensor" value="true"/>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>
@@ -75,19 +75,12 @@
   </properties>
   <object id="1" name="player" gid="1" x="112" y="2120" width="64" height="64">
    <properties>
+    <property name="cameraid" type="int" value="7"/>
     <property name="script" value="ShmupPlayer"/>
    </properties>
   </object>
-  <object id="30" name="ally1" gid="12" x="80" y="2128" width="64" height="64">
-   <properties>
-    <property name="script" value="ShmupPlayer"/>
-   </properties>
-  </object>
-  <object id="31" name="ally2" gid="27" x="144" y="2128" width="64" height="64">
-   <properties>
-    <property name="script" value="ShmupPlayer"/>
-   </properties>
-  </object>
+  <object id="30" name="ally1" gid="12" x="80" y="2128" width="64" height="64"/>
+  <object id="31" name="ally2" gid="27" x="144" y="2128" width="64" height="64"/>
  </objectgroup>
  <objectgroup name="playershot">
   <object id="10" gid="4" x="16" y="-48" width="16" height="32"/>

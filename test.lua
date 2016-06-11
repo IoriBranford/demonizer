@@ -644,10 +644,10 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = "true",
+            ["collidable"] = true,
             ["dynamic"] = true,
             ["script"] = "ShmupCam",
-            ["sensor"] = "true"
+            ["sensor"] = true
           }
         },
         {
@@ -655,7 +655,7 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = 32,
+          x = 144,
           y = 2120,
           width = 0,
           height = 0,
@@ -666,8 +666,8 @@ return {
             { x = 0, y = -1800 }
           },
           properties = {
-            ["collidable"] = "true",
-            ["sensor"] = "true",
+            ["collidable"] = true,
+            ["sensor"] = true,
             ["time"] = 60,
             ["triggertype"] = "camerapath"
           }
@@ -717,8 +717,8 @@ return {
             { x = 288, y = 0 }
           },
           properties = {
-            ["collidable"] = "true",
-            ["sensor"] = "true",
+            ["collidable"] = true,
+            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         }
@@ -767,8 +767,8 @@ return {
             { x = 288, y = 0 }
           },
           properties = {
-            ["collidable"] = "true",
-            ["sensor"] = "true",
+            ["collidable"] = true,
+            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         }
@@ -798,6 +798,7 @@ return {
           gid = 1,
           visible = true,
           properties = {
+            ["cameraid"] = 7,
             ["script"] = "ShmupPlayer"
           }
         },
@@ -813,9 +814,7 @@ return {
           rotation = 0,
           gid = 12,
           visible = true,
-          properties = {
-            ["script"] = "ShmupPlayer"
-          }
+          properties = {}
         },
         {
           id = 31,
@@ -829,9 +828,7 @@ return {
           rotation = 0,
           gid = 27,
           visible = true,
-          properties = {
-            ["script"] = "ShmupPlayer"
-          }
+          properties = {}
         }
       }
     },

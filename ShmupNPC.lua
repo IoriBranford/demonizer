@@ -6,6 +6,9 @@ local ShmupNPC = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.object.body:setFixedRotation(true)
 	self:setActive(false)
+	for _, fixture in ipairs(self.object.body:getFixtureList()) do
+		fixture:setSensor(true)
+	end
 end)
 
 function ShmupNPC:activate()

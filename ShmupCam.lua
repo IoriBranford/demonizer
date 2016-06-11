@@ -6,8 +6,20 @@ local ShmupCam = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.object.visible = false
 	self.object.body:setFixedRotation(true)
+
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setSensor(true)
+	end
+
+	local playerboundfixture = love.physics.newFixture(self.object.body,
+		love.physics.newChainShape(true,
+			0, 0,
+			0, self.object.height,
+			self.object.width, self.object.height,
+			self.object.width, 0))
+
+	for _, fixture in ipairs(self.object.body:getFixtureList()) do
+		fixture:setFriction(0)
 	end
 
 	local cx, cy = self.object.body:getWorldCenter()
@@ -16,7 +28,8 @@ local ShmupCam = class(function(self, id)
 	self.vx = 0
 	self.vy = 0
 
-	self.xmax = (levity.map.width * levity.map.tilewidth) - self.object.width
+	local mapwidth = (levity.map.width * levity.map.tilewidth)
+	self.mapwidthratio = 1 - (self.object.width / mapwidth)
 end)
 
 function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
@@ -28,14 +41,14 @@ function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
 end
 
 function ShmupCam:beginContact_camerapath(myfixture, otherfixture, contact)
-	self.vx, self.vy = otherfixture:getShape():getPoint(2)
+	local vx, vy = otherfixture:getShape():getPoint(2)
 
 	local otherproperties = otherfixture:getUserData().properties
 	local time = otherproperties.time
 
 	if time then
-		self.vx = self.vx / time
-		self.vy = self.vy / time
+		self.vx = vx / time
+		self.vy = vy / time
 	end
 end
 
@@ -77,6 +90,12 @@ function ShmupCam:beginMove(dt)
 end
 
 function ShmupCam:endMove(dt)
+	local cx, cy = self.object.body:getWorldCenter()
+	levity.camera:set(cx, cy)
+end
+
+function ShmupCam:moveWithPlayer(playerx)
+	self.object.body:setX(playerx * self.mapwidthratio)
 	local cx, cy = self.object.body:getWorldCenter()
 	levity.camera:set(cx, cy)
 end
