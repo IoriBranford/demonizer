@@ -1,5 +1,5 @@
 local levity = require "levity"
-local CollisionRules = require "CollisionRules"
+local ShmupCollision = require "ShmupCollision"
 require "class"
 
 local ShmupCam = class(function(self, id)
@@ -7,16 +7,18 @@ local ShmupCam = class(function(self, id)
 	self.object.visible = false
 	self.object.body:setFixedRotation(true)
 
-	local playerboundfixture = love.physics.newFixture(self.object.body,
+	for _, fixture in ipairs(self.object.body:getFixtureList()) do
+		fixture:setFriction(0)
+		fixture:setCategory(ShmupCollision.Category_Camera)
+	end
+
+	local edgefixture = love.physics.newFixture(self.object.body,
 		love.physics.newChainShape(true,
 			0, 0,
 			0, self.object.height,
 			self.object.width, self.object.height,
 			self.object.width, 0))
-
-	for _, fixture in ipairs(self.object.body:getFixtureList()) do
-		fixture:setFriction(0)
-	end
+	edgefixture:setCategory(ShmupCollision.Category_CameraEdge)
 
 	local cx, cy = self.object.body:getWorldCenter()
 	levity.camera:set(cx, cy, self.object.width, self.object.height)

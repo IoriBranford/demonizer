@@ -1,5 +1,6 @@
 local levity = require "levity"
-local CollisionRules = require "CollisionRules"
+local ShmupCollision = require "ShmupCollision"
+local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 require "class"
 
 local ShmupPlayer = class(function(self, id)
@@ -8,13 +9,22 @@ local ShmupPlayer = class(function(self, id)
 	self.object.body:setBullet(true)
 	self.vx = 0
 	self.vy = 0
+	local os = love.system.getOS()
+	self.firing = os == "Android" or os == "iOS"
+	self.firetimer = 0
 	self.didmousemove = false
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setFriction(0)
+		fixture:setCategory(ShmupCollision.Category_Player)
+		fixture:setMask(
+			ShmupCollision.Category_Player,
+			ShmupCollision.Category_PlayerShot)
 	end
 end)
 
 ShmupPlayer.Speed = 180
+ShmupPlayer.BulletSpeed = 32*60
+ShmupPlayer.BulletInterval = 1/15
 
 function ShmupPlayer:keypressed(key, u)
 	if key == "up" then
@@ -25,6 +35,9 @@ function ShmupPlayer:keypressed(key, u)
 		self.vx = self.vx - ShmupPlayer.Speed
 	elseif key == "right" then
 		self.vx = self.vx + ShmupPlayer.Speed
+	elseif key == "z" then
+		self.firetimer = ShmupPlayer.BulletInterval
+		self.firing = true
 	end
 end
 
@@ -37,6 +50,9 @@ function ShmupPlayer:keyreleased(key, u)
 		self.vx = self.vx + ShmupPlayer.Speed
 	elseif key == "right" then
 		self.vx = self.vx - ShmupPlayer.Speed
+	elseif key == "z" then
+		self.firetimer = 0
+		self.firing = false
 	end
 end
 
@@ -52,6 +68,24 @@ end
 
 function ShmupPlayer:beginMove(dt)
 	local body = self.object.body
+
+	if self.firing then
+		self.firetimer = self.firetimer + dt
+		if self.firetimer >= ShmupPlayer.BulletInterval then
+			local cx, cy = body:getWorldCenter()
+			ShmupBullet.create(cx, cy,
+				0, -ShmupPlayer.BulletSpeed,
+				"impshot", 0,
+				self.object.layer,
+				ShmupCollision.Category_PlayerShot)
+
+			while self.firetimer >= ShmupPlayer.BulletInterval do
+				self.firetimer = self.firetimer
+						- ShmupPlayer.BulletInterval
+			end
+		end
+	end
+
 	local vx0, vy0 = body:getLinearVelocity()
 	local vx1, vy1 = self.vx, self.vy
 	if self.didmousemove then

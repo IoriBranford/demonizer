@@ -1,5 +1,5 @@
 local levity = require "levity"
-local CollisionRules = require "CollisionRules"
+local ShmupCollision = require "ShmupCollision"
 require "class"
 
 local function setFilterFromProperties(body)
@@ -9,7 +9,7 @@ local function setFilterFromProperties(body)
 		local mask = properties.mask
 
 		if category then
-			category = CollisionRules["Category_"..category]
+			category = ShmupCollision["Category_"..category]
 		end
 		if category then
 			fixture:setCategory(category)
@@ -19,7 +19,7 @@ local function setFilterFromProperties(body)
 			local maskcategories = {}
 			for categoryname in (mask..','):gmatch("(.-)"..',') do
 				local category =
-					CollisionRules["Category_"..categoryname]
+					ShmupCollision["Category_"..categoryname]
 				if category then
 					table.insert(maskcategories, category)
 				end
@@ -33,7 +33,7 @@ end
 
 local ShmupMap = class(function(self, id)
 	self.map = levity.map
-
+ 
 	for _, layer in self.map.layers do
 		if layer.type == "dynamiclayer" then
 			for _, object in ipairs(layer.objects) do
@@ -41,7 +41,7 @@ local ShmupMap = class(function(self, id)
 			end
 		end
 	end
-
+ 
 	setFilterFromProperties(self.map.box2d_collision)
 end)
 

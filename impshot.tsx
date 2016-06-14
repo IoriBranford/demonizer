@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="impshot" tilewidth="16" tileheight="32" tilecount="2" columns="2">
+<tileset name="impshot" tilewidth="32" tileheight="16" tilecount="2" columns="1">
+ <tileoffset x="-16" y="8"/>
  <properties>
   <property name="commoncollision" type="int" value="0"/>
  </properties>
  <image source="impshot.png" width="32" height="32"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="3" x="0" y="8" width="16" height="16">
+   <object id="1" x="-12" y="4" width="24" height="24">
     <ellipse/>
    </object>
   </objectgroup>

@@ -1,5 +1,5 @@
 local levity = require "levity"
-local CollisionRules = require "CollisionRules"
+local ShmupCollision = require "ShmupCollision"
 require "class"
 
 local ShmupNPC = class(function(self, id)
@@ -8,6 +8,11 @@ local ShmupNPC = class(function(self, id)
 	self:setActive(false)
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setSensor(true)
+		fixture:setCategory(ShmupCollision.Category_NPC)
+		fixture:setMask(
+			ShmupCollision.Category_CameraEdge,
+			ShmupCollision.Category_NPC,
+			ShmupCollision.Category_NPCShot)
 	end
 end)
 

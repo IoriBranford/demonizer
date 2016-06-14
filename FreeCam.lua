@@ -1,5 +1,5 @@
 local levity = require "levity"
-local CollisionRules = require "CollisionRules"
+local ShmupCollision = require "ShmupCollision"
 require "class"
 
 local FreeCam = class(function(self, id)

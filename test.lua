@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 47,
+  nextobjectid = 50,
   properties = {},
   tilesets = {
     {
@@ -77,16 +77,16 @@ return {
       name = "impshot",
       firstgid = 4,
       filename = "impshot.tsx",
-      tilewidth = 16,
-      tileheight = 32,
+      tilewidth = 32,
+      tileheight = 16,
       spacing = 0,
       margin = 0,
       image = "impshot.png",
       imagewidth = 32,
       imageheight = 32,
       tileoffset = {
-        x = 0,
-        y = 0
+        x = -16,
+        y = 8
       },
       properties = {
         ["commoncollision"] = 0
@@ -106,14 +106,14 @@ return {
             properties = {},
             objects = {
               {
-                id = 3,
+                id = 1,
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = 0,
-                y = 8,
-                width = 16,
-                height = 16,
+                x = -12,
+                y = 4,
+                width = 24,
+                height = 24,
                 rotation = 0,
                 visible = true,
                 properties = {}
@@ -874,64 +874,7 @@ return {
       offsetx = 0,
       offsety = 0,
       properties = {},
-      objects = {
-        {
-          id = 10,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 16,
-          y = -48,
-          width = 16,
-          height = 32,
-          rotation = 0,
-          gid = 4,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 13,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 4.4137,
-          y = -30.4746,
-          width = 16,
-          height = 32,
-          rotation = -15,
-          gid = 5,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 14,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 44.1315,
-          y = -34.6157,
-          width = 16,
-          height = 32,
-          rotation = 15,
-          gid = 5,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 15,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 32,
-          y = -48,
-          width = 16,
-          height = 32,
-          rotation = 0,
-          gid = 4,
-          visible = true,
-          properties = {}
-        }
-      }
+      objects = {}
     }
   }
 }
