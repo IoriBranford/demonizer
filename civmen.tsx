@@ -21,7 +21,7 @@
  <image source="civmen.png" width="648" height="160"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="1" x="0" y="4" width="24" height="24">
+   <object id="1" x="2" y="6" width="20" height="20">
     <ellipse/>
    </object>
   </objectgroup>

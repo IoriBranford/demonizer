@@ -3,7 +3,7 @@
  <image source="imp.png" width="192" height="64"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="4" x="24" y="24" width="16" height="16">
+   <object id="4" name="body" x="24" y="24" width="16" height="16">
     <ellipse/>
    </object>
   </objectgroup>

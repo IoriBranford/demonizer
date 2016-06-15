@@ -7,7 +7,7 @@
  <image source="impshot.png" width="32" height="32"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="1" x="-12" y="4" width="24" height="24">
+   <object id="1" x="-8" y="8" width="16" height="16">
     <ellipse/>
    </object>
   </objectgroup>

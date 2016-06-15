@@ -72,17 +72,18 @@ function ShmupPlayer:beginMove(dt)
 	if self.firing then
 		self.firetimer = self.firetimer + dt
 		if self.firetimer >= ShmupPlayer.BulletInterval then
-			local cx, cy = body:getWorldCenter()
-			ShmupBullet.create(cx, cy,
-				0, -ShmupPlayer.BulletSpeed,
-				"impshot", 0,
-				self.object.layer,
-				ShmupCollision.Category_PlayerShot)
-
 			while self.firetimer >= ShmupPlayer.BulletInterval do
 				self.firetimer = self.firetimer
 						- ShmupPlayer.BulletInterval
 			end
+
+			local cx, cy = body:getWorldCenter()
+			cy = cy - (ShmupPlayer.BulletSpeed * self.firetimer)
+			ShmupBullet.create(cx, cy,
+				ShmupPlayer.BulletSpeed, math.pi*1.5,
+				"impshot", 0,
+				self.object.layer,
+				ShmupCollision.Category_PlayerShot)
 		end
 	end
 
