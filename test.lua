@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 51,
+  nextobjectid = 55,
   properties = {
     ["playerid"] = 1
   },
@@ -78,6 +78,7 @@ return {
     {
       name = "impshot",
       firstgid = 4,
+      filename = "impshot.tsx",
       tilewidth = 32,
       tileheight = 16,
       spacing = 0,
@@ -124,11 +125,11 @@ return {
           animation = {
             {
               tileid = "0",
-              duration = "66"
+              duration = "64"
             },
             {
               tileid = "1",
-              duration = "66"
+              duration = "64"
             }
           }
         },
@@ -197,8 +198,8 @@ return {
       imagewidth = 192,
       imageheight = 832,
       tileoffset = {
-        x = 0,
-        y = 0
+        x = -32,
+        y = 32
       },
       properties = {
         ["commonanimation"] = 0,
@@ -236,8 +237,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = 24,
-                y = 24,
+                x = -8,
+                y = 56,
                 width = 16,
                 height = 16,
                 rotation = 0,
@@ -275,8 +276,8 @@ return {
       imagewidth = 360,
       imageheight = 160,
       tileoffset = {
-        x = 0,
-        y = 0
+        x = -12,
+        y = 16
       },
       properties = {
         ["column_archer"] = 12,
@@ -311,8 +312,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = 2,
-                y = 6,
+                x = -10,
+                y = 24,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -354,8 +355,8 @@ return {
       imagewidth = 360,
       imageheight = 160,
       tileoffset = {
-        x = 0,
-        y = 0
+        x = -12,
+        y = 16
       },
       properties = {
         ["column_archer"] = 12,
@@ -390,8 +391,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = 2,
-                y = 6,
+                x = -10,
+                y = 24,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -481,8 +482,8 @@ return {
       imagewidth = 576,
       imageheight = 160,
       tileoffset = {
-        x = 0,
-        y = 0
+        x = -12,
+        y = 16
       },
       properties = {
         ["column_civ1"] = 0,
@@ -520,8 +521,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = 2,
-                y = 6,
+                x = -10,
+                y = 24,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -563,8 +564,8 @@ return {
       imagewidth = 648,
       imageheight = 160,
       tileoffset = {
-        x = 0,
-        y = 0
+        x = -12,
+        y = 16
       },
       properties = {
         ["column_civ1"] = 0,
@@ -603,8 +604,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = 2,
-                y = 6,
+                x = -10,
+                y = 24,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -739,8 +740,8 @@ return {
           name = "npc",
           type = "",
           shape = "rectangle",
-          x = 128,
-          y = 1944,
+          x = 80,
+          y = 1888,
           width = 24,
           height = 32,
           rotation = 0,
@@ -772,34 +773,36 @@ return {
           }
         },
         {
-          id = 38,
-          name = "demonizingnpc",
+          id = 53,
+          name = "npc",
           type = "",
           shape = "rectangle",
-          x = 175,
-          y = 1951,
+          x = 136,
+          y = 1936,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 220,
+          gid = 247,
           visible = true,
           properties = {
             ["script"] = "ShmupNPC"
           }
         },
         {
-          id = 33,
-          name = "demonizing",
+          id = 54,
+          name = "npc",
           type = "",
           shape = "rectangle",
-          x = 155,
-          y = 1968,
-          width = 64,
-          height = 64,
+          x = 200,
+          y = 1912,
+          width = 24,
+          height = 32,
           rotation = 0,
-          gid = 6,
+          gid = 247,
           visible = true,
-          properties = {}
+          properties = {
+            ["script"] = "ShmupNPC"
+          }
         }
       }
     },
@@ -819,7 +822,7 @@ return {
           name = "enemy",
           type = "",
           shape = "rectangle",
-          x = 32,
+          x = 40,
           y = 1824,
           width = 24,
           height = 32,
@@ -849,6 +852,38 @@ return {
             ["collidable"] = true,
             ["sensor"] = true,
             ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 51,
+          name = "enemy",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 1808,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 90,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 52,
+          name = "enemy",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 1784,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 90,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
           }
         }
       }

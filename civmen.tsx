@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="civmen" tilewidth="24" tileheight="32" tilecount="135" columns="27">
+ <tileoffset x="-12" y="16"/>
  <properties>
   <property name="column_civ1" type="int" value="0"/>
   <property name="column_civ2" type="int" value="3"/>
@@ -21,7 +22,7 @@
  <image source="civmen.png" width="648" height="160"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="1" x="2" y="6" width="20" height="20">
+   <object id="1" x="-10" y="24" width="20" height="20">
     <ellipse/>
    </object>
   </objectgroup>

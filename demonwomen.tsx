@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="demonwomen" tilewidth="64" tileheight="64" tilecount="39" columns="3">
+ <tileoffset x="-32" y="32"/>
  <properties>
   <property name="commonanimation" type="int" value="0"/>
   <property name="commoncollision" type="int" value="0"/>
@@ -20,7 +21,7 @@
  <image source="demonwomen.png" width="192" height="832"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="1" x="24" y="24" width="16" height="16">
+   <object id="1" x="-8" y="56" width="16" height="16">
     <ellipse/>
    </object>
   </objectgroup>

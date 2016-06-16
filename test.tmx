@@ -1,33 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="51">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="55">
  <properties>
   <property name="playerid" type="int" value="1"/>
  </properties>
  <tileset firstgid="1" source="imp.tsx"/>
- <tileset firstgid="4" name="impshot" tilewidth="32" tileheight="16" tilecount="2" columns="1">
-  <tileoffset x="-16" y="8"/>
-  <properties>
-   <property name="commoncollision" type="int" value="0"/>
-  </properties>
-  <image source="impshot.png" width="32" height="32"/>
-  <tile id="0">
-   <objectgroup draworder="index">
-    <object id="1" x="-8" y="8" width="16" height="16">
-     <ellipse/>
-    </object>
-   </objectgroup>
-   <animation>
-    <frame tileid="0" duration="66"/>
-    <frame tileid="1" duration="66"/>
-   </animation>
-  </tile>
-  <tile id="1">
-   <animation>
-    <frame tileid="1" duration="64"/>
-    <frame tileid="0" duration="64"/>
-   </animation>
-  </tile>
- </tileset>
+ <tileset firstgid="4" source="impshot.tsx"/>
  <tileset firstgid="6" source="demonizing.tsx"/>
  <tileset firstgid="9" source="demonwomen.tsx"/>
  <tileset firstgid="48" source="infwomen.tsx"/>
@@ -64,7 +41,7 @@
   <properties>
    <property name="dynamic" type="bool" value="true"/>
   </properties>
-  <object id="29" name="npc" gid="247" x="128" y="1944" width="24" height="32">
+  <object id="29" name="npc" gid="247" x="80" y="1888" width="24" height="32">
    <properties>
     <property name="script" value="ShmupNPC"/>
    </properties>
@@ -77,18 +54,22 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="38" name="demonizingnpc" gid="220" x="175" y="1951" width="24" height="32">
+  <object id="53" name="npc" gid="247" x="136" y="1936" width="24" height="32">
    <properties>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="33" name="demonizing" gid="6" x="155" y="1968" width="64" height="64"/>
+  <object id="54" name="npc" gid="247" x="200" y="1912" width="24" height="32">
+   <properties>
+    <property name="script" value="ShmupNPC"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemies2">
   <properties>
    <property name="dynamic" type="bool" value="true"/>
   </properties>
-  <object id="41" name="enemy" gid="90" x="32" y="1824" width="24" height="32">
+  <object id="41" name="enemy" gid="90" x="40" y="1824" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
@@ -100,6 +81,16 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>
+  </object>
+  <object id="51" name="enemy" gid="90" x="48" y="1808" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="52" name="enemy" gid="90" x="16" y="1784" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="player">

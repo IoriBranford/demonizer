@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="infmen" tilewidth="24" tileheight="32" tilecount="75" columns="15">
+ <tileoffset x="-12" y="16"/>
  <properties>
   <property name="column_archer" type="int" value="12"/>
   <property name="column_knight1" type="int" value="0"/>
@@ -17,7 +18,7 @@
  <image source="infmen.png" width="360" height="160"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="1" x="2" y="6" width="20" height="20">
+   <object id="1" x="-10" y="24" width="20" height="20">
     <ellipse/>
    </object>
   </objectgroup>
