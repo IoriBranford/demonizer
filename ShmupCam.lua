@@ -19,6 +19,7 @@ local ShmupCam = class(function(self, id)
 			self.object.width, self.object.height,
 			self.object.width, 0))
 	edgefixture:setCategory(ShmupCollision.Category_CameraEdge)
+	edgefixture:setMask(ShmupCollision.Category_Default)
 
 	local cx, cy = self.object.body:getWorldCenter()
 	levity.camera:set(cx, cy, self.object.width, self.object.height)
