@@ -6,6 +6,30 @@
    <object id="4" name="body" x="24" y="24" width="16" height="16">
     <ellipse/>
    </object>
+   <object id="7" name="ally1" x="8" y="40">
+    <properties>
+     <property name="sensor" type="bool" value="true"/>
+    </properties>
+    <ellipse/>
+   </object>
+   <object id="8" name="ally2" x="56" y="40">
+    <properties>
+     <property name="sensor" type="bool" value="true"/>
+    </properties>
+    <ellipse/>
+   </object>
+   <object id="10" name="ally3" x="16" y="16">
+    <properties>
+     <property name="sensor" type="bool" value="true"/>
+    </properties>
+    <ellipse/>
+   </object>
+   <object id="11" name="ally4" x="48" y="16">
+    <properties>
+     <property name="sensor" type="bool" value="true"/>
+    </properties>
+    <ellipse/>
+   </object>
   </objectgroup>
   <animation>
    <frame tileid="0" duration="125"/>

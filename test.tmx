@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="55">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="60">
  <properties>
   <property name="playerid" type="int" value="1"/>
  </properties>
@@ -41,11 +41,6 @@
   <properties>
    <property name="dynamic" type="bool" value="true"/>
   </properties>
-  <object id="29" name="npc" gid="247" x="80" y="1888" width="24" height="32">
-   <properties>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
-  </object>
   <object id="43" name="trigger" x="0" y="1808" visible="0">
    <properties>
     <property name="collidable" type="bool" value="true"/>
@@ -59,7 +54,12 @@
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="54" name="npc" gid="247" x="200" y="1912" width="24" height="32">
+  <object id="57" gid="373" x="136" y="1968" width="24" height="32">
+   <properties>
+    <property name="script" value="ShmupNPC"/>
+   </properties>
+  </object>
+  <object id="59" gid="250" x="176" y="1904" width="24" height="32">
    <properties>
     <property name="script" value="ShmupNPC"/>
    </properties>
@@ -69,11 +69,6 @@
   <properties>
    <property name="dynamic" type="bool" value="true"/>
   </properties>
-  <object id="41" name="enemy" gid="90" x="40" y="1824" width="24" height="32">
-   <properties>
-    <property name="script" value="NPCArcher"/>
-   </properties>
-  </object>
   <object id="40" name="trigger" x="0" y="1744" visible="0">
    <properties>
     <property name="collidable" type="bool" value="true"/>
@@ -82,14 +77,14 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="51" name="enemy" gid="90" x="48" y="1808" width="24" height="32">
+  <object id="52" name="archer" gid="90" x="16" y="1784" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="52" name="enemy" gid="90" x="16" y="1784" width="24" height="32">
+  <object id="55" name="mage" gid="72" x="48" y="1816" width="24" height="32">
    <properties>
-    <property name="script" value="NPCArcher"/>
+    <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
  </objectgroup>

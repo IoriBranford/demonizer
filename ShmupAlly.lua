@@ -8,10 +8,7 @@ local ShmupAlly = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.object.body:setFixedRotation(true)
 	self.object.body:setBullet(true)
-	local os = love.system.getOS()
-	self.firing = os == "Android" or os == "iOS"
 	self.firetimer = 0
-	self.didmousemove = false
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setFriction(0)
 		fixture:setCategory(ShmupCollision.Category_Player)
@@ -20,39 +17,56 @@ local ShmupAlly = class(function(self, id)
 			ShmupCollision.Category_Player,
 			ShmupCollision.Category_PlayerShot)
 	end
+
+	local playerid = levity.map.properties.playerid
+	self.allyindex = levity.machine:call(playerid, "newAllyIndex")
 end)
 
 function ShmupAlly:beginMove(dt)
-	local playerid = levity.map.properties.playerid
-	local player = nil
-
-	if playerid then
-		player = levity.map.objects[playerid]
-	end
-
 	local body = self.object.body
+	local mass = body:getMass()
 
-	if self.firing then
-		self.firetimer = self.firetimer + dt
+	local playerid = levity.map.properties.playerid
+
+	local cx, cy = body:getWorldCenter()
+	local dx, dy = levity.machine:call(playerid, "allyPosition",
+	self.allyindex)
+
+	local vx0, vy0 = body:getLinearVelocity()
+	local vx1, vy1 = dx - cx, dy - cy
+	body:applyLinearImpulse(mass * (vx1/dt - vx0), mass * (vy1/dt - vy0))
+
+	if levity.machine:call(playerid, "isFiring") then
 		if self.firetimer >= ShmupPlayer.BulletInterval then
 			while self.firetimer >= ShmupPlayer.BulletInterval do
 				self.firetimer = self.firetimer
 						- ShmupPlayer.BulletInterval
 			end
 
-			local cx, cy = body:getWorldCenter()
-			cy = cy - (ShmupPlayer.BulletSpeed * self.firetimer)
+			local angle = math.pi*1.5
+
+			local player = levity.map.objects[playerid]
+			if player then
+				local playercx, playercy = player.body:getWorldCenter()
+				angle = angle +
+					math.atan2(cx - playercx, playercy - cy)/16
+			end
+
+			cx = cx + (math.cos(angle) * ShmupPlayer.BulletSpeed * self.firetimer)
+			cy = cy + (math.sin(angle) * ShmupPlayer.BulletSpeed * self.firetimer)
+
 			ShmupBullet.create(cx, cy,
-				ShmupPlayer.BulletSpeed, math.pi*1.5,
+				ShmupPlayer.BulletSpeed, angle,
 				"impshot", 0,
 				self.object.layer,
 				ShmupCollision.Category_PlayerShot)
 		end
+		self.firetimer = self.firetimer + dt
+	else
+		self.firetimer = ShmupPlayer.BulletInterval
 	end
-
 	--local vx0, vy0 = body:getLinearVelocity()
 	--local vx1, vy1 = 0,0
-	--local mass = body:getMass()
 	--body:applyLinearImpulse(mass * (vx1-vx0), mass * (vy1-vy0))
 end
 

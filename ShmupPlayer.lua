@@ -13,18 +13,55 @@ local ShmupPlayer = class(function(self, id)
 	self.firing = os == "Android" or os == "iOS"
 	self.firetimer = 0
 	self.didmousemove = false
-	for _, fixture in ipairs(self.object.body:getFixtureList()) do
-		fixture:setFriction(0)
-		fixture:setCategory(ShmupCollision.Category_Player)
-		fixture:setMask(
+	self.numallies = 0
+
+	local fixtures = self.object.body:getUserData().fixtures
+	local bodyfixture = fixtures["body"]
+	if bodyfixture then
+		bodyfixture:setFriction(0)
+		bodyfixture:setCategory(ShmupCollision.Category_Player)
+		bodyfixture:setMask(
 			ShmupCollision.Category_Player,
 			ShmupCollision.Category_PlayerShot)
+	end
+
+	for i = 1, 4, 1 do
+		local fixture = fixtures["ally"..i]
+		if fixture then
+			fixture:setFilterData(0, 0, 0)
+		end
 	end
 end)
 
 ShmupPlayer.Speed = 180
 ShmupPlayer.BulletSpeed = 32*60
 ShmupPlayer.BulletInterval = 1/15
+ShmupPlayer.MaxAllies = 4
+
+function ShmupPlayer:roomForAllies()
+	return self.numallies < ShmupPlayer.MaxAllies
+end
+
+function ShmupPlayer:newAllyIndex()
+	self.numallies = self.numallies + 1
+	return self.numallies
+end
+
+function ShmupPlayer:allyPosition(i)
+	local x = self.object.x
+	local y = self.object.y
+	local offsetfixture = self.object.body:getUserData().fixtures["ally"..i]
+	if offsetfixture then
+		local ox, oy = offsetfixture:getShape():getPoint()
+		x = x + ox
+		y = y + oy
+	end
+	return x, y
+end
+
+function ShmupPlayer:isFiring()
+	return self.firing
+end
 
 function ShmupPlayer:keypressed(key, u)
 	if key == "up" then
@@ -70,7 +107,6 @@ function ShmupPlayer:beginMove(dt)
 	local body = self.object.body
 
 	if self.firing then
-		self.firetimer = self.firetimer + dt
 		if self.firetimer >= ShmupPlayer.BulletInterval then
 			while self.firetimer >= ShmupPlayer.BulletInterval do
 				self.firetimer = self.firetimer
@@ -85,6 +121,7 @@ function ShmupPlayer:beginMove(dt)
 				self.object.layer,
 				ShmupCollision.Category_PlayerShot)
 		end
+		self.firetimer = self.firetimer + dt
 	end
 
 	local vx0, vy0 = body:getLinearVelocity()

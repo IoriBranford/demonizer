@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 55,
+  nextobjectid = 60,
   properties = {
     ["playerid"] = 1
   },
@@ -52,6 +52,58 @@ return {
                 y = 24,
                 width = 16,
                 height = 16,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 7,
+                name = "ally1",
+                type = "",
+                shape = "ellipse",
+                x = 8,
+                y = 40,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 8,
+                name = "ally2",
+                type = "",
+                shape = "ellipse",
+                x = 56,
+                y = 40,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 10,
+                name = "ally3",
+                type = "",
+                shape = "ellipse",
+                x = 16,
+                y = 16,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 11,
+                name = "ally4",
+                type = "",
+                shape = "ellipse",
+                x = 48,
+                y = 16,
+                width = 0,
+                height = 0,
                 rotation = 0,
                 visible = true,
                 properties = {}
@@ -736,22 +788,6 @@ return {
       },
       objects = {
         {
-          id = 29,
-          name = "npc",
-          type = "",
-          shape = "rectangle",
-          x = 80,
-          y = 1888,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 247,
-          visible = true,
-          properties = {
-            ["script"] = "ShmupNPC"
-          }
-        },
-        {
           id = 43,
           name = "trigger",
           type = "",
@@ -789,16 +825,32 @@ return {
           }
         },
         {
-          id = 54,
-          name = "npc",
+          id = 57,
+          name = "",
           type = "",
           shape = "rectangle",
-          x = 200,
-          y = 1912,
+          x = 136,
+          y = 1968,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 247,
+          gid = 373,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 59,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 1904,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 250,
           visible = true,
           properties = {
             ["script"] = "ShmupNPC"
@@ -817,22 +869,6 @@ return {
         ["dynamic"] = true
       },
       objects = {
-        {
-          id = 41,
-          name = "enemy",
-          type = "",
-          shape = "rectangle",
-          x = 40,
-          y = 1824,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 90,
-          visible = true,
-          properties = {
-            ["script"] = "NPCArcher"
-          }
-        },
         {
           id = 40,
           name = "trigger",
@@ -855,24 +891,8 @@ return {
           }
         },
         {
-          id = 51,
-          name = "enemy",
-          type = "",
-          shape = "rectangle",
-          x = 48,
-          y = 1808,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 90,
-          visible = true,
-          properties = {
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
           id = 52,
-          name = "enemy",
+          name = "archer",
           type = "",
           shape = "rectangle",
           x = 16,
@@ -884,6 +904,22 @@ return {
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 55,
+          name = "mage",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 1816,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 72,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupNPC"
           }
         }
       }

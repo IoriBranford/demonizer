@@ -17,6 +17,7 @@ local ShmupNPC = class(function(self, id)
 	end
 	self.health = 8
 	self.captured = false
+	self.npctype = levity:getTileColumnName(self.object.gid)
 end)
 
 function ShmupNPC:activate()
@@ -32,17 +33,9 @@ end
 function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	self.health = self.health - 1
 	if self.health <= 0 then
-		local tileset = levity:getMapTileset(self.object.tile.tileset)
-		local row_ko = tileset.properties.row_ko
-
-		local tilecolumns = tileset.imagewidth / tileset.tilewidth
-		local column = (self.object.gid - tileset.firstgid)
-				% tilecolumns
-		local gid = tileset.firstgid + (row_ko * tilecolumns)
-				+ column
-
-		levity:setObjectGid(self.object, gid, "dynamic",
-					self.object.layer)
+		local gid = levity:getTileGid(self.object.tile.tileset,
+						"ko", self.npctype)
+		levity:setObjectGid(self.object, gid, "dynamic", self.object.layer)
 
 		myfixture:setMask(
 			ShmupCollision.Category_CameraEdge,
@@ -68,6 +61,19 @@ function ShmupNPC:beginContact(myfixture, otherfixture, contact)
 	end
 end
 
+function ShmupNPC:convertToAlly()
+	local playerid = levity.map.properties.playerid
+	local roomforallies = levity.machine:call(playerid, "roomForAllies")
+	local tileset = levity:getMapTileset(self.object.tile.tileset)
+	if roomforallies and string.find(tileset.name, "women") then
+		local gid = levity:getTileGid("demonwomen", self.npctype, 0)
+		levity:setObjectGid(self.object, gid, "dynamic", self.object.layer)
+		levity.machine:newScript(self.object.id, "ShmupAlly")
+	else
+		self.object.destroy = true
+	end
+end
+
 function ShmupNPC:beginMove(dt)
 	if self.ready == true then
 		self:setActive(true)
@@ -78,15 +84,7 @@ function ShmupNPC:beginMove(dt)
 	end
 
 	if self.captured then
-		local tileset = levity:getMapTileset(self.object.tile.tileset)
-		if string.find(tileset.name, "women") then
-			levity:setObjectGid(self.object,
-				levity:getMapTileGid("demonwomen", 0),
-				"dynamic", self.object.layer)
-			levity.machine:newScript(self.object.id, "ShmupAlly")
-		else
-			self.object.destroy = true
-		end
+		self:convertToAlly()
 	end
 end
 
