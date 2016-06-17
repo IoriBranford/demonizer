@@ -4,7 +4,7 @@ local ShmupPlayer = levity.machine:requireScript("ShmupPlayer")
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 require "class"
 
-local ShmupAlly = class(function(self, id)
+local ShmupAlly = class(function(self, id, allyindex)
 	self.object = levity.map.objects[id]
 	self.object.body:setFixedRotation(true)
 	self.object.body:setBullet(true)
@@ -19,22 +19,26 @@ local ShmupAlly = class(function(self, id)
 	end
 
 	local playerid = levity.map.properties.playerid
-	self.allyindex = levity.machine:call(playerid, "newAllyIndex")
+	self.allyindex = allyindex
 end)
+
+ShmupAlly.SnapToPlayerVelocity = 1/8
 
 function ShmupAlly:beginMove(dt)
 	local body = self.object.body
-	local mass = body:getMass()
 
 	local playerid = levity.map.properties.playerid
 
 	local cx, cy = body:getWorldCenter()
-	local dx, dy = levity.machine:call(playerid, "allyPosition",
-	self.allyindex)
+	local dx, dy = levity.machine:call(playerid, "allyPosition", self.allyindex)
 
 	local vx0, vy0 = body:getLinearVelocity()
 	local vx1, vy1 = dx - cx, dy - cy
-	body:applyLinearImpulse(mass * (vx1/dt - vx0), mass * (vy1/dt - vy0))
+	local ax = vx1 * ShmupAlly.SnapToPlayerVelocity / dt - vx0
+	local ay = vy1 * ShmupAlly.SnapToPlayerVelocity / dt - vy0
+
+	local mass = body:getMass()
+	body:applyLinearImpulse(mass * ax, mass * ay)
 
 	if levity.machine:call(playerid, "isFiring") then
 		if self.firetimer >= ShmupPlayer.BulletInterval then
