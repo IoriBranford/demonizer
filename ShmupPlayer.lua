@@ -7,13 +7,21 @@ local ShmupPlayer = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.object.body:setFixedRotation(true)
 	self.object.body:setBullet(true)
+
 	self.vx = 0
 	self.vy = 0
+	self.didmousemove = false
+
 	local os = love.system.getOS()
 	self.firing = os == "Android" or os == "iOS"
 	self.firetimer = 0
-	self.didmousemove = false
+
 	self.numallies = 0
+
+	self.dead = false
+	self.deathtimer = 0
+
+	self.shieldtimer = 0
 
 	local fixtures = self.object.body:getUserData().fixtures
 	local bodyfixture = fixtures["body"]
@@ -37,6 +45,8 @@ ShmupPlayer.Speed = 180
 ShmupPlayer.BulletSpeed = 32*60
 ShmupPlayer.BulletInterval = 1/15
 ShmupPlayer.MaxAllies = 4
+ShmupPlayer.DeathTime = 1
+ShmupPlayer.RespawnShieldTime = 3
 
 function ShmupPlayer:roomForAllies()
 	return self.numallies < ShmupPlayer.MaxAllies
@@ -103,10 +113,57 @@ function ShmupPlayer:mousemoved(x, y, dx, dy)
 	self.didmousemove = true
 end
 
+function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
+	if otherfixture:getCategory() == ShmupCollision.Category_NPCShot then
+		if self.shieldtimer == 0 then
+			self.deathtimer = 0
+			self.dead = true
+		end
+	end
+end
+
 function ShmupPlayer:beginMove(dt)
 	local body = self.object.body
+	local vx0, vy0 = body:getLinearVelocity()
+	local vx1, vy1 = self.vx, self.vy
 
-	if self.firing then
+	if self.didmousemove then
+		vx1 = vx1 / dt
+		vy1 = vy1 / dt
+		self.vx = 0
+		self.vy = 0
+		didmousemove = false
+	end
+
+	self.shieldtimer = math.max(0, self.shieldtimer - dt)
+
+	if self.dead then
+		self.deathtimer = self.deathtimer + dt
+		local respawn = self.deathtimer >= ShmupPlayer.DeathTime
+		self.dead = not respawn
+		self.object.visible = respawn
+		body:setActive(respawn)
+		vx1 = 0
+		vy1 = 0
+		if respawn then
+			self.shieldtimer = ShmupPlayer.RespawnShieldTime
+		end
+	end
+
+	local cameraid = self.object.properties.cameraid
+	local camera = nil
+	if cameraid then
+		camera = levity.map.objects[cameraid]
+	end
+	if camera then
+		local camvx, camvy = camera.body:getLinearVelocity()
+		vy1 = vy1 + camvy
+	end
+
+	local mass = body:getMass()
+	body:applyLinearImpulse(mass * (vx1-vx0), mass * (vy1-vy0))
+
+	if self.firing and not self.dead then
 		if self.firetimer >= ShmupPlayer.BulletInterval then
 			while self.firetimer >= ShmupPlayer.BulletInterval do
 				self.firetimer = self.firetimer
@@ -123,29 +180,6 @@ function ShmupPlayer:beginMove(dt)
 		end
 		self.firetimer = self.firetimer + dt
 	end
-
-	local vx0, vy0 = body:getLinearVelocity()
-	local vx1, vy1 = self.vx, self.vy
-	if self.didmousemove then
-		vx1 = vx1 / dt
-		vy1 = vy1 / dt
-		self.vx = 0
-		self.vy = 0
-		didmousemove = false
-	end
-
-	local cameraid = self.object.properties.cameraid
-	local camera = nil
-	if cameraid then
-		camera = levity.map.objects[cameraid]
-	end
-	if camera then
-		local camvx, camvy = camera.body:getLinearVelocity()
-		vy1 = vy1 + camvy
-	end
-
-	local mass = body:getMass()
-	body:applyLinearImpulse(mass * (vx1-vx0), mass * (vy1-vy0))
 end
 
 function ShmupPlayer:endMove(dt)
@@ -157,6 +191,19 @@ function ShmupPlayer:endMove(dt)
 	if camera then
 		local cx, cy = self.object.body:getWorldCenter()
 		levity.machine:call(cameraid, "swayWithPlayer", cx)
+	end
+end
+
+function ShmupPlayer:beginDraw()
+	if self.shieldtimer > 0 then
+		local alpha = 0xFF * math.cos(self.shieldtimer * 60)
+		love.graphics.setColor(0xFF, 0xFF, 0xFF, alpha)
+	end
+end
+
+function ShmupPlayer:endDraw()
+	if self.shieldtimer > 0 then
+		love.graphics.setColor(0xFF, 0xFF, 0xFF, 0xFF)
 	end
 end
 
