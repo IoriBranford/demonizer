@@ -47,6 +47,7 @@ ShmupPlayer.BulletInterval = 1/15
 ShmupPlayer.MaxAllies = 4
 ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
+ShmupPlayer.DeathSnapToCameraVelocity = 1/4
 
 function ShmupPlayer:roomForAllies()
 	return self.numallies < ShmupPlayer.MaxAllies
@@ -115,7 +116,7 @@ end
 
 function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 	if otherfixture:getCategory() == ShmupCollision.Category_NPCShot then
-		if self.shieldtimer == 0 then
+		if not self.dead and self.shieldtimer == 0 then
 			self.deathtimer = 0
 			self.dead = true
 		end
@@ -124,6 +125,7 @@ end
 
 function ShmupPlayer:beginMove(dt)
 	local body = self.object.body
+	local cx, cy = body:getWorldCenter()
 	local vx0, vy0 = body:getLinearVelocity()
 	local vx1, vy1 = self.vx, self.vy
 
@@ -137,24 +139,32 @@ function ShmupPlayer:beginMove(dt)
 
 	self.shieldtimer = math.max(0, self.shieldtimer - dt)
 
-	if self.dead then
-		self.deathtimer = self.deathtimer + dt
-		local respawn = self.deathtimer >= ShmupPlayer.DeathTime
-		self.dead = not respawn
-		self.object.visible = respawn
-		body:setActive(respawn)
-		vx1 = 0
-		vy1 = 0
-		if respawn then
-			self.shieldtimer = ShmupPlayer.RespawnShieldTime
-		end
-	end
-
 	local cameraid = self.object.properties.cameraid
 	local camera = nil
 	if cameraid then
 		camera = levity.map.objects[cameraid]
 	end
+
+	if self.dead then
+		self.deathtimer = self.deathtimer + dt
+		local respawn = self.deathtimer >= ShmupPlayer.DeathTime
+		self.dead = not respawn
+		self.object.visible = respawn
+		vx1 = 0
+		vy1 = 0
+		if camera then
+			local camcx, camcy = camera.body:getWorldCenter()
+			camcy = camcy + camera.height * (3 / 8)
+			local snaptocamv = self.deathtimer *
+				ShmupPlayer.DeathSnapToCameraVelocity / dt
+			vx1 = (camcx - cx) * snaptocamv
+			vy1 = (camcy - cy) * snaptocamv
+		end
+		if respawn then
+			self.shieldtimer = ShmupPlayer.RespawnShieldTime
+		end
+	end
+
 	if camera then
 		local camvx, camvy = camera.body:getLinearVelocity()
 		vy1 = vy1 + camvy

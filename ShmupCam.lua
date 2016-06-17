@@ -21,8 +21,9 @@ local ShmupCam = class(function(self, id)
 	edgefixture:setCategory(ShmupCollision.Category_CameraEdge)
 	edgefixture:setMask(ShmupCollision.Category_Default)
 
+	self.camera = levity.camera
 	local cx, cy = self.object.body:getWorldCenter()
-	levity.camera:set(cx, cy, self.object.width, self.object.height)
+	self.camera:set(cx, cy, self.object.width, self.object.height)
 
 	self.vx = 0
 	self.vy = 0
@@ -92,13 +93,13 @@ end
 
 function ShmupCam:endMove(dt)
 	local cx, cy = self.object.body:getWorldCenter()
-	levity.camera:set(cx, cy)
+	self.camera:set(cx, cy)
 end
 
 function ShmupCam:swayWithPlayer(playerx)
 	self.object.body:setX(playerx * self.mapwidthratio)
 	local cx, cy = self.object.body:getWorldCenter()
-	levity.camera:set(cx, cy)
+	self.camera:set(cx, cy)
 end
 
 return ShmupCam

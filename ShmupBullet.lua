@@ -42,8 +42,6 @@ function ShmupBullet.create(centerx, centery, speed, angle, tilesetid, tileid, l
 	local shot = {
 		x = centerx,
 		y = centery,
-		width = tileset.tilewidth,
-		height = tileset.tileheight,
 		rotation = math.deg(angle),
 		gid = tileset.firstgid + tileid,
 		visible = true,
