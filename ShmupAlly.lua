@@ -34,8 +34,9 @@ function ShmupAlly:beginMove(dt)
 
 	local vx0, vy0 = body:getLinearVelocity()
 	local vx1, vy1 = dx - cx, dy - cy
-	local ax = vx1 * ShmupAlly.SnapToPlayerVelocity / dt - vx0
-	local ay = vy1 * ShmupAlly.SnapToPlayerVelocity / dt - vy0
+	local snaptopv = ShmupAlly.SnapToPlayerVelocity / dt
+	local ax = vx1 * snaptopv - vx0
+	local ay = vy1 * snaptopv - vy0
 
 	local mass = body:getMass()
 	body:applyLinearImpulse(mass * ax, mass * ay)
@@ -50,11 +51,9 @@ function ShmupAlly:beginMove(dt)
 			local angle = math.pi*1.5
 
 			local player = levity.map.objects[playerid]
-			if player then
-				local playercx, playercy = player.body:getWorldCenter()
-				angle = angle +
-					math.atan2(cx - playercx, playercy - cy)/16
-			end
+			local playercx, playercy = player.body:getWorldCenter()
+			angle = angle +
+				math.atan2(cx - playercx, playercy - cy) * .0625
 
 			cx = cx + (math.cos(angle) * ShmupPlayer.BulletSpeed * self.firetimer)
 			cy = cy + (math.sin(angle) * ShmupPlayer.BulletSpeed * self.firetimer)

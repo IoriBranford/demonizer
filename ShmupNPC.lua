@@ -17,6 +17,7 @@ local ShmupNPC = class(function(self, id)
 	end
 	self.health = 8
 	self.converttimer = nil
+	self.allyindex = nil
 	self.npctype = levity:getTileColumnName(self.object.gid)
 end)
 
@@ -109,9 +110,9 @@ function ShmupNPC:beginMove(dt)
 		local vx0, vy0 = body:getLinearVelocity()
 		local vx1, vy1 = dx - cx, dy - cy
 		local snaptopv = self.converttimer
-			* ShmupNPC.SnapToPlayerVelocity
-		local ax = vx1 * snaptopv / dt - vx0
-		local ay = vy1 * snaptopv / dt - vy0
+			* ShmupNPC.SnapToPlayerVelocity / dt
+		local ax = vx1 * snaptopv - vx0
+		local ay = vy1 * snaptopv - vy0
 
 		local mass = body:getMass()
 		body:applyLinearImpulse(mass * ax, mass * ay)
