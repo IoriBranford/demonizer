@@ -1,5 +1,6 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
+local ShmupNPC = levity.machine:requireScript("ShmupNPC")
 require "class"
 
 local function setFilterFromProperties(body)
@@ -33,16 +34,17 @@ end
 
 local ShmupMap = class(function(self, id)
 	self.map = levity.map
+	ShmupNPC.ShotLayer = levity:addDynamicLayer("npcshots")
  
-	for _, layer in self.map.layers do
-		if layer.type == "dynamiclayer" then
-			for _, object in ipairs(layer.objects) do
-				setFilterFromProperties(object.body)
-			end
-		end
-	end
+	--for _, layer in self.map.layers do
+	--	if layer.type == "dynamiclayer" then
+	--		for _, object in ipairs(layer.objects) do
+	--			setFilterFromProperties(object.body)
+	--		end
+	--	end
+	--end
  
-	setFilterFromProperties(self.map.box2d_collision)
+	--setFilterFromProperties(self.map.box2d_collision)
 end)
 
 return ShmupMap

@@ -2,6 +2,7 @@
 <map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="60">
  <properties>
   <property name="playerid" type="int" value="1"/>
+  <property name="script" value="ShmupMap"/>
  </properties>
  <tileset firstgid="1" source="imp.tsx"/>
  <tileset firstgid="4" source="impshot.tsx"/>

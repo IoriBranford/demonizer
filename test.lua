@@ -10,7 +10,8 @@ return {
   tileheight = 8,
   nextobjectid = 60,
   properties = {
-    ["playerid"] = 1
+    ["playerid"] = 1,
+    ["script"] = "ShmupMap"
   },
   tilesets = {
     {

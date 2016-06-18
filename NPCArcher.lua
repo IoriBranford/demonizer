@@ -45,7 +45,7 @@ function NPCArcher:beginMove(dt)
 		cy = cy + (math.sin(angle) * NPCArcher.BulletSpeed * self.firetimer)
 
 		ShmupBullet.create(cx, cy, NPCArcher.BulletSpeed, angle,
-			"archershot", 0, self.object.layer,
+			"archershot", 0, ShmupNPC.ShotLayer,
 			ShmupCollision.Category_NPCShot)
 	end
 end

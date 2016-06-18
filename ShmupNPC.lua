@@ -24,6 +24,8 @@ end)
 ShmupNPC.ConvertTime = 1
 ShmupNPC.SnapToPlayerVelocity = 1/4
 
+ShmupNPC.ShotLayer = nil -- ShmupMap, set me once it's created
+
 function ShmupNPC:activate()
 	self.ready = true
 end
@@ -39,7 +41,7 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	if self.health <= 0 then
 		local gid = levity:getTileGid(self.object.tile.tileset,
 						"ko", self.npctype)
-		levity:setObjectGid(self.object, gid, "dynamic", self.object.layer)
+		levity:setObjectGid(self.object, gid)
 
 		myfixture:setMask(
 			ShmupCollision.Category_CameraEdge,
@@ -65,10 +67,14 @@ function ShmupNPC:beginContact_Player(myfixture, otherfixture, contact)
 		self.allyindex = levity.machine:call(playerid, "newAllyIndex")
 		self.converttimer = 0
 
+		local player = levity.map.objects[playerid]
+		if player then
+			levity:changeObjectLayer(self.object, player.layer)
+		end
+
 		local gid = levity:getTileGid(self.object.tile.tileset,
 						"up", self.npctype)
-		levity:setObjectGid(self.object, gid, "dynamic",
-						self.object.layer, false)
+		levity:setObjectGid(self.object, gid, false)
 	end
 end
 
@@ -84,7 +90,7 @@ end
 
 function ShmupNPC:convertToAlly()
 	local gid = levity:getTileGid("demonwomen", self.npctype, 0)
-	levity:setObjectGid(self.object, gid, "dynamic", self.object.layer)
+	levity:setObjectGid(self.object, gid)
 	levity.machine:newScript(self.object.id, "ShmupAlly", self.allyindex)
 end
 
