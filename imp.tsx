@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="imp" tilewidth="64" tileheight="64" tilecount="3" columns="3">
+ <tileoffset x="-32" y="32"/>
  <image source="imp.png" width="192" height="64"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="4" name="body" x="24" y="24" width="16" height="16">
+   <object id="4" name="body" x="-8" y="56" width="16" height="16">
     <ellipse/>
    </object>
-   <object id="7" name="ally1" x="8" y="40">
+   <object id="7" name="ally1" x="-24" y="72">
     <properties>
      <property name="sensor" type="bool" value="true"/>
     </properties>
     <ellipse/>
    </object>
-   <object id="8" name="ally2" x="56" y="40">
+   <object id="8" name="ally2" x="24" y="72">
     <properties>
      <property name="sensor" type="bool" value="true"/>
     </properties>
     <ellipse/>
    </object>
-   <object id="10" name="ally3" x="16" y="16">
+   <object id="10" name="ally3" x="-16" y="48">
     <properties>
      <property name="sensor" type="bool" value="true"/>
     </properties>
     <ellipse/>
    </object>
-   <object id="11" name="ally4" x="48" y="16">
+   <object id="11" name="ally4" x="16" y="48">
     <properties>
      <property name="sensor" type="bool" value="true"/>
     </properties>
