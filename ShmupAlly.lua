@@ -24,6 +24,16 @@ end)
 
 ShmupAlly.SnapToPlayerVelocity = 1/8
 
+function ShmupAlly:endContact(myfixture, otherfixture, contact)
+	if otherfixture:getCategory() == ShmupCollision.Category_Camera then
+		local playerid = levity.map.properties.playerid
+		if levity.machine:call(playerid, "isDead") then
+			levity.machine:call(playerid, "allyFled")
+			self.object.destroy = true
+		end
+	end
+end
+
 function ShmupAlly:beginMove(dt)
 	local body = self.object.body
 

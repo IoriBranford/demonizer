@@ -47,7 +47,8 @@ ShmupPlayer.BulletInterval = 1/15
 ShmupPlayer.MaxAllies = 4
 ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
-ShmupPlayer.DeathSnapToCameraVelocity = 1/4
+ShmupPlayer.DeathSnapToCameraVelocity = 1/16
+ShmupPlayer.AllyFleeDistance = 480
 
 function ShmupPlayer:roomForAllies()
 	return self.numallies < ShmupPlayer.MaxAllies
@@ -58,6 +59,10 @@ function ShmupPlayer:newAllyIndex()
 	return self.numallies
 end
 
+function ShmupPlayer:allyFled()
+	self.numallies = self.numallies - 1
+end
+
 function ShmupPlayer:allyPosition(i)
 	local x = self.object.x
 	local y = self.object.y
@@ -66,12 +71,27 @@ function ShmupPlayer:allyPosition(i)
 		local ox, oy = offsetfixture:getShape():getPoint()
 		x = x + ox
 		y = y + oy
+
+		if self.dead then
+			local cx, cy = self.object.body:getWorldCenter()
+			local angle = math.pi * .5
+			angle = angle + math.atan2(cx - x, y - cy) * .5
+
+			local distance = self.deathtimer
+					* ShmupPlayer.AllyFleeDistance
+			x = x + distance * math.cos(angle)
+			y = y + distance * math.sin(angle)
+		end
 	end
 	return x, y
 end
 
 function ShmupPlayer:isFiring()
 	return self.firing
+end
+
+function ShmupPlayer:isDead()
+	return self.dead
 end
 
 function ShmupPlayer:keypressed(key, u)
@@ -147,22 +167,33 @@ function ShmupPlayer:beginMove(dt)
 
 	if self.dead then
 		self.deathtimer = self.deathtimer + dt
-		local respawn = self.deathtimer >= ShmupPlayer.DeathTime
-		self.dead = not respawn
-		self.object.visible = respawn
+		local deathtimeup = self.deathtimer >= ShmupPlayer.DeathTime
+		local allalliesfled = self.numallies == 0
+		local respawn = deathtimeup and allalliesfled
+
 		vx1 = 0
 		vy1 = 0
-		if camera then
+
+		if camera and respawn then
 			local camcx, camcy = camera.body:getWorldCenter()
 			camcy = camcy + camera.height * (3 / 8)
+
+			local recentered = math.abs(cx - camcx) < 1
+					and math.abs(cy - camcy) < 1
+			respawn = respawn and recentered
+
 			local snaptocamv = self.deathtimer *
 				ShmupPlayer.DeathSnapToCameraVelocity / dt
 			vx1 = (camcx - cx) * snaptocamv
 			vy1 = (camcy - cy) * snaptocamv
 		end
+
 		if respawn then
 			self.shieldtimer = ShmupPlayer.RespawnShieldTime
+			self.dead = false
 		end
+
+		self.object.visible = respawn
 	end
 
 	if camera then

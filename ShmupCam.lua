@@ -40,6 +40,14 @@ function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
 	end
 end
 
+function ShmupCam:endContact_activategroup(myfixture, otherfixture, contact)
+	local triggerobject = otherfixture:getUserData().object
+	local triggerlayer = triggerobject.layer
+	for _, object in ipairs(triggerlayer.objects) do
+		object.destroy = true
+	end
+end
+
 function ShmupCam:beginContact_camerapath(myfixture, otherfixture, contact)
 	local vx, vy = otherfixture:getShape():getPoint(2)
 

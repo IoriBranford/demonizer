@@ -15,11 +15,15 @@ local ShmupNPC = class(function(self, id)
 			ShmupCollision.Category_NPC,
 			ShmupCollision.Category_NPCShot)
 	end
-	self.health = 8
 	self.convertobject = nil
 	self.converttimer = nil
 	self.allyindex = nil
 	self.npctype = levity:getTileColumnName(self.object.gid)
+	if string.find(self.npctype, "civ") == 1 then
+		self.health = 0
+	else
+		self.health = 8
+	end
 end)
 
 ShmupNPC.ConvertTime = 1
@@ -145,7 +149,7 @@ end
 function ShmupNPC:endMove(dt)
 	if self.convertobject then
 		local x, y = self.object.body:getPosition()
-		self.convertobject.body:setPosition(x, y + 1/16)
+		self.convertobject.body:setPosition(x, y + 1/64)
 	end
 end
 

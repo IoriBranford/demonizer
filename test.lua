@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 60,
+  nextobjectid = 63,
   properties = {
     ["playerid"] = 1,
     ["script"] = "ShmupMap"
@@ -887,6 +887,38 @@ return {
           height = 32,
           rotation = 0,
           gid = 249,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 61,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 88,
+          y = 1912,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 252,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 62,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 1944,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 264,
           visible = true,
           properties = {
             ["script"] = "ShmupNPC"
