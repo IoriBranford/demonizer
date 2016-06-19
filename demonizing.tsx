@@ -4,9 +4,22 @@
  <image source="demonizing.png" width="192" height="64"/>
  <tile id="0">
   <animation>
-   <frame tileid="0" duration="500"/>
-   <frame tileid="1" duration="250"/>
-   <frame tileid="2" duration="250"/>
+   <frame tileid="0" duration="62"/>
+   <frame tileid="1" duration="62"/>
+   <frame tileid="0" duration="62"/>
+   <frame tileid="1" duration="62"/>
+   <frame tileid="0" duration="62"/>
+   <frame tileid="1" duration="62"/>
+   <frame tileid="0" duration="62"/>
+   <frame tileid="1" duration="62"/>
+   <frame tileid="2" duration="62"/>
+   <frame tileid="1" duration="62"/>
+   <frame tileid="2" duration="62"/>
+   <frame tileid="1" duration="62"/>
+   <frame tileid="2" duration="62"/>
+   <frame tileid="1" duration="62"/>
+   <frame tileid="2" duration="62"/>
+   <frame tileid="1" duration="62"/>
   </animation>
  </tile>
 </tileset>

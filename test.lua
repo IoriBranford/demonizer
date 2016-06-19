@@ -208,15 +208,67 @@ return {
           animation = {
             {
               tileid = "0",
-              duration = "500"
+              duration = "62"
             },
             {
               tileid = "1",
-              duration = "250"
+              duration = "62"
+            },
+            {
+              tileid = "0",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
+            },
+            {
+              tileid = "0",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
+            },
+            {
+              tileid = "0",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
             },
             {
               tileid = "2",
-              duration = "250"
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
+            },
+            {
+              tileid = "2",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
+            },
+            {
+              tileid = "2",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
+            },
+            {
+              tileid = "2",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
             }
           }
         }
