@@ -44,7 +44,6 @@ function ShmupBullet.create(centerx, centery, speed, angle, tilesetid, tileid, l
 		y = centery,
 		rotation = math.deg(angle),
 		gid = tileset.firstgid + tileid,
-		visible = true,
 		properties = {
 			script = "ShmupBullet",
 			category = category

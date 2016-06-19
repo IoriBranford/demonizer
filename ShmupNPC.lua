@@ -16,6 +16,7 @@ local ShmupNPC = class(function(self, id)
 			ShmupCollision.Category_NPCShot)
 	end
 	self.health = 8
+	self.convertobject = nil
 	self.converttimer = nil
 	self.allyindex = nil
 	self.npctype = levity:getTileColumnName(self.object.gid)
@@ -88,10 +89,43 @@ function ShmupNPC:beginContact(myfixture, otherfixture, contact)
 	end
 end
 
-function ShmupNPC:convertToAlly()
-	local gid = levity:getTileGid("demonwomen", self.npctype, 0)
-	levity:setObjectGid(self.object, gid)
-	levity.machine:newScript(self.object.id, "ShmupAlly", self.allyindex)
+function ShmupNPC:updateConversion(dt)
+	local body = self.object.body
+	local playerid = levity.map.properties.playerid
+	local player = levity.map.objects[playerid]
+
+	if self.converttimer == 0 then
+		self.convertobject = {
+			x = self.object.x,
+			y = self.object.y,
+			gid = levity:getTileGid("demonizing", 0, 0)
+		}
+		levity:addObject(self.convertobject, self.object.layer, "dynamic")
+	end
+
+	local cx, cy = body:getWorldCenter()
+	local dx, dy = levity.machine:call(playerid, "allyPosition", self.allyindex)
+
+	local pvx, pvy = player.body:getLinearVelocity()
+	local vx0, vy0 = body:getLinearVelocity()
+	local vx1, vy1 = dx - cx, dy - cy
+	local snaptopv = self.converttimer
+		* ShmupNPC.SnapToPlayerVelocity / dt
+	local ax = vx1 * snaptopv - vx0
+	local ay = vy1 * snaptopv - vy0
+
+	local mass = body:getMass()
+	body:applyLinearImpulse(mass * ax, mass * ay)
+
+	self.converttimer = self.converttimer + dt
+	if self.converttimer >= ShmupNPC.ConvertTime then
+		self.convertobject.destroy = true
+		self.convertobject = nil
+
+		local gid = levity:getTileGid("demonwomen", self.npctype, 0)
+		levity:setObjectGid(self.object, gid)
+		levity.machine:newScript(self.object.id, "ShmupAlly", self.allyindex)
+	end
 end
 
 function ShmupNPC:beginMove(dt)
@@ -103,30 +137,15 @@ function ShmupNPC:beginMove(dt)
 		return
 	end
 
-	local body = self.object.body
-	local playerid = levity.map.properties.playerid
-	local player = levity.map.objects[playerid]
-
 	if self.converttimer then
-		local cx, cy = body:getWorldCenter()
-		local dx, dy = levity.machine:call(playerid, "allyPosition",
-							self.allyindex)
+		self:updateConversion(dt)
+	end
+end
 
-		local pvx, pvy = player.body:getLinearVelocity()
-		local vx0, vy0 = body:getLinearVelocity()
-		local vx1, vy1 = dx - cx, dy - cy
-		local snaptopv = self.converttimer
-			* ShmupNPC.SnapToPlayerVelocity / dt
-		local ax = vx1 * snaptopv - vx0
-		local ay = vy1 * snaptopv - vy0
-
-		local mass = body:getMass()
-		body:applyLinearImpulse(mass * ax, mass * ay)
-
-		self.converttimer = self.converttimer + dt
-		if self.converttimer >= ShmupNPC.ConvertTime then
-			self:convertToAlly()
-		end
+function ShmupNPC:endMove(dt)
+	if self.convertobject then
+		local x, y = self.object.body:getPosition()
+		self.convertobject.body:setPosition(x, y + 1/16)
 	end
 end
 
