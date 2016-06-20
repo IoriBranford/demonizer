@@ -71,7 +71,7 @@ function ShmupPlayer:allyPosition(i)
 		if self.dead then
 			local cx, cy = self.object.body:getWorldCenter()
 			local angle = math.pi * .5
-			angle = angle + math.atan2(cx - x, y - cy) * .5
+			angle = angle + math.atan2(cx - x, y - cy) * .25
 
 			local distance = self.deathtimer
 					* ShmupPlayer.AllyFleeDistance

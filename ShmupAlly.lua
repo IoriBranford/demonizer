@@ -64,7 +64,7 @@ function ShmupAlly:playerDead()
 end
 
 function ShmupAlly:playerRespawned()
-	self.object.destroy = true
+	self:destroyed()
 end
 
 function ShmupAlly:updateConversion(dt)
