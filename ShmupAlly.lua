@@ -9,17 +9,12 @@ local ShmupAlly = class(function(self, id)
 	self.object.body:setFixedRotation(true)
 	self.object.body:setBullet(true)
 	self.firetimer = ShmupPlayer.BulletInterval
-	for _, fixture in ipairs(self.object.body:getFixtureList()) do
-		fixture:setSensor(true)
-		fixture:setCategory(ShmupCollision.Category_Player)
-		-- can't capture until after conversion
-		fixture:setMask(ShmupCollision.Category_Camera,
+	self:refreshFixtures({ShmupCollision.Category_Camera,
 				ShmupCollision.Category_CameraEdge,
 				ShmupCollision.Category_Player,
 				ShmupCollision.Category_PlayerShot,
 				ShmupCollision.Category_NPC,
-				ShmupCollision.Category_NPCShot)
-	end
+				ShmupCollision.Category_NPCShot})
 
 	local playerid = levity.map.properties.playerid
 	self.allyindex = levity.machine:call(playerid, "newAllyIndex")
@@ -33,6 +28,16 @@ local ShmupAlly = class(function(self, id)
 	self.converttimer = 0
 	self.npctype = levity:getTileColumnName(self.object.gid)
 end)
+
+-- this script changes sprites
+function ShmupAlly:refreshFixtures(mask)
+	for _, fixture in ipairs(self.object.body:getFixtureList()) do
+		fixture:setSensor(true)
+		fixture:setCategory(ShmupCollision.Category_Player)
+		-- can't capture until after conversion
+		fixture:setMask(unpack(mask))
+	end
+end
 
 ShmupAlly.ConvertTime = 1
 ShmupAlly.ConvertShake = 4
@@ -53,14 +58,11 @@ end
 
 function ShmupAlly:playerDead()
 	-- can't capture and can be shot while player dead
-	for _, fixture in ipairs(self.object.body:getFixtureList()) do
-		fixture:setMask(
-			ShmupCollision.Category_Camera,
-			ShmupCollision.Category_CameraEdge,
-			ShmupCollision.Category_Player,
-			ShmupCollision.Category_PlayerShot,
-			ShmupCollision.Category_NPC)
-	end
+	self:refreshFixtures({ShmupCollision.Category_Camera,
+				ShmupCollision.Category_CameraEdge,
+				ShmupCollision.Category_Player,
+				ShmupCollision.Category_PlayerShot,
+				ShmupCollision.Category_NPC})
 end
 
 function ShmupAlly:playerRespawned()
@@ -77,13 +79,11 @@ function ShmupAlly:updateConversion(dt)
 		local gid = levity:getTileGid("demonwomen", self.npctype, 0)
 		levity:setObjectGid(self.object, gid)
 
-		for _, fixture in ipairs(self.object.body:getFixtureList()) do
-			fixture:setMask(ShmupCollision.Category_Camera,
+		self:refreshFixtures({ShmupCollision.Category_Camera,
 					ShmupCollision.Category_CameraEdge,
 					ShmupCollision.Category_Player,
 					ShmupCollision.Category_PlayerShot,
-					ShmupCollision.Category_NPCShot)
-		end
+					ShmupCollision.Category_NPCShot})
 	end
 end
 
