@@ -48,7 +48,7 @@ ShmupPlayer.MaxAllies = 4
 ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
 ShmupPlayer.DeathSnapToCameraVelocity = 1/16
-ShmupPlayer.AllyFleeDistance = 480
+ShmupPlayer.AllyFleeDistance = 400
 
 function ShmupPlayer:roomForAllies()
 	return self.numallies < ShmupPlayer.MaxAllies
@@ -57,10 +57,6 @@ end
 function ShmupPlayer:newAllyIndex()
 	self.numallies = self.numallies + 1
 	return self.numallies
-end
-
-function ShmupPlayer:allyFled()
-	self.numallies = self.numallies - 1
 end
 
 function ShmupPlayer:allyPosition(i)
@@ -88,10 +84,6 @@ end
 
 function ShmupPlayer:isFiring()
 	return self.firing
-end
-
-function ShmupPlayer:isDead()
-	return self.dead
 end
 
 function ShmupPlayer:keypressed(key, u)
@@ -139,6 +131,16 @@ function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 		if not self.dead and self.shieldtimer == 0 then
 			self.deathtimer = 0
 			self.dead = true
+			self.numallies = 0
+
+			-- capturing not allowed while player dead
+			myfixture:setMask(
+				ShmupCollision.Category_Player,
+				ShmupCollision.Category_PlayerShot,
+				ShmupCollision.Category_NPC,
+				ShmupCollision.Category_NPCShot)
+
+			levity.machine:broadcast("playerDead")
 		end
 	end
 end
@@ -167,9 +169,7 @@ function ShmupPlayer:beginMove(dt)
 
 	if self.dead then
 		self.deathtimer = self.deathtimer + dt
-		local deathtimeup = self.deathtimer >= ShmupPlayer.DeathTime
-		local allalliesfled = self.numallies == 0
-		local respawn = deathtimeup and allalliesfled
+		local respawn = self.deathtimer >= ShmupPlayer.DeathTime
 
 		vx1 = 0
 		vy1 = 0
@@ -191,6 +191,15 @@ function ShmupPlayer:beginMove(dt)
 		if respawn then
 			self.shieldtimer = ShmupPlayer.RespawnShieldTime
 			self.dead = false
+			local fixtures = self.object.body:getUserData().fixtures
+			local bodyfixture = fixtures["body"]
+			if bodyfixture then
+				--reenable capturing
+				bodyfixture:setMask(
+					ShmupCollision.Category_Player,
+					ShmupCollision.Category_PlayerShot)
+			end
+			levity.machine:broadcast("playerRespawned")
 		end
 
 		self.object.visible = respawn
@@ -237,7 +246,7 @@ end
 
 function ShmupPlayer:beginDraw()
 	if self.shieldtimer > 0 then
-		local alpha = 0xFF * math.cos(self.shieldtimer * 60)
+		local alpha = (0x100 * (math.cos(self.shieldtimer*30*math.pi) + 1)*.5)
 		love.graphics.setColor(0xFF, 0xFF, 0xFF, alpha)
 	end
 end
