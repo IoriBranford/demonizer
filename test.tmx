@@ -3,6 +3,7 @@
  <properties>
   <property name="playerid" type="int" value="1"/>
   <property name="script" value="ShmupMap"/>
+  <property name="staticsounds" value="playershot.wav,selfdestruct.wav,respawn.wav,knockout.wav,item1.wav,item2.wav,warp.wav,sword.wav,bow.wav"/>
  </properties>
  <tileset firstgid="1" source="imp.tsx"/>
  <tileset firstgid="4" source="impshot.tsx"/>

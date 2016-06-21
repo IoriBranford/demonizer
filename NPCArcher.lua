@@ -48,6 +48,8 @@ function NPCArcher:beginMove(dt)
 		ShmupBullet.create(cx, cy, NPCArcher.BulletSpeed, angle,
 			"archershot", 0, ShmupNPC.ShotLayer,
 			ShmupCollision.Category_NPCShot)
+
+		levity.bank:play("bow.wav")
 	end
 end
 

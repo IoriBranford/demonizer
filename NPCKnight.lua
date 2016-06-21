@@ -48,6 +48,8 @@ function NPCKnight:beginMove(dt)
 		ShmupBullet.create(cx, cy, NPCKnight.BulletSpeed, angle,
 			"knightshot", 0, ShmupNPC.ShotLayer,
 			ShmupCollision.Category_NPCShot)
+
+		levity.bank:play("sword.wav")
 	end
 end
 

@@ -11,7 +11,8 @@ return {
   nextobjectid = 80,
   properties = {
     ["playerid"] = 1,
-    ["script"] = "ShmupMap"
+    ["script"] = "ShmupMap",
+    ["staticsounds"] = "playershot.wav,selfdestruct.wav,respawn.wav,knockout.wav,item1.wav,item2.wav,warp.wav,sword.wav,bow.wav"
   },
   tilesets = {
     {
@@ -541,40 +542,14 @@ return {
             properties = {},
             objects = {
               {
-                id = 2,
+                id = 6,
                 name = "",
                 type = "",
-                shape = "ellipse",
+                shape = "rectangle",
                 x = -4,
-                y = 28,
+                y = 24,
                 width = 8,
-                height = 8,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 3,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -6,
-                y = 20,
-                width = 8,
-                height = 8,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 5,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -6,
-                y = 36,
-                width = 8,
-                height = 8,
+                height = 16,
                 rotation = 0,
                 visible = true,
                 properties = {}

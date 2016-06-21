@@ -4,15 +4,7 @@
  <image source="knightshot.png" width="16" height="32"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="2" x="-4" y="28" width="8" height="8">
-    <ellipse/>
-   </object>
-   <object id="3" x="-6" y="20" width="8" height="8">
-    <ellipse/>
-   </object>
-   <object id="5" x="-6" y="36" width="8" height="8">
-    <ellipse/>
-   </object>
+   <object id="6" x="-4" y="24" width="8" height="16"/>
   </objectgroup>
  </tile>
 </tileset>
