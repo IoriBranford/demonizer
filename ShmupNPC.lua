@@ -7,20 +7,25 @@ local ShmupNPC = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.object.body:setFixedRotation(true)
 	self:setActive(false)
-	for _, fixture in ipairs(self.object.body:getFixtureList()) do
-		fixture:setSensor(true)
-		fixture:setCategory(ShmupCollision.Category_NPC)
-		fixture:setMask(
-			ShmupCollision.Category_CameraEdge,
-			ShmupCollision.Category_NPC,
-			ShmupCollision.Category_NPCShot)
-	end
-
+	local mask
 	self.npctype = levity:getTileColumnName(self.object.gid)
 	if string.find(self.npctype, "civ") == 1 then
 		self.health = 0
+		mask = {ShmupCollision.Category_CameraEdge,
+			ShmupCollision.Category_PlayerShot,
+			ShmupCollision.Category_NPC,
+			ShmupCollision.Category_NPCShot}
 	else
 		self.health = 8
+		mask = {ShmupCollision.Category_CameraEdge,
+			ShmupCollision.Category_NPC,
+			ShmupCollision.Category_NPCShot}
+	end
+
+	for _, fixture in ipairs(self.object.body:getFixtureList()) do
+		fixture:setSensor(true)
+		fixture:setCategory(ShmupCollision.Category_NPC)
+		fixture:setMask(unpack(mask))
 	end
 
 	self.captured = false
