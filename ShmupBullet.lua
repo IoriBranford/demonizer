@@ -37,26 +37,7 @@ function ShmupBullet:endContact(yourfixture, otherfixture, contact)
 end
 
 function ShmupBullet.create(centerx, centery, speed, angle, tilesetid, tileid, layer, category)
-	local tileset = levity:getMapTileset(tilesetid)
-
-	local shot = {
-		x = centerx,
-		y = centery,
-		rotation = math.deg(angle),
-		gid = tileset.firstgid + tileid,
-		properties = {
-			script = "ShmupBullet",
-			category = category
-		}
-	}
-	levity:addObject(shot, layer, "dynamic")
-
-	local mass = shot.body:getMass()
-	shot.body:applyLinearImpulse(
-		mass * speed * math.cos(angle),
-		mass * speed * math.sin(angle))
-
-	return shot
+	ShmupBullet.fireOverTime(1, 1, cx, cy, speed, angle, tilesetid, tileid, layer, category)
 end
 
 function ShmupBullet.fireOverTime(time, interval, cx, cy, speed, angle, tilesetid, tileid, layer, category)

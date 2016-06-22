@@ -89,11 +89,6 @@ end
 
 function ShmupAlly:updateFiring(dt)
 	if self.firetimer >= ShmupPlayer.BulletInterval then
-		while self.firetimer >= ShmupPlayer.BulletInterval do
-			self.firetimer = self.firetimer
-					- ShmupPlayer.BulletInterval
-		end
-
 		local angle = math.pi*1.5
 
 		local cx, cy = self.object.body:getWorldCenter()
@@ -103,11 +98,9 @@ function ShmupAlly:updateFiring(dt)
 		angle = angle +
 			math.atan2(cx - playercx, playercy - cy) * .0625
 
-		local offset = ShmupPlayer.BulletSpeed * self.firetimer
-		cx = cx + (math.cos(angle) * offset)
-		cy = cy + (math.sin(angle) * offset)
-
-		ShmupBullet.create(cx, cy, ShmupPlayer.BulletSpeed, angle,
+		self.firetimer = ShmupBullet.fireOverTime(self.firetimer,
+			ShmupPlayer.BulletInterval,
+			cx, cy, ShmupPlayer.BulletSpeed, angle,
 			"impshot", 0, self.object.layer,
 			ShmupCollision.Category_PlayerShot)
 	end
