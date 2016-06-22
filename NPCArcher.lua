@@ -36,16 +36,9 @@ function NPCArcher:beginMove(dt)
 
 	self.firetimer = self.firetimer + dt
 	if self.firetimer >= NPCArcher.BulletInterval then
-		while self.firetimer >= NPCArcher.BulletInterval do
-			self.firetimer = self.firetimer - NPCArcher.BulletInterval
-		end
-
-		local angle = math.atan2(playerdy, playerdx)
-
-		cx = cx + (math.cos(angle) * NPCArcher.BulletSpeed * self.firetimer)
-		cy = cy + (math.sin(angle) * NPCArcher.BulletSpeed * self.firetimer)
-
-		ShmupBullet.create(cx, cy, NPCArcher.BulletSpeed, angle,
+		self.firetimer = ShmupBullet.fireOverTime(
+			self.firetimer, NPCArcher.BulletInterval, cx, cy,
+			NPCArcher.BulletSpeed, math.atan2(playerdy, playerdx),
 			"archershot", 0, ShmupNPC.ShotLayer,
 			ShmupCollision.Category_NPCShot)
 

@@ -59,4 +59,38 @@ function ShmupBullet.create(centerx, centery, speed, angle, tilesetid, tileid, l
 	return shot
 end
 
+function ShmupBullet.fireOverTime(time, interval, cx, cy, speed, angle, tilesetid, tileid, layer, category)
+	local deg = math.deg(angle)
+	local cos = math.cos(angle)
+	local sin = math.sin(angle)
+	local vx = speed * cos
+	local vy = speed * sin
+
+	local distapart = speed * interval
+	local dx = distapart * cos
+	local dy = distapart * sin
+
+	local tileset = levity:getMapTileset(tilesetid)
+	local gid = tileset.firstgid + tileid
+
+	while time >= interval do
+		local shot = {
+			x = cx, y = cy, rotation = deg, gid = gid,
+			properties = {
+				script = "ShmupBullet", category = category
+			}
+		}
+		levity:addObject(shot, layer, "dynamic")
+
+		local mass = shot.body:getMass()
+		shot.body:applyLinearImpulse(mass * vx, mass * vy)
+
+		cx = cx + dx
+		cy = cy + dy
+		time = time - interval
+	end
+
+	return time
+end
+
 return ShmupBullet

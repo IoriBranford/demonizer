@@ -45,8 +45,8 @@ local ShmupPlayer = class(function(self, id)
 end)
 
 ShmupPlayer.Speed = 180
-ShmupPlayer.BulletSpeed = 32*60
-ShmupPlayer.BulletInterval = 1/15
+ShmupPlayer.BulletSpeed = 16*60
+ShmupPlayer.BulletInterval = 1/10
 ShmupPlayer.MaxAllies = 4
 ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
@@ -57,12 +57,12 @@ ShmupPlayer.DeathSound = "selfdestruct.wav"
 ShmupPlayer.RespawnSound = "respawn.wav"
 
 function ShmupPlayer:playSound(soundfile)
-	if self.soundfile == soundfile then
-		self.soundsource:rewind()
-		self.soundsource:play()
-	else
+	if self.soundfile ~= soundfile then
 		self.soundfile = soundfile
 		self.soundsource = levity.bank:play(soundfile)
+	else
+		self.soundsource:rewind()
+		self.soundsource:play()
 	end
 end
 
@@ -234,21 +234,15 @@ function ShmupPlayer:beginMove(dt)
 
 	if self.firing and not self.dead then
 		if self.firetimer >= ShmupPlayer.BulletInterval then
-			while self.firetimer >= ShmupPlayer.BulletInterval do
-				self.firetimer = self.firetimer
-						- ShmupPlayer.BulletInterval
-			end
-
-			local cx, cy = body:getWorldCenter()
-			cy = cy - (ShmupPlayer.BulletSpeed * self.firetimer)
-			ShmupBullet.create(cx, cy,
-				ShmupPlayer.BulletSpeed, math.pi*1.5,
-				"impshot", 0,
-				self.object.layer,
+			self.firetimer = ShmupBullet.fireOverTime(
+				self.firetimer, ShmupPlayer.BulletInterval,
+				cx, cy, ShmupPlayer.BulletSpeed, math.pi*1.5,
+				"impshot", 0, self.object.layer,
 				ShmupCollision.Category_PlayerShot)
 
 			self:playSound(ShmupPlayer.ShotSound)
 		end
+
 		self.firetimer = self.firetimer + dt
 	end
 end

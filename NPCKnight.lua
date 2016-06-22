@@ -36,16 +36,9 @@ function NPCKnight:beginMove(dt)
 
 	self.firetimer = self.firetimer + dt
 	if self.firetimer >= NPCKnight.BulletInterval then
-		while self.firetimer >= NPCKnight.BulletInterval do
-			self.firetimer = self.firetimer - NPCKnight.BulletInterval
-		end
-
-		local angle = math.pi * .5 --math.atan2(playerdy, playerdx)
-
-		cx = cx + (math.cos(angle) * NPCKnight.BulletSpeed * self.firetimer)
-		cy = cy + (math.sin(angle) * NPCKnight.BulletSpeed * self.firetimer)
-
-		ShmupBullet.create(cx, cy, NPCKnight.BulletSpeed, angle,
+		self.firetimer = ShmupBullet.fireOverTime(
+			self.firetimer, NPCKnight.BulletInterval, cx, cy,
+			NPCKnight.BulletSpeed, math.atan2(playerdy, playerdx),
 			"knightshot", 0, ShmupNPC.ShotLayer,
 			ShmupCollision.Category_NPCShot)
 
