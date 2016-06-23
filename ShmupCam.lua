@@ -25,11 +25,11 @@ local ShmupCam = class(function(self, id)
 	local cx, cy = self.object.body:getWorldCenter()
 	self.camera:set(cx, cy, self.object.width, self.object.height)
 
-	self.vx = 0
-	self.vy = 0
-
 	local mapwidth = (levity.map.width * levity.map.tilewidth)
 	self.mapwidthratio = 1 - (self.object.width / mapwidth)
+
+	self.pathsegment = 1
+	self.pathtimer = 0
 end)
 
 function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
@@ -46,23 +46,6 @@ function ShmupCam:endContact_activategroup(myfixture, otherfixture, contact)
 	for _, object in ipairs(triggerlayer.objects) do
 		object.destroy = true
 	end
-end
-
-function ShmupCam:beginContact_camerapath(myfixture, otherfixture, contact)
-	local vx, vy = otherfixture:getShape():getPoint(2)
-
-	local otherproperties = otherfixture:getUserData().properties
-	local time = otherproperties.time
-
-	if time then
-		self.vx = vx / time
-		self.vy = vy / time
-	end
-end
-
-function ShmupCam:endContact_camerapath(myfixture, otherfixture, contact)
-	self.vx = 0
-	self.vy = 0
 end
 
 function ShmupCam:beginContact(myfixture, otherfixture, contact)
@@ -91,12 +74,31 @@ end
 
 function ShmupCam:beginMove(dt)
 	local body = self.object.body
-	body:setMass(0x40000000) -- don't let others push it around
-
+	local mass = 0x40000000 -- don't let others push it around
+	body:setMass(mass)
 	local vx0, vy0 = body:getLinearVelocity()
-	local vx1, vy1 = self.vx, self.vy
-	local mass = body:getMass()
-	body:applyLinearImpulse(mass * (vx1-vx0), mass * (vy1-vy0))
+
+	local pathid = self.object.properties.pathid
+	if pathid and self.pathsegment then
+		local x, y = levity.machine:call(pathid, "getPosition",
+					self.pathsegment, self.pathtimer)
+		local vx, vy = levity.machine:call(pathid, "getVelocity",
+					self.pathsegment)
+
+		self.pathtimer = self.pathtimer + dt
+		if levity.machine:call(pathid, "finishedSegment",
+					self.pathsegment, self.pathtimer) then
+			self.pathsegment = levity.machine:call(pathid,
+					"nextSegment", self.pathsegment)
+		end
+
+		local ay = vy - vy0
+
+		body:setPosition(body:getX(), y)
+		body:applyLinearImpulse(0, mass * ay)
+	else
+		body:applyLinearImpulse(mass * -vx0, mass * -vy0)
+	end
 end
 
 function ShmupCam:endMove(dt)
@@ -106,8 +108,7 @@ end
 
 function ShmupCam:swayWithPlayer(playerx)
 	self.object.body:setX(playerx * self.mapwidthratio)
-	local cx, cy = self.object.body:getWorldCenter()
-	self.camera:set(cx, cy)
+	self:endMove()
 end
 
 return ShmupCam

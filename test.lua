@@ -833,6 +833,7 @@ return {
           properties = {
             ["collidable"] = true,
             ["dynamic"] = true,
+            ["pathid"] = 44,
             ["script"] = "ShmupCam",
             ["sensor"] = true
           }
@@ -842,8 +843,8 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = 144,
-          y = 2120,
+          x = 24,
+          y = 1800,
           width = 0,
           height = 0,
           rotation = 0,
@@ -853,10 +854,8 @@ return {
             { x = 0, y = -1800 }
           },
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
-            ["time"] = 60,
-            ["triggertype"] = "camerapath"
+            ["script"] = "Path",
+            ["time"] = 60
           }
         }
       }

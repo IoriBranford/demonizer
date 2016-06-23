@@ -26,16 +26,15 @@
    <properties>
     <property name="collidable" type="bool" value="true"/>
     <property name="dynamic" type="bool" value="true"/>
+    <property name="pathid" type="int" value="44"/>
     <property name="script" value="ShmupCam"/>
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="44" name="path" x="144" y="2120" visible="0">
+  <object id="44" name="path" x="24" y="1800" visible="0">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
+    <property name="script" value="Path"/>
     <property name="time" type="int" value="60"/>
-    <property name="triggertype" value="camerapath"/>
    </properties>
    <polyline points="0,0 0,-1800"/>
   </object>
