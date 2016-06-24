@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 80,
+  nextobjectid = 82,
   properties = {
     ["playerid"] = 1,
     ["script"] = "ShmupMap",
@@ -897,14 +897,15 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 48,
-          y = 1848,
+          x = 144,
+          y = 1944,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 373,
           visible = true,
           properties = {
+            ["pathid"] = 81,
             ["script"] = "ShmupNPC"
           }
         },
@@ -913,14 +914,15 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 56,
-          y = 1816,
+          x = 88,
+          y = 1896,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 250,
           visible = true,
           properties = {
+            ["pathid"] = 81,
             ["script"] = "ShmupNPC"
           }
         },
@@ -929,14 +931,15 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 80,
-          y = 1864,
+          x = 96,
+          y = 1920,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 376,
           visible = true,
           properties = {
+            ["pathid"] = 81,
             ["script"] = "ShmupNPC"
           }
         },
@@ -953,6 +956,7 @@ return {
           gid = 379,
           visible = true,
           properties = {
+            ["pathid"] = 81,
             ["script"] = "ShmupNPC"
           }
         },
@@ -961,15 +965,41 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 176,
-          y = 1912,
+          x = 128,
+          y = 1928,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 247,
           visible = true,
           properties = {
+            ["pathid"] = 81,
             ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 81,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 152,
+          y = 1952,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = false,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -40, y = -8 },
+            { x = -88, y = -40 },
+            { x = -104, y = -96 },
+            { x = -104, y = -136 },
+            { x = -128, y = -160 },
+            { x = -160, y = -168 }
+          },
+          properties = {
+            ["script"] = "BezierPath",
+            ["time"] = 3
           }
         }
       }

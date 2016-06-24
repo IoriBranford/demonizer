@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="80">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="82">
  <properties>
   <property name="playerid" type="int" value="1"/>
   <property name="script" value="ShmupMap"/>
@@ -51,30 +51,42 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="57" gid="373" x="48" y="1848" width="24" height="32">
+  <object id="57" gid="373" x="144" y="1944" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="81"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="59" gid="250" x="56" y="1816" width="24" height="32">
+  <object id="59" gid="250" x="88" y="1896" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="81"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="76" gid="376" x="80" y="1864" width="24" height="32">
+  <object id="76" gid="376" x="96" y="1920" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="81"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="77" gid="379" x="168" y="1944" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="81"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="79" gid="247" x="176" y="1912" width="24" height="32">
+  <object id="79" gid="247" x="128" y="1928" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="81"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
+  </object>
+  <object id="81" name="path" x="152" y="1952" visible="0">
+   <properties>
+    <property name="script" value="BezierPath"/>
+    <property name="time" type="int" value="3"/>
+   </properties>
+   <polyline points="0,0 -40,-8 -88,-40 -104,-96 -104,-136 -128,-160 -160,-168"/>
   </object>
  </objectgroup>
  <objectgroup name="knights">
