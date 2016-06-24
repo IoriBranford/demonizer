@@ -46,4 +46,6 @@ function NPCArcher:beginMove(dt)
 	end
 end
 
+levity.bank:load("bow.wav")
+
 return NPCArcher

@@ -11,8 +11,7 @@ return {
   nextobjectid = 87,
   properties = {
     ["playerid"] = 1,
-    ["script"] = "ShmupMap",
-    ["staticsounds"] = "playershot.wav,selfdestruct.wav,respawn.wav,knockout.wav,item1.wav,item2.wav,warp.wav,sword.wav,bow.wav"
+    ["script"] = "ShmupMap"
   },
   tilesets = {
     {

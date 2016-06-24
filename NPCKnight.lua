@@ -46,4 +46,6 @@ function NPCKnight:beginMove(dt)
 	end
 end
 
+levity.bank:load("sword.wav")
+
 return NPCKnight

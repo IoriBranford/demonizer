@@ -34,12 +34,16 @@ local ShmupNPC = class(function(self, id)
 	end
 end)
 
-ShmupNPC.ShotLayer = nil -- ShmupMap, set me once it's created
+local Sounds = {
+	Hit = "hit.wav",
+	KO = "knockout.wav",
+	FemaleCapture = "item1.wav",
+	MaleCapture = "item2.wav",
+	Convert = "warp.wav"
+}
+levity.bank:load(Sounds)
 
-ShmupNPC.KOSound = "knockout.wav"
-ShmupNPC.FemaleCaptureSound = "item1.wav"
-ShmupNPC.MaleCaptureSound = "item2.wav"
-ShmupNPC.ConvertSound = "warp.wav"
+ShmupNPC.ShotLayer = nil -- ShmupMap, set me once it's created
 
 function ShmupNPC:activate()
 	self.ready = true
@@ -64,7 +68,9 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 			ShmupCollision.Category_NPC,
 			ShmupCollision.Category_NPCShot)
 
-		levity.bank:play(ShmupNPC.KOSound)
+		levity.bank:play(Sounds.KO)
+	else
+		levity.bank:play(Sounds.Hit)
 	end
 end
 
@@ -103,13 +109,13 @@ function ShmupNPC:capturedByPlayer()
 		levity:setObjectGid(self.object, gid, false)
 
 		levity.machine:newScript(self.object.id, "ShmupAlly")
-		levity.bank:play(ShmupNPC.ConvertSound)
+		levity.bank:play(Sounds.Convert)
 	end
 
 	if female then
-		levity.bank:play(ShmupNPC.FemaleCaptureSound)
+		levity.bank:play(Sounds.FemaleCapture)
 	else
-		levity.bank:play(ShmupNPC.MaleCaptureSound)
+		levity.bank:play(Sounds.MaleCapture)
 	end
 end
 

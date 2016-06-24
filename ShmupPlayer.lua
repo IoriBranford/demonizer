@@ -52,9 +52,13 @@ ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
 ShmupPlayer.DeathSnapToCameraVelocity = 1/16
 ShmupPlayer.AllyFleeDistance = 400
-ShmupPlayer.ShotSound = "playershot.wav"
-ShmupPlayer.DeathSound = "selfdestruct.wav"
-ShmupPlayer.RespawnSound = "respawn.wav"
+
+local Sounds = {
+	Shot = "playershot.wav",
+	Death = "selfdestruct.wav",
+	Respawn = "respawn.wav"
+}
+levity.bank:load(Sounds)
 
 function ShmupPlayer:playSound(soundfile)
 	if self.soundfile ~= soundfile then
@@ -158,7 +162,7 @@ function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 
 			levity.machine:broadcast("playerDead")
 
-			self:playSound(ShmupPlayer.DeathSound)
+			self:playSound(Sounds.Death)
 		end
 	end
 end
@@ -218,7 +222,7 @@ function ShmupPlayer:beginMove(dt)
 					ShmupCollision.Category_PlayerShot)
 			end
 			levity.machine:broadcast("playerRespawned")
-			self:playSound(ShmupPlayer.RespawnSound)
+			self:playSound(Sounds.Respawn)
 		end
 
 		self.object.visible = respawn
@@ -240,7 +244,7 @@ function ShmupPlayer:beginMove(dt)
 				"impshot", 0, self.object.layer,
 				ShmupCollision.Category_PlayerShot)
 
-			self:playSound(ShmupPlayer.ShotSound)
+			self:playSound(Sounds.Shot)
 		end
 
 		self.firetimer = self.firetimer + dt
