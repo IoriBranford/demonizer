@@ -1,7 +1,7 @@
 local levity = require "levity"
 require "class"
 
-local Path = class(function(self, id)
+local LinearPath = class(function(self, id)
 	local path = levity.map.objects[id]
 	local polyline = path.polyline
 
@@ -20,14 +20,13 @@ local Path = class(function(self, id)
 	end
 
 	local segments = {}
-	local totaltime = path.properties.time
 	local t0, t1 = 0, 0
 	p = polyline[1]
 	for i = 1, #polyline-1, 1 do
 		local q = polyline[i+1]
 		local dx = q.x - p.x
 		local dy = q.y - p.y
-		local time = totaltime * lengths[i] / totallength
+		local time = lengths[i] / totallength
 		t1 = t1 + time
 
 		table.insert(segments, {
@@ -45,41 +44,36 @@ local Path = class(function(self, id)
 
 	self.endx = polyline[#polyline].x
 	self.endy = polyline[#polyline].y
-	self.totaltime = totaltime
 	self.segments = segments
 end)
 
-function Path:getPosition(i, t)
-	if i > #self.segments then
-		return self.endx, self.endy
+local function findSegment(segments, t)
+	for _, segment in ipairs(segments) do
+		if segment.t0 <= t and t <= segment.t1 then
+			return segment
+		end
 	end
-
-	local segment = self.segments[i]
-	local segtime = t - segment.t0
-	local x = segment.x0 + segment.vx*segtime
-	local y = segment.y0 + segment.vy*segtime
-	return x, y
 end
 
-function Path:getVelocity(i)
-	if i > #self.segments then
-		return 0, 0
+function LinearPath:getPosition(t, speed)
+	local segment = findSegment(self.segments, t * speed)
+	if segment then
+		local segt = speed * (t - segment.t0)
+		local x = segment.x0 + segment.vx*segt
+		local y = segment.y0 + segment.vy*segt
+		return x, y
 	end
-
-	local segment = self.segments[i]
-	return segment.vx, segment.vy
 end
 
-function Path:finishedSegment(i, t)
-	return i > #self.segments or t >= self.segments[i].t1
-end
-
-function Path:nextSegment(i)
-	i = i + 1
-	if i > #self.segments then
-		return nil
+function LinearPath:getVelocity(t, speed)
+	local segment = findSegment(self.segments, t * speed)
+	if segment then
+		return segment.vx * speed, segment.vy * speed
 	end
-	return i
 end
 
-return Path
+function LinearPath:finished(t, speed)
+	return t * speed > 1
+end
+
+return LinearPath

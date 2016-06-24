@@ -26,7 +26,12 @@ local ShmupNPC = class(function(self, id)
 	end
 
 	self.captured = false
+
 	self.pathtimer = 0
+	local pathtime = self.object.properties.pathtime or 1
+	if pathtime then
+		self.pathspeed = 1 / pathtime
+	end
 end)
 
 ShmupNPC.ShotLayer = nil -- ShmupMap, set me once it's created
@@ -124,10 +129,13 @@ function ShmupNPC:beginMove(dt)
 	local pathid = self.object.properties.pathid
 	if pathid then
 		local vx, vy = levity.machine:call(pathid, "getVelocity",
-					self.pathtimer)
+					self.pathtimer, self.pathspeed)
 
 		self.pathtimer = self.pathtimer + dt
-		if levity.machine:call(pathid, "finished", self.pathtimer) then
+
+		local pathfinished = levity.machine:call(pathid, "finished",
+					self.pathtimer, self.pathspeed)
+		if pathfinished then
 			self.object.properties.pathid = nil
 		end
 

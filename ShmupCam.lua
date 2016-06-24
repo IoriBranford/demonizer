@@ -28,8 +28,11 @@ local ShmupCam = class(function(self, id)
 	local mapwidth = (levity.map.width * levity.map.tilewidth)
 	self.mapwidthratio = 1 - (self.object.width / mapwidth)
 
-	self.pathsegment = 1
 	self.pathtimer = 0
+	local pathtime = self.object.properties.pathtime or 1
+	if pathtime then
+		self.pathspeed = 1 / pathtime
+	end
 end)
 
 function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
@@ -79,22 +82,20 @@ function ShmupCam:beginMove(dt)
 	local vx0, vy0 = body:getLinearVelocity()
 
 	local pathid = self.object.properties.pathid
-	if pathid and self.pathsegment then
-		local x, y = levity.machine:call(pathid, "getPosition",
-					self.pathsegment, self.pathtimer)
+	if pathid then
 		local vx, vy = levity.machine:call(pathid, "getVelocity",
-					self.pathsegment)
+					self.pathtimer, self.pathspeed)
 
 		self.pathtimer = self.pathtimer + dt
-		if levity.machine:call(pathid, "finishedSegment",
-					self.pathsegment, self.pathtimer) then
-			self.pathsegment = levity.machine:call(pathid,
-					"nextSegment", self.pathsegment)
+
+		local pathfinished = levity.machine:call(pathid, "finished",
+					self.pathtimer, self.pathspeed)
+		if pathfinished then
+			self.object.properties.pathid = nil
 		end
 
 		local ay = vy - vy0
 
-		body:setPosition(body:getX(), y)
 		body:applyLinearImpulse(0, mass * ay)
 	else
 		body:applyLinearImpulse(mass * -vx0, mass * -vy0)

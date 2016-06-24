@@ -11,25 +11,21 @@ local BezierPath = class(function(self, id)
 		table.insert(points, p.y)
 	end
 
-	local time = path.properties.time or 1
-	self.invtime = 1/time
 	self.positioncurve = love.math.newBezierCurve(points)
 	self.velocitycurve = self.positioncurve:getDerivative()
-	self.velocitycurve:scale(self.invtime)
 end)
 
-function BezierPath:getPosition(t)
-	t = math.max(0, math.min(t * self.invtime, 1))
-	return self.positioncurve:evaluate(t)
+function BezierPath:getPosition(t, speed)
+	return self.positioncurve:evaluate(t * speed)
 end
 
-function BezierPath:getVelocity(t)
-	t = math.max(0, math.min(t * self.invtime, 1))
-	return self.velocitycurve:evaluate(t)
+function BezierPath:getVelocity(t, speed)
+	local vx, vy = self.velocitycurve:evaluate(t * speed)
+	return vx * speed, vy * speed
 end
 
-function BezierPath:finished(t)
-	return t * self.invtime > 1
+function BezierPath:finished(t, speed)
+	return t * speed > 1
 end
 
 function BezierPath:beginDraw()
