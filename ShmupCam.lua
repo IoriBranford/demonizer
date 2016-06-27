@@ -94,11 +94,9 @@ function ShmupCam:beginMove(dt)
 			self.object.properties.pathid = nil
 		end
 
-		local ay = vy - vy0
-
-		body:applyLinearImpulse(0, mass * ay)
+		body:setLinearVelocity(vx0, vy)
 	else
-		body:applyLinearImpulse(mass * -vx0, mass * -vy0)
+		body:setLinearVelocity(0, 0)
 	end
 end
 

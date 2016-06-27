@@ -45,10 +45,8 @@ end
 function FreeCam:beginMove(dt)
 	local body = self.object.body
 
-	local vx0, vy0 = body:getLinearVelocity()
 	local vx1, vy1 = keyforce * self.vx, keyforce * self.vy
-	local mass = body:getMass()
-	body:applyLinearImpulse(mass * (vx1-vx0), mass * (vy1-vy0))
+	body:setLinearVelocity(vx1, vy1)
 end
 
 function FreeCam:endMove(dt)

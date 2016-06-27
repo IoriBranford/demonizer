@@ -119,14 +119,10 @@ function ShmupAlly:beginMove(dt)
 				*math.sin(self.converttimer * 60)
 	end
 
-	local vx0, vy0 = body:getLinearVelocity()
 	local vx1, vy1 = dx - cx, dy - cy
 	local snaptopv = ShmupAlly.SnapToPlayerVelocity / dt
-	local ax = vx1 * snaptopv - vx0
-	local ay = vy1 * snaptopv - vy0
 
-	local mass = body:getMass()
-	body:applyLinearImpulse(mass * ax, mass * ay)
+	body:setLinearVelocity(vx1 * snaptopv, vy1 * snaptopv)
 
 	if self.convertobject then
 		self:updateConversion(dt)

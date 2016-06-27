@@ -233,8 +233,7 @@ function ShmupPlayer:beginMove(dt)
 		vy1 = vy1 + camvy
 	end
 
-	local mass = body:getMass()
-	body:applyLinearImpulse(mass * (vx1-vx0), mass * (vy1-vy0))
+	body:setLinearVelocity(vx1, vy1)
 
 	if self.firing and not self.dead then
 		if self.firetimer >= ShmupPlayer.BulletInterval then

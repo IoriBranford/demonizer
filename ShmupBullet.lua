@@ -63,8 +63,7 @@ function ShmupBullet.fireOverTime(time, interval, cx, cy, speed, angle, tileseti
 		}
 		levity:addObject(shot, layer, "dynamic")
 
-		local mass = shot.body:getMass()
-		shot.body:applyLinearImpulse(mass * vx, mass * vy)
+		shot.body:setLinearVelocity(vx, vy)
 
 		cx = cx + dx
 		cy = cy + dy

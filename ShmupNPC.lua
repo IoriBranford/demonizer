@@ -145,12 +145,9 @@ function ShmupNPC:beginMove(dt)
 			self.object.properties.pathid = nil
 		end
 
-		local ax = vx - vx0
-		local ay = vy - vy0
-
-		body:applyLinearImpulse(mass * ax, mass * ay)
+		body:setLinearVelocity(vx, vy)
 	else
-		body:applyLinearImpulse(mass * -vx0, mass * -vy0)
+		body:setLinearVelocity(0, 0)
 	end
 
 	if self.captured then
