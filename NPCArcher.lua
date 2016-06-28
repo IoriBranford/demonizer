@@ -6,22 +6,14 @@ require "class"
 
 local NPCArcher = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
-	self.firetimer = 0
+	self.firetimer = math.random(1.5)
 	self.health = 4
 end)
 
 NPCArcher.BulletSpeed = 4*60
-NPCArcher.BulletInterval = 1
+NPCArcher.BulletInterval = 1.5
 
-function NPCArcher:beginMove(dt)
-	ShmupNPC.beginMove(self, dt)
-	if not self.object.visible then
-		return
-	end
-	if self.health <= 0 then
-		return
-	end
-
+function NPCArcher:updateFiring(dt)
 	local cx, cy = self.object.body:getWorldCenter()
 	local playerdx = 0
 	local playerdy = 1
@@ -43,6 +35,20 @@ function NPCArcher:beginMove(dt)
 			ShmupCollision.Category_NPCShot)
 
 		levity.bank:play("bow.wav")
+	end
+end
+
+function NPCArcher:beginMove(dt)
+	ShmupNPC.beginMove(self, dt)
+	if not self.object.visible then
+		return
+	end
+	if self.health <= 0 then
+		return
+	end
+
+	if self.oncamera then
+		self:updateFiring(dt)
 	end
 end
 

@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 87,
+  nextobjectid = 126,
   properties = {
     ["playerid"] = 1,
     ["script"] = "ShmupMap"
@@ -515,15 +515,15 @@ return {
       firstgid = 197,
       filename = "knightshot.tsx",
       tilewidth = 16,
-      tileheight = 32,
+      tileheight = 16,
       spacing = 0,
       margin = 0,
       image = "knightshot.png",
       imagewidth = 16,
-      imageheight = 32,
+      imageheight = 16,
       tileoffset = {
         x = -8,
-        y = 16
+        y = 8
       },
       properties = {},
       terrains = {},
@@ -541,14 +541,14 @@ return {
             properties = {},
             objects = {
               {
-                id = 6,
+                id = 1,
                 name = "",
                 type = "",
-                shape = "rectangle",
+                shape = "ellipse",
                 x = -4,
-                y = 24,
+                y = 12,
                 width = 8,
-                height = 16,
+                height = 8,
                 rotation = 0,
                 visible = true,
                 properties = {}
@@ -861,6 +861,480 @@ return {
     },
     {
       type = "objectgroup",
+      name = "archers9,10",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["dynamic"] = true
+      },
+      objects = {
+        {
+          id = 52,
+          name = "archer9",
+          type = "",
+          shape = "rectangle",
+          x = 304,
+          y = 1616,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 89,
+          visible = true,
+          properties = {
+            ["pathid"] = 121,
+            ["pathtime"] = 3,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 116,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 1488,
+          width = 288,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 117,
+          name = "archer10",
+          type = "",
+          shape = "rectangle",
+          x = -16,
+          y = 1616,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 89,
+          visible = true,
+          properties = {
+            ["pathid"] = 124,
+            ["pathtime"] = 3,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 121,
+          name = "path9",
+          type = "",
+          shape = "polyline",
+          x = 304,
+          y = 1616,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -80, y = 0 },
+            { x = -176, y = -16 },
+            { x = -248, y = -64 },
+            { x = -320, y = -136 }
+          },
+          properties = {
+            ["script"] = "BezierPath"
+          }
+        },
+        {
+          id = 124,
+          name = "path10",
+          type = "",
+          shape = "polyline",
+          x = -16,
+          y = 1616,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 64, y = 0 },
+            { x = 160, y = -16 },
+            { x = 248, y = -56 },
+            { x = 296, y = -96 },
+            { x = 328, y = -136 }
+          },
+          properties = {
+            ["script"] = "BezierPath"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "archers6,7,8",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["dynamic"] = true
+      },
+      objects = {
+        {
+          id = 113,
+          name = "archer6",
+          type = "",
+          shape = "rectangle",
+          x = 296,
+          y = 1632,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 106,
+            ["pathtime"] = 4,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 68,
+          name = "archer7",
+          type = "",
+          shape = "rectangle",
+          x = 312,
+          y = 1616,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 106,
+            ["pathtime"] = 4,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 106,
+          name = "path4",
+          type = "",
+          shape = "polyline",
+          x = 304,
+          y = 1624,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -80, y = -16 },
+            { x = -136, y = -48 },
+            { x = -208, y = -56 },
+            { x = -264, y = -48 },
+            { x = -336, y = -24 }
+          },
+          properties = {
+            ["script"] = "BezierPath"
+          }
+        },
+        {
+          id = 114,
+          name = "archer8",
+          type = "",
+          shape = "rectangle",
+          x = 328,
+          y = 1632,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 106,
+            ["pathtime"] = 4,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 115,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 1552,
+          width = 288,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "archers3,4,5",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["dynamic"] = true
+      },
+      objects = {
+        {
+          id = 67,
+          name = "archer3",
+          type = "",
+          shape = "rectangle",
+          x = -8,
+          y = 1672,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 104,
+            ["pathtime"] = 4,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 104,
+          name = "path3",
+          type = "",
+          shape = "polyline",
+          x = -24,
+          y = 1608,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 64 },
+            { x = 72, y = 40 },
+            { x = 120, y = -8 },
+            { x = 192, y = -24 },
+            { x = 264, y = -24 },
+            { x = 352, y = 16 }
+          },
+          properties = {
+            ["script"] = "BezierPath"
+          }
+        },
+        {
+          id = 108,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 1600,
+          width = 288,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 111,
+          name = "archer5",
+          type = "",
+          shape = "rectangle",
+          x = -40,
+          y = 1672,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 104,
+            ["pathtime"] = 4,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 112,
+          name = "archer4",
+          type = "",
+          shape = "rectangle",
+          x = -24,
+          y = 1656,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 104,
+            ["pathtime"] = 4,
+            ["script"] = "NPCArcher"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "archers1,2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["dynamic"] = true
+      },
+      objects = {
+        {
+          id = 65,
+          name = "archer2",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 1688,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 102,
+            ["pathtime"] = 3,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 66,
+          name = "archer1",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 1688,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 98,
+            ["pathtime"] = 3,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 69,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 1712,
+          width = 288,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 98,
+          name = "path1",
+          type = "",
+          shape = "polyline",
+          x = 304,
+          y = 1728,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -48, y = -40 },
+            { x = -48, y = 8 },
+            { x = -88, y = 40 },
+            { x = -136, y = 72 },
+            { x = -200, y = 72 },
+            { x = -256, y = 40 },
+            { x = -320, y = -32 }
+          },
+          properties = {
+            ["script"] = "BezierPath"
+          }
+        },
+        {
+          id = 102,
+          name = "path2",
+          type = "",
+          shape = "polyline",
+          x = -32,
+          y = 1736,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 64, y = -48 },
+            { x = 88, y = 0 },
+            { x = 152, y = 16 },
+            { x = 224, y = 16 },
+            { x = 296, y = -24 },
+            { x = 352, y = -72 }
+          },
+          properties = {
+            ["script"] = "BezierPath"
+          }
+        },
+        {
+          id = 118,
+          name = "archer2b",
+          type = "",
+          shape = "rectangle",
+          x = 24,
+          y = 1688,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 102,
+            ["pathtime"] = 3,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 119,
+          name = "archer1b",
+          type = "",
+          shape = "rectangle",
+          x = 264,
+          y = 1688,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 98,
+            ["pathtime"] = 3,
+            ["script"] = "NPCArcher"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
       name = "civilians",
       visible = true,
       opacity = 1,
@@ -905,6 +1379,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 85,
+            ["pathtime"] = 0.5,
             ["script"] = "ShmupNPC"
           }
         },
@@ -922,6 +1397,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 86,
+            ["pathtime"] = 0.5,
             ["script"] = "ShmupNPC"
           }
         },
@@ -939,6 +1415,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 86,
+            ["pathtime"] = 0.5,
             ["script"] = "ShmupNPC"
           }
         },
@@ -956,6 +1433,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 85,
+            ["pathtime"] = 0.5,
             ["script"] = "ShmupNPC"
           }
         },
@@ -973,6 +1451,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 86,
+            ["pathtime"] = 0.5,
             ["script"] = "ShmupNPC"
           }
         },
@@ -986,7 +1465,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          visible = false,
+          visible = true,
           polyline = {
             { x = 0, y = 0 },
             { x = 32, y = -56 }
@@ -1005,299 +1484,13 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          visible = false,
+          visible = true,
           polyline = {
             { x = 0, y = 0 },
             { x = -16, y = -64 }
           },
           properties = {
             ["script"] = "LinearPath"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "knights",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {
-        ["dynamic"] = true
-      },
-      objects = {
-        {
-          id = 63,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -104,
-          y = 1640,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 152,
-          visible = true,
-          properties = {
-            ["pathid"] = 82,
-            ["pathtime"] = 4,
-            ["script"] = "NPCKnight"
-          }
-        },
-        {
-          id = 70,
-          name = "trigger",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 1544,
-          width = 288,
-          height = 112,
-          rotation = 0,
-          visible = false,
-          properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
-            ["triggertype"] = "activategroup"
-          }
-        },
-        {
-          id = 71,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 416,
-          y = 1648,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 155,
-          visible = true,
-          properties = {
-            ["pathid"] = 84,
-            ["pathtime"] = 4,
-            ["script"] = "NPCKnight"
-          }
-        },
-        {
-          id = 72,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -32,
-          y = 1600,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 155,
-          visible = true,
-          properties = {
-            ["pathid"] = 82,
-            ["pathtime"] = 4,
-            ["script"] = "NPCKnight"
-          }
-        },
-        {
-          id = 73,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 344,
-          y = 1600,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 152,
-          visible = true,
-          properties = {
-            ["pathid"] = 84,
-            ["pathtime"] = 4,
-            ["script"] = "NPCKnight"
-          }
-        },
-        {
-          id = 74,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -72,
-          y = 1560,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 80,
-          visible = true,
-          properties = {
-            ["pathid"] = 82,
-            ["pathtime"] = 4,
-            ["script"] = "NPCKnight"
-          }
-        },
-        {
-          id = 75,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 384,
-          y = 1568,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 155,
-          visible = true,
-          properties = {
-            ["pathid"] = 84,
-            ["pathtime"] = 4,
-            ["script"] = "NPCKnight"
-          }
-        },
-        {
-          id = 82,
-          name = "leftpath",
-          type = "",
-          shape = "polyline",
-          x = -32,
-          y = 1600,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = false,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 128, y = 0 }
-          },
-          properties = {
-            ["script"] = "LinearPath"
-          }
-        },
-        {
-          id = 84,
-          name = "rightpath",
-          type = "",
-          shape = "polyline",
-          x = 344,
-          y = 1600,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = false,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = -144, y = 0 }
-          },
-          properties = {
-            ["script"] = "LinearPath"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "archers",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {
-        ["dynamic"] = true
-      },
-      objects = {
-        {
-          id = 52,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 136,
-          y = 1304,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 89,
-          visible = true,
-          properties = {
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 65,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 88,
-          y = 1376,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 164,
-          visible = true,
-          properties = {
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 66,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 208,
-          y = 1368,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 164,
-          visible = true,
-          properties = {
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 67,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 16,
-          y = 1304,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 164,
-          visible = true,
-          properties = {
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 68,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 248,
-          y = 1320,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 164,
-          visible = true,
-          properties = {
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 69,
-          name = "trigger",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 1280,
-          width = 288,
-          height = 112,
-          rotation = 0,
-          visible = false,
-          properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
-            ["triggertype"] = "activategroup"
           }
         }
       }
@@ -1331,16 +1524,6 @@ return {
           }
         }
       }
-    },
-    {
-      type = "objectgroup",
-      name = "playershot",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      objects = {}
     }
   }
 }

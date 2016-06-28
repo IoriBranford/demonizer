@@ -5,6 +5,7 @@ require "class"
 
 local ShmupNPC = class(function(self, id)
 	self.object = levity.map.objects[id]
+	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
 	self:setActive(false)
 
@@ -28,10 +29,15 @@ local ShmupNPC = class(function(self, id)
 	self.captured = false
 
 	self.pathtimer = 0
-	local pathtime = self.object.properties.pathtime or 1
+	local pathtime = self.properties.pathtime or 1
 	if pathtime then
 		self.pathspeed = 1 / pathtime
 	end
+	local pathid = self.properties.pathid
+	if type(pathid) == "string" then
+		self.properties.pathid = tonumber(pathid)
+	end
+	self.oncamera = false
 end)
 
 local Sounds = {
@@ -58,6 +64,7 @@ end
 function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	self.health = self.health - 1
 	if self.health <= 0 then
+		self.properties.pathid = nil
 		local gid = levity:getTileGid(self.object.tile.tileset,
 						"ko", self.npctype)
 		levity:setObjectGid(self.object, gid)
@@ -87,6 +94,16 @@ function ShmupNPC:beginContact(myfixture, otherfixture, contact)
 		self:beginContact_Player(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_PlayerShot then
 		self:beginContact_PlayerShot(myfixture, otherfixture, contact)
+	elseif category == ShmupCollision.Category_Camera then
+		self.oncamera = true
+	end
+end
+
+function ShmupNPC:endContact(myfixture, otherfixture, contact)
+	local category = otherfixture:getCategory()
+
+	if category == ShmupCollision.Category_Camera then
+		self.oncamera = false
 	end
 end
 
@@ -132,7 +149,7 @@ function ShmupNPC:beginMove(dt)
 	local mass = body:getMass()
 	local vx0, vy0 = body:getLinearVelocity()
 
-	local pathid = self.object.properties.pathid
+	local pathid = self.properties.pathid
 	if pathid then
 		local vx, vy = levity.machine:call(pathid, "getVelocity",
 					self.pathtimer, self.pathspeed)
@@ -142,7 +159,7 @@ function ShmupNPC:beginMove(dt)
 		local pathfinished = levity.machine:call(pathid, "finished",
 					self.pathtimer, self.pathspeed)
 		if pathfinished then
-			self.object.properties.pathid = nil
+			self.properties.pathid = nil
 		end
 
 		body:setLinearVelocity(vx, vy)

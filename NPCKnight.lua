@@ -6,22 +6,14 @@ require "class"
 
 local NPCKnight = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
-	self.firetimer = 0
+	self.firetimer = math.random(1)
 	self.health = 8
 end)
 
 NPCKnight.BulletSpeed = 2*60
-NPCKnight.BulletInterval = .5
+NPCKnight.BulletInterval = 1
 
-function NPCKnight:beginMove(dt)
-	ShmupNPC.beginMove(self, dt)
-	if not self.object.visible then
-		return
-	end
-	if self.health <= 0 then
-		return
-	end
-
+function NPCKnight:updateFiring(dt)
 	local cx, cy = self.object.body:getWorldCenter()
 	local playerdx = 0
 	local playerdy = 1
@@ -43,6 +35,20 @@ function NPCKnight:beginMove(dt)
 			ShmupCollision.Category_NPCShot)
 
 		levity.bank:play("sword.wav")
+	end
+end
+
+function NPCKnight:beginMove(dt)
+	ShmupNPC.beginMove(self, dt)
+	if not self.object.visible then
+		return
+	end
+	if self.health <= 0 then
+		return
+	end
+
+	if self.oncamera then
+		self:updateFiring(dt)
 	end
 end
 

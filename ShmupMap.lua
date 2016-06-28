@@ -36,13 +36,18 @@ local ShmupMap = class(function(self, id)
 	self.map = levity.map
 	ShmupNPC.ShotLayer = levity:addDynamicLayer("npcshots")
  
-	--for _, layer in self.map.layers do
-	--	if layer.type == "dynamiclayer" then
-	--		for _, object in ipairs(layer.objects) do
-	--			setFilterFromProperties(object.body)
-	--		end
-	--	end
-	--end
+	for _, layer in ipairs(self.map.layers) do
+		if layer.type == "dynamiclayer"
+		or layer.type == "objectgroup"
+			then
+			for _, object in ipairs(layer.objects) do
+				if not object.gid then
+					object.visible = false
+				end
+				--setFilterFromProperties(object.body)
+			end
+		end
+	end
  
 	--setFilterFromProperties(self.map.box2d_collision)
 end)

@@ -9,8 +9,7 @@ local ShmupAlly = class(function(self, id)
 	self.object.body:setFixedRotation(true)
 	self.object.body:setBullet(true)
 	self.firetimer = ShmupPlayer.BulletInterval
-	self:refreshFixtures({ShmupCollision.Category_Camera,
-				ShmupCollision.Category_CameraEdge,
+	self:refreshFixtures({ShmupCollision.Category_CameraEdge,
 				ShmupCollision.Category_Player,
 				ShmupCollision.Category_PlayerShot,
 				ShmupCollision.Category_NPC,
@@ -27,6 +26,7 @@ local ShmupAlly = class(function(self, id)
 	levity:addObject(self.convertobject, self.object.layer)
 	self.converttimer = 0
 	self.npctype = levity:getTileColumnName(self.object.gid)
+	self.oncamera = false
 end)
 
 -- this script changes sprites
@@ -51,15 +51,25 @@ function ShmupAlly:destroyed()
 end
 
 function ShmupAlly:beginContact(myfixture, otherfixture, contact)
-	if otherfixture:getCategory() == ShmupCollision.Category_NPCShot then
+	local category = otherfixture:getCategory()
+	if category == ShmupCollision.Category_NPCShot then
 		self:destroyed()
+	elseif category == ShmupCollision.Category_Camera then
+		self.oncamera = true
+	end
+end
+
+function ShmupAlly:endContact(myfixture, otherfixture, contact)
+	local category = otherfixture:getCategory()
+
+	if category == ShmupCollision.Category_Camera then
+		self.oncamera = false
 	end
 end
 
 function ShmupAlly:playerDead()
 	-- can't capture and can be shot while player dead
-	self:refreshFixtures({ShmupCollision.Category_Camera,
-				ShmupCollision.Category_CameraEdge,
+	self:refreshFixtures({ShmupCollision.Category_CameraEdge,
 				ShmupCollision.Category_Player,
 				ShmupCollision.Category_PlayerShot,
 				ShmupCollision.Category_NPC})
@@ -79,8 +89,7 @@ function ShmupAlly:updateConversion(dt)
 		local gid = levity:getTileGid("demonwomen", self.npctype, 0)
 		levity:setObjectGid(self.object, gid)
 
-		self:refreshFixtures({ShmupCollision.Category_Camera,
-					ShmupCollision.Category_CameraEdge,
+		self:refreshFixtures({ShmupCollision.Category_CameraEdge,
 					ShmupCollision.Category_Player,
 					ShmupCollision.Category_PlayerShot,
 					ShmupCollision.Category_NPCShot})
@@ -126,7 +135,7 @@ function ShmupAlly:beginMove(dt)
 
 	if self.convertobject then
 		self:updateConversion(dt)
-	else
+	elseif self.oncamera then
 		if levity.machine:call(playerid, "isFiring") then
 			self:updateFiring(dt)
 		else
