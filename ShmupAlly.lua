@@ -8,7 +8,7 @@ local ShmupAlly = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.object.body:setFixedRotation(true)
 	self.object.body:setBullet(true)
-	self.firetimer = ShmupPlayer.BulletInterval
+	self.firetimer = 0
 	self:refreshFixtures({ShmupCollision.Category_CameraEdge,
 				ShmupCollision.Category_Player,
 				ShmupCollision.Category_PlayerShot,
@@ -139,7 +139,7 @@ function ShmupAlly:beginMove(dt)
 		if levity.machine:call(playerid, "isFiring") then
 			self:updateFiring(dt)
 		else
-			self.firetimer = ShmupPlayer.BulletInterval
+			self.firetimer = 0
 		end
 	end
 end
