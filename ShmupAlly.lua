@@ -97,7 +97,7 @@ function ShmupAlly:updateConversion(dt)
 end
 
 function ShmupAlly:updateFiring(dt)
-	if self.firetimer >= ShmupPlayer.BulletInterval then
+	if self.firetimer <= 0 then
 		local angle = math.pi*1.5
 
 		local cx, cy = self.object.body:getWorldCenter()
@@ -113,7 +113,7 @@ function ShmupAlly:updateFiring(dt)
 			"impshot", 0, self.object.layer,
 			ShmupCollision.Category_PlayerShot)
 	end
-	self.firetimer = self.firetimer + dt
+	self.firetimer = self.firetimer - dt
 end
 
 function ShmupAlly:beginMove(dt)

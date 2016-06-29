@@ -116,7 +116,7 @@ function ShmupPlayer:keypressed(key, u)
 	elseif key == "right" then
 		self.vx = self.vx + ShmupPlayer.Speed
 	elseif key == "z" then
-		self.firetimer = ShmupPlayer.BulletInterval
+		self.firetimer = 0
 		self.firing = true
 	end
 end
@@ -131,7 +131,6 @@ function ShmupPlayer:keyreleased(key, u)
 	elseif key == "right" then
 		self.vx = self.vx - ShmupPlayer.Speed
 	elseif key == "z" then
-		self.firetimer = 0
 		self.firing = false
 	end
 end
@@ -236,7 +235,7 @@ function ShmupPlayer:beginMove(dt)
 	body:setLinearVelocity(vx1, vy1)
 
 	if self.firing and not self.dead then
-		if self.firetimer >= ShmupPlayer.BulletInterval then
+		if self.firetimer <= 0 then
 			self.firetimer = ShmupBullet.fireOverTime(
 				self.firetimer, ShmupPlayer.BulletInterval,
 				cx, cy, ShmupPlayer.BulletSpeed, math.pi*1.5,
@@ -246,7 +245,7 @@ function ShmupPlayer:beginMove(dt)
 			self:playSound(Sounds.Shot)
 		end
 
-		self.firetimer = self.firetimer + dt
+		self.firetimer = self.firetimer - dt
 	end
 end
 

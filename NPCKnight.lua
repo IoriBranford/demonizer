@@ -6,7 +6,7 @@ require "class"
 
 local NPCKnight = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
-	self.firetimer = math.random(1)
+	self.firetimer = love.math.random(0, .25)
 	self.health = 8
 end)
 
@@ -26,8 +26,7 @@ function NPCKnight:updateFiring(dt)
 		playerdy = playercy - cy
 	end
 
-	self.firetimer = self.firetimer + dt
-	if self.firetimer >= NPCKnight.BulletInterval then
+	if self.firetimer <= 0 then
 		self.firetimer = ShmupBullet.fireOverTime(
 			self.firetimer, NPCKnight.BulletInterval, cx, cy,
 			NPCKnight.BulletSpeed, math.atan2(playerdy, playerdx),
@@ -36,6 +35,7 @@ function NPCKnight:updateFiring(dt)
 
 		levity.bank:play("sword.wav")
 	end
+	self.firetimer = self.firetimer - dt
 end
 
 function NPCKnight:beginMove(dt)

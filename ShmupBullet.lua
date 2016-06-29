@@ -54,7 +54,7 @@ function ShmupBullet.fireOverTime(time, interval, cx, cy, speed, angle, tileseti
 	local tileset = levity:getMapTileset(tilesetid)
 	local gid = tileset.firstgid + tileid
 
-	while time >= interval do
+	while time <= 0 do
 		local shot = {
 			x = cx, y = cy, rotation = deg, gid = gid,
 			properties = {
@@ -67,7 +67,7 @@ function ShmupBullet.fireOverTime(time, interval, cx, cy, speed, angle, tileseti
 
 		cx = cx + dx
 		cy = cy + dy
-		time = time - interval
+		time = time + interval
 	end
 
 	return time

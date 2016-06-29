@@ -6,12 +6,12 @@ require "class"
 
 local NPCArcher = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
-	self.firetimer = math.random(1.5)
-	self.health = 4
+	self.firetimer = love.math.random(0, .25)
+	self.health = 2
 end)
 
 NPCArcher.BulletSpeed = 4*60
-NPCArcher.BulletInterval = 1.5
+NPCArcher.BulletInterval = 1.25
 
 function NPCArcher:updateFiring(dt)
 	local cx, cy = self.object.body:getWorldCenter()
@@ -26,8 +26,7 @@ function NPCArcher:updateFiring(dt)
 		playerdy = playercy - cy
 	end
 
-	self.firetimer = self.firetimer + dt
-	if self.firetimer >= NPCArcher.BulletInterval then
+	if self.firetimer <= 0 then
 		self.firetimer = ShmupBullet.fireOverTime(
 			self.firetimer, NPCArcher.BulletInterval, cx, cy,
 			NPCArcher.BulletSpeed, math.atan2(playerdy, playerdx),
@@ -36,6 +35,7 @@ function NPCArcher:updateFiring(dt)
 
 		levity.bank:play("bow.wav")
 	end
+	self.firetimer = self.firetimer - dt
 end
 
 function NPCArcher:beginMove(dt)

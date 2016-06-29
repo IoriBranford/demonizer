@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 126,
+  nextobjectid = 182,
   properties = {
     ["playerid"] = 1,
     ["script"] = "ShmupMap"
@@ -871,30 +871,12 @@ return {
       },
       objects = {
         {
-          id = 52,
-          name = "archer9",
-          type = "",
-          shape = "rectangle",
-          x = 304,
-          y = 1616,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 89,
-          visible = true,
-          properties = {
-            ["pathid"] = 121,
-            ["pathtime"] = 3,
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
           id = 116,
           name = "trigger",
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 1488,
+          y = 1520,
           width = 288,
           height = 8,
           rotation = 0,
@@ -911,7 +893,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -16,
-          y = 1616,
+          y = 1544,
           width = 24,
           height = 32,
           rotation = 0,
@@ -919,7 +901,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 124,
-            ["pathtime"] = 3,
+            ["pathtime"] = 2,
             ["script"] = "NPCArcher"
           }
         },
@@ -929,17 +911,17 @@ return {
           type = "",
           shape = "polyline",
           x = 304,
-          y = 1616,
+          y = 1544,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = -80, y = 0 },
-            { x = -176, y = -16 },
-            { x = -248, y = -64 },
-            { x = -320, y = -136 }
+            { x = -104, y = 32 },
+            { x = -232, y = 56 },
+            { x = -112, y = 96 },
+            { x = 0, y = 96 }
           },
           properties = {
             ["script"] = "BezierPath"
@@ -951,18 +933,215 @@ return {
           type = "",
           shape = "polyline",
           x = -16,
-          y = 1616,
+          y = 1544,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 64, y = 0 },
-            { x = 160, y = -16 },
-            { x = 248, y = -56 },
-            { x = 296, y = -96 },
-            { x = 328, y = -136 }
+            { x = 96, y = 32 },
+            { x = 224, y = 56 },
+            { x = 104, y = 96 },
+            { x = 0, y = 96 }
+          },
+          properties = {
+            ["script"] = "BezierPath"
+          }
+        },
+        {
+          id = 161,
+          name = "archer9",
+          type = "",
+          shape = "rectangle",
+          x = 304,
+          y = 1544,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 121,
+            ["pathtime"] = 2,
+            ["script"] = "NPCArcher"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "Copy of archers3,4,5",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["dynamic"] = true
+      },
+      objects = {
+        {
+          id = 177,
+          name = "archer3",
+          type = "",
+          shape = "rectangle",
+          x = -8,
+          y = 1616,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 178,
+            ["pathtime"] = 3,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 178,
+          name = "path3",
+          type = "",
+          shape = "polyline",
+          x = -24,
+          y = 1640,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = -32 },
+            { x = 104, y = 16 },
+            { x = 232, y = 16 },
+            { x = 352, y = -32 }
+          },
+          properties = {
+            ["script"] = "BezierPath"
+          }
+        },
+        {
+          id = 179,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 1576,
+          width = 288,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 180,
+          name = "archer5",
+          type = "",
+          shape = "rectangle",
+          x = -48,
+          y = 1600,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 178,
+            ["pathtime"] = 3,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 181,
+          name = "archer4",
+          type = "",
+          shape = "rectangle",
+          x = -24,
+          y = 1600,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 178,
+            ["pathtime"] = 3,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 172,
+          name = "archer6",
+          type = "",
+          shape = "rectangle",
+          x = 296,
+          y = 1584,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 174,
+            ["pathtime"] = 3,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 173,
+          name = "archer7",
+          type = "",
+          shape = "rectangle",
+          x = 312,
+          y = 1568,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 174,
+            ["pathtime"] = 3,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 175,
+          name = "archer8",
+          type = "",
+          shape = "rectangle",
+          x = 336,
+          y = 1568,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["pathid"] = 174,
+            ["pathtime"] = 3,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 174,
+          name = "path4",
+          type = "",
+          shape = "polyline",
+          x = 304,
+          y = 1656,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 8, y = -80 },
+            { x = -96, y = -24 },
+            { x = -224, y = -24 },
+            { x = -344, y = -80 }
           },
           properties = {
             ["script"] = "BezierPath"
@@ -987,7 +1166,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 296,
-          y = 1632,
+          y = 1664,
           width = 24,
           height = 32,
           rotation = 0,
@@ -995,7 +1174,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 106,
-            ["pathtime"] = 4,
+            ["pathtime"] = 3,
             ["script"] = "NPCArcher"
           }
         },
@@ -1005,7 +1184,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 312,
-          y = 1616,
+          y = 1648,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1013,7 +1192,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 106,
-            ["pathtime"] = 4,
+            ["pathtime"] = 3,
             ["script"] = "NPCArcher"
           }
         },
@@ -1023,18 +1202,16 @@ return {
           type = "",
           shape = "polyline",
           x = 304,
-          y = 1624,
+          y = 1744,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 0 },
-            { x = -80, y = -16 },
-            { x = -136, y = -48 },
-            { x = -208, y = -56 },
-            { x = -264, y = -48 },
-            { x = -336, y = -24 }
+            { x = 8, y = -80 },
+            { x = -96, y = -24 },
+            { x = -224, y = -24 },
+            { x = -344, y = -80 }
           },
           properties = {
             ["script"] = "BezierPath"
@@ -1045,8 +1222,8 @@ return {
           name = "archer8",
           type = "",
           shape = "rectangle",
-          x = 328,
-          y = 1632,
+          x = 336,
+          y = 1648,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1054,7 +1231,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 106,
-            ["pathtime"] = 4,
+            ["pathtime"] = 3,
             ["script"] = "NPCArcher"
           }
         },
@@ -1064,7 +1241,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 1552,
+          y = 1632,
           width = 288,
           height = 8,
           rotation = 0,
@@ -1094,7 +1271,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -8,
-          y = 1672,
+          y = 1704,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1102,7 +1279,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 104,
-            ["pathtime"] = 4,
+            ["pathtime"] = 3,
             ["script"] = "NPCArcher"
           }
         },
@@ -1112,18 +1289,16 @@ return {
           type = "",
           shape = "polyline",
           x = -24,
-          y = 1608,
+          y = 1736,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 64 },
-            { x = 72, y = 40 },
-            { x = 120, y = -8 },
-            { x = 192, y = -24 },
-            { x = 264, y = -24 },
-            { x = 352, y = 16 }
+            { x = 0, y = -32 },
+            { x = 104, y = 16 },
+            { x = 232, y = 16 },
+            { x = 352, y = -32 }
           },
           properties = {
             ["script"] = "BezierPath"
@@ -1135,7 +1310,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 1600,
+          y = 1672,
           width = 288,
           height = 8,
           rotation = 0,
@@ -1151,8 +1326,8 @@ return {
           name = "archer5",
           type = "",
           shape = "rectangle",
-          x = -40,
-          y = 1672,
+          x = -48,
+          y = 1688,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1160,7 +1335,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 104,
-            ["pathtime"] = 4,
+            ["pathtime"] = 3,
             ["script"] = "NPCArcher"
           }
         },
@@ -1170,7 +1345,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -24,
-          y = 1656,
+          y = 1688,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1178,7 +1353,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 104,
-            ["pathtime"] = 4,
+            ["pathtime"] = 3,
             ["script"] = "NPCArcher"
           }
         }
@@ -1200,16 +1375,16 @@ return {
           name = "archer2",
           type = "",
           shape = "rectangle",
-          x = 48,
-          y = 1688,
+          x = 72,
+          y = 1680,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 164,
           visible = true,
           properties = {
-            ["pathid"] = 102,
-            ["pathtime"] = 3,
+            ["pathid"] = 131,
+            ["pathtime"] = 4,
             ["script"] = "NPCArcher"
           }
         },
@@ -1218,16 +1393,16 @@ return {
           name = "archer1",
           type = "",
           shape = "rectangle",
-          x = 240,
-          y = 1688,
+          x = 216,
+          y = 1696,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 164,
           visible = true,
           properties = {
-            ["pathid"] = 98,
-            ["pathtime"] = 3,
+            ["pathid"] = "128",
+            ["pathtime"] = 4,
             ["script"] = "NPCArcher"
           }
         },
@@ -1249,67 +1424,20 @@ return {
           }
         },
         {
-          id = 98,
-          name = "path1",
-          type = "",
-          shape = "polyline",
-          x = 304,
-          y = 1728,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -48, y = -40 },
-            { x = -48, y = 8 },
-            { x = -88, y = 40 },
-            { x = -136, y = 72 },
-            { x = -200, y = 72 },
-            { x = -256, y = 40 },
-            { x = -320, y = -32 }
-          },
-          properties = {
-            ["script"] = "BezierPath"
-          }
-        },
-        {
-          id = 102,
-          name = "path2",
-          type = "",
-          shape = "polyline",
-          x = -32,
-          y = 1736,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 64, y = -48 },
-            { x = 88, y = 0 },
-            { x = 152, y = 16 },
-            { x = 224, y = 16 },
-            { x = 296, y = -24 },
-            { x = 352, y = -72 }
-          },
-          properties = {
-            ["script"] = "BezierPath"
-          }
-        },
-        {
           id = 118,
           name = "archer2b",
           type = "",
           shape = "rectangle",
-          x = 24,
-          y = 1688,
+          x = 48,
+          y = 1680,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 164,
           visible = true,
           properties = {
-            ["pathid"] = 102,
-            ["pathtime"] = 3,
+            ["pathid"] = 131,
+            ["pathtime"] = 4,
             ["script"] = "NPCArcher"
           }
         },
@@ -1318,17 +1446,63 @@ return {
           name = "archer1b",
           type = "",
           shape = "rectangle",
-          x = 264,
-          y = 1688,
+          x = 240,
+          y = 1696,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 164,
           visible = true,
           properties = {
-            ["pathid"] = 98,
-            ["pathtime"] = 3,
+            ["pathid"] = "128",
+            ["pathtime"] = 4,
             ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 128,
+          name = "path1",
+          type = "",
+          shape = "polyline",
+          x = 232,
+          y = 1704,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -8, y = 0 },
+            { x = -24, y = 64 },
+            { x = -72, y = 112 },
+            { x = -136, y = 96 },
+            { x = -176, y = 40 },
+            { x = -272, y = 0 }
+          },
+          properties = {
+            ["script"] = "BezierPath"
+          }
+        },
+        {
+          id = 131,
+          name = "path2",
+          type = "",
+          shape = "polyline",
+          x = 56,
+          y = 1688,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 8, y = 0 },
+            { x = 24, y = 64 },
+            { x = 72, y = 112 },
+            { x = 136, y = 96 },
+            { x = 176, y = 40 },
+            { x = 272, y = 0 }
+          },
+          properties = {
+            ["script"] = "BezierPath"
           }
         }
       }
@@ -1370,7 +1544,7 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 144,
+          x = 152,
           y = 1952,
           width = 24,
           height = 32,
@@ -1379,25 +1553,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 85,
-            ["pathtime"] = 0.5,
-            ["script"] = "ShmupNPC"
-          }
-        },
-        {
-          id = 59,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 64,
-          y = 1880,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 250,
-          visible = true,
-          properties = {
-            ["pathid"] = 86,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 0.69999999999999996,
             ["script"] = "ShmupNPC"
           }
         },
@@ -1406,8 +1562,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 72,
-          y = 1904,
+          x = 104,
+          y = 1952,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1415,7 +1571,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 86,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 0.69999999999999996,
             ["script"] = "ShmupNPC"
           }
         },
@@ -1424,7 +1580,7 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 160,
+          x = 136,
           y = 1960,
           width = 24,
           height = 32,
@@ -1433,7 +1589,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 85,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 0.80000000000000004,
             ["script"] = "ShmupNPC"
           }
         },
@@ -1442,8 +1598,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 88,
-          y = 1888,
+          x = 80,
+          y = 1920,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1457,7 +1613,7 @@ return {
         },
         {
           id = 85,
-          name = "",
+          name = "path1",
           type = "",
           shape = "polyline",
           x = 152,
@@ -1467,7 +1623,7 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 0 },
+            { x = -16, y = -16 },
             { x = 32, y = -56 }
           },
           properties = {
@@ -1476,7 +1632,7 @@ return {
         },
         {
           id = 86,
-          name = "",
+          name = "path2",
           type = "",
           shape = "polyline",
           x = 72,
@@ -1486,11 +1642,263 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 0 },
-            { x = -16, y = -64 }
+            { x = 16, y = 48 },
+            { x = -8, y = -56 }
           },
           properties = {
             ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 132,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 72,
+          y = 1944,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 382,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.59999999999999998,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 133,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 136,
+          y = 1944,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 385,
+          visible = true,
+          properties = {
+            ["pathid"] = 85,
+            ["pathtime"] = 0.59999999999999998,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 134,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 1968,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 388,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.80000000000000004,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 135,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 1968,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 391,
+          visible = true,
+          properties = {
+            ["pathid"] = 85,
+            ["pathtime"] = 0.90000000000000002,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 136,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 1976,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 394,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.90000000000000002,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 137,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1936,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 397,
+          visible = true,
+          properties = {
+            ["pathid"] = 85,
+            ["pathtime"] = 0.5,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 150,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 1976,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 391,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.90000000000000002,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 151,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 88,
+          y = 1936,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 385,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.59999999999999998,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 152,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 1920,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 397,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.5,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 153,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 1960,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 373,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.69999999999999996,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 154,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 1960,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 379,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.80000000000000004,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 158,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 168,
+          y = 1952,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 376,
+          visible = true,
+          properties = {
+            ["pathid"] = 85,
+            ["pathtime"] = 0.69999999999999996,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 159,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 120,
+          y = 1944,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 382,
+          visible = true,
+          properties = {
+            ["pathid"] = 85,
+            ["pathtime"] = 0.59999999999999998,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 160,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 152,
+          y = 1960,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 388,
+          visible = true,
+          properties = {
+            ["pathid"] = 85,
+            ["pathtime"] = 0.80000000000000004,
+            ["script"] = "ShmupNPC"
           }
         }
       }
