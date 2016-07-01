@@ -52,4 +52,9 @@ local ShmupMap = class(function(self, id)
 	--setFilterFromProperties(self.map.box2d_collision)
 end)
 
+
+function ShmupMap:keypressed_escape()
+	levity:setNextMap("test.lua")
+end
+
 return ShmupMap
