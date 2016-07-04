@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="182">
  <properties>
+  <property name="music" value="09 - Blue Sky Laundry.vgm"/>
   <property name="playerid" type="int" value="1"/>
   <property name="script" value="ShmupMap"/>
  </properties>

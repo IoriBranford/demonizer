@@ -10,6 +10,7 @@ return {
   tileheight = 8,
   nextobjectid = 182,
   properties = {
+    ["music"] = "09 - Blue Sky Laundry.vgm",
     ["playerid"] = 1,
     ["script"] = "ShmupMap"
   },

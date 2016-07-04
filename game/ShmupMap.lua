@@ -50,6 +50,12 @@ local ShmupMap = class(function(self, id)
 	end
  
 	--setFilterFromProperties(self.map.box2d_collision)
+
+	local music = self.map.properties.music
+	if music then
+		levity.bank:load(music, "emu")
+		levity.bank:play(music)
+	end
 end)
 
 
