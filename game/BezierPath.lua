@@ -25,7 +25,7 @@ function BezierPath:getVelocity(t, speed)
 end
 
 function BezierPath:finished(t, speed)
-	return t * speed > 1
+	return t * speed >= 1
 end
 
 function BezierPath:beginDraw()

@@ -6,12 +6,12 @@ require "class"
 
 local NPCArcher = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
-	self.firetimer = love.math.random(0, .25)
+	self.firetimer = love.math.random() * 2
 	self.health = 2
 end)
 
 NPCArcher.BulletSpeed = 4*60
-NPCArcher.BulletInterval = 1.25
+NPCArcher.BulletInterval = 2
 
 function NPCArcher:updateFiring(dt)
 	local cx, cy = self.object.body:getWorldCenter()

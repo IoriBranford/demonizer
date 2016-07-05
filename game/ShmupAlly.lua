@@ -151,4 +151,19 @@ function ShmupAlly:endMove(dt)
 	end
 end
 
+function ShmupAlly:beginDraw()
+	if self.convertobject then
+		local flashrate = 30 * self.converttimer
+		local flash = 0x80 * (math.cos(flashrate*math.pi) + 3)
+
+		love.graphics.setColor(flash, 0xff, flash)
+	end
+end
+
+function ShmupAlly:endDraw()
+	if self.convertobject then
+		love.graphics.setColor(0xff, 0xff, 0xff)
+	end
+end
+
 return ShmupAlly

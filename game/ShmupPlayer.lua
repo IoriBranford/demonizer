@@ -264,13 +264,13 @@ end
 function ShmupPlayer:beginDraw()
 	if self.shieldtimer > 0 then
 		local alpha = (0x100 * (math.cos(self.shieldtimer*30*math.pi) + 1)*.5)
-		love.graphics.setColor(0xFF, 0xFF, 0xFF, alpha)
+		love.graphics.setColor(0xff, 0xff, 0xff, alpha)
 	end
 end
 
 function ShmupPlayer:endDraw()
 	if self.shieldtimer > 0 then
-		love.graphics.setColor(0xFF, 0xFF, 0xFF, 0xFF)
+		love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
 	end
 end
 

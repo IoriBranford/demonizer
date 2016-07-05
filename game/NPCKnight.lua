@@ -6,7 +6,7 @@ require "class"
 
 local NPCKnight = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
-	self.firetimer = love.math.random(0, .25)
+	self.firetimer = love.math.random()
 	self.health = 8
 end)
 

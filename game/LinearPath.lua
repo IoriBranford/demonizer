@@ -73,7 +73,7 @@ function LinearPath:getVelocity(t, speed)
 end
 
 function LinearPath:finished(t, speed)
-	return t * speed > 1
+	return t * speed >= 1
 end
 
 return LinearPath
