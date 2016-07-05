@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="182">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="241">
  <properties>
   <property name="music" value="09 - Blue Sky Laundry.vgm"/>
   <property name="playerid" type="int" value="1"/>
@@ -37,6 +37,227 @@
     <property name="script" value="LinearPath"/>
    </properties>
    <polyline points="0,0 0,-1800"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="knights2">
+  <properties>
+   <property name="dynamic" type="bool" value="true"/>
+  </properties>
+  <object id="206" gid="155" x="304" y="872" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="211"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="208" gid="155" x="352" y="872" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="211"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="209" gid="152" x="328" y="872" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="211"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="211" name="path" x="280" y="904">
+   <properties>
+    <property name="script" value="BezierPath"/>
+   </properties>
+   <polyline points="24,-32 -48,-48 -128,-48"/>
+  </object>
+  <object id="213" name="trigger" x="0" y="832" width="288" height="48">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+  <object id="216" gid="155" x="-40" y="880" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="219"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="217" gid="152" x="-64" y="880" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="219"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="219" name="path" x="-24" y="912">
+   <properties>
+    <property name="script" value="BezierPath"/>
+   </properties>
+   <polyline points="24,-32 96,-32 176,8"/>
+  </object>
+  <object id="220" gid="152" x="-16" y="880" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="219"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="233" gid="164" x="-32" y="864" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="219"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="234" gid="164" x="-56" y="864" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="219"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="235" gid="164" x="344" y="856" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="211"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="236" gid="164" x="320" y="856" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="211"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="roofarchers1">
+  <properties>
+   <property name="dynamic" type="bool" value="true"/>
+  </properties>
+  <object id="221" name="trigger" x="0" y="968" width="288" height="104">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+  <object id="223" name="path" x="304" y="1000">
+   <properties>
+    <property name="script" value="BezierPath"/>
+   </properties>
+   <polyline points="-216,8 -192,8 -184,32"/>
+  </object>
+  <object id="224" name="path" x="208" y="952">
+   <properties>
+    <property name="script" value="BezierPath"/>
+   </properties>
+   <polyline points="-8,8 -32,16 -32,40"/>
+  </object>
+  <object id="225" gid="164" x="80" y="992" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="223"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="227" gid="164" x="208" y="944" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="224"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="230" gid="152" x="88" y="1000" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="223"/>
+    <property name="pathtime" type="float" value="1"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="232" gid="80" x="200" y="952" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="224"/>
+    <property name="pathtime" type="float" value="1"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="240" gid="164" x="192" y="1056" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="knights">
+  <properties>
+   <property name="dynamic" type="bool" value="true"/>
+  </properties>
+  <object id="186" gid="152" x="-16" y="1168" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="195"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="188" gid="155" x="-40" y="1168" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="195"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="190" gid="152" x="-64" y="1176" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="195"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="191" gid="155" x="-88" y="1176" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="195"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="195" name="path" x="-16" y="1184">
+   <properties>
+    <property name="script" value="BezierPath"/>
+   </properties>
+   <polyline points="0,0 96,32 200,0"/>
+  </object>
+  <object id="196" gid="152" x="-112" y="1168" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="195"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="197" gid="155" x="-136" y="1168" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="195"/>
+    <property name="pathtime" type="float" value="2"/>
+    <property name="script" value="NPCKnight"/>
+   </properties>
+  </object>
+  <object id="237" gid="164" x="112" y="1120" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="238" gid="164" x="192" y="1120" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="239" name="trigger" x="0" y="1104" width="288" height="64">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="archers9,10">
@@ -292,13 +513,6 @@
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="76" gid="376" x="104" y="1952" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.69999999999999996"/>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
-  </object>
   <object id="77" gid="379" x="136" y="1960" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
@@ -306,7 +520,7 @@
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="79" gid="247" x="80" y="1920" width="24" height="32">
+  <object id="79" gid="247" x="72" y="1912" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="86"/>
     <property name="pathtime" type="float" value="0.5"/>
@@ -339,66 +553,24 @@
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="134" gid="388" x="96" y="1968" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.80000000000000004"/>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
-  </object>
-  <object id="135" gid="391" x="128" y="1968" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.90000000000000002"/>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
-  </object>
-  <object id="136" gid="394" x="112" y="1976" width="24" height="32">
+  <object id="136" gid="394" x="104" y="1944" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="86"/>
     <property name="pathtime" type="float" value="0.90000000000000002"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="137" gid="397" x="144" y="1936" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.5"/>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
-  </object>
-  <object id="150" gid="391" x="80" y="1976" width="24" height="32">
+  <object id="150" gid="391" x="88" y="1952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="86"/>
     <property name="pathtime" type="float" value="0.90000000000000002"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="151" gid="385" x="88" y="1936" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.59999999999999998"/>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
-  </object>
-  <object id="152" gid="397" x="96" y="1920" width="24" height="32">
+  <object id="152" gid="397" x="80" y="1920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="86"/>
     <property name="pathtime" type="float" value="0.5"/>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
-  </object>
-  <object id="153" gid="373" x="80" y="1960" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.69999999999999996"/>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
-  </object>
-  <object id="154" gid="379" x="112" y="1960" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.80000000000000004"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
@@ -406,13 +578,6 @@
    <properties>
     <property name="pathid" type="int" value="85"/>
     <property name="pathtime" type="float" value="0.69999999999999996"/>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
-  </object>
-  <object id="159" gid="382" x="120" y="1944" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.59999999999999998"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
