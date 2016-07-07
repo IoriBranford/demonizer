@@ -18,6 +18,7 @@ local ShmupBullet = class(function(self, id)
 		else
 			fixture:setMask(ShmupCollision.Category_CameraEdge,
 					ShmupCollision.Category_NPC,
+					ShmupCollision.Category_InCoverNPC,
 					ShmupCollision.Category_NPCShot)
 		end
 	end

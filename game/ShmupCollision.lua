@@ -5,7 +5,8 @@ local ShmupCollision = {
 	Category_Player = 4,
 	Category_PlayerShot = 5,
 	Category_NPC = 6,
-	Category_NPCShot = 7
+	Category_NPCShot = 7,
+	Category_InCoverNPC = 8,
 }
 
 return ShmupCollision

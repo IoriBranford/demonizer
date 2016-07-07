@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 241,
+  nextobjectid = 259,
   properties = {
     ["music"] = "09 - Blue Sky Laundry.vgm",
     ["playerid"] = 1,
@@ -1129,7 +1129,7 @@ return {
           x = 0,
           y = 968,
           width = 288,
-          height = 104,
+          height = 48,
           rotation = 0,
           visible = true,
           properties = {
@@ -1270,6 +1270,72 @@ return {
     },
     {
       type = "objectgroup",
+      name = "windowarchers",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["dynamic"] = true
+      },
+      objects = {
+        {
+          id = 237,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 1120,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 238,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 1120,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 241,
+          name = "trigger",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 1032,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
       name = "knights",
       visible = true,
       opacity = 1,
@@ -1285,7 +1351,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -16,
-          y = 1168,
+          y = 1176,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1321,7 +1387,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -64,
-          y = 1176,
+          y = 1160,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1339,7 +1405,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -88,
-          y = 1176,
+          y = 1152,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1363,9 +1429,9 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 0 },
-            { x = 96, y = 32 },
-            { x = 200, y = 0 }
+            { x = 0, y = -8 },
+            { x = 96, y = 16 },
+            { x = 200, y = -8 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -1377,7 +1443,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -112,
-          y = 1168,
+          y = 1144,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1395,7 +1461,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -136,
-          y = 1168,
+          y = 1136,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1408,52 +1474,314 @@ return {
           }
         },
         {
-          id = 237,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 112,
-          y = 1120,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 164,
-          visible = true,
-          properties = {
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 238,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 192,
-          y = 1120,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 164,
-          visible = true,
-          properties = {
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
           id = 239,
           name = "trigger",
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 1104,
+          y = 1120,
           width = 288,
-          height = 64,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
             ["collidable"] = true,
             ["sensor"] = true,
             ["triggertype"] = "activategroup"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "Copy of hidingarchers",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["dynamic"] = true
+      },
+      objects = {
+        {
+          id = 244,
+          name = "trigger",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 1200,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 248,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 232,
+          y = 1296,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 249,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 168,
+          y = 1272,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 250,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 1248,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 251,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 1248,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 252,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 200,
+          y = 1280,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "hidingarchers",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["dynamic"] = true
+      },
+      objects = {
+        {
+          id = 243,
+          name = "trigger",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 1312,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 245,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 208,
+          y = 1368,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 246,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 1352,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 247,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 1368,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "diverarchers",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["dynamic"] = true
+      },
+      objects = {
+        {
+          id = 253,
+          name = "trigger",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 1432,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 254,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 1488,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 256,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 1528,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 257,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 24,
+          y = 1496,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 258,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 208,
+          y = 1456,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 164,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
           }
         }
       }

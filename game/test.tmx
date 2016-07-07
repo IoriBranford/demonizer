@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="241">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="259">
  <properties>
   <property name="music" value="09 - Blue Sky Laundry.vgm"/>
   <property name="playerid" type="int" value="1"/>
@@ -137,7 +137,7 @@
   <properties>
    <property name="dynamic" type="bool" value="true"/>
   </properties>
-  <object id="221" name="trigger" x="0" y="968" width="288" height="104">
+  <object id="221" name="trigger" x="0" y="968" width="288" height="48">
    <properties>
     <property name="collidable" type="bool" value="true"/>
     <property name="sensor" type="bool" value="true"/>
@@ -190,11 +190,34 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="windowarchers">
+  <properties>
+   <property name="dynamic" type="bool" value="true"/>
+  </properties>
+  <object id="237" gid="164" x="112" y="1120" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="238" gid="164" x="192" y="1120" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="241" name="trigger" x="0" y="1032">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+   <polyline points="0,0 288,0"/>
+  </object>
+ </objectgroup>
  <objectgroup name="knights">
   <properties>
    <property name="dynamic" type="bool" value="true"/>
   </properties>
-  <object id="186" gid="152" x="-16" y="1168" width="24" height="32">
+  <object id="186" gid="152" x="-16" y="1176" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="2"/>
@@ -208,14 +231,14 @@
     <property name="script" value="NPCKnight"/>
    </properties>
   </object>
-  <object id="190" gid="152" x="-64" y="1176" width="24" height="32">
+  <object id="190" gid="152" x="-64" y="1160" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="2"/>
     <property name="script" value="NPCKnight"/>
    </properties>
   </object>
-  <object id="191" gid="155" x="-88" y="1176" width="24" height="32">
+  <object id="191" gid="155" x="-88" y="1152" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="2"/>
@@ -226,37 +249,126 @@
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="0,0 96,32 200,0"/>
+   <polyline points="0,-8 96,16 200,-8"/>
   </object>
-  <object id="196" gid="152" x="-112" y="1168" width="24" height="32">
+  <object id="196" gid="152" x="-112" y="1144" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="2"/>
     <property name="script" value="NPCKnight"/>
    </properties>
   </object>
-  <object id="197" gid="155" x="-136" y="1168" width="24" height="32">
+  <object id="197" gid="155" x="-136" y="1136" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="2"/>
     <property name="script" value="NPCKnight"/>
    </properties>
   </object>
-  <object id="237" gid="164" x="112" y="1120" width="24" height="32">
-   <properties>
-    <property name="script" value="NPCArcher"/>
-   </properties>
-  </object>
-  <object id="238" gid="164" x="192" y="1120" width="24" height="32">
-   <properties>
-    <property name="script" value="NPCArcher"/>
-   </properties>
-  </object>
-  <object id="239" name="trigger" x="0" y="1104" width="288" height="64">
+  <object id="239" name="trigger" x="0" y="1120" width="288" height="8">
    <properties>
     <property name="collidable" type="bool" value="true"/>
     <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Copy of hidingarchers">
+  <properties>
+   <property name="dynamic" type="bool" value="true"/>
+  </properties>
+  <object id="244" name="trigger" x="0" y="1200">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+   <polyline points="0,0 288,0"/>
+  </object>
+  <object id="248" gid="164" x="232" y="1296" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="249" gid="164" x="168" y="1272" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="250" gid="164" x="80" y="1248" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="251" gid="164" x="48" y="1248" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="252" gid="164" x="200" y="1280" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="hidingarchers">
+  <properties>
+   <property name="dynamic" type="bool" value="true"/>
+  </properties>
+  <object id="243" name="trigger" x="0" y="1312">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+   <polyline points="0,0 288,0"/>
+  </object>
+  <object id="245" gid="164" x="208" y="1368" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="246" gid="164" x="96" y="1352" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="247" gid="164" x="128" y="1368" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="diverarchers">
+  <properties>
+   <property name="dynamic" type="bool" value="true"/>
+  </properties>
+  <object id="253" name="trigger" x="0" y="1432">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+   <polyline points="0,0 288,0"/>
+  </object>
+  <object id="254" gid="164" x="272" y="1488" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="256" gid="164" x="128" y="1528" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="257" gid="164" x="24" y="1496" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="258" gid="164" x="208" y="1456" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
    </properties>
   </object>
  </objectgroup>

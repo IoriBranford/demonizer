@@ -26,7 +26,11 @@ function LinearPath:getVelocityTo(i, fromx, fromy, pathtime)
 	local point = self.points[i]
 	local dx = point.x - fromx
 	local dy = point.y - fromy
-	local dist = math.sqrt(dx*dx + dy*dy)
+	local distsq = (dx*dx + dy*dy)
+	if distsq < 1 then
+		return 0,0
+	end
+	local dist = math.sqrt(distsq)
 	local dirx, diry = dx / dist, dy / dist
 	local speed = self.totallength / (pathtime or 1)
 	return dirx * speed, diry * speed
