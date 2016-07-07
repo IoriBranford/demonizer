@@ -58,9 +58,8 @@ local ShmupMap = class(function(self, id)
 	end
 end)
 
-
 function ShmupMap:keypressed_escape()
-	levity:setNextMap("test.lua")
+	levity:setNextMap(levity.mapfile)
 end
 
 return ShmupMap

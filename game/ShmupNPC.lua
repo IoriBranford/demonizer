@@ -32,10 +32,8 @@ local ShmupNPC = class(function(self, id)
 	self.captured = false
 
 	self.pathtimer = 0
-	local pathtime = self.properties.pathtime or 1
-	if pathtime then
-		self.pathspeed = 1 / pathtime
-	end
+	self.pathpoint = 1
+
 	local pathid = self.properties.pathid
 	if type(pathid) == "string" then
 		self.properties.pathid = tonumber(pathid)
@@ -153,21 +151,25 @@ function ShmupNPC:beginMove(dt)
 	end
 
 	local body = self.object.body
+	local vx0, vy0 = body:getLinearVelocity()
 
 	local pathid = self.properties.pathid
 	if pathid then
-		local vx, vy = levity.machine:call(pathid, "getVelocity",
-					self.pathtimer, self.pathspeed)
+		self.pathpoint = levity.machine:call(pathid, "updatePoint",
+			self.pathpoint, body:getX(), body:getY(), vx0, vy0)
 
 		self.pathtimer = self.pathtimer + dt
 
-		local pathfinished = levity.machine:call(pathid, "finished",
-					self.pathtimer, self.pathspeed)
-		if pathfinished then
+		if levity.machine:call(pathid, "finished", self.pathpoint)
+		or self.pathtimer >= self.properties.pathtime then
 			self.properties.pathid = nil
-		end
+		else
+			local vx, vy = levity.machine:call(pathid, "getVelocityTo",
+			self.pathpoint, body:getX(), body:getY(),
+			self.properties.pathtime)
 
-		body:setLinearVelocity(vx, vy)
+			body:setLinearVelocity(vx, vy)
+		end
 	else
 		body:setLinearVelocity(0, 0)
 	end

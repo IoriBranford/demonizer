@@ -4,6 +4,8 @@ require "class"
 
 local ShmupCam = class(function(self, id)
 	self.object = levity.map.objects[id]
+	self.x0 = self.object.x
+	self.properties = self.object.properties
 	self.object.visible = false
 	self.object.body:setFixedRotation(true)
 
@@ -29,10 +31,7 @@ local ShmupCam = class(function(self, id)
 	self.mapwidthratio = 1 - (self.object.width / mapwidth)
 
 	self.pathtimer = 0
-	local pathtime = self.object.properties.pathtime or 1
-	if pathtime then
-		self.pathspeed = 1 / pathtime
-	end
+	self.pathpoint = 1
 end)
 
 function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
@@ -81,20 +80,23 @@ function ShmupCam:beginMove(dt)
 	body:setMass(mass)
 	local vx0, vy0 = body:getLinearVelocity()
 
-	local pathid = self.object.properties.pathid
+	local pathid = self.properties.pathid
 	if pathid then
-		local vx, vy = levity.machine:call(pathid, "getVelocity",
-					self.pathtimer, self.pathspeed)
+		self.pathpoint = levity.machine:call(pathid, "updatePoint",
+			self.pathpoint, self.x0, body:getY(), vx0, vy0)
 
 		self.pathtimer = self.pathtimer + dt
 
-		local pathfinished = levity.machine:call(pathid, "finished",
-					self.pathtimer, self.pathspeed)
-		if pathfinished then
-			self.object.properties.pathid = nil
-		end
+		if levity.machine:call(pathid, "finished", self.pathpoint)
+		or self.pathtimer >= self.properties.pathtime then
+			self.properties.pathid = nil
+		else
+			local vx, vy = levity.machine:call(pathid, "getVelocityTo",
+			self.pathpoint, self.x0, body:getY(),
+			self.properties.pathtime)
 
-		body:setLinearVelocity(vx0, vy)
+			body:setLinearVelocity(vx0, vy)
+		end
 	else
 		body:setLinearVelocity(0, 0)
 	end
@@ -107,7 +109,8 @@ end
 
 function ShmupCam:swayWithPlayer(playerx)
 	self.object.body:setX(playerx * self.mapwidthratio)
-	self:endMove()
+	local cx, cy = self.object.body:getWorldCenter()
+	self.camera:set(cx, cy)
 end
 
 return ShmupCam

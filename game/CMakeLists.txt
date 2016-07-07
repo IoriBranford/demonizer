@@ -1,11 +1,17 @@
-project(game)
+project(game LANGUAGES NONE)
 
-file(GLOB GAMEFILES *.lua *.png *.vgm *.wav)
-install(FILES ${GAMEFILES} DESTINATION .)
-install(DIRECTORY levity sti DESTINATION .
-	FILES_MATCHING PATTERN "*.lua")
+file(GLOB_RECURSE SOURCES
+	LIST_DIRECTORIES false
+	RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+	*.lua)
 
-set(CPACK_PACKAGE_FILE_NAME "game")
-set(CPACK_GENERATOR "ZIP")
-set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY false)
-include(CPack)
+file(GLOB ASSETS
+	LIST_DIRECTORIES false
+	RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+	*.png *.vgm *.wav)
+
+add_custom_command(OUTPUT game.love
+	COMMAND cmake -E tar "cfv" "game.love" --format=zip ${SOURCES} ${ASSETS}
+	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_custom_target(game DEPENDS game.love)

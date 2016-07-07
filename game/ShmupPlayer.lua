@@ -70,6 +70,10 @@ function ShmupPlayer:playSound(soundfile)
 	end
 end
 
+function ShmupPlayer:rank()
+	return self.numallies / ShmupPlayer.MaxAllies
+end
+
 function ShmupPlayer:roomForAllies()
 	return self.numallies < ShmupPlayer.MaxAllies
 end
@@ -169,7 +173,6 @@ end
 function ShmupPlayer:beginMove(dt)
 	local body = self.object.body
 	local cx, cy = body:getWorldCenter()
-	local vx0, vy0 = body:getLinearVelocity()
 	local vx1, vy1 = self.vx, self.vy
 
 	if self.didmousemove then

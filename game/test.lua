@@ -813,7 +813,7 @@ return {
     {
       type = "objectgroup",
       name = "camera",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -849,7 +849,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          visible = false,
+          visible = true,
           polyline = {
             { x = 0, y = 0 },
             { x = 0, y = -1800 }
@@ -942,7 +942,7 @@ return {
             { x = -128, y = -48 }
           },
           properties = {
-            ["script"] = "BezierPath"
+            ["script"] = "LinearPath"
           }
         },
         {
@@ -1015,7 +1015,7 @@ return {
             { x = 176, y = 8 }
           },
           properties = {
-            ["script"] = "BezierPath"
+            ["script"] = "LinearPath"
           }
         },
         {
@@ -1155,7 +1155,7 @@ return {
             { x = -184, y = 32 }
           },
           properties = {
-            ["script"] = "BezierPath"
+            ["script"] = "LinearPath"
           }
         },
         {
@@ -1175,7 +1175,7 @@ return {
             { x = -32, y = 40 }
           },
           properties = {
-            ["script"] = "BezierPath"
+            ["script"] = "LinearPath"
           }
         },
         {
@@ -1368,7 +1368,7 @@ return {
             { x = 200, y = 0 }
           },
           properties = {
-            ["script"] = "BezierPath"
+            ["script"] = "LinearPath"
           }
         },
         {
@@ -1518,12 +1518,12 @@ return {
           polyline = {
             { x = 0, y = 0 },
             { x = -104, y = 32 },
-            { x = -232, y = 56 },
-            { x = -112, y = 96 },
+            { x = -160, y = 56 },
+            { x = -136, y = 120 },
             { x = 0, y = 96 }
           },
           properties = {
-            ["script"] = "BezierPath"
+            ["script"] = "LinearPath"
           }
         },
         {
@@ -1540,12 +1540,12 @@ return {
           polyline = {
             { x = 0, y = 0 },
             { x = 96, y = 32 },
-            { x = 224, y = 56 },
-            { x = 104, y = 96 },
+            { x = 152, y = 56 },
+            { x = 128, y = 120 },
             { x = 0, y = 96 }
           },
           properties = {
-            ["script"] = "BezierPath"
+            ["script"] = "LinearPath"
           }
         },
         {
@@ -1615,7 +1615,7 @@ return {
             { x = 352, y = -32 }
           },
           properties = {
-            ["script"] = "BezierPath"
+            ["script"] = "LinearPath"
           }
         },
         {
@@ -1743,7 +1743,7 @@ return {
             { x = -344, y = -80 }
           },
           properties = {
-            ["script"] = "BezierPath"
+            ["script"] = "LinearPath"
           }
         }
       }
@@ -1813,7 +1813,7 @@ return {
             { x = -344, y = -80 }
           },
           properties = {
-            ["script"] = "BezierPath"
+            ["script"] = "LinearPath"
           }
         },
         {
@@ -1900,7 +1900,7 @@ return {
             { x = 352, y = -32 }
           },
           properties = {
-            ["script"] = "BezierPath"
+            ["script"] = "LinearPath"
           }
         },
         {
@@ -2078,7 +2078,7 @@ return {
             { x = -272, y = 0 }
           },
           properties = {
-            ["script"] = "BezierPath"
+            ["script"] = "LinearPath"
           }
         },
         {
@@ -2101,7 +2101,7 @@ return {
             { x = 272, y = 0 }
           },
           properties = {
-            ["script"] = "BezierPath"
+            ["script"] = "LinearPath"
           }
         }
       }
