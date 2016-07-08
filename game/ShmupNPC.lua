@@ -40,6 +40,7 @@ local ShmupNPC = class(function(self, id)
 	end
 
 	self.oncamera = false
+	self.incover = false
 
 	self.bleedouttimer = 0
 end)
@@ -66,7 +67,16 @@ function ShmupNPC:setActive(active)
 	self.ready = false
 end
 
+function ShmupNPC:suppress()
+	return
+end
+
 function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
+	if self.incover then
+		self:suppress()
+		return
+	end
+
 	self.health = self.health - 1
 	if self.health <= 0 then
 		self.properties.pathid = nil
@@ -111,6 +121,22 @@ function ShmupNPC:endContact(myfixture, otherfixture, contact)
 
 	if category == ShmupCollision.Category_Camera then
 		self.oncamera = false
+	end
+end
+
+function ShmupNPC:setInCover(incover)
+	self.incover = incover
+
+	local category
+	if incover then
+		category = ShmupCollision.Category_InCoverNPC
+	else
+		category = ShmupCollision.Category_NPC
+	end
+
+	local fixtures = self.object.body:getFixtureList()
+	for _, fixture in ipairs(fixtures) do
+		fixture:setCategory(category)
 	end
 end
 
@@ -187,25 +213,29 @@ function ShmupNPC:beginMove(dt)
 end
 
 function ShmupNPC:beginDraw()
+	local red, green, blue, alpha = 0xff,0xff,0xff,0xff
+
 	if self.bleedouttimer > 0 then
 		local flashrate = 60 * math.sqrt(self.bleedouttimer)
 		local flash = 0x80 * (math.cos(flashrate*math.pi) + 3)
 
-		local red, green, blue = flash, flash, flash
+		red, green, blue = flash, flash, flash
 		if self.female then
 			green = 0xff
 		end
 
-		local alpha = math.min(self.bleedouttimer * 0xff, 0xff)
-
-		love.graphics.setColor(red, green, blue, alpha)
+		alpha = math.min(self.bleedouttimer * 0xff, 0xff)
 	end
+
+	if self.incover then
+		alpha = alpha * .5
+	end
+
+	love.graphics.setColor(red, green, blue, alpha)
 end
 
 function ShmupNPC:endDraw()
-	if self.bleedouttimer > 0 then
-		love.graphics.setColor(0xff, 0xff, 0xff)
-	end
+	love.graphics.setColor(0xff, 0xff, 0xff)
 end
 
 return ShmupNPC
