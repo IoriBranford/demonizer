@@ -16,7 +16,7 @@
   <property name="row_knight1" type="int" value="8"/>
   <property name="row_knight2" type="int" value="9"/>
   <property name="row_priest" type="int" value="10"/>
-  <property name="row_wizard" type="int" value="11"/>
+  <property name="row_mage" type="int" value="11"/>
  </properties>
  <image source="demonwomen.png" width="192" height="832"/>
  <tile id="0">

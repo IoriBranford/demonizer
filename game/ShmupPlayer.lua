@@ -185,7 +185,7 @@ function ShmupPlayer:beginMove(dt)
 
 	self.shieldtimer = math.max(0, self.shieldtimer - dt)
 
-	local cameraid = self.object.properties.cameraid
+	local cameraid = levity.map.properties.cameraid
 	local camera = nil
 	if cameraid then
 		camera = levity.map.objects[cameraid]
@@ -253,7 +253,7 @@ function ShmupPlayer:beginMove(dt)
 end
 
 function ShmupPlayer:endMove(dt)
-	local cameraid = self.object.properties.cameraid
+	local cameraid = levity.map.properties.cameraid
 	local camera = nil
 	if cameraid then
 		camera = levity.map.objects[cameraid]

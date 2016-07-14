@@ -32,6 +32,7 @@ local ShmupCam = class(function(self, id)
 
 	self.pathtimer = 0
 	self.pathpoint = 1
+	self.pathpaused = false
 end)
 
 function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
@@ -40,6 +41,12 @@ function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
 	for _, object in ipairs(triggerlayer.objects) do
 		levity.machine:call(object.id, "activate")
 	end
+end
+
+function ShmupCam:beginContact_pausecamera(myfixture, otherfixture, contact)
+	local triggerobject = otherfixture:getUserData().object
+	triggerobject.destroy = true
+	self:pausePath(true)
 end
 
 function ShmupCam:endContact_activategroup(myfixture, otherfixture, contact)
@@ -55,9 +62,9 @@ function ShmupCam:beginContact(myfixture, otherfixture, contact)
 
 	local triggertype = otherproperties.triggertype
 	if triggertype then
-		local bc = self["beginContact_"..triggertype]
-		if bc then
-			bc(self, myfixture, otherfixture, contact)
+		local f = self["beginContact_"..triggertype]
+		if f then
+			f(self, myfixture, otherfixture, contact)
 		end
 	end
 end
@@ -67,9 +74,9 @@ function ShmupCam:endContact(myfixture, otherfixture, contact)
 
 	local triggertype = otherproperties.triggertype
 	if triggertype then
-		local bc = self["endContact_"..triggertype]
-		if bc then
-			bc(self, myfixture, otherfixture, contact)
+		local f = self["endContact_"..triggertype]
+		if f then
+			f(self, myfixture, otherfixture, contact)
 		end
 	end
 end
@@ -81,21 +88,21 @@ function ShmupCam:beginMove(dt)
 	local vx0, vy0 = body:getLinearVelocity()
 
 	local pathid = self.properties.pathid
-	if pathid then
+	if pathid and not self.pathpaused then
+		local pathtime = self.properties.pathtime
+		local vx, vy = levity.machine:call(pathid, "getVelocityTo",
+			self.pathpoint, self.x0, body:getY(), pathtime)
+
+		body:setLinearVelocity(vx0, vy)
+
 		self.pathpoint = levity.machine:call(pathid, "updatePoint",
-			self.pathpoint, self.x0, body:getY(), vx0, vy0)
+			self.pathpoint, self.x0, body:getY(), vx0, vy)
 
 		self.pathtimer = self.pathtimer + dt
 
 		if levity.machine:call(pathid, "finished", self.pathpoint)
-		or self.pathtimer >= self.properties.pathtime then
+		or self.pathtimer >= pathtime then
 			self.properties.pathid = nil
-		else
-			local vx, vy = levity.machine:call(pathid, "getVelocityTo",
-			self.pathpoint, self.x0, body:getY(),
-			self.properties.pathtime)
-
-			body:setLinearVelocity(vx0, vy)
 		end
 	else
 		body:setLinearVelocity(0, 0)
@@ -111,6 +118,10 @@ function ShmupCam:swayWithPlayer(playerx)
 	self.object.body:setX(playerx * self.mapwidthratio)
 	local cx, cy = self.object.body:getWorldCenter()
 	self.camera:set(cx, cy)
+end
+
+function ShmupCam:pausePath(pause)
+	self.pathpaused = pause
 end
 
 return ShmupCam

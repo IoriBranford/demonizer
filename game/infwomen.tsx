@@ -6,7 +6,7 @@
   <property name="column_knight1" type="int" value="0"/>
   <property name="column_knight2" type="int" value="3"/>
   <property name="column_priest" type="int" value="6"/>
-  <property name="column_wizard" type="int" value="9"/>
+  <property name="column_mage" type="int" value="9"/>
   <property name="commonanimation" type="int" value="0"/>
   <property name="commoncollision" type="int" value="0"/>
   <property name="row_down" type="int" value="2"/>

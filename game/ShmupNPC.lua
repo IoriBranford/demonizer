@@ -3,6 +3,39 @@ local ShmupCollision = require "ShmupCollision"
 local ShmupAlly = levity.machine:requireScript("ShmupAlly")
 require "class"
 
+--- Convert function call string into table
+-- @param self object whose member function to call
+-- @param callstring in the form "function,arg1,arg2,..."
+-- @return Array in the form { function, self, arg1, arg2, ... }
+local function parseMemberFunctionCall(self, callstring)
+	local func = string.match(callstring, "(%w+),?")
+	local call = nil
+	if func and type(self[func]) == "function" then
+		call = { self[func], self }
+
+		local argstring = string.sub(callstring, #func + 1)
+		for arg in argstring:gmatch(",%s-([%w%.]+)") do
+			if arg == "true" then
+				table.insert(call, true)
+			elseif arg == "false" then
+				table.insert(call, false)
+			elseif tonumber(arg) then
+				table.insert(call, tonumber(arg))
+			else
+				table.insert(call, arg)
+			end
+		end
+
+		setmetatable(call, {
+			__call = function(t)
+				return t[1](unpack(t, 2))
+			end
+		})
+	end
+
+	return call
+end
+
 local ShmupNPC = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.properties = self.object.properties
@@ -43,7 +76,19 @@ local ShmupNPC = class(function(self, id)
 	self.incover = false
 
 	self.bleedouttimer = 0
+
+	local onKO = self.properties.onKO
+	if onKO then
+		self.properties.onKO = parseMemberFunctionCall(self, onKO)
+	end
 end)
+
+function ShmupNPC:unpauseCamera()
+	local cameraid = levity.map.properties.cameraid
+	if cameraid then
+		levity.machine:call(cameraid, "pausePath", false)
+	end
+end
 
 local Sounds = {
 	Hit = "hit.wav",
@@ -93,6 +138,11 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 		levity.bank:play(Sounds.KO)
 
 		self.bleedouttimer = ShmupNPC.BleedOutTime
+
+		local onKO = self.properties.onKO
+		if onKO then
+			onKO()
+		end
 	else
 		levity.bank:play(Sounds.Hit)
 	end
@@ -140,7 +190,7 @@ function ShmupNPC:setInCover(incover)
 	end
 end
 
-function ShmupNPC:capturedByPlayer()
+function ShmupNPC:capture()
 	local playerid = levity.map.properties.playerid
 	local roomforallies = levity.machine:call(playerid, "roomForAllies")
 
@@ -181,27 +231,27 @@ function ShmupNPC:beginMove(dt)
 
 	local pathid = self.properties.pathid
 	if pathid then
+		local pathtime = self.properties.pathtime
+		local vx, vy = levity.machine:call(pathid, "getVelocityTo",
+			self.pathpoint, body:getX(), body:getY(), pathtime)
+
+		body:setLinearVelocity(vx, vy)
+
 		self.pathpoint = levity.machine:call(pathid, "updatePoint",
-			self.pathpoint, body:getX(), body:getY(), vx0, vy0)
+			self.pathpoint, body:getX(), body:getY(), vx, vy)
 
 		self.pathtimer = self.pathtimer + dt
 
 		if levity.machine:call(pathid, "finished", self.pathpoint)
-		or self.pathtimer >= self.properties.pathtime then
+		or self.pathtimer >= pathtime then
 			self.properties.pathid = nil
-		else
-			local vx, vy = levity.machine:call(pathid, "getVelocityTo",
-			self.pathpoint, body:getX(), body:getY(),
-			self.properties.pathtime)
-
-			body:setLinearVelocity(vx, vy)
 		end
 	else
 		body:setLinearVelocity(0, 0)
 	end
 
 	if self.captured then
-		self:capturedByPlayer()
+		self:capture()
 	end
 
 	if self.bleedouttimer > 0 then
