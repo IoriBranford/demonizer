@@ -3,6 +3,16 @@ local ShmupCollision = require "ShmupCollision"
 local ShmupAlly = levity.machine:requireScript("ShmupAlly")
 require "class"
 
+local Sounds = {
+	Hit = "hit.wav",
+	KO = "knockout.wav",
+	FemaleCapture = "item1.wav",
+	MaleCapture = "item2.wav",
+	Convert = "warp.wav",
+	BossWarning = "alarm4.wav"
+}
+levity.bank:load(Sounds)
+
 --- Convert function call string into table
 -- @param self object whose member function to call
 -- @param callstring in the form "function,arg1,arg2,..."
@@ -77,27 +87,15 @@ local ShmupNPC = class(function(self, id)
 
 	self.bleedouttimer = 0
 
+	local onActivate = self.properties.onActivate
+	if onActivate then
+		self.onActivate = parseMemberFunctionCall(self, onActivate)
+	end
 	local onKO = self.properties.onKO
 	if onKO then
-		self.properties.onKO = parseMemberFunctionCall(self, onKO)
+		self.onKO = parseMemberFunctionCall(self, onKO)
 	end
 end)
-
-function ShmupNPC:unpauseCamera()
-	local cameraid = levity.map.properties.cameraid
-	if cameraid then
-		levity.machine:call(cameraid, "pausePath", false)
-	end
-end
-
-local Sounds = {
-	Hit = "hit.wav",
-	KO = "knockout.wav",
-	FemaleCapture = "item1.wav",
-	MaleCapture = "item2.wav",
-	Convert = "warp.wav"
-}
-levity.bank:load(Sounds)
 
 ShmupNPC.BleedOutTime = 5
 ShmupNPC.ShotLayer = nil -- ShmupMap, set me once it's created
@@ -139,9 +137,8 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 
 		self.bleedouttimer = ShmupNPC.BleedOutTime
 
-		local onKO = self.properties.onKO
-		if onKO then
-			onKO()
+		if self.onKO then
+			self.onKO()
 		end
 	else
 		levity.bank:play(Sounds.Hit)
@@ -220,6 +217,9 @@ end
 function ShmupNPC:beginMove(dt)
 	if self.ready == true then
 		self:setActive(true)
+		if self.onActivate then
+			self.onActivate()
+		end
 	end
 
 	if not self.object.visible then
@@ -286,6 +286,20 @@ end
 
 function ShmupNPC:endDraw()
 	love.graphics.setColor(0xff, 0xff, 0xff)
+end
+
+function ShmupNPC:unpauseCamera()
+	local cameraid = levity.map.properties.cameraid
+	if cameraid then
+		levity.machine:call(cameraid, "pausePath", false)
+	end
+end
+
+function ShmupNPC:playSound(sound)
+	sound = Sounds[sound]
+	if sound then
+		levity.bank:play(sound)
+	end
 end
 
 return ShmupNPC

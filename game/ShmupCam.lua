@@ -41,6 +41,11 @@ function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
 	for _, object in ipairs(triggerlayer.objects) do
 		levity.machine:call(object.id, "activate")
 	end
+
+	local music = triggerlayer.properties.music
+	if music then
+		levity.bank:changeMusic(music, "emu", true)
+	end
 end
 
 function ShmupCam:beginContact_pausecamera(myfixture, otherfixture, contact)

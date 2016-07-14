@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 270,
+  nextobjectid = 271,
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
@@ -930,7 +930,8 @@ return {
       offsety = 0,
       draworder = "topdown",
       properties = {
-        ["dynamic"] = true
+        ["dynamic"] = true,
+        ["music"] = "06 - Approaching.vgm"
       },
       objects = {
         {
@@ -946,6 +947,7 @@ return {
           gid = 173,
           visible = true,
           properties = {
+            ["onActivate"] = "playSound,BossWarning",
             ["script"] = "ShmupNPC"
           }
         },
@@ -967,7 +969,7 @@ return {
           properties = {
             ["collidable"] = true,
             ["sensor"] = true,
-            ["triggertype"] = "activateboss"
+            ["triggertype"] = "activategroup"
           }
         }
       }
