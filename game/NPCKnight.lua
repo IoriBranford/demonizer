@@ -11,7 +11,7 @@ local NPCKnight = class(ShmupNPC, function(self, id)
 end)
 
 NPCKnight.BulletSpeed = 2*60
-NPCKnight.BulletInterval = 1
+NPCKnight.BulletInterval = 1.5
 
 function NPCKnight:updateFiring(dt)
 	local cx, cy = self.object.body:getWorldCenter()
@@ -27,11 +27,18 @@ function NPCKnight:updateFiring(dt)
 	end
 
 	if self.firetimer <= 0 then
-		self.firetimer = ShmupBullet.fireOverTime(
-			self.firetimer, NPCKnight.BulletInterval, cx, cy,
-			NPCKnight.BulletSpeed, math.atan2(playerdy, playerdx),
-			"knightshot", 0, ShmupNPC.ShotLayer,
-			ShmupCollision.Category_NPCShot)
+		local arc = math.pi*.25
+		local angle = math.atan2(playerdy, playerdx) - arc
+		local firetimer = self.firetimer
+		for i = 1, 3 do
+			firetimer = ShmupBullet.fireOverTime(
+				self.firetimer, NPCKnight.BulletInterval, cx, cy,
+				NPCKnight.BulletSpeed, angle,
+				"knightshot", 0, ShmupNPC.ShotLayer,
+				ShmupCollision.Category_NPCShot)
+			angle = angle + arc
+		end
+		self.firetimer = firetimer
 
 		levity.bank:play("sword.wav")
 	end

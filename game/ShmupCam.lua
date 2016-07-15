@@ -42,15 +42,21 @@ function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
 		levity.machine:call(object.id, "activate")
 	end
 
-	local music = triggerlayer.properties.music
+	local music = triggerlayer.properties.activatemusic
 	if music then
-		levity.bank:changeMusic(music, "emu", true)
+		levity.bank:changeMusic(music, "emu", 4)
+	end
+
+	local sound = triggerlayer.properties.activatesound
+	if sound then
+		levity.bank:load(sound, "static")
+		levity.bank:play(sound)
 	end
 end
 
 function ShmupCam:beginContact_pausecamera(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getUserData().object
-	triggerobject.destroy = true
+	triggerobject.dead = true
 	self:pausePath(true)
 end
 
@@ -58,7 +64,7 @@ function ShmupCam:endContact_activategroup(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getUserData().object
 	local triggerlayer = triggerobject.layer
 	for _, object in ipairs(triggerlayer.objects) do
-		object.destroy = true
+		object.dead = true
 	end
 end
 

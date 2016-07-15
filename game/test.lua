@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 271,
+  nextobjectid = 318,
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
@@ -893,7 +893,6 @@ return {
           visible = true,
           properties = {
             ["collidable"] = true,
-            ["dynamic"] = true,
             ["pathid"] = 44,
             ["pathtime"] = 60,
             ["script"] = "ShmupCam",
@@ -930,8 +929,8 @@ return {
       offsety = 0,
       draworder = "topdown",
       properties = {
-        ["dynamic"] = true,
-        ["music"] = "06 - Approaching.vgm"
+        ["activatemusic"] = "06 - Approaching.vgm",
+        ["activatesound"] = "alarm4.wav"
       },
       objects = {
         {
@@ -947,7 +946,6 @@ return {
           gid = 173,
           visible = true,
           properties = {
-            ["onActivate"] = "playSound,BossWarning",
             ["script"] = "ShmupNPC"
           }
         },
@@ -957,7 +955,7 @@ return {
           type = "",
           shape = "polyline",
           x = 0,
-          y = 160,
+          y = 120,
           width = 0,
           height = 0,
           rotation = 0,
@@ -976,15 +974,517 @@ return {
     },
     {
       type = "objectgroup",
+      name = "roofarchers2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 290,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 184,
+          y = 336,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 293,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 104,
+          y = 352,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 294,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 352,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 297,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 160,
+          y = 336,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 300,
+          name = "trigger",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 328,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 301,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 208,
+          y = 336,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 302,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 232,
+          y = 336,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 303,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 152,
+          y = 352,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 305,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 352,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 306,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 264,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["pathid"] = 312,
+            ["pathtime"] = 1,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 307,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 264,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["pathid"] = 313,
+            ["pathtime"] = 1,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 308,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 264,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["pathid"] = 314,
+            ["pathtime"] = 1,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 309,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 264,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["pathid"] = 315,
+            ["pathtime"] = 1,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 310,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 264,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["pathid"] = 316,
+            ["pathtime"] = 1,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 311,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 264,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["pathid"] = 317,
+            ["pathtime"] = 1,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 312,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 120,
+          y = 296,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 24, y = -32 },
+            { x = -32, y = 48 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 313,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 160,
+          y = 280,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = -16 },
+            { x = -48, y = 64 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 314,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 152,
+          y = 296,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -8, y = -32 },
+            { x = -16, y = 48 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 315,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 176,
+          y = 280,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -32, y = -16 },
+            { x = 0, y = 48 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 316,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 192,
+          y = 320,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -48, y = -56 },
+            { x = 8, y = 8 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 317,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 232,
+          y = 320,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -88, y = -56 },
+            { x = -8, y = 8 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "knights3",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 278,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 392,
+          width = 288,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 279,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 464,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 161,
+          visible = true,
+          properties = {
+            ["pathid"] = 288,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCKnight"
+          }
+        },
+        {
+          id = 281,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 120,
+          y = 496,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 24, y = -32 },
+            { x = 24, y = 24 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 282,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 464,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 158,
+          visible = true,
+          properties = {
+            ["pathid"] = 281,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCKnight"
+          }
+        },
+        {
+          id = 284,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 440,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 170,
+          visible = true,
+          properties = {
+            ["pathid"] = 281,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 288,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 120,
+          y = 496,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 24, y = -32 },
+            { x = -8, y = 24 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
       name = "mage",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 260,
@@ -1055,79 +1555,23 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
-        {
-          id = 206,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 304,
-          y = 872,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 161,
-          visible = true,
-          properties = {
-            ["pathid"] = 211,
-            ["pathtime"] = 2,
-            ["script"] = "NPCKnight"
-          }
-        },
-        {
-          id = 208,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 352,
-          y = 872,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 161,
-          visible = true,
-          properties = {
-            ["pathid"] = 211,
-            ["pathtime"] = 2,
-            ["script"] = "NPCKnight"
-          }
-        },
-        {
-          id = 209,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 328,
-          y = 872,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 158,
-          visible = true,
-          properties = {
-            ["pathid"] = 211,
-            ["pathtime"] = 2,
-            ["script"] = "NPCKnight"
-          }
-        },
         {
           id = 211,
           name = "path",
           type = "",
           shape = "polyline",
-          x = 280,
-          y = 904,
+          x = 304,
+          y = 872,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 24, y = -32 },
-            { x = -48, y = -48 },
-            { x = -128, y = -48 }
+            { x = -40, y = -8 },
+            { x = -112, y = -8 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -1139,9 +1583,9 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 840,
+          y = 864,
           width = 288,
-          height = 40,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -1156,7 +1600,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -40,
-          y = 880,
+          y = 912,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1164,25 +1608,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 219,
-            ["pathtime"] = 2,
-            ["script"] = "NPCKnight"
-          }
-        },
-        {
-          id = 217,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -64,
-          y = 880,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 158,
-          visible = true,
-          properties = {
-            ["pathid"] = 219,
-            ["pathtime"] = 2,
+            ["pathtime"] = 1.5,
             ["script"] = "NPCKnight"
           }
         },
@@ -1191,37 +1617,18 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = -24,
-          y = 912,
+          x = -64,
+          y = 944,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 24, y = -32 },
-            { x = 96, y = -32 },
-            { x = 176, y = 8 }
+            { x = 168, y = -32 }
           },
           properties = {
             ["script"] = "LinearPath"
-          }
-        },
-        {
-          id = 220,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -16,
-          y = 880,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 158,
-          visible = true,
-          properties = {
-            ["pathid"] = 219,
-            ["pathtime"] = 2,
-            ["script"] = "NPCKnight"
           }
         },
         {
@@ -1229,16 +1636,16 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = -32,
-          y = 864,
+          x = -24,
+          y = 896,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 170,
           visible = true,
           properties = {
-            ["pathid"] = 219,
-            ["pathtime"] = 2,
+            ["pathid"] = 272,
+            ["pathtime"] = 1.5,
             ["script"] = "NPCArcher"
           }
         },
@@ -1248,15 +1655,15 @@ return {
           type = "",
           shape = "rectangle",
           x = -56,
-          y = 864,
+          y = 896,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 170,
           visible = true,
           properties = {
-            ["pathid"] = 219,
-            ["pathtime"] = 2,
+            ["pathid"] = 272,
+            ["pathtime"] = 1.5,
             ["script"] = "NPCArcher"
           }
         },
@@ -1266,15 +1673,15 @@ return {
           type = "",
           shape = "rectangle",
           x = 344,
-          y = 856,
+          y = 824,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 170,
           visible = true,
           properties = {
-            ["pathid"] = 211,
-            ["pathtime"] = 2,
+            ["pathid"] = 273,
+            ["pathtime"] = 1.5,
             ["script"] = "NPCArcher"
           }
         },
@@ -1283,17 +1690,74 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 320,
-          y = 856,
+          x = 312,
+          y = 824,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 170,
           visible = true,
           properties = {
-            ["pathid"] = 211,
-            ["pathtime"] = 2,
+            ["pathid"] = 273,
+            ["pathtime"] = 1.5,
             ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 273,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 288,
+          y = 856,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 24, y = -32 },
+            { x = -40, y = -8 },
+            { x = -112, y = -8 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 272,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = -48,
+          y = 928,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 24, y = -32 },
+            { x = 168, y = -32 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 232,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 328,
+          y = 840,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 80,
+          visible = true,
+          properties = {
+            ["pathid"] = 211,
+            ["pathtime"] = 1,
+            ["script"] = "NPCKnight"
           }
         }
       }
@@ -1306,9 +1770,7 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 221,
@@ -1318,7 +1780,7 @@ return {
           x = 0,
           y = 968,
           width = 288,
-          height = 48,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -1339,9 +1801,9 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -216, y = 8 },
-            { x = -192, y = 8 },
-            { x = -184, y = 32 }
+            { x = -224, y = -16 },
+            { x = -208, y = 0 },
+            { x = -184, y = 24 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -1359,8 +1821,8 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -8, y = 8 },
-            { x = -32, y = 16 },
+            { x = 0, y = -32 },
+            { x = 0, y = 8 },
             { x = -32, y = 40 }
           },
           properties = {
@@ -1373,7 +1835,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 80,
-          y = 992,
+          y = 984,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1391,7 +1853,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 208,
-          y = 944,
+          y = 920,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1401,42 +1863,6 @@ return {
             ["pathid"] = 224,
             ["pathtime"] = 2,
             ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 230,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 88,
-          y = 1000,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 158,
-          visible = true,
-          properties = {
-            ["pathid"] = 223,
-            ["pathtime"] = 1,
-            ["script"] = "NPCKnight"
-          }
-        },
-        {
-          id = 232,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 200,
-          y = 952,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 80,
-          visible = true,
-          properties = {
-            ["pathid"] = 224,
-            ["pathtime"] = 1,
-            ["script"] = "NPCKnight"
           }
         },
         {
@@ -1465,9 +1891,7 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 237,
@@ -1532,9 +1956,7 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 186,
@@ -1542,7 +1964,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -16,
-          y = 1176,
+          y = 1184,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1550,61 +1972,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 195,
-            ["pathtime"] = 2,
-            ["script"] = "NPCKnight"
-          }
-        },
-        {
-          id = 188,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -40,
-          y = 1168,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 161,
-          visible = true,
-          properties = {
-            ["pathid"] = 195,
-            ["pathtime"] = 2,
-            ["script"] = "NPCKnight"
-          }
-        },
-        {
-          id = 190,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -64,
-          y = 1160,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 158,
-          visible = true,
-          properties = {
-            ["pathid"] = 195,
-            ["pathtime"] = 2,
-            ["script"] = "NPCKnight"
-          }
-        },
-        {
-          id = 191,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -88,
-          y = 1152,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 161,
-          visible = true,
-          properties = {
-            ["pathid"] = 195,
-            ["pathtime"] = 2,
+            ["pathtime"] = 1.5,
             ["script"] = "NPCKnight"
           }
         },
@@ -1620,30 +1988,11 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = -8 },
-            { x = 96, y = 16 },
-            { x = 200, y = -8 }
+            { x = 0, y = 0 },
+            { x = 128, y = 0 }
           },
           properties = {
             ["script"] = "LinearPath"
-          }
-        },
-        {
-          id = 196,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -112,
-          y = 1144,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 158,
-          visible = true,
-          properties = {
-            ["pathid"] = 195,
-            ["pathtime"] = 2,
-            ["script"] = "NPCKnight"
           }
         },
         {
@@ -1651,16 +2000,16 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = -136,
-          y = 1136,
+          x = 336,
+          y = 1168,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 161,
           visible = true,
           properties = {
-            ["pathid"] = 195,
-            ["pathtime"] = 2,
+            ["pathid"] = 271,
+            ["pathtime"] = 1.5,
             ["script"] = "NPCKnight"
           }
         },
@@ -1680,6 +2029,25 @@ return {
             ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
+        },
+        {
+          id = 271,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 336,
+          y = 1168,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -144, y = 0 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
         }
       }
     },
@@ -1691,9 +2059,7 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 244,
@@ -1723,22 +2089,6 @@ return {
           shape = "rectangle",
           x = 232,
           y = 1296,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 170,
-          visible = true,
-          properties = {
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 249,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 168,
-          y = 1272,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1806,9 +2156,7 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 243,
@@ -1889,9 +2237,7 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 253,
@@ -1915,44 +2261,12 @@ return {
           }
         },
         {
-          id = 254,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 272,
-          y = 1488,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 170,
-          visible = true,
-          properties = {
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
           id = 256,
           name = "",
           type = "",
           shape = "rectangle",
           x = 128,
           y = 1528,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 170,
-          visible = true,
-          properties = {
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 257,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 24,
-          y = 1496,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1988,9 +2302,7 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 116,
@@ -2099,9 +2411,7 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 177,
@@ -2280,9 +2590,7 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 113,
@@ -2386,9 +2694,7 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 67,
@@ -2492,9 +2798,7 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 65,
@@ -2641,9 +2945,7 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 43,
@@ -2894,9 +3196,7 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {
-        ["dynamic"] = true
-      },
+      properties = {},
       objects = {
         {
           id = 1,

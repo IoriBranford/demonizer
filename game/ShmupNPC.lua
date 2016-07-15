@@ -192,7 +192,7 @@ function ShmupNPC:capture()
 	local roomforallies = levity.machine:call(playerid, "roomForAllies")
 
 	if not roomforallies or not self.female then
-		self.object.destroy = true
+		self.object.dead = true
 	else
 		local player = levity.map.objects[playerid]
 		if player then
@@ -257,7 +257,7 @@ function ShmupNPC:beginMove(dt)
 	if self.bleedouttimer > 0 then
 		self.bleedouttimer = self.bleedouttimer - dt
 		if self.bleedouttimer <= 0 then
-			self.object.destroy = true
+			self.object.dead = true
 		end
 	end
 end

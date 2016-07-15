@@ -27,13 +27,13 @@ end)
 function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
 	if otherfixture:getCategory() == ShmupCollision.Category_Player
 	or otherfixture:getCategory() == ShmupCollision.Category_NPC then
-		self.object.destroy = true
+		self.object.dead = true
 	end
 end
 
 function ShmupBullet:endContact(yourfixture, otherfixture, contact)
 	if otherfixture:getCategory() == ShmupCollision.Category_Camera then
-		self.object.destroy = true
+		self.object.dead = true
 	end
 end
 

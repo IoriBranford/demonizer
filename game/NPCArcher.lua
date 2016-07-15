@@ -12,10 +12,10 @@ local NPCArcher = class(ShmupNPC, function(self, id)
 	self.health = 2
 end)
 
-NPCArcher.BulletSpeed = 4*60
+NPCArcher.BulletSpeed = 3*60
 NPCArcher.BulletInterval = BulletInterval
-NPCArcher.LeaveCoverTime = .5
-NPCArcher.PlayerShotSuppression = 1/8
+NPCArcher.LeaveCoverTime = 1
+NPCArcher.PlayerShotSuppression = 3/16
 
 function NPCArcher:updateFiring(dt)
 	local cx, cy = self.object.body:getWorldCenter()
@@ -28,13 +28,6 @@ function NPCArcher:updateFiring(dt)
 		local playercx, playercy = player.body:getWorldCenter()
 		playerdx = playercx - cx
 		playerdy = playercy - cy
-	end
-
-	if not self.properties.pathid then
-		if self.firetimer > NPCArcher.LeaveCoverTime
-		and self.firetimer - dt <= NPCArcher.LeaveCoverTime then
-			self:setInCover(false)
-		end
 	end
 
 	if self.firetimer <= 0 then
@@ -51,6 +44,10 @@ function NPCArcher:updateFiring(dt)
 		end
 	end
 	self.firetimer = self.firetimer - dt
+
+	if not self.properties.pathid then
+		self:setInCover(self.firetimer <= NPCArcher.LeaveCoverTime)
+	end
 end
 
 function NPCArcher:suppress()

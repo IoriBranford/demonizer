@@ -44,9 +44,9 @@ ShmupAlly.ConvertShake = 4
 ShmupAlly.SnapToPlayerVelocity = 1/8
 
 function ShmupAlly:destroyed()
-	self.object.destroy = true
+	self.object.dead = true
 	if self.convertobject then
-		self.convertobject.destroy = true
+		self.convertobject.dead = true
 	end
 end
 
@@ -82,7 +82,7 @@ end
 function ShmupAlly:updateConversion(dt)
 	self.converttimer = self.converttimer + dt
 	if self.converttimer >= ShmupAlly.ConvertTime then
-		self.convertobject.destroy = true
+		self.convertobject.dead = true
 		self.convertobject = nil
 		self.converttimer = nil
 
