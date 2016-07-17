@@ -38,15 +38,11 @@ function NPCArcher:updateFiring(dt)
 			ShmupCollision.Category_NPCShot)
 
 		levity.bank:play("bow.wav")
-
-		if not self.properties.pathid then
-			self:setInCover(true)
-		end
 	end
 	self.firetimer = self.firetimer - dt
 
 	if not self.properties.pathid then
-		self:setInCover(self.firetimer <= NPCArcher.LeaveCoverTime)
+		self:setInCover(self.firetimer > NPCArcher.LeaveCoverTime)
 	end
 end
 
