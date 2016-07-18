@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 318,
+  nextobjectid = 321,
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
@@ -851,6 +851,49 @@ return {
       terrains = {},
       tilecount = 6784,
       tiles = {}
+    },
+    {
+      name = "life",
+      firstgid = 7254,
+      filename = "life.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      image = "life.png",
+      imagewidth = 16,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "imagefont",
+      firstgid = 7255,
+      filename = "imagefont.tsx",
+      tilewidth = 973,
+      tileheight = 17,
+      spacing = 0,
+      margin = 0,
+      image = "imagefont.png",
+      imagewidth = 973,
+      imageheight = 17,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      properties = {
+        ["font"] = true,
+        ["fontglyphs"] = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,!?-+/():;%&`'*#=[]\\\""
+      },
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
     }
   },
   layers = {
@@ -946,6 +989,7 @@ return {
           gid = 173,
           visible = true,
           properties = {
+            ["onRemove"] = "endMap",
             ["script"] = "ShmupNPC"
           }
         },
@@ -3212,6 +3256,68 @@ return {
           visible = true,
           properties = {
             ["script"] = "ShmupPlayer"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "hud",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "ShmupHUD"
+      },
+      objects = {
+        {
+          id = 318,
+          name = "score",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 0,
+          width = 120,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["text"] = "SC        0",
+            ["textalign"] = "left",
+            ["textfont"] = "imagefont"
+          }
+        },
+        {
+          id = 319,
+          name = "life",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7254,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 320,
+          name = "extendscore",
+          type = "",
+          shape = "rectangle",
+          x = 120,
+          y = 0,
+          width = 120,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["text"] = "EX 1000000",
+            ["textalign"] = "right",
+            ["textfont"] = "imagefont"
           }
         }
       }

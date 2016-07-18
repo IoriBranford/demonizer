@@ -95,6 +95,10 @@ local ShmupNPC = class(function(self, id)
 	if onKO then
 		self.onKO = parseMemberFunctionCall(self, onKO)
 	end
+	local onRemove = self.properties.onRemove
+	if onRemove then
+		self.onRemove = parseMemberFunctionCall(self, onRemove)
+	end
 end)
 
 ShmupNPC.BleedOutTime = 5
@@ -192,7 +196,7 @@ function ShmupNPC:capture()
 	local roomforallies = levity.machine:call(playerid, "roomForAllies")
 
 	if not roomforallies or not self.female then
-		self.object.dead = true
+		self:remove()
 	else
 		local player = levity.map.objects[playerid]
 		if player then
@@ -211,6 +215,13 @@ function ShmupNPC:capture()
 		levity.bank:play(Sounds.FemaleCapture)
 	else
 		levity.bank:play(Sounds.MaleCapture)
+	end
+end
+
+function ShmupNPC:remove()
+	self.object.dead = true
+	if self.onRemove then
+		self.onRemove()
 	end
 end
 
@@ -257,7 +268,7 @@ function ShmupNPC:beginMove(dt)
 	if self.bleedouttimer > 0 then
 		self.bleedouttimer = self.bleedouttimer - dt
 		if self.bleedouttimer <= 0 then
-			self.object.dead = true
+			self:remove()
 		end
 	end
 end
@@ -300,6 +311,10 @@ function ShmupNPC:playSound(sound)
 	if sound then
 		levity.bank:play(sound)
 	end
+end
+
+function ShmupNPC:endMap()
+	levity.bank:changeMusic("07 - Great Job!.vgm", "emu")
 end
 
 return ShmupNPC

@@ -41,7 +41,8 @@ local ShmupMap = class(function(self, id)
 		or layer.type == "objectgroup"
 			then
 			for _, object in ipairs(layer.objects) do
-				if not object.gid then
+				if not object.gid
+				and not object.properties.text then
 					object.visible = false
 				end
 				--setFilterFromProperties(object.body)

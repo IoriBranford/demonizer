@@ -13,7 +13,7 @@ local NPCMage = class(ShmupNPC, function(self, id)
 end)
 
 NPCMage.BulletSpeed = 1*60
-NPCMage.BulletInterval = 0.25
+NPCMage.BulletInterval = 0.125
 
 function NPCMage:updateFiring(dt)
 	local cx, cy = self.object.body:getWorldCenter()
