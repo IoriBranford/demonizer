@@ -37,8 +37,8 @@ function ShmupBullet:endContact(yourfixture, otherfixture, contact)
 	end
 end
 
-function ShmupBullet.create(centerx, centery, speed, angle, tilesetid, tileid, layer, category)
-	ShmupBullet.fireOverTime(1, 1, cx, cy, speed, angle, tilesetid, tileid, layer, category)
+function ShmupBullet.create(cx, cy, speed, angle, tilesetid, tileid, layer, category)
+	ShmupBullet.fireOverTime(0, 1, cx, cy, speed, angle, tilesetid, tileid, layer, category)
 end
 
 function ShmupBullet.fireOverTime(time, interval, cx, cy, speed, angle, tilesetid, tileid, layer, category)

@@ -4,7 +4,7 @@
  <image source="imp.png" width="192" height="64"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="4" name="body" x="-8" y="56" width="16" height="16">
+   <object id="4" name="body" x="-4" y="60" width="8" height="8">
     <ellipse/>
    </object>
    <object id="7" name="ally1" x="-24" y="72">
