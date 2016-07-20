@@ -102,6 +102,8 @@ local ShmupNPC = class(function(self, id)
 end)
 
 ShmupNPC.BleedOutTime = 5
+ShmupNPC.CapturePullSpeed = 4*60
+ShmupNPC.CapturePullDistSq = 64*64
 ShmupNPC.ShotLayer = nil -- ShmupMap, set me once it's created
 
 function ShmupNPC:activate()
@@ -239,17 +241,16 @@ function ShmupNPC:beginMove(dt)
 
 	local body = self.object.body
 	local vx0, vy0 = body:getLinearVelocity()
+	local vx1, vy1 = 0, 0
 
 	local pathid = self.properties.pathid
 	if pathid then
 		local pathtime = self.properties.pathtime
-		local vx, vy = levity.machine:call(pathid, "getVelocityTo",
+		vx1, vy1 = levity.machine:call(pathid, "getVelocityTo",
 			self.pathpoint, body:getX(), body:getY(), pathtime)
 
-		body:setLinearVelocity(vx, vy)
-
 		self.pathpoint = levity.machine:call(pathid, "updatePoint",
-			self.pathpoint, body:getX(), body:getY(), vx, vy)
+			self.pathpoint, body:getX(), body:getY(), vx1, vy1)
 
 		self.pathtimer = self.pathtimer + dt
 
@@ -257,9 +258,26 @@ function ShmupNPC:beginMove(dt)
 		or self.pathtimer >= pathtime then
 			self.properties.pathid = nil
 		end
-	else
-		body:setLinearVelocity(0, 0)
+	elseif self.health <= 0 then
+		local playerid = levity.map.properties.playerid
+		local player = levity.map.objects[playerid]
+		if player then
+			local cx, cy = self.object.body:getWorldCenter()
+			local playercx, playercy = player.body:getWorldCenter()
+			local playerdx = playercx - cx
+			local playerdy = playercy - cy
+
+			local dsq = playerdx*playerdx + playerdy*playerdy
+			if dsq < ShmupNPC.CapturePullDistSq then
+				local dist = math.sqrt(dsq)
+				local pull = ShmupNPC.CapturePullSpeed / dist
+				vx1 = (playercx - cx) * pull
+				vy1 = (playercy - cy) * pull
+			end
+		end
 	end
+
+	body:setLinearVelocity(vx1, vy1)
 
 	if self.captured then
 		self:capture()
