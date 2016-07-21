@@ -120,6 +120,13 @@ function ShmupNPC:suppress()
 	return
 end
 
+function ShmupNPC:canBeLockTarget()
+	return self.oncamera
+		and self.object.visible
+		and self.health > 0
+		and not self.incover
+end
+
 function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	if self.incover then
 		self:suppress()

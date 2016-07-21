@@ -281,7 +281,7 @@
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="24,-32 168,-32"/>
+   <polyline points="24,-32 168,-48"/>
   </object>
   <object id="233" gid="170" x="-24" y="896" width="24" height="32">
    <properties>
@@ -290,14 +290,14 @@
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="234" gid="170" x="-56" y="896" width="24" height="32">
+  <object id="234" gid="170" x="-64" y="904" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="272"/>
     <property name="pathtime" type="float" value="1.5"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="235" gid="170" x="344" y="824" width="24" height="32">
+  <object id="235" gid="170" x="336" y="816" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="273"/>
     <property name="pathtime" type="float" value="1.5"/>
@@ -321,7 +321,7 @@
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="24,-32 168,-32"/>
+   <polyline points="24,-32 168,-48"/>
   </object>
   <object id="232" gid="80" x="328" y="840" width="24" height="32">
    <properties>
@@ -537,7 +537,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Copy of archers3,4,5">
-  <object id="177" name="archer3" gid="170" x="-8" y="1616" width="24" height="32">
+  <object id="177" name="archer3" gid="170" x="-24" y="1608" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="178"/>
     <property name="pathtime" type="float" value="3"/>
@@ -557,35 +557,35 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="180" name="archer5" gid="170" x="-48" y="1600" width="24" height="32">
+  <object id="180" name="archer5" gid="170" x="-56" y="1592" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="178"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="181" name="archer4" gid="170" x="-24" y="1600" width="24" height="32">
+  <object id="181" name="archer4" gid="170" x="-40" y="1600" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="178"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="172" name="archer6" gid="170" x="296" y="1584" width="24" height="32">
+  <object id="172" name="archer6" gid="170" x="312" y="1576" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="174"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="173" name="archer7" gid="170" x="312" y="1568" width="24" height="32">
+  <object id="173" name="archer7" gid="170" x="328" y="1568" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="174"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="175" name="archer8" gid="170" x="336" y="1568" width="24" height="32">
+  <object id="175" name="archer8" gid="170" x="344" y="1560" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="174"/>
     <property name="pathtime" type="float" value="3"/>
@@ -600,14 +600,14 @@
   </object>
  </objectgroup>
  <objectgroup name="archers6,7,8">
-  <object id="113" name="archer6" gid="170" x="296" y="1664" width="24" height="32">
+  <object id="113" name="archer6" gid="170" x="312" y="1664" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="68" name="archer7" gid="170" x="312" y="1648" width="24" height="32">
+  <object id="68" name="archer7" gid="170" x="328" y="1656" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
@@ -620,7 +620,7 @@
    </properties>
    <polyline points="8,-80 -96,-24 -224,-24 -344,-80"/>
   </object>
-  <object id="114" name="archer8" gid="170" x="336" y="1648" width="24" height="32">
+  <object id="114" name="archer8" gid="170" x="344" y="1648" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
@@ -636,7 +636,7 @@
   </object>
  </objectgroup>
  <objectgroup name="archers3,4,5">
-  <object id="67" name="archer3" gid="170" x="-8" y="1704" width="24" height="32">
+  <object id="67" name="archer3" gid="170" x="-24" y="1704" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
@@ -656,14 +656,14 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="111" name="archer5" gid="170" x="-48" y="1688" width="24" height="32">
+  <object id="111" name="archer5" gid="170" x="-56" y="1688" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="112" name="archer4" gid="170" x="-24" y="1688" width="24" height="32">
+  <object id="112" name="archer4" gid="170" x="-40" y="1696" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
@@ -672,14 +672,14 @@
   </object>
  </objectgroup>
  <objectgroup name="archers1,2">
-  <object id="65" name="archer2" gid="170" x="72" y="1680" width="24" height="32">
+  <object id="65" name="archer2" gid="170" x="64" y="1688" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="131"/>
     <property name="pathtime" type="float" value="4"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="66" name="archer1" gid="170" x="216" y="1696" width="24" height="32">
+  <object id="66" name="archer1" gid="170" x="224" y="1704" width="24" height="32">
    <properties>
     <property name="pathid" value="128"/>
     <property name="pathtime" type="float" value="4"/>
@@ -693,14 +693,14 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="118" name="archer2b" gid="170" x="48" y="1680" width="24" height="32">
+  <object id="118" name="archer2b" gid="170" x="64" y="1664" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="131"/>
     <property name="pathtime" type="float" value="4"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="119" name="archer1b" gid="170" x="240" y="1696" width="24" height="32">
+  <object id="119" name="archer1b" gid="170" x="224" y="1680" width="24" height="32">
    <properties>
     <property name="pathid" value="128"/>
     <property name="pathtime" type="float" value="4"/>

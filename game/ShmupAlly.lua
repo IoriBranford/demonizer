@@ -27,6 +27,8 @@ local ShmupAlly = class(function(self, id)
 	self.converttimer = 0
 	self.npctype = levity:getTileColumnName(self.object.gid)
 	self.oncamera = false
+
+	self.locktargetid = nil
 end)
 
 -- this script changes sprites
@@ -39,11 +41,17 @@ function ShmupAlly:refreshFixtures(mask)
 	end
 end
 
+local Sounds = {
+	Lock = "targetlock.wav"
+}
+levity.bank:load(Sounds)
+
 ShmupAlly.ConvertTime = 1
 ShmupAlly.ConvertShake = 4
 ShmupAlly.SnapToPlayerVelocity = 1/8
+ShmupAlly.LockSearchDist = 96
 
-function ShmupAlly:destroyed()
+function ShmupAlly:destroy()
 	self.object.dead = true
 	if self.convertobject then
 		self.convertobject.dead = true
@@ -53,7 +61,7 @@ end
 function ShmupAlly:beginContact(myfixture, otherfixture, contact)
 	local category = otherfixture:getCategory()
 	if category == ShmupCollision.Category_NPCShot then
-		self:destroyed()
+		self:destroy()
 	elseif category == ShmupCollision.Category_Camera then
 		self.oncamera = true
 	end
@@ -76,7 +84,7 @@ function ShmupAlly:playerDead()
 end
 
 function ShmupAlly:playerRespawned()
-	self:destroyed()
+	self:destroy()
 end
 
 function ShmupAlly:updateConversion(dt)
@@ -99,13 +107,24 @@ end
 function ShmupAlly:updateFiring(dt)
 	if self.firetimer <= 0 then
 		local angle = math.pi*1.5
-
 		local cx, cy = self.object.body:getWorldCenter()
-		local playerid = levity.map.properties.playerid
-		local player = levity.map.objects[playerid]
-		local playercx, playercy = player.body:getWorldCenter()
-		angle = angle +
-			math.atan2(cx - playercx, playercy - cy) * .0625
+
+		local locktargetid = self:findLockTarget()
+		if locktargetid then
+			if self.locktargetid ~= locktargetid then
+				levity.bank:play(Sounds.Lock)
+			end
+			self.locktargetid = locktargetid
+			local targetbody = levity.map.objects[locktargetid].body
+			local tx, ty = targetbody:getWorldCenter()
+			angle = math.atan2(ty-cy, tx-cx)
+		else
+			local playerid = levity.map.properties.playerid
+			local player = levity.map.objects[playerid]
+			local playercx, playercy = player.body:getWorldCenter()
+			angle = angle +
+				math.atan2(cx - playercx, playercy - cy) * .0625
+		end
 
 		self.firetimer = ShmupBullet.fireOverTime(self.firetimer,
 			ShmupPlayer.BulletInterval,
@@ -114,6 +133,33 @@ function ShmupAlly:updateFiring(dt)
 			ShmupCollision.Category_PlayerShot)
 	end
 	self.firetimer = self.firetimer - dt
+end
+
+function ShmupAlly:findLockTarget()
+	local playerid = levity.map.properties.playerid
+	local player = levity.map.objects[playerid]
+	local playercx, playercy = player.body:getWorldCenter()
+	local cx, cy = self.object.body:getWorldCenter()
+	local dx, dy = cx - playercx, cy - playercy
+
+	local x0 = dx + cx - ShmupAlly.LockSearchDist
+	local x1 = dx + cx + ShmupAlly.LockSearchDist
+	local y0 = dy + cy - ShmupAlly.LockSearchDist
+	local y1 = dy + cy + ShmupAlly.LockSearchDist
+
+	local foundlocktargetid = nil
+	levity.world:queryBoundingBox(x0, y0, x1, y1, function(fixture)
+		local userdata = fixture:getBody():getUserData()
+		local id = userdata.id
+		if not levity.machine:call(id, "canBeLockTarget") then
+			return true
+		end
+
+		foundlocktargetid = id
+		return false
+	end)
+
+	return foundlocktargetid
 end
 
 function ShmupAlly:beginMove(dt)

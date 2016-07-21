@@ -3,6 +3,8 @@ local ShmupCollision = require "ShmupCollision"
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 require "class"
 
+local MaxAllies = 4
+
 local ShmupPlayer = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.object.body:setFixedRotation(true)
@@ -33,7 +35,7 @@ local ShmupPlayer = class(function(self, id)
 			ShmupCollision.Category_PlayerShot)
 	end
 
-	for i = 1, 4, 1 do
+	for i = 1, MaxAllies do
 		local fixture = fixtures["ally"..i]
 		if fixture then
 			fixture:setFilterData(0, 0, 0)
@@ -47,7 +49,7 @@ end)
 ShmupPlayer.Speed = 180
 ShmupPlayer.BulletSpeed = 16*60
 ShmupPlayer.BulletInterval = 1/10
-ShmupPlayer.MaxAllies = 4
+ShmupPlayer.MaxAllies = MaxAllies
 ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
 ShmupPlayer.DeathSnapToCameraVelocity = 1/16
