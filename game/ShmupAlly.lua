@@ -108,8 +108,13 @@ function ShmupAlly:updateFiring(dt)
 	if self.firetimer <= 0 then
 		local angle = math.pi*1.5
 		local cx, cy = self.object.body:getWorldCenter()
+		local playerid = levity.map.properties.playerid
 
-		local locktargetid = self:findLockTarget()
+		local locktargetid
+		if levity.machine:call(playerid, "isFocused") then
+			locktargetid = self:findLockTarget()
+		end
+
 		if locktargetid then
 			if self.locktargetid ~= locktargetid then
 				levity.bank:play(Sounds.Lock)
@@ -119,7 +124,6 @@ function ShmupAlly:updateFiring(dt)
 			local tx, ty = targetbody:getWorldCenter()
 			angle = math.atan2(ty-cy, tx-cx)
 		else
-			local playerid = levity.map.properties.playerid
 			local player = levity.map.objects[playerid]
 			local playercx, playercy = player.body:getWorldCenter()
 			angle = angle +

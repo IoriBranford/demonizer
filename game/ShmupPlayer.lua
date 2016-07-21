@@ -17,6 +17,7 @@ local ShmupPlayer = class(function(self, id)
 	local os = love.system.getOS()
 	self.firing = os == "Android" or os == "iOS"
 	self.firetimer = 0
+	self.focused = false
 
 	self.numallies = 0
 
@@ -112,33 +113,46 @@ function ShmupPlayer:isFiring()
 	return self.firing
 end
 
-function ShmupPlayer:keypressed(key, u)
+function ShmupPlayer:isFocused()
+	return self.focused
+end
+
+function ShmupPlayer:keychanged(key, pressed)
+	local speed = ShmupPlayer.Speed
+	local lockspeedfactor = .5
+	if self.focused then
+		speed = speed * lockspeedfactor
+	end
+
+	if not pressed then
+		speed = -speed
+		lockspeedfactor = 1/lockspeedfactor
+	end
+
 	if key == "up" then
-		self.vy = self.vy - ShmupPlayer.Speed
+		self.vy = self.vy - speed
 	elseif key == "down" then
-		self.vy = self.vy + ShmupPlayer.Speed
+		self.vy = self.vy + speed
 	elseif key == "left" then
-		self.vx = self.vx - ShmupPlayer.Speed
+		self.vx = self.vx - speed
 	elseif key == "right" then
-		self.vx = self.vx + ShmupPlayer.Speed
+		self.vx = self.vx + speed
 	elseif key == "z" then
+		self.firing = pressed
 		self.firetimer = 0
-		self.firing = true
+	elseif key == "x" then
+		self.focused = pressed
+		self.vx = self.vx * lockspeedfactor
+		self.vy = self.vy * lockspeedfactor
 	end
 end
 
+function ShmupPlayer:keypressed(key, u)
+	self:keychanged(key, true)
+end
+
 function ShmupPlayer:keyreleased(key, u)
-	if key == "up" then
-		self.vy = self.vy + ShmupPlayer.Speed
-	elseif key == "down" then
-		self.vy = self.vy - ShmupPlayer.Speed
-	elseif key == "left" then
-		self.vx = self.vx + ShmupPlayer.Speed
-	elseif key == "right" then
-		self.vx = self.vx - ShmupPlayer.Speed
-	elseif key == "z" then
-		self.firing = false
-	end
+	self:keychanged(key, false)
 end
 
 function ShmupPlayer:touchmoved(touch, x, y, dx, dy)
