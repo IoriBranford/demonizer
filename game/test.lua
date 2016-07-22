@@ -628,8 +628,8 @@ return {
       imagewidth = 16,
       imageheight = 8,
       tileoffset = {
-        x = 0,
-        y = 0
+        x = -8,
+        y = 4
       },
       properties = {},
       terrains = {},
@@ -652,8 +652,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = 8,
-                y = 2,
+                x = 0,
+                y = 6,
                 width = 4,
                 height = 4,
                 rotation = 0,

@@ -60,7 +60,7 @@ local ShmupNPC = class(function(self, id)
 		self.health = 0
 		table.insert(mask, ShmupCollision.Category_PlayerShot)
 	else
-		self.health = 8
+		self.health = 64
 	end
 
 	local tileset = levity:getMapTileset(self.object.tile.tileset)
@@ -133,7 +133,10 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 		return
 	end
 
-	self.health = self.health - 1
+	local bulletproperties = otherfixture:getBody():getUserData().properties
+	local damage = bulletproperties.damage
+
+	self.health = self.health - damage
 	if self.health <= 0 then
 		self.properties.pathid = nil
 		local gid = levity:getTileGid(self.object.tile.tileset,

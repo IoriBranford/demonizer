@@ -196,7 +196,7 @@ function ShmupPlayer:beginMove(dt)
 		vy1 = vy1 / dt
 		self.vx = 0
 		self.vy = 0
-		didmousemove = false
+		self.didmousemove = false
 	end
 
 	self.shieldtimer = math.max(0, self.shieldtimer - dt)
@@ -255,11 +255,24 @@ function ShmupPlayer:beginMove(dt)
 
 	if self.firing and not self.dead then
 		if self.firetimer <= 0 then
-			self.firetimer = ShmupBullet.fireOverTime(
-				self.firetimer, ShmupPlayer.BulletInterval,
-				cx, cy, ShmupPlayer.BulletSpeed, math.pi*1.5,
-				"impshot", 0, self.object.layer,
-				ShmupCollision.Category_PlayerShot)
+			local params = {
+				x = cx - 8,
+				y = cy,
+				speed = ShmupPlayer.BulletSpeed,
+				angle = math.pi*1.5,
+				damage = 8,
+				tileset = "impshot",
+				tileid = 0,
+				category = ShmupCollision.Category_PlayerShot
+			}
+			local firetimer = self.firetimer
+			for i = 1, 2 do
+				firetimer = ShmupBullet.fireOverTime(params,
+					self.object.layer, self.firetimer,
+					ShmupPlayer.BulletInterval)
+				params.x = params.x + 16
+			end
+			self.firetimer = firetimer
 
 			self:playSound(Sounds.Shot)
 		end

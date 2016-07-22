@@ -4,11 +4,12 @@ local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = levity.machine:requireScript("ShmupNPC")
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 require "class"
+require "xcoroutine"
 
 local NPCMage = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
 	self.firetimer = 0
-	self.health = 64
+	self.health = 512
 	self.lifetime = 0
 
 	self.fireco = nil
@@ -18,51 +19,56 @@ end)
 NPCMage.BulletSpeed = 2*60
 NPCMage.BulletInterval = 0.125
 
-local function fireCoroutine(self, numbullets, arc, time, speed, direction,
-				tileset, tileid, layer, category)
+local function fireCoroutine(self)
+	local cx, cy = self.object.body:getWorldCenter()
+	local playerdx = 0
+	local playerdy = 1
+
+	local playerid = levity.map.properties.playerid
+	if playerid then
+		local player = levity.map.objects[playerid]
+		local playercx, playercy = player.body:getWorldCenter()
+		playerdx = playercx - cx
+		playerdy = playercy - cy
+	end
+
+	local numbullets, arc, time = 4, self.firearc, .25
+
 	arc = arc / numbullets
 	time = time / numbullets
-	direction = direction - arc * math.floor(numbullets * .5)
 
-	local t = 0
+	local params = {
+		speed = NPCMage.BulletSpeed,
+		angle = math.atan2(playerdy, playerdx),
+		tileset = "mageshot",
+		tileid = 0,
+		category = ShmupCollision.Category_NPCShot
+	}
+
+	params.angle = params.angle - arc * math.floor(numbullets * .5)
+
+	local t = time
 
 	for i = 1, numbullets do
-		local cx, cy = self.object.body:getWorldCenter()
+		params.x, params.y = self.object.body:getWorldCenter()
+		params.accelx = math.cos(params.angle)
+		params.accely = math.sin(params.angle)
 
-		ShmupBullet.create(cx, cy, speed, direction,
-					tileset, tileid, layer, category)
+		ShmupBullet.create(params, ShmupNPC.ShotLayer)
 
-		direction = direction + arc
-		while t < time do
-			local dt = coroutine.yield()
-			t = t + dt
-		end
-		t = t - time
+		params.angle = params.angle + arc
+		t = coroutine.wait(t)
 	end
 end
 
 function NPCMage:updateFiring(dt)
 	if not self.fireco or coroutine.status(self.fireco) == "dead" then
-		local cx, cy = self.object.body:getWorldCenter()
-		local playerdx = 0
-		local playerdy = 1
-
-		local playerid = levity.map.properties.playerid
-		if playerid then
-			local player = levity.map.objects[playerid]
-			local playercx, playercy = player.body:getWorldCenter()
-			playerdx = playercx - cx
-			playerdy = playercy - cy
-		end
-
 		self.fireco = coroutine.create(fireCoroutine)
-		coroutine.resume(self.fireco, self, 4, self.firearc, .25,
-			NPCMage.BulletSpeed, math.atan2(playerdy, playerdx),
-			"mageshot", 0, ShmupNPC.ShotLayer,
-			ShmupCollision.Category_NPCShot)
+		local ok, err = coroutine.resume(self.fireco, self)
+		if not ok then print(err) end
 		self.firearc = -self.firearc
 	else
-		coroutine.resume(self.fireco, dt)
+		coroutine.updateWait(self.fireco, dt)
 	end
 end
 

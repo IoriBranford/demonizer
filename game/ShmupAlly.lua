@@ -49,7 +49,8 @@ levity.bank:load(Sounds)
 ShmupAlly.ConvertTime = 1
 ShmupAlly.ConvertShake = 4
 ShmupAlly.SnapToPlayerVelocity = 1/8
-ShmupAlly.LockSearchDist = 96
+ShmupAlly.LockSearchWidth = 120
+ShmupAlly.LockSearchHeight = 160
 
 function ShmupAlly:destroy()
 	self.object.dead = true
@@ -130,11 +131,16 @@ function ShmupAlly:updateFiring(dt)
 				math.atan2(cx - playercx, playercy - cy) * .0625
 		end
 
-		self.firetimer = ShmupBullet.fireOverTime(self.firetimer,
-			ShmupPlayer.BulletInterval,
-			cx, cy, ShmupPlayer.BulletSpeed, angle,
-			"impshot", 0, self.object.layer,
-			ShmupCollision.Category_PlayerShot)
+		self.firetimer = ShmupBullet.fireOverTime({
+				x = cx,
+				y = cy,
+				speed = ShmupPlayer.BulletSpeed,
+				angle = angle,
+				tileset = "impshot",
+				tileid = 0,
+				category = ShmupCollision.Category_PlayerShot
+			}, self.object.layer, self.firetimer,
+			ShmupPlayer.BulletInterval)
 	end
 	self.firetimer = self.firetimer - dt
 end
@@ -146,10 +152,10 @@ function ShmupAlly:findLockTarget()
 	local cx, cy = self.object.body:getWorldCenter()
 	local dx, dy = cx - playercx, cy - playercy
 
-	local x0 = dx + cx - ShmupAlly.LockSearchDist
-	local x1 = dx + cx + ShmupAlly.LockSearchDist
-	local y0 = dy + cy - ShmupAlly.LockSearchDist
-	local y1 = dy + cy + ShmupAlly.LockSearchDist
+	local x0 = dx + cx - ShmupAlly.LockSearchWidth
+	local x1 = dx + cx + ShmupAlly.LockSearchWidth
+	local y0 = dy + cy - ShmupAlly.LockSearchHeight
+	local y1 = dy + cy + ShmupAlly.LockSearchHeight
 
 	local foundlocktargetid = nil
 	levity.world:queryBoundingBox(x0, y0, x1, y1, function(fixture)

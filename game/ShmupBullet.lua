@@ -3,6 +3,18 @@ local ShmupCollision = require "ShmupCollision"
 local bit = require "bit"
 require "class"
 
+local function beginMove(self, dt)
+	local body = self.object.body
+	local properties = self.object.properties
+	local mass = body:getMass()
+	local ax = properties.accelx
+	local ay = properties.accely
+	body:applyLinearImpulse(mass * ax, mass * ay)
+
+	local vx, vy = body:getLinearVelocity()
+	body:setAngle(math.atan2(vy + ay, vx + ax))
+end
+
 local ShmupBullet = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.object.body:setBullet(true)
@@ -22,6 +34,10 @@ local ShmupBullet = class(function(self, id)
 					ShmupCollision.Category_NPCShot)
 		end
 	end
+	local properties = self.object.properties
+	if properties.accelx ~= 0 or properties.accely ~= 0 then
+		self.beginMove = beginMove
+	end
 end)
 
 function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
@@ -37,37 +53,56 @@ function ShmupBullet:endContact(yourfixture, otherfixture, contact)
 	end
 end
 
-function ShmupBullet.create(cx, cy, speed, angle, tilesetid, tileid, layer, category)
-	ShmupBullet.fireOverTime(0, 1, cx, cy, speed, angle, tilesetid, tileid, layer, category)
+--- @table BulletParams
+-- @field x
+-- @field y
+-- @field damage
+-- @field speed in px/sec
+-- @field angle in radians
+-- @field tileset name or index
+-- @field tileid 0-based
+-- @field category
+-- @field accelx in px/sec/sec
+-- @field accely in px/sec/sec
+
+function ShmupBullet.create(params, layer)
+	ShmupBullet.fireOverTime(params, layer, 0, 1)
 end
 
-function ShmupBullet.fireOverTime(time, interval, cx, cy, speed, angle, tilesetid, tileid, layer, category)
+function ShmupBullet.fireOverTime(params, layer, time, interval)
+	local x, y, speed, angle, tilesetid, tileid, category = 
+		params.x, params.y, params.speed, params.angle, params.tileset,
+		params.tileid, params.category
+
+	local accelx, accely = params.accelx or 0, params.accely or 0
+	local damage = params.damage or 1
+
 	local deg = math.deg(angle)
 	local cos = math.cos(angle)
 	local sin = math.sin(angle)
 	local vx = speed * cos
 	local vy = speed * sin
 
-	local distapart = speed * interval
-	local dx = distapart * cos
-	local dy = distapart * sin
-
 	local tileset = levity:getMapTileset(tilesetid)
 	local gid = tileset.firstgid + tileid
 
 	while time <= 0 do
 		local shot = {
-			x = cx, y = cy, rotation = deg, gid = gid,
+			x = x - vx * time,
+			y = y - vy * time,
+			rotation = deg, gid = gid,
 			properties = {
-				script = "ShmupBullet", category = category
+				script = "ShmupBullet",
+				category = category,
+				damage = damage,
+				accelx = accelx,
+				accely = accely,
 			}
 		}
 		levity:addObject(shot, layer, "dynamic")
 
 		shot.body:setLinearVelocity(vx, vy)
 
-		cx = cx + dx
-		cy = cy + dy
 		time = time + interval
 	end
 

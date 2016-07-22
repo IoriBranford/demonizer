@@ -9,7 +9,7 @@ local BulletInterval = 2
 local NPCArcher = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
 	self.firetimer = love.math.random() * BulletInterval
-	self.health = 2
+	self.health = 8
 end)
 
 NPCArcher.BulletSpeed = 3*60
@@ -31,11 +31,16 @@ function NPCArcher:updateFiring(dt)
 	end
 
 	if self.firetimer <= 0 then
-		self.firetimer = ShmupBullet.fireOverTime(
-			self.firetimer, NPCArcher.BulletInterval, cx, cy,
-			NPCArcher.BulletSpeed, math.atan2(playerdy, playerdx),
-			"archershot", 0, ShmupNPC.ShotLayer,
-			ShmupCollision.Category_NPCShot)
+		self.firetimer = ShmupBullet.fireOverTime({
+				x = cx,
+				y = cy,
+				speed = NPCArcher.BulletSpeed,
+				angle = math.atan2(playerdy, playerdx),
+				tileset = "archershot",
+				tileid = 0,
+				category = ShmupCollision.Category_NPCShot
+			}, ShmupNPC.ShotLayer, self.firetimer,
+			NPCArcher.BulletInterval)
 
 		levity.bank:play("bow.wav")
 	end
