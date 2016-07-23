@@ -55,6 +55,8 @@ ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
 ShmupPlayer.DeathSnapToCameraVelocity = 1/16
 ShmupPlayer.AllyFleeDistance = 400
+ShmupPlayer.FocusAllySpread = 1.5
+ShmupPlayer.FocusAllyOffsetY = -16
 
 local Sounds = {
 	Shot = "playershot.wav",
@@ -92,6 +94,11 @@ function ShmupPlayer:allyPosition(i)
 	local offsetfixture = self.object.body:getUserData().fixtures["ally"..i]
 	if offsetfixture then
 		local ox, oy = offsetfixture:getShape():getPoint()
+		if self.focused then
+			oy = oy + ShmupPlayer.FocusAllyOffsetY
+			ox = ox * ShmupPlayer.FocusAllySpread
+			oy = oy * ShmupPlayer.FocusAllySpread
+		end
 		x = x + ox
 		y = y + oy
 
@@ -117,6 +124,46 @@ function ShmupPlayer:isFocused()
 	return self.focused
 end
 
+function ShmupPlayer:joystickaxis(joystick, axis, value)
+	local speed = ShmupPlayer.Speed
+	local lockspeedfactor = .5
+	if self.focused then
+		speed = speed * lockspeedfactor
+	end
+
+	value = math.floor(value + .5)
+
+	if axis == 1 then
+		self.vx = speed * value
+	elseif axis == 2 then
+		self.vy = speed * value
+	end
+end
+
+function ShmupPlayer:joystickchanged(button, pressed)
+	if button == 1 and self.firing ~= pressed then
+		self.firing = pressed
+		self.firetimer = 0
+	elseif button == 2 and self.focused ~= pressed then
+		local lockspeedfactor = .5
+		if not pressed then
+			lockspeedfactor = 1/lockspeedfactor
+		end
+
+		self.focused = pressed
+		self.vx = self.vx * lockspeedfactor
+		self.vy = self.vy * lockspeedfactor
+	end
+end
+
+function ShmupPlayer:joystickpressed(joystick, button)
+	self:joystickchanged(button, true)
+end
+
+function ShmupPlayer:joystickreleased(joystick, button)
+	self:joystickchanged(button, false)
+end
+
 function ShmupPlayer:keychanged(key, pressed)
 	local speed = ShmupPlayer.Speed
 	local lockspeedfactor = .5
@@ -126,7 +173,6 @@ function ShmupPlayer:keychanged(key, pressed)
 
 	if not pressed then
 		speed = -speed
-		lockspeedfactor = 1/lockspeedfactor
 	end
 
 	if key == "up" then
@@ -138,12 +184,9 @@ function ShmupPlayer:keychanged(key, pressed)
 	elseif key == "right" then
 		self.vx = self.vx + speed
 	elseif key == "z" then
-		self.firing = pressed
-		self.firetimer = 0
+		self:joystickchanged(1, pressed)
 	elseif key == "x" then
-		self.focused = pressed
-		self.vx = self.vx * lockspeedfactor
-		self.vy = self.vy * lockspeedfactor
+		self:joystickchanged(2, pressed)
 	end
 end
 
