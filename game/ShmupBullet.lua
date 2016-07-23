@@ -35,7 +35,7 @@ local ShmupBullet = class(function(self, id)
 		end
 	end
 	local properties = self.object.properties
-	if properties.accelx ~= 0 or properties.accely ~= 0 then
+	if properties.accelx and properties.accely then
 		self.beginMove = beginMove
 	end
 end)
@@ -74,8 +74,8 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 		params.x, params.y, params.speed, params.angle, params.tileset,
 		params.tileid, params.category
 
-	local accelx, accely = params.accelx or 0, params.accely or 0
-	local damage = params.damage or 1
+	local accelx, accely = params.accelx, params.accely
+	local damage = params.damage
 
 	local deg = math.deg(angle)
 	local cos = math.cos(angle)
@@ -83,8 +83,11 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 	local vx = speed * cos
 	local vy = speed * sin
 
-	local tileset = levity:getMapTileset(tilesetid)
-	local gid = tileset.firstgid + tileid
+	local gid = params.gid
+	if not gid then
+		local tileset = levity:getMapTileset(tilesetid)
+		gid = tileset.firstgid + tileid
+	end
 
 	while time <= 0 do
 		local shot = {

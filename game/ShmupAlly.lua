@@ -46,6 +46,7 @@ local Sounds = {
 }
 levity.bank:load(Sounds)
 
+ShmupAlly.BulletGid = levity:getTileGid("demonshots", "ally", 0)
 ShmupAlly.ConvertTime = 1
 ShmupAlly.ConvertShake = 4
 ShmupAlly.SnapToPlayerVelocity = 1/8
@@ -136,8 +137,7 @@ function ShmupAlly:updateFiring(dt)
 				y = cy,
 				speed = ShmupPlayer.BulletSpeed,
 				angle = angle,
-				tileset = "impshot",
-				tileid = 0,
+				gid = ShmupAlly.BulletGid,
 				category = ShmupCollision.Category_PlayerShot
 			}, self.object.layer, self.firetimer,
 			ShmupPlayer.BulletInterval)

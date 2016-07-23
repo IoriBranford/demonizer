@@ -8,10 +8,16 @@ local NPCKnight = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
 	self.firetimer = love.math.random()
 	self.health = 64
+	self.weapon = "pike"
+	if string.find(self.npctype, "sword") == 1 then
+		self.weapon = "sword"
+	end
 end)
 
-NPCKnight.BulletSpeed = 2*60
+NPCKnight.BulletSpeedBase = 2*60
+NPCKnight.BulletSpeedInc = 15
 NPCKnight.BulletInterval = 1.5
+NPCKnight.BulletHalfArc = math.pi*.125
 
 function NPCKnight:updateFiring(dt)
 	local cx, cy = self.object.body:getWorldCenter()
@@ -27,15 +33,14 @@ function NPCKnight:updateFiring(dt)
 	end
 
 	if self.firetimer <= 0 then
-		local arc = math.pi*.25
 		local firetimer = self.firetimer
 		local params = {
 			x = cx,
 			y = cy,
-			speed = NPCKnight.BulletSpeed,
-			angle = math.atan2(playerdy, playerdx) - arc,
-			tileset = "knightshot",
-			tileid = 0,
+			speed = NPCKnight.BulletSpeedBase,
+			angle = math.atan2(playerdy, playerdx)
+				- NPCKnight.BulletHalfArc,
+			gid = levity:getTileGid("humanshots", self.weapon, 0),
 			category = ShmupCollision.Category_NPCShot
 		}
 
@@ -44,12 +49,13 @@ function NPCKnight:updateFiring(dt)
 					ShmupNPC.ShotLayer, self.firetimer,
 					NPCKnight.BulletInterval)
 
-			params.angle = params.angle + arc
+			params.angle = params.angle + NPCKnight.BulletHalfArc
+			params.speed = params.speed + NPCKnight.BulletSpeedInc
 		end
 
 		self.firetimer = firetimer
 
-		levity.bank:play("sword.wav")
+		levity.bank:play(self.weapon..".wav")
 	end
 	self.firetimer = self.firetimer - dt
 end
@@ -68,6 +74,7 @@ function NPCKnight:beginMove(dt)
 	end
 end
 
+levity.bank:load("pike.wav")
 levity.bank:load("sword.wav")
 
 return NPCKnight

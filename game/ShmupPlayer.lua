@@ -50,6 +50,7 @@ end)
 ShmupPlayer.Speed = 180
 ShmupPlayer.BulletSpeed = 16*60
 ShmupPlayer.BulletInterval = 1/10
+ShmupPlayer.BulletGid = levity:getTileGid("demonshots", "player", 0)
 ShmupPlayer.MaxAllies = MaxAllies
 ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
@@ -304,8 +305,7 @@ function ShmupPlayer:beginMove(dt)
 				speed = ShmupPlayer.BulletSpeed,
 				angle = math.pi*1.5,
 				damage = 8,
-				tileset = "impshot",
-				tileid = 0,
+				gid = ShmupPlayer.BulletGid,
 				category = ShmupCollision.Category_PlayerShot
 			}
 			local firetimer = self.firetimer

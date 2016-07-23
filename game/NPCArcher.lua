@@ -16,6 +16,7 @@ NPCArcher.BulletSpeed = 3*60
 NPCArcher.BulletInterval = BulletInterval
 NPCArcher.LeaveCoverTime = 1
 NPCArcher.PlayerShotSuppression = 3/16
+NPCArcher.BulletGid = levity:getTileGid("humanshots", "arrow", 0)
 
 function NPCArcher:updateFiring(dt)
 	local cx, cy = self.object.body:getWorldCenter()
@@ -36,8 +37,7 @@ function NPCArcher:updateFiring(dt)
 				y = cy,
 				speed = NPCArcher.BulletSpeed,
 				angle = math.atan2(playerdy, playerdx),
-				tileset = "archershot",
-				tileid = 0,
+				gid = NPCArcher.BulletGid,
 				category = ShmupCollision.Category_NPCShot
 			}, ShmupNPC.ShotLayer, self.firetimer,
 			NPCArcher.BulletInterval)

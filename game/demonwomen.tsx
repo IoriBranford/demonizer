@@ -13,8 +13,8 @@
   <property name="row_civ6" type="int" value="5"/>
   <property name="row_civ7" type="int" value="6"/>
   <property name="row_civ8" type="int" value="7"/>
-  <property name="row_knight1" type="int" value="8"/>
-  <property name="row_knight2" type="int" value="9"/>
+  <property name="row_pikeman" type="int" value="8"/>
+  <property name="row_swordsman" type="int" value="9"/>
   <property name="row_priest" type="int" value="10"/>
   <property name="row_mage" type="int" value="11"/>
  </properties>

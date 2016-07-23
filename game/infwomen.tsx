@@ -3,8 +3,8 @@
  <tileoffset x="-12" y="16"/>
  <properties>
   <property name="column_archer" type="int" value="12"/>
-  <property name="column_knight1" type="int" value="0"/>
-  <property name="column_knight2" type="int" value="3"/>
+  <property name="column_pikeman" type="int" value="0"/>
+  <property name="column_swordsman" type="int" value="3"/>
   <property name="column_priest" type="int" value="6"/>
   <property name="column_mage" type="int" value="9"/>
   <property name="commonanimation" type="int" value="0"/>

@@ -18,6 +18,7 @@ end)
 
 NPCMage.BulletSpeed = 2*60
 NPCMage.BulletInterval = 0.125
+NPCMage.BulletGid = levity:getTileGid("humanshots", "magic", 0)
 
 local function fireCoroutine(self)
 	local cx, cy = self.object.body:getWorldCenter()
@@ -40,8 +41,7 @@ local function fireCoroutine(self)
 	local params = {
 		speed = NPCMage.BulletSpeed,
 		angle = math.atan2(playerdy, playerdx),
-		tileset = "mageshot",
-		tileid = 0,
+		gid = NPCMage.BulletGid,
 		category = ShmupCollision.Category_NPCShot
 	}
 

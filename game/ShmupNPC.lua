@@ -134,7 +134,7 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	end
 
 	local bulletproperties = otherfixture:getBody():getUserData().properties
-	local damage = bulletproperties.damage
+	local damage = bulletproperties.damage or 1
 
 	self.health = self.health - damage
 	if self.health <= 0 then
