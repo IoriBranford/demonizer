@@ -2,6 +2,8 @@ local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 require "class"
+local OS = love.system.getOS()
+local IsMobile = OS == "Android" or OS == "iOS"
 
 local MaxAllies = 4
 
@@ -14,8 +16,7 @@ local ShmupPlayer = class(function(self, id)
 	self.vy = 0
 	self.didmousemove = false
 
-	local os = love.system.getOS()
-	self.firing = os == "Android" or os == "iOS"
+	self.firing = IsMobile
 	self.firetimer = 0
 	self.focused = false
 
@@ -45,6 +46,8 @@ local ShmupPlayer = class(function(self, id)
 
 	self.soundsource = nil
 	self.soundfile = nil
+
+	self.touches = {}
 end)
 
 ShmupPlayer.Speed = 180
@@ -125,6 +128,7 @@ function ShmupPlayer:isFocused()
 	return self.focused
 end
 
+if not IsMobile then
 function ShmupPlayer:joystickaxis(joystick, axis, value)
 	local speed = ShmupPlayer.Speed
 	local lockspeedfactor = .5
@@ -198,9 +202,36 @@ end
 function ShmupPlayer:keyreleased(key, u)
 	self:keychanged(key, false)
 end
+end
+
+function ShmupPlayer:touchpressed(touch, x, y, dx, dy)
+	if #self.touches < 2 then
+		table.insert(self.touches, touch)
+		if #self.touches == 2 then
+			self.focused = true
+		end
+	end
+end
 
 function ShmupPlayer:touchmoved(touch, x, y, dx, dy)
-	self:mousemoved(x, y, dx, dy)
+	if touch == self.touches[1] then
+		self:mousemoved(x, y, dx, dy)
+	end
+end
+
+function ShmupPlayer:touchreleased(touch, x, y, dx, dy)
+	if #self.touches == 2 then
+		self.focused = false
+	elseif #self.touches == 1 then
+		self:mousemoved(x, y, dx, dy)
+	end
+
+	for i = 1, #self.touches do
+		if touch == self.touches[i] then
+			table.remove(self.touches, i)
+			break
+		end
+	end
 end
 
 function ShmupPlayer:mousemoved(x, y, dx, dy)

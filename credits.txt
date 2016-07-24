@@ -13,3 +13,8 @@ CC-BY 3.0 OGA-BY 3.0
 Halterock Full view
 HyperSnake22 http://hypersnake22.deviantart.com/
 !UNLICENSED!
+
+QueueableSource.lua
+from love-microphone
+Lucien Greathouse https://github.com/LPGhatguy/love-microphone
+zlib/libpng
