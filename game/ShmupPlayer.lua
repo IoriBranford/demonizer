@@ -47,7 +47,8 @@ local ShmupPlayer = class(function(self, id)
 	self.soundsource = nil
 	self.soundfile = nil
 
-	self.touches = {}
+	self.movetouch = nil
+	self.focustouch = nil
 end)
 
 ShmupPlayer.Speed = 180
@@ -205,32 +206,27 @@ end
 end
 
 function ShmupPlayer:touchpressed(touch, x, y, dx, dy)
-	if #self.touches < 2 then
-		table.insert(self.touches, touch)
-		if #self.touches == 2 then
-			self.focused = true
-		end
+	if not self.movetouch then
+		self.movetouch = touch
+	elseif not self.focustouch then
+		self.focustouch = touch
+		self.focused = true
 	end
 end
 
 function ShmupPlayer:touchmoved(touch, x, y, dx, dy)
-	if touch == self.touches[1] then
+	if touch == self.movetouch then
 		self:mousemoved(x, y, dx, dy)
 	end
 end
 
 function ShmupPlayer:touchreleased(touch, x, y, dx, dy)
-	if #self.touches == 2 then
+	if touch == self.focustouch then
 		self.focused = false
-	elseif #self.touches == 1 then
+		self.focustouch = nil
+	elseif touch == self.movetouch then
 		self:mousemoved(x, y, dx, dy)
-	end
-
-	for i = 1, #self.touches do
-		if touch == self.touches[i] then
-			table.remove(self.touches, i)
-			break
-		end
+		self.movetouch = nil
 	end
 end
 
