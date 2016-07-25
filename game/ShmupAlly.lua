@@ -178,7 +178,7 @@ function ShmupAlly:beginMove(dt)
 	local playerid = levity.map.properties.playerid
 
 	local cx, cy = body:getWorldCenter()
-	local dx, dy = levity.machine:call(playerid, "allyPosition", self.allyindex)
+	local dx, dy = levity.machine:call(playerid, "getAllyPosition", self.allyindex)
 	if self.convertobject then
 		dx = dx + ShmupAlly.ConvertShake*self.converttimer
 				*math.sin(self.converttimer * 60)

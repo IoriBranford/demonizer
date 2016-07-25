@@ -3,6 +3,8 @@ local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = levity.machine:requireScript("ShmupNPC")
 require "class"
 
+local InitialRank = .25
+
 local function setFilterFromProperties(body)
 	for _, fixture in ipairs(body:getFixtureList()) do
 		local properties = fixture:getUserData().properties
@@ -34,6 +36,8 @@ end
 
 local ShmupMap = class(function(self, id)
 	self.map = levity.map
+	self.properties = self.map.properties
+
 	ShmupNPC.ShotLayer = levity:addDynamicLayer("npcshots")
  
 	for _, layer in ipairs(self.map.layers) do
@@ -57,10 +61,21 @@ local ShmupMap = class(function(self, id)
 		levity.bank:load(music, "emu")
 		levity.bank:play(music)
 	end
+
+	self.rank = InitialRank
 end)
 
 function ShmupMap:keypressed_escape()
 	levity:setNextMap(levity.mapfile)
+end
+
+function ShmupMap:endMove(dt)
+	local playerid = self.properties.playerid
+	self.rank = levity.machine:call(playerid, "rankFactor")
+end
+
+function ShmupMap:getRank()
+	return self.rank
 end
 
 return ShmupMap

@@ -4,22 +4,22 @@ local ShmupNPC = levity.machine:requireScript("ShmupNPC")
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 require "class"
 
-local NPCKnight = class(ShmupNPC, function(self, id)
+local NPCSwordsman = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
 	self.firetimer = love.math.random()
-	self.health = 64
+	self.health = 32
 	self.weapon = "pike"
 	if string.find(self.npctype, "sword") == 1 then
 		self.weapon = "sword"
 	end
 end)
 
-NPCKnight.BulletSpeedBase = 2*60
-NPCKnight.BulletSpeedInc = 15
-NPCKnight.BulletInterval = 1.5
-NPCKnight.BulletHalfArc = math.pi*.125
+NPCSwordsman.BulletSpeedBase = 2*60
+NPCSwordsman.BulletSpeedInc = 15
+NPCSwordsman.BulletInterval = 1.5
+NPCSwordsman.BulletHalfArc = math.pi*.125
 
-function NPCKnight:updateFiring(dt)
+function NPCSwordsman:updateFiring(dt)
 	local cx, cy = self.object.body:getWorldCenter()
 	local playerdx = 0
 	local playerdy = 1
@@ -37,9 +37,9 @@ function NPCKnight:updateFiring(dt)
 		local params = {
 			x = cx,
 			y = cy,
-			speed = NPCKnight.BulletSpeedBase,
+			speed = NPCSwordsman.BulletSpeedBase,
 			angle = math.atan2(playerdy, playerdx)
-				- NPCKnight.BulletHalfArc,
+				- NPCSwordsman.BulletHalfArc,
 			gid = levity:getTileGid("humanshots", self.weapon, 0),
 			category = ShmupCollision.Category_NPCShot
 		}
@@ -47,10 +47,10 @@ function NPCKnight:updateFiring(dt)
 		for i = 1, 3 do
 			firetimer = ShmupBullet.fireOverTime(params,
 					ShmupNPC.ShotLayer, self.firetimer,
-					NPCKnight.BulletInterval)
+					NPCSwordsman.BulletInterval)
 
-			params.angle = params.angle + NPCKnight.BulletHalfArc
-			params.speed = params.speed + NPCKnight.BulletSpeedInc
+			params.angle = params.angle + NPCSwordsman.BulletHalfArc
+			params.speed = params.speed + NPCSwordsman.BulletSpeedInc
 		end
 
 		self.firetimer = firetimer
@@ -60,7 +60,7 @@ function NPCKnight:updateFiring(dt)
 	self.firetimer = self.firetimer - dt
 end
 
-function NPCKnight:beginMove(dt)
+function NPCSwordsman:beginMove(dt)
 	ShmupNPC.beginMove(self, dt)
 	if not self.object.visible then
 		return
@@ -77,4 +77,4 @@ end
 levity.bank:load("pike.wav")
 levity.bank:load("sword.wav")
 
-return NPCKnight
+return NPCSwordsman

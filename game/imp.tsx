@@ -31,6 +31,30 @@
     </properties>
     <ellipse/>
    </object>
+   <object id="12" name="focusally1" x="-32" y="40">
+    <properties>
+     <property name="sensor" type="bool" value="true"/>
+    </properties>
+    <ellipse/>
+   </object>
+   <object id="13" name="focusally2" x="32" y="40">
+    <properties>
+     <property name="sensor" type="bool" value="true"/>
+    </properties>
+    <ellipse/>
+   </object>
+   <object id="14" name="focusally3" x="-16" y="8">
+    <properties>
+     <property name="sensor" type="bool" value="true"/>
+    </properties>
+    <ellipse/>
+   </object>
+   <object id="15" name="focusally4" x="16" y="8">
+    <properties>
+     <property name="sensor" type="bool" value="true"/>
+    </properties>
+    <ellipse/>
+   </object>
   </objectgroup>
   <animation>
    <frame tileid="0" duration="125"/>

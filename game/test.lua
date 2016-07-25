@@ -119,6 +119,66 @@ return {
                 properties = {
                   ["sensor"] = true
                 }
+              },
+              {
+                id = 12,
+                name = "focusally1",
+                type = "",
+                shape = "ellipse",
+                x = -32,
+                y = 40,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["sensor"] = true
+                }
+              },
+              {
+                id = 13,
+                name = "focusally2",
+                type = "",
+                shape = "ellipse",
+                x = 32,
+                y = 40,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["sensor"] = true
+                }
+              },
+              {
+                id = 14,
+                name = "focusally3",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 8,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["sensor"] = true
+                }
+              },
+              {
+                id = 15,
+                name = "focusally4",
+                type = "",
+                shape = "ellipse",
+                x = 16,
+                y = 8,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["sensor"] = true
+                }
               }
             }
           },
@@ -1352,7 +1412,7 @@ return {
           properties = {
             ["pathid"] = 288,
             ["pathtime"] = 0.5,
-            ["script"] = "NPCKnight"
+            ["script"] = "NPCSwordsman"
           }
         },
         {
@@ -1389,7 +1449,7 @@ return {
           properties = {
             ["pathid"] = 281,
             ["pathtime"] = 0.5,
-            ["script"] = "NPCKnight"
+            ["script"] = "NPCSwordsman"
           }
         },
         {
@@ -1564,7 +1624,7 @@ return {
           properties = {
             ["pathid"] = 219,
             ["pathtime"] = 1.5,
-            ["script"] = "NPCKnight"
+            ["script"] = "NPCSwordsman"
           }
         },
         {
@@ -1712,7 +1772,7 @@ return {
           properties = {
             ["pathid"] = 211,
             ["pathtime"] = 1,
-            ["script"] = "NPCKnight"
+            ["script"] = "NPCSwordsman"
           }
         }
       }
@@ -1928,7 +1988,7 @@ return {
           properties = {
             ["pathid"] = 195,
             ["pathtime"] = 1.5,
-            ["script"] = "NPCKnight"
+            ["script"] = "NPCSwordsman"
           }
         },
         {
@@ -1965,7 +2025,7 @@ return {
           properties = {
             ["pathid"] = 271,
             ["pathtime"] = 1.5,
-            ["script"] = "NPCKnight"
+            ["script"] = "NPCSwordsman"
           }
         },
         {

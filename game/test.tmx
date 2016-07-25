@@ -217,7 +217,7 @@
    <properties>
     <property name="pathid" type="int" value="288"/>
     <property name="pathtime" type="float" value="0.5"/>
-    <property name="script" value="NPCKnight"/>
+    <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
   <object id="281" name="path" x="120" y="496">
@@ -230,7 +230,7 @@
    <properties>
     <property name="pathid" type="int" value="281"/>
     <property name="pathtime" type="float" value="0.5"/>
-    <property name="script" value="NPCKnight"/>
+    <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
   <object id="284" gid="171" x="144" y="440" width="24" height="32">
@@ -289,7 +289,7 @@
    <properties>
     <property name="pathid" type="int" value="219"/>
     <property name="pathtime" type="float" value="1.5"/>
-    <property name="script" value="NPCKnight"/>
+    <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
   <object id="219" name="path" x="-64" y="944">
@@ -342,7 +342,7 @@
    <properties>
     <property name="pathid" type="int" value="211"/>
     <property name="pathtime" type="float" value="1"/>
-    <property name="script" value="NPCKnight"/>
+    <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
  </objectgroup>
@@ -411,7 +411,7 @@
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="1.5"/>
-    <property name="script" value="NPCKnight"/>
+    <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
   <object id="195" name="path" x="-16" y="1184">
@@ -424,7 +424,7 @@
    <properties>
     <property name="pathid" type="int" value="271"/>
     <property name="pathtime" type="float" value="1.5"/>
-    <property name="script" value="NPCKnight"/>
+    <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
   <object id="239" name="trigger" x="0" y="1120" width="288" height="8">

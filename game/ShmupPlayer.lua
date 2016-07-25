@@ -42,6 +42,10 @@ local ShmupPlayer = class(function(self, id)
 		if fixture then
 			fixture:setFilterData(0, 0, 0)
 		end
+		fixture = fixtures["focusally"..i]
+		if fixture then
+			fixture:setFilterData(0, 0, 0)
+		end
 	end
 
 	self.soundsource = nil
@@ -60,8 +64,6 @@ ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
 ShmupPlayer.DeathSnapToCameraVelocity = 1/16
 ShmupPlayer.AllyFleeDistance = 400
-ShmupPlayer.FocusAllySpread = 1.5
-ShmupPlayer.FocusAllyOffsetY = -16
 
 local Sounds = {
 	Shot = "playershot.wav",
@@ -80,7 +82,7 @@ function ShmupPlayer:playSound(soundfile)
 	end
 end
 
-function ShmupPlayer:rank()
+function ShmupPlayer:rankFactor()
 	return self.numallies / ShmupPlayer.MaxAllies
 end
 
@@ -93,17 +95,18 @@ function ShmupPlayer:newAllyIndex()
 	return self.numallies
 end
 
-function ShmupPlayer:allyPosition(i)
+function ShmupPlayer:getAllyPosition(i)
 	local x = self.object.x
 	local y = self.object.y
-	local offsetfixture = self.object.body:getUserData().fixtures["ally"..i]
+	local offsetfixture
+	if self.focused then
+		offsetfixture = self.object.body:getUserData().fixtures["focusally"..i]
+	else
+		offsetfixture = self.object.body:getUserData().fixtures["ally"..i]
+	end
+
 	if offsetfixture then
 		local ox, oy = offsetfixture:getShape():getPoint()
-		if self.focused then
-			oy = oy + ShmupPlayer.FocusAllyOffsetY
-			ox = ox * ShmupPlayer.FocusAllySpread
-			oy = oy * ShmupPlayer.FocusAllySpread
-		end
 		x = x + ox
 		y = y + oy
 
@@ -129,7 +132,7 @@ function ShmupPlayer:isFocused()
 	return self.focused
 end
 
-if not IsMobile then
+if not IsMobile then -- current LOVE Android sends garbage joystick events
 function ShmupPlayer:joystickaxis(joystick, axis, value)
 	local speed = ShmupPlayer.Speed
 	local lockspeedfactor = .5
@@ -195,6 +198,7 @@ function ShmupPlayer:keychanged(key, pressed)
 		self:joystickchanged(2, pressed)
 	end
 end
+end
 
 function ShmupPlayer:keypressed(key, u)
 	self:keychanged(key, true)
@@ -202,7 +206,6 @@ end
 
 function ShmupPlayer:keyreleased(key, u)
 	self:keychanged(key, false)
-end
 end
 
 function ShmupPlayer:touchpressed(touch, x, y, dx, dy)
@@ -331,7 +334,7 @@ function ShmupPlayer:beginMove(dt)
 				y = cy,
 				speed = ShmupPlayer.BulletSpeed,
 				angle = math.pi*1.5,
-				damage = 8,
+				damage = 4,
 				gid = ShmupPlayer.BulletGid,
 				category = ShmupCollision.Category_PlayerShot
 			}

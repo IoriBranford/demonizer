@@ -60,7 +60,7 @@ local ShmupNPC = class(function(self, id)
 		self.health = 0
 		table.insert(mask, ShmupCollision.Category_PlayerShot)
 	else
-		self.health = 64
+		self.health = 32
 	end
 
 	local tileset = levity:getMapTileset(self.object.tile.tileset)
