@@ -72,15 +72,11 @@ local ShmupNPC = class(function(self, id)
 		fixture:setMask(unpack(mask))
 	end
 
+	self.conscious = true
+	self.pulledbyplayer = false
 	self.captured = false
 
-	self.pathtimer = 0
-	self.pathpoint = 1
-
-	local pathid = self.properties.pathid
-	if type(pathid) == "string" then
-		self.properties.pathid = tonumber(pathid)
-	end
+	self.pathwalker = nil
 
 	self.oncamera = false
 	self.incover = false
@@ -127,6 +123,31 @@ function ShmupNPC:canBeLockTarget()
 		and not self.incover
 end
 
+function ShmupNPC:knockout()
+	self.health = 0
+	self.conscious = false
+	self.pathwalker = nil
+	local gid = levity:getTileGid(self.object.tile.tileset,
+					"ko", self.npctype)
+	levity:setObjectGid(self.object, gid)
+
+	for _, fixture in ipairs(self.object.body:getFixtureList()) do
+		fixture:setMask(
+			ShmupCollision.Category_CameraEdge,
+			ShmupCollision.Category_PlayerShot,
+			ShmupCollision.Category_NPC,
+			ShmupCollision.Category_NPCShot)
+	end
+
+	levity.bank:play(Sounds.KO)
+
+	self.bleedouttimer = ShmupNPC.BleedOutTime
+
+	if self.onKO then
+		self.onKO()
+	end
+end
+
 function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	if self.incover then
 		self:suppress()
@@ -138,24 +159,7 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 
 	self.health = self.health - damage
 	if self.health <= 0 then
-		self.properties.pathid = nil
-		local gid = levity:getTileGid(self.object.tile.tileset,
-						"ko", self.npctype)
-		levity:setObjectGid(self.object, gid)
-
-		myfixture:setMask(
-			ShmupCollision.Category_CameraEdge,
-			ShmupCollision.Category_PlayerShot,
-			ShmupCollision.Category_NPC,
-			ShmupCollision.Category_NPCShot)
-
-		levity.bank:play(Sounds.KO)
-
-		self.bleedouttimer = ShmupNPC.BleedOutTime
-
-		if self.onKO then
-			self.onKO()
-		end
+		self:knockout()
 	else
 		levity.bank:play(Sounds.Hit)
 	end
@@ -253,47 +257,52 @@ function ShmupNPC:beginMove(dt)
 	local vx0, vy0 = body:getLinearVelocity()
 	local vx1, vy1 = 0, 0
 
-	local pathid = self.properties.pathid
-	if pathid then
-		local pathtime = self.properties.pathtime
-		vx1, vy1 = levity.machine:call(pathid, "getVelocityTo",
-			self.pathpoint, body:getX(), body:getY(), pathtime)
+	local vehicleid = self.properties.vehicleid
 
-		self.pathpoint = levity.machine:call(pathid, "updatePoint",
-			self.pathpoint, body:getX(), body:getY(), vx1, vy1)
+	local cx, cy = body:getWorldCenter()
+	local playerid = levity.map.properties.playerid
+	local player = levity.map.objects[playerid]
 
-		self.pathtimer = self.pathtimer + dt
+	local playerdx, playerdy
+	local playerdsq = math.huge
 
-		if levity.machine:call(pathid, "finished", self.pathpoint)
-		or self.pathtimer >= pathtime then
-			self.properties.pathid = nil
+	if player then
+		local playercx, playercy = player.body:getWorldCenter()
+		playerdx = playercx - cx
+		playerdy = playercy - cy
+		playerdsq = playerdx*playerdx + playerdy*playerdy
+	end
+
+	self.pulledbyplayer = self.pulledbyplayer
+		or (self.health <= 0 and playerdsq < ShmupNPC.CapturePullDistSq)
+
+	if not self.pathwalker then
+		local pathid = self.properties.pathid
+		self.pathwalker = levity.machine:call(pathid, "newWalker",
+						self.properties.pathtime)
+	end
+
+	if self.pulledbyplayer then
+		local dist = math.sqrt(playerdsq)
+		local pull = ShmupNPC.CapturePullSpeed / dist
+		vx1 = playerdx * pull
+		vy1 = playerdy * pull
+	elseif vehicleid then
+		local vehicle = levity.map.objects[vehicleid]
+		if vehicle then
+			vx1, vy1 = vehicle.body:getLinearVelocity()
 		end
-	elseif self.health <= 0 then
-		local playerid = levity.map.properties.playerid
-		local player = levity.map.objects[playerid]
-		if player then
-			local cx, cy = self.object.body:getWorldCenter()
-			local playercx, playercy = player.body:getWorldCenter()
-			local playerdx = playercx - cx
-			local playerdy = playercy - cy
-
-			local dsq = playerdx*playerdx + playerdy*playerdy
-			if dsq < ShmupNPC.CapturePullDistSq then
-				local dist = math.sqrt(dsq)
-				local pull = ShmupNPC.CapturePullSpeed / dist
-				vx1 = (playercx - cx) * pull
-				vy1 = (playercy - cy) * pull
-			end
-		end
+	elseif self.pathwalker and self.conscious then
+		vx1, vy1 = self.pathwalker:walk(dt, body:getX(), body:getY())
 	end
 
 	body:setLinearVelocity(vx1, vy1)
+end
 
+function ShmupNPC:endMove(dt)
 	if self.captured then
 		self:capture()
-	end
-
-	if self.bleedouttimer > 0 then
+	elseif self.bleedouttimer > 0 then
 		self.bleedouttimer = self.bleedouttimer - dt
 		if self.bleedouttimer <= 0 then
 			self:remove()
@@ -343,6 +352,12 @@ end
 
 function ShmupNPC:endMap()
 	levity.bank:changeMusic("07 - Great Job!.vgm", "emu")
+end
+
+function ShmupNPC:vehicleDestroyed(vehicleid)
+	if self.properties.vehicleid == vehicleid then
+		self:knockout()
+	end
 end
 
 return ShmupNPC

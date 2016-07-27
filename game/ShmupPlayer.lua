@@ -198,6 +198,14 @@ function ShmupPlayer:keychanged(key, pressed)
 		self:joystickchanged(2, pressed)
 	end
 end
+
+function ShmupPlayer:mousepressed(x, y, button)
+	self:joystickpressed(nil, button)
+end
+
+function ShmupPlayer:mousereleased(x, y, button)
+	self:joystickreleased(nil, button)
+end
 end
 
 function ShmupPlayer:keypressed(key, u)

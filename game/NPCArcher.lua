@@ -46,7 +46,7 @@ function NPCArcher:updateFiring(dt)
 	end
 	self.firetimer = self.firetimer - dt
 
-	if not self.properties.pathid then
+	if not self.pathwalker or self.pathwalker:finished() then
 		self:setInCover(self.firetimer > NPCArcher.LeaveCoverTime)
 	end
 end

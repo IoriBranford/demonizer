@@ -3,6 +3,10 @@
  <tileoffset x="-8" y="8"/>
  <properties>
   <property name="commoncollision" type="int" value="0"/>
+  <property name="row_arrow" type="int" value="2"/>
+  <property name="row_magic" type="int" value="3"/>
+  <property name="row_pike" type="int" value="0"/>
+  <property name="row_sword" type="int" value="1"/>
  </properties>
  <image source="humanshots.png" width="16" height="64"/>
  <tile id="0">

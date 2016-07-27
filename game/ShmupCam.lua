@@ -30,8 +30,7 @@ local ShmupCam = class(function(self, id)
 	local mapwidth = (levity.map.width * levity.map.tilewidth)
 	self.mapwidthratio = 1 - (self.object.width / mapwidth)
 
-	self.pathtimer = 0
-	self.pathpoint = 1
+	self.pathwalker = nil
 	self.pathpaused = false
 end)
 
@@ -97,27 +96,20 @@ function ShmupCam:beginMove(dt)
 	local mass = 0x40000000 -- don't let others push it around
 	body:setMass(mass)
 	local vx0, vy0 = body:getLinearVelocity()
+	local vx1, vy1 = 0, 0
 
-	local pathid = self.properties.pathid
-	if pathid and not self.pathpaused then
-		local pathtime = self.properties.pathtime
-		local vx, vy = levity.machine:call(pathid, "getVelocityTo",
-			self.pathpoint, self.x0, body:getY(), pathtime)
-
-		body:setLinearVelocity(vx0, vy)
-
-		self.pathpoint = levity.machine:call(pathid, "updatePoint",
-			self.pathpoint, self.x0, body:getY(), vx0, vy)
-
-		self.pathtimer = self.pathtimer + dt
-
-		if levity.machine:call(pathid, "finished", self.pathpoint)
-		or self.pathtimer >= pathtime then
-			self.properties.pathid = nil
-		end
-	else
-		body:setLinearVelocity(0, 0)
+	if not self.pathwalker then
+		local pathid = self.properties.pathid
+		self.pathwalker = levity.machine:call(pathid, "newWalker",
+						self.properties.pathtime)
 	end
+
+	if self.pathwalker and not self.pathpaused then
+		_, vy1 = self.pathwalker:walk(dt, self.x0, body:getY())
+		vx1 = vx0
+	end
+
+	body:setLinearVelocity(vx1, vy1)
 end
 
 function ShmupCam:endMove(dt)
