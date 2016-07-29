@@ -109,6 +109,11 @@ end
 function ShmupNPC:setActive(active)
 	self.object.visible = active
 	self.object.body:setActive(active)
+	if active then
+		self.object.anitimescale = 1
+	else
+		self.object.anitimescale = 0
+	end
 	self.ready = false
 end
 

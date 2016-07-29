@@ -59,8 +59,7 @@ end
 -- @field damage
 -- @field speed in px/sec
 -- @field angle in radians
--- @field tileset name or index
--- @field tileid 0-based
+-- @field gid
 -- @field category
 -- @field accelx in px/sec/sec
 -- @field accely in px/sec/sec

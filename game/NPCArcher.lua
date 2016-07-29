@@ -12,10 +12,10 @@ local NPCArcher = class(ShmupNPC, function(self, id)
 	self.health = 8
 end)
 
-NPCArcher.BulletSpeed = 3*60
+NPCArcher.BulletSpeed = 4*60
 NPCArcher.BulletInterval = BulletInterval
 NPCArcher.LeaveCoverTime = 1
-NPCArcher.PlayerShotSuppression = 3/16
+NPCArcher.PlayerShotSuppression = 1/8
 NPCArcher.BulletGid = levity:getTileGid("humanshots", "arrow", 0)
 
 function NPCArcher:updateFiring(dt)
