@@ -132,7 +132,6 @@ function ShmupPlayer:isFocused()
 	return self.focused
 end
 
-if not IsMobile then -- current LOVE Android sends garbage joystick events
 function ShmupPlayer:joystickaxis(joystick, axis, value)
 	local speed = ShmupPlayer.Speed
 	local lockspeedfactor = .5
@@ -205,7 +204,6 @@ end
 
 function ShmupPlayer:mousereleased(x, y, button)
 	self:joystickreleased(nil, button)
-end
 end
 
 function ShmupPlayer:keypressed(key, u)
