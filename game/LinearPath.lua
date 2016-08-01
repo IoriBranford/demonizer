@@ -1,5 +1,6 @@
 local levity = require "levity"
 require "class"
+require "xmath"
 
 local LinearPath = class(function(self, id)
 	local path = levity.map.objects[id]
@@ -12,7 +13,7 @@ local LinearPath = class(function(self, id)
 		local q = self.points[i]
 		local dx = (q.x - p.x)
 		local dy = (q.y - p.y)
-		local length = math.sqrt(dx*dx + dy*dy)
+		local length = math.hypot(dx, dy)
 		self.totallength = self.totallength + length
 
 		table.insert(self.drawpoints, q.x)
@@ -37,7 +38,7 @@ function Walker:getVelocityAt(x, y)
 	local point = self.path.points[self.i]
 	local dx = point.x - x
 	local dy = point.y - y
-	local distsq = (dx*dx + dy*dy)
+	local distsq = math.hypotsq(dx, dy)
 	if distsq < 1 then
 		return 0,0
 	end

@@ -128,6 +128,10 @@ function ShmupNPC:canBeLockTarget()
 		and not self.incover
 end
 
+function ShmupNPC:canBeCaptured()
+	return self.health <= 0
+end
+
 function ShmupNPC:knockout()
 	self.health = 0
 	self.conscious = false
@@ -171,8 +175,9 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 end
 
 function ShmupNPC:beginContact_Player(myfixture, otherfixture, contact)
-	if self.health <= 0 then
+	if self:canBeCaptured() then
 		self.captured = true
+		levity.machine:broadcast("npcCaptured", self.object.id)
 	end
 end
 
@@ -275,11 +280,11 @@ function ShmupNPC:beginMove(dt)
 		local playercx, playercy = player.body:getWorldCenter()
 		playerdx = playercx - cx
 		playerdy = playercy - cy
-		playerdsq = playerdx*playerdx + playerdy*playerdy
+		playerdsq = math.hypotsq(playerdx, playerdy)
 	end
 
 	self.pulledbyplayer = self.pulledbyplayer
-		or (self.health <= 0 and playerdsq < ShmupNPC.CapturePullDistSq)
+		or (self:canBeCaptured() and playerdsq < ShmupNPC.CapturePullDistSq)
 
 	if not self.pathwalker then
 		local pathid = self.properties.pathid

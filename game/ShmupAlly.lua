@@ -3,17 +3,28 @@ local ShmupCollision = require "ShmupCollision"
 local ShmupPlayer = levity.machine:requireScript("ShmupPlayer")
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 require "class"
+require "xmath"
+
+local DisableCaptureMask = {
+	ShmupCollision.Category_CameraEdge,
+	ShmupCollision.Category_Player,
+	ShmupCollision.Category_PlayerShot,
+	ShmupCollision.Category_NPC
+}
+
+local EnableCaptureMask = {
+	ShmupCollision.Category_CameraEdge,
+	ShmupCollision.Category_Player,
+	ShmupCollision.Category_PlayerShot
+}
 
 local ShmupAlly = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.object.body:setFixedRotation(true)
 	self.object.body:setBullet(true)
 	self.firetimer = 0
-	self:refreshFixtures({ShmupCollision.Category_CameraEdge,
-				ShmupCollision.Category_Player,
-				ShmupCollision.Category_PlayerShot,
-				ShmupCollision.Category_NPC,
-				ShmupCollision.Category_NPCShot})
+
+	self:refreshFixtures(DisableCaptureMask)
 
 	local playerid = levity.map.properties.playerid
 	self.allyindex = levity.machine:call(playerid, "newAllyIndex")
@@ -29,14 +40,14 @@ local ShmupAlly = class(function(self, id)
 	self.oncamera = false
 
 	self.locktargetid = nil
+	self.captiveid = nil
+	self.health = 8
 end)
 
--- this script changes sprites
 function ShmupAlly:refreshFixtures(mask)
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setSensor(true)
 		fixture:setCategory(ShmupCollision.Category_Player)
-		-- can't capture until after conversion
 		fixture:setMask(unpack(mask))
 	end
 end
@@ -46,10 +57,11 @@ local Sounds = {
 }
 levity.bank:load(Sounds)
 
+ShmupAlly.Speed = 320
+ShmupAlly.MaxHealth = 8
 ShmupAlly.BulletGid = levity:getTileGid("demonshots", "ally", 0)
 ShmupAlly.ConvertTime = 1
 ShmupAlly.ConvertShake = 4
-ShmupAlly.SnapToPlayerVelocity = 1/8
 ShmupAlly.LockSearchWidth = 120
 ShmupAlly.LockSearchHeight = 160
 
@@ -58,12 +70,47 @@ function ShmupAlly:destroy()
 	if self.convertobject then
 		self.convertobject.dead = true
 	end
+
+	levity.machine:broadcast("allyDestroyed", self.allyindex)
+end
+
+function ShmupAlly:npcCaptured(npcid)
+	local healing = 1
+	local npc = levity.map.objects[npcid]
+	if npc then
+		healing = npc.properties.maxhealth or 1
+	end
+
+	self.health = math.min(self.health + healing, ShmupAlly.MaxHealth)
+
+	if self.captiveid == npcid then
+		self.captiveid = nil
+	end
+end
+
+function ShmupAlly:allyDestroyed(allyindex)
+	if self.allyindex > allyindex then
+		self.allyindex = self.allyindex - 1
+	end
 end
 
 function ShmupAlly:beginContact(myfixture, otherfixture, contact)
+	local otherdata = otherfixture:getBody():getUserData()
+	local otherproperties = otherdata.properties
 	local category = otherfixture:getCategory()
-	if category == ShmupCollision.Category_NPCShot then
-		self:destroy()
+
+	if category == ShmupCollision.Category_NPC then
+		-- nothing yet...
+	elseif category == ShmupCollision.Category_NPCShot then
+		if self.convertobject then
+			return
+		end
+		local damage = otherproperties.damage or 1
+		self.health = self.health - damage
+		if self.health <= 0 then
+			self:destroy()
+		else
+		end
 	elseif category == ShmupCollision.Category_Camera then
 		self.oncamera = true
 	end
@@ -78,15 +125,11 @@ function ShmupAlly:endContact(myfixture, otherfixture, contact)
 end
 
 function ShmupAlly:playerDead()
-	-- can't capture and can be shot while player dead
-	self:refreshFixtures({ShmupCollision.Category_CameraEdge,
-				ShmupCollision.Category_Player,
-				ShmupCollision.Category_PlayerShot,
-				ShmupCollision.Category_NPC})
+	self:refreshFixtures(DisableCaptureMask)
 end
 
 function ShmupAlly:playerRespawned()
-	self:destroy()
+	self:refreshFixtures(EnableCaptureMask)
 end
 
 function ShmupAlly:updateConversion(dt)
@@ -99,10 +142,7 @@ function ShmupAlly:updateConversion(dt)
 		local gid = levity:getTileGid("demonwomen", self.npctype, 0)
 		levity:setObjectGid(self.object, gid)
 
-		self:refreshFixtures({ShmupCollision.Category_CameraEdge,
-					ShmupCollision.Category_Player,
-					ShmupCollision.Category_PlayerShot,
-					ShmupCollision.Category_NPCShot})
+		self:refreshFixtures(EnableCaptureMask)
 	end
 end
 
@@ -114,7 +154,7 @@ function ShmupAlly:updateFiring(dt)
 
 		local locktargetid
 		if levity.machine:call(playerid, "isFocused") then
-			locktargetid = self:findLockTarget()
+			locktargetid = self:findTarget("canBeLockTarget")
 		end
 
 		if locktargetid then
@@ -145,7 +185,7 @@ function ShmupAlly:updateFiring(dt)
 	self.firetimer = self.firetimer - dt
 end
 
-function ShmupAlly:findLockTarget()
+function ShmupAlly:findTarget(canbetargetfunc)
 	local playerid = levity.map.properties.playerid
 	local player = levity.map.objects[playerid]
 	local playercx, playercy = player.body:getWorldCenter()
@@ -161,7 +201,7 @@ function ShmupAlly:findLockTarget()
 	levity.world:queryBoundingBox(x0, y0, x1, y1, function(fixture)
 		local userdata = fixture:getBody():getUserData()
 		local id = userdata.id
-		if not levity.machine:call(id, "canBeLockTarget") then
+		if not levity.machine:call(id, canbetargetfunc) then
 			return true
 		end
 
@@ -178,16 +218,42 @@ function ShmupAlly:beginMove(dt)
 	local playerid = levity.map.properties.playerid
 
 	local cx, cy = body:getWorldCenter()
-	local dx, dy = levity.machine:call(playerid, "getAllyPosition", self.allyindex)
+	local destx, desty
+	local captive
+
+	local focused = levity.machine:call(playerid, "isFocused")
+	if focused and not self.convertobject then
+		if not self.captiveid then
+			self.captiveid = self:findTarget("canBeCaptured")
+		end
+		captive = levity.map.objects[self.captiveid]
+	end
+
+	if captive then
+		destx, desty = captive.body:getWorldCenter()
+	else
+		destx, desty = levity.machine:call(playerid, "getAllyPosition",
+						self.allyindex)
+		self.captiveid = nil
+	end
+
 	if self.convertobject then
-		dx = dx + ShmupAlly.ConvertShake*self.converttimer
+		desty = desty + ShmupAlly.ConvertShake*self.converttimer
 				*math.sin(self.converttimer * 60)
 	end
 
-	local vx1, vy1 = dx - cx, dy - cy
-	local snaptopv = ShmupAlly.SnapToPlayerVelocity / dt
+	local dx, dy = destx - cx, desty - cy
+	local dist = math.hypot(dx, dy)
+	local vx1, vy1
+	if dist < 1 then
+		vx1 = dx / dt
+		vy1 = dy / dt
+	else
+		vx1 = dx * ShmupAlly.Speed / dist
+		vy1 = dy * ShmupAlly.Speed / dist
+	end
 
-	body:setLinearVelocity(vx1 * snaptopv, vy1 * snaptopv)
+	body:setLinearVelocity(vx1, vy1)
 
 	if self.convertobject then
 		self:updateConversion(dt)
@@ -213,13 +279,14 @@ function ShmupAlly:beginDraw()
 		local flash = 0x80 * (math.cos(flashrate*math.pi) + 3)
 
 		love.graphics.setColor(flash, 0xff, flash)
+	else
+		local wound = 0xff * (self.health / ShmupAlly.MaxHealth)
+		love.graphics.setColor(0xff, wound, wound)
 	end
 end
 
 function ShmupAlly:endDraw()
-	if self.convertobject then
-		love.graphics.setColor(0xff, 0xff, 0xff)
-	end
+	love.graphics.setColor(0xff, 0xff, 0xff)
 end
 
 return ShmupAlly

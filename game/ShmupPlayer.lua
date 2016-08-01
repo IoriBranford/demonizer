@@ -95,6 +95,10 @@ function ShmupPlayer:newAllyIndex()
 	return self.numallies
 end
 
+function ShmupPlayer:allyDestroyed(allyindex)
+	self.numallies = self.numallies - 1
+end
+
 function ShmupPlayer:getAllyPosition(i)
 	local x = self.object.x
 	local y = self.object.y
@@ -115,8 +119,7 @@ function ShmupPlayer:getAllyPosition(i)
 			local angle = math.pi * .5
 			angle = angle + math.atan2(cx - x, y - cy) * .25
 
-			local distance = self.deathtimer
-					* ShmupPlayer.AllyFleeDistance
+			local distance = ShmupPlayer.AllyFleeDistance
 			x = x + distance * math.cos(angle)
 			y = y + distance * math.sin(angle)
 		end
@@ -125,11 +128,11 @@ function ShmupPlayer:getAllyPosition(i)
 end
 
 function ShmupPlayer:isFiring()
-	return self.firing
+	return not self.dead and self.firing
 end
 
 function ShmupPlayer:isFocused()
-	return self.focused
+	return not self.dead and self.focused
 end
 
 function ShmupPlayer:joystickaxis(joystick, axis, value)
@@ -250,7 +253,6 @@ function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 		if not self.dead and self.shieldtimer == 0 then
 			self.deathtimer = 0
 			self.dead = true
-			self.numallies = 0
 
 			-- capturing not allowed while player dead
 			myfixture:setMask(
