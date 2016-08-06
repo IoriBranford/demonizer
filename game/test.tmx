@@ -837,11 +837,6 @@
    </properties>
   </object>
  </objectgroup>
- <layer name="cover" width="36" height="265">
-  <data encoding="base64" compression="zlib">
-   eJztyrEVABAQBbC/wo1i/2Uo7MEGtJ6kTgIAAAAAAAAAAAAAAAAAAAAAAAAAfxiV9Dq/ts+8eAAAAAAAAAAAAAAAAAAAAAAAL1pi3AMc
-  </data>
- </layer>
  <objectgroup name="player">
   <object id="1" name="player" gid="1" x="144" y="2080" width="64" height="64">
    <properties>

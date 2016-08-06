@@ -3406,22 +3406,6 @@ return {
       }
     },
     {
-      type = "tilelayer",
-      name = "cover",
-      x = 0,
-      y = 0,
-      width = 36,
-      height = 265,
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJztyrEVABAQBbC/wo1i/2Uo7MEGtJ6kTgIAAAAAAAAAAAAAAAAAAAAAAAAAfxiV9Dq/ts+8eAAAAAAAAAAAAAAAAAAAAAAAL1pi3AMc"
-    },
-    {
       type = "objectgroup",
       name = "player",
       visible = true,

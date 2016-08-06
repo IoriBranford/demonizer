@@ -45,8 +45,15 @@ function ShmupScore:multiplierInc(whose)
 end
 
 function ShmupScore:multiplierLost(whose)
-	self.totalmultiplier = self.totalmultiplier - self.multipliers[whose]
+	local lostmult = self.multipliers[whose]
+	self.totalmultiplier = self.totalmultiplier - lostmult
 	self.multipliers[whose] = 0
+	if type(whose) == "number" and whose < #self.multipliers then
+		for i = whose, #self.multipliers - 1 do
+			self.multipliers[i] = self.multipliers[i + 1]
+		end
+		self.multipliers[#self.multipliers] = 0
+	end
 end
 
 function ShmupScore:playerKilled()
