@@ -2,7 +2,6 @@ local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = levity.machine:requireScript("ShmupNPC")
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
-require "class"
 
 local NPCSwordsman = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
@@ -65,7 +64,7 @@ function NPCSwordsman:beginMove(dt)
 	if not self.object.visible then
 		return
 	end
-	if self.health <= 0 then
+	if self.health < 1 then
 		return
 	end
 

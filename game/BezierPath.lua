@@ -1,5 +1,4 @@
 local levity = require "levity"
-require "class"
 
 local BezierPath = class(function(self, id)
 	local path = levity.map.objects[id]

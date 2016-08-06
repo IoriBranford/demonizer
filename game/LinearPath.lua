@@ -1,6 +1,4 @@
 local levity = require "levity"
-require "class"
-require "xmath"
 
 local LinearPath = class(function(self, id)
 	local path = levity.map.objects[id]

@@ -1,7 +1,5 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
-local bit = require "bit"
-require "class"
 
 local function beginMove(self, dt)
 	local body = self.object.body

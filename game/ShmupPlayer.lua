@@ -1,7 +1,7 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
-require "class"
+
 local OS = love.system.getOS()
 local IsMobile = OS == "Android" or OS == "iOS"
 
@@ -9,6 +9,7 @@ local MaxAllies = 4
 
 local ShmupPlayer = class(function(self, id)
 	self.object = levity.map.objects[id]
+	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
 	self.object.body:setBullet(true)
 
@@ -22,7 +23,7 @@ local ShmupPlayer = class(function(self, id)
 
 	self.numallies = 0
 
-	self.dead = false
+	self.killed = false
 	self.deathtimer = 0
 
 	self.shieldtimer = 0
@@ -95,7 +96,7 @@ function ShmupPlayer:newAllyIndex()
 	return self.numallies
 end
 
-function ShmupPlayer:allyDestroyed(allyindex)
+function ShmupPlayer:allyKilled(allyindex)
 	self.numallies = self.numallies - 1
 end
 
@@ -114,7 +115,7 @@ function ShmupPlayer:getAllyPosition(i)
 		x = x + ox
 		y = y + oy
 
-		if self.dead then
+		if self.killed then
 			local cx, cy = self.object.body:getWorldCenter()
 			local angle = math.pi * .5
 			angle = angle + math.atan2(cx - x, y - cy) * .25
@@ -128,11 +129,11 @@ function ShmupPlayer:getAllyPosition(i)
 end
 
 function ShmupPlayer:isFiring()
-	return not self.dead and self.firing
+	return not self.killed and self.firing
 end
 
 function ShmupPlayer:isFocused()
-	return not self.dead and self.focused
+	return not self.killed and self.focused
 end
 
 function ShmupPlayer:joystickaxis(joystick, axis, value)
@@ -249,19 +250,22 @@ function ShmupPlayer:mousemoved(x, y, dx, dy)
 end
 
 function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
-	if otherfixture:getCategory() == ShmupCollision.Category_NPCShot then
-		if not self.dead and self.shieldtimer == 0 then
+	local category = otherfixture:getCategory()
+	if category == ShmupCollision.Category_NPC then
+		levity.machine:broadcast("multiplierInc", "player")
+	elseif category == ShmupCollision.Category_NPCShot then
+		if not self.killed and self.shieldtimer == 0 then
 			self.deathtimer = 0
-			self.dead = true
+			self.killed = true
 
-			-- capturing not allowed while player dead
+			-- capturing not allowed while player killed
 			myfixture:setMask(
 				ShmupCollision.Category_Player,
 				ShmupCollision.Category_PlayerShot,
 				ShmupCollision.Category_NPC,
 				ShmupCollision.Category_NPCShot)
 
-			levity.machine:broadcast("playerDead")
+			levity.machine:broadcast("playerKilled")
 
 			self:playSound(Sounds.Death)
 		end
@@ -289,7 +293,7 @@ function ShmupPlayer:beginMove(dt)
 		camera = levity.map.objects[cameraid]
 	end
 
-	if self.dead then
+	if self.killed then
 		self.deathtimer = self.deathtimer + dt
 		local respawn = self.deathtimer >= ShmupPlayer.DeathTime
 
@@ -312,7 +316,7 @@ function ShmupPlayer:beginMove(dt)
 
 		if respawn then
 			self.shieldtimer = ShmupPlayer.RespawnShieldTime
-			self.dead = false
+			self.killed = false
 			local fixtures = self.object.body:getUserData().fixtures
 			local bodyfixture = fixtures["body"]
 			if bodyfixture then
@@ -335,7 +339,7 @@ function ShmupPlayer:beginMove(dt)
 
 	body:setLinearVelocity(vx1, vy1)
 
-	if self.firing and not self.dead then
+	if self.firing and not self.killed then
 		if self.firetimer <= 0 then
 			local params = {
 				x = cx - 8,
@@ -379,6 +383,15 @@ function ShmupPlayer:beginDraw()
 		local alpha = (0x100 * (math.cos(self.shieldtimer*30*math.pi) + 1)*.5)
 		love.graphics.setColor(0xff, 0xff, 0xff, alpha)
 	end
+
+	local scoreid = levity.machine:call("hud", "getScoreId")
+	if scoreid then
+		self.properties.text = levity.machine:call(scoreid,
+					"getMultiplier", "player")
+	else
+		self.properties.text = nil
+	end
+	self.properties.textfont = "imagefont"
 end
 
 function ShmupPlayer:endDraw()

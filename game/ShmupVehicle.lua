@@ -1,6 +1,5 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
-require "class"
 
 local Sounds = {
 	Hit = "hit.wav",
@@ -66,11 +65,12 @@ function ShmupVehicle:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	local damage = bulletproperties.damage or 1
 
 	self.health = self.health - damage
-	if self.health <= 0 then
+	if self.health < 1 then
 		levity.bank:play(Sounds.KO)
 		levity.bank:play(Sounds.Boom2)
 		self:remove()
 		levity.machine:broadcast("vehicleDestroyed", self.object.id)
+		levity.machine:broadcast("pointsScored", 1000)
 	else
 		levity.bank:play(Sounds.Hit)
 	end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="329">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="330">
  <properties>
   <property name="cameraid" type="int" value="7"/>
   <property name="music" value="09 - Blue Sky Laundry.vgm"/>
@@ -851,22 +851,18 @@
  </objectgroup>
  <objectgroup name="hud">
   <properties>
+   <property name="scoreid" type="int" value="318"/>
    <property name="script" value="ShmupHUD"/>
   </properties>
-  <object id="318" name="score" x="0" y="0" width="120" height="16">
+  <object id="318" name="score" x="0" y="0" width="240" height="16">
    <properties>
-    <property name="text" value="SC        0"/>
+    <property name="script" value="ShmupScore"/>
+    <property name="text" value="SC00000000 EX01000000"/>
     <property name="textalign" value="left"/>
     <property name="textfont" value="imagefont"/>
+    <property name="textformat" value="SC%8d EX%8d"/>
    </properties>
   </object>
   <object id="319" name="life" gid="7282" x="0" y="32" width="16" height="16"/>
-  <object id="320" name="extendscore" x="120" y="0" width="120" height="16">
-   <properties>
-    <property name="text" value="EX 1000000"/>
-    <property name="textalign" value="right"/>
-    <property name="textfont" value="imagefont"/>
-   </properties>
-  </object>
  </objectgroup>
 </map>

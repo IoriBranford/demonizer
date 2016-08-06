@@ -1,10 +1,8 @@
-
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = levity.machine:requireScript("ShmupNPC")
 local ShmupVehicle = levity.machine:requireScript("ShmupVehicle")
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
-require "class"
 
 local VehicleBallista = class(ShmupVehicle, function(self, id)
 	ShmupVehicle.init(self, id)
@@ -39,7 +37,7 @@ function VehicleBallista:beginMove(dt)
 	if not self.object.visible then
 		return
 	end
-	if self.health <= 0 then
+	if self.health < 1 then
 		return
 	end
 

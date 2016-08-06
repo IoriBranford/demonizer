@@ -1,6 +1,5 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
-require "class"
 
 local ShmupCam = class(function(self, id)
 	self.object = levity.map.objects[id]

@@ -1,7 +1,6 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupAlly = levity.machine:requireScript("ShmupAlly")
-require "class"
 
 local Sounds = {
 	Hit = "hit.wav",
@@ -46,21 +45,34 @@ local function parseMemberFunctionCall(self, callstring)
 	return call
 end
 
+local CombatantMask = {
+	ShmupCollision.Category_CameraEdge,
+	ShmupCollision.Category_Player,
+	ShmupCollision.Category_NPC,
+	ShmupCollision.Category_NPCShot
+}
+
+local NonCombatantMask = {
+	ShmupCollision.Category_CameraEdge,
+	ShmupCollision.Category_PlayerShot,
+	ShmupCollision.Category_NPC,
+	ShmupCollision.Category_NPCShot
+}
+
 local ShmupNPC = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
 	self:setActive(false)
 
-	local mask = {ShmupCollision.Category_CameraEdge,
-			ShmupCollision.Category_NPC,
-			ShmupCollision.Category_NPCShot}
+	local mask
 	self.npctype = levity:getTileColumnName(self.object.gid)
 	if string.find(self.npctype, "civ") == 1 then
 		self.health = 0
-		table.insert(mask, ShmupCollision.Category_PlayerShot)
+		mask = NonCombatantMask
 	else
 		self.health = 32
+		mask = CombatantMask
 	end
 
 	local tileset = levity:getMapTileset(self.object.tile.tileset)
@@ -129,7 +141,7 @@ function ShmupNPC:canBeLockTarget()
 end
 
 function ShmupNPC:canBeCaptured()
-	return self.health <= 0
+	return self.health < 1 and not self.captured
 end
 
 function ShmupNPC:knockout()
@@ -141,11 +153,7 @@ function ShmupNPC:knockout()
 	levity:setObjectGid(self.object, gid)
 
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
-		fixture:setMask(
-			ShmupCollision.Category_CameraEdge,
-			ShmupCollision.Category_PlayerShot,
-			ShmupCollision.Category_NPC,
-			ShmupCollision.Category_NPCShot)
+		fixture:setMask(unpack(NonCombatantMask))
 	end
 
 	levity.bank:play(Sounds.KO)
@@ -167,18 +175,17 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	local damage = bulletproperties.damage or 1
 
 	self.health = self.health - damage
-	if self.health <= 0 then
+	if self.health < 1 then
 		self:knockout()
+		levity.machine:broadcast("pointsScored", 100)
 	else
 		levity.bank:play(Sounds.Hit)
 	end
 end
 
 function ShmupNPC:beginContact_Player(myfixture, otherfixture, contact)
-	if self:canBeCaptured() then
-		self.captured = true
-		levity.machine:broadcast("npcCaptured", self.object.id)
-	end
+	self.captured = true
+	levity.machine:broadcast("npcCaptured", self.object.id)
 end
 
 function ShmupNPC:beginContact(myfixture, otherfixture, contact)

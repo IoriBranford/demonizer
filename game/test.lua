@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 329,
+  nextobjectid = 330,
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
@@ -3458,6 +3458,7 @@ return {
       offsety = 0,
       draworder = "topdown",
       properties = {
+        ["scoreid"] = 318,
         ["script"] = "ShmupHUD"
       },
       objects = {
@@ -3468,14 +3469,16 @@ return {
           shape = "rectangle",
           x = 0,
           y = 0,
-          width = 120,
+          width = 240,
           height = 16,
           rotation = 0,
           visible = true,
           properties = {
-            ["text"] = "SC        0",
+            ["script"] = "ShmupScore",
+            ["text"] = "SC00000000 EX01000000",
             ["textalign"] = "left",
-            ["textfont"] = "imagefont"
+            ["textfont"] = "imagefont",
+            ["textformat"] = "SC%8d EX%8d"
           }
         },
         {
@@ -3491,23 +3494,6 @@ return {
           gid = 7282,
           visible = true,
           properties = {}
-        },
-        {
-          id = 320,
-          name = "extendscore",
-          type = "",
-          shape = "rectangle",
-          x = 120,
-          y = 0,
-          width = 120,
-          height = 16,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["text"] = "EX 1000000",
-            ["textalign"] = "right",
-            ["textfont"] = "imagefont"
-          }
         }
       }
     }

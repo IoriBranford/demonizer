@@ -1,7 +1,6 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = levity.machine:requireScript("ShmupNPC")
-require "class"
 
 local InitialRank = .25
 
