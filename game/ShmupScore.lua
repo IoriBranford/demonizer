@@ -19,14 +19,26 @@ end)
 ShmupScore.MaxPoints = 999999999
 ShmupScore.MaxMultiplier = 10
 ShmupScore.ExtendInc = 3000000
+ShmupScore.BaseCapturePoints = 100
 
 function ShmupScore:pointsScored(points)
-	points = points * self.totalmultiplier
-
 	self.points = math.min(self.points + points, ShmupScore.MaxPoints)
 	if self.points >= self.extendpoints then
 		levity.machine:broadcast("extendEarned")
 		self.extendpoints = self.extendpoints + ShmupScore.ExtendInc
+	end
+end
+
+function ShmupScore:npcCaptured(npcid, captorid)
+	self:pointsScored(ShmupScore.BaseCapturePoints * self.totalmultiplier)
+
+	if captorid == levity.map.properties.playerid then
+		self:multiplierInc("player")
+	else
+		local allyindex = levity.machine:call(captorid, "getAllyIndex")
+		if allyindex then
+			self:multiplierInc(allyindex)
+		end
 	end
 end
 

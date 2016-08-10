@@ -104,13 +104,17 @@ function ShmupAlly:allyKilled(allyindex)
 	end
 end
 
+function ShmupAlly:getAllyIndex()
+	return self.allyindex
+end
+
 function ShmupAlly:beginContact(myfixture, otherfixture, contact)
 	local otherdata = otherfixture:getBody():getUserData()
 	local otherproperties = otherdata.properties
 	local category = otherfixture:getCategory()
 
 	if category == ShmupCollision.Category_NPC then
-		levity.machine:broadcast("multiplierInc", self.allyindex)
+		-- nothing yet
 	elseif category == ShmupCollision.Category_NPCShot then
 		if self.convertobject then
 			return

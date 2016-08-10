@@ -177,7 +177,8 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	self.health = self.health - damage
 	if self.health < 1 then
 		self:knockout()
-		levity.machine:broadcast("pointsScored", 100)
+		levity.machine:broadcast("pointsScored",
+					self.properties.killpoints or 100)
 	else
 		levity.bank:play(Sounds.Hit)
 	end
@@ -185,7 +186,8 @@ end
 
 function ShmupNPC:beginContact_Player(myfixture, otherfixture, contact)
 	self.captured = true
-	levity.machine:broadcast("npcCaptured", self.object.id)
+	levity.machine:broadcast("npcCaptured", self.object.id,
+				otherfixture:getBody():getUserData().id)
 end
 
 function ShmupNPC:beginContact(myfixture, otherfixture, contact)

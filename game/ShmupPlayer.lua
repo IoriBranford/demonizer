@@ -252,7 +252,7 @@ end
 function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 	local category = otherfixture:getCategory()
 	if category == ShmupCollision.Category_NPC then
-		levity.machine:broadcast("multiplierInc", "player")
+		-- nothing yet
 	elseif category == ShmupCollision.Category_NPCShot then
 		if not self.killed and self.shieldtimer == 0 then
 			self.deathtimer = 0
