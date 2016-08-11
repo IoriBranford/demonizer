@@ -233,9 +233,11 @@ function ShmupAlly:beginMove(dt)
 	local destx, desty
 	local captive
 
+	local scoreid = levity.machine:call("hud", "getScoreId")
 	local focused = levity.machine:call(playerid, "isFocused")
 	if focused then
-		if not self.convertobject then
+		if not self.convertobject
+		and levity.machine:call(scoreid, "isMaxMultiplier", self.allyindex) then
 			if not self.captiveid then
 				self.captiveid = self:findTarget("canBeCaptured")
 			end

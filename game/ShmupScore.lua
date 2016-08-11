@@ -1,4 +1,5 @@
 local levity = require "levity"
+local ShmupPlayer = levity.machine:requireScript("ShmupPlayer")
 
 local ShmupScore = class(function(self, id)
 	self.object = levity.map.objects[id]
@@ -7,17 +8,16 @@ local ShmupScore = class(function(self, id)
 	self.points = 0
 	self.extendpoints = 2000000
 	self.multipliers = {
-		player = 1,
-		[1] = 0,
-		[2] = 0,
-		[3] = 0,
-		[4] = 0
+		player = 1
 	}
+	for i = 1, ShmupPlayer.MaxAllies do
+		self.multipliers[i] = 0
+	end
 	self.totalmultiplier = 1
 end)
 
 ShmupScore.MaxPoints = 999999999
-ShmupScore.MaxMultiplier = 10
+ShmupScore.MaxMultiplier = 20
 ShmupScore.ExtendInc = 3000000
 ShmupScore.BaseCapturePoints = 100
 
@@ -31,7 +31,15 @@ end
 
 function ShmupScore:npcCaptured(npcid, captorid)
 	self:pointsScored(ShmupScore.BaseCapturePoints * self.totalmultiplier)
-
+--[[	nice:
+	for who, mult in pairs(self.multipliers) do
+		if mult > 0 then
+			self:multiplierInc(who)
+		end
+	end
+]]
+--[[	tough:
+]]
 	if captorid == levity.map.properties.playerid then
 		self:multiplierInc("player")
 	else
@@ -40,6 +48,22 @@ function ShmupScore:npcCaptured(npcid, captorid)
 			self:multiplierInc(allyindex)
 		end
 	end
+end
+
+function ShmupScore:npcDied(npcid)
+	for who, mult in pairs(self.multipliers) do
+		if mult > 1 then
+--[[	nice:
+			self.multipliers[who] = mult - 1
+			self.totalmultiplier = self.totalmultiplier - 1
+]]
+--[[	tough:
+]]
+			self.totalmultiplier = self.totalmultiplier - mult + 1
+			self.multipliers[who] = 1
+		end
+	end
+
 end
 
 function ShmupScore:multiplierInc(whose)
@@ -82,6 +106,10 @@ end
 
 function ShmupScore:getMultiplier(whose)
 	return self.multipliers[whose]
+end
+
+function ShmupScore:isMaxMultiplier(whose)
+	return self.multipliers[whose] == ShmupScore.MaxMultiplier
 end
 
 function ShmupScore:beginDraw()

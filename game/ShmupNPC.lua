@@ -111,7 +111,7 @@ end)
 
 ShmupNPC.BleedOutTime = 5
 ShmupNPC.CapturePullSpeed = 4*60
-ShmupNPC.CapturePullDistSq = 64*64
+ShmupNPC.CapturePullDistSq = 32*32
 ShmupNPC.ShotLayer = nil -- ShmupMap, set me once it's created
 
 function ShmupNPC:activate()
@@ -325,6 +325,7 @@ function ShmupNPC:endMove(dt)
 		self.bleedouttimer = self.bleedouttimer - dt
 		if self.bleedouttimer <= 0 then
 			self:remove()
+			levity.machine:broadcast("npcDied", self.object.id)
 		end
 	end
 end
