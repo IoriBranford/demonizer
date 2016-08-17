@@ -61,7 +61,7 @@ ShmupAlly.Speed = 320
 ShmupAlly.SpeedSq = ShmupAlly.Speed * ShmupAlly.Speed
 ShmupAlly.MaxHealth = 8
 ShmupAlly.BulletParams = {
-	speed = ShmupPlayer.BulletSpeed,
+	speed = ShmupPlayer.BulletParams.speed,
 	gid = levity:getTileGid("demonshots", "ally", 0),
 	category = ShmupCollision.Category_PlayerShot
 }

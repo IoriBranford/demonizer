@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="330">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="339">
  <properties>
   <property name="cameraid" type="int" value="7"/>
   <property name="music" value="09 - Blue Sky Laundry.vgm"/>
@@ -235,6 +235,13 @@
  <objectgroup name="mage">
   <object id="260" gid="87" x="144" y="640" width="24" height="32">
    <properties>
+    <property name="firepointid_bl" type="int" value="333"/>
+    <property name="firepointid_br" type="int" value="334"/>
+    <property name="firepointid_c" type="int" value="336"/>
+    <property name="firepointid_cl" type="int" value="335"/>
+    <property name="firepointid_cr" type="int" value="337"/>
+    <property name="firepointid_tl" type="int" value="331"/>
+    <property name="firepointid_tr" type="int" value="332"/>
     <property name="onKO" value="unpauseCamera"/>
     <property name="script" value="NPCMage"/>
    </properties>
@@ -254,6 +261,48 @@
     <property name="triggertype" value="pausecamera"/>
    </properties>
    <polyline points="0,0 288,0"/>
+  </object>
+  <object id="331" name="firepoint_tl" x="40" y="544" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="332" name="firepoint_tr" x="232" y="544" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="333" name="firepoint_bl" x="40" y="736" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="334" name="firepoint_br" x="232" y="736" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="335" name="firepoint_cl" x="112" y="672" width="24" height="24">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="336" name="firepoint_c" x="128" y="672" width="32" height="32">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="337" name="firepoint_cr" x="152" y="672" width="24" height="24">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+   <ellipse/>
   </object>
  </objectgroup>
  <objectgroup name="knights2">
@@ -757,14 +806,14 @@
   <object id="57" gid="417" x="152" y="1952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.69999999999999996"/>
+    <property name="pathtime" type="float" value="0.7"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="77" gid="423" x="136" y="1960" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.80000000000000004"/>
+    <property name="pathtime" type="float" value="0.8"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
@@ -790,28 +839,28 @@
   <object id="132" gid="426" x="72" y="1944" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.59999999999999998"/>
+    <property name="pathtime" type="float" value="0.6"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="133" gid="429" x="136" y="1944" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.59999999999999998"/>
+    <property name="pathtime" type="float" value="0.6"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="136" gid="438" x="104" y="1944" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.90000000000000002"/>
+    <property name="pathtime" type="float" value="0.9"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="150" gid="435" x="88" y="1952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.90000000000000002"/>
+    <property name="pathtime" type="float" value="0.9"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
@@ -825,14 +874,14 @@
   <object id="158" gid="420" x="168" y="1952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.69999999999999996"/>
+    <property name="pathtime" type="float" value="0.7"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="160" gid="432" x="152" y="1960" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.80000000000000004"/>
+    <property name="pathtime" type="float" value="0.8"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
@@ -859,5 +908,17 @@
    </properties>
   </object>
   <object id="319" name="life" gid="7282" x="0" y="32" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="pausemenu">
+  <properties>
+   <property name="script" value="PauseMenu"/>
+  </properties>
+  <object id="338" name="pause" x="16" y="32" width="208" height="16">
+   <properties>
+    <property name="text" value="PAUSE"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" value="imagefont"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

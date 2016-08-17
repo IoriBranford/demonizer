@@ -103,7 +103,7 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 
 		shot.body:setLinearVelocity(vx, vy)
 
-		time = time + interval
+		time = interval
 	end
 
 	return time

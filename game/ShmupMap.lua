@@ -64,9 +64,9 @@ local ShmupMap = class(function(self, id)
 	self.rank = InitialRank
 end)
 
-function ShmupMap:keypressed_escape()
-	levity:setNextMap(levity.mapfile)
-end
+--function ShmupMap:keypressed_escape()
+--	levity:setNextMap(levity.mapfile)
+--end
 
 function ShmupMap:endMove(dt)
 	local playerid = self.properties.playerid

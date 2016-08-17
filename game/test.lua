@@ -1,14 +1,14 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "0.16.2",
+  tiledversion = "0.17.0",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 36,
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 330,
+  nextobjectid = 339,
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
@@ -1658,6 +1658,13 @@ return {
           gid = 87,
           visible = true,
           properties = {
+            ["firepointid_bl"] = 333,
+            ["firepointid_br"] = 334,
+            ["firepointid_c"] = 336,
+            ["firepointid_cl"] = 335,
+            ["firepointid_cr"] = 337,
+            ["firepointid_tl"] = 331,
+            ["firepointid_tr"] = 332,
             ["onKO"] = "unpauseCamera",
             ["script"] = "NPCMage"
           }
@@ -1702,6 +1709,111 @@ return {
             ["collidable"] = true,
             ["sensor"] = true,
             ["triggertype"] = "pausecamera"
+          }
+        },
+        {
+          id = 331,
+          name = "firepoint_tl",
+          type = "",
+          shape = "ellipse",
+          x = 40,
+          y = 544,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true
+          }
+        },
+        {
+          id = 332,
+          name = "firepoint_tr",
+          type = "",
+          shape = "ellipse",
+          x = 232,
+          y = 544,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true
+          }
+        },
+        {
+          id = 333,
+          name = "firepoint_bl",
+          type = "",
+          shape = "ellipse",
+          x = 40,
+          y = 736,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true
+          }
+        },
+        {
+          id = 334,
+          name = "firepoint_br",
+          type = "",
+          shape = "ellipse",
+          x = 232,
+          y = 736,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true
+          }
+        },
+        {
+          id = 335,
+          name = "firepoint_cl",
+          type = "",
+          shape = "ellipse",
+          x = 112,
+          y = 672,
+          width = 24,
+          height = 24,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true
+          }
+        },
+        {
+          id = 336,
+          name = "firepoint_c",
+          type = "",
+          shape = "ellipse",
+          x = 128,
+          y = 672,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true
+          }
+        },
+        {
+          id = 337,
+          name = "firepoint_cr",
+          type = "",
+          shape = "ellipse",
+          x = 152,
+          y = 672,
+          width = 24,
+          height = 24,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true
           }
         }
       }
@@ -3199,7 +3311,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 85,
-            ["pathtime"] = 0.69999999999999996,
+            ["pathtime"] = 0.7,
             ["script"] = "ShmupNPC"
           }
         },
@@ -3217,7 +3329,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 85,
-            ["pathtime"] = 0.80000000000000004,
+            ["pathtime"] = 0.8,
             ["script"] = "ShmupNPC"
           }
         },
@@ -3291,7 +3403,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 86,
-            ["pathtime"] = 0.59999999999999998,
+            ["pathtime"] = 0.6,
             ["script"] = "ShmupNPC"
           }
         },
@@ -3309,7 +3421,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 85,
-            ["pathtime"] = 0.59999999999999998,
+            ["pathtime"] = 0.6,
             ["script"] = "ShmupNPC"
           }
         },
@@ -3327,7 +3439,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 86,
-            ["pathtime"] = 0.90000000000000002,
+            ["pathtime"] = 0.9,
             ["script"] = "ShmupNPC"
           }
         },
@@ -3345,7 +3457,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 86,
-            ["pathtime"] = 0.90000000000000002,
+            ["pathtime"] = 0.9,
             ["script"] = "ShmupNPC"
           }
         },
@@ -3381,7 +3493,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 85,
-            ["pathtime"] = 0.69999999999999996,
+            ["pathtime"] = 0.7,
             ["script"] = "ShmupNPC"
           }
         },
@@ -3399,7 +3511,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 85,
-            ["pathtime"] = 0.80000000000000004,
+            ["pathtime"] = 0.8,
             ["script"] = "ShmupNPC"
           }
         }
@@ -3478,6 +3590,37 @@ return {
           gid = 7282,
           visible = true,
           properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "pausemenu",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PauseMenu"
+      },
+      objects = {
+        {
+          id = 338,
+          name = "pause",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 32,
+          width = 208,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["text"] = "PAUSE",
+            ["textalign"] = "center",
+            ["textfont"] = "imagefont"
+          }
         }
       }
     }

@@ -5,68 +5,76 @@ local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 
 local NPCMage = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
-	self.firetimer = 0
 	self.health = 512
-	self.lifetime = 0
 
 	self.fireco = nil
-	self.firearc = math.pi * .5
 end)
 
-NPCMage.BulletSpeed = 2*60
 NPCMage.BulletInterval = 0.125
-NPCMage.BulletGid = levity:getTileGid("humanshots", "magic", 0)
+NPCMage.BulletParams = {
+	speed = 2*60,
+	gid = levity:getTileGid("humanshots", "magic", 0),
+	category = ShmupCollision.Category_NPCShot
+}
 
-local function fireCoroutine(self)
-	local cx, cy = self.object.body:getWorldCenter()
-	local playerdx = 0
-	local playerdy = 1
-
-	local playerid = levity.map.properties.playerid
-	if playerid then
-		local player = levity.map.objects[playerid]
-		local playercx, playercy = player.body:getWorldCenter()
-		playerdx = playercx - cx
-		playerdy = playercy - cy
-	end
-
-	local numbullets, arc, time = 4, self.firearc, .25
-
-	arc = arc / numbullets
-	time = time / numbullets
-
-	local params = {
-		speed = NPCMage.BulletSpeed,
-		angle = math.atan2(playerdy, playerdx),
-		gid = NPCMage.BulletGid,
-		category = ShmupCollision.Category_NPCShot
+function NPCMage:fireCoroutine()
+	local firepoints = {
+		tl = levity.map.objects[self.properties.firepointid_tl],
+		tr = levity.map.objects[self.properties.firepointid_tr],
+		bl = levity.map.objects[self.properties.firepointid_bl],
+		br = levity.map.objects[self.properties.firepointid_br],
+		cl = levity.map.objects[self.properties.firepointid_cl],
+		c = levity.map.objects[self.properties.firepointid_c],
+		cr = levity.map.objects[self.properties.firepointid_cr]
 	}
 
-	params.angle = params.angle - arc * math.floor(numbullets * .5)
+	for k, object in pairs(firepoints) do
+		firepoints[k] = {
+			x = object.x + object.width * .5,
+			y = object.y + object.height * .5
+		}
+	end
 
-	local t = time
+	local centerfirepoints = {
+		cl = firepoints.cl,
+		c = firepoints.c,
+		cr = firepoints.cr
+	}
 
-	for i = 1, numbullets do
-		params.x, params.y = self.object.body:getWorldCenter()
-		params.accelx = math.cos(params.angle)
-		params.accely = math.sin(params.angle)
+	local cornerfirepoints = {
+		tl = firepoints.tl,
+		tr = firepoints.tr,
+		bl = firepoints.bl,
+		br = firepoints.br,
+	}
+	
+	local t = .5
+	local playerid = levity.map.properties.playerid
+	local player = levity.map.objects[playerid]
+	local params = NPCMage.BulletParams
 
-		ShmupBullet.create(params, ShmupNPC.ShotLayer)
+	while true do
+		coroutine.wait(t)
+		local playercx, playercy = player.body:getWorldCenter()
+		for _, point in pairs(cornerfirepoints) do
+			local playerdx = playercx - point.x
+			local playerdy = playercy - point.y
 
-		params.angle = params.angle + arc
-		t = coroutine.wait(t)
+			params.x, params.y = point.x, point.y
+			params.angle = math.atan2(playerdy, playerdx)
+			ShmupBullet.create(params, ShmupNPC.ShotLayer)
+		end
 	end
 end
 
 function NPCMage:updateFiring(dt)
 	if not self.fireco or coroutine.status(self.fireco) == "dead" then
-		self.fireco = coroutine.create(fireCoroutine)
+		self.fireco = coroutine.create(NPCMage.fireCoroutine)
 		local ok, err = coroutine.resume(self.fireco, self)
 		if not ok then print(err) end
-		self.firearc = -self.firearc
-	else
-		coroutine.updateWait(self.fireco, dt)
 	end
+
+	coroutine.updateWait(self.fireco, dt)
 end
 
 function NPCMage:beginMove(dt)
@@ -77,8 +85,6 @@ function NPCMage:beginMove(dt)
 	if self.health < 1 then
 		return
 	end
-
-	self.lifetime = self.lifetime + dt
 
 	if self.oncamera then
 		self:updateFiring(dt)

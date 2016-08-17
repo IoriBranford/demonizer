@@ -21,11 +21,18 @@ ShmupScore.MaxMultiplier = 20
 ShmupScore.ExtendInc = 3000000
 ShmupScore.BaseCapturePoints = 100
 
+local Sounds = {
+	Maxed = "maxed.wav",
+	Extend = "extend.wav"
+}
+levity.bank:load(Sounds)
+
 function ShmupScore:pointsScored(points)
 	self.points = math.min(self.points + points, ShmupScore.MaxPoints)
 	if self.points >= self.extendpoints then
 		levity.machine:broadcast("extendEarned")
 		self.extendpoints = self.extendpoints + ShmupScore.ExtendInc
+		levity.bank:play(Sounds.Extend)
 	end
 end
 
@@ -70,6 +77,9 @@ function ShmupScore:multiplierInc(whose)
 	if self.multipliers[whose] < ShmupScore.MaxMultiplier then
 		self.multipliers[whose] = self.multipliers[whose] + 1
 		self.totalmultiplier = self.totalmultiplier + 1
+		if self:isMaxMultiplier(whose) then
+			levity.bank:play(Sounds.Maxed)
+		end
 	else
 		for who, mult in pairs(self.multipliers) do
 			if mult > 0 and mult < ShmupScore.MaxMultiplier then

@@ -57,9 +57,14 @@ local ShmupPlayer = class(function(self, id)
 end)
 
 ShmupPlayer.Speed = 180
-ShmupPlayer.BulletSpeed = 16*60
 ShmupPlayer.BulletInterval = 1/10
-ShmupPlayer.BulletGid = levity:getTileGid("demonshots", "player", 0)
+ShmupPlayer.BulletParams = {
+	speed = 16*60,
+	angle = -math.pi*0.5,
+	damage = 4,
+	gid = levity:getTileGid("demonshots", "player", 0),
+	category = ShmupCollision.Category_PlayerShot
+}
 ShmupPlayer.MaxAllies = MaxAllies
 ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
@@ -341,15 +346,9 @@ function ShmupPlayer:beginMove(dt)
 
 	if self.firing and not self.killed then
 		if self.firetimer <= 0 then
-			local params = {
-				x = cx - 8,
-				y = cy,
-				speed = ShmupPlayer.BulletSpeed,
-				angle = math.pi*1.5,
-				damage = 4,
-				gid = ShmupPlayer.BulletGid,
-				category = ShmupCollision.Category_PlayerShot
-			}
+			local params = ShmupPlayer.BulletParams
+			params.x = cx - 8
+			params.y = cy
 			local firetimer = self.firetimer
 			for i = 1, 2 do
 				firetimer = ShmupBullet.fireOverTime(params,

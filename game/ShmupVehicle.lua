@@ -70,7 +70,8 @@ function ShmupVehicle:beginContact_PlayerShot(myfixture, otherfixture, contact)
 		levity.bank:play(Sounds.Boom2)
 		self:remove()
 		levity.machine:broadcast("vehicleDestroyed", self.object.id)
-		levity.machine:broadcast("pointsScored", 1000)
+		levity.machine:broadcast("pointsScored",
+					self.properties.killpoints or 1000)
 	else
 		levity.bank:play(Sounds.Hit)
 	end
