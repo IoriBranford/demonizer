@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 339,
+  nextobjectid = 341,
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
@@ -3547,6 +3547,17 @@ return {
     },
     {
       type = "objectgroup",
+      name = "npcshots",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {}
+    },
+    {
+      type = "objectgroup",
       name = "hud",
       visible = true,
       opacity = 1,
@@ -3617,7 +3628,43 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["text"] = "PAUSE",
+            ["text"] = "Paused",
+            ["textalign"] = "center",
+            ["textfont"] = "imagefont"
+          }
+        },
+        {
+          id = 339,
+          name = "resume",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 112,
+          width = 144,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["script"] = "ButtonResume",
+            ["text"] = "RESUME",
+            ["textalign"] = "center",
+            ["textfont"] = "imagefont"
+          }
+        },
+        {
+          id = 340,
+          name = "restart",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 160,
+          width = 144,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["script"] = "ButtonRestart",
+            ["text"] = "RESTART",
             ["textalign"] = "center",
             ["textfont"] = "imagefont"
           }

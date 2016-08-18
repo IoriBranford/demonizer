@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="339">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="341">
  <properties>
   <property name="cameraid" type="int" value="7"/>
   <property name="music" value="09 - Blue Sky Laundry.vgm"/>
@@ -893,6 +893,7 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="npcshots"/>
  <objectgroup name="hud">
   <properties>
    <property name="scoreid" type="int" value="318"/>
@@ -915,7 +916,23 @@
   </properties>
   <object id="338" name="pause" x="16" y="32" width="208" height="16">
    <properties>
-    <property name="text" value="PAUSE"/>
+    <property name="text" value="Paused"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" value="imagefont"/>
+   </properties>
+  </object>
+  <object id="339" name="resume" x="48" y="112" width="144" height="16">
+   <properties>
+    <property name="script" value="ButtonResume"/>
+    <property name="text" value="RESUME"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" value="imagefont"/>
+   </properties>
+  </object>
+  <object id="340" name="restart" x="48" y="160" width="144" height="16">
+   <properties>
+    <property name="script" value="ButtonRestart"/>
+    <property name="text" value="RESTART"/>
     <property name="textalign" value="center"/>
     <property name="textfont" value="imagefont"/>
    </properties>

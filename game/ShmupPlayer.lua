@@ -249,9 +249,11 @@ function ShmupPlayer:touchreleased(touch, x, y, dx, dy)
 end
 
 function ShmupPlayer:mousemoved(x, y, dx, dy)
-	self.vx = self.vx + (dx / levity.camera.scale)
-	self.vy = self.vy + (dy / levity.camera.scale)
-	self.didmousemove = true
+	if not levity.mappaused then
+		self.vx = self.vx + (dx / levity.camera.scale)
+		self.vy = self.vy + (dy / levity.camera.scale)
+		self.didmousemove = true
+	end
 end
 
 function ShmupPlayer:beginContact(myfixture, otherfixture, contact)

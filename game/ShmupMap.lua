@@ -37,7 +37,8 @@ local ShmupMap = class(function(self, id)
 	self.map = levity.map
 	self.properties = self.map.properties
 
-	ShmupNPC.ShotLayer = levity:addDynamicLayer("npcshots")
+	ShmupNPC.ShotLayer = self.map.layers["npcshots"] or
+				levity:addDynamicLayer("npcshots")
  
 	for _, layer in ipairs(self.map.layers) do
 		if layer.type == "dynamiclayer"
@@ -62,6 +63,9 @@ local ShmupMap = class(function(self, id)
 	end
 
 	self.rank = InitialRank
+
+	love.mouse.setVisible(false)
+	love.mouse.setRelativeMode(true)
 end)
 
 --function ShmupMap:keypressed_escape()
