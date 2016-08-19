@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 343,
+  nextobjectid = 348,
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
@@ -2603,115 +2603,6 @@ return {
     },
     {
       type = "objectgroup",
-      name = "pikes9,10",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 116,
-          name = "trigger",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 1520,
-          width = 288,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
-            ["triggertype"] = "activategroup"
-          }
-        },
-        {
-          id = 117,
-          name = "pike10",
-          type = "",
-          shape = "rectangle",
-          x = -16,
-          y = 1544,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 78,
-          visible = true,
-          properties = {
-            ["pathid"] = 124,
-            ["pathtime"] = 2,
-            ["script"] = "NPCPikeman"
-          }
-        },
-        {
-          id = 121,
-          name = "path9",
-          type = "",
-          shape = "polyline",
-          x = 304,
-          y = 1544,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = -104, y = 32 },
-            { x = -160, y = 56 },
-            { x = -136, y = 120 },
-            { x = 0, y = 96 }
-          },
-          properties = {
-            ["script"] = "LinearPath"
-          }
-        },
-        {
-          id = 124,
-          name = "path10",
-          type = "",
-          shape = "polyline",
-          x = -16,
-          y = 1544,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 96, y = 32 },
-            { x = 152, y = 56 },
-            { x = 128, y = 120 },
-            { x = 0, y = 96 }
-          },
-          properties = {
-            ["script"] = "LinearPath"
-          }
-        },
-        {
-          id = 161,
-          name = "pike9",
-          type = "",
-          shape = "rectangle",
-          x = 304,
-          y = 1544,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 159,
-          visible = true,
-          properties = {
-            ["pathid"] = 121,
-            ["pathtime"] = 2,
-            ["script"] = "NPCPikeman"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
       name = "Copy of pikes3,4,5",
       visible = true,
       opacity = 1,
@@ -2725,7 +2616,7 @@ return {
           name = "pike3",
           type = "",
           shape = "rectangle",
-          x = -24,
+          x = -40,
           y = 1608,
           width = 24,
           height = 32,
@@ -2735,7 +2626,8 @@ return {
           properties = {
             ["pathid"] = 178,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["vehicleid"] = 345
           }
         },
         {
@@ -2744,16 +2636,14 @@ return {
           type = "",
           shape = "polyline",
           x = -24,
-          y = 1640,
+          y = 1656,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = -32 },
-            { x = 104, y = 16 },
-            { x = 232, y = 16 },
-            { x = 352, y = -32 }
+            { x = -32, y = -72 },
+            { x = 104, y = -40 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -2765,7 +2655,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 1576,
+          y = 1592,
           width = 288,
           height = 8,
           rotation = 0,
@@ -2781,7 +2671,7 @@ return {
           name = "pike5",
           type = "",
           shape = "rectangle",
-          x = -56,
+          x = -72,
           y = 1592,
           width = 24,
           height = 32,
@@ -2791,7 +2681,8 @@ return {
           properties = {
             ["pathid"] = 178,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["vehicleid"] = 345
           }
         },
         {
@@ -2799,7 +2690,7 @@ return {
           name = "pike4",
           type = "",
           shape = "rectangle",
-          x = -40,
+          x = -56,
           y = 1600,
           width = 24,
           height = 32,
@@ -2809,7 +2700,8 @@ return {
           properties = {
             ["pathid"] = 178,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["vehicleid"] = 345
           }
         },
         {
@@ -2817,8 +2709,8 @@ return {
           name = "pike6",
           type = "",
           shape = "rectangle",
-          x = 312,
-          y = 1576,
+          x = 328,
+          y = 1608,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2827,7 +2719,8 @@ return {
           properties = {
             ["pathid"] = 174,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["vehicleid"] = 343
           }
         },
         {
@@ -2835,8 +2728,8 @@ return {
           name = "pike7",
           type = "",
           shape = "rectangle",
-          x = 328,
-          y = 1568,
+          x = 344,
+          y = 1600,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2845,7 +2738,8 @@ return {
           properties = {
             ["pathid"] = 174,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["vehicleid"] = 343
           }
         },
         {
@@ -2853,8 +2747,8 @@ return {
           name = "pike8",
           type = "",
           shape = "rectangle",
-          x = 344,
-          y = 1560,
+          x = 360,
+          y = 1592,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2863,7 +2757,8 @@ return {
           properties = {
             ["pathid"] = 174,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["vehicleid"] = 343
           }
         },
         {
@@ -2872,19 +2767,120 @@ return {
           type = "",
           shape = "polyline",
           x = 304,
-          y = 1656,
+          y = 1672,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 8, y = -80 },
-            { x = -96, y = -24 },
-            { x = -224, y = -24 },
-            { x = -344, y = -80 }
+            { x = 40, y = -88 },
+            { x = -96, y = -56 }
           },
           properties = {
             ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 343,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 344,
+          y = 1584,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 2147483861,
+          visible = true,
+          properties = {
+            ["pathid"] = 174,
+            ["pathtime"] = 1,
+            ["script"] = "ShmupVehicle"
+          }
+        },
+        {
+          id = 345,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -56,
+          y = 1584,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 213,
+          visible = true,
+          properties = {
+            ["pathid"] = 178,
+            ["pathtime"] = 1,
+            ["script"] = "ShmupVehicle"
+          }
+        },
+        {
+          id = 117,
+          name = "pike10",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1552,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 78,
+          visible = true,
+          properties = {
+            ["script"] = "NPCPikeman",
+            ["vehicleid"] = 346
+          }
+        },
+        {
+          id = 161,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 1568,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["script"] = "NPCPikeman",
+            ["vehicleid"] = 346
+          }
+        },
+        {
+          id = 346,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1544,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 213,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupVehicle"
+          }
+        },
+        {
+          id = 347,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = 160,
+          y = 1568,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["script"] = "NPCPikeman",
+            ["vehicleid"] = 346
           }
         }
       }
@@ -2983,7 +2979,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 1632,
+          y = 1648,
           width = 288,
           height = 8,
           rotation = 0,
@@ -3070,7 +3066,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 1672,
+          y = 1688,
           width = 288,
           height = 8,
           rotation = 0,
@@ -3135,153 +3131,6 @@ return {
             ["pathid"] = 104,
             ["pathtime"] = 5,
             ["script"] = "ShmupVehicle"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "pikes1,2",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 65,
-          name = "pike2",
-          type = "",
-          shape = "rectangle",
-          x = 64,
-          y = 1688,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 159,
-          visible = true,
-          properties = {
-            ["pathid"] = 131,
-            ["pathtime"] = 4,
-            ["script"] = "NPCPikeman"
-          }
-        },
-        {
-          id = 66,
-          name = "pike1",
-          type = "",
-          shape = "rectangle",
-          x = 224,
-          y = 1704,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 159,
-          visible = true,
-          properties = {
-            ["pathid"] = 128,
-            ["pathtime"] = 4,
-            ["script"] = "NPCPikeman"
-          }
-        },
-        {
-          id = 69,
-          name = "trigger",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 1712,
-          width = 288,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
-            ["triggertype"] = "activategroup"
-          }
-        },
-        {
-          id = 118,
-          name = "pike2b",
-          type = "",
-          shape = "rectangle",
-          x = 64,
-          y = 1664,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 159,
-          visible = true,
-          properties = {
-            ["pathid"] = 131,
-            ["pathtime"] = 4,
-            ["script"] = "NPCPikeman"
-          }
-        },
-        {
-          id = 119,
-          name = "pike1b",
-          type = "",
-          shape = "rectangle",
-          x = 224,
-          y = 1680,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 159,
-          visible = true,
-          properties = {
-            ["pathid"] = 128,
-            ["pathtime"] = 4,
-            ["script"] = "NPCPikeman"
-          }
-        },
-        {
-          id = 128,
-          name = "path1",
-          type = "",
-          shape = "polyline",
-          x = 232,
-          y = 1704,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -8, y = 0 },
-            { x = -24, y = 64 },
-            { x = -72, y = 112 },
-            { x = -136, y = 96 },
-            { x = -176, y = 40 },
-            { x = -272, y = 0 }
-          },
-          properties = {
-            ["script"] = "LinearPath"
-          }
-        },
-        {
-          id = 131,
-          name = "path2",
-          type = "",
-          shape = "polyline",
-          x = 56,
-          y = 1688,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = 0 },
-            { x = 24, y = 64 },
-            { x = 72, y = 112 },
-            { x = 136, y = 96 },
-            { x = 176, y = 40 },
-            { x = 272, y = 0 }
-          },
-          properties = {
-            ["script"] = "LinearPath"
           }
         }
       }
@@ -3579,7 +3428,7 @@ return {
     {
       type = "objectgroup",
       name = "hud",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -3627,7 +3476,7 @@ return {
     {
       type = "objectgroup",
       name = "pausemenu",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -3694,7 +3543,7 @@ return {
     {
       type = "objectgroup",
       name = "touchcontrols",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,

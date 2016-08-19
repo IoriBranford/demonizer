@@ -112,6 +112,7 @@ end)
 ShmupNPC.BleedOutTime = 5
 ShmupNPC.CapturePullSpeed = 4*60
 ShmupNPC.CapturePullDistSq = 32*32
+ShmupNPC.EnhancedCapturePullDistSq = 96*96
 ShmupNPC.ShotLayer = nil -- ShmupMap, set me once it's created
 
 function ShmupNPC:activate()
@@ -292,8 +293,19 @@ function ShmupNPC:beginMove(dt)
 		playerdsq = math.hypotsq(playerdx, playerdy)
 	end
 
+	local capturepulldistsq
+	local scoreid = levity.machine:call("hud", "getScoreId")
+
+	if levity.machine:call(playerid, "isFocused")
+	and levity.machine:call(scoreid, "isMaxMultiplier", "player")
+	then
+		capturepulldistsq = ShmupNPC.EnhancedCapturePullDistSq
+	else
+		capturepulldistsq = ShmupNPC.CapturePullDistSq
+	end
+
 	self.pulledbyplayer = self.pulledbyplayer
-		or (self:canBeCaptured() and playerdsq < ShmupNPC.CapturePullDistSq)
+		or (self:canBeCaptured() and playerdsq < capturepulldistsq)
 
 	if not self.pathwalker then
 		local pathid = self.properties.pathid
