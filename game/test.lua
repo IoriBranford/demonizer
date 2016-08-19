@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 341,
+  nextobjectid = 343,
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
@@ -988,8 +988,28 @@ return {
       tiles = {}
     },
     {
-      name = "imagefont",
+      name = "touchmarkers",
       firstgid = 7283,
+      filename = "touchmarkers.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "touchmarkers.png",
+      imagewidth = 128,
+      imageheight = 64,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {}
+    },
+    {
+      name = "imagefont",
+      firstgid = 7285,
       filename = "imagefont.tsx",
       tilewidth = 973,
       tileheight = 17,
@@ -3668,6 +3688,48 @@ return {
             ["textalign"] = "center",
             ["textfont"] = "imagefont"
           }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "touchcontrols",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "ShmupTouchControls"
+      },
+      objects = {
+        {
+          id = 341,
+          name = "move",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 0,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 7283,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 342,
+          name = "focus",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 0,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 7284,
+          visible = true,
+          properties = {}
         }
       }
     }

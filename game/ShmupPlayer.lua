@@ -51,9 +51,6 @@ local ShmupPlayer = class(function(self, id)
 
 	self.soundsource = nil
 	self.soundfile = nil
-
-	self.movetouch = nil
-	self.focustouch = nil
 end)
 
 ShmupPlayer.Speed = 180
@@ -141,6 +138,10 @@ function ShmupPlayer:isFocused()
 	return not self.killed and self.focused
 end
 
+function ShmupPlayer:setFocused(focused)
+	self.focused = focused
+end
+
 function ShmupPlayer:joystickaxis(joystick, axis, value)
 	local speed = ShmupPlayer.Speed
 	local lockspeedfactor = .5
@@ -221,31 +222,6 @@ end
 
 function ShmupPlayer:keyreleased(key, u)
 	self:keychanged(key, false)
-end
-
-function ShmupPlayer:touchpressed(touch, x, y, dx, dy)
-	if not self.movetouch then
-		self.movetouch = touch
-	elseif not self.focustouch then
-		self.focustouch = touch
-		self.focused = true
-	end
-end
-
-function ShmupPlayer:touchmoved(touch, x, y, dx, dy)
-	if touch == self.movetouch then
-		self:mousemoved(x, y, dx, dy)
-	end
-end
-
-function ShmupPlayer:touchreleased(touch, x, y, dx, dy)
-	if touch == self.focustouch then
-		self.focused = false
-		self.focustouch = nil
-	elseif touch == self.movetouch then
-		self:mousemoved(x, y, dx, dy)
-		self.movetouch = nil
-	end
 end
 
 function ShmupPlayer:mousemoved(x, y, dx, dy)

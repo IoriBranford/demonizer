@@ -81,4 +81,16 @@ function ShmupMap:getRank()
 	return self.rank
 end
 
+function ShmupMap:keypressed_f12()
+	for i = 1, 99 do
+		local filename = string.format("screenshot%02d.png", i)
+		if not love.filesystem.exists(filename) then
+			local screenshotdata = love.graphics.newScreenshot()
+			screenshotdata:encode("png", filename)
+			return
+		end
+	end
+	print("Screenshot folder is full")
+end
+
 return ShmupMap
