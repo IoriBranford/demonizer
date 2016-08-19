@@ -3,7 +3,7 @@ local UIButton = levity.machine:requireScript("UIButton")
 
 local ButtonResume = class(UIButton, UIButton.init)
 
-function ButtonResume:buttonPressed()
+function ButtonResume:buttonReleased()
 	levity.mappaused = false
 	self.object.layer.visible = false
 	love.mouse.setVisible(false)
