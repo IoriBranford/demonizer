@@ -188,7 +188,8 @@ end
 function ShmupNPC:beginContact_Player(myfixture, otherfixture, contact)
 	self.captured = true
 	levity.machine:broadcast("npcCaptured", self.object.id,
-				otherfixture:getBody():getUserData().id)
+				otherfixture:getBody():getUserData().id,
+				self.female)
 end
 
 function ShmupNPC:beginContact(myfixture, otherfixture, contact)

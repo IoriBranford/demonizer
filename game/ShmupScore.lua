@@ -14,7 +14,12 @@ local ShmupScore = class(function(self, id)
 		self.multipliers[i] = 0
 	end
 	self.totalmultiplier = 1
+
+	if self.properties.textfont then
+		levity.fonts:load(self.properties.textfont)
+	end
 end)
+
 
 ShmupScore.MaxPoints = 999999999
 ShmupScore.MaxMultiplier = 20
@@ -36,7 +41,7 @@ function ShmupScore:pointsScored(points)
 	end
 end
 
-function ShmupScore:npcCaptured(npcid, captorid)
+function ShmupScore:npcCaptured(npcid, captorid, npcfemale)
 	self:pointsScored(ShmupScore.BaseCapturePoints * self.totalmultiplier)
 --[[	nice:
 	for who, mult in pairs(self.multipliers) do
@@ -47,12 +52,15 @@ function ShmupScore:npcCaptured(npcid, captorid)
 ]]
 --[[	tough:
 ]]
-	if captorid == levity.map.properties.playerid then
-		self:multiplierInc("player")
-	else
-		local allyindex = levity.machine:call(captorid, "getAllyIndex")
-		if allyindex then
-			self:multiplierInc(allyindex)
+	if not npcfemale then
+		if captorid == levity.map.properties.playerid then
+			self:multiplierInc("player")
+		else
+			local allyindex = levity.machine:call(captorid,
+								"getAllyIndex")
+			if allyindex then
+				self:multiplierInc(allyindex)
+			end
 		end
 	end
 end

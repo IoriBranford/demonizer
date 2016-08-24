@@ -1006,29 +1006,6 @@ return {
       terrains = {},
       tilecount = 2,
       tiles = {}
-    },
-    {
-      name = "imagefont",
-      firstgid = 7285,
-      filename = "imagefont.tsx",
-      tilewidth = 973,
-      tileheight = 17,
-      spacing = 0,
-      margin = 0,
-      image = "imagefont.png",
-      imagewidth = 973,
-      imageheight = 17,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      properties = {
-        ["font"] = true,
-        ["fontglyphs"] = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,!?-+/():;%&`'*#=[]\""
-      },
-      terrains = {},
-      tilecount = 1,
-      tiles = {}
     }
   },
   layers = {
@@ -3428,7 +3405,7 @@ return {
     {
       type = "objectgroup",
       name = "hud",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -3443,17 +3420,17 @@ return {
           name = "score",
           type = "",
           shape = "rectangle",
-          x = 0,
-          y = 0,
-          width = 240,
-          height = 16,
+          x = 4,
+          y = 4,
+          width = 232,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
             ["script"] = "ShmupScore",
             ["text"] = "SC00000000 EX01000000",
             ["textalign"] = "left",
-            ["textfont"] = "imagefont",
+            ["textfont"] = "pressstart2p.fnt",
             ["textformat"] = "SC%8d EX%8d"
           }
         },
@@ -3476,7 +3453,7 @@ return {
     {
       type = "objectgroup",
       name = "pausemenu",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -3499,7 +3476,7 @@ return {
           properties = {
             ["text"] = "Paused",
             ["textalign"] = "center",
-            ["textfont"] = "imagefont"
+            ["textfont"] = "pressstart2p.fnt"
           }
         },
         {
@@ -3517,7 +3494,7 @@ return {
             ["script"] = "ButtonResume",
             ["text"] = "RESUME",
             ["textalign"] = "center",
-            ["textfont"] = "imagefont"
+            ["textfont"] = "pressstart2p.fnt"
           }
         },
         {
@@ -3535,7 +3512,7 @@ return {
             ["script"] = "ButtonRestart",
             ["text"] = "RESTART",
             ["textalign"] = "center",
-            ["textfont"] = "imagefont"
+            ["textfont"] = "pressstart2p.fnt"
           }
         }
       }

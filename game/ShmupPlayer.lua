@@ -368,7 +368,7 @@ function ShmupPlayer:beginDraw()
 	else
 		self.properties.text = nil
 	end
-	self.properties.textfont = "imagefont"
+	self.properties.textfont = "pressstart2p.fnt"
 end
 
 function ShmupPlayer:endDraw()

@@ -8,7 +8,7 @@ file(GLOB_RECURSE SOURCES
 file(GLOB ASSETS
 	LIST_DIRECTORIES false
 	RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
-	*.png *.vgm *.wav)
+	*.png *.vgm *.wav *.fnt)
 
 add_custom_command(OUTPUT game.love
 	COMMAND cmake -E tar "cfv" "game.love" --format=zip ${SOURCES} ${ASSETS}
