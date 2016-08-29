@@ -7,15 +7,18 @@ local function beginMove(self, dt)
 	local mass = body:getMass()
 	local ax = properties.accelx
 	local ay = properties.accely
-	body:applyLinearImpulse(mass * ax, mass * ay)
+	body:applyForce(mass * ax, mass * ay)
 
 	local vx, vy = body:getLinearVelocity()
-	body:setAngle(math.atan2(vy + ay, vx + ax))
+	body:setAngle(math.atan2(
+			vy + ay*dt,
+			vx + ax*dt))
 end
 
 local ShmupBullet = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.object.body:setBullet(true)
+	self.object.body:setFixedRotation(true)
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setSensor(true)
 		local category = self.object.properties.category
@@ -23,12 +26,12 @@ local ShmupBullet = class(function(self, id)
 
 		if category == ShmupCollision.Category_PlayerShot then
 			fixture:setMask(ShmupCollision.Category_CameraEdge,
-					ShmupCollision.Category_Player,
+					ShmupCollision.Category_PlayerTeam,
 					ShmupCollision.Category_PlayerShot)
 		else
 			fixture:setMask(ShmupCollision.Category_CameraEdge,
-					ShmupCollision.Category_NPC,
-					ShmupCollision.Category_InCoverNPC,
+					ShmupCollision.Category_NPCTeam,
+					ShmupCollision.Category_NPCInCover,
 					ShmupCollision.Category_NPCShot)
 		end
 	end
@@ -39,8 +42,8 @@ local ShmupBullet = class(function(self, id)
 end)
 
 function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
-	if otherfixture:getCategory() == ShmupCollision.Category_Player
-	or otherfixture:getCategory() == ShmupCollision.Category_NPC then
+	if otherfixture:getCategory() == ShmupCollision.Category_PlayerTeam
+	or otherfixture:getCategory() == ShmupCollision.Category_NPCTeam then
 		self.object.dead = true
 	end
 end

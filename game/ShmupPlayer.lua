@@ -32,9 +32,9 @@ local ShmupPlayer = class(function(self, id)
 	local bodyfixture = fixtures["body"]
 	if bodyfixture then
 		bodyfixture:setFriction(0)
-		bodyfixture:setCategory(ShmupCollision.Category_Player)
+		bodyfixture:setCategory(ShmupCollision.Category_PlayerTeam)
 		bodyfixture:setMask(
-			ShmupCollision.Category_Player,
+			ShmupCollision.Category_PlayerTeam,
 			ShmupCollision.Category_PlayerShot)
 	end
 
@@ -234,7 +234,7 @@ end
 
 function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 	local category = otherfixture:getCategory()
-	if category == ShmupCollision.Category_NPC then
+	if category == ShmupCollision.Category_NPCTeam then
 		-- nothing yet
 	elseif category == ShmupCollision.Category_NPCShot then
 		if not self.killed and self.shieldtimer == 0 then
@@ -243,9 +243,9 @@ function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 
 			-- capturing not allowed while player killed
 			myfixture:setMask(
-				ShmupCollision.Category_Player,
+				ShmupCollision.Category_PlayerTeam,
 				ShmupCollision.Category_PlayerShot,
-				ShmupCollision.Category_NPC,
+				ShmupCollision.Category_NPCTeam,
 				ShmupCollision.Category_NPCShot)
 
 			levity.machine:broadcast("playerKilled")
@@ -305,7 +305,7 @@ function ShmupPlayer:beginMove(dt)
 			if bodyfixture then
 				--reenable capturing
 				bodyfixture:setMask(
-					ShmupCollision.Category_Player,
+					ShmupCollision.Category_PlayerTeam,
 					ShmupCollision.Category_PlayerShot)
 			end
 			levity.machine:broadcast("playerRespawned")

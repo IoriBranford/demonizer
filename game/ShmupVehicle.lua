@@ -18,9 +18,9 @@ local ShmupVehicle = class(function(self, id)
 
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setSensor(true)
-		fixture:setCategory(ShmupCollision.Category_NPC)
+		fixture:setCategory(ShmupCollision.Category_NPCTeam)
 		fixture:setMask(ShmupCollision.Category_CameraEdge,
-			ShmupCollision.Category_NPC,
+			ShmupCollision.Category_NPCTeam,
 			ShmupCollision.Category_NPCShot)
 	end
 
@@ -60,18 +60,22 @@ function ShmupVehicle:canBeLockTarget()
 		and self.health > 0
 end
 
+function ShmupVehicle:explode()
+	levity.bank:play(Sounds.KO)
+	levity.bank:play(Sounds.Boom2)
+	levity.machine:broadcast("vehicleDestroyed", self.object.id)
+	levity.machine:broadcast("pointsScored",
+				self.properties.killpoints or 1000)
+	self:remove()
+end
+
 function ShmupVehicle:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	local bulletproperties = otherfixture:getBody():getUserData().properties
 	local damage = bulletproperties.damage or 1
 
 	self.health = self.health - damage
 	if self.health < 1 then
-		levity.bank:play(Sounds.KO)
-		levity.bank:play(Sounds.Boom2)
-		self:remove()
-		levity.machine:broadcast("vehicleDestroyed", self.object.id)
-		levity.machine:broadcast("pointsScored",
-					self.properties.killpoints or 1000)
+		self:explode()
 	else
 		levity.bank:play(Sounds.Hit)
 	end

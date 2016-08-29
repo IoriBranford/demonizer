@@ -5,14 +5,14 @@ local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 
 local DisableCaptureMask = {
 	ShmupCollision.Category_CameraEdge,
-	ShmupCollision.Category_Player,
+	ShmupCollision.Category_PlayerTeam,
 	ShmupCollision.Category_PlayerShot,
-	ShmupCollision.Category_NPC
+	ShmupCollision.Category_NPCTeam
 }
 
 local EnableCaptureMask = {
 	ShmupCollision.Category_CameraEdge,
-	ShmupCollision.Category_Player,
+	ShmupCollision.Category_PlayerTeam,
 	ShmupCollision.Category_PlayerShot
 }
 
@@ -47,7 +47,7 @@ end)
 function ShmupAlly:refreshFixtures(mask)
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setSensor(true)
-		fixture:setCategory(ShmupCollision.Category_Player)
+		fixture:setCategory(ShmupCollision.Category_PlayerTeam)
 		fixture:setMask(unpack(mask))
 	end
 end
@@ -113,7 +113,7 @@ function ShmupAlly:beginContact(myfixture, otherfixture, contact)
 	local otherproperties = otherdata.properties
 	local category = otherfixture:getCategory()
 
-	if category == ShmupCollision.Category_NPC then
+	if category == ShmupCollision.Category_NPCTeam then
 		-- nothing yet
 	elseif category == ShmupCollision.Category_NPCShot then
 		if self.convertobject then

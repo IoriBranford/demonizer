@@ -47,15 +47,15 @@ end
 
 local CombatantMask = {
 	ShmupCollision.Category_CameraEdge,
-	ShmupCollision.Category_Player,
-	ShmupCollision.Category_NPC,
+	ShmupCollision.Category_PlayerTeam,
+	ShmupCollision.Category_NPCTeam,
 	ShmupCollision.Category_NPCShot
 }
 
 local NonCombatantMask = {
 	ShmupCollision.Category_CameraEdge,
 	ShmupCollision.Category_PlayerShot,
-	ShmupCollision.Category_NPC,
+	ShmupCollision.Category_NPCTeam,
 	ShmupCollision.Category_NPCShot
 }
 
@@ -80,7 +80,7 @@ local ShmupNPC = class(function(self, id)
 
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setSensor(true)
-		fixture:setCategory(ShmupCollision.Category_NPC)
+		fixture:setCategory(ShmupCollision.Category_NPCTeam)
 		fixture:setMask(unpack(mask))
 	end
 
@@ -146,6 +146,10 @@ function ShmupNPC:canBeCaptured()
 end
 
 function ShmupNPC:knockout()
+	if self.conscious == false then
+		return
+	end
+
 	self.health = 0
 	self.conscious = false
 	self.pathwalker = nil
@@ -164,6 +168,8 @@ function ShmupNPC:knockout()
 	if self.onKO then
 		self.onKO()
 	end
+
+	levity.machine:broadcast("npcKnockedOut", self.object.id)
 end
 
 function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
@@ -195,7 +201,7 @@ end
 function ShmupNPC:beginContact(myfixture, otherfixture, contact)
 	local category = otherfixture:getCategory()
 
-	if category == ShmupCollision.Category_Player then
+	if category == ShmupCollision.Category_PlayerTeam then
 		self:beginContact_Player(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_PlayerShot then
 		self:beginContact_PlayerShot(myfixture, otherfixture, contact)
@@ -217,9 +223,9 @@ function ShmupNPC:setInCover(incover)
 
 	local category
 	if incover then
-		category = ShmupCollision.Category_InCoverNPC
+		category = ShmupCollision.Category_NPCInCover
 	else
-		category = ShmupCollision.Category_NPC
+		category = ShmupCollision.Category_NPCTeam
 	end
 
 	local fixtures = self.object.body:getFixtureList()
