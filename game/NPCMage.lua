@@ -20,12 +20,11 @@ NPCMage.BulletParams = {
 }
 
 function NPCMage:fireCoroutine()
-	local t = 1
 	local params = NPCMage.BulletParams
 	local body = self.object.body
 
 	while true do
-		coroutine.wait(t)
+		coroutine.wait(3/8)
 
 		local x, y = body:getWorldCenter()
 
@@ -37,24 +36,30 @@ function NPCMage:fireCoroutine()
 
 		params.x, params.y = x, y
 
-		params.angle = math.pi
-		params.accelx = 2*(pldx - params.speed*math.cos(params.angle))
-		params.accely = 2*(pldy - params.speed*math.sin(params.angle))
-		--params.angle = params.angle - math.pi*.125
+		local langle = math.pi
+		local laccelx = 2*(pldx - params.speed*math.cos(langle))
+		local laccely = 2*(pldy - params.speed*math.sin(langle))
 
-		for i = 1, self.leftbullets do
-			ShmupBullet.create(params, ShmupNPC.ShotLayer)
-			params.angle = params.angle + math.pi*.0625
-		end
+		local rangle = 0
+		local raccelx = 2*(pldx - params.speed*math.cos(rangle))
+		local raccely = 2*(pldy - params.speed*math.sin(rangle))
 
-		params.angle = 0
-		params.accelx = 2*(pldx - params.speed*math.cos(params.angle))
-		params.accely = 2*(pldy - params.speed*math.sin(params.angle))
-		--params.angle = params.angle + math.pi*.125
-
-		for i = 1, self.rightbullets do
-			ShmupBullet.create(params, ShmupNPC.ShotLayer)
-			params.angle = params.angle - math.pi*.0625
+		for i = 1, 5 do
+			if i <= self.leftbullets then
+				params.angle = langle
+				params.accelx = laccelx
+				params.accely = laccely
+				ShmupBullet.create(params, ShmupNPC.ShotLayer)
+				langle = langle + math.pi*.0625
+			end
+			if i <= self.rightbullets then
+				params.angle = rangle
+				params.accelx = raccelx
+				params.accely = raccely
+				ShmupBullet.create(params, ShmupNPC.ShotLayer)
+				rangle = rangle - math.pi*.0625
+			end
+			coroutine.wait(1/8)
 		end
 	end
 end
@@ -71,7 +76,7 @@ end
 
 function NPCMage:beginMove(dt)
 	ShmupNPC.beginMove(self, dt)
-	if not self.object.visible then
+	if not self.object.body:isActive() then
 		return
 	end
 	if self.health < 1 then

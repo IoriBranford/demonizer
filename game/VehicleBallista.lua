@@ -34,7 +34,7 @@ end
 
 function VehicleBallista:beginMove(dt)
 	ShmupVehicle.beginMove(self, dt)
-	if not self.object.visible then
+	if not self.object.body:isActive() then
 		return
 	end
 	if self.health < 1 then

@@ -5,63 +5,62 @@ local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 
 local NPCSwordsman = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
-	self.firetimer = love.math.random()
-	self.health = 32
-	self.weapon = "pike"
-	if string.find(self.npctype, "sword") == 1 then
-		self.weapon = "sword"
-	end
+	self.fireco = nil
+	self.health = 16
 end)
 
-NPCSwordsman.BulletSpeedBase = 2*60
-NPCSwordsman.BulletSpeedInc = 15
-NPCSwordsman.BulletInterval = 1.5
-NPCSwordsman.BulletHalfArc = math.pi*.125
+NPCSwordsman.BulletInterval = 1
+NPCSwordsman.BulletParams = {
+	speed = 2.5*60,
+	gid = levity:getTileGid("humanshots", "sword", 0),
+	category = ShmupCollision.Category_NPCShot
+}
 
-function NPCSwordsman:updateFiring(dt)
-	local cx, cy = self.object.body:getWorldCenter()
-	local playerdx = 0
-	local playerdy = 1
+function NPCSwordsman:fireCoroutine()
+	local params = NPCSwordsman.BulletParams
+	local body = self.object.body
 
-	local playerid = levity.map.properties.playerid
-	if playerid then
-		local player = levity.map.objects[playerid]
-		local playercx, playercy = player.body:getWorldCenter()
-		playerdx = playercx - cx
-		playerdy = playercy - cy
-	end
-
-	if self.firetimer <= 0 then
-		local firetimer = self.firetimer
-		local params = {
-			x = cx,
-			y = cy,
-			speed = NPCSwordsman.BulletSpeedBase,
-			angle = math.atan2(playerdy, playerdx)
-				- NPCSwordsman.BulletHalfArc,
-			gid = levity:getTileGid("humanshots", self.weapon, 0),
-			category = ShmupCollision.Category_NPCShot
-		}
+	while true do
+		coroutine.wait(NPCSwordsman.BulletInterval*5/8)
 
 		for i = 1, 3 do
-			firetimer = ShmupBullet.fireOverTime(params,
-					ShmupNPC.ShotLayer, self.firetimer,
-					NPCSwordsman.BulletInterval)
+			local cx, cy = body:getWorldCenter()
+			local playerdx = 0
+			local playerdy = 1
 
-			params.angle = params.angle + NPCSwordsman.BulletHalfArc
-			params.speed = params.speed + NPCSwordsman.BulletSpeedInc
+			local playerid = levity.map.properties.playerid
+			if playerid then
+				local player = levity.map.objects[playerid]
+				local playercx, playercy = player.body:getWorldCenter()
+				playerdx = playercx - cx
+				playerdy = playercy - cy
+			end
+
+			params.x = cx
+			params.y = cy
+			params.angle = math.atan2(playerdy, playerdx)
+
+			ShmupBullet.create(params, ShmupNPC.ShotLayer)
+			levity.bank:play("sword.wav")
+
+			coroutine.wait(NPCSwordsman.BulletInterval / 8)
 		end
-
-		self.firetimer = firetimer
-
-		levity.bank:play(self.weapon..".wav")
 	end
-	self.firetimer = self.firetimer - dt
+end
+
+function NPCSwordsman:updateFiring(dt)
+	if not self.fireco or coroutine.status(self.fireco) == "dead" then
+		self.fireco = coroutine.create(NPCSwordsman.fireCoroutine)
+		local ok, err = coroutine.resume(self.fireco, self)
+		if not ok then print(err) end
+	end
+
+	coroutine.updateWait(self.fireco, dt)
 end
 
 function NPCSwordsman:beginMove(dt)
 	ShmupNPC.beginMove(self, dt)
-	if not self.object.visible then
+	if not self.object.body:isActive() then
 		return
 	end
 	if self.health < 1 then
@@ -73,7 +72,6 @@ function NPCSwordsman:beginMove(dt)
 	end
 end
 
-levity.bank:load("pike.wav")
 levity.bank:load("sword.wav")
 
 return NPCSwordsman

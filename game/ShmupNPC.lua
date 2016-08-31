@@ -47,7 +47,6 @@ end
 
 local CombatantMask = {
 	ShmupCollision.Category_CameraEdge,
-	ShmupCollision.Category_PlayerTeam,
 	ShmupCollision.Category_NPCTeam,
 	ShmupCollision.Category_NPCShot
 }
@@ -111,8 +110,8 @@ end)
 
 ShmupNPC.BleedOutTime = 5
 ShmupNPC.CapturePullSpeed = 4*60
-ShmupNPC.CapturePullDistSq = 32*32
-ShmupNPC.EnhancedCapturePullDistSq = 96*96
+ShmupNPC.CapturePullDistSq = 30*30
+ShmupNPC.EnhancedCapturePullDistSq = 120*120
 ShmupNPC.ShotLayer = nil -- ShmupMap, set me once it's created
 
 function ShmupNPC:activate()
@@ -120,7 +119,11 @@ function ShmupNPC:activate()
 end
 
 function ShmupNPC:setActive(active)
-	self.object.visible = active
+	if self.object.gid then
+		self.object.visible = active
+	else
+		self.object.visible = false
+	end
 	self.object.body:setActive(active)
 	if active then
 		self.object.anitimescale = 1
@@ -131,7 +134,7 @@ function ShmupNPC:setActive(active)
 end
 
 function ShmupNPC:suppress()
-	return
+	levity.machine:broadcast("npcSuppressed", self.object.id)
 end
 
 function ShmupNPC:canBeLockTarget()
@@ -191,18 +194,22 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	end
 end
 
-function ShmupNPC:beginContact_Player(myfixture, otherfixture, contact)
-	self.captured = true
-	levity.machine:broadcast("npcCaptured", self.object.id,
+function ShmupNPC:beginContact_PlayerTeam(myfixture, otherfixture, contact)
+	if self:canBeCaptured() then
+		self.captured = true
+		levity.machine:broadcast("npcCaptured", self.object.id,
 				otherfixture:getBody():getUserData().id,
 				self.female)
+	else
+		self:suppress()
+	end
 end
 
 function ShmupNPC:beginContact(myfixture, otherfixture, contact)
 	local category = otherfixture:getCategory()
 
 	if category == ShmupCollision.Category_PlayerTeam then
-		self:beginContact_Player(myfixture, otherfixture, contact)
+		self:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_PlayerShot then
 		self:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_Camera then
@@ -276,7 +283,7 @@ function ShmupNPC:beginMove(dt)
 		end
 	end
 
-	if not self.object.visible then
+	if not self.object.body:isActive() then
 		return
 	end
 

@@ -5,8 +5,8 @@ local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 
 local NPCPikeman = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
-	self.firetimer = love.math.random()
-	self.health = 16
+	self.firetimer = 0--love.math.random()
+	self.health = 8
 end)
 
 NPCPikeman.BulletInterval = 1.5
@@ -46,7 +46,7 @@ end
 
 function NPCPikeman:beginMove(dt)
 	ShmupNPC.beginMove(self, dt)
-	if not self.object.visible then
+	if not self.object.body:isActive() then
 		return
 	end
 	if self.health < 1 then

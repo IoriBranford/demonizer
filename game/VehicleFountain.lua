@@ -65,7 +65,7 @@ end
 
 function VehicleFountain:beginMove(dt)
 	ShmupVehicle.beginMove(self, dt)
-	if not self.object.visible then
+	if not self.object.body:isActive() then
 		return
 	end
 

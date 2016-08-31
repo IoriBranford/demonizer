@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 349,
+  nextobjectid = 410,
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
@@ -1287,227 +1287,82 @@ return {
           properties = {
             ["script"] = "NPCArcher"
           }
-        },
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "roofballistae",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
         {
-          id = 306,
+          id = 405,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 144,
-          y = 264,
-          width = 24,
-          height = 32,
+          x = 112,
+          y = 320,
+          width = 64,
+          height = 64,
           rotation = 0,
-          gid = 171,
+          gid = 216,
           visible = true,
           properties = {
-            ["pathid"] = 312,
-            ["pathtime"] = 1,
-            ["script"] = "NPCArcher"
+            ["script"] = "VehicleBallista"
           }
         },
         {
-          id = 307,
+          id = 407,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 144,
-          y = 264,
-          width = 24,
-          height = 32,
+          x = 248,
+          y = 320,
+          width = 64,
+          height = 64,
           rotation = 0,
-          gid = 171,
+          gid = 217,
           visible = true,
           properties = {
-            ["pathid"] = 313,
-            ["pathtime"] = 1,
-            ["script"] = "NPCArcher"
+            ["script"] = "VehicleBallista"
           }
         },
         {
-          id = 308,
+          id = 408,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 144,
-          y = 264,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 171,
-          visible = true,
-          properties = {
-            ["pathid"] = 314,
-            ["pathtime"] = 1,
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 309,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 144,
-          y = 264,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 171,
-          visible = true,
-          properties = {
-            ["pathid"] = 315,
-            ["pathtime"] = 1,
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 310,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 144,
-          y = 264,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 171,
-          visible = true,
-          properties = {
-            ["pathid"] = 316,
-            ["pathtime"] = 1,
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 311,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 144,
-          y = 264,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 171,
-          visible = true,
-          properties = {
-            ["pathid"] = 317,
-            ["pathtime"] = 1,
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 312,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 120,
-          y = 296,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 24, y = -32 },
-            { x = -32, y = 48 }
-          },
-          properties = {
-            ["script"] = "LinearPath"
-          }
-        },
-        {
-          id = 313,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 160,
-          y = 280,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -16, y = -16 },
-            { x = -48, y = 64 }
-          },
-          properties = {
-            ["script"] = "LinearPath"
-          }
-        },
-        {
-          id = 314,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 152,
-          y = 296,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -8, y = -32 },
-            { x = -16, y = 48 }
-          },
-          properties = {
-            ["script"] = "LinearPath"
-          }
-        },
-        {
-          id = 315,
-          name = "path",
-          type = "",
-          shape = "polyline",
           x = 176,
-          y = 280,
-          width = 0,
-          height = 0,
+          y = 320,
+          width = 64,
+          height = 64,
           rotation = 0,
+          gid = 216,
           visible = true,
-          polyline = {
-            { x = -32, y = -16 },
-            { x = 0, y = 48 }
-          },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "VehicleBallista"
           }
         },
         {
-          id = 316,
-          name = "path",
+          id = 409,
+          name = "trigger",
           type = "",
-          shape = "polyline",
-          x = 192,
-          y = 320,
-          width = 0,
-          height = 0,
+          shape = "rectangle",
+          x = 0,
+          y = 288,
+          width = 288,
+          height = 56,
           rotation = 0,
           visible = true,
-          polyline = {
-            { x = -48, y = -56 },
-            { x = 8, y = 8 }
-          },
           properties = {
-            ["script"] = "LinearPath"
-          }
-        },
-        {
-          id = 317,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 232,
-          y = 320,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -88, y = -56 },
-            { x = -8, y = 8 }
-          },
-          properties = {
-            ["script"] = "LinearPath"
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
           }
         }
       }
@@ -1528,7 +1383,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 392,
+          y = 432,
           width = 288,
           height = 8,
           rotation = 0,
@@ -1544,7 +1399,7 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 144,
+          x = 136,
           y = 464,
           width = 24,
           height = 32,
@@ -1569,8 +1424,8 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 24, y = -32 },
-            { x = 24, y = 24 }
+            { x = 32, y = -32 },
+            { x = 32, y = 8 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -1581,35 +1436,17 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 144,
+          x = 152,
           y = 464,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 159,
+          gid = 162,
           visible = true,
           properties = {
             ["pathid"] = 281,
             ["pathtime"] = 0.5,
-            ["script"] = "NPCPikeman"
-          }
-        },
-        {
-          id = 284,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 144,
-          y = 440,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 171,
-          visible = true,
-          properties = {
-            ["pathid"] = 281,
-            ["pathtime"] = 0.5,
-            ["script"] = "NPCArcher"
+            ["script"] = "NPCSwordsman"
           }
         },
         {
@@ -1624,11 +1461,206 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 24, y = -32 },
-            { x = -8, y = 24 }
+            { x = 16, y = -32 },
+            { x = 16, y = 8 }
           },
           properties = {
             ["script"] = "LinearPath"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "pikes5",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 394,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 424,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 397,
+            ["pathtime"] = 5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 395,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 400,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 397,
+            ["pathtime"] = 5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 396,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 448,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 397,
+            ["pathtime"] = 5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 397,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 16,
+          y = 368,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 104 },
+            { x = 0, y = 160 },
+            { x = 80, y = 160 },
+            { x = 248, y = 160 },
+            { x = 440, y = 328 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 399,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 472,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 397,
+            ["pathtime"] = 5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 400,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 480,
+          width = 288,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 401,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 376,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 397,
+            ["pathtime"] = 5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 402,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 352,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 397,
+            ["pathtime"] = 5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 403,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 328,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 397,
+            ["pathtime"] = 5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 404,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 304,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 397,
+            ["pathtime"] = 5,
+            ["script"] = "NPCPikeman"
           }
         }
       }
@@ -1851,7 +1883,7 @@ return {
     },
     {
       type = "objectgroup",
-      name = "knights2",
+      name = "knightsballistae",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -1859,26 +1891,6 @@ return {
       draworder = "topdown",
       properties = {},
       objects = {
-        {
-          id = 211,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 304,
-          y = 872,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 24, y = -32 },
-            { x = -40, y = -8 },
-            { x = -112, y = -8 }
-          },
-          properties = {
-            ["script"] = "LinearPath"
-          }
-        },
         {
           id = 213,
           name = "trigger",
@@ -1901,130 +1913,209 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = -40,
-          y = 912,
+          x = 128,
+          y = 856,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 162,
           visible = true,
           properties = {
-            ["pathid"] = 219,
-            ["pathtime"] = 1.5,
+            ["pathid"] = 365,
+            ["pathtime"] = 0.25,
             ["script"] = "NPCSwordsman"
           }
         },
         {
-          id = 219,
-          name = "path",
+          id = 232,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 856,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 81,
+          visible = true,
+          properties = {
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 327,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 24,
+          y = 848,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 215,
+          visible = true,
+          properties = {
+            ["script"] = "VehicleBallista"
+          }
+        },
+        {
+          id = 361,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 264,
+          y = 848,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 217,
+          visible = true,
+          properties = {
+            ["script"] = "VehicleBallista"
+          }
+        },
+        {
+          id = 363,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 160,
+          y = 856,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 162,
+          visible = true,
+          properties = {
+            ["pathid"] = 364,
+            ["pathtime"] = 0.25,
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 364,
+          name = "",
           type = "",
           shape = "polyline",
-          x = -64,
-          y = 944,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 24, y = -32 },
-            { x = 168, y = -48 }
-          },
-          properties = {
-            ["script"] = "LinearPath"
-          }
-        },
-        {
-          id = 233,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -24,
-          y = 896,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 171,
-          visible = true,
-          properties = {
-            ["pathid"] = 272,
-            ["pathtime"] = 1.5,
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 234,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -64,
-          y = 904,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 171,
-          visible = true,
-          properties = {
-            ["pathid"] = 272,
-            ["pathtime"] = 1.5,
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 235,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 336,
-          y = 816,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 171,
-          visible = true,
-          properties = {
-            ["pathid"] = 273,
-            ["pathtime"] = 1.5,
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 236,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 312,
-          y = 824,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 171,
-          visible = true,
-          properties = {
-            ["pathid"] = 273,
-            ["pathtime"] = 1.5,
-            ["script"] = "NPCArcher"
-          }
-        },
-        {
-          id = 273,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 288,
+          x = 160,
           y = 856,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 24, y = -32 },
-            { x = -40, y = -8 },
-            { x = -112, y = -8 }
+            { x = 0, y = 0 },
+            { x = -8, y = 32 }
           },
           properties = {
             ["script"] = "LinearPath"
           }
         },
+        {
+          id = 365,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 128,
+          y = 856,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 8, y = 32 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 366,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 80,
+          y = 824,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 32, y = 40 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 367,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 824,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 162,
+          visible = true,
+          properties = {
+            ["pathid"] = 366,
+            ["pathtime"] = 0.25,
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 368,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 208,
+          y = 824,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 162,
+          visible = true,
+          properties = {
+            ["pathid"] = 369,
+            ["pathtime"] = 0.25,
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 369,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 208,
+          y = 824,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -32, y = 40 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "pikes4",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
         {
           id = 272,
           name = "path",
@@ -2038,44 +2129,190 @@ return {
           visible = true,
           polyline = {
             { x = 24, y = -32 },
-            { x = 168, y = -48 }
+            { x = 168, y = -32 }
           },
           properties = {
             ["script"] = "LinearPath"
           }
         },
         {
-          id = 232,
-          name = "",
+          id = 219,
+          name = "path",
           type = "",
-          shape = "rectangle",
-          x = 328,
-          y = 840,
-          width = 24,
-          height = 32,
+          shape = "polyline",
+          x = -24,
+          y = 944,
+          width = 0,
+          height = 0,
           rotation = 0,
-          gid = 81,
           visible = true,
+          polyline = {
+            { x = 0, y = -24 },
+            { x = 144, y = -24 }
+          },
           properties = {
-            ["pathid"] = 211,
-            ["pathtime"] = 1,
-            ["script"] = "NPCSwordsman"
+            ["script"] = "LinearPath"
           }
         },
         {
-          id = 327,
-          name = "",
+          id = 370,
+          name = "trigger",
           type = "",
           shape = "rectangle",
-          x = 48,
-          y = 856,
-          width = 64,
-          height = 64,
+          x = 0,
+          y = 896,
+          width = 288,
+          height = 8,
           rotation = 0,
-          gid = 215,
           visible = true,
           properties = {
-            ["script"] = "VehicleBallista"
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 371,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = -24,
+          y = 896,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 272,
+            ["pathtime"] = 1,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 372,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = -48,
+          y = 896,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 272,
+            ["pathtime"] = 1,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 373,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = -72,
+          y = 896,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 272,
+            ["pathtime"] = 1,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 374,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = -96,
+          y = 896,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 272,
+            ["pathtime"] = 1,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 378,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = -48,
+          y = 920,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 219,
+            ["pathtime"] = 1,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 379,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = -24,
+          y = 920,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 219,
+            ["pathtime"] = 1,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 380,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = -96,
+          y = 920,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 219,
+            ["pathtime"] = 1,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 381,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = -72,
+          y = 920,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 219,
+            ["pathtime"] = 1,
+            ["script"] = "NPCPikeman"
           }
         }
       }
@@ -2091,43 +2328,6 @@ return {
       properties = {},
       objects = {
         {
-          id = 221,
-          name = "trigger",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 968,
-          width = 288,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
-            ["triggertype"] = "activategroup"
-          }
-        },
-        {
-          id = 223,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 304,
-          y = 1000,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -224, y = -16 },
-            { x = -208, y = 0 },
-            { x = -184, y = 24 }
-          },
-          properties = {
-            ["script"] = "LinearPath"
-          }
-        },
-        {
           id = 224,
           name = "path",
           type = "",
@@ -2140,29 +2340,47 @@ return {
           visible = true,
           polyline = {
             { x = 0, y = -32 },
-            { x = 0, y = 8 },
-            { x = -32, y = 40 }
+            { x = 0, y = 8 }
           },
           properties = {
             ["script"] = "LinearPath"
           }
         },
         {
-          id = 225,
+          id = 360,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 80,
-          y = 984,
+          x = 176,
+          y = 936,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 171,
           visible = true,
           properties = {
-            ["pathid"] = 223,
-            ["pathtime"] = 2,
+            ["pathid"] = 359,
+            ["pathtime"] = 0.25,
             ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 359,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 176,
+          y = 968,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = -32 },
+            { x = 0, y = -8 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
           }
         },
         {
@@ -2179,8 +2397,267 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 224,
-            ["pathtime"] = 2,
+            ["pathtime"] = 0.25,
             ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 393,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 928,
+          width = 288,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 357,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 984,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 171,
+          visible = true,
+          properties = {
+            ["pathid"] = 358,
+            ["pathtime"] = 0.25,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 358,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 288,
+          y = 1000,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -208, y = -16 },
+            { x = -208, y = 8 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 223,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 304,
+          y = 1000,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -208, y = -16 },
+            { x = -192, y = 8 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 225,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 984,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 171,
+          visible = true,
+          properties = {
+            ["pathid"] = 223,
+            ["pathtime"] = 0.25,
+            ["script"] = "NPCArcher"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "pikes3",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 211,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 320,
+          y = 928,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -48, y = -8 },
+            { x = -48, y = 112 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 388,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 896,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 211,
+            ["pathtime"] = 1,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 383,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 952,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 273,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 386,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 920,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 211,
+            ["pathtime"] = 1,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 273,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 216,
+          y = 928,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 24, y = 24 },
+            { x = 24, y = 56 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 385,
+          name = "pike9",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 928,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 273,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 391,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 968,
+          width = 288,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "windowarcher2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 221,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 1016,
+          width = 288,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
           }
         },
         {
@@ -2193,10 +2670,151 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 171,
+          gid = 90,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "pikes2",
+      visible = false,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 356,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 1008,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 271,
+            ["pathtime"] = 5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 355,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 984,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 271,
+            ["pathtime"] = 5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 353,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 1032,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 271,
+            ["pathtime"] = 5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 271,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 272,
+          y = 952,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 104 },
+            { x = 0, y = 208 },
+            { x = -80, y = 208 },
+            { x = -144, y = 224 },
+            { x = -384, y = 224 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 197,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 960,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 162,
+          visible = true,
+          properties = {
+            ["pathid"] = 271,
+            ["pathtime"] = 5,
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 354,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 1056,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 271,
+            ["pathtime"] = 5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 390,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 1064,
+          width = 288,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
           }
         }
       }
@@ -2211,6 +2829,27 @@ return {
       draworder = "topdown",
       properties = {},
       objects = {
+        {
+          id = 241,
+          name = "trigger",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 1104,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
         {
           id = 237,
           name = "",
@@ -2242,33 +2881,12 @@ return {
           properties = {
             ["script"] = "NPCArcher"
           }
-        },
-        {
-          id = 241,
-          name = "trigger",
-          type = "",
-          shape = "polyline",
-          x = 0,
-          y = 1032,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 288, y = 0 }
-          },
-          properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
-            ["triggertype"] = "activategroup"
-          }
         }
       }
     },
     {
       type = "objectgroup",
-      name = "knights",
+      name = "pikes",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -2281,8 +2899,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = -16,
-          y = 1184,
+          x = -40,
+          y = 1192,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2290,7 +2908,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 195,
-            ["pathtime"] = 1.5,
+            ["pathtime"] = 4,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2300,35 +2918,19 @@ return {
           type = "",
           shape = "polyline",
           x = -16,
-          y = 1184,
+          y = 1192,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 128, y = 0 }
+            { x = 152, y = 0 },
+            { x = 216, y = -16 },
+            { x = 416, y = -16 }
           },
           properties = {
             ["script"] = "LinearPath"
-          }
-        },
-        {
-          id = 197,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 336,
-          y = 1168,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 162,
-          visible = true,
-          properties = {
-            ["pathid"] = 271,
-            ["pathtime"] = 1.5,
-            ["script"] = "NPCSwordsman"
           }
         },
         {
@@ -2337,7 +2939,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 1120,
+          y = 1144,
           width = 288,
           height = 8,
           rotation = 0,
@@ -2349,29 +2951,82 @@ return {
           }
         },
         {
-          id = 271,
-          name = "path",
+          id = 349,
+          name = "",
           type = "",
-          shape = "polyline",
-          x = 336,
-          y = 1168,
-          width = 0,
-          height = 0,
+          shape = "rectangle",
+          x = -112,
+          y = 1192,
+          width = 24,
+          height = 32,
           rotation = 0,
+          gid = 162,
           visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = -144, y = 0 }
-          },
           properties = {
-            ["script"] = "LinearPath"
+            ["pathid"] = 195,
+            ["pathtime"] = 4,
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 350,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -16,
+          y = 1192,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 195,
+            ["pathtime"] = 4,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 351,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -88,
+          y = 1192,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 195,
+            ["pathtime"] = 4,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 352,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -64,
+          y = 1192,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 159,
+          visible = true,
+          properties = {
+            ["pathid"] = 195,
+            ["pathtime"] = 4,
+            ["script"] = "NPCPikeman"
           }
         }
       }
     },
     {
       type = "objectgroup",
-      name = "Copy of hidingarchers",
+      name = "busharchers3",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -2379,43 +3034,6 @@ return {
       draworder = "topdown",
       properties = {},
       objects = {
-        {
-          id = 244,
-          name = "trigger",
-          type = "",
-          shape = "polyline",
-          x = 0,
-          y = 1200,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 288, y = 0 }
-          },
-          properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
-            ["triggertype"] = "activategroup"
-          }
-        },
-        {
-          id = 248,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 232,
-          y = 1296,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 171,
-          visible = true,
-          properties = {
-            ["script"] = "NPCArcher"
-          }
-        },
         {
           id = 250,
           name = "",
@@ -2449,6 +3067,76 @@ return {
           }
         },
         {
+          id = 392,
+          name = "trigger",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 1216,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "busharchers2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 244,
+          name = "trigger",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 1264,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 248,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 232,
+          y = 1296,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 171,
+          visible = true,
+          properties = {
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
           id = 252,
           name = "",
           type = "",
@@ -2468,7 +3156,7 @@ return {
     },
     {
       type = "objectgroup",
-      name = "hidingarchers",
+      name = "busharchers",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -2482,7 +3170,7 @@ return {
           type = "",
           shape = "polyline",
           x = 0,
-          y = 1312,
+          y = 1336,
           width = 0,
           height = 0,
           rotation = 0,
@@ -2549,7 +3237,7 @@ return {
     },
     {
       type = "objectgroup",
-      name = "diverarchers",
+      name = "waterarchers",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -2563,7 +3251,7 @@ return {
           type = "",
           shape = "polyline",
           x = 0,
-          y = 1432,
+          y = 1440,
           width = 0,
           height = 0,
           rotation = 0,
@@ -2583,8 +3271,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 128,
-          y = 1528,
+          x = 56,
+          y = 1512,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2614,7 +3302,7 @@ return {
     },
     {
       type = "objectgroup",
-      name = "Copy of pikes3,4,5",
+      name = "waterpikes3",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -2628,7 +3316,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -40,
-          y = 1608,
+          y = 1584,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2647,7 +3335,7 @@ return {
           type = "",
           shape = "polyline",
           x = -24,
-          y = 1656,
+          y = 1632,
           width = 0,
           height = 0,
           rotation = 0,
@@ -2666,7 +3354,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 1592,
+          y = 1576,
           width = 288,
           height = 8,
           rotation = 0,
@@ -2683,7 +3371,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -72,
-          y = 1592,
+          y = 1568,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2702,7 +3390,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -56,
-          y = 1600,
+          y = 1576,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2721,7 +3409,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 328,
-          y = 1608,
+          y = 1584,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2740,7 +3428,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 344,
-          y = 1600,
+          y = 1576,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2759,7 +3447,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 360,
-          y = 1592,
+          y = 1568,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2778,7 +3466,7 @@ return {
           type = "",
           shape = "polyline",
           x = 304,
-          y = 1672,
+          y = 1648,
           width = 0,
           height = 0,
           rotation = 0,
@@ -2797,7 +3485,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 344,
-          y = 1584,
+          y = 1560,
           width = 128,
           height = 64,
           rotation = 0,
@@ -2815,7 +3503,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -56,
-          y = 1584,
+          y = 1560,
           width = 128,
           height = 64,
           rotation = 0,
@@ -2833,7 +3521,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 1552,
+          y = 1536,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2850,7 +3538,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 128,
-          y = 1568,
+          y = 1552,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2867,7 +3555,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 1544,
+          y = 1528,
           width = 128,
           height = 64,
           rotation = 0,
@@ -2883,7 +3571,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 160,
-          y = 1568,
+          y = 1552,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2898,7 +3586,7 @@ return {
     },
     {
       type = "objectgroup",
-      name = "pikes6,7,8",
+      name = "waterpikes2",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -2911,8 +3599,8 @@ return {
           name = "pike6",
           type = "",
           shape = "rectangle",
-          x = 328,
-          y = 1664,
+          x = 344,
+          y = 1648,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2930,8 +3618,8 @@ return {
           name = "pike7",
           type = "",
           shape = "rectangle",
-          x = 344,
-          y = 1656,
+          x = 360,
+          y = 1640,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2950,16 +3638,16 @@ return {
           type = "",
           shape = "polyline",
           x = 304,
-          y = 1744,
+          y = 1728,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 40, y = -104 },
+            { x = 56, y = -104 },
             { x = -96, y = -72 },
             { x = -224, y = -72 },
-            { x = -360, y = -104 }
+            { x = -376, y = -104 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -2970,8 +3658,8 @@ return {
           name = "pike8",
           type = "",
           shape = "rectangle",
-          x = 360,
-          y = 1648,
+          x = 376,
+          y = 1632,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2990,7 +3678,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 1648,
+          y = 1632,
           width = 288,
           height = 8,
           rotation = 0,
@@ -3006,8 +3694,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 344,
-          y = 1640,
+          x = 360,
+          y = 1624,
           width = 128,
           height = 64,
           rotation = 0,
@@ -3023,7 +3711,7 @@ return {
     },
     {
       type = "objectgroup",
-      name = "pikes3,4,5",
+      name = "waterpikes",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -3036,7 +3724,7 @@ return {
           name = "pike3",
           type = "",
           shape = "rectangle",
-          x = -40,
+          x = -56,
           y = 1704,
           width = 24,
           height = 32,
@@ -3062,10 +3750,10 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -32, y = -56 },
+            { x = -48, y = -56 },
             { x = 104, y = -24 },
             { x = 232, y = -24 },
-            { x = 368, y = -56 }
+            { x = 384, y = -56 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -3093,7 +3781,7 @@ return {
           name = "pike5",
           type = "",
           shape = "rectangle",
-          x = -72,
+          x = -88,
           y = 1688,
           width = 24,
           height = 32,
@@ -3112,7 +3800,7 @@ return {
           name = "pike4",
           type = "",
           shape = "rectangle",
-          x = -56,
+          x = -72,
           y = 1696,
           width = 24,
           height = 32,
@@ -3131,7 +3819,7 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = -56,
+          x = -72,
           y = 1680,
           width = 128,
           height = 64,

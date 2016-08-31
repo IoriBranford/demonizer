@@ -7,38 +7,40 @@ local BulletInterval = 2
 
 local NPCArcher = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
-	self.firetimer = love.math.random() * BulletInterval
+	self.firetimer = BulletInterval
 	self.health = 8
 end)
 
-NPCArcher.BulletSpeed = 4*60
 NPCArcher.BulletInterval = BulletInterval
 NPCArcher.LeaveCoverTime = 1
 NPCArcher.PlayerShotSuppression = 1/8
-NPCArcher.BulletGid = levity:getTileGid("humanshots", "arrow", 0)
+NPCArcher.NPCSuppressionReaction = 1/16
+NPCArcher.BulletParams = {
+	speed = 240,
+	gid = levity:getTileGid("humanshots", "arrow", 0),
+	category = ShmupCollision.Category_NPCShot
+}
 
 function NPCArcher:updateFiring(dt)
-	local cx, cy = self.object.body:getWorldCenter()
-	local playerdx = 0
-	local playerdy = 1
-
-	local playerid = levity.map.properties.playerid
-	if playerid then
-		local player = levity.map.objects[playerid]
-		local playercx, playercy = player.body:getWorldCenter()
-		playerdx = playercx - cx
-		playerdy = playercy - cy
-	end
-
 	if self.firetimer <= 0 then
-		self.firetimer = ShmupBullet.fireOverTime({
-				x = cx,
-				y = cy,
-				speed = NPCArcher.BulletSpeed,
-				angle = math.atan2(playerdy, playerdx),
-				gid = NPCArcher.BulletGid,
-				category = ShmupCollision.Category_NPCShot
-			}, ShmupNPC.ShotLayer, self.firetimer,
+		local params = NPCArcher.BulletParams
+		local cx, cy = self.object.body:getWorldCenter()
+		local playerdx = 0
+		local playerdy = 1
+
+		local playerid = levity.map.properties.playerid
+		if playerid then
+			local player = levity.map.objects[playerid]
+			local playercx, playercy = player.body:getWorldCenter()
+			playerdx = playercx - cx
+			playerdy = playercy - cy
+		end
+
+		params.x = cx
+		params.y = cy
+		params.angle = math.atan2(playerdy, playerdx)
+		self.firetimer = ShmupBullet.fireOverTime(params,
+			ShmupNPC.ShotLayer, self.firetimer,
 			NPCArcher.BulletInterval)
 
 		levity.bank:play("bow.wav")
@@ -51,12 +53,24 @@ function NPCArcher:updateFiring(dt)
 end
 
 function NPCArcher:suppress()
-	self.firetimer = self.firetimer + NPCArcher.PlayerShotSuppression
+	self.firetimer = math.min(BulletInterval,
+		self.firetimer + NPCArcher.PlayerShotSuppression)
+	levity.machine:broadcast("npcSuppressed", self.object.id)
+end
+
+function NPCArcher:npcSuppressed(npcid)
+	if not self.object.body:isActive() then
+		return
+	end
+	if self.object.id ~= npcid then
+		self.firetimer = math.max(0,
+			self.firetimer - NPCArcher.NPCSuppressionReaction)
+	end
 end
 
 function NPCArcher:beginMove(dt)
 	ShmupNPC.beginMove(self, dt)
-	if not self.object.visible then
+	if not self.object.body:isActive() then
 		return
 	end
 	if self.health < 1 then

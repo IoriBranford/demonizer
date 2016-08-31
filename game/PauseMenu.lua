@@ -11,17 +11,23 @@ local Sounds = {
 levity.bank:load(Sounds)
 
 function PauseMenu:keypressed_escape()
-	if self.layer.visible then
-		levity.mappaused = false
-		self.layer.visible = false
-		love.mouse.setVisible(false)
-		love.mouse.setRelativeMode(true)
-	else
-		levity.mappaused = true
-		self.layer.visible = true
+	local pause = not levity.mappaused
+	levity.mappaused = pause
+	self.layer.visible = pause
+	love.mouse.setVisible(pause)
+	love.mouse.setRelativeMode(not pause)
+
+	if pause then
 		levity.bank:play(Sounds.Pause)
-		love.mouse.setVisible(true)
-		love.mouse.setRelativeMode(false)
+	end
+end
+
+function PauseMenu:keypressed_pause()
+	local pause = not levity.mappaused
+	levity.mappaused = pause
+
+	if pause then
+		levity.bank:play(Sounds.Pause)
 	end
 end
 

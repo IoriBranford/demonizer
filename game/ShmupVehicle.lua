@@ -44,7 +44,11 @@ function ShmupVehicle:activate()
 end
 
 function ShmupVehicle:setActive(active)
-	self.object.visible = active
+	if self.object.gid then
+		self.object.visible = active
+	else
+		self.object.visible = false
+	end
 	self.object.body:setActive(active)
 	if active then
 		self.object.anitimescale = 1
@@ -114,7 +118,7 @@ function ShmupVehicle:beginMove(dt)
 --		end
 	end
 
-	if not self.object.visible then
+	if not self.object.body:isActive() then
 		return
 	end
 
