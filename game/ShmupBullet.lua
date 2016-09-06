@@ -11,8 +11,8 @@ local function beginMove(self, dt)
 
 	local vx, vy = body:getLinearVelocity()
 	body:setAngle(math.atan2(
-			vy + ay*dt,
-			vx + ax*dt))
+			(vy + ay*.5),
+			(vx + ax*.5)))
 end
 
 local ShmupBullet = class(function(self, id)
