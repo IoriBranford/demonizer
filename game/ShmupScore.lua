@@ -61,7 +61,7 @@ function ShmupScore:npcCaptured(npcid, captorid, newallyindex)
 			textfont = "pressstart2p.fnt"
 		}
 	}
-	levity:addObject(pointsobject, npc.layer, "dynamic")
+	levity:addObject(pointsobject, levity.map.layers["sparks"], "dynamic")
 
 	self:pointsScored(points)
 

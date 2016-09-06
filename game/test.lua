@@ -4087,6 +4087,17 @@ return {
     },
     {
       type = "objectgroup",
+      name = "sparks",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "index",
+      properties = {},
+      objects = {}
+    },
+    {
+      type = "objectgroup",
       name = "player",
       visible = true,
       opacity = 1,
@@ -4120,7 +4131,7 @@ return {
       opacity = 1,
       offsetx = 0,
       offsety = 0,
-      draworder = "topdown",
+      draworder = "index",
       properties = {},
       objects = {}
     },

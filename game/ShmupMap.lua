@@ -39,6 +39,8 @@ local ShmupMap = class(function(self, id)
 
 	ShmupNPC.ShotLayer = self.map.layers["npcshots"] or
 				levity:addDynamicLayer("npcshots")
+	local sparklayer = self.map.layers["sparks"] or
+				levity:addDynamicLayer("sparks")
  
 	for _, layer in ipairs(self.map.layers) do
 		if layer.type == "dynamiclayer"

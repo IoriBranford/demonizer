@@ -1110,6 +1110,7 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup draworder="index" name="sparks"/>
  <objectgroup name="player">
   <object id="1" name="player" gid="1" x="144" y="2080" width="64" height="64">
    <properties>
@@ -1117,7 +1118,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="npcshots"/>
+ <objectgroup draworder="index" name="npcshots"/>
  <objectgroup name="hud">
   <properties>
    <property name="scoreid" type="int" value="318"/>
