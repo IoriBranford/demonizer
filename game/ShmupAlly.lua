@@ -27,7 +27,6 @@ local ShmupAlly = class(function(self, id)
 
 	local playerid = levity.map.properties.playerid
 	self.allyindex = levity.machine:call(playerid, "newAllyIndex")
-	levity.machine:broadcast("multiplierInc", self.allyindex)
 
 	self.convertobject = {
 		x = self.object.x,

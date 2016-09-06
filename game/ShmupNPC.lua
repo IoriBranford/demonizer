@@ -86,6 +86,7 @@ local ShmupNPC = class(function(self, id)
 	self.conscious = true
 	self.pulledbyplayer = false
 	self.captured = false
+	self.captorid = nil
 
 	self.pathwalker = nil
 
@@ -197,9 +198,7 @@ end
 function ShmupNPC:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 	if self:canBeCaptured() then
 		self.captured = true
-		levity.machine:broadcast("npcCaptured", self.object.id,
-				otherfixture:getBody():getUserData().id,
-				self.female)
+		self.captorid = otherfixture:getBody():getUserData().id
 	else
 		self:suppress()
 	end
@@ -244,10 +243,10 @@ end
 function ShmupNPC:capture()
 	local playerid = levity.map.properties.playerid
 	local roomforallies = levity.machine:call(playerid, "roomForAllies")
+	local converted = roomforallies and self.female
 
-	if not roomforallies or not self.female then
-		self:remove()
-	else
+	local newallyindex
+	if converted then
 		local player = levity.map.objects[playerid]
 		if player then
 			levity:changeObjectLayer(self.object, player.layer)
@@ -258,8 +257,15 @@ function ShmupNPC:capture()
 		levity:setObjectGid(self.object, gid, false)
 
 		levity.machine:newScript(self.object.id, "ShmupAlly")
+		newallyindex = levity.machine:call(self.object.id, "getAllyIndex")
+
 		levity.bank:play(Sounds.Convert)
+	else
+		self:remove()
 	end
+
+	levity.machine:broadcast("npcCaptured", self.object.id, self.captorid,
+				newallyindex)
 
 	if self.female then
 		levity.bank:play(Sounds.FemaleCapture)

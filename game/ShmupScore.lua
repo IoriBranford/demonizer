@@ -1,5 +1,6 @@
 local levity = require "levity"
 local ShmupPlayer = levity.machine:requireScript("ShmupPlayer")
+local Spark = levity.machine:requireScript("Spark")
 
 local ShmupScore = class(function(self, id)
 	self.object = levity.map.objects[id]
@@ -41,8 +42,29 @@ function ShmupScore:pointsScored(points)
 	end
 end
 
-function ShmupScore:npcCaptured(npcid, captorid, npcfemale)
-	self:pointsScored(ShmupScore.BaseCapturePoints * self.totalmultiplier)
+function ShmupScore:getNextCapturePoints()
+	return ShmupScore.BaseCapturePoints * self.totalmultiplier
+end
+
+function ShmupScore:npcCaptured(npcid, captorid, newallyindex)
+	local points = self:getNextCapturePoints()
+	local npc = levity.map.objects[npcid]
+	local pointsobject = {
+		x = npc.body:getX()-32,
+		y = npc.body:getY()-8,
+		width = 64,
+		height = 16,
+		properties = {
+			vely = -60,
+			script = "Spark",
+			text = tostring(points),
+			textfont = "pressstart2p.fnt"
+		}
+	}
+	levity:addObject(pointsobject, npc.layer, "dynamic")
+
+	self:pointsScored(points)
+
 --[[	nice:
 	for who, mult in pairs(self.multipliers) do
 		if mult > 0 then
@@ -52,7 +74,9 @@ function ShmupScore:npcCaptured(npcid, captorid, npcfemale)
 ]]
 --[[	tough:
 ]]
-	if not npcfemale then
+	if newallyindex then
+		self:multiplierInc(newallyindex)
+	else
 		if captorid == levity.map.properties.playerid then
 			self:multiplierInc("player")
 		else
