@@ -25,15 +25,8 @@ local ShmupAlly = class(function(self, id)
 
 	self:refreshFixtures(DisableCaptureMask)
 
-	local playerid = levity.map.properties.playerid
-	self.allyindex = levity.machine:call(playerid, "newAllyIndex")
-
-	self.convertobject = {
-		x = self.object.x,
-		y = self.object.y,
-		gid = levity:getTileGid("demonizing", 0, 0)
-	}
-	levity:addObject(self.convertobject, self.object.layer)
+	self.convertobject = self.properties.convertobject
+	self.properties.convertobject = nil
 	self.converttimer = 0
 	self.npctype = levity:getTileColumnName(self.object.gid)
 	self.oncamera = false
@@ -71,12 +64,12 @@ ShmupAlly.LockSearchHeight = 160
 ShmupAlly.UnfocusedHealRate = 1
 
 function ShmupAlly:kill()
-	self.object.dead = true
+	levity:discardObject(self.object.id)
 	if self.convertobject then
-		self.convertobject.dead = true
+		levity:discardObject(self.convertobject.id)
 	end
 
-	levity.machine:broadcast("allyKilled", self.allyindex)
+	levity.machine:broadcast("allyKilled", self.properties.allyindex)
 end
 
 function ShmupAlly:heal(healing)
@@ -98,13 +91,13 @@ function ShmupAlly:npcCaptured(npcid)
 end
 
 function ShmupAlly:allyKilled(allyindex)
-	if self.allyindex > allyindex then
-		self.allyindex = self.allyindex - 1
+	if self.properties.allyindex > allyindex then
+		self.properties.allyindex = self.properties.allyindex - 1
 	end
 end
 
 function ShmupAlly:getAllyIndex()
-	return self.allyindex
+	return self.properties.allyindex
 end
 
 function ShmupAlly:beginContact(myfixture, otherfixture, contact)
@@ -115,14 +108,12 @@ function ShmupAlly:beginContact(myfixture, otherfixture, contact)
 	if category == ShmupCollision.Category_NPCTeam then
 		-- nothing yet
 	elseif category == ShmupCollision.Category_NPCShot then
-		if self.convertobject then
-			return
-		end
-		local damage = otherproperties.damage or 1
-		self.health = self.health - damage
-		if self.health < 1 then
-			self:kill()
-		else
+		if self.health >= 1 then
+			local damage = otherproperties.damage or 1
+			self.health = self.health - damage
+			if self.health < 1 then
+				self:kill()
+			end
 		end
 	elseif category == ShmupCollision.Category_Camera then
 		self.oncamera = true
@@ -148,7 +139,7 @@ end
 function ShmupAlly:updateConversion(dt)
 	self.converttimer = self.converttimer + dt
 	if self.converttimer >= ShmupAlly.ConvertTime then
-		self.convertobject.dead = true
+		levity:discardObject(self.convertobject.id)
 		self.convertobject = nil
 		self.converttimer = nil
 
@@ -236,7 +227,7 @@ function ShmupAlly:beginMove(dt)
 	local focused = levity.machine:call(playerid, "isFocused")
 	if focused then
 		if not self.convertobject
-		and levity.machine:call(scoreid, "isMaxMultiplier", self.allyindex) then
+		and levity.machine:call(scoreid, "isMaxMultiplier", self.properties.allyindex) then
 			if not self.captiveid then
 				self.captiveid = self:findTarget("canBeCaptured")
 			end
@@ -250,7 +241,7 @@ function ShmupAlly:beginMove(dt)
 		destx, desty = captive.body:getWorldCenter()
 	else
 		destx, desty = levity.machine:call(playerid, "getAllyPosition",
-						self.allyindex)
+						self.properties.allyindex)
 		self.captiveid = nil
 	end
 
@@ -305,7 +296,7 @@ function ShmupAlly:beginDraw()
 	local scoreid = levity.machine:call("hud", "getScoreId")
 	if scoreid then
 		self.properties.text = levity.machine:call(scoreid,
-					"getMultiplier", self.allyindex)
+					"getMultiplier", self.properties.allyindex)
 	else
 		self.properties.text = nil
 	end
@@ -314,6 +305,34 @@ end
 
 function ShmupAlly:endDraw()
 	love.graphics.setColor(0xff, 0xff, 0xff)
+end
+
+function ShmupAlly.create(gid, x, y)
+	local playerid = levity.map.properties.playerid
+	local allyindex = levity.machine:call(playerid, "newAllyIndex")
+
+	local convertobject = {
+		gid = levity:getTileGid("demonizing", 0, 0),
+		x = x,
+		y = y
+	}
+
+	local ally = {
+		gid = gid,
+		x = x,
+		y = y,
+		properties = {
+			script = "ShmupAlly",
+			allyindex = allyindex,
+			convertobject = convertobject
+		}
+	}
+
+	local player = levity.map.objects[playerid]
+	player.layer:addObject(ally)
+	player.layer:addObject(convertobject)
+
+	return allyindex
 end
 
 return ShmupAlly

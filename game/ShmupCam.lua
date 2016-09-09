@@ -54,7 +54,7 @@ end
 
 function ShmupCam:beginContact_pausecamera(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getUserData().object
-	triggerobject.dead = true
+	levity:discardObject(triggerobject.id)
 	self:pausePath(true)
 end
 
@@ -62,7 +62,7 @@ function ShmupCam:endContact_activategroup(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getUserData().object
 	local triggerlayer = triggerobject.layer
 	for _, object in ipairs(triggerlayer.objects) do
-		object.dead = true
+		levity:discardObject(object.id)
 	end
 end
 

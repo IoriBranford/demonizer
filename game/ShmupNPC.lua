@@ -182,25 +182,27 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 		return
 	end
 
-	local bulletproperties = otherfixture:getBody():getUserData().properties
-	local damage = bulletproperties.damage or 1
+	if self.health >= 1 then
+		local bulletproperties = otherfixture:getBody():getUserData().properties
+		local damage = bulletproperties.damage or 1
 
-	self.health = self.health - damage
-	if self.health < 1 then
-		self:knockout()
-		levity.machine:broadcast("pointsScored",
-					self.properties.killpoints or 100)
-	else
-		levity.bank:play(Sounds.Hit)
+		self.health = self.health - damage
+		if self.health < 1 then
+			self:knockout()
+			levity.machine:broadcast("pointsScored",
+			self.properties.killpoints or 100)
+		else
+			levity.bank:play(Sounds.Hit)
+		end
 	end
 end
 
 function ShmupNPC:beginContact_PlayerTeam(myfixture, otherfixture, contact)
-	if self:canBeCaptured() then
+	if self.health >= 1 then
+		self:suppress()
+	elseif not self.captured then
 		self.captured = true
 		self.captorid = otherfixture:getBody():getUserData().id
-	else
-		self:suppress()
 	end
 end
 
@@ -247,21 +249,12 @@ function ShmupNPC:capture()
 
 	local newallyindex
 	if converted then
-		local player = levity.map.objects[playerid]
-		if player then
-			levity:changeObjectLayer(self.object, player.layer)
-		end
-
-		local gid = levity:getTileGid(self.object.tile.tileset,
-						"up", self.npctype)
-		levity:setObjectGid(self.object, gid, false)
-
-		levity.machine:newScript(self.object.id, "ShmupAlly")
-		newallyindex = levity.machine:call(self.object.id, "getAllyIndex")
+		newallyindex = ShmupAlly.create(
+				levity:getTileGid(self.object.tile.tileset,
+							"up", self.npctype),
+				self.object.x, self.object.y)
 
 		levity.bank:play(Sounds.Convert)
-	else
-		self:remove()
 	end
 
 	levity.machine:broadcast("npcCaptured", self.object.id, self.captorid,
@@ -272,10 +265,12 @@ function ShmupNPC:capture()
 	else
 		levity.bank:play(Sounds.MaleCapture)
 	end
+
+	self:remove()
 end
 
 function ShmupNPC:remove()
-	self.object.dead = true
+	levity:discardObject(self.object.id)
 	if self.onRemove then
 		self.onRemove()
 	end
@@ -316,7 +311,10 @@ function ShmupNPC:beginMove(dt)
 	local capturepulldistsq
 	local scoreid = levity.machine:call("hud", "getScoreId")
 
-	if levity.machine:call(playerid, "isFocused")
+	local canbecaptured = self:canBeCaptured()
+
+	if canbecaptured
+	and levity.machine:call(playerid, "isFocused")
 	and levity.machine:call(scoreid, "isMaxMultiplier", "player")
 	then
 		capturepulldistsq = ShmupNPC.EnhancedCapturePullDistSq
@@ -325,7 +323,7 @@ function ShmupNPC:beginMove(dt)
 	end
 
 	self.pulledbyplayer = self.pulledbyplayer
-		or (self:canBeCaptured() and playerdsq < capturepulldistsq)
+		or (canbecaptured and playerdsq < capturepulldistsq)
 
 	if not self.pathwalker then
 		local pathid = self.properties.pathid

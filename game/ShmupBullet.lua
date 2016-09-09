@@ -35,7 +35,15 @@ local ShmupBullet = class(function(self, id)
 					ShmupCollision.Category_NPCShot)
 		end
 	end
+
 	local properties = self.object.properties
+
+	self.object.body:setLinearVelocity(
+		properties.velx or 0,
+		properties.vely or 0)
+	properties.velx = nil
+	properties.vely = nil
+
 	if properties.accelx and properties.accely then
 		self.beginMove = beginMove
 	end
@@ -44,13 +52,13 @@ end)
 function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
 	if otherfixture:getCategory() == ShmupCollision.Category_PlayerTeam
 	or otherfixture:getCategory() == ShmupCollision.Category_NPCTeam then
-		self.object.dead = true
+		levity:discardObject(self.object.id)
 	end
 end
 
 function ShmupBullet:endContact(yourfixture, otherfixture, contact)
 	if otherfixture:getCategory() == ShmupCollision.Category_Camera then
-		self.object.dead = true
+		levity:discardObject(self.object.id)
 	end
 end
 
@@ -98,13 +106,13 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 				script = "ShmupBullet",
 				category = category,
 				damage = damage,
+				velx = vx,
+				vely = vy,
 				accelx = accelx,
 				accely = accely,
 			}
 		}
-		levity:addObject(shot, layer, "dynamic")
-
-		shot.body:setLinearVelocity(vx, vy)
+		layer:addObject(shot)
 
 		time = interval
 	end

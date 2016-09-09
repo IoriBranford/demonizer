@@ -21,7 +21,6 @@ local ShmupScore = class(function(self, id)
 	end
 end)
 
-
 ShmupScore.MaxPoints = 999999999
 ShmupScore.MaxMultiplier = 20
 ShmupScore.ExtendInc = 3000000
@@ -61,7 +60,10 @@ function ShmupScore:npcCaptured(npcid, captorid, newallyindex)
 			textfont = "pressstart2p.fnt"
 		}
 	}
-	levity:addObject(pointsobject, levity.map.layers["sparks"], "dynamic")
+	local sparks = levity.map.layers["sparks"]
+	if sparks then
+		sparks:addObject(pointsobject)
+	end
 
 	self:pointsScored(points)
 

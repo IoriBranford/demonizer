@@ -74,14 +74,16 @@ function ShmupVehicle:explode()
 end
 
 function ShmupVehicle:beginContact_PlayerShot(myfixture, otherfixture, contact)
-	local bulletproperties = otherfixture:getBody():getUserData().properties
-	local damage = bulletproperties.damage or 1
+	if self.health >= 1 then
+		local bulletproperties = otherfixture:getBody():getUserData().properties
+		local damage = bulletproperties.damage or 1
 
-	self.health = self.health - damage
-	if self.health < 1 then
-		self:explode()
-	else
-		levity.bank:play(Sounds.Hit)
+		self.health = self.health - damage
+		if self.health < 1 then
+			self:explode()
+		else
+			levity.bank:play(Sounds.Hit)
+		end
 	end
 end
 
@@ -104,7 +106,7 @@ function ShmupVehicle:endContact(myfixture, otherfixture, contact)
 end
 
 function ShmupVehicle:remove()
-	self.object.dead = true
+	levity:discardObject(self.object.id)
 --	if self.onRemove then
 --		self.onRemove()
 --	end

@@ -24,7 +24,7 @@ function Spark:beginMove(dt)
 
 	self.time = self.time - dt
 	if self.time <= 0 then
-		self.object.dead = true
+		levity:discardObject(self.object.id)
 	end
 end
 
