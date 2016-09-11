@@ -225,7 +225,7 @@ function ShmupNPC:endContact(myfixture, otherfixture, contact)
 
 	if category == ShmupCollision.Category_Camera then
 		self.oncamera = false
-		if self:canBeCaptured() then
+		if not self.conscious then
 			_, y = myfixture:getBody():getWorldCenter()
 			_, _ , _, cambottom = otherfixture:getBoundingBox()
 			if y > cambottom then
