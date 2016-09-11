@@ -326,7 +326,7 @@ function ShmupPlayer:beginMove(dt)
 		if self.firetimer <= 0 then
 			local params = ShmupPlayer.BulletParams
 			params.x = cx - 8
-			params.y = cy
+			params.y = cy - 8
 			local firetimer = self.firetimer
 			for i = 1, 2 do
 				firetimer = ShmupBullet.fireOverTime(params,

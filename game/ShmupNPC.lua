@@ -86,7 +86,6 @@ local ShmupNPC = class(function(self, id)
 	self.conscious = true
 	self.pulledbyplayer = false
 	self.captured = false
-	self.captorid = nil
 
 	self.pathwalker = nil
 
@@ -103,17 +102,19 @@ local ShmupNPC = class(function(self, id)
 	if onKO then
 		self.onKO = parseMemberFunctionCall(self, onKO)
 	end
-	local onRemove = self.properties.onRemove
-	if onRemove then
-		self.onRemove = parseMemberFunctionCall(self, onRemove)
+	local onDiscard = self.properties.onDiscard
+	if onDiscard then
+		self.onDiscard = parseMemberFunctionCall(self, onDiscard)
 	end
 end)
 
-ShmupNPC.BleedOutTime = 5
+ShmupNPC.BleedOutTime = 8
 ShmupNPC.CapturePullSpeed = 4*60
 ShmupNPC.CapturePullDistSq = 30*30
 ShmupNPC.EnhancedCapturePullDistSq = 120*120
 ShmupNPC.ShotLayer = nil -- ShmupMap, set me once it's created
+ShmupNPC.KnockoutLaunchVelY = -150
+ShmupNPC.KnockoutGravity = 200
 
 function ShmupNPC:activate()
 	self.ready = true
@@ -141,7 +142,7 @@ end
 function ShmupNPC:canBeLockTarget()
 	return self.oncamera
 		and self.object.visible
-		and self.health > 0
+		and self.health >= 1
 		and not self.incover
 end
 
@@ -165,15 +166,15 @@ function ShmupNPC:knockout()
 		fixture:setMask(unpack(NonCombatantMask))
 	end
 
-	levity.bank:play(Sounds.KO)
-
 	self.bleedouttimer = ShmupNPC.BleedOutTime
 
 	if self.onKO then
 		self.onKO()
 	end
 
-	levity.machine:broadcast("npcKnockedOut", self.object.id)
+	if self.properties.kolaunch then
+		self.object.body:setLinearVelocity(0, ShmupNPC.KnockoutLaunchVelY)
+	end
 end
 
 function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
@@ -189,8 +190,10 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 		self.health = self.health - damage
 		if self.health < 1 then
 			self:knockout()
+			levity.bank:play(Sounds.KO)
+			levity.machine:broadcast("npcKnockedOut", self.object.id)
 			levity.machine:broadcast("pointsScored",
-			self.properties.killpoints or 100)
+						self.properties.killpoints or 100)
 		else
 			levity.bank:play(Sounds.Hit)
 		end
@@ -200,9 +203,8 @@ end
 function ShmupNPC:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 	if self.health >= 1 then
 		self:suppress()
-	elseif not self.captured then
-		self.captured = true
-		self.captorid = otherfixture:getBody():getUserData().id
+	else
+		self:capture(otherfixture:getBody():getUserData().id)
 	end
 end
 
@@ -223,6 +225,13 @@ function ShmupNPC:endContact(myfixture, otherfixture, contact)
 
 	if category == ShmupCollision.Category_Camera then
 		self.oncamera = false
+		if self:canBeCaptured() then
+			_, y = myfixture:getBody():getWorldCenter()
+			_, _ , _, cambottom = otherfixture:getBoundingBox()
+			if y > cambottom then
+				self:die()
+			end
+		end
 	end
 end
 
@@ -242,7 +251,12 @@ function ShmupNPC:setInCover(incover)
 	end
 end
 
-function ShmupNPC:capture()
+function ShmupNPC:capture(captorid)
+	if self.captured then
+		return
+	end
+
+	self.captured = true
 	local playerid = levity.map.properties.playerid
 	local roomforallies = levity.machine:call(playerid, "roomForAllies")
 	local converted = roomforallies and self.female
@@ -257,7 +271,7 @@ function ShmupNPC:capture()
 		levity.bank:play(Sounds.Convert)
 	end
 
-	levity.machine:broadcast("npcCaptured", self.object.id, self.captorid,
+	levity.machine:broadcast("npcCaptured", self.object.id, captorid,
 				newallyindex)
 
 	if self.female then
@@ -266,13 +280,18 @@ function ShmupNPC:capture()
 		levity.bank:play(Sounds.MaleCapture)
 	end
 
-	self:remove()
+	self:discard()
 end
 
-function ShmupNPC:remove()
+function ShmupNPC:die()
+	levity.machine:broadcast("npcDied", self.object.id)
+	self:discard()
+end
+
+function ShmupNPC:discard()
 	levity:discardObject(self.object.id)
-	if self.onRemove then
-		self.onRemove()
+	if self.onDiscard then
+		self.onDiscard()
 	end
 end
 
@@ -334,28 +353,30 @@ function ShmupNPC:beginMove(dt)
 	if self.pulledbyplayer then
 		local dist = math.sqrt(playerdsq)
 		local pull = ShmupNPC.CapturePullSpeed / dist
-		vx1 = playerdx * pull
-		vy1 = playerdy * pull
+		body:setLinearVelocity(playerdx * pull, playerdy * pull)
+	elseif not self.conscious then
+		if self.properties.kolaunch then
+			body:applyForce(0, body:getMass() * ShmupNPC.KnockoutGravity)
+		else
+			body:setLinearVelocity(0, 0)
+		end
 	elseif vehicleid then
 		local vehicle = levity.map.objects[vehicleid]
 		if vehicle then
-			vx1, vy1 = vehicle.body:getLinearVelocity()
+			body:setLinearVelocity(vehicle.body:getLinearVelocity())
+		else
+			body:setLinearVelocity(0, 0)
 		end
-	elseif self.pathwalker and self.conscious then
-		vx1, vy1 = self.pathwalker:walk(dt, body:getX(), body:getY())
+	elseif self.pathwalker then
+		body:setLinearVelocity(self.pathwalker:walk(dt, body:getX(), body:getY()))
 	end
-
-	body:setLinearVelocity(vx1, vy1)
 end
 
 function ShmupNPC:endMove(dt)
-	if self.captured then
-		self:capture()
-	elseif self.bleedouttimer > 0 then
+	if self.bleedouttimer > 0 then
 		self.bleedouttimer = self.bleedouttimer - dt
 		if self.bleedouttimer <= 0 then
-			self:remove()
-			levity.machine:broadcast("npcDied", self.object.id)
+			self:die()
 		end
 	end
 end
@@ -407,6 +428,7 @@ end
 function ShmupNPC:vehicleDestroyed(vehicleid)
 	if self.properties.vehicleid == vehicleid then
 		self:knockout()
+		levity.machine:broadcast("npcKnockedOut", self.object.id)
 	end
 end
 
