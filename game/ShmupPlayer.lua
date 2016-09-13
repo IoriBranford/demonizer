@@ -73,11 +73,12 @@ ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
 ShmupPlayer.DeathSnapToCameraVelocity = 1/16
 ShmupPlayer.AllyFleeDistance = 400
-ShmupPlayer.CaptivesReleasedOnKill = 5
+ShmupPlayer.CaptivesReleasedOnKill = 10
 
 local Sounds = {
 	Shot = "playershot.wav",
 	Death = "selfdestruct.wav",
+	Scream = "shriek.wav",
 	Respawn = "respawn.wav"
 }
 levity.bank:load(Sounds)
@@ -259,6 +260,7 @@ function ShmupPlayer:kill()
 	levity.machine:broadcast("playerKilled")
 
 	self:playSound(Sounds.Death)
+	self:playSound(Sounds.Scream)
 
 	local cx, cy = self.object.body:getWorldCenter()
 	ShmupNPC.releaseCaptives(self.captivegids, cx, cy, self.object.layer)
@@ -273,7 +275,8 @@ function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 	local category = otherfixture:getCategory()
 	if category == ShmupCollision.Category_NPCTeam then
 		local captiveid = otherfixture:getBody():getUserData().id
-		if not levity.machine:call(captiveid, "isFemale") then
+		if not levity.machine:call(captiveid, "isFemale")
+		and levity.machine:call(captiveid, "canBeCaptured") then
 			local captivegid = levity.machine:call(captiveid, "getKOGid")
 			local i = (self.numcaptives % ShmupPlayer.CaptivesReleasedOnKill) + 1
 			self.captivegids[i] = captivegid

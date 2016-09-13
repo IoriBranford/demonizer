@@ -8,7 +8,9 @@ local Sounds = {
 	FemaleCapture = "item1.wav",
 	MaleCapture = "item2.wav",
 	Convert = "warp.wav",
-	BossWarning = "alarm4.wav"
+	FemaleDeath = "shriek.wav",
+	MaleDeath = "mmph.wav",
+	BossWarning = "alarm4.wav",
 }
 levity.bank:load(Sounds)
 
@@ -301,6 +303,11 @@ function ShmupNPC:capture(captorid)
 end
 
 function ShmupNPC:die()
+	if self.female then
+		levity.bank:play(Sounds.FemaleDeath)
+	else
+		levity.bank:play(Sounds.MaleDeath)
+	end
 	levity.machine:broadcast("npcDied", self.object.id)
 	self:discard()
 end

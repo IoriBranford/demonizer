@@ -51,7 +51,8 @@ function ShmupAlly:refreshFixtures(mask)
 end
 
 local Sounds = {
-	Lock = "targetlock.wav"
+	Lock = "targetlock.wav",
+	Death = "shriek.wav"
 }
 levity.bank:load(Sounds)
 
@@ -83,6 +84,7 @@ function ShmupAlly:kill()
 		levity:discardObject(self.convertobject.id)
 	end
 
+	levity.bank:play(Sounds.Death)
 	levity.machine:broadcast("allyKilled", self.properties.allyindex)
 end
 
@@ -121,7 +123,8 @@ function ShmupAlly:beginContact(myfixture, otherfixture, contact)
 
 	if category == ShmupCollision.Category_NPCTeam then
 		local captiveid = otherfixture:getBody():getUserData().id
-		if not levity.machine:call(captiveid, "isFemale") then
+		if not levity.machine:call(captiveid, "isFemale")
+		and levity.machine:call(captiveid, "canBeCaptured") then
 			local captivegid = levity.machine:call(captiveid, "getKOGid")
 			local i = (self.numcaptives % ShmupPlayer.CaptivesReleasedOnKill) + 1
 			self.captivegids[i] = captivegid
