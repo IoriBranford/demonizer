@@ -62,7 +62,7 @@ local ShmupNPC = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
-	self:setActive(false)
+	self:setActive(self.properties.unconscious == true)
 
 	local mask
 	self.npctype = levity:getTileColumnName(self.object.gid)
@@ -83,7 +83,7 @@ local ShmupNPC = class(function(self, id)
 		fixture:setMask(unpack(mask))
 	end
 
-	self.conscious = true
+	self.unconscious = false
 	self.pulledbyplayer = false
 	self.captured = false
 
@@ -106,6 +106,10 @@ local ShmupNPC = class(function(self, id)
 	if onDiscard then
 		self.onDiscard = parseMemberFunctionCall(self, onDiscard)
 	end
+
+	if self.properties.unconscious then
+		self:knockout()
+	end
 end)
 
 ShmupNPC.BleedOutTime = 8
@@ -115,6 +119,7 @@ ShmupNPC.EnhancedCapturePullDistSq = 120*120
 ShmupNPC.ShotLayer = nil -- ShmupMap, set me once it's created
 ShmupNPC.KnockoutLaunchVelY = -150
 ShmupNPC.KnockoutGravity = 200
+ShmupNPC.ReleaseLaunchVelY = -250
 
 function ShmupNPC:activate()
 	self.ready = true
@@ -150,17 +155,24 @@ function ShmupNPC:canBeCaptured()
 	return self.health < 1 and not self.captured
 end
 
+function ShmupNPC:getKOGid()
+	return levity:getTileGid(self.object.tile.tileset,
+					"ko", self.npctype)
+end
+
+function ShmupNPC:isFemale()
+	return self.female
+end
+
 function ShmupNPC:knockout()
-	if self.conscious == false then
+	if self.unconscious then
 		return
 	end
 
 	self.health = 0
-	self.conscious = false
+	self.unconscious = true
 	self.pathwalker = nil
-	local gid = levity:getTileGid(self.object.tile.tileset,
-					"ko", self.npctype)
-	levity:setObjectGid(self.object, gid)
+	levity:setObjectGid(self.object, self:getKOGid())
 
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setMask(unpack(NonCombatantMask))
@@ -173,7 +185,10 @@ function ShmupNPC:knockout()
 	end
 
 	if self.properties.kolaunch then
-		self.object.body:setLinearVelocity(0, ShmupNPC.KnockoutLaunchVelY)
+		local vx = self.properties.kolaunchvelx or 0
+		local vy = self.properties.kolaunchvely
+			or ShmupNPC.KnockoutLaunchVelY
+		self.object.body:setLinearVelocity(vx, vy)
 	end
 end
 
@@ -225,10 +240,12 @@ function ShmupNPC:endContact(myfixture, otherfixture, contact)
 
 	if category == ShmupCollision.Category_Camera then
 		self.oncamera = false
-		if not self.conscious then
-			_, y = myfixture:getBody():getWorldCenter()
-			_, _ , _, cambottom = otherfixture:getBoundingBox()
-			if y > cambottom then
+		if self.unconscious then
+			local x, y = myfixture:getBody():getWorldCenter()
+			local camleft, _, camright, cambottom
+				= otherfixture:getBoundingBox()
+
+			if y > cambottom or x < camleft or x > camright then
 				self:die()
 			end
 		end
@@ -341,8 +358,9 @@ function ShmupNPC:beginMove(dt)
 		capturepulldistsq = ShmupNPC.CapturePullDistSq
 	end
 
-	self.pulledbyplayer = self.pulledbyplayer
-		or (canbecaptured and playerdsq < capturepulldistsq)
+	self.pulledbyplayer = self.pulledbyplayer or
+		(canbecaptured and playerdsq < capturepulldistsq
+		and not levity.machine:call(playerid, "isKilled"))
 
 	if not self.pathwalker then
 		local pathid = self.properties.pathid
@@ -354,7 +372,7 @@ function ShmupNPC:beginMove(dt)
 		local dist = math.sqrt(playerdsq)
 		local pull = ShmupNPC.CapturePullSpeed / dist
 		body:setLinearVelocity(playerdx * pull, playerdy * pull)
-	elseif not self.conscious then
+	elseif self.unconscious then
 		if self.properties.kolaunch then
 			body:applyForce(0, body:getMass() * ShmupNPC.KnockoutGravity)
 		else
@@ -429,6 +447,35 @@ function ShmupNPC:vehicleDestroyed(vehicleid)
 	if self.properties.vehicleid == vehicleid then
 		self:knockout()
 		levity.machine:broadcast("npcKnockedOut", self.object.id)
+	end
+end
+
+function ShmupNPC:playerKilled()
+	if self.pulledbyplayer then
+		self.properties.kolaunch = true
+		self.pulledbyplayer = false
+		self.object.body:setLinearVelocity(0, ShmupNPC.KnockoutLaunchVelY)
+	end
+end
+
+function ShmupNPC.releaseCaptives(captivegids, x, y, layer)
+	for i = 1, #captivegids do
+		local kolaunchvelx = love.math.random(-16, 16)
+		local kolaunchvely = love.math.random(ShmupNPC.ReleaseLaunchVelY,
+						ShmupNPC.ReleaseLaunchVelY - 64)
+		local captive = {
+			gid = captivegids[i],
+			x = x,
+			y = y,
+			properties = {
+				script = "ShmupNPC",
+				unconscious = true,
+				kolaunch = true,
+				kolaunchvelx = kolaunchvelx,
+				kolaunchvely = kolaunchvely,
+			}
+		}
+		layer:addObject(captive)
 	end
 end
 

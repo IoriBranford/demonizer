@@ -2,6 +2,7 @@ local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupPlayer = levity.machine:requireScript("ShmupPlayer")
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
+local ShmupNPC -- delayed require to avoid circular dependency
 
 local DisableCaptureMask = {
 	ShmupCollision.Category_CameraEdge,
@@ -32,8 +33,13 @@ local ShmupAlly = class(function(self, id)
 	self.oncamera = false
 
 	self.locktargetid = nil
-	self.captiveid = nil
+	self.targetcaptiveid = nil
 	self.health = 8
+
+	self.captivegids = {}
+	self.numcaptives = 0
+
+	ShmupNPC = ShmupNPC or levity.machine:requireScript("ShmupNPC")
 end)
 
 function ShmupAlly:refreshFixtures(mask)
@@ -64,6 +70,14 @@ ShmupAlly.LockSearchHeight = 160
 ShmupAlly.UnfocusedHealRate = 1
 
 function ShmupAlly:kill()
+	local cx, cy = self.object.body:getWorldCenter()
+	ShmupNPC.releaseCaptives(self.captivegids, cx, cy, self.object.layer)
+
+	for i = #self.captivegids, 1, -1 do
+		self.captivegids[i] = nil
+	end
+	self.numcaptives = 0
+
 	levity:discardObject(self.object.id)
 	if self.convertobject then
 		levity:discardObject(self.convertobject.id)
@@ -85,8 +99,8 @@ function ShmupAlly:npcCaptured(npcid)
 
 	self:heal(healing)
 
-	if self.captiveid == npcid then
-		self.captiveid = nil
+	if self.targetcaptiveid == npcid then
+		self.targetcaptiveid = nil
 	end
 end
 
@@ -106,7 +120,13 @@ function ShmupAlly:beginContact(myfixture, otherfixture, contact)
 	local category = otherfixture:getCategory()
 
 	if category == ShmupCollision.Category_NPCTeam then
-		-- nothing yet
+		local captiveid = otherfixture:getBody():getUserData().id
+		if not levity.machine:call(captiveid, "isFemale") then
+			local captivegid = levity.machine:call(captiveid, "getKOGid")
+			local i = (self.numcaptives % ShmupPlayer.CaptivesReleasedOnKill) + 1
+			self.captivegids[i] = captivegid
+			self.numcaptives = self.numcaptives + 1
+		end
 	elseif category == ShmupCollision.Category_NPCShot then
 		if self.health >= 1 then
 			local damage = otherproperties.damage or 1
@@ -177,8 +197,8 @@ function ShmupAlly:updateFiring(dt)
 		end
 
 		local params = ShmupAlly.BulletParams
-		params.x = cx
-		params.y = cy
+		params.x = cx + 8*math.cos(angle)
+		params.y = cy + 8*math.sin(angle)
 		params.angle = angle
 		self.firetimer = ShmupBullet.fireOverTime(params,
 						self.object.layer, self.firetimer,
@@ -228,10 +248,10 @@ function ShmupAlly:beginMove(dt)
 	if focused then
 		if not self.convertobject
 		and levity.machine:call(scoreid, "isMaxMultiplier", self.properties.allyindex) then
-			if not self.captiveid then
-				self.captiveid = self:findTarget("canBeCaptured")
+			if not self.targetcaptiveid then
+				self.targetcaptiveid = self:findTarget("canBeCaptured")
 			end
-			captive = levity.map.objects[self.captiveid]
+			captive = levity.map.objects[self.targetcaptiveid]
 		end
 	else
 		self:heal(ShmupAlly.UnfocusedHealRate * dt)
@@ -242,7 +262,7 @@ function ShmupAlly:beginMove(dt)
 	else
 		destx, desty = levity.machine:call(playerid, "getAllyPosition",
 						self.properties.allyindex)
-		self.captiveid = nil
+		self.targetcaptiveid = nil
 	end
 
 	if self.convertobject then

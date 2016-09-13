@@ -1,6 +1,7 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
+local ShmupNPC -- delayed require to avoid circular dependency
 
 local OS = love.system.getOS()
 local IsMobile = OS == "Android" or OS == "iOS"
@@ -28,6 +29,9 @@ local ShmupPlayer = class(function(self, id)
 
 	self.shieldtimer = 0
 
+	self.captivegids = {}
+	self.numcaptives = 0
+
 	local fixtures = self.object.body:getUserData().fixtures
 	local bodyfixture = fixtures["body"]
 	if bodyfixture then
@@ -51,6 +55,8 @@ local ShmupPlayer = class(function(self, id)
 
 	self.soundsource = nil
 	self.soundfile = nil
+
+	ShmupNPC = ShmupNPC or levity.machine:requireScript("ShmupNPC")
 end)
 
 ShmupPlayer.Speed = 180
@@ -67,6 +73,7 @@ ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
 ShmupPlayer.DeathSnapToCameraVelocity = 1/16
 ShmupPlayer.AllyFleeDistance = 400
+ShmupPlayer.CaptivesReleasedOnKill = 5
 
 local Sounds = {
 	Shot = "playershot.wav",
@@ -136,6 +143,10 @@ end
 
 function ShmupPlayer:isFocused()
 	return not self.killed and self.focused
+end
+
+function ShmupPlayer:isKilled()
+	return self.killed
 end
 
 function ShmupPlayer:setFocused(focused)
@@ -232,25 +243,45 @@ function ShmupPlayer:mousemoved(x, y, dx, dy)
 	end
 end
 
+function ShmupPlayer:kill()
+	self.deathtimer = 0
+	self.killed = true
+
+	-- capturing not allowed while player killed
+	local fixtures = self.object.body:getUserData().fixtures
+	local bodyfixture = fixtures["body"]
+	bodyfixture:setMask(
+		ShmupCollision.Category_PlayerTeam,
+		ShmupCollision.Category_PlayerShot,
+		ShmupCollision.Category_NPCTeam,
+		ShmupCollision.Category_NPCShot)
+
+	levity.machine:broadcast("playerKilled")
+
+	self:playSound(Sounds.Death)
+
+	local cx, cy = self.object.body:getWorldCenter()
+	ShmupNPC.releaseCaptives(self.captivegids, cx, cy, self.object.layer)
+
+	for i = #self.captivegids, 1, -1 do
+		self.captivegids[i] = nil
+	end
+	self.numcaptives = 0
+end
+
 function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 	local category = otherfixture:getCategory()
 	if category == ShmupCollision.Category_NPCTeam then
-		-- nothing yet
+		local captiveid = otherfixture:getBody():getUserData().id
+		if not levity.machine:call(captiveid, "isFemale") then
+			local captivegid = levity.machine:call(captiveid, "getKOGid")
+			local i = (self.numcaptives % ShmupPlayer.CaptivesReleasedOnKill) + 1
+			self.captivegids[i] = captivegid
+			self.numcaptives = self.numcaptives + 1
+		end
 	elseif category == ShmupCollision.Category_NPCShot then
 		if not self.killed and self.shieldtimer == 0 then
-			self.deathtimer = 0
-			self.killed = true
-
-			-- capturing not allowed while player killed
-			myfixture:setMask(
-				ShmupCollision.Category_PlayerTeam,
-				ShmupCollision.Category_PlayerShot,
-				ShmupCollision.Category_NPCTeam,
-				ShmupCollision.Category_NPCShot)
-
-			levity.machine:broadcast("playerKilled")
-
-			self:playSound(Sounds.Death)
+			self:kill()
 		end
 	end
 end
