@@ -242,15 +242,6 @@ function ShmupNPC:endContact(myfixture, otherfixture, contact)
 
 	if category == ShmupCollision.Category_Camera then
 		self.oncamera = false
-		if self.unconscious then
-			local x, y = myfixture:getBody():getWorldCenter()
-			local camleft, _, camright, cambottom
-				= otherfixture:getBoundingBox()
-
-			if y > cambottom or x < camleft or x > camright then
-				self:die()
-			end
-		end
 	end
 end
 
@@ -399,8 +390,23 @@ end
 
 function ShmupNPC:endMove(dt)
 	if self.bleedouttimer > 0 then
-		self.bleedouttimer = self.bleedouttimer - dt
-		if self.bleedouttimer <= 0 then
+		local x, y = self.object.body:getWorldCenter()
+		local mapleft = 0
+		local mapright = levity.map.width * levity.map.tilewidth
+
+		local camera = levity.map.objects[levity.map.properties.cameraid]
+		local cambottom = 0
+		for _, fixture in ipairs(camera.body:getFixtureList()) do
+			local _, _, _, b = fixture:getBoundingBox()
+			cambottom = math.max(cambottom, b)
+		end
+
+		if self.oncamera then
+			self.bleedouttimer = self.bleedouttimer - dt
+		end
+
+		if self.bleedouttimer <= 0 or y > cambottom
+		or x < mapleft or x > mapright then
 			self:die()
 		end
 	end
