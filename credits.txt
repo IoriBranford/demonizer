@@ -23,11 +23,20 @@ Wyrmsun Dwarven Ballista
 b_o
 CC-BY-SA 3.0 GPL 2.0
 
-QueueableSource.lua
-from love-microphone
-Lucien Greathouse https://github.com/LPGhatguy/love-microphone
-zlib/libpng
+bg_swirl
+based on Chocolate Swirl pattern
+GIMP http://www.gimp.org/
+GPL 3.0
 
 Press Start 2P
 codeman38 https://www.zone38.net/font/
 OFL 1.1
+
+Lady Radical
+Chequered Ink Ltd. http://chequered.ink/
+Chequered Ink Font License http://chequered.ink/font-license/
+
+QueueableSource.lua
+from love-microphone
+Lucien Greathouse https://github.com/LPGhatguy/love-microphone
+zlib/libpng

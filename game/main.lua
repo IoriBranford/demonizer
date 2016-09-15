@@ -1,2 +1,2 @@
 local levity = require "levity"
-levity:setNextMap("test.lua")
+levity:setNextMap("map_title.lua")
