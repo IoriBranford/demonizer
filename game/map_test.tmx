@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="417">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="437">
  <properties>
   <property name="cameraid" type="int" value="7"/>
   <property name="music" type="file" value="09 - Blue Sky Laundry.vgm"/>
@@ -43,17 +43,23 @@
   </object>
  </objectgroup>
  <objectgroup name="boss">
-  <properties>
-   <property name="activatemusic" type="file" value="06 - Approaching.vgm"/>
-   <property name="activatesound" value="alarm4.wav"/>
-  </properties>
   <object id="261" gid="174" x="144" y="136" width="24" height="32">
    <properties>
-    <property name="onRemove" value="endMap"/>
+    <property name="onDiscard" value="endMap"/>
     <property name="script" value="NPCHero"/>
    </properties>
   </object>
-  <object id="265" name="trigger" x="0" y="120">
+  <object id="411" gid="216" x="112" y="176" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="410" gid="216" x="176" y="176" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="265" name="trigger" x="0" y="0">
    <properties>
     <property name="collidable" type="bool" value="true"/>
     <property name="sensor" type="bool" value="true"/>
@@ -61,14 +67,42 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="410" gid="216" x="176" y="176" width="64" height="64">
+ </objectgroup>
+ <objectgroup name="preboss">
+  <properties>
+   <property name="activatemusic" type="file" value="06 - Approaching.vgm"/>
+   <property name="activatesound" value="alarm4.wav"/>
+  </properties>
+  <object id="436" name="trigger" x="0" y="120">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+   <polyline points="0,0 288,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="roofballistae">
+  <object id="405" gid="216" x="112" y="320" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="411" gid="216" x="112" y="176" width="64" height="64">
+  <object id="407" gid="217" x="248" y="320" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="408" gid="216" x="176" y="320" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="409" name="trigger" x="0" y="288" width="288" height="56">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
  </objectgroup>
@@ -99,30 +133,6 @@
   <object id="305" gid="171" x="80" y="352" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
-   </properties>
-  </object>
- </objectgroup>
- <objectgroup name="roofballistae">
-  <object id="405" gid="216" x="112" y="320" width="64" height="64">
-   <properties>
-    <property name="script" value="VehicleBallista"/>
-   </properties>
-  </object>
-  <object id="407" gid="217" x="248" y="320" width="64" height="64">
-   <properties>
-    <property name="script" value="VehicleBallista"/>
-   </properties>
-  </object>
-  <object id="408" gid="216" x="176" y="320" width="64" height="64">
-   <properties>
-    <property name="script" value="VehicleBallista"/>
-   </properties>
-  </object>
-  <object id="409" name="trigger" x="0" y="288" width="288" height="56">
-   <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
-    <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
  </objectgroup>
@@ -229,6 +239,16 @@
     <property name="pathid" type="int" value="397"/>
     <property name="pathtime" type="float" value="5"/>
     <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+  <object id="435" gid="171" x="224" y="592" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="434" gid="171" x="64" y="592" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCArcher"/>
    </properties>
   </object>
  </objectgroup>
@@ -350,7 +370,7 @@
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="416" name="trigger" x="0" y="672" width="288" height="80">
+  <object id="416" name="trigger" x="0" y="624" width="288" height="128">
    <properties>
     <property name="collidable" type="bool" value="true"/>
     <property name="sensor" type="bool" value="true"/>
@@ -551,21 +571,6 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="windowarcher2">
-  <object id="221" name="trigger" x="0" y="1016" width="288" height="8">
-   <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
-    <property name="triggertype" value="activategroup"/>
-   </properties>
-  </object>
-  <object id="240" gid="90" x="192" y="1056" width="24" height="32">
-   <properties>
-    <property name="kolaunch" type="bool" value="true"/>
-    <property name="script" value="NPCArcher"/>
-   </properties>
-  </object>
- </objectgroup>
  <objectgroup name="pikes2">
   <object id="356" gid="159" x="272" y="1008" width="24" height="32">
    <properties>
@@ -606,6 +611,49 @@
     <property name="collidable" type="bool" value="true"/>
     <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="windowarcher2">
+  <object id="221" name="trigger" x="0" y="1016" width="288" height="8">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+  <object id="240" gid="90" x="192" y="1056" width="24" height="32">
+   <properties>
+    <property name="kolaunch" type="bool" value="true"/>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="428" gid="159" x="-16" y="1192" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="195"/>
+    <property name="pathtime" type="float" value="4"/>
+    <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+  <object id="429" gid="159" x="-64" y="1192" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="195"/>
+    <property name="pathtime" type="float" value="4"/>
+    <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+  <object id="430" gid="159" x="-40" y="1192" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="195"/>
+    <property name="pathtime" type="float" value="4"/>
+    <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+  <object id="431" gid="159" x="-88" y="1192" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="195"/>
+    <property name="pathtime" type="float" value="4"/>
+    <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
  </objectgroup>
@@ -871,6 +919,68 @@
     <property name="vehicleid" type="int" value="346"/>
    </properties>
   </object>
+  <object id="420" name="pike3" gid="159" x="-56" y="1704" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="104"/>
+    <property name="pathtime" type="float" value="3"/>
+    <property name="script" value="NPCPikeman"/>
+    <property name="vehicleid" type="int" value="421"/>
+   </properties>
+  </object>
+  <object id="421" gid="213" x="-72" y="1680" width="128" height="64">
+   <properties>
+    <property name="pathid" type="int" value="104"/>
+    <property name="pathtime" type="float" value="5"/>
+    <property name="script" value="ShmupVehicle"/>
+   </properties>
+  </object>
+  <object id="422" name="pike4" gid="159" x="-72" y="1696" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="104"/>
+    <property name="pathtime" type="float" value="3"/>
+    <property name="script" value="NPCPikeman"/>
+    <property name="vehicleid" type="int" value="421"/>
+   </properties>
+  </object>
+  <object id="423" name="pike5" gid="159" x="-88" y="1688" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="104"/>
+    <property name="pathtime" type="float" value="3"/>
+    <property name="script" value="NPCPikeman"/>
+    <property name="vehicleid" type="int" value="421"/>
+   </properties>
+  </object>
+  <object id="424" name="pike7" gid="159" x="360" y="1640" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="106"/>
+    <property name="pathtime" type="float" value="3"/>
+    <property name="script" value="NPCPikeman"/>
+    <property name="vehicleid" type="int" value="426"/>
+   </properties>
+  </object>
+  <object id="425" name="pike8" gid="159" x="376" y="1632" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="106"/>
+    <property name="pathtime" type="float" value="3"/>
+    <property name="script" value="NPCPikeman"/>
+    <property name="vehicleid" type="int" value="426"/>
+   </properties>
+  </object>
+  <object id="426" gid="2147483861" x="360" y="1624" width="128" height="64">
+   <properties>
+    <property name="pathid" type="int" value="106"/>
+    <property name="pathtime" type="float" value="5"/>
+    <property name="script" value="ShmupVehicle"/>
+   </properties>
+  </object>
+  <object id="427" name="pike6" gid="159" x="344" y="1648" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="106"/>
+    <property name="pathtime" type="float" value="3"/>
+    <property name="script" value="NPCPikeman"/>
+    <property name="vehicleid" type="int" value="426"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="waterpikes2">
   <object id="113" name="pike6" gid="159" x="344" y="1648" width="24" height="32">
@@ -964,8 +1074,58 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="unusedcivilians">
-  <object id="85" name="path1" x="152" y="1968">
+ <objectgroup name="unusedcivilians" visible="0"/>
+ <objectgroup name="civilians">
+  <object id="43" name="trigger" x="0" y="1800" visible="0">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+   <polyline points="0,0 288,0"/>
+  </object>
+  <object id="79" gid="292" x="64" y="1904" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="86"/>
+    <property name="pathtime" type="float" value="0.5"/>
+    <property name="script" value="ShmupNPC"/>
+   </properties>
+  </object>
+  <object id="86" name="path2" x="64" y="1888">
+   <properties>
+    <property name="script" value="LinearPath"/>
+   </properties>
+   <polyline points="0,8 -8,-56"/>
+  </object>
+  <object id="132" gid="427" x="96" y="1920" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="419"/>
+    <property name="pathtime" type="float" value="0.6"/>
+    <property name="script" value="ShmupNPC"/>
+   </properties>
+  </object>
+  <object id="136" gid="439" x="104" y="1944" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="419"/>
+    <property name="pathtime" type="float" value="0.9"/>
+    <property name="script" value="ShmupNPC"/>
+   </properties>
+  </object>
+  <object id="152" gid="442" x="72" y="1912" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="86"/>
+    <property name="pathtime" type="float" value="0.5"/>
+    <property name="script" value="ShmupNPC"/>
+   </properties>
+  </object>
+  <object id="150" gid="436" x="88" y="1936" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="419"/>
+    <property name="pathtime" type="float" value="0.9"/>
+    <property name="script" value="ShmupNPC"/>
+   </properties>
+  </object>
+  <object id="85" name="path1" x="144" y="1968">
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
@@ -980,7 +1140,7 @@
   </object>
   <object id="160" gid="433" x="152" y="1960" width="24" height="32">
    <properties>
-    <property name="pathid" type="int" value="85"/>
+    <property name="pathid" type="int" value="418"/>
     <property name="pathtime" type="float" value="0.8"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
@@ -994,68 +1154,29 @@
   </object>
   <object id="57" gid="418" x="152" y="1952" width="24" height="32">
    <properties>
-    <property name="pathid" type="int" value="85"/>
+    <property name="pathid" type="int" value="418"/>
     <property name="pathtime" type="float" value="0.7"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="158" gid="421" x="168" y="1952" width="24" height="32">
    <properties>
-    <property name="pathid" type="int" value="85"/>
+    <property name="pathid" type="int" value="418"/>
     <property name="pathtime" type="float" value="0.7"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
- </objectgroup>
- <objectgroup name="civilians">
-  <object id="43" name="trigger" x="0" y="1800" visible="0">
+  <object id="418" name="path1" x="176" y="1968">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
-    <property name="triggertype" value="activategroup"/>
+    <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="0,0 288,0"/>
+   <polyline points="0,-32 32,-56"/>
   </object>
-  <object id="79" gid="292" x="72" y="1912" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.5"/>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
-  </object>
-  <object id="86" name="path2" x="72" y="1896">
+  <object id="419" name="path2" x="88" y="1904">
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
    <polyline points="0,8 -8,-56"/>
-  </object>
-  <object id="132" gid="427" x="72" y="1944" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.6"/>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
-  </object>
-  <object id="136" gid="439" x="104" y="1944" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.9"/>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
-  </object>
-  <object id="152" gid="442" x="80" y="1920" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.5"/>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
-  </object>
-  <object id="150" gid="436" x="88" y="1952" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.9"/>
-    <property name="script" value="ShmupNPC"/>
-   </properties>
   </object>
  </objectgroup>
  <objectgroup draworder="index" name="sparks"/>

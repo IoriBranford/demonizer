@@ -32,7 +32,7 @@ end
 
 function TitleMap:joystickpressed(joystick, button)
 	if button == 1 then
-		levity:setNextMap("test.lua")
+		levity:setNextMap("map_test.lua")
 	end
 end
 
