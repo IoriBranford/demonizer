@@ -49,16 +49,6 @@
     <property name="script" value="NPCHero"/>
    </properties>
   </object>
-  <object id="411" gid="216" x="112" y="176" width="64" height="64">
-   <properties>
-    <property name="script" value="VehicleBallista"/>
-   </properties>
-  </object>
-  <object id="410" gid="216" x="176" y="176" width="64" height="64">
-   <properties>
-    <property name="script" value="VehicleBallista"/>
-   </properties>
-  </object>
   <object id="265" name="trigger" x="0" y="0">
    <properties>
     <property name="collidable" type="bool" value="true"/>

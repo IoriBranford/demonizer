@@ -1,6 +1,9 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = levity.machine:requireScript("ShmupNPC")
+local NPCPikeman = levity.machine:requireScript("NPCPikeman")
+local NPCSwordsman = levity.machine:requireScript("NPCSwordsman")
+local NPCArcher = levity.machine:requireScript("NPCArcher")
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 
 local NPCHero = class(ShmupNPC, function(self, id)
@@ -9,36 +12,64 @@ local NPCHero = class(ShmupNPC, function(self, id)
 	self.health = 256
 end)
 
+NPCHero.JumpGravity = 480
 NPCHero.BulletParams = {
 	speed = 180,
 	gid = levity:getTileGid("humanshots", "sword", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 
+function NPCHero:jump(destx, desty, t)
+	local body = self.object.body
+	local accely = 480
+	local x, y = body:getWorldCenter()
+	local vx = (destx - x)/t
+	local vy = (desty - y)/t - accely*.5*t
+	body:setLinearVelocity(vx, vy)
+	while t > 0 do
+		body:applyForce(0, accely * body:getMass())
+		local dt = coroutine.yield()
+
+		t = t - dt
+		x, y = body:getWorldCenter()
+		vx, vy = body:getLinearVelocity()
+	end
+	body:setPosition(destx, desty)
+	body:setLinearVelocity(0, 0)
+end
+
 function NPCHero:fireCoroutine()
-	local params = NPCHero.BulletParams
 	local body = self.object.body
 
+	local cx, cy = body:getWorldCenter()
+	self:jump(cx, cy, 1)
+
 	while true do
-		local cx, cy = body:getWorldCenter()
-		local playerdx = 0
-		local playerdy = 1
+		for i = 1, 4 do
+			cx, cy = body:getWorldCenter()
+			local playerdx = 0
+			local playerdy = 1
 
-		local playerid = levity.map.properties.playerid
-		if playerid then
-			local player = levity.map.objects[playerid]
-			local playercx, playercy = player.body:getWorldCenter()
-			playerdx = playercx - cx
-			playerdy = playercy - cy
-		end
+			local playerid = levity.map.properties.playerid
+			if playerid then
+				local player = levity.map.objects[playerid]
+				local playercx, playercy = player.body:getWorldCenter()
+				playerdx = playercx - cx
+				playerdy = playercy - cy
+			end
 
-		local spread = math.pi * .25
+			local spread = math.pi * .25
 
-		for i = 1, 3 do
 			local angle = math.atan2(playerdy, playerdx)
 			angle = angle - spread*(i - 1)*.5
 
 			for j = 1, i do
+				local params
+				if j == (i+1)*.5 then
+					params = NPCArcher.BulletParams
+				else
+					params = NPCSwordsman.BulletParams
+				end
 				params.x = cx
 				params.y = cy
 				params.angle = angle
@@ -52,7 +83,9 @@ function NPCHero:fireCoroutine()
 			coroutine.wait(.125)
 		end
 
-		coroutine.wait(.125)
+		self:jump(love.math.random(112, 176),
+				love.math.random(104, 192),
+				.25)
 	end
 end
 

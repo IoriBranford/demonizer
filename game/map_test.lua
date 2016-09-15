@@ -1104,38 +1104,6 @@ return {
           }
         },
         {
-          id = 411,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 112,
-          y = 176,
-          width = 64,
-          height = 64,
-          rotation = 0,
-          gid = 216,
-          visible = true,
-          properties = {
-            ["script"] = "VehicleBallista"
-          }
-        },
-        {
-          id = 410,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 176,
-          y = 176,
-          width = 64,
-          height = 64,
-          rotation = 0,
-          gid = 216,
-          visible = true,
-          properties = {
-            ["script"] = "VehicleBallista"
-          }
-        },
-        {
           id = 265,
           name = "trigger",
           type = "",
