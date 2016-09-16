@@ -23,6 +23,10 @@ Wyrmsun Dwarven Ballista
 b_o
 CC-BY-SA 3.0 GPL 2.0
 
+Frogatto Explosion Animations
+Jetrel http://opengameart.org/users/jetrel
+CC0
+
 bg_swirl
 based on Chocolate Swirl pattern
 GIMP http://www.gimp.org/

@@ -1007,6 +1007,74 @@ return {
       terrains = {},
       tilecount = 2,
       tiles = {}
+    },
+    {
+      name = "sparks_med",
+      firstgid = 7286,
+      filename = "sparks_med.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "sparks_med.png",
+      imagewidth = 1024,
+      imageheight = 64,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["row_explosion"] = "0"
+      },
+      terrains = {},
+      tilecount = 16,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = "0",
+              duration = "64"
+            },
+            {
+              tileid = "1",
+              duration = "64"
+            },
+            {
+              tileid = "2",
+              duration = "64"
+            },
+            {
+              tileid = "3",
+              duration = "64"
+            },
+            {
+              tileid = "4",
+              duration = "64"
+            },
+            {
+              tileid = "5",
+              duration = "64"
+            },
+            {
+              tileid = "6",
+              duration = "64"
+            },
+            {
+              tileid = "7",
+              duration = "64"
+            },
+            {
+              tileid = "8",
+              duration = "64"
+            },
+            {
+              tileid = "9",
+              duration = "64"
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -1690,7 +1758,6 @@ return {
           properties = {
             ["aimatplayer"] = false,
             ["collidable"] = true,
-            ["operatorid"] = 260,
             ["script"] = "VehicleFountain"
           }
         },
@@ -1708,7 +1775,6 @@ return {
           properties = {
             ["aimatplayer"] = false,
             ["collidable"] = true,
-            ["operatorid"] = 260,
             ["script"] = "VehicleFountain"
           }
         },
@@ -1726,7 +1792,6 @@ return {
           properties = {
             ["aimatplayer"] = false,
             ["collidable"] = true,
-            ["operatorid"] = 260,
             ["script"] = "VehicleFountain"
           }
         },
@@ -1744,7 +1809,6 @@ return {
           properties = {
             ["aimatplayer"] = false,
             ["collidable"] = true,
-            ["operatorid"] = 260,
             ["script"] = "VehicleFountain"
           }
         }

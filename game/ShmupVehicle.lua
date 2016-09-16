@@ -65,6 +65,19 @@ function ShmupVehicle:canBeLockTarget()
 end
 
 function ShmupVehicle:explode()
+	for _, fixture in ipairs(self.object.body:getFixtureList()) do
+		local l, t, r, b = fixture:getBoundingBox()
+		local explosion = {
+			gid = levity:getTileGid("sparks_med", "explosion", 0),
+			x = l + (r-l)*.5,
+			y = t + (b-t)*.5,
+			properties = {
+				script = "Spark"
+			}
+		}
+		self.object.layer:addObject(explosion)
+	end
+
 	levity.bank:play(Sounds.KO)
 	levity.bank:play(Sounds.Boom2)
 	levity.machine:broadcast("vehicleDestroyed", self.object.id)
