@@ -39,7 +39,8 @@ local ShmupPlayer = class(function(self, id)
 		bodyfixture:setCategory(ShmupCollision.Category_PlayerTeam)
 		bodyfixture:setMask(
 			ShmupCollision.Category_PlayerTeam,
-			ShmupCollision.Category_PlayerShot)
+			ShmupCollision.Category_PlayerShot,
+			ShmupCollision.Category_PlayerBomb)
 	end
 
 	for i = 1, MaxAllies do
@@ -68,6 +69,15 @@ ShmupPlayer.BulletParams = {
 	gid = levity:getTileGid("demonshots", "player", 0),
 	category = ShmupCollision.Category_PlayerShot
 }
+ShmupPlayer.BombParams = {
+	speed = 0,
+	angle = 0,
+	damage = 64,
+	gid = levity:getTileGid("demonbomb", 0, 0),
+	category = ShmupCollision.Category_PlayerBomb,
+	lifetime = 2,
+	persist = true
+}
 ShmupPlayer.MaxAllies = MaxAllies
 ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
@@ -77,6 +87,8 @@ ShmupPlayer.CaptivesReleasedOnKill = 10
 
 local Sounds = {
 	Shot = "playershot.wav",
+	Bomber = "bomber.wav",
+	Bomb = "bomb.wav",
 	Death = "selfdestruct.wav",
 	Scream = "shriek.wav",
 	Respawn = "respawn.wav"
@@ -183,6 +195,13 @@ function ShmupPlayer:joystickchanged(button, pressed)
 		self.focused = pressed
 		self.vx = self.vx * lockspeedfactor
 		self.vy = self.vy * lockspeedfactor
+	elseif button == 3 and pressed then
+		local params = ShmupPlayer.BombParams
+		params.x, params.y = self.object.body:getWorldCenter()
+		params.y = params.y - 128
+		ShmupBullet.create(params, self.object.layer)
+		levity.bank:play(Sounds.Bomb)
+		levity.bank:play(Sounds.Bomber)
 	end
 end
 
@@ -217,6 +236,8 @@ function ShmupPlayer:keychanged(key, pressed)
 		self:joystickchanged(1, pressed)
 	elseif key == "x" then
 		self:joystickchanged(2, pressed)
+	elseif key == "c" then
+		self:joystickchanged(3, pressed)
 	end
 end
 
@@ -254,6 +275,7 @@ function ShmupPlayer:kill()
 	bodyfixture:setMask(
 		ShmupCollision.Category_PlayerTeam,
 		ShmupCollision.Category_PlayerShot,
+		ShmupCollision.Category_PlayerBomb,
 		ShmupCollision.Category_NPCTeam,
 		ShmupCollision.Category_NPCShot)
 
@@ -340,7 +362,8 @@ function ShmupPlayer:beginMove(dt)
 				--reenable capturing
 				bodyfixture:setMask(
 					ShmupCollision.Category_PlayerTeam,
-					ShmupCollision.Category_PlayerShot)
+					ShmupCollision.Category_PlayerShot,
+					ShmupCollision.Category_PlayerBomb)
 			end
 			levity.machine:broadcast("playerRespawned")
 			self:playSound(Sounds.Respawn)

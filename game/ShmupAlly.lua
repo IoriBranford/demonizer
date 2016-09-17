@@ -8,13 +8,15 @@ local DisableCaptureMask = {
 	ShmupCollision.Category_CameraEdge,
 	ShmupCollision.Category_PlayerTeam,
 	ShmupCollision.Category_PlayerShot,
+	ShmupCollision.Category_PlayerBomb,
 	ShmupCollision.Category_NPCTeam
 }
 
 local EnableCaptureMask = {
 	ShmupCollision.Category_CameraEdge,
 	ShmupCollision.Category_PlayerTeam,
-	ShmupCollision.Category_PlayerShot
+	ShmupCollision.Category_PlayerShot,
+	ShmupCollision.Category_PlayerBomb
 }
 
 local ShmupAlly = class(function(self, id)

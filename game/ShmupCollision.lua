@@ -4,9 +4,10 @@ local ShmupCollision = {
 	Category_CameraEdge = 3,
 	Category_PlayerTeam = 4,
 	Category_PlayerShot = 5,
-	Category_NPCTeam = 6,
-	Category_NPCShot = 7,
-	Category_NPCInCover = 8,
+	Category_PlayerBomb = 6,
+	Category_NPCTeam = 7,
+	Category_NPCShot = 8,
+	Category_NPCInCover = 9,
 }
 
 return ShmupCollision

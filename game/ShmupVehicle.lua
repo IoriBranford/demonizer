@@ -103,7 +103,8 @@ end
 function ShmupVehicle:beginContact(myfixture, otherfixture, contact)
 	local category = otherfixture:getCategory()
 
-	if category == ShmupCollision.Category_PlayerShot then
+	if category == ShmupCollision.Category_PlayerShot
+	or category == ShmupCollision.Category_PlayerBomb then
 		self:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_Camera then
 		self.oncamera = true

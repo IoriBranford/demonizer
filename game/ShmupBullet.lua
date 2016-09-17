@@ -15,6 +15,13 @@ local function beginMove(self, dt)
 			(vx + ax*.5)))
 end
 
+local function endMove(self, dt)
+	self.time = self.time - dt
+	if self.time <= 0 then
+		levity:discardObject(self.object.id)
+	end
+end
+
 local ShmupBullet = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.object.body:setBullet(true)
@@ -27,9 +34,17 @@ local ShmupBullet = class(function(self, id)
 		if category == ShmupCollision.Category_PlayerShot then
 			fixture:setMask(ShmupCollision.Category_CameraEdge,
 					ShmupCollision.Category_PlayerTeam,
-					ShmupCollision.Category_PlayerShot)
+					ShmupCollision.Category_PlayerShot,
+					ShmupCollision.Category_PlayerBomb,
+					ShmupCollision.Category_NPCShot)
+		elseif category == ShmupCollision.Category_PlayerBomb then
+			fixture:setMask(ShmupCollision.Category_CameraEdge,
+					ShmupCollision.Category_PlayerTeam,
+					ShmupCollision.Category_PlayerShot,
+					ShmupCollision.Category_PlayerBomb)
 		else
 			fixture:setMask(ShmupCollision.Category_CameraEdge,
+					ShmupCollision.Category_PlayerShot,
 					ShmupCollision.Category_NPCTeam,
 					ShmupCollision.Category_NPCInCover,
 					ShmupCollision.Category_NPCShot)
@@ -47,12 +62,20 @@ local ShmupBullet = class(function(self, id)
 	if properties.accelx and properties.accely then
 		self.beginMove = beginMove
 	end
+
+	if properties.lifetime then
+		self.time = properties.lifetime
+		self.endMove = endMove
+	end
 end)
 
 function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
 	if otherfixture:getCategory() == ShmupCollision.Category_PlayerTeam
+	or otherfixture:getCategory() == ShmupCollision.Category_PlayerBomb
 	or otherfixture:getCategory() == ShmupCollision.Category_NPCTeam then
-		levity:discardObject(self.object.id)
+		if not self.object.properties.persist then
+			levity:discardObject(self.object.id)
+		end
 	end
 end
 
@@ -72,6 +95,8 @@ end
 -- @field category
 -- @field accelx in px/sec/sec
 -- @field accely in px/sec/sec
+-- @field lifetime in sec
+-- @field persist do not destroy on impact
 
 function ShmupBullet.create(params, layer)
 	ShmupBullet.fireOverTime(params, layer, 0, 1)
@@ -110,6 +135,8 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 				vely = vy,
 				accelx = accelx,
 				accely = accely,
+				lifetime = params.lifetime,
+				persist = params.persist
 			}
 		}
 		layer:addObject(shot)

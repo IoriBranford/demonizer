@@ -176,6 +176,7 @@ function ShmupNPC:knockout()
 	self.pathwalker = nil
 	levity:setObjectGid(self.object, self:getKOGid())
 
+	self:setInCover(false)
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setMask(unpack(NonCombatantMask))
 	end
@@ -197,13 +198,29 @@ end
 function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	if self.incover then
 		self:suppress()
-		return
-	end
+	else
+		local bulletproperties = otherfixture:getBody():getUserData().properties
+		local damage = bulletproperties.damage or 1
 
+		self:dealDamage(damage)
+	end
+end
+
+function ShmupNPC:beginContact_PlayerBomb(myfixture, otherfixture, contact)
 	if self.health >= 1 then
 		local bulletproperties = otherfixture:getBody():getUserData().properties
 		local damage = bulletproperties.damage or 1
 
+		self:dealDamage(damage)
+	end
+
+	if self:canBeCaptured() then
+		self.pulledbyplayer = true
+	end
+end
+
+function ShmupNPC:dealDamage(damage)
+	if self.health >= 1 then
 		self.health = self.health - damage
 		if self.health < 1 then
 			self:knockout()
@@ -232,6 +249,8 @@ function ShmupNPC:beginContact(myfixture, otherfixture, contact)
 		self:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_PlayerShot then
 		self:beginContact_PlayerShot(myfixture, otherfixture, contact)
+	elseif category == ShmupCollision.Category_PlayerBomb then
+		self:beginContact_PlayerBomb(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_Camera then
 		self.oncamera = true
 	end

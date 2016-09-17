@@ -28,6 +28,7 @@ ShmupScore.BaseCapturePoints = 100
 
 local Sounds = {
 	Maxed = "maxed.wav",
+	Powerup = "powerup.wav",
 	Extend = "extend.wav"
 }
 levity.bank:load(Sounds)
@@ -113,6 +114,7 @@ function ShmupScore:multiplierInc(whose)
 		self.totalmultiplier = self.totalmultiplier + 1
 		if self:isMaxMultiplier(whose) then
 			levity.bank:play(Sounds.Maxed)
+			levity.bank:play(Sounds.Powerup)
 		end
 	else
 		for who, mult in pairs(self.multipliers) do
