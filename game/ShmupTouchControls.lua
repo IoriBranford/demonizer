@@ -16,6 +16,7 @@ local ShmupTouchControls = class(function(self, id)
 
 	self.movetouch = nil
 	self.focustouch = nil
+	self.bombtouch = nil
 end)
 
 function ShmupTouchControls:updateMarker(marker, x, y, dx, dy)
@@ -40,6 +41,9 @@ function ShmupTouchControls:touchpressed(touch, x, y, dx, dy)
 		levity.machine:call(self.playerid, "setFocused", true)
 		self.focusmarker.visible = true
 		self:updateMarker(self.focusmarker, x, y)
+	elseif not self.bombtouch then
+		self.bombtouch = touch
+		levity.machine:call(self.playerid, "joystickchanged", 3, true)
 	end
 end
 
@@ -53,7 +57,9 @@ function ShmupTouchControls:touchmoved(touch, x, y, dx, dy)
 end
 
 function ShmupTouchControls:touchreleased(touch, x, y, dx, dy)
-	if touch == self.focustouch then
+	if touch == self.bombtouch then
+		self.bombtouch = nil
+	elseif touch == self.focustouch then
 		levity.machine:call(self.playerid, "setFocused", false)
 		self.focustouch = nil
 		self.focusmarker.visible = false

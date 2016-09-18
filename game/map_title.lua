@@ -110,7 +110,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["text"] = "Z key: FIRE\n\nX key: FOCUS",
+            ["text"] = "Z key: FIRE\n\nX key: FOCUS\n\nC key: BOMB",
             ["textalign"] = "left",
             ["textfont"] = "pressstart2p.fnt"
           }

@@ -22,7 +22,9 @@
    <properties>
     <property name="text">Z key: FIRE
 
-X key: FOCUS</property>
+X key: FOCUS
+
+C key: BOMB</property>
     <property name="textalign" value="left"/>
     <property name="textfont" type="file" value="pressstart2p.fnt"/>
    </properties>
