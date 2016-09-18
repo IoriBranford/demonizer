@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 437,
+  nextobjectid = 438,
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
@@ -4530,6 +4530,24 @@ return {
           properties = {
             ["script"] = "ButtonRestart",
             ["text"] = "RESTART",
+            ["textalign"] = "center",
+            ["textfont"] = "pressstart2p.fnt"
+          }
+        },
+        {
+          id = 437,
+          name = "title",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 208,
+          width = 144,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["script"] = "ButtonTitle",
+            ["text"] = "TITLE",
             ["textalign"] = "center",
             ["textfont"] = "pressstart2p.fnt"
           }

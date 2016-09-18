@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="437">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="438">
  <properties>
   <property name="cameraid" type="int" value="7"/>
   <property name="music" type="file" value="09 - Blue Sky Laundry.vgm"/>
@@ -1215,6 +1215,14 @@
    <properties>
     <property name="script" value="ButtonRestart"/>
     <property name="text" value="RESTART"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" type="file" value="pressstart2p.fnt"/>
+   </properties>
+  </object>
+  <object id="437" name="title" x="48" y="208" width="144" height="16">
+   <properties>
+    <property name="script" value="ButtonTitle"/>
+    <property name="text" value="TITLE"/>
     <property name="textalign" value="center"/>
     <property name="textfont" type="file" value="pressstart2p.fnt"/>
    </properties>
