@@ -69,13 +69,13 @@ ShmupPlayer.BulletParams = {
 	gid = levity:getTileGid("demonshots", "player", 0),
 	category = ShmupCollision.Category_PlayerShot
 }
+ShmupPlayer.BombMaxTime = 2
 ShmupPlayer.BombParams = {
 	speed = 0,
 	angle = 0,
 	damage = 64,
 	gid = levity:getTileGid("demonbomb", 0, 0),
 	category = ShmupCollision.Category_PlayerBomb,
-	lifetime = 2,
 	persist = true
 }
 ShmupPlayer.MaxAllies = MaxAllies
@@ -195,13 +195,23 @@ function ShmupPlayer:joystickchanged(button, pressed)
 		self.focused = pressed
 		self.vx = self.vx * lockspeedfactor
 		self.vy = self.vy * lockspeedfactor
-	elseif button == 3 and pressed then
+	elseif button == 3 and pressed and not self.killed then
 		local params = ShmupPlayer.BombParams
-		params.x, params.y = self.object.body:getWorldCenter()
-		params.y = params.y - 128
-		ShmupBullet.create(params, self.object.layer)
-		levity.bank:play(Sounds.Bomb)
-		levity.bank:play(Sounds.Bomber)
+
+		local scoreid = levity.machine:call("hud", "getScoreId")
+		local bombcost = levity.machine:call(scoreid, "getNextBombCost")
+		if bombcost > 0 then
+			local lifetime = levity.machine:call(scoreid,
+					"scaleBombTime", ShmupPlayer.BombMaxTime)
+
+			params.lifetime = lifetime
+			params.x, params.y = self.object.body:getWorldCenter()
+			params.y = params.y - 128
+			ShmupBullet.create(params, self.object.layer)
+			levity.bank:play(Sounds.Bomb)
+			levity.bank:play(Sounds.Bomber)
+			levity.machine:broadcast("playerBombed", lifetime)
+		end
 	end
 end
 

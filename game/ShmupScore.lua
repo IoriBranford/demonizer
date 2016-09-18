@@ -9,22 +9,18 @@ local ShmupScore = class(function(self, id)
 	self.points = 0
 	self.extendpoints = 2000000
 	self.multipliers = {
-		player = 1
+		player = 0
 	}
-	for i = 1, ShmupPlayer.MaxAllies do
-		self.multipliers[i] = 0
-	end
-	self.totalmultiplier = 1
 
-	if self.properties.textfont then
-		levity.fonts:load(self.properties.textfont)
-	end
+	self.totalmultiplier = 0
+	self.multiplierholdtime = 0
 end)
 
 ShmupScore.MaxPoints = 999999999
 ShmupScore.MaxMultiplier = 20
 ShmupScore.ExtendInc = 3000000
 ShmupScore.BaseCapturePoints = 100
+ShmupScore.MaxBombCost = 20
 
 local Sounds = {
 	Maxed = "maxed.wav",
@@ -47,6 +43,19 @@ function ShmupScore:getNextCapturePoints()
 end
 
 function ShmupScore:npcCaptured(npcid, captorid, newallyindex)
+	if newallyindex then
+		self.multipliers[newallyindex] = 0
+	end
+
+	if captorid == levity.map.properties.playerid then
+		self:multiplierInc("player")
+	else
+		local allyindex = levity.machine:call(captorid, "getAllyIndex")
+		if allyindex then
+			self:multiplierInc(allyindex)
+		end
+	end
+
 	local points = self:getNextCapturePoints()
 	local npc = levity.map.objects[npcid]
 	local pointsobject = {
@@ -67,44 +76,17 @@ function ShmupScore:npcCaptured(npcid, captorid, newallyindex)
 	end
 
 	self:pointsScored(points)
-
---[[	nice:
-	for who, mult in pairs(self.multipliers) do
-		if mult > 0 then
-			self:multiplierInc(who)
-		end
-	end
-]]
---[[	tough:
-]]
-	if newallyindex then
-		self:multiplierInc(newallyindex)
-	else
-		if captorid == levity.map.properties.playerid then
-			self:multiplierInc("player")
-		else
-			local allyindex = levity.machine:call(captorid,
-								"getAllyIndex")
-			if allyindex then
-				self:multiplierInc(allyindex)
-			end
-		end
-	end
 end
 
 function ShmupScore:npcDied(npcid)
-	for who, mult in pairs(self.multipliers) do
-		if mult > 1 then
---[[	nice:
-			self.multipliers[who] = mult - 1
-			self.totalmultiplier = self.totalmultiplier - 1
-]]
---[[	tough:
-]]
-			self.totalmultiplier = self.totalmultiplier - mult + 1
-			self.multipliers[who] = 1
-		end
+	if self.multiplierholdtime > 0 then
+		return
 	end
+
+	for who, mult in pairs(self.multipliers) do
+		self.multipliers[who] = 0
+	end
+	self.totalmultiplier = 0
 
 end
 
@@ -118,7 +100,7 @@ function ShmupScore:multiplierInc(whose)
 		end
 	else
 		for who, mult in pairs(self.multipliers) do
-			if mult > 0 and mult < ShmupScore.MaxMultiplier then
+			if mult < ShmupScore.MaxMultiplier then
 				self:multiplierInc(who)
 				break
 			end
@@ -129,12 +111,13 @@ end
 function ShmupScore:multiplierLost(whose)
 	local lostmult = self.multipliers[whose]
 	self.totalmultiplier = self.totalmultiplier - lostmult
-	self.multipliers[whose] = 0
-	if type(whose) == "number" and whose < #self.multipliers then
+	if type(whose) == "number" then
 		for i = whose, #self.multipliers - 1 do
 			self.multipliers[i] = self.multipliers[i + 1]
 		end
-		self.multipliers[#self.multipliers] = 0
+		self.multipliers[#self.multipliers] = nil
+	else
+		self.multipliers[whose] = nil
 	end
 end
 
@@ -143,11 +126,35 @@ function ShmupScore:playerKilled()
 end
 
 function ShmupScore:playerRespawned()
-	self:multiplierInc("player")
+	self.multipliers.player = 0
 end
 
 function ShmupScore:allyKilled(index)
 	self:multiplierLost(index)
+end
+
+function ShmupScore:getNextBombCost()
+	return math.min(self.totalmultiplier, ShmupScore.MaxBombCost)
+end
+
+function ShmupScore:scaleBombTime(time)
+	return time * self:getNextBombCost() / ShmupScore.MaxBombCost
+end
+
+function ShmupScore:playerBombed(bombtime)
+	self.multiplierholdtime = bombtime
+
+	local cost = self:getNextBombCost()
+	self.totalmultiplier = self.totalmultiplier - cost
+
+	while cost > 0 do
+		for who, mult in pairs(self.multipliers) do
+			if mult > 0 and cost > 0 then
+				self.multipliers[who] = mult - 1
+				cost = cost - 1
+			end
+		end
+	end
 end
 
 function ShmupScore:getMultiplier(whose)
@@ -156,6 +163,15 @@ end
 
 function ShmupScore:isMaxMultiplier(whose)
 	return self.multipliers[whose] == ShmupScore.MaxMultiplier
+end
+
+function ShmupScore:endMove(dt)
+	if self.multiplierholdtime > 0 then
+		self.multiplierholdtime = self.multiplierholdtime - dt
+		if self.multiplierholdtime <= 0 then
+			--nothing yet
+		end
+	end
 end
 
 function ShmupScore:beginDraw()
