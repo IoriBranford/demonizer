@@ -69,14 +69,40 @@ ShmupPlayer.BulletParams = {
 	gid = levity:getTileGid("demonshots", "player", 0),
 	category = ShmupCollision.Category_PlayerShot
 }
+ShmupPlayer.BombShrapnelParams = {
+	speed = 16*60,
+	gid = levity:getTileGid("demonshots", "bombshrapnel", 0),
+	category = ShmupCollision.Category_PlayerBomb,
+	lifetime = .125,
+	persist = true,
+}
 ShmupPlayer.BombMaxTime = 2
 ShmupPlayer.BombParams = {
 	speed = 0,
 	angle = 0,
-	damage = 64,
+	damage = 8,
 	gid = levity:getTileGid("demonbomb", 0, 0),
 	category = ShmupCollision.Category_PlayerBomb,
-	persist = true
+	persist = true,
+	coroutine = function(self)
+		local params = ShmupPlayer.BombShrapnelParams
+		local angle = 0
+		while true do
+			params.x, params.y = self.object.body:getWorldCenter()
+			params.angle = angle
+			for i = 1, 16 do
+				ShmupBullet.create(params, self.object.layer)
+				params.angle = params.angle + math.pi/8
+			end
+			angle = angle - math.pi/16
+
+			local t = 1/16
+			while t > 0 do
+				local _, dt = coroutine.yield()
+				t = t - dt
+			end
+		end
+	end
 }
 ShmupPlayer.MaxAllies = MaxAllies
 ShmupPlayer.DeathTime = 1

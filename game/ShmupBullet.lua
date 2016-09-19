@@ -2,17 +2,21 @@ local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 
 local function beginMove(self, dt)
+	if self.coroutine then
+		assert(coroutine.resume(self.coroutine, self, dt))
+	end
+
 	local body = self.object.body
 	local properties = self.object.properties
-	local mass = body:getMass()
 	local ax = properties.accelx
 	local ay = properties.accely
-	body:applyForce(mass * ax, mass * ay)
+	if ax and ay then
+		local mass = body:getMass()
+		body:applyForce(mass * ax, mass * ay)
 
-	local vx, vy = body:getLinearVelocity()
-	body:setAngle(math.atan2(
-			(vy + ay*.5),
-			(vx + ax*.5)))
+		local vx, vy = body:getLinearVelocity()
+		body:setAngle(math.atan2((vy + ay*.5), (vx + ax*.5)))
+	end
 end
 
 local function endMove(self, dt)
@@ -59,6 +63,11 @@ local ShmupBullet = class(function(self, id)
 	properties.velx = nil
 	properties.vely = nil
 
+	if properties.coroutine then
+		self.beginMove = beginMove
+		self.coroutine = coroutine.create(properties.coroutine)
+	end
+
 	if properties.accelx and properties.accely then
 		self.beginMove = beginMove
 	end
@@ -97,6 +106,7 @@ end
 -- @field accely in px/sec/sec
 -- @field lifetime in sec
 -- @field persist do not destroy on impact
+-- @field coroutine
 
 function ShmupBullet.create(params, layer)
 	ShmupBullet.fireOverTime(params, layer, 0, 1)
@@ -136,7 +146,8 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 				accelx = accelx,
 				accely = accely,
 				lifetime = params.lifetime,
-				persist = params.persist
+				persist = params.persist,
+				coroutine = params.coroutine
 			}
 		}
 		layer:addObject(shot)

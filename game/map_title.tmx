@@ -35,9 +35,9 @@ C key: BOMB</property>
     <property name="textfont" type="file" value="pressstart2p.fnt"/>
    </properties>
   </object>
-  <object id="7" gid="101" x="90" y="125" width="128" height="32"/>
-  <object id="9" gid="102" x="120" y="125" width="128" height="32"/>
-  <object id="10" gid="103" x="150" y="125" width="128" height="32"/>
+  <object id="7" name="dem" gid="101" x="90" y="125" width="128" height="32"/>
+  <object id="9" name="oni" gid="102" x="120" y="125" width="128" height="32"/>
+  <object id="10" name="zer" gid="103" x="150" y="125" width="128" height="32"/>
   <object id="11" name="camera" x="0" y="0" width="240" height="320" visible="0">
    <properties>
     <property name="collidable" type="bool" value="true"/>

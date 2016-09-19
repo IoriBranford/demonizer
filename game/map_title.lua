@@ -133,7 +133,7 @@ return {
         },
         {
           id = 7,
-          name = "",
+          name = "dem",
           type = "",
           shape = "rectangle",
           x = 90,
@@ -147,7 +147,7 @@ return {
         },
         {
           id = 9,
-          name = "",
+          name = "oni",
           type = "",
           shape = "rectangle",
           x = 120,
@@ -161,7 +161,7 @@ return {
         },
         {
           id = 10,
-          name = "",
+          name = "zer",
           type = "",
           shape = "rectangle",
           x = 150,
