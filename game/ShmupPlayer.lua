@@ -1,6 +1,7 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
+local ShmupStatus = levity.machine:requireScript("ShmupStatus")
 local ShmupNPC -- delayed require to avoid circular dependency
 
 local OS = love.system.getOS()
@@ -224,11 +225,10 @@ function ShmupPlayer:joystickchanged(button, pressed)
 	elseif button == 3 and pressed and not self.killed then
 		local params = ShmupPlayer.BombParams
 
-		local scoreid = levity.machine:call("hud", "getScoreId")
-		local bombcost = levity.machine:call(scoreid, "getNextBombCost")
-		if bombcost > 0 then
-			local lifetime = levity.machine:call(scoreid,
-					"scaleBombTime", ShmupPlayer.BombMaxTime)
+		local bombcost = levity.machine:call("hud", "getNextBombCost")
+		if bombcost >= ShmupStatus.PiecesPerBomb then
+			local lifetime = levity.machine:call("hud",
+					"scaleByBombCost", ShmupPlayer.BombMaxTime)
 
 			params.lifetime = lifetime
 			params.x, params.y = self.object.body:getWorldCenter()

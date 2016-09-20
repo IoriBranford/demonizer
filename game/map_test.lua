@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 438,
+  nextobjectid = 450,
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
@@ -378,7 +378,7 @@ return {
       margin = 0,
       image = "demonshots.png",
       imagewidth = 32,
-      imageheight = 48,
+      imageheight = 64,
       tileoffset = {
         x = -16,
         y = 8
@@ -386,11 +386,12 @@ return {
       properties = {
         ["commoncollision"] = 0,
         ["row_ally"] = 1,
-        ["row_bombshrapnel"] = 2,
+        ["row_bombpackage"] = 2,
+        ["row_bombshrapnel"] = 3,
         ["row_player"] = 0
       },
       terrains = {},
-      tilecount = 3,
+      tilecount = 4,
       tiles = {
         {
           id = 0,
@@ -424,7 +425,7 @@ return {
     },
     {
       name = "demonbomb",
-      firstgid = 49,
+      firstgid = 50,
       filename = "demonbomb.tsx",
       tilewidth = 128,
       tileheight = 128,
@@ -507,7 +508,7 @@ return {
     },
     {
       name = "infwomen",
-      firstgid = 57,
+      firstgid = 58,
       filename = "infwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -587,7 +588,7 @@ return {
     },
     {
       name = "infmen",
-      firstgid = 132,
+      firstgid = 133,
       filename = "infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -668,7 +669,7 @@ return {
     },
     {
       name = "boat",
-      firstgid = 222,
+      firstgid = 223,
       filename = "boat.tsx",
       tilewidth = 128,
       tileheight = 64,
@@ -730,7 +731,7 @@ return {
     },
     {
       name = "ballista",
-      firstgid = 223,
+      firstgid = 224,
       filename = "ballista.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -810,7 +811,7 @@ return {
     },
     {
       name = "humanshots",
-      firstgid = 247,
+      firstgid = 248,
       filename = "humanshots.tsx",
       tilewidth = 32,
       tileheight = 16,
@@ -867,7 +868,7 @@ return {
     },
     {
       name = "civwomen",
-      firstgid = 253,
+      firstgid = 254,
       filename = "civwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -950,7 +951,7 @@ return {
     },
     {
       name = "civmen",
-      firstgid = 373,
+      firstgid = 374,
       filename = "civmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1034,7 +1035,7 @@ return {
     },
     {
       name = "test_bank.png",
-      firstgid = 508,
+      firstgid = 509,
       filename = "test_bank.png.tsx",
       tilewidth = 8,
       tileheight = 8,
@@ -1053,28 +1054,28 @@ return {
       tiles = {}
     },
     {
-      name = "life",
-      firstgid = 7292,
-      filename = "life.tsx",
+      name = "hud_icons",
+      firstgid = 7293,
+      filename = "hud_icons.tsx",
       tilewidth = 16,
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      image = "life.png",
+      image = "hud_icons.png",
       imagewidth = 16,
-      imageheight = 16,
+      imageheight = 32,
       tileoffset = {
         x = 0,
         y = 0
       },
       properties = {},
       terrains = {},
-      tilecount = 1,
+      tilecount = 2,
       tiles = {}
     },
     {
       name = "touchmarkers",
-      firstgid = 7293,
+      firstgid = 7295,
       filename = "touchmarkers.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1094,7 +1095,7 @@ return {
     },
     {
       name = "sparks_med",
-      firstgid = 7295,
+      firstgid = 7297,
       filename = "sparks_med.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1176,7 +1177,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "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"
+      data = "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"
     },
     {
       type = "objectgroup",
@@ -1248,7 +1249,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 183,
+          gid = 184,
           visible = true,
           properties = {
             ["onDiscard"] = "endMap",
@@ -1334,7 +1335,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 225,
+          gid = 226,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -1350,7 +1351,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 226,
+          gid = 227,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -1366,7 +1367,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 225,
+          gid = 226,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -1411,7 +1412,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -1427,7 +1428,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -1464,7 +1465,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -1480,7 +1481,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -1525,7 +1526,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 171,
+          gid = 172,
           visible = true,
           properties = {
             ["pathid"] = 288,
@@ -1562,7 +1563,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 171,
+          gid = 172,
           visible = true,
           properties = {
             ["pathid"] = 281,
@@ -1611,7 +1612,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -1629,7 +1630,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -1647,7 +1648,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -1687,7 +1688,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -1722,7 +1723,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -1740,7 +1741,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -1758,7 +1759,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -1776,7 +1777,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -1794,7 +1795,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -1810,7 +1811,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -1918,7 +1919,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 96,
+          gid = 97,
           visible = true,
           properties = {
             ["firepointid_bl"] = 333,
@@ -2051,7 +2052,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -2067,7 +2068,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -2083,7 +2084,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -2099,7 +2100,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -2161,7 +2162,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 90,
+          gid = 91,
           visible = true,
           properties = {
             ["pathid"] = 366,
@@ -2179,7 +2180,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 224,
+          gid = 225,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -2195,7 +2196,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 226,
+          gid = 227,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -2297,7 +2298,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 272,
@@ -2315,7 +2316,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 272,
@@ -2333,7 +2334,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 272,
@@ -2351,7 +2352,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 272,
@@ -2369,7 +2370,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 219,
@@ -2387,7 +2388,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 219,
@@ -2405,7 +2406,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 219,
@@ -2423,7 +2424,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 219,
@@ -2472,7 +2473,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["pathid"] = 224,
@@ -2526,7 +2527,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["pathid"] = 223,
@@ -2575,7 +2576,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 211,
@@ -2593,7 +2594,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 273,
@@ -2611,7 +2612,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 211,
@@ -2648,7 +2649,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 273,
@@ -2695,7 +2696,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 271,
@@ -2713,7 +2714,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 271,
@@ -2731,7 +2732,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 271,
@@ -2771,7 +2772,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 271,
@@ -2835,7 +2836,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 99,
+          gid = 100,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -2852,7 +2853,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -2870,7 +2871,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -2888,7 +2889,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -2906,7 +2907,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -2957,7 +2958,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -2974,7 +2975,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -3003,7 +3004,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -3059,7 +3060,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -3077,7 +3078,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -3095,7 +3096,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -3125,7 +3126,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -3142,7 +3143,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -3213,7 +3214,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -3230,7 +3231,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -3280,7 +3281,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -3297,7 +3298,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -3314,7 +3315,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -3364,7 +3365,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -3380,7 +3381,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 180,
+          gid = 181,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -3408,7 +3409,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 178,
@@ -3463,7 +3464,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 178,
@@ -3482,7 +3483,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 178,
@@ -3501,7 +3502,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 174,
@@ -3520,7 +3521,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 174,
@@ -3539,7 +3540,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 174,
@@ -3577,7 +3578,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 2147483870,
+          gid = 2147483871,
           visible = true,
           properties = {
             ["pathid"] = 174,
@@ -3595,7 +3596,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 222,
+          gid = 223,
           visible = true,
           properties = {
             ["pathid"] = 178,
@@ -3613,7 +3614,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 87,
+          gid = 88,
           visible = true,
           properties = {
             ["script"] = "NPCPikeman",
@@ -3630,7 +3631,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["script"] = "NPCPikeman",
@@ -3647,7 +3648,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 222,
+          gid = 223,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -3663,7 +3664,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["script"] = "NPCPikeman",
@@ -3680,7 +3681,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 104,
@@ -3699,7 +3700,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 222,
+          gid = 223,
           visible = true,
           properties = {
             ["pathid"] = 104,
@@ -3717,7 +3718,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 104,
@@ -3736,7 +3737,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 104,
@@ -3755,7 +3756,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 106,
@@ -3774,7 +3775,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 106,
@@ -3793,7 +3794,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 2147483870,
+          gid = 2147483871,
           visible = true,
           properties = {
             ["pathid"] = 106,
@@ -3811,7 +3812,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 106,
@@ -3842,7 +3843,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 106,
@@ -3861,7 +3862,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 106,
@@ -3901,7 +3902,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 106,
@@ -3937,7 +3938,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 2147483870,
+          gid = 2147483871,
           visible = true,
           properties = {
             ["pathid"] = 106,
@@ -3967,7 +3968,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 104,
@@ -4024,7 +4025,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 104,
@@ -4043,7 +4044,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 168,
+          gid = 169,
           visible = true,
           properties = {
             ["pathid"] = 104,
@@ -4062,7 +4063,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 222,
+          gid = 223,
           visible = true,
           properties = {
             ["pathid"] = 104,
@@ -4124,7 +4125,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 301,
+          gid = 302,
           visible = true,
           properties = {
             ["pathid"] = 86,
@@ -4161,7 +4162,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 436,
+          gid = 437,
           visible = true,
           properties = {
             ["pathid"] = 419,
@@ -4179,7 +4180,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 448,
+          gid = 449,
           visible = true,
           properties = {
             ["pathid"] = 419,
@@ -4197,7 +4198,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 451,
+          gid = 452,
           visible = true,
           properties = {
             ["pathid"] = 86,
@@ -4215,7 +4216,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 445,
+          gid = 446,
           visible = true,
           properties = {
             ["pathid"] = 419,
@@ -4252,7 +4253,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 433,
+          gid = 434,
           visible = true,
           properties = {
             ["pathid"] = 85,
@@ -4270,7 +4271,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 442,
+          gid = 443,
           visible = true,
           properties = {
             ["pathid"] = 418,
@@ -4288,7 +4289,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 439,
+          gid = 440,
           visible = true,
           properties = {
             ["pathid"] = 85,
@@ -4306,7 +4307,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 427,
+          gid = 428,
           visible = true,
           properties = {
             ["pathid"] = 418,
@@ -4324,7 +4325,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 430,
+          gid = 431,
           visible = true,
           properties = {
             ["pathid"] = 418,
@@ -4432,7 +4433,7 @@ return {
       draworder = "topdown",
       properties = {
         ["scoreid"] = 318,
-        ["script"] = "ShmupHUD"
+        ["script"] = "ShmupStatus"
       },
       objects = {
         {
@@ -4456,7 +4457,7 @@ return {
         },
         {
           id = 319,
-          name = "life",
+          name = "life1",
           type = "",
           shape = "rectangle",
           x = 0,
@@ -4464,7 +4465,175 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 7292,
+          gid = 7293,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 438,
+          name = "bomb1",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 320,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7294,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 439,
+          name = "bomb2",
+          type = "",
+          shape = "rectangle",
+          x = 8,
+          y = 320,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7294,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 440,
+          name = "bomb3",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 320,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7294,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 441,
+          name = "bomb4",
+          type = "",
+          shape = "rectangle",
+          x = 24,
+          y = 320,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7294,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 442,
+          name = "life2",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7293,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 443,
+          name = "life3",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7293,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 444,
+          name = "life4",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7293,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 445,
+          name = "life5",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7293,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 446,
+          name = "life6",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7293,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 447,
+          name = "life7",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7293,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 448,
+          name = "life8",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7293,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 449,
+          name = "life9",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 32,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7293,
           visible = true,
           properties = {}
         }
@@ -4577,7 +4746,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 7293,
+          gid = 7295,
           visible = true,
           properties = {}
         },
@@ -4591,7 +4760,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 7294,
+          gid = 7296,
           visible = true,
           properties = {}
         }

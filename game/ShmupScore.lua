@@ -20,7 +20,6 @@ ShmupScore.MaxPoints = 999999999
 ShmupScore.MaxMultiplier = 20
 ShmupScore.ExtendInc = 3000000
 ShmupScore.BaseCapturePoints = 100
-ShmupScore.MaxBombCost = 20
 
 local Sounds = {
 	Maxed = "maxed.wav",
@@ -45,6 +44,7 @@ end
 function ShmupScore:npcCaptured(npcid, captorid, newallyindex)
 	if newallyindex then
 		self.multipliers[newallyindex] = 0
+		return
 	end
 
 	if captorid == levity.map.properties.playerid then
@@ -133,32 +133,16 @@ function ShmupScore:allyKilled(index)
 	self:multiplierLost(index)
 end
 
-function ShmupScore:getNextBombCost()
-	return math.min(self.totalmultiplier, ShmupScore.MaxBombCost)
-end
-
-function ShmupScore:scaleBombTime(time)
-	return time * self:getNextBombCost() / ShmupScore.MaxBombCost
-end
-
 function ShmupScore:playerBombed(bombtime)
 	self.multiplierholdtime = bombtime
-
-	local cost = self:getNextBombCost()
-	self.totalmultiplier = self.totalmultiplier - cost
-
-	while cost > 0 do
-		for who, mult in pairs(self.multipliers) do
-			if mult > 0 and cost > 0 then
-				self.multipliers[who] = mult - 1
-				cost = cost - 1
-			end
-		end
-	end
 end
 
 function ShmupScore:getMultiplier(whose)
 	return self.multipliers[whose]
+end
+
+function ShmupScore:getTotalMultiplier()
+	return self.totalmultiplier
 end
 
 function ShmupScore:isMaxMultiplier(whose)

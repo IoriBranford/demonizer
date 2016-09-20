@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="438">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="450">
  <properties>
   <property name="cameraid" type="int" value="7"/>
   <property name="music" type="file" value="09 - Blue Sky Laundry.vgm"/>
@@ -10,21 +10,21 @@
  <tileset firstgid="4" source="demonizing.tsx"/>
  <tileset firstgid="7" source="demonwomen.tsx"/>
  <tileset firstgid="46" source="demonshots.tsx"/>
- <tileset firstgid="48" source="demonbomb.tsx"/>
- <tileset firstgid="56" source="infwomen.tsx"/>
- <tileset firstgid="131" source="infmen.tsx"/>
- <tileset firstgid="221" source="boat.tsx"/>
- <tileset firstgid="222" source="ballista.tsx"/>
- <tileset firstgid="246" source="humanshots.tsx"/>
- <tileset firstgid="252" source="civwomen.tsx"/>
- <tileset firstgid="372" source="civmen.tsx"/>
- <tileset firstgid="507" source="test_bank.png.tsx"/>
- <tileset firstgid="7291" source="life.tsx"/>
- <tileset firstgid="7292" source="touchmarkers.tsx"/>
- <tileset firstgid="7294" source="sparks_med.tsx"/>
+ <tileset firstgid="50" source="demonbomb.tsx"/>
+ <tileset firstgid="58" source="infwomen.tsx"/>
+ <tileset firstgid="133" source="infmen.tsx"/>
+ <tileset firstgid="223" source="boat.tsx"/>
+ <tileset firstgid="224" source="ballista.tsx"/>
+ <tileset firstgid="248" source="humanshots.tsx"/>
+ <tileset firstgid="254" source="civwomen.tsx"/>
+ <tileset firstgid="374" source="civmen.tsx"/>
+ <tileset firstgid="509" source="test_bank.png.tsx"/>
+ <tileset firstgid="7293" source="hud_icons.tsx"/>
+ <tileset firstgid="7295" source="touchmarkers.tsx"/>
+ <tileset firstgid="7297" source="sparks_med.tsx"/>
  <layer name="Tile Layer 1" width="36" height="265">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="camera" visible="0">
@@ -45,7 +45,7 @@
   </object>
  </objectgroup>
  <objectgroup name="boss">
-  <object id="261" gid="182" x="144" y="136" width="24" height="32">
+  <object id="261" gid="184" x="144" y="136" width="24" height="32">
    <properties>
     <property name="onDiscard" value="endMap"/>
     <property name="script" value="NPCHero"/>
@@ -75,17 +75,17 @@
   </object>
  </objectgroup>
  <objectgroup name="roofballistae">
-  <object id="405" gid="224" x="112" y="320" width="64" height="64">
+  <object id="405" gid="226" x="112" y="320" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="407" gid="225" x="248" y="320" width="64" height="64">
+  <object id="407" gid="227" x="248" y="320" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="408" gid="224" x="176" y="320" width="64" height="64">
+  <object id="408" gid="226" x="176" y="320" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
@@ -99,12 +99,12 @@
   </object>
  </objectgroup>
  <objectgroup name="roofarchers2">
-  <object id="290" gid="179" x="184" y="336" width="24" height="32">
+  <object id="290" gid="181" x="184" y="336" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="294" gid="179" x="128" y="352" width="24" height="32">
+  <object id="294" gid="181" x="128" y="352" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
@@ -117,12 +117,12 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="302" gid="179" x="232" y="336" width="24" height="32">
+  <object id="302" gid="181" x="232" y="336" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="305" gid="179" x="80" y="352" width="24" height="32">
+  <object id="305" gid="181" x="80" y="352" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
@@ -136,7 +136,7 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="279" gid="170" x="136" y="464" width="24" height="32">
+  <object id="279" gid="172" x="136" y="464" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="288"/>
     <property name="pathtime" type="float" value="0.5"/>
@@ -149,7 +149,7 @@
    </properties>
    <polyline points="32,-32 32,8"/>
   </object>
-  <object id="282" gid="170" x="152" y="464" width="24" height="32">
+  <object id="282" gid="172" x="152" y="464" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="281"/>
     <property name="pathtime" type="float" value="0.5"/>
@@ -164,21 +164,21 @@
   </object>
  </objectgroup>
  <objectgroup name="pikes5">
-  <object id="394" gid="167" x="16" y="424" width="24" height="32">
+  <object id="394" gid="169" x="16" y="424" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="397"/>
     <property name="pathtime" type="float" value="5"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="395" gid="167" x="16" y="400" width="24" height="32">
+  <object id="395" gid="169" x="16" y="400" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="397"/>
     <property name="pathtime" type="float" value="5"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="396" gid="167" x="16" y="448" width="24" height="32">
+  <object id="396" gid="169" x="16" y="448" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="397"/>
     <property name="pathtime" type="float" value="5"/>
@@ -191,7 +191,7 @@
    </properties>
    <polyline points="0,104 0,160 80,160 248,160 440,328"/>
   </object>
-  <object id="399" gid="167" x="16" y="472" width="24" height="32">
+  <object id="399" gid="169" x="16" y="472" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="397"/>
     <property name="pathtime" type="float" value="5"/>
@@ -205,40 +205,40 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="401" gid="167" x="16" y="376" width="24" height="32">
+  <object id="401" gid="169" x="16" y="376" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="397"/>
     <property name="pathtime" type="float" value="5"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="402" gid="167" x="16" y="352" width="24" height="32">
+  <object id="402" gid="169" x="16" y="352" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="397"/>
     <property name="pathtime" type="float" value="5"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="403" gid="167" x="16" y="328" width="24" height="32">
+  <object id="403" gid="169" x="16" y="328" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="397"/>
     <property name="pathtime" type="float" value="5"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="404" gid="167" x="16" y="304" width="24" height="32">
+  <object id="404" gid="169" x="16" y="304" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="397"/>
     <property name="pathtime" type="float" value="5"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="435" gid="179" x="224" y="592" width="24" height="32">
+  <object id="435" gid="181" x="224" y="592" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="434" gid="179" x="64" y="592" width="24" height="32">
+  <object id="434" gid="181" x="64" y="592" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
@@ -279,7 +279,7 @@
   </object>
  </objectgroup>
  <objectgroup name="mage">
-  <object id="260" gid="95" x="144" y="640" width="24" height="32">
+  <object id="260" gid="97" x="144" y="640" width="24" height="32">
    <properties>
     <property name="firepointid_bl" type="int" value="333"/>
     <property name="firepointid_br" type="int" value="334"/>
@@ -338,22 +338,22 @@
   </object>
  </objectgroup>
  <objectgroup name="fountainarchers">
-  <object id="415" gid="179" x="208" y="680" width="24" height="32">
+  <object id="415" gid="181" x="208" y="680" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="413" gid="179" x="176" y="736" width="24" height="32">
+  <object id="413" gid="181" x="176" y="736" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="412" gid="179" x="112" y="736" width="24" height="32">
+  <object id="412" gid="181" x="112" y="736" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="414" gid="179" x="80" y="680" width="24" height="32">
+  <object id="414" gid="181" x="80" y="680" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
@@ -374,19 +374,19 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="232" gid="89" x="144" y="856" width="24" height="32">
+  <object id="232" gid="91" x="144" y="856" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="366"/>
     <property name="pathtime" type="float" value="0.25"/>
     <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
-  <object id="327" gid="223" x="24" y="848" width="64" height="64">
+  <object id="327" gid="225" x="24" y="848" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="361" gid="225" x="264" y="848" width="64" height="64">
+  <object id="361" gid="227" x="264" y="848" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
@@ -418,56 +418,56 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="371" name="pike9" gid="167" x="-24" y="888" width="24" height="32">
+  <object id="371" name="pike9" gid="169" x="-24" y="888" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="272"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="372" name="pike9" gid="167" x="-48" y="888" width="24" height="32">
+  <object id="372" name="pike9" gid="169" x="-48" y="888" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="272"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="373" name="pike9" gid="167" x="-72" y="888" width="24" height="32">
+  <object id="373" name="pike9" gid="169" x="-72" y="888" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="272"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="374" name="pike9" gid="167" x="-96" y="888" width="24" height="32">
+  <object id="374" name="pike9" gid="169" x="-96" y="888" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="272"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="378" name="pike9" gid="167" x="-48" y="920" width="24" height="32">
+  <object id="378" name="pike9" gid="169" x="-48" y="920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="219"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="379" name="pike9" gid="167" x="-24" y="920" width="24" height="32">
+  <object id="379" name="pike9" gid="169" x="-24" y="920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="219"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="380" name="pike9" gid="167" x="-96" y="920" width="24" height="32">
+  <object id="380" name="pike9" gid="169" x="-96" y="920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="219"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="381" name="pike9" gid="167" x="-72" y="920" width="24" height="32">
+  <object id="381" name="pike9" gid="169" x="-72" y="920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="219"/>
     <property name="pathtime" type="float" value="1"/>
@@ -482,7 +482,7 @@
    </properties>
    <polyline points="0,-32 0,8"/>
   </object>
-  <object id="227" gid="179" x="208" y="920" width="24" height="32">
+  <object id="227" gid="181" x="208" y="920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="224"/>
     <property name="pathtime" type="float" value="0.25"/>
@@ -502,7 +502,7 @@
    </properties>
    <polyline points="-208,-16 -192,8"/>
   </object>
-  <object id="225" gid="179" x="96" y="984" width="24" height="32">
+  <object id="225" gid="181" x="96" y="984" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="223"/>
     <property name="pathtime" type="float" value="0.25"/>
@@ -517,21 +517,21 @@
    </properties>
    <polyline points="-48,-8 -48,112"/>
   </object>
-  <object id="388" name="pike9" gid="167" x="272" y="896" width="24" height="32">
+  <object id="388" name="pike9" gid="169" x="272" y="896" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="211"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="383" name="pike9" gid="167" x="240" y="952" width="24" height="32">
+  <object id="383" name="pike9" gid="169" x="240" y="952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="273"/>
     <property name="pathtime" type="float" value="0.5"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="386" name="pike9" gid="167" x="272" y="920" width="24" height="32">
+  <object id="386" name="pike9" gid="169" x="272" y="920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="211"/>
     <property name="pathtime" type="float" value="1"/>
@@ -544,7 +544,7 @@
    </properties>
    <polyline points="24,24 24,56"/>
   </object>
-  <object id="385" name="pike9" gid="167" x="240" y="928" width="24" height="32">
+  <object id="385" name="pike9" gid="169" x="240" y="928" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="273"/>
     <property name="pathtime" type="float" value="0.5"/>
@@ -560,21 +560,21 @@
   </object>
  </objectgroup>
  <objectgroup name="pikes2">
-  <object id="356" gid="167" x="272" y="1008" width="24" height="32">
+  <object id="356" gid="169" x="272" y="1008" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="271"/>
     <property name="pathtime" type="float" value="5"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="355" gid="167" x="272" y="984" width="24" height="32">
+  <object id="355" gid="169" x="272" y="984" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="271"/>
     <property name="pathtime" type="float" value="5"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="353" gid="167" x="272" y="1032" width="24" height="32">
+  <object id="353" gid="169" x="272" y="1032" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="271"/>
     <property name="pathtime" type="float" value="5"/>
@@ -587,7 +587,7 @@
    </properties>
    <polyline points="0,104 0,208 -80,208 -144,224 -384,224"/>
   </object>
-  <object id="354" gid="167" x="272" y="1056" width="24" height="32">
+  <object id="354" gid="169" x="272" y="1056" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="271"/>
     <property name="pathtime" type="float" value="5"/>
@@ -610,34 +610,34 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="240" gid="98" x="192" y="1056" width="24" height="32">
+  <object id="240" gid="100" x="192" y="1056" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="428" gid="167" x="-16" y="1192" width="24" height="32">
+  <object id="428" gid="169" x="-16" y="1192" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="4"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="429" gid="167" x="-64" y="1192" width="24" height="32">
+  <object id="429" gid="169" x="-64" y="1192" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="4"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="430" gid="167" x="-40" y="1192" width="24" height="32">
+  <object id="430" gid="169" x="-40" y="1192" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="4"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="431" gid="167" x="-88" y="1192" width="24" height="32">
+  <object id="431" gid="169" x="-88" y="1192" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="4"/>
@@ -654,13 +654,13 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="237" gid="179" x="112" y="1120" width="24" height="32">
+  <object id="237" gid="181" x="112" y="1120" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="238" gid="179" x="192" y="1120" width="24" height="32">
+  <object id="238" gid="181" x="192" y="1120" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="script" value="NPCArcher"/>
@@ -668,7 +668,7 @@
   </object>
  </objectgroup>
  <objectgroup name="pikes">
-  <object id="186" gid="167" x="-40" y="1192" width="24" height="32">
+  <object id="186" gid="169" x="-40" y="1192" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="4"/>
@@ -688,21 +688,21 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="350" gid="167" x="-16" y="1192" width="24" height="32">
+  <object id="350" gid="169" x="-16" y="1192" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="4"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="351" gid="167" x="-88" y="1192" width="24" height="32">
+  <object id="351" gid="169" x="-88" y="1192" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="4"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="352" gid="167" x="-64" y="1192" width="24" height="32">
+  <object id="352" gid="169" x="-64" y="1192" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="195"/>
     <property name="pathtime" type="float" value="4"/>
@@ -711,13 +711,13 @@
   </object>
  </objectgroup>
  <objectgroup name="busharchers3">
-  <object id="250" gid="179" x="80" y="1248" width="24" height="32">
+  <object id="250" gid="181" x="80" y="1248" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="251" gid="179" x="48" y="1248" width="24" height="32">
+  <object id="251" gid="181" x="48" y="1248" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="script" value="NPCArcher"/>
@@ -741,13 +741,13 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="248" gid="179" x="232" y="1296" width="24" height="32">
+  <object id="248" gid="181" x="232" y="1296" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="252" gid="179" x="200" y="1280" width="24" height="32">
+  <object id="252" gid="181" x="200" y="1280" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="script" value="NPCArcher"/>
@@ -763,19 +763,19 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="245" gid="179" x="208" y="1368" width="24" height="32">
+  <object id="245" gid="181" x="208" y="1368" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="246" gid="179" x="96" y="1352" width="24" height="32">
+  <object id="246" gid="181" x="96" y="1352" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="247" gid="179" x="128" y="1368" width="24" height="32">
+  <object id="247" gid="181" x="128" y="1368" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="script" value="NPCArcher"/>
@@ -791,19 +791,19 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="256" gid="179" x="56" y="1512" width="24" height="32">
+  <object id="256" gid="181" x="56" y="1512" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="258" gid="179" x="208" y="1456" width="24" height="32">
+  <object id="258" gid="181" x="208" y="1456" width="24" height="32">
    <properties>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="waterpikes3">
-  <object id="177" name="pike3" gid="167" x="-40" y="1584" width="24" height="32">
+  <object id="177" name="pike3" gid="169" x="-40" y="1584" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="178"/>
     <property name="pathtime" type="float" value="3"/>
@@ -824,7 +824,7 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="180" name="pike5" gid="167" x="-72" y="1568" width="24" height="32">
+  <object id="180" name="pike5" gid="169" x="-72" y="1568" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="178"/>
     <property name="pathtime" type="float" value="3"/>
@@ -832,7 +832,7 @@
     <property name="vehicleid" type="int" value="345"/>
    </properties>
   </object>
-  <object id="181" name="pike4" gid="167" x="-56" y="1576" width="24" height="32">
+  <object id="181" name="pike4" gid="169" x="-56" y="1576" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="178"/>
     <property name="pathtime" type="float" value="3"/>
@@ -840,7 +840,7 @@
     <property name="vehicleid" type="int" value="345"/>
    </properties>
   </object>
-  <object id="172" name="pike6" gid="167" x="328" y="1584" width="24" height="32">
+  <object id="172" name="pike6" gid="169" x="328" y="1584" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="174"/>
     <property name="pathtime" type="float" value="3"/>
@@ -848,7 +848,7 @@
     <property name="vehicleid" type="int" value="343"/>
    </properties>
   </object>
-  <object id="173" name="pike7" gid="167" x="344" y="1576" width="24" height="32">
+  <object id="173" name="pike7" gid="169" x="344" y="1576" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="174"/>
     <property name="pathtime" type="float" value="3"/>
@@ -856,7 +856,7 @@
     <property name="vehicleid" type="int" value="343"/>
    </properties>
   </object>
-  <object id="175" name="pike8" gid="167" x="360" y="1568" width="24" height="32">
+  <object id="175" name="pike8" gid="169" x="360" y="1568" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="174"/>
     <property name="pathtime" type="float" value="3"/>
@@ -870,44 +870,44 @@
    </properties>
    <polyline points="40,-88 -96,-56"/>
   </object>
-  <object id="343" gid="2147483869" x="344" y="1560" width="128" height="64">
+  <object id="343" gid="2147483871" x="344" y="1560" width="128" height="64">
    <properties>
     <property name="pathid" type="int" value="174"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="345" gid="221" x="-56" y="1560" width="128" height="64">
+  <object id="345" gid="223" x="-56" y="1560" width="128" height="64">
    <properties>
     <property name="pathid" type="int" value="178"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="117" name="pike10" gid="86" x="144" y="1536" width="24" height="32">
+  <object id="117" name="pike10" gid="88" x="144" y="1536" width="24" height="32">
    <properties>
     <property name="script" value="NPCPikeman"/>
     <property name="vehicleid" type="int" value="346"/>
    </properties>
   </object>
-  <object id="161" name="pike9" gid="167" x="128" y="1552" width="24" height="32">
+  <object id="161" name="pike9" gid="169" x="128" y="1552" width="24" height="32">
    <properties>
     <property name="script" value="NPCPikeman"/>
     <property name="vehicleid" type="int" value="346"/>
    </properties>
   </object>
-  <object id="346" gid="221" x="144" y="1528" width="128" height="64">
+  <object id="346" gid="223" x="144" y="1528" width="128" height="64">
    <properties>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="347" name="pike9" gid="167" x="160" y="1552" width="24" height="32">
+  <object id="347" name="pike9" gid="169" x="160" y="1552" width="24" height="32">
    <properties>
     <property name="script" value="NPCPikeman"/>
     <property name="vehicleid" type="int" value="346"/>
    </properties>
   </object>
-  <object id="420" name="pike3" gid="167" x="-56" y="1704" width="24" height="32">
+  <object id="420" name="pike3" gid="169" x="-56" y="1704" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
@@ -915,14 +915,14 @@
     <property name="vehicleid" type="int" value="421"/>
    </properties>
   </object>
-  <object id="421" gid="221" x="-72" y="1680" width="128" height="64">
+  <object id="421" gid="223" x="-72" y="1680" width="128" height="64">
    <properties>
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="5"/>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="422" name="pike4" gid="167" x="-72" y="1696" width="24" height="32">
+  <object id="422" name="pike4" gid="169" x="-72" y="1696" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
@@ -930,7 +930,7 @@
     <property name="vehicleid" type="int" value="421"/>
    </properties>
   </object>
-  <object id="423" name="pike5" gid="167" x="-88" y="1688" width="24" height="32">
+  <object id="423" name="pike5" gid="169" x="-88" y="1688" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
@@ -938,7 +938,7 @@
     <property name="vehicleid" type="int" value="421"/>
    </properties>
   </object>
-  <object id="424" name="pike7" gid="167" x="360" y="1640" width="24" height="32">
+  <object id="424" name="pike7" gid="169" x="360" y="1640" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
@@ -946,7 +946,7 @@
     <property name="vehicleid" type="int" value="426"/>
    </properties>
   </object>
-  <object id="425" name="pike8" gid="167" x="376" y="1632" width="24" height="32">
+  <object id="425" name="pike8" gid="169" x="376" y="1632" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
@@ -954,14 +954,14 @@
     <property name="vehicleid" type="int" value="426"/>
    </properties>
   </object>
-  <object id="426" gid="2147483869" x="360" y="1624" width="128" height="64">
+  <object id="426" gid="2147483871" x="360" y="1624" width="128" height="64">
    <properties>
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="5"/>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="427" name="pike6" gid="167" x="344" y="1648" width="24" height="32">
+  <object id="427" name="pike6" gid="169" x="344" y="1648" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
@@ -971,7 +971,7 @@
   </object>
  </objectgroup>
  <objectgroup name="waterpikes2">
-  <object id="113" name="pike6" gid="167" x="344" y="1648" width="24" height="32">
+  <object id="113" name="pike6" gid="169" x="344" y="1648" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
@@ -979,7 +979,7 @@
     <property name="vehicleid" type="int" value="325"/>
    </properties>
   </object>
-  <object id="68" name="pike7" gid="167" x="360" y="1640" width="24" height="32">
+  <object id="68" name="pike7" gid="169" x="360" y="1640" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
@@ -993,7 +993,7 @@
    </properties>
    <polyline points="56,-104 -96,-72 -224,-72 -376,-104"/>
   </object>
-  <object id="114" name="pike8" gid="167" x="376" y="1632" width="24" height="32">
+  <object id="114" name="pike8" gid="169" x="376" y="1632" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
@@ -1008,7 +1008,7 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="325" gid="2147483869" x="360" y="1624" width="128" height="64">
+  <object id="325" gid="2147483871" x="360" y="1624" width="128" height="64">
    <properties>
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="5"/>
@@ -1017,7 +1017,7 @@
   </object>
  </objectgroup>
  <objectgroup name="waterpikes">
-  <object id="67" name="pike3" gid="167" x="-56" y="1704" width="24" height="32">
+  <object id="67" name="pike3" gid="169" x="-56" y="1704" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
@@ -1038,7 +1038,7 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="111" name="pike5" gid="167" x="-88" y="1688" width="24" height="32">
+  <object id="111" name="pike5" gid="169" x="-88" y="1688" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
@@ -1046,7 +1046,7 @@
     <property name="vehicleid" type="int" value="324"/>
    </properties>
   </object>
-  <object id="112" name="pike4" gid="167" x="-72" y="1696" width="24" height="32">
+  <object id="112" name="pike4" gid="169" x="-72" y="1696" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
@@ -1054,7 +1054,7 @@
     <property name="vehicleid" type="int" value="324"/>
    </properties>
   </object>
-  <object id="324" gid="221" x="-72" y="1680" width="128" height="64">
+  <object id="324" gid="223" x="-72" y="1680" width="128" height="64">
    <properties>
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="5"/>
@@ -1072,7 +1072,7 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="79" gid="300" x="64" y="1904" width="24" height="32">
+  <object id="79" gid="302" x="64" y="1904" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="86"/>
     <property name="pathtime" type="float" value="0.5"/>
@@ -1085,28 +1085,28 @@
    </properties>
    <polyline points="0,8 -8,-56"/>
   </object>
-  <object id="132" gid="435" x="96" y="1920" width="24" height="32">
+  <object id="132" gid="437" x="96" y="1920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="419"/>
     <property name="pathtime" type="float" value="0.6"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="136" gid="447" x="104" y="1944" width="24" height="32">
+  <object id="136" gid="449" x="104" y="1944" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="419"/>
     <property name="pathtime" type="float" value="0.9"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="152" gid="450" x="72" y="1912" width="24" height="32">
+  <object id="152" gid="452" x="72" y="1912" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="86"/>
     <property name="pathtime" type="float" value="0.5"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="150" gid="444" x="88" y="1936" width="24" height="32">
+  <object id="150" gid="446" x="88" y="1936" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="419"/>
     <property name="pathtime" type="float" value="0.9"/>
@@ -1119,35 +1119,35 @@
    </properties>
    <polyline points="0,-32 32,-56"/>
   </object>
-  <object id="77" gid="432" x="136" y="1960" width="24" height="32">
+  <object id="77" gid="434" x="136" y="1960" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
     <property name="pathtime" type="float" value="0.8"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="160" gid="441" x="152" y="1960" width="24" height="32">
+  <object id="160" gid="443" x="152" y="1960" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="418"/>
     <property name="pathtime" type="float" value="0.8"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="133" gid="438" x="136" y="1944" width="24" height="32">
+  <object id="133" gid="440" x="136" y="1944" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
     <property name="pathtime" type="float" value="0.6"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="57" gid="426" x="152" y="1952" width="24" height="32">
+  <object id="57" gid="428" x="152" y="1952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="418"/>
     <property name="pathtime" type="float" value="0.7"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="158" gid="429" x="168" y="1952" width="24" height="32">
+  <object id="158" gid="431" x="168" y="1952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="418"/>
     <property name="pathtime" type="float" value="0.7"/>
@@ -1179,7 +1179,7 @@
  <objectgroup name="hud">
   <properties>
    <property name="scoreid" type="int" value="318"/>
-   <property name="script" value="ShmupHUD"/>
+   <property name="script" value="ShmupStatus"/>
   </properties>
   <object id="318" name="score" x="4" y="4" width="232" height="8">
    <properties>
@@ -1190,7 +1190,19 @@
     <property name="textformat" value="SC%8d EX%8d"/>
    </properties>
   </object>
-  <object id="319" name="life" gid="7291" x="0" y="32" width="16" height="16"/>
+  <object id="319" name="life1" gid="7293" x="0" y="32" width="16" height="16"/>
+  <object id="438" name="bomb1" gid="7294" x="0" y="320" width="16" height="16"/>
+  <object id="439" name="bomb2" gid="7294" x="8" y="320" width="16" height="16"/>
+  <object id="440" name="bomb3" gid="7294" x="16" y="320" width="16" height="16"/>
+  <object id="441" name="bomb4" gid="7294" x="24" y="320" width="16" height="16"/>
+  <object id="442" name="life2" gid="7293" x="16" y="32" width="16" height="16"/>
+  <object id="443" name="life3" gid="7293" x="32" y="32" width="16" height="16"/>
+  <object id="444" name="life4" gid="7293" x="48" y="32" width="16" height="16"/>
+  <object id="445" name="life5" gid="7293" x="64" y="32" width="16" height="16"/>
+  <object id="446" name="life6" gid="7293" x="80" y="32" width="16" height="16"/>
+  <object id="447" name="life7" gid="7293" x="96" y="32" width="16" height="16"/>
+  <object id="448" name="life8" gid="7293" x="112" y="32" width="16" height="16"/>
+  <object id="449" name="life9" gid="7293" x="128" y="32" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="pausemenu">
   <properties>
@@ -1232,7 +1244,7 @@
   <properties>
    <property name="script" value="ShmupTouchControls"/>
   </properties>
-  <object id="341" name="move" gid="7292" x="0" y="0" width="64" height="64"/>
-  <object id="342" name="focus" gid="7293" x="0" y="0" width="64" height="64"/>
+  <object id="341" name="move" gid="7295" x="0" y="0" width="64" height="64"/>
+  <object id="342" name="focus" gid="7296" x="0" y="0" width="64" height="64"/>
  </objectgroup>
 </map>
