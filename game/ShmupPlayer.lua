@@ -369,8 +369,16 @@ function ShmupPlayer:beginMove(dt)
 	end
 
 	if self.killed then
+		local haslives = levity.machine:call("hud", "hasLives")
+		if not haslives then
+			if self.deathtimer < ShmupPlayer.DeathTime
+			and self.deathtimer + dt >= ShmupPlayer.DeathTime then
+				levity.bank:changeMusic("33 - All Over Tonight.vgm", "emu")
+			end
+		end
+
 		self.deathtimer = self.deathtimer + dt
-		local respawn = self.deathtimer >= ShmupPlayer.DeathTime
+		local respawn = haslives and self.deathtimer >= ShmupPlayer.DeathTime
 
 		vx1 = 0
 		vy1 = 0

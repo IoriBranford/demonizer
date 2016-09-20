@@ -31,12 +31,16 @@ function ShmupStatus:npcCaptured()
 	self:updateBombs()
 end
 
+function ShmupStatus:hasLives()
+	return self.numlives > 0
+end
+
 function ShmupStatus:extendEarned()
 	self.numlives = self.numlives + 1
 	self:updateLives()
 end
 
-function ShmupStatus:playerKilled()
+function ShmupStatus:playerRespawned()
 	self.numlives = self.numlives - 1
 	self:updateLives()
 end
