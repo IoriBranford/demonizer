@@ -18,9 +18,11 @@ end)
 
 ShmupStatus.MaxLives = 9
 ShmupStatus.MaxBombs = 4
-ShmupStatus.PiecesPerBomb = 64
+ShmupStatus.PiecesPerBomb = 50
 ShmupStatus.MaxBombPieces = ShmupStatus.MaxBombs * ShmupStatus.PiecesPerBomb
-ShmupStatus.PiecesPerCaptivePerSec = 1/16
+--ShmupStatus.BombsPer100CaptivesPerSec = 1/32
+--ShmupStatus.BombsPerCaptivePerSec = 1/3200
+ShmupStatus.PiecesPerCaptivePerSec = 1/64
 
 function ShmupStatus:getScoreId()
 	return self.properties.scoreid
@@ -43,6 +45,10 @@ end
 function ShmupStatus:playerRespawned()
 	self.numlives = self.numlives - 1
 	self:updateLives()
+end
+
+function ShmupStatus:hasBombs()
+	return self.numbombpieces >= ShmupStatus.PiecesPerBomb
 end
 
 function ShmupStatus:playerBombed()

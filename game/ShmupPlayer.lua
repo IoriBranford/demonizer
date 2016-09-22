@@ -79,6 +79,7 @@ ShmupPlayer.BombShrapnelParams = {
 }
 ShmupPlayer.BombMaxTime = 2
 ShmupPlayer.BombParams = {
+	lifetime = 2,
 	speed = 0,
 	angle = 0,
 	damage = 8,
@@ -225,18 +226,13 @@ function ShmupPlayer:joystickchanged(button, pressed)
 	elseif button == 3 and pressed and not self.killed then
 		local params = ShmupPlayer.BombParams
 
-		local bombcost = levity.machine:call("hud", "getNextBombCost")
-		if bombcost >= ShmupStatus.PiecesPerBomb then
-			local lifetime = levity.machine:call("hud",
-					"scaleByBombCost", ShmupPlayer.BombMaxTime)
-
-			params.lifetime = lifetime
+		if levity.machine:call("hud", "hasBombs") then
 			params.x, params.y = self.object.body:getWorldCenter()
 			params.y = params.y - 128
 			ShmupBullet.create(params, self.object.layer)
 			levity.bank:play(Sounds.Bomb)
 			levity.bank:play(Sounds.Bomber)
-			levity.machine:broadcast("playerBombed", lifetime)
+			levity.machine:broadcast("playerBombed")
 		end
 	end
 end
