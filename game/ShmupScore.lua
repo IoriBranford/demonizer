@@ -13,7 +13,6 @@ local ShmupScore = class(function(self, id)
 	}
 
 	self.totalmultiplier = 0
-	self.multiplierholdtime = 0
 end)
 
 ShmupScore.MaxPoints = 999999999
@@ -79,10 +78,6 @@ function ShmupScore:npcCaptured(npcid, captorid, newallyindex)
 end
 
 function ShmupScore:npcDied(npcid)
-	if self.multiplierholdtime > 0 then
-		return
-	end
-
 	for who, mult in pairs(self.multipliers) do
 		self.multipliers[who] = 0
 	end
@@ -133,10 +128,6 @@ function ShmupScore:allyKilled(index)
 	self:multiplierLost(index)
 end
 
-function ShmupScore:playerBombed(bombtime)
-	self.multiplierholdtime = bombtime
-end
-
 function ShmupScore:getMultiplier(whose)
 	return self.multipliers[whose]
 end
@@ -147,15 +138,6 @@ end
 
 function ShmupScore:isMaxMultiplier(whose)
 	return self.multipliers[whose] == ShmupScore.MaxMultiplier
-end
-
-function ShmupScore:endMove(dt)
-	if self.multiplierholdtime > 0 then
-		self.multiplierholdtime = self.multiplierholdtime - dt
-		if self.multiplierholdtime <= 0 then
-			--nothing yet
-		end
-	end
 end
 
 function ShmupScore:beginDraw()
