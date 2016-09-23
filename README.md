@@ -20,6 +20,7 @@ Play with the keyboard, or a controller or mouse with three buttons. On keyboard
 - Press Button 3 to detonate a bomb in front of you, if you have enough bomb energy for one.
 	- The bomb blast damages enemies, blocks their fire, and sends capturable humans to you.
 	- Capture men to gain bomb energy, and hold onto them to slowly charge more bomb energy over time.
+- Press Escape key to pause the game. Click on an option with the mouse or press Escape key again to resume.
 
 ## Links
 
