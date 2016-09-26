@@ -17,7 +17,7 @@ local ShmupStatus = class(function(self, id)
 end)
 
 ShmupStatus.MaxLives = 9
-ShmupStatus.MaxBombs = 4
+ShmupStatus.MaxBombs = 3
 ShmupStatus.PiecesPerBomb = 50
 ShmupStatus.MaxBombPieces = ShmupStatus.MaxBombs * ShmupStatus.PiecesPerBomb
 --ShmupStatus.BombsPer100CaptivesPerSec = 1/32
@@ -74,8 +74,17 @@ function ShmupStatus:updateBombs()
 	local numbombpieces = self.numbombpieces
 	for i = 1, ShmupStatus.MaxBombs do
 		local bomb = self.elements["bomb"..i]
-		bomb.visible = numbombpieces >= ShmupStatus.PiecesPerBomb
-		--bomb.opacity = math.min(1, numbombpieces/ShmupStatus.PiecesPerBomb)
+		if not bomb then
+			break
+		end
+
+		bomb.visible = numbombpieces > 0
+
+		if bomb.visible then
+			local fill = math.min(1, numbombpieces / ShmupStatus.PiecesPerBomb)
+			levity.machine:call(bomb.id, "setFill", fill)
+		end
+
 		numbombpieces = numbombpieces - ShmupStatus.PiecesPerBomb
 	end
 end
