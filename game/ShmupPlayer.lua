@@ -112,6 +112,9 @@ ShmupPlayer.RespawnShieldTime = 3
 ShmupPlayer.DeathSnapToCameraVelocity = 1/16
 ShmupPlayer.AllyFleeDistance = 400
 ShmupPlayer.CaptivesReleasedOnKill = 10
+ShmupPlayer.Button_Fire = 1
+ShmupPlayer.Button_Focus = 2
+ShmupPlayer.Button_Bomb = 3
 
 local Sounds = {
 	Shot = "playershot.wav",
@@ -211,10 +214,10 @@ function ShmupPlayer:joystickaxis(joystick, axis, value)
 end
 
 function ShmupPlayer:joystickchanged(button, pressed)
-	if button == 1 and self.firing ~= pressed then
+	if button == ShmupPlayer.Button_Fire and self.firing ~= pressed then
 		self.firing = pressed
 		self.firetimer = 0
-	elseif button == 2 and self.focused ~= pressed then
+	elseif button == ShmupPlayer.Button_Focus and self.focused ~= pressed then
 		local lockspeedfactor = .5
 		if not pressed then
 			lockspeedfactor = 1/lockspeedfactor
@@ -223,7 +226,8 @@ function ShmupPlayer:joystickchanged(button, pressed)
 		self.focused = pressed
 		self.vx = self.vx * lockspeedfactor
 		self.vy = self.vy * lockspeedfactor
-	elseif button == 3 and pressed and not self.killed then
+	elseif button == ShmupPlayer.Button_Bomb and pressed
+	and not self.killed and not levity.mappaused then
 		local params = ShmupPlayer.BombParams
 
 		if levity.machine:call("hud", "hasBombs") then
@@ -265,11 +269,11 @@ function ShmupPlayer:keychanged(key, pressed)
 	elseif key == "right" then
 		self.vx = self.vx + speed
 	elseif key == "z" then
-		self:joystickchanged(1, pressed)
+		self:joystickchanged(ShmupPlayer.Button_Fire, pressed)
 	elseif key == "x" then
-		self:joystickchanged(2, pressed)
+		self:joystickchanged(ShmupPlayer.Button_Focus, pressed)
 	elseif key == "c" then
-		self:joystickchanged(3, pressed)
+		self:joystickchanged(ShmupPlayer.Button_Bomb, pressed)
 	end
 end
 

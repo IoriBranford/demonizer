@@ -1,4 +1,5 @@
 local levity = require "levity"
+local ShmupPlayer = levity.machine:requireScript("ShmupPlayer")
 
 local ShmupTouchControls = class(function(self, id)
 	self.layer = levity.map.layers[id]
@@ -43,7 +44,8 @@ function ShmupTouchControls:touchpressed(touch, x, y, dx, dy)
 		self:updateMarker(self.focusmarker, x, y)
 	elseif not self.bombtouch then
 		self.bombtouch = touch
-		levity.machine:call(self.playerid, "joystickchanged", 3, true)
+		levity.machine:call(self.playerid, "joystickchanged",
+					ShmupPlayer.Button_Bomb, true)
 	end
 end
 
