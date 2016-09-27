@@ -287,11 +287,9 @@ function ShmupNPC:capture(captorid)
 
 	self.captured = true
 	local playerid = levity.map.properties.playerid
-	local roomforallies = levity.machine:call(playerid, "roomForAllies")
-	local converted = roomforallies and self.female
 
 	local newallyindex
-	if converted then
+	if self.female then
 		newallyindex = ShmupAlly.create(
 				levity:getTileGid(self.object.tile.tileset,
 							"up", self.npctype),

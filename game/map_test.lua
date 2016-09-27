@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 463,
+  nextobjectid = 478,
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
@@ -1130,7 +1130,7 @@ return {
       spacing = 0,
       margin = 0,
       image = "hud_icons.png",
-      imagewidth = 16,
+      imagewidth = 32,
       imageheight = 32,
       tileoffset = {
         x = 0,
@@ -1138,12 +1138,12 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 2,
+      tilecount = 4,
       tiles = {}
     },
     {
       name = "bombgauge",
-      firstgid = 7311,
+      firstgid = 7313,
       filename = "bombgauge.tsx",
       tilewidth = 16,
       tileheight = 32,
@@ -1235,7 +1235,7 @@ return {
     },
     {
       name = "touchmarkers",
-      firstgid = 7327,
+      firstgid = 7329,
       filename = "touchmarkers.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -4462,6 +4462,186 @@ return {
           properties = {
             ["script"] = "LinearPath"
           }
+        },
+        {
+          id = 468,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 51,
+          y = 1874,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 302,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.5,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 469,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 47,
+          y = 1856,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 302,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.5,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 470,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 74,
+          y = 1847,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 302,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.5,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 471,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 125,
+          y = 1870,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 302,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.5,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 472,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 153,
+          y = 1906,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 302,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.5,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 473,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 1903,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 302,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.5,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 474,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 232,
+          y = 1862,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 302,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.5,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 475,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 154,
+          y = 1839,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 302,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.5,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 476,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 121,
+          y = 1826,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 302,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.5,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 477,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 211,
+          y = 1808,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 302,
+          visible = true,
+          properties = {
+            ["pathid"] = 86,
+            ["pathtime"] = 0.5,
+            ["script"] = "ShmupNPC"
+          }
         }
       }
     },
@@ -4683,7 +4863,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 7311,
+          gid = 7313,
           visible = true,
           properties = {
             ["script"] = "GaugeBomb"
@@ -4699,7 +4879,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 7311,
+          gid = 7313,
           visible = true,
           properties = {
             ["script"] = "GaugeBomb"
@@ -4715,10 +4895,55 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 7311,
+          gid = 7313,
           visible = true,
           properties = {
             ["script"] = "GaugeBomb"
+          }
+        },
+        {
+          id = 466,
+          name = "wingleft",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 48,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7311,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 467,
+          name = "wingright",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 48,
+          width = 16,
+          height = 16,
+          rotation = 0,
+          gid = 7312,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 464,
+          name = "reserves",
+          type = "",
+          shape = "rectangle",
+          x = 8,
+          y = 36,
+          width = 16,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["text"] = "0",
+            ["textalign"] = "center",
+            ["textfont"] = "pressstart2p.fnt"
           }
         }
       }
@@ -4745,7 +4970,7 @@ return {
           width = 208,
           height = 16,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["text"] = "Paused",
             ["textalign"] = "center",
@@ -4830,7 +5055,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 7327,
+          gid = 7329,
           visible = true,
           properties = {}
         },
@@ -4844,7 +5069,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 7328,
+          gid = 7330,
           visible = true,
           properties = {}
         }

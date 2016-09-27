@@ -116,6 +116,10 @@ ShmupPlayer.Button_Fire = 1
 ShmupPlayer.Button_Focus = 2
 ShmupPlayer.Button_Bomb = 3
 
+function ShmupPlayer.isActiveAllyIndex(i)
+	return 0 < i and i <= ShmupPlayer.MaxAllies
+end
+
 local Sounds = {
 	Shot = "playershot.wav",
 	Bomber = "bomber.wav",
@@ -145,12 +149,17 @@ function ShmupPlayer:roomForAllies()
 end
 
 function ShmupPlayer:newAllyIndex()
-	self.numallies = self.numallies + 1
-	return self.numallies
+	local newindex = self.numallies + 1
+	if newindex <= ShmupPlayer.MaxAllies then
+		self.numallies = newindex
+	end
+	return newindex
 end
 
-function ShmupPlayer:allyKilled(allyindex)
-	self.numallies = self.numallies - 1
+function ShmupPlayer:allyKilled(allyindex, hasreserves)
+	if not hasreserves then
+		self.numallies = self.numallies - 1
+	end
 end
 
 function ShmupPlayer:getAllyPosition(i)

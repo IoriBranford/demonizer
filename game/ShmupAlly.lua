@@ -67,7 +67,7 @@ ShmupAlly.BulletParams = {
 	category = ShmupCollision.Category_PlayerShot
 }
 ShmupAlly.ConvertTime = 1
-ShmupAlly.ConvertShake = 4
+ShmupAlly.ConvertShake = 1
 ShmupAlly.LockSearchWidth = 120
 ShmupAlly.LockSearchHeight = 160
 ShmupAlly.UnfocusedHealRate = 1
@@ -87,7 +87,8 @@ function ShmupAlly:kill()
 	end
 
 	levity.bank:play(Sounds.Death)
-	levity.machine:broadcast("allyKilled", self.properties.allyindex)
+	levity.machine:broadcast("allyKilled", self.properties.allyindex,
+		levity.machine:call("hud", "hasReserves"))
 end
 
 function ShmupAlly:heal(healing)
@@ -108,8 +109,10 @@ function ShmupAlly:npcCaptured(npcid)
 	end
 end
 
-function ShmupAlly:allyKilled(allyindex)
-	if self.properties.allyindex > allyindex then
+function ShmupAlly:allyKilled(allyindex, hasreserves)
+	if hasreserves then
+		--
+	elseif self.properties.allyindex > allyindex then
 		self.properties.allyindex = self.properties.allyindex - 1
 	end
 end
@@ -158,7 +161,9 @@ function ShmupAlly:playerKilled()
 end
 
 function ShmupAlly:playerRespawned()
-	self:refreshFixtures(EnableCaptureMask)
+	if ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
+		self:refreshFixtures(EnableCaptureMask)
+	end
 end
 
 function ShmupAlly:updateConversion(dt)
@@ -171,7 +176,9 @@ function ShmupAlly:updateConversion(dt)
 		local gid = levity:getTileGid("demonwomen", self.npctype, 0)
 		levity:setObjectGid(self.object, gid)
 
-		self:refreshFixtures(EnableCaptureMask)
+		if ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
+			self:refreshFixtures(EnableCaptureMask)
+		end
 	end
 end
 
@@ -264,15 +271,23 @@ function ShmupAlly:beginMove(dt)
 
 	if captive then
 		destx, desty = captive.body:getWorldCenter()
-	else
+	elseif ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
 		destx, desty = levity.machine:call(playerid, "getAllyPosition",
 						self.properties.allyindex)
 		self.targetcaptiveid = nil
-	end
 
-	if self.convertobject then
-		desty = desty + ShmupAlly.ConvertShake*self.converttimer
+		if self.convertobject then
+			desty = desty + ShmupAlly.ConvertShake--*self.converttimer
 				*math.sin(self.converttimer * 60)
+		end
+	else
+		destx, desty = self.object.body:getWorldCenter()
+		if self.convertobject then
+			desty = desty + ShmupAlly.ConvertShake--*self.converttimer
+				*math.sin(self.converttimer * 60)
+		else
+			desty = desty + ShmupAlly.Speed
+		end
 	end
 
 	local dx, dy = destx - cx, desty - cy
@@ -304,6 +319,14 @@ function ShmupAlly:endMove(dt)
 	if self.convertobject then
 		local x, y = self.object.body:getPosition()
 		self.convertobject.body:setPosition(x, y + 1/64)
+	elseif not self.oncamera then
+		if not ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
+			levity.machine:broadcast("allyReserved", self.object.gid)
+			levity:discardObject(self.object.id)
+			if self.convertobject then
+				levity:discardObject(self.convertobject.id)
+			end
+		end
 	end
 end
 
@@ -332,15 +355,18 @@ function ShmupAlly:endDraw()
 	love.graphics.setColor(0xff, 0xff, 0xff)
 end
 
-function ShmupAlly.create(gid, x, y)
+function ShmupAlly.create(gid, x, y, allyindex)
 	local playerid = levity.map.properties.playerid
-	local allyindex = levity.machine:call(playerid, "newAllyIndex")
+	local convertobject
+	if not allyindex then
+		convertobject = {
+			gid = levity:getTileGid("demonizing", 0, 0),
+			x = x,
+			y = y
+		}
+	end
 
-	local convertobject = {
-		gid = levity:getTileGid("demonizing", 0, 0),
-		x = x,
-		y = y
-	}
+	allyindex = allyindex or levity.machine:call(playerid, "newAllyIndex")
 
 	local ally = {
 		gid = gid,
