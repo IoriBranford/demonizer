@@ -8,7 +8,7 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 459,
+  nextobjectid = 463,
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
@@ -1142,48 +1142,26 @@ return {
       tiles = {}
     },
     {
-      name = "touchmarkers",
-      firstgid = 7311,
-      filename = "touchmarkers.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "touchmarkers.png",
-      imagewidth = 128,
-      imageheight = 64,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 2,
-      tiles = {}
-    },
-    {
       name = "bombgauge",
-      firstgid = 7313,
+      firstgid = 7311,
       filename = "bombgauge.tsx",
-      tilewidth = 8,
+      tilewidth = 16,
       tileheight = 32,
       spacing = 0,
       margin = 0,
       image = "bombgauge.png",
-      imagewidth = 32,
-      imageheight = 32,
+      imagewidth = 128,
+      imageheight = 64,
       tileoffset = {
         x = 0,
         y = 0
       },
       properties = {
-        ["column_fill"] = 1,
-        ["column_flash"] = 2,
-        ["column_full"] = 3,
-        ["column_shell"] = 0
+        ["row_full"] = 1,
+        ["row_notfull"] = 0
       },
       terrains = {},
-      tilecount = 4,
+      tilecount = 16,
       tiles = {
         {
           id = 0,
@@ -1202,14 +1180,14 @@ return {
                 name = "fill",
                 type = "",
                 shape = "rectangle",
-                x = 3,
-                y = 5,
-                width = 2,
-                height = 22,
+                x = 6,
+                y = 4,
+                width = 4,
+                height = 24,
                 rotation = 0,
                 visible = true,
                 properties = {
-                  ["color"] = "#ff4b79f1",
+                  ["color"] = "#ffaadfff",
                   ["direction"] = "up"
                 }
               }
@@ -1217,51 +1195,63 @@ return {
           }
         },
         {
-          id = 2,
+          id = 8,
           animation = {
             {
-              tileid = "2",
-              duration = "33"
+              tileid = "8",
+              duration = "100"
             },
             {
-              tileid = "3",
-              duration = "33"
+              tileid = "9",
+              duration = "100"
             },
             {
-              tileid = "2",
-              duration = "33"
+              tileid = "10",
+              duration = "100"
             },
             {
-              tileid = "3",
-              duration = "33"
+              tileid = "11",
+              duration = "100"
             },
             {
-              tileid = "2",
-              duration = "33"
+              tileid = "12",
+              duration = "100"
             },
             {
-              tileid = "3",
-              duration = "33"
+              tileid = "13",
+              duration = "100"
             },
             {
-              tileid = "2",
-              duration = "33"
+              tileid = "14",
+              duration = "100"
             },
             {
-              tileid = "3",
-              duration = "33"
-            },
-            {
-              tileid = "2",
-              duration = "33"
-            },
-            {
-              tileid = "3",
-              duration = "33"
+              tileid = "15",
+              duration = "100"
             }
           }
         }
       }
+    },
+    {
+      name = "touchmarkers",
+      firstgid = 7327,
+      filename = "touchmarkers.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "touchmarkers.png",
+      imagewidth = 128,
+      imageheight = 64,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {}
     }
   },
   layers = {
@@ -4684,51 +4674,51 @@ return {
           properties = {}
         },
         {
-          id = 450,
+          id = 460,
           name = "bomb1",
           type = "",
           shape = "rectangle",
           x = 0,
           y = 320,
-          width = 8,
+          width = 16,
           height = 32,
           rotation = 0,
-          gid = 7313,
+          gid = 7311,
           visible = true,
           properties = {
-            ["script"] = "UIGauge"
+            ["script"] = "GaugeBomb"
           }
         },
         {
-          id = 451,
+          id = 461,
           name = "bomb2",
-          type = "",
-          shape = "rectangle",
-          x = 8,
-          y = 320,
-          width = 8,
-          height = 32,
-          rotation = 0,
-          gid = 7313,
-          visible = true,
-          properties = {
-            ["script"] = "UIGauge"
-          }
-        },
-        {
-          id = 452,
-          name = "bomb3",
           type = "",
           shape = "rectangle",
           x = 16,
           y = 320,
-          width = 8,
+          width = 16,
           height = 32,
           rotation = 0,
-          gid = 7313,
+          gid = 7311,
           visible = true,
           properties = {
-            ["script"] = "UIGauge"
+            ["script"] = "GaugeBomb"
+          }
+        },
+        {
+          id = 462,
+          name = "bomb3",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 320,
+          width = 16,
+          height = 32,
+          rotation = 0,
+          gid = 7311,
+          visible = true,
+          properties = {
+            ["script"] = "GaugeBomb"
           }
         }
       }
@@ -4840,7 +4830,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 7311,
+          gid = 7327,
           visible = true,
           properties = {}
         },
@@ -4854,7 +4844,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 7312,
+          gid = 7328,
           visible = true,
           properties = {}
         }

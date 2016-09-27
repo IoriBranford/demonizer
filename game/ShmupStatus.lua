@@ -24,12 +24,31 @@ ShmupStatus.MaxBombPieces = ShmupStatus.MaxBombs * ShmupStatus.PiecesPerBomb
 --ShmupStatus.BombsPerCaptivePerSec = 1/3200
 ShmupStatus.PiecesPerCaptivePerSec = 1/64
 
+local Sounds = {
+	Maxed = "maxed.wav",
+	BombUp = "thankyou.wav"
+}
+levity.bank:load(Sounds)
+
 function ShmupStatus:getScoreId()
 	return self.properties.scoreid
 end
 
+function ShmupStatus:addBombPieces(addpieces)
+	local newpieces = math.min(self.numbombpieces + addpieces,
+					ShmupStatus.MaxBombPieces)
+
+	if math.floor(self.numbombpieces / ShmupStatus.PiecesPerBomb)
+	< math.floor(newpieces / ShmupStatus.PiecesPerBomb) then
+		levity.bank:play(Sounds.Maxed)
+		levity.bank:play(Sounds.BombUp)
+	end
+
+	self.numbombpieces = newpieces
+end
+
 function ShmupStatus:npcCaptured()
-	self.numbombpieces = math.min(self.numbombpieces + 1, ShmupStatus.MaxBombPieces)
+	self:addBombPieces(1)
 	self:updateBombs()
 end
 
@@ -92,9 +111,8 @@ end
 function ShmupStatus:beginMove(dt)
 	local totalmultiplier = levity.machine:call(self.elements.score.id,
 							"getTotalMultiplier")
-	self.numbombpieces = math.min(ShmupStatus.MaxBombPieces,
-		self.numbombpieces
-		+ totalmultiplier*ShmupStatus.PiecesPerCaptivePerSec*dt)
+
+	self:addBombPieces(totalmultiplier*ShmupStatus.PiecesPerCaptivePerSec*dt)
 	self:updateBombs()
 end
 

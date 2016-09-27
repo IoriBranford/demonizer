@@ -3,6 +3,10 @@ local levity = require "levity"
 local UIGauge = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.fillrect = self.object
+	for _, fixture in ipairs(self.object.body:getFixtureList()) do
+		fixture:destroy()
+	end
+	self.object.body:getUserData().fixtures = nil
 
 	if self.object.tile then
 		local objectgroup = self.object.tile.objectGroup
@@ -22,7 +26,7 @@ local UIGauge = class(function(self, id)
 		or self.fillrect.properties.color
 		or "#ffffffff"
 
-	local _, _, a, r, g, b = string.find(color, "#(%x%x)(%x%x)(%x%x)(%x%x)")
+	local a, r, g, b = string.match(color, "#(%x%x)(%x%x)(%x%x)(%x%x)")
 	self.a = tonumber("0x"..a)
 	self.r = tonumber("0x"..r)
 	self.g = tonumber("0x"..g)
@@ -45,8 +49,10 @@ function UIGauge:setFill(fill)
 
 	if self.direction == "left" then
 		self.x = self.x + self.w*(1 - self.fill)
+		self.w = self.w*self.fill
 	elseif self.direction == "up" then
 		self.y = self.y + self.h*(1 - self.fill)
+		self.h = self.h*self.fill
 	elseif self.direction == "right" then
 		self.w = self.w*self.fill
 	else
