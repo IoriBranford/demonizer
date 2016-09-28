@@ -57,19 +57,17 @@ function ShmupStatus:npcCaptured()
 	self:updateBombs()
 end
 
-function ShmupStatus:allyReserved(allygid)
-	if #self.reservegids < ShmupStatus.MaxReserves then
-		self.reservegids[#self.reservegids + 1] = allygid
-		self:updateReserves()
-	end
+function ShmupStatus:allyReserved(allyindex, allygid)
+	self.reservegids[#self.reservegids + 1] = allygid
+	self:updateReserves()
 end
 
 function ShmupStatus:hasReserves()
 	return #self.reservegids > 0
 end
 
-function ShmupStatus:allyKilled(allyindex, hasreserves)
-	if self:hasReserves() then
+function ShmupStatus:allyKilled(allyindex, replaced)
+	if replaced then
 		local allygid = self.reservegids[#self.reservegids]
 
 		local camera = levity.map.objects[levity.map.properties.cameraid]

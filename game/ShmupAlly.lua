@@ -67,7 +67,7 @@ ShmupAlly.BulletParams = {
 	category = ShmupCollision.Category_PlayerShot
 }
 ShmupAlly.ConvertTime = 1
-ShmupAlly.ConvertShake = 1
+ShmupAlly.ConvertShake = 2
 ShmupAlly.LockSearchWidth = 120
 ShmupAlly.LockSearchHeight = 160
 ShmupAlly.UnfocusedHealRate = 1
@@ -109,11 +109,23 @@ function ShmupAlly:npcCaptured(npcid)
 	end
 end
 
-function ShmupAlly:allyKilled(allyindex, hasreserves)
-	if hasreserves then
+function ShmupAlly:allyReserved(allyindex, allygid)
+	if self.properties.allyindex > allyindex then
+		self.properties.allyindex = self.properties.allyindex - 1
+		if ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
+			self:refreshFixtures(EnableCaptureMask)
+		end
+	end
+end
+
+function ShmupAlly:allyKilled(allyindex, replaced)
+	if replaced then
 		--
 	elseif self.properties.allyindex > allyindex then
 		self.properties.allyindex = self.properties.allyindex - 1
+		if ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
+			self:refreshFixtures(EnableCaptureMask)
+		end
 	end
 end
 
@@ -321,7 +333,9 @@ function ShmupAlly:endMove(dt)
 		self.convertobject.body:setPosition(x, y + 1/64)
 	elseif not self.oncamera then
 		if not ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
-			levity.machine:broadcast("allyReserved", self.object.gid)
+			levity.machine:broadcast("allyReserved",
+						self.properties.allyindex,
+						self.object.gid)
 			levity:discardObject(self.object.id)
 			if self.convertobject then
 				levity:discardObject(self.convertobject.id)
@@ -364,9 +378,9 @@ function ShmupAlly.create(gid, x, y, allyindex)
 			x = x,
 			y = y
 		}
-	end
 
-	allyindex = allyindex or levity.machine:call(playerid, "newAllyIndex")
+		allyindex = levity.machine:call(playerid, "newAllyIndex")
+	end
 
 	local ally = {
 		gid = gid,

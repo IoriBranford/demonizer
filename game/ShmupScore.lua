@@ -42,9 +42,7 @@ end
 
 function ShmupScore:npcCaptured(npcid, captorid, newallyindex)
 	if newallyindex then
-		if ShmupPlayer.isActiveAllyIndex(newallyindex) then
-			self.multipliers[newallyindex] = 0
-		end
+		self.multipliers[newallyindex] = 0
 		return
 	end
 
@@ -105,11 +103,11 @@ function ShmupScore:multiplierInc(whose)
 	end
 end
 
-function ShmupScore:multiplierLost(whose, hasreserves)
+function ShmupScore:multiplierLost(whose, replaced)
 	local lostmult = self.multipliers[whose]
 	self.totalmultiplier = self.totalmultiplier - lostmult
 	if type(whose) == "number" then
-		if hasreserves then
+		if replaced then
 			self.multipliers[whose] = 0
 		else
 			for i = whose, #self.multipliers - 1 do
@@ -130,8 +128,12 @@ function ShmupScore:playerRespawned()
 	self.multipliers.player = 0
 end
 
-function ShmupScore:allyKilled(index, hasreserves)
-	self:multiplierLost(index, hasreserves)
+function ShmupScore:allyReserved(index, gid)
+	self:multiplierLost(index, false)
+end
+
+function ShmupScore:allyKilled(index, replaced)
+	self:multiplierLost(index, replaced)
 end
 
 function ShmupScore:getMultiplier(whose)

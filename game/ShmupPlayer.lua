@@ -150,14 +150,16 @@ end
 
 function ShmupPlayer:newAllyIndex()
 	local newindex = self.numallies + 1
-	if newindex <= ShmupPlayer.MaxAllies then
-		self.numallies = newindex
-	end
+	self.numallies = newindex
 	return newindex
 end
 
-function ShmupPlayer:allyKilled(allyindex, hasreserves)
-	if not hasreserves then
+function ShmupPlayer:allyReserved(allyindex, allygid)
+	self.numallies = self.numallies - 1
+end
+
+function ShmupPlayer:allyKilled(allyindex, replaced)
+	if not replaced then
 		self.numallies = self.numallies - 1
 	end
 end
