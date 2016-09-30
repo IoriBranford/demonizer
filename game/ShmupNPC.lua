@@ -293,7 +293,7 @@ function ShmupNPC:capture(captorid)
 		newallyindex = ShmupAlly.create(
 				levity:getTileGid(self.object.tile.tileset,
 							"up", self.npctype),
-				self.object.x, self.object.y)
+				self.object.x, self.object.y, true)
 
 		levity.bank:play(Sounds.Convert)
 	end

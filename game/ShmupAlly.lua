@@ -87,8 +87,7 @@ function ShmupAlly:kill()
 	end
 
 	levity.bank:play(Sounds.Death)
-	levity.machine:broadcast("allyKilled", self.properties.allyindex,
-		levity.machine:call("hud", "hasReserves"))
+	levity.machine:broadcast("allyKilled", self.properties.allyindex)
 end
 
 function ShmupAlly:heal(healing)
@@ -118,10 +117,8 @@ function ShmupAlly:allyReserved(allyindex, allygid)
 	end
 end
 
-function ShmupAlly:allyKilled(allyindex, replaced)
-	if replaced then
-		--
-	elseif self.properties.allyindex > allyindex then
+function ShmupAlly:allyKilled(allyindex)
+	if self.properties.allyindex > allyindex then
 		self.properties.allyindex = self.properties.allyindex - 1
 		if ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
 			self:refreshFixtures(EnableCaptureMask)
@@ -369,19 +366,18 @@ function ShmupAlly:endDraw()
 	love.graphics.setColor(0xff, 0xff, 0xff)
 end
 
-function ShmupAlly.create(gid, x, y, allyindex)
+function ShmupAlly.create(gid, x, y, converted)
 	local playerid = levity.map.properties.playerid
 	local convertobject
-	if not allyindex then
+	if converted then
 		convertobject = {
 			gid = levity:getTileGid("demonizing", 0, 0),
 			x = x,
 			y = y
 		}
-
-		allyindex = levity.machine:call(playerid, "newAllyIndex")
 	end
 
+	local allyindex = levity.machine:call(playerid, "newAllyIndex")
 	local ally = {
 		gid = gid,
 		x = x,

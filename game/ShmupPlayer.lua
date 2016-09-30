@@ -158,10 +158,8 @@ function ShmupPlayer:allyReserved(allyindex, allygid)
 	self.numallies = self.numallies - 1
 end
 
-function ShmupPlayer:allyKilled(allyindex, replaced)
-	if not replaced then
-		self.numallies = self.numallies - 1
-	end
+function ShmupPlayer:allyKilled(allyindex)
+	self.numallies = self.numallies - 1
 end
 
 function ShmupPlayer:getAllyPosition(i)

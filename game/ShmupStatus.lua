@@ -66,24 +66,6 @@ function ShmupStatus:hasReserves()
 	return #self.reservegids > 0
 end
 
-function ShmupStatus:allyKilled(allyindex, replaced)
-	if replaced then
-		local allygid = self.reservegids[#self.reservegids]
-
-		local camera = levity.map.objects[levity.map.properties.cameraid]
-		local x, y = camera.body:getWorldCenter()
-		for _, fixture in ipairs(camera.body:getFixtureList()) do
-			local _, _, _, b = fixture:getBoundingBox()
-			y = math.max(y, b)
-		end
-
-		ShmupAlly.create(allygid, x, y, allyindex)
-
-		self.reservegids[#self.reservegids] = nil
-		self:updateReserves()
-	end
-end
-
 function ShmupStatus:hasLives()
 	return self.numlives > 0
 end
@@ -150,6 +132,28 @@ function ShmupStatus:beginMove(dt)
 
 	self:addBombPieces(totalmultiplier*ShmupStatus.PiecesPerCaptivePerSec*dt)
 	self:updateBombs()
+
+	local playerid = levity.map.properties.playerid
+
+	if self:hasReserves()
+	and levity.machine:call(playerid, "roomForAllies") then
+		local allygid = self.reservegids[#self.reservegids]
+
+		local camera = levity.map.objects[levity.map.properties.cameraid]
+		local x, y = camera.body:getWorldCenter()
+		for _, fixture in ipairs(camera.body:getFixtureList()) do
+			local _, _, _, b = fixture:getBoundingBox()
+			y = math.max(y, b)
+		end
+
+		local allyindex = ShmupAlly.create(allygid, x, y, false)
+
+		self.reservegids[#self.reservegids] = nil
+		self:updateReserves()
+
+		local scoreid = levity.machine:call("hud", "getScoreId")
+		levity.machine:call(scoreid, "reserveDeployed", allyindex)
+	end
 end
 
 function ShmupStatus:beginDraw()
