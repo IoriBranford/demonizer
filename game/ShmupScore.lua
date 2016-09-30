@@ -9,7 +9,7 @@ local ShmupScore = class(function(self, id)
 	self.points = 0
 	self.extendpoints = 2000000
 	self.multipliers = {
-		player = 0
+		[levity.map.properties.playerid] = 0
 	}
 
 	self.totalmultiplier = 0
@@ -40,24 +40,12 @@ function ShmupScore:getNextCapturePoints()
 	return ShmupScore.BaseCapturePoints * self.totalmultiplier
 end
 
-function ShmupScore:reserveDeployed(newallyindex)
-	self.multipliers[newallyindex] = 0
+function ShmupScore:allyJoined(newallyid)
+	self.multipliers[newallyid] = 0
 end
 
-function ShmupScore:npcCaptured(npcid, captorid, newallyindex)
-	if newallyindex then
-		self.multipliers[newallyindex] = 0
-		return
-	end
-
-	if captorid == levity.map.properties.playerid then
-		self:multiplierInc("player")
-	else
-		local allyindex = levity.machine:call(captorid, "getAllyIndex")
-		if allyindex then
-			self:multiplierInc(allyindex)
-		end
-	end
+function ShmupScore:npcCaptured(npcid, captorid)
+	self:multiplierInc(captorid)
 
 	local points = self:getNextCapturePoints()
 	local npc = levity.map.objects[npcid]
@@ -82,70 +70,63 @@ function ShmupScore:npcCaptured(npcid, captorid, newallyindex)
 end
 
 function ShmupScore:npcDied(npcid)
-	for who, mult in pairs(self.multipliers) do
-		self.multipliers[who] = 0
+	for id, mult in pairs(self.multipliers) do
+		self.multipliers[id] = 0
 	end
 	self.totalmultiplier = 0
 
 end
 
-function ShmupScore:multiplierInc(whose)
-	if self.multipliers[whose] < ShmupScore.MaxMultiplier then
-		self.multipliers[whose] = self.multipliers[whose] + 1
+function ShmupScore:multiplierInc(id)
+	if self.multipliers[id] < ShmupScore.MaxMultiplier then
+		self.multipliers[id] = self.multipliers[id] + 1
 		self.totalmultiplier = self.totalmultiplier + 1
-		if self:isMaxMultiplier(whose) then
+		if self:isMaxMultiplier(id) then
 			levity.bank:play(Sounds.Maxed)
 			levity.bank:play(Sounds.Powerup)
 		end
 	else
-		for who, mult in pairs(self.multipliers) do
+		for oid, mult in pairs(self.multipliers) do
 			if mult < ShmupScore.MaxMultiplier then
-				self:multiplierInc(who)
+				self:multiplierInc(oid)
 				break
 			end
 		end
 	end
 end
 
-function ShmupScore:multiplierLost(whose)
-	local lostmult = self.multipliers[whose]
+function ShmupScore:multiplierLost(id)
+	local lostmult = self.multipliers[id]
 	self.totalmultiplier = self.totalmultiplier - lostmult
-	if type(whose) == "number" then
-		for i = whose, #self.multipliers - 1 do
-			self.multipliers[i] = self.multipliers[i + 1]
-		end
-		self.multipliers[#self.multipliers] = nil
-	else
-		self.multipliers[whose] = nil
-	end
+	self.multipliers[id] = nil
 end
 
 function ShmupScore:playerKilled()
-	self:multiplierLost("player")
+	self:multiplierLost(levity.map.properties.playerid)
 end
 
 function ShmupScore:playerRespawned()
-	self.multipliers.player = 0
+	self.multipliers[levity.map.properties.playerid] = 0
 end
 
-function ShmupScore:allyReserved(index, gid)
-	self:multiplierLost(index)
+function ShmupScore:allyReserved(id, gid)
+	self:multiplierLost(id)
 end
 
-function ShmupScore:allyKilled(index)
-	self:multiplierLost(index)
+function ShmupScore:allyKilled(id)
+	self:multiplierLost(id)
 end
 
-function ShmupScore:getMultiplier(whose)
-	return self.multipliers[whose]
+function ShmupScore:getMultiplier(id)
+	return self.multipliers[id]
 end
 
 function ShmupScore:getTotalMultiplier()
 	return self.totalmultiplier
 end
 
-function ShmupScore:isMaxMultiplier(whose)
-	return self.multipliers[whose] == ShmupScore.MaxMultiplier
+function ShmupScore:isMaxMultiplier(id)
+	return self.multipliers[id] == ShmupScore.MaxMultiplier
 end
 
 function ShmupScore:beginDraw()

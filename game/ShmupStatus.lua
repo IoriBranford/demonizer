@@ -57,7 +57,7 @@ function ShmupStatus:npcCaptured()
 	self:updateBombs()
 end
 
-function ShmupStatus:allyReserved(allyindex, allygid)
+function ShmupStatus:allyReserved(allyid, allygid)
 	self.reservegids[#self.reservegids + 1] = allygid
 	self:updateReserves()
 end
@@ -146,13 +146,13 @@ function ShmupStatus:beginMove(dt)
 			y = math.max(y, b)
 		end
 
-		local allyindex = ShmupAlly.create(allygid, x, y, false)
+		local allyid = ShmupAlly.create(allygid, x, y, false)
 
 		self.reservegids[#self.reservegids] = nil
 		self:updateReserves()
 
 		local scoreid = levity.machine:call("hud", "getScoreId")
-		levity.machine:call(scoreid, "reserveDeployed", allyindex)
+		levity.machine:call(scoreid, "allyJoined", allyid)
 	end
 end
 

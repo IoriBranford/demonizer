@@ -28,6 +28,8 @@ local ShmupAlly = class(function(self, id)
 
 	self:refreshFixtures(DisableCaptureMask)
 
+	local playerid = levity.map.properties.playerid
+	self.allyindex = levity.machine:call(playerid, "newAllyIndex")
 	self.convertobject = self.properties.convertobject
 	self.properties.convertobject = nil
 	self.converttimer = 0
@@ -87,7 +89,7 @@ function ShmupAlly:kill()
 	end
 
 	levity.bank:play(Sounds.Death)
-	levity.machine:broadcast("allyKilled", self.properties.allyindex)
+	levity.machine:broadcast("allyKilled", self.object.id)
 end
 
 function ShmupAlly:heal(healing)
@@ -108,26 +110,22 @@ function ShmupAlly:npcCaptured(npcid)
 	end
 end
 
-function ShmupAlly:allyReserved(allyindex, allygid)
-	if self.properties.allyindex > allyindex then
-		self.properties.allyindex = self.properties.allyindex - 1
-		if ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
-			self:refreshFixtures(EnableCaptureMask)
-		end
-	end
+function ShmupAlly:allyReserved(allyid, allygid)
+	self:allyKilled(allyid)
 end
 
-function ShmupAlly:allyKilled(allyindex)
-	if self.properties.allyindex > allyindex then
-		self.properties.allyindex = self.properties.allyindex - 1
-		if ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
+function ShmupAlly:allyKilled(allyid)
+	local allyindex = levity.machine:call(allyid, "getAllyIndex")
+	if self.allyindex > allyindex then
+		self.allyindex = self.allyindex - 1
+		if ShmupPlayer.isActiveAllyIndex(self.allyindex) then
 			self:refreshFixtures(EnableCaptureMask)
 		end
 	end
 end
 
 function ShmupAlly:getAllyIndex()
-	return self.properties.allyindex
+	return self.allyindex
 end
 
 function ShmupAlly:beginContact(myfixture, otherfixture, contact)
@@ -170,7 +168,7 @@ function ShmupAlly:playerKilled()
 end
 
 function ShmupAlly:playerRespawned()
-	if ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
+	if ShmupPlayer.isActiveAllyIndex(self.allyindex) then
 		self:refreshFixtures(EnableCaptureMask)
 	end
 end
@@ -185,7 +183,7 @@ function ShmupAlly:updateConversion(dt)
 		local gid = levity:getTileGid("demonwomen", self.npctype, 0)
 		levity:setObjectGid(self.object, gid)
 
-		if ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
+		if ShmupPlayer.isActiveAllyIndex(self.allyindex) then
 			self:refreshFixtures(EnableCaptureMask)
 		end
 	end
@@ -268,7 +266,7 @@ function ShmupAlly:beginMove(dt)
 	local focused = levity.machine:call(playerid, "isFocused")
 	if focused then
 		if not self.convertobject
-		and levity.machine:call(scoreid, "isMaxMultiplier", self.properties.allyindex) then
+		and levity.machine:call(scoreid, "isMaxMultiplier", self.allyindex) then
 			if not self.targetcaptiveid then
 				self.targetcaptiveid = self:findTarget("canBeCaptured")
 			end
@@ -280,9 +278,9 @@ function ShmupAlly:beginMove(dt)
 
 	if captive then
 		destx, desty = captive.body:getWorldCenter()
-	elseif ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
+	elseif ShmupPlayer.isActiveAllyIndex(self.allyindex) then
 		destx, desty = levity.machine:call(playerid, "getAllyPosition",
-						self.properties.allyindex)
+						self.allyindex)
 		self.targetcaptiveid = nil
 
 		if self.convertobject then
@@ -329,9 +327,9 @@ function ShmupAlly:endMove(dt)
 		local x, y = self.object.body:getPosition()
 		self.convertobject.body:setPosition(x, y + 1/64)
 	elseif not self.oncamera then
-		if not ShmupPlayer.isActiveAllyIndex(self.properties.allyindex) then
+		if not ShmupPlayer.isActiveAllyIndex(self.allyindex) then
 			levity.machine:broadcast("allyReserved",
-						self.properties.allyindex,
+						self.object.id,
 						self.object.gid)
 			levity:discardObject(self.object.id)
 			if self.convertobject then
@@ -355,7 +353,7 @@ function ShmupAlly:beginDraw()
 	local scoreid = levity.machine:call("hud", "getScoreId")
 	if scoreid then
 		self.properties.text = levity.machine:call(scoreid,
-					"getMultiplier", self.properties.allyindex)
+					"getMultiplier", self.object.id)
 	else
 		self.properties.text = nil
 	end
@@ -377,14 +375,13 @@ function ShmupAlly.create(gid, x, y, converted)
 		}
 	end
 
-	local allyindex = levity.machine:call(playerid, "newAllyIndex")
 	local ally = {
+		id = levity:newObjectId(),
 		gid = gid,
 		x = x,
 		y = y,
 		properties = {
 			script = "ShmupAlly",
-			allyindex = allyindex,
 			convertobject = convertobject
 		}
 	}
@@ -393,7 +390,7 @@ function ShmupAlly.create(gid, x, y, converted)
 	player.layer:addObject(ally)
 	player.layer:addObject(convertobject)
 
-	return allyindex
+	return ally.id
 end
 
 return ShmupAlly

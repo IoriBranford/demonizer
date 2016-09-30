@@ -154,11 +154,11 @@ function ShmupPlayer:newAllyIndex()
 	return newindex
 end
 
-function ShmupPlayer:allyReserved(allyindex, allygid)
+function ShmupPlayer:allyReserved(allyid, allygid)
 	self.numallies = self.numallies - 1
 end
 
-function ShmupPlayer:allyKilled(allyindex)
+function ShmupPlayer:allyKilled(allyid)
 	self.numallies = self.numallies - 1
 end
 
@@ -474,7 +474,7 @@ function ShmupPlayer:beginDraw()
 	local scoreid = levity.machine:call("hud", "getScoreId")
 	if scoreid then
 		self.properties.text = levity.machine:call(scoreid,
-					"getMultiplier", "player")
+					"getMultiplier", self.object.id)
 	else
 		self.properties.text = nil
 	end

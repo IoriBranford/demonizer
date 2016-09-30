@@ -286,25 +286,19 @@ function ShmupNPC:capture(captorid)
 	end
 
 	self.captured = true
-	local playerid = levity.map.properties.playerid
 
-	local newallyindex
 	if self.female then
-		newallyindex = ShmupAlly.create(
+		local newallyid = ShmupAlly.create(
 				levity:getTileGid(self.object.tile.tileset,
 							"up", self.npctype),
 				self.object.x, self.object.y, true)
 
 		levity.bank:play(Sounds.Convert)
-	end
-
-	levity.machine:broadcast("npcCaptured", self.object.id, captorid,
-				newallyindex)
-
-	if self.female then
 		levity.bank:play(Sounds.FemaleCapture)
+		levity.machine:broadcast("allyJoined", newallyid)
 	else
 		levity.bank:play(Sounds.MaleCapture)
+		levity.machine:broadcast("npcCaptured", self.object.id, captorid)
 	end
 
 	self:discard()
@@ -366,7 +360,7 @@ function ShmupNPC:beginMove(dt)
 
 	if canbecaptured
 	and levity.machine:call(playerid, "isFocused")
-	and levity.machine:call(scoreid, "isMaxMultiplier", "player")
+	and levity.machine:call(scoreid, "isMaxMultiplier", playerid)
 	then
 		capturepulldistsq = ShmupNPC.EnhancedCapturePullDistSq
 	else
