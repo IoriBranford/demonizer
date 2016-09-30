@@ -185,6 +185,8 @@ function ShmupAlly:updateConversion(dt)
 
 		if ShmupPlayer.isActiveAllyIndex(self.allyindex) then
 			self:refreshFixtures(EnableCaptureMask)
+		else
+			self:refreshFixtures(DisableCaptureMask)
 		end
 	end
 end
@@ -266,7 +268,7 @@ function ShmupAlly:beginMove(dt)
 	local focused = levity.machine:call(playerid, "isFocused")
 	if focused then
 		if not self.convertobject
-		and levity.machine:call(scoreid, "isMaxMultiplier", self.allyindex) then
+		and levity.machine:call(scoreid, "isMaxMultiplier", self.object.id) then
 			if not self.targetcaptiveid then
 				self.targetcaptiveid = self:findTarget("canBeCaptured")
 			end

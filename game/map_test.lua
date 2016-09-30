@@ -1252,6 +1252,26 @@ return {
       terrains = {},
       tilecount = 2,
       tiles = {}
+    },
+    {
+      name = "playerhitbox",
+      firstgid = 7331,
+      filename = "playerhitbox.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "playerhitbox.png",
+      imagewidth = 32,
+      imageheight = 32,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
     }
   },
   layers = {

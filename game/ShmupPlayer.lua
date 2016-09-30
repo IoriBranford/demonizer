@@ -58,6 +58,13 @@ local ShmupPlayer = class(function(self, id)
 	self.soundsource = nil
 	self.soundfile = nil
 
+	self.hitbox = {
+		gid = levity:getTileGid("playerhitbox", 0, 0),
+		x = self.object.x,
+		y = self.object.y
+	}
+
+	self.object.layer:addObject(self.hitbox)
 	ShmupNPC = ShmupNPC or levity.machine:requireScript("ShmupNPC")
 end)
 
@@ -462,6 +469,12 @@ function ShmupPlayer:endMove(dt)
 	if camera then
 		local cx, cy = self.object.body:getWorldCenter()
 		levity.machine:call(cameraid, "swayWithPlayer", cx)
+	end
+
+	self.hitbox.visible = self.focused and not self.killed
+	if self.hitbox.body then
+		local x, y = self.object.body:getPosition()
+		self.hitbox.body:setPosition(x, y + 1/64)
 	end
 end
 
