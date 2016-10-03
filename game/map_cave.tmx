@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="19" height="140" tilewidth="16" tileheight="16" nextobjectid="23">
+ <properties>
+  <property name="cameraid" type="int" value="1"/>
+  <property name="music" type="file" value="20 - My Kingdom.vgm"/>
+  <property name="playerid" type="int" value="2"/>
+  <property name="script" value="ShmupMap"/>
+ </properties>
+ <tileset firstgid="1" source="imp.tsx"/>
+ <tileset firstgid="4" source="demonshots.tsx"/>
+ <tileset firstgid="8" source="map_cave.tsx"/>
+ <tileset firstgid="344" source="hud_icons.tsx"/>
+ <tileset firstgid="348" source="bombgauge.tsx"/>
+ <layer name="Tile Layer 1" width="19" height="140">
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+ <objectgroup name="camera">
+  <object id="1" x="32" y="1920" width="240" height="320">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="pathid" type="int" value="6"/>
+    <property name="pathtime" type="int" value="60"/>
+    <property name="script" value="ShmupCam"/>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="6" x="32" y="1920">
+   <properties>
+    <property name="script" value="LinearPath"/>
+   </properties>
+   <polyline points="0,0 0,-1920"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="player">
+  <object id="2" gid="1" x="152" y="2208" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="Tile Layer 2" width="19" height="140">
+  <data encoding="base64" compression="zlib">
+   eJztzkEJADEQBMHTknOQ+PeWWGjYZzXMd6j1zfS/7aGv87aGvrhaXC2uFleLq8XV4mpxtbhaXC2uFleLq8XV4mpxtbhaXC2uFleLq8XV4mpxtbhaXC2uFleLq8XV4mpxtbhaXK1p1wVfwy59
+  </data>
+ </layer>
+ <objectgroup name="collision" visible="0">
+  <properties>
+   <property name="collidable" type="bool" value="true"/>
+   <property name="static" type="bool" value="true"/>
+  </properties>
+  <object id="4" x="0" y="0" width="16" height="2240"/>
+  <object id="5" x="288" y="0" width="16" height="2256"/>
+ </objectgroup>
+ <objectgroup draworder="index" name="hud">
+  <properties>
+   <property name="scoreid" type="int" value="7"/>
+   <property name="script" value="ShmupStatus"/>
+  </properties>
+  <object id="7" name="score" x="4" y="4" width="232" height="8">
+   <properties>
+    <property name="script" value="ShmupScore"/>
+    <property name="text" value="SC00000000 EX01000000"/>
+    <property name="textalign" value="left"/>
+    <property name="textfont" type="file" value="pressstart2p.fnt"/>
+    <property name="textformat" value="SC%8d EX%8d"/>
+   </properties>
+  </object>
+  <object id="8" name="life1" gid="344" x="0" y="32" width="16" height="16"/>
+  <object id="9" name="life2" gid="344" x="16" y="32" width="16" height="16"/>
+  <object id="10" name="life3" gid="344" x="32" y="32" width="16" height="16"/>
+  <object id="11" name="life4" gid="344" x="48" y="32" width="16" height="16"/>
+  <object id="12" name="life5" gid="344" x="64" y="32" width="16" height="16"/>
+  <object id="13" name="life6" gid="344" x="80" y="32" width="16" height="16"/>
+  <object id="14" name="life7" gid="344" x="96" y="32" width="16" height="16"/>
+  <object id="15" name="life8" gid="344" x="112" y="32" width="16" height="16"/>
+  <object id="16" name="life9" gid="344" x="128" y="32" width="16" height="16"/>
+  <object id="17" name="bomb1" gid="348" x="0" y="320" width="16" height="32">
+   <properties>
+    <property name="script" value="GaugeBomb"/>
+   </properties>
+  </object>
+  <object id="18" name="bomb2" gid="348" x="16" y="320" width="16" height="32">
+   <properties>
+    <property name="script" value="GaugeBomb"/>
+   </properties>
+  </object>
+  <object id="19" name="bomb3" gid="348" x="32" y="320" width="16" height="32">
+   <properties>
+    <property name="script" value="GaugeBomb"/>
+   </properties>
+  </object>
+  <object id="20" name="wingleft" gid="346" x="0" y="48" width="16" height="16"/>
+  <object id="21" name="wingright" gid="347" x="16" y="48" width="16" height="16"/>
+  <object id="22" name="reserves" x="8" y="36" width="16" height="8">
+   <properties>
+    <property name="text" value="0"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" type="file" value="pressstart2p.fnt"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
