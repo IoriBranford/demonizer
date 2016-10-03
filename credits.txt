@@ -19,6 +19,10 @@ Halterock Full view
 HyperSnake22 http://hypersnake22.deviantart.com/
 License TBD
 
+Cave tileset
+MrBeast http://opengameart.org/users/mrbeast
+CC-BY 3.0 GPL 2.0
+
 Rowboat
 from Farming tilesets, magic animations and UI elements
 Daniel Eddeland http://opengameart.org/users/daneeklu
