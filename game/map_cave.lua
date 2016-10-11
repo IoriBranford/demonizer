@@ -5,10 +5,10 @@ return {
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 19,
-  height = 140,
+  height = 200,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 23,
+  nextobjectid = 65,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "20 - My Kingdom.vgm",
@@ -272,23 +272,63 @@ return {
       properties = {},
       terrains = {
         {
-          name = "ground",
+          name = "Ground",
           tile = 17,
           properties = {}
         },
         {
-          name = "darkwater",
+          name = "Dark Water",
           tile = 50,
           properties = {}
         },
         {
-          name = "pit",
+          name = "Pit",
           tile = 136,
           properties = {}
         },
         {
-          name = "clearwater",
+          name = "Blue Water",
           tile = 219,
+          properties = {}
+        },
+        {
+          name = "Wall",
+          tile = 93,
+          properties = {}
+        },
+        {
+          name = "pitwallbase",
+          tile = 185,
+          properties = {}
+        },
+        {
+          name = "Wall Top",
+          tile = 54,
+          properties = {}
+        },
+        {
+          name = "waterentrance",
+          tile = 97,
+          properties = {}
+        },
+        {
+          name = "darkwaterwallbase",
+          tile = 157,
+          properties = {}
+        },
+        {
+          name = "bluewaterwallbase",
+          tile = 253,
+          properties = {}
+        },
+        {
+          name = "lavawallbase",
+          tile = 291,
+          properties = {}
+        },
+        {
+          name = "abovelava",
+          tile = 226,
           properties = {}
         }
       },
@@ -307,6 +347,14 @@ return {
           terrain = { 1, 1, 0, 1 }
         },
         {
+          id = 6,
+          terrain = { 6, 6, 6, -1 }
+        },
+        {
+          id = 7,
+          terrain = { 6, 6, -1, 6 }
+        },
+        {
           id = 16,
           terrain = { 1, 0, 1, 0 }
         },
@@ -317,6 +365,30 @@ return {
         {
           id = 18,
           terrain = { 0, 1, 0, 1 }
+        },
+        {
+          id = 26,
+          terrain = { 6, -1, 6, -1 }
+        },
+        {
+          id = 27,
+          terrain = { -1, 6, -1, 6 }
+        },
+        {
+          id = 28,
+          terrain = { 0, 0, 0, 4 }
+        },
+        {
+          id = 29,
+          terrain = { 0, 0, 4, 4 }
+        },
+        {
+          id = 30,
+          terrain = { 0, 0, 4, 4 }
+        },
+        {
+          id = 31,
+          terrain = { 0, 0, 4, 0 }
         },
         {
           id = 32,
@@ -331,6 +403,30 @@ return {
           terrain = { 0, 1, 1, 1 }
         },
         {
+          id = 42,
+          terrain = { 6, -1, 6, -1 }
+        },
+        {
+          id = 43,
+          terrain = { -1, 6, -1, 6 }
+        },
+        {
+          id = 44,
+          terrain = { 0, 4, 0, 0 }
+        },
+        {
+          id = 45,
+          terrain = { 4, 4, 0, 0 }
+        },
+        {
+          id = 46,
+          terrain = { 4, 4, 0, 0 }
+        },
+        {
+          id = 47,
+          terrain = { 4, 0, 0, 0 }
+        },
+        {
           id = 48,
           terrain = { 1, 0, 0, 0 }
         },
@@ -343,12 +439,68 @@ return {
           terrain = { 1, 1, 1, 1 }
         },
         {
+          id = 54,
+          terrain = { 6, 6, 6, 6 }
+        },
+        {
+          id = 59,
+          terrain = { 6, -1, 6, 6 }
+        },
+        {
+          id = 60,
+          terrain = { -1, -1, -1, 6 }
+        },
+        {
+          id = 61,
+          terrain = { -1, -1, 6, 6 }
+        },
+        {
+          id = 62,
+          terrain = { -1, -1, 6, 6 }
+        },
+        {
+          id = 63,
+          terrain = { -1, -1, 6, -1 }
+        },
+        {
           id = 64,
           terrain = { 0, 0, 1, 0 }
         },
         {
           id = 65,
           terrain = { 0, 0, 0, 1 }
+        },
+        {
+          id = 75,
+          terrain = { -1, 6, 6, 6 }
+        },
+        {
+          id = 76,
+          terrain = { -1, 6, -1, -1 }
+        },
+        {
+          id = 77,
+          terrain = { 6, 6, -1, -1 }
+        },
+        {
+          id = 78,
+          terrain = { 6, 6, -1, -1 }
+        },
+        {
+          id = 79,
+          terrain = { 6, -1, -1, -1 }
+        },
+        {
+          id = 80,
+          terrain = { 1, 1, 0, 7 }
+        },
+        {
+          id = 81,
+          terrain = { 1, 1, 7, 7 }
+        },
+        {
+          id = 82,
+          terrain = { 1, 1, 7, 0 }
         },
         {
           id = 86,
@@ -363,6 +515,34 @@ return {
           terrain = { 2, 2, 0, 2 }
         },
         {
+          id = 92,
+          terrain = { -1, -1, -1, 4 }
+        },
+        {
+          id = 93,
+          terrain = { -1, -1, 4, 4 }
+        },
+        {
+          id = 94,
+          terrain = { -1, -1, 4, 4 }
+        },
+        {
+          id = 95,
+          terrain = { -1, -1, 4, -1 }
+        },
+        {
+          id = 96,
+          terrain = { 0, 7, 1, 1 }
+        },
+        {
+          id = 97,
+          terrain = { 7, 7, 1, 1 }
+        },
+        {
+          id = 98,
+          terrain = { 7, 0, 1, 1 }
+        },
+        {
           id = 102,
           terrain = { 2, 0, 2, 0 }
         },
@@ -373,6 +553,34 @@ return {
         {
           id = 104,
           terrain = { 0, 2, 0, 2 }
+        },
+        {
+          id = 108,
+          terrain = { -1, 4, -1, -1 }
+        },
+        {
+          id = 109,
+          terrain = { 4, 4, -1, -1 }
+        },
+        {
+          id = 110,
+          terrain = { 4, 4, -1, -1 }
+        },
+        {
+          id = 111,
+          terrain = { 4, -1, -1, -1 }
+        },
+        {
+          id = 112,
+          terrain = { 0, 0, 0, 0 }
+        },
+        {
+          id = 113,
+          terrain = { 0, 0, 0, 0 }
+        },
+        {
+          id = 115,
+          terrain = { 0, 0, 0, 0 }
         },
         {
           id = 118,
@@ -387,6 +595,18 @@ return {
           terrain = { 0, 2, 2, 2 }
         },
         {
+          id = 128,
+          terrain = { 0, 0, 0, 0 }
+        },
+        {
+          id = 129,
+          terrain = { 0, 0, 0, 0 }
+        },
+        {
+          id = 131,
+          terrain = { 0, 0, 0, 0 }
+        },
+        {
           id = 134,
           terrain = { 2, 0, 0, 0 }
         },
@@ -399,11 +619,35 @@ return {
           terrain = { 2, 2, 2, 2 }
         },
         {
+          id = 140,
+          terrain = { 1, 1, 1, 4 }
+        },
+        {
+          id = 141,
+          terrain = { 1, 1, 4, 4 }
+        },
+        {
+          id = 142,
+          terrain = { 1, 1, 4, 4 }
+        },
+        {
+          id = 143,
+          terrain = { 1, 1, 4, 1 }
+        },
+        {
           id = 144,
           terrain = { 0, 0, 0, 0 }
         },
         {
           id = 145,
+          terrain = { 0, 0, 0, 0 }
+        },
+        {
+          id = 147,
+          terrain = { 0, 0, 0, 0 }
+        },
+        {
+          id = 148,
           terrain = { 0, 0, 0, 0 }
         },
         {
@@ -415,6 +659,22 @@ return {
           terrain = { 0, 0, 0, 2 }
         },
         {
+          id = 156,
+          terrain = { 1, 4, 1, 8 }
+        },
+        {
+          id = 157,
+          terrain = { 4, 4, 8, 8 }
+        },
+        {
+          id = 158,
+          terrain = { 4, 4, 8, 8 }
+        },
+        {
+          id = 159,
+          terrain = { 4, 1, 8, 1 }
+        },
+        {
           id = 160,
           terrain = { 0, 0, 0, 0 }
         },
@@ -423,20 +683,84 @@ return {
           terrain = { 0, 0, 0, 0 }
         },
         {
+          id = 168,
+          terrain = { 2, 2, 2, 4 }
+        },
+        {
+          id = 169,
+          terrain = { 2, 2, 4, 4 }
+        },
+        {
+          id = 170,
+          terrain = { 2, 2, 4, 4 }
+        },
+        {
+          id = 171,
+          terrain = { 2, 2, 4, 2 }
+        },
+        {
+          id = 172,
+          terrain = { 1, 8, 1, 1 }
+        },
+        {
+          id = 173,
+          terrain = { 8, 8, 1, 1 }
+        },
+        {
+          id = 174,
+          terrain = { 8, 8, 1, 1 }
+        },
+        {
+          id = 175,
+          terrain = { 8, 1, 1, 1 }
+        },
+        {
           id = 176,
-          terrain = { -1, -1, -1, 0 }
+          terrain = { 11, 11, 11, 0 }
         },
         {
           id = 177,
-          terrain = { -1, -1, 0, 0 }
+          terrain = { 11, 11, 0, 0 }
         },
         {
           id = 178,
-          terrain = { -1, -1, 0, -1 }
+          terrain = { 11, 11, 0, 11 }
+        },
+        {
+          id = 184,
+          terrain = { 2, 4, 2, 5 }
+        },
+        {
+          id = 185,
+          terrain = { 4, 4, 5, 5 }
+        },
+        {
+          id = 186,
+          terrain = { 4, 4, 5, 5 }
+        },
+        {
+          id = 187,
+          terrain = { 4, 2, 5, 2 }
+        },
+        {
+          id = 188,
+          terrain = { 0, 4, 1, 4 }
+        },
+        {
+          id = 189,
+          terrain = { 1, 4, 0, 4 }
+        },
+        {
+          id = 190,
+          terrain = { 4, 1, 4, 0 }
+        },
+        {
+          id = 191,
+          terrain = { 4, 0, 4, 1 }
         },
         {
           id = 192,
-          terrain = { -1, 0, -1, 0 }
+          terrain = { 11, 0, 11, 0 }
         },
         {
           id = 193,
@@ -444,19 +768,51 @@ return {
         },
         {
           id = 194,
-          terrain = { 0, -1, 0, -1 }
+          terrain = { 0, 11, 0, 11 }
+        },
+        {
+          id = 200,
+          terrain = { 2, 5, 2, 2 }
+        },
+        {
+          id = 201,
+          terrain = { 5, 5, 2, 2 }
+        },
+        {
+          id = 202,
+          terrain = { 5, 5, 2, 2 }
+        },
+        {
+          id = 203,
+          terrain = { 5, 2, 2, 2 }
+        },
+        {
+          id = 204,
+          terrain = { 0, 4, 1, 8 }
+        },
+        {
+          id = 205,
+          terrain = { 1, 4, 0, 0 }
+        },
+        {
+          id = 206,
+          terrain = { 4, 1, 0, 0 }
+        },
+        {
+          id = 207,
+          terrain = { 4, 0, 8, 1 }
         },
         {
           id = 208,
-          terrain = { -1, 0, -1, -1 }
+          terrain = { 11, 0, 11, 11 }
         },
         {
           id = 209,
-          terrain = { 0, 0, -1, -1 }
+          terrain = { 0, 0, 11, 11 }
         },
         {
           id = 210,
-          terrain = { 0, -1, -1, -1 }
+          terrain = { 0, 11, 11, 11 }
         },
         {
           id = 214,
@@ -484,11 +840,15 @@ return {
         },
         {
           id = 224,
-          terrain = { -1, 0, 0, 0 }
+          terrain = { 11, 0, 0, 0 }
         },
         {
           id = 225,
-          terrain = { 0, -1, 0, 0 }
+          terrain = { 0, 11, 0, 0 }
+        },
+        {
+          id = 226,
+          terrain = { 11, 11, 11, 11 }
         },
         {
           id = 230,
@@ -511,12 +871,28 @@ return {
           terrain = { 0, 0, 0, 3 }
         },
         {
+          id = 236,
+          terrain = { 3, 3, 3, 4 }
+        },
+        {
+          id = 237,
+          terrain = { 3, 3, 4, 4 }
+        },
+        {
+          id = 238,
+          terrain = { 3, 3, 4, 4 }
+        },
+        {
+          id = 239,
+          terrain = { 3, 3, 4, 3 }
+        },
+        {
           id = 240,
-          terrain = { 0, 0, -1, 0 }
+          terrain = { 0, 0, 11, 0 }
         },
         {
           id = 241,
-          terrain = { 0, 0, 0, -1 }
+          terrain = { 0, 0, 0, 11 }
         },
         {
           id = 246,
@@ -529,6 +905,226 @@ return {
         {
           id = 248,
           terrain = { 0, 3, 3, 3 }
+        },
+        {
+          id = 249,
+          terrain = { 3, 3, 0, 7 }
+        },
+        {
+          id = 250,
+          terrain = { 3, 3, 7, 7 }
+        },
+        {
+          id = 251,
+          terrain = { 3, 3, 7, 0 }
+        },
+        {
+          id = 252,
+          terrain = { 3, 4, 3, 9 }
+        },
+        {
+          id = 253,
+          terrain = { 4, 4, 9, 9 }
+        },
+        {
+          id = 254,
+          terrain = { 4, 4, 9, 9 }
+        },
+        {
+          id = 255,
+          terrain = { 4, 3, 9, 3 }
+        },
+        {
+          id = 258,
+          terrain = { 11, 11, 11, 4 }
+        },
+        {
+          id = 259,
+          terrain = { 11, 11, 4, 4 }
+        },
+        {
+          id = 260,
+          terrain = { 11, 11, 4, 4 }
+        },
+        {
+          id = 261,
+          terrain = { 11, 11, 4, 11 }
+        },
+        {
+          id = 265,
+          terrain = { 0, 7, 3, 3 }
+        },
+        {
+          id = 266,
+          terrain = { 7, 7, 3, 3 }
+        },
+        {
+          id = 267,
+          terrain = { 7, 0, 3, 3 }
+        },
+        {
+          id = 268,
+          terrain = { 3, 9, 3, 3 }
+        },
+        {
+          id = 269,
+          terrain = { 9, 9, 3, 3 }
+        },
+        {
+          id = 270,
+          terrain = { 9, 9, 3, 3 }
+        },
+        {
+          id = 271,
+          terrain = { 9, 3, 3, 3 }
+        },
+        {
+          id = 274,
+          terrain = { 11, 4, 11, 10 }
+        },
+        {
+          id = 275,
+          terrain = { 4, 4, 10, 10 }
+        },
+        {
+          id = 276,
+          terrain = { 4, 4, 10, 10 }
+        },
+        {
+          id = 277,
+          terrain = { 4, 11, 10, 11 }
+        },
+        {
+          id = 284,
+          terrain = { 0, 4, 3, 4 }
+        },
+        {
+          id = 285,
+          terrain = { 3, 4, 0, 4 }
+        },
+        {
+          id = 286,
+          terrain = { 4, 3, 4, 0 }
+        },
+        {
+          id = 287,
+          terrain = { 4, 0, 4, 3 }
+        },
+        {
+          id = 290,
+          terrain = { 11, 10, 11, 11 }
+        },
+        {
+          id = 291,
+          terrain = { 10, 10, 11, 11 }
+        },
+        {
+          id = 292,
+          terrain = { 10, 10, 11, 11 }
+        },
+        {
+          id = 293,
+          terrain = { 10, 11, 11, 11 }
+        },
+        {
+          id = 300,
+          terrain = { 0, 4, 3, 9 }
+        },
+        {
+          id = 301,
+          terrain = { 3, 4, 0, 0 }
+        },
+        {
+          id = 302,
+          terrain = { 4, 3, 0, 0 }
+        },
+        {
+          id = 303,
+          terrain = { 4, 0, 9, 3 }
+        },
+        {
+          id = 304,
+          animation = {
+            {
+              tileid = "304",
+              duration = "100"
+            },
+            {
+              tileid = "306",
+              duration = "100"
+            },
+            {
+              tileid = "308",
+              duration = "100"
+            },
+            {
+              tileid = "306",
+              duration = "100"
+            }
+          }
+        },
+        {
+          id = 305,
+          animation = {
+            {
+              tileid = "305",
+              duration = "100"
+            },
+            {
+              tileid = "307",
+              duration = "100"
+            },
+            {
+              tileid = "309",
+              duration = "100"
+            },
+            {
+              tileid = "307",
+              duration = "100"
+            }
+          }
+        },
+        {
+          id = 320,
+          animation = {
+            {
+              tileid = "320",
+              duration = "100"
+            },
+            {
+              tileid = "322",
+              duration = "100"
+            },
+            {
+              tileid = "324",
+              duration = "100"
+            },
+            {
+              tileid = "322",
+              duration = "100"
+            }
+          }
+        },
+        {
+          id = 321,
+          animation = {
+            {
+              tileid = "321",
+              duration = "100"
+            },
+            {
+              tileid = "323",
+              duration = "100"
+            },
+            {
+              tileid = "325",
+              duration = "100"
+            },
+            {
+              tileid = "323",
+              duration = "100"
+            }
+          }
         }
       }
     },
@@ -643,16 +1239,368 @@ return {
           }
         }
       }
+    },
+    {
+      name = "cage",
+      firstgid = 364,
+      filename = "cage.tsx",
+      tilewidth = 32,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "cage.png",
+      imagewidth = 32,
+      imageheight = 64,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 0,
+                y = 24,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "mermaid",
+      firstgid = 365,
+      filename = "mermaid.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "mermaid.png",
+      imagewidth = 72,
+      imageheight = 128,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      properties = {
+        ["commonanimation"] = 0
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = "0",
+              duration = "125"
+            },
+            {
+              tileid = "1",
+              duration = "125"
+            },
+            {
+              tileid = "2",
+              duration = "125"
+            },
+            {
+              tileid = "1",
+              duration = "125"
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "darkboat",
+      firstgid = 377,
+      filename = "darkboat.tsx",
+      tilewidth = 128,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "darkboat.png",
+      imagewidth = 128,
+      imageheight = 64,
+      tileoffset = {
+        x = -64,
+        y = 64
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 6,
+                name = "",
+                type = "",
+                shape = "rectangle",
+                x = -64,
+                y = 64,
+                width = 112,
+                height = 48,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 8,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 16,
+                y = 64,
+                width = 48,
+                height = 48,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "infmen",
+      firstgid = 378,
+      filename = "infmen.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "infmen.png",
+      imagewidth = 432,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      properties = {
+        ["column_archer"] = 12,
+        ["column_hero"] = 15,
+        ["column_mage"] = 9,
+        ["column_pikeman"] = 0,
+        ["column_priest"] = 6,
+        ["column_swordsman"] = 3,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_down"] = 2,
+        ["row_ko"] = 4,
+        ["row_left"] = 3,
+        ["row_right"] = 1,
+        ["row_up"] = 0
+      },
+      terrains = {},
+      tilecount = 90,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = "0",
+              duration = "125"
+            },
+            {
+              tileid = "1",
+              duration = "125"
+            },
+            {
+              tileid = "2",
+              duration = "125"
+            },
+            {
+              tileid = "1",
+              duration = "125"
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "infwomen",
+      firstgid = 468,
+      filename = "infwomen.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "infwomen.png",
+      imagewidth = 360,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      properties = {
+        ["column_archer"] = 12,
+        ["column_mage"] = 9,
+        ["column_pikeman"] = 0,
+        ["column_priest"] = 6,
+        ["column_swordsman"] = 3,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_down"] = 2,
+        ["row_ko"] = 4,
+        ["row_left"] = 3,
+        ["row_right"] = 1,
+        ["row_up"] = 0
+      },
+      terrains = {},
+      tilecount = 75,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = "0",
+              duration = "125"
+            },
+            {
+              tileid = "1",
+              duration = "125"
+            },
+            {
+              tileid = "2",
+              duration = "125"
+            },
+            {
+              tileid = "1",
+              duration = "125"
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "electricity",
+      firstgid = 543,
+      filename = "electricity.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      image = "electricity.png",
+      imagewidth = 64,
+      imageheight = 128,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      properties = {
+        ["commonanimation"] = 0
+      },
+      terrains = {},
+      tilecount = 32,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = "0",
+              duration = "67"
+            },
+            {
+              tileid = "1",
+              duration = "67"
+            }
+          }
+        }
+      }
     }
   },
   layers = {
     {
       type = "tilelayer",
-      name = "Tile Layer 1",
+      name = "ground",
       x = 0,
       y = 0,
       width = 19,
-      height = 140,
+      height = 200,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -660,11 +1608,27 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "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"
+      data = "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"
+    },
+    {
+      type = "tilelayer",
+      name = "electricity",
+      x = 0,
+      y = 0,
+      width = 19,
+      height = 200,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJztWu1q40AMDH4Vc5ijhOMIIZSQ93+tq6ECdTqjr6T3y4IlcWKPR1qtpJV9Oh1yCJd1OZ3eP8bt89O+s+NfS4xz/hhvn5/2HYc/x/A97g3Owes8Pt7Djo0rw8muZ7zP5BrUVV3Hvit9EHeCp2zH+KvjyNYRV3VOZ+6iOc/wKv5Snatsziv+ks1NpFNlXjuc1LxEPq3sE923YrtsHir2yHw4Wy/Rmq/iTPSM+FY4RL4R+e8WzHFlbvzvu+x4j8BOylb2fb/29/I1h+yY90Rv++/+ORADZRN8bPxJrke5CvueC1wyblMcz83r+XeIs8sFuD2DdSU6RrVEB2syhx6LrccutxVw/Oja7RKsva6elx/gpeJfx2ZXwmeyJlfBp+u3K+gSxflMz2twLYuvCg99qprLGN6VXGufd/jN3xNtp2p8b2eMQUzXVfg3rudNcLPxnsz9/uljKfodW/uKO9oC51nlPYaHWJmeUS5m/n0h50U2ssHyDstRUV7OYsvW5JXlwssS27+TU68FTtXYFK2Dbp73sZf5RScvIBZy7OQFFusiP59g+VHJMSu5Xq2jDI+tI+W7+2A9knX53tOI4g4e+z6MinVKx+i8ynG2FqL4xOyW8YjuGekUrbMMO5rPKJ5X7FThh8P2NZEdo3nx/5ls5NxonSHeY/nq0xjDKzZk+z2/zjKfttHd7yl7VWPTFnB5K3JSeDgHk32f7cPv7nO6f7RY5fu+z+zTUMfJPg1rxWewsA72c9jRM9t3dLipPaiNSQ5VsWuyr1JrsspL2fxtwAt7EizOdNZ1lDO688hibCduobCeSZeTCbPbNN6wunbSG2I9kwkWrkU/Mv3w2ZOq2Suc7BqLmWx/WPUDtnbRP6t+oHx7kgsrtVPVp6K6qOvnjyAmdH2KzR1+z3KFr/mzGi7jhlwehJPHj/pJdp6vEVR9Y7hsP+PPR8E4qGzH9mlMME4j15vgrwRrzWieI16IpfIlclPC7KawMyzjhhxYjMx09FiMD4spkah6R8WDSLblu15TLM9N+VplHhlWxi0S1ZtG7Erdz/rAyKUav1ldN8HZ5SJ06+Kgrab5xPRTa2ZSyzFf6HJidbnpOXmeo+LUK2rVjNNK/lN7vcjmdg3jxGKy4uTvrbAqdYX3Qeyb7MJ6ucw//VzvuqO9MH8yHbH3uI/35XvMyfZVUT3rsdjzIRarGAbyVvEgyo0YN1gNxu4b4RknhqGOGV/vw+xcZRv26f3Ov4OhdI3yLHsHI8v11bXA8Bgn5BXFn0o/oRrzN8FnmhejnJ/FMayzWU70x5Fu+/9+b6veKajo5s+/ieureSPy8er8ex3V+shsnfGq+jYT1hv3mN2cH/WfJ30X1Wt/VV/J54yOqP7ZlJt6lnsecmP5A2NxVdR+aqKnvTPHfGTau8e4ONXTBPd80/e1dmF167N6nl+kJ87rM9xYL/JVz08mdsv2oVW7qb7vJN6qWnoS19R+YeIb2btyHSz1vukkz7Femh/T91eR0/T5o8WyZ59jHnLIIYcccsj/kH8XOm/i"
     },
     {
       type = "objectgroup",
-      name = "camera",
+      name = "preboss",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -673,42 +1637,376 @@ return {
       properties = {},
       objects = {
         {
-          id = 1,
+          id = 55,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 32,
-          y = 1920,
-          width = 240,
-          height = 320,
+          x = -64,
+          y = 160,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 377,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupVehicle"
+          }
+        },
+        {
+          id = 56,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -64,
+          y = 160,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 377,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupVehicle"
+          }
+        },
+        {
+          id = 57,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -80,
+          y = 224,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 377,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupVehicle"
+          }
+        },
+        {
+          id = 58,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 352,
+          y = 176,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 2147484025,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupVehicle"
+          }
+        },
+        {
+          id = 59,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 352,
+          y = 240,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 2147484025,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupVehicle"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "midboss",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {}
+    },
+    {
+      type = "objectgroup",
+      name = "mermaid4",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 47,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1408,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 371,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 48,
+          name = "cage",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 1424,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          gid = 364,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupVehicle"
+          }
+        },
+        {
+          id = 50,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 1360,
+          width = 304,
+          height = 56,
           rotation = 0,
           visible = true,
           properties = {
             ["collidable"] = true,
-            ["pathid"] = 6,
-            ["pathtime"] = 60,
-            ["script"] = "ShmupCam",
-            ["sensor"] = true
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "mermaid3",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 41,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 1888,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 371,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 42,
+          name = "cage",
+          type = "",
+          shape = "rectangle",
+          x = 160,
+          y = 1904,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          gid = 364,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupVehicle"
           }
         },
         {
-          id = 6,
+          id = 51,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 1840,
+          width = 304,
+          height = 56,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "mermaid2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 35,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 2336,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 371,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 36,
+          name = "cage",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 2352,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          gid = 364,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupVehicle"
+          }
+        },
+        {
+          id = 52,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 2288,
+          width = 304,
+          height = 56,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "mermaid1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 32,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 160,
+          y = 2768,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 371,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 33,
+          name = "cage",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 2784,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          gid = 364,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupVehicle"
+          }
+        },
+        {
+          id = 53,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 2720,
+          width = 304,
+          height = 56,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "mermaidpath",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 60,
           name = "",
           type = "",
           shape = "polyline",
-          x = 32,
-          y = 1920,
+          x = 160,
+          y = 2736,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 0, y = -1920 }
+            { x = 16, y = -48 },
+            { x = 0, y = -112 },
+            { x = -48, y = -176 },
+            { x = -64, y = -240 },
+            { x = -64, y = -304 },
+            { x = -32, y = -384 },
+            { x = -16, y = -464 },
+            { x = -32, y = -560 },
+            { x = -32, y = -608 },
+            { x = 0, y = -720 },
+            { x = 32, y = -832 },
+            { x = 0, y = -944 },
+            { x = -64, y = -1040 },
+            { x = -48, y = -1152 },
+            { x = -16, y = -1264 },
+            { x = 0, y = -1376 },
+            { x = 0, y = -1488 }
           },
-          properties = {
-            ["script"] = "LinearPath"
-          }
+          properties = {}
         }
       }
     },
@@ -727,8 +2025,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 152,
-          y = 2208,
+          x = 144,
+          y = 3168,
           width = 64,
           height = 64,
           rotation = 0,
@@ -742,11 +2040,11 @@ return {
     },
     {
       type = "tilelayer",
-      name = "Tile Layer 2",
+      name = "ceiling",
       x = 0,
       y = 0,
       width = 19,
-      height = 140,
+      height = 200,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -754,12 +2052,62 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzkEJADEQBMHTknOQ+PeWWGjYZzXMd6j1zfS/7aGv87aGvrhaXC2uFleLq8XV4mpxtbhaXC2uFleLq8XV4mpxtbhaXC2uFleLq8XV4mpxtbhaXC2uFleLq8XV4mpxtbhaXK1p1wVfwy59"
+      data = "eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAwI8BO2AAAQ=="
+    },
+    {
+      type = "objectgroup",
+      name = "camera",
+      visible = false,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 1,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 2880,
+          width = 240,
+          height = 320,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["pathid"] = 6,
+            ["pathtime"] = 90,
+            ["script"] = "ShmupCam",
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 6,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 32,
+          y = 2880,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = -2880 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        }
+      }
     },
     {
       type = "objectgroup",
       name = "collision",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -768,39 +2116,12 @@ return {
         ["collidable"] = true,
         ["static"] = true
       },
-      objects = {
-        {
-          id = 4,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 0,
-          width = 16,
-          height = 2240,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 5,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 288,
-          y = 0,
-          width = 16,
-          height = 2256,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        }
-      }
+      objects = {}
     },
     {
       type = "objectgroup",
       name = "hud",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -1044,6 +2365,91 @@ return {
           visible = true,
           properties = {
             ["text"] = "0",
+            ["textalign"] = "center",
+            ["textfont"] = "pressstart2p.fnt"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "pausemenu",
+      visible = false,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PauseMenu"
+      },
+      objects = {
+        {
+          id = 23,
+          name = "pause",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 32,
+          width = 208,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["text"] = "Paused",
+            ["textalign"] = "center",
+            ["textfont"] = "pressstart2p.fnt"
+          }
+        },
+        {
+          id = 24,
+          name = "resume",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 112,
+          width = 144,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["script"] = "ButtonResume",
+            ["text"] = "RESUME",
+            ["textalign"] = "center",
+            ["textfont"] = "pressstart2p.fnt"
+          }
+        },
+        {
+          id = 25,
+          name = "restart",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 160,
+          width = 144,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["script"] = "ButtonRestart",
+            ["text"] = "RESTART",
+            ["textalign"] = "center",
+            ["textfont"] = "pressstart2p.fnt"
+          }
+        },
+        {
+          id = 26,
+          name = "title",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 208,
+          width = 144,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["script"] = "ButtonTitle",
+            ["text"] = "TITLE",
             ["textalign"] = "center",
             ["textfont"] = "pressstart2p.fnt"
           }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="19" height="140" tilewidth="16" tileheight="16" nextobjectid="23">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="19" height="200" tilewidth="16" tileheight="16" nextobjectid="65">
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="20 - My Kingdom.vgm"/>
@@ -11,49 +11,151 @@
  <tileset firstgid="8" source="map_cave.tsx"/>
  <tileset firstgid="344" source="hud_icons.tsx"/>
  <tileset firstgid="348" source="bombgauge.tsx"/>
- <layer name="Tile Layer 1" width="19" height="140">
+ <tileset firstgid="364" source="cage.tsx"/>
+ <tileset firstgid="365" source="mermaid.tsx"/>
+ <tileset firstgid="377" source="darkboat.tsx"/>
+ <tileset firstgid="378" source="infmen.tsx"/>
+ <tileset firstgid="468" source="infwomen.tsx"/>
+ <tileset firstgid="543" source="electricity.tsx"/>
+ <layer name="ground" width="19" height="200">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
- <objectgroup name="camera">
-  <object id="1" x="32" y="1920" width="240" height="320">
+ <layer name="electricity" width="19" height="200">
+  <data encoding="base64" compression="zlib">
+   eJztWu1q40AMDH4Vc5ijhOMIIZSQ93+tq6ECdTqjr6T3y4IlcWKPR1qtpJV9Oh1yCJd1OZ3eP8bt89O+s+NfS4xz/hhvn5/2HYc/x/A97g3Owes8Pt7Djo0rw8muZ7zP5BrUVV3Hvit9EHeCp2zH+KvjyNYRV3VOZ+6iOc/wKv5Snatsziv+ks1NpFNlXjuc1LxEPq3sE923YrtsHir2yHw4Wy/Rmq/iTPSM+FY4RL4R+e8WzHFlbvzvu+x4j8BOylb2fb/29/I1h+yY90Rv++/+ORADZRN8bPxJrke5CvueC1wyblMcz83r+XeIs8sFuD2DdSU6RrVEB2syhx6LrccutxVw/Oja7RKsva6elx/gpeJfx2ZXwmeyJlfBp+u3K+gSxflMz2twLYuvCg99qprLGN6VXGufd/jN3xNtp2p8b2eMQUzXVfg3rudNcLPxnsz9/uljKfodW/uKO9oC51nlPYaHWJmeUS5m/n0h50U2ssHyDstRUV7OYsvW5JXlwssS27+TU68FTtXYFK2Dbp73sZf5RScvIBZy7OQFFusiP59g+VHJMSu5Xq2jDI+tI+W7+2A9knX53tOI4g4e+z6MinVKx+i8ynG2FqL4xOyW8YjuGekUrbMMO5rPKJ5X7FThh8P2NZEdo3nx/5ls5NxonSHeY/nq0xjDKzZk+z2/zjKfttHd7yl7VWPTFnB5K3JSeDgHk32f7cPv7nO6f7RY5fu+z+zTUMfJPg1rxWewsA72c9jRM9t3dLipPaiNSQ5VsWuyr1JrsspL2fxtwAt7EizOdNZ1lDO688hibCduobCeSZeTCbPbNN6wunbSG2I9kwkWrkU/Mv3w2ZOq2Suc7BqLmWx/WPUDtnbRP6t+oHx7kgsrtVPVp6K6qOvnjyAmdH2KzR1+z3KFr/mzGi7jhlwehJPHj/pJdp6vEVR9Y7hsP+PPR8E4qGzH9mlMME4j15vgrwRrzWieI16IpfIlclPC7KawMyzjhhxYjMx09FiMD4spkah6R8WDSLblu15TLM9N+VplHhlWxi0S1ZtG7Erdz/rAyKUav1ldN8HZ5SJ06+Kgrab5xPRTa2ZSyzFf6HJidbnpOXmeo+LUK2rVjNNK/lN7vcjmdg3jxGKy4uTvrbAqdYX3Qeyb7MJ6ucw//VzvuqO9MH8yHbH3uI/35XvMyfZVUT3rsdjzIRarGAbyVvEgyo0YN1gNxu4b4RknhqGOGV/vw+xcZRv26f3Ov4OhdI3yLHsHI8v11bXA8Bgn5BXFn0o/oRrzN8FnmhejnJ/FMayzWU70x5Fu+/9+b6veKajo5s+/ieureSPy8er8ex3V+shsnfGq+jYT1hv3mN2cH/WfJ30X1Wt/VV/J54yOqP7ZlJt6lnsecmP5A2NxVdR+aqKnvTPHfGTau8e4ONXTBPd80/e1dmF167N6nl+kJ87rM9xYL/JVz08mdsv2oVW7qb7vJN6qWnoS19R+YeIb2btyHSz1vukkz7Femh/T91eR0/T5o8WyZ59jHnLIIYcccsj/kH8XOm/i
+  </data>
+ </layer>
+ <objectgroup name="preboss">
+  <object id="55" gid="377" x="-64" y="160" width="128" height="64">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="pathid" type="int" value="6"/>
-    <property name="pathtime" type="int" value="60"/>
-    <property name="script" value="ShmupCam"/>
-    <property name="sensor" type="bool" value="true"/>
+    <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="6" x="32" y="1920">
+  <object id="56" gid="377" x="-64" y="160" width="128" height="64">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="ShmupVehicle"/>
    </properties>
-   <polyline points="0,0 0,-1920"/>
+  </object>
+  <object id="57" gid="377" x="-80" y="224" width="128" height="64">
+   <properties>
+    <property name="script" value="ShmupVehicle"/>
+   </properties>
+  </object>
+  <object id="58" gid="2147484025" x="352" y="176" width="128" height="64">
+   <properties>
+    <property name="script" value="ShmupVehicle"/>
+   </properties>
+  </object>
+  <object id="59" gid="2147484025" x="352" y="240" width="128" height="64">
+   <properties>
+    <property name="script" value="ShmupVehicle"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="midboss"/>
+ <objectgroup name="mermaid4">
+  <object id="47" gid="371" x="144" y="1408" width="24" height="32"/>
+  <object id="48" name="cage" gid="364" x="128" y="1424" width="32" height="64">
+   <properties>
+    <property name="script" value="ShmupVehicle"/>
+   </properties>
+  </object>
+  <object id="50" name="trigger" x="0" y="1360" width="304" height="56">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="mermaid3">
+  <object id="41" gid="371" x="176" y="1888" width="24" height="32"/>
+  <object id="42" name="cage" gid="364" x="160" y="1904" width="32" height="64">
+   <properties>
+    <property name="script" value="ShmupVehicle"/>
+   </properties>
+  </object>
+  <object id="51" name="trigger" x="0" y="1840" width="304" height="56">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="mermaid2">
+  <object id="35" gid="371" x="144" y="2336" width="24" height="32"/>
+  <object id="36" name="cage" gid="364" x="128" y="2352" width="32" height="64">
+   <properties>
+    <property name="script" value="ShmupVehicle"/>
+   </properties>
+  </object>
+  <object id="52" name="trigger" x="0" y="2288" width="304" height="56">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="mermaid1">
+  <object id="32" gid="371" x="160" y="2768" width="24" height="32"/>
+  <object id="33" name="cage" gid="364" x="144" y="2784" width="32" height="64">
+   <properties>
+    <property name="script" value="ShmupVehicle"/>
+   </properties>
+  </object>
+  <object id="53" name="trigger" x="0" y="2720" width="304" height="56">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="mermaidpath">
+  <object id="60" x="160" y="2736">
+   <polyline points="0,0 16,-48 0,-112 -48,-176 -64,-240 -64,-304 -32,-384 -16,-464 -32,-560 -32,-608 0,-720 32,-832 0,-944 -64,-1040 -48,-1152 -16,-1264 0,-1376 0,-1488"/>
   </object>
  </objectgroup>
  <objectgroup name="player">
-  <object id="2" gid="1" x="152" y="2208" width="64" height="64">
+  <object id="2" gid="1" x="144" y="3168" width="64" height="64">
    <properties>
     <property name="script" value="ShmupPlayer"/>
    </properties>
   </object>
  </objectgroup>
- <layer name="Tile Layer 2" width="19" height="140">
+ <layer name="ceiling" width="19" height="200">
   <data encoding="base64" compression="zlib">
-   eJztzkEJADEQBMHTknOQ+PeWWGjYZzXMd6j1zfS/7aGv87aGvrhaXC2uFleLq8XV4mpxtbhaXC2uFleLq8XV4mpxtbhaXC2uFleLq8XV4mpxtbhaXC2uFleLq8XV4mpxtbhaXK1p1wVfwy59
+   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAwI8BO2AAAQ==
   </data>
  </layer>
- <objectgroup name="collision" visible="0">
+ <objectgroup name="camera" visible="0">
+  <object id="1" x="32" y="2880" width="240" height="320">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="pathid" type="int" value="6"/>
+    <property name="pathtime" type="int" value="90"/>
+    <property name="script" value="ShmupCam"/>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="6" x="32" y="2880">
+   <properties>
+    <property name="script" value="LinearPath"/>
+   </properties>
+   <polyline points="0,0 0,-2880"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="collision">
   <properties>
    <property name="collidable" type="bool" value="true"/>
    <property name="static" type="bool" value="true"/>
   </properties>
-  <object id="4" x="0" y="0" width="16" height="2240"/>
-  <object id="5" x="288" y="0" width="16" height="2256"/>
  </objectgroup>
- <objectgroup draworder="index" name="hud">
+ <objectgroup draworder="index" name="hud" visible="0">
   <properties>
    <property name="scoreid" type="int" value="7"/>
    <property name="script" value="ShmupStatus"/>
@@ -96,6 +198,42 @@
   <object id="22" name="reserves" x="8" y="36" width="16" height="8">
    <properties>
     <property name="text" value="0"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" type="file" value="pressstart2p.fnt"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="pausemenu" visible="0">
+  <properties>
+   <property name="script" value="PauseMenu"/>
+  </properties>
+  <object id="23" name="pause" x="16" y="32" width="208" height="16">
+   <properties>
+    <property name="text" value="Paused"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" type="file" value="pressstart2p.fnt"/>
+   </properties>
+  </object>
+  <object id="24" name="resume" x="48" y="112" width="144" height="16">
+   <properties>
+    <property name="script" value="ButtonResume"/>
+    <property name="text" value="RESUME"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" type="file" value="pressstart2p.fnt"/>
+   </properties>
+  </object>
+  <object id="25" name="restart" x="48" y="160" width="144" height="16">
+   <properties>
+    <property name="script" value="ButtonRestart"/>
+    <property name="text" value="RESTART"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" type="file" value="pressstart2p.fnt"/>
+   </properties>
+  </object>
+  <object id="26" name="title" x="48" y="208" width="144" height="16">
+   <properties>
+    <property name="script" value="ButtonTitle"/>
+    <property name="text" value="TITLE"/>
     <property name="textalign" value="center"/>
     <property name="textfont" type="file" value="pressstart2p.fnt"/>
    </properties>

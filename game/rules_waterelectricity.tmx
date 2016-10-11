@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="4" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" source="map_cave.tsx"/>
+ <tileset firstgid="337" source="electricity.tsx"/>
+ <layer name="regions" width="16" height="4">
+  <data encoding="base64" compression="zlib">
+   eJw7xAABQkTS1Ab0sgcXAAAt7wFT
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="4">
+  <data encoding="base64" compression="zlib">
+   eJwzZoCAG1DaEUq/htJGUNqQgTZAGEorQWlBGtmDCwAAjT4C4Q==
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="4">
+  <data encoding="base64" compression="zlib">
+   eJy7wwABTFD6FZR2gtK3ofQtBtqAl1D6B5R+TiN7cAEAu7wGiA==
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="4">
+  <data encoding="base64" compression="zlib">
+   eJxjZICAQIaBBVyMA2MvAFWfAF4=
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="4">
+  <data encoding="base64" compression="zlib">
+   eJxjZoCAIIaBBdyMA2MvAFkPAGI=
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="4">
+  <data encoding="base64" compression="zlib">
+   eJxTZICAYIaBBTyMA2MvAHh/AII=
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="4">
+  <data encoding="base64" compression="zlib">
+   eJxTZoCAXwwDCxIHyF4AQ7cBfw==
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="4">
+  <data encoding="base64" compression="zlib">
+   eJy7zgABvxkGFiQNkL0A+ScCNQ==
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="4">
+  <data encoding="base64" compression="zlib">
+   eJy7yQABfxgGFiQPkL0A/JcCOQ==
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="4">
+  <data encoding="base64" compression="zlib">
+   eJz7zjCyAQD4AAD4
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="4">
+  <data encoding="base64" compression="zlib">
+   eJz7yTCyAQD6AAD6
+  </data>
+ </layer>
+ <layer name="output1_electricity" width="16" height="4">
+  <data encoding="base64" compression="zlib">
+   eJyLZWQAg1woHQ6lQ6F0JJSOhtLUBqlQczOhdCKN7MEFAJYFA2M=
+  </data>
+ </layer>
+ <layer name="output2_electricity" width="16" height="4">
+  <data encoding="base64" compression="zlib">
+   eJyLZ2QAg3woHQ6lQ6F0JJSOhtLUBulQc7OhdDKN7MEFAJzFA20=
+  </data>
+ </layer>
+</map>
