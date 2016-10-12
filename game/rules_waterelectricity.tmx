@@ -1,70 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="4" tilewidth="16" tileheight="16" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="16" tilewidth="16" tileheight="16" nextobjectid="1">
+ <properties>
+  <property name="DeleteTiles" type="bool" value="true"/>
+ </properties>
  <tileset firstgid="1" source="map_cave.tsx"/>
  <tileset firstgid="337" source="electricity.tsx"/>
- <layer name="regions" width="16" height="4">
+ <layer name="regions_input" width="16" height="16" opacity="0.5">
   <data encoding="base64" compression="zlib">
-   eJw7xAABQkTS1Ab0sgcXAAAt7wFT
+   eJwzZmQAA2MiaWoDfPZhY9PCfkJ2Dmf7R8HIBgBWsQXl
   </data>
  </layer>
- <layer name="input_ground" width="16" height="4">
+ <layer name="regions_output" width="16" height="16" opacity="0.5">
   <data encoding="base64" compression="zlib">
-   eJwzZoCAG1DaEUq/htJGUNqQgTZAGEorQWlBGtmDCwAAjT4C4Q==
+   eJwLZYCAUCJpagNi7aO1/bjcM9ztHwUjGwAAoHwGUA==
   </data>
  </layer>
- <layer name="input_ground" width="16" height="4">
+ <layer name="input_ground" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJy7wwABTFD6FZR2gtK3ofQtBtqAl1D6B5R+TiN7cAEAu7wGiA==
+   eJwzZoCAG1DaEUq/htJGUNqQgTZAGEorQWlBKG0MxL1Q9gQonxZAEYj3QtkHgFgZymYE4n1Q9n4gZqaR/Upo9sPCgQnNfiYa2T8KRjYAALqTCug=
   </data>
  </layer>
- <layer name="input_ground" width="16" height="4">
+ <layer name="input_ground" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjZICAQIaBBVyMA2MvAFWfAF4=
+   eJy7wwABTFD6FZR2gtK3ofQtBtqAl1D6B5R+DqXvAPFbKPsDlE8L8B2Iz0LZF4D4J5R9HYjPQdnngfgmjez/gWY/LBxuoNl/g0b2j4KRDQARSxfR
   </data>
  </layer>
- <layer name="input_ground" width="16" height="4">
+ <layer name="input_ground" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjZoCAIIaBBdyMA2MvAFkPAGI=
+   eJxjZICAQIaBBVyMmGJzofQCGtstC7VbAc0NclC+PBa3UQuA/I1sPywcAtHsH+j4GQXDEwAA9jADTw==
   </data>
  </layer>
- <layer name="input_ground" width="16" height="4">
+ <layer name="input_ground" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJxTZICAYIaBBTyMA2MvAHh/AII=
+   eJxjZoCAIIaBBdyMmGJ/YQwsctQEulDzDdDs0YPy9WloP8jfyPbDwiEIzf6Bjp9RMDwBAJS6A5g=
   </data>
  </layer>
- <layer name="input_ground" width="16" height="4">
+ <layer name="input_ground" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJxTZoCAXwwDCxIHyF4AQ7cBfw==
+   eJxTZICAYIaBBTyMA+yAAQLo/obx0eNjoONnFAxPAADJGgFC
   </data>
  </layer>
- <layer name="input_ground" width="16" height="4">
+ <layer name="input_ground" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJy7zgABvxkGFiQNkL0A+ScCNQ==
+   eJxTZoCAXwwDCxKxiP2FMRjp6JBBAtDjY6DjZxQMTwAAwhoEcQ==
   </data>
  </layer>
- <layer name="input_ground" width="16" height="4">
+ <layer name="input_ground" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJy7yQABfxgGFiQPkL0A/JcCOQ==
+   eJy7zgABvxkGFiQNsP2DDaDHx0DHzygYngAAQRsEKw==
   </data>
  </layer>
- <layer name="input_ground" width="16" height="4">
+ <layer name="input_ground" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJz7zjCyAQD4AAD4
+   eJy7yQABfxgGFiQPsP2DDaDHx0DHzygYngAAVUsEMQ==
   </data>
  </layer>
- <layer name="input_ground" width="16" height="4">
+ <layer name="input_ground" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJz7yTCyAQD6AAD6
+   eJz7zjA4wNqBdsAoGAUjEAAAOHIBpQ==
   </data>
  </layer>
- <layer name="output1_electricity" width="16" height="4">
+ <layer name="input_ground" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJyLZWQAg1woHQ6lQ6F0JJSOhtLUBqlQczOhdCKN7MEFAJYFA2M=
+   eJz7yTA4wLqBdsAoGAUjEAAAQ+oBqA==
   </data>
  </layer>
- <layer name="output2_electricity" width="16" height="4">
+ <layer name="input_ground" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJyLZ2QAg3woHQ6lQ6F0JJSOhtLUBulQc7OhdDKN7MEFAJzFA20=
+   eJxjYBgcYP1AO2AUjIIRCABjJgCw
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgcYMNAO2AUjIIRCABmngCx
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgcgJdxoF0wCkbByAMANI8ADw==
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgcgI9xoF0wCkbByAMAOAcAEA==
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgcgJ9xoF0wCkbByAMAO38AEQ==
+  </data>
+ </layer>
+ <layer name="input_ground" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgcQIBxoF0wCkbByAMAPvcAEg==
+  </data>
+ </layer>
+ <layer name="output1_electricity" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyLZWQAg1woHQ6lQ6F0JJSOhtLUBqlQczOhdCIaja6O2gCXPfSyPxzN3FAc4R1JI/tHwcgGAFGGBx8=
+  </data>
+ </layer>
+ <layer name="output2_electricity" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyLZ2QAg3woHQ6lQ6F0JJSOhtLUBulQc7OhdDIaja6O2gCXPfSyPxzN3FAc4R1JI/tHwcgGAJsmBzU=
   </data>
  </layer>
 </map>

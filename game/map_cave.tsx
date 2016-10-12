@@ -117,10 +117,10 @@
  <tile id="185" terrain="4,4,5,5"/>
  <tile id="186" terrain="4,4,5,5"/>
  <tile id="187" terrain="4,2,5,2"/>
- <tile id="188" terrain="0,4,1,4"/>
- <tile id="189" terrain="1,4,0,4"/>
- <tile id="190" terrain="4,1,4,0"/>
- <tile id="191" terrain="4,0,4,1"/>
+ <tile id="188" terrain="0,0,1,4"/>
+ <tile id="189" terrain="1,1,0,4"/>
+ <tile id="190" terrain="1,1,4,0"/>
+ <tile id="191" terrain="0,0,4,1"/>
  <tile id="192" terrain="11,0,11,0"/>
  <tile id="193" terrain="0,0,0,0"/>
  <tile id="194" terrain="0,11,0,11"/>
@@ -180,10 +180,10 @@
  <tile id="275" terrain="4,4,10,10"/>
  <tile id="276" terrain="4,4,10,10"/>
  <tile id="277" terrain="4,11,10,11"/>
- <tile id="284" terrain="0,4,3,4"/>
- <tile id="285" terrain="3,4,0,4"/>
- <tile id="286" terrain="4,3,4,0"/>
- <tile id="287" terrain="4,0,4,3"/>
+ <tile id="284" terrain="0,0,3,4"/>
+ <tile id="285" terrain="3,3,0,4"/>
+ <tile id="286" terrain="3,3,4,0"/>
+ <tile id="287" terrain="0,0,4,3"/>
  <tile id="290" terrain="11,10,11,11"/>
  <tile id="291" terrain="10,10,11,11"/>
  <tile id="292" terrain="10,10,11,11"/>

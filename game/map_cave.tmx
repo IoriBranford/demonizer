@@ -23,6 +23,9 @@
   </data>
  </layer>
  <layer name="electricity" width="19" height="200">
+  <properties>
+   <property name="script" value="ElectricLayer"/>
+  </properties>
   <data encoding="base64" compression="zlib">
    eJztWu1q40AMDH4Vc5ijhOMIIZSQ93+tq6ECdTqjr6T3y4IlcWKPR1qtpJV9Oh1yCJd1OZ3eP8bt89O+s+NfS4xz/hhvn5/2HYc/x/A97g3Owes8Pt7Djo0rw8muZ7zP5BrUVV3Hvit9EHeCp2zH+KvjyNYRV3VOZ+6iOc/wKv5Snatsziv+ks1NpFNlXjuc1LxEPq3sE923YrtsHir2yHw4Wy/Rmq/iTPSM+FY4RL4R+e8WzHFlbvzvu+x4j8BOylb2fb/29/I1h+yY90Rv++/+ORADZRN8bPxJrke5CvueC1wyblMcz83r+XeIs8sFuD2DdSU6RrVEB2syhx6LrccutxVw/Oja7RKsva6elx/gpeJfx2ZXwmeyJlfBp+u3K+gSxflMz2twLYuvCg99qprLGN6VXGufd/jN3xNtp2p8b2eMQUzXVfg3rudNcLPxnsz9/uljKfodW/uKO9oC51nlPYaHWJmeUS5m/n0h50U2ssHyDstRUV7OYsvW5JXlwssS27+TU68FTtXYFK2Dbp73sZf5RScvIBZy7OQFFusiP59g+VHJMSu5Xq2jDI+tI+W7+2A9knX53tOI4g4e+z6MinVKx+i8ynG2FqL4xOyW8YjuGekUrbMMO5rPKJ5X7FThh8P2NZEdo3nx/5ls5NxonSHeY/nq0xjDKzZk+z2/zjKfttHd7yl7VWPTFnB5K3JSeDgHk32f7cPv7nO6f7RY5fu+z+zTUMfJPg1rxWewsA72c9jRM9t3dLipPaiNSQ5VsWuyr1JrsspL2fxtwAt7EizOdNZ1lDO688hibCduobCeSZeTCbPbNN6wunbSG2I9kwkWrkU/Mv3w2ZOq2Suc7BqLmWx/WPUDtnbRP6t+oHx7kgsrtVPVp6K6qOvnjyAmdH2KzR1+z3KFr/mzGi7jhlwehJPHj/pJdp6vEVR9Y7hsP+PPR8E4qGzH9mlMME4j15vgrwRrzWieI16IpfIlclPC7KawMyzjhhxYjMx09FiMD4spkah6R8WDSLblu15TLM9N+VplHhlWxi0S1ZtG7Erdz/rAyKUav1ldN8HZ5SJ06+Kgrab5xPRTa2ZSyzFf6HJidbnpOXmeo+LUK2rVjNNK/lN7vcjmdg3jxGKy4uTvrbAqdYX3Qeyb7MJ6ucw//VzvuqO9MH8yHbH3uI/35XvMyfZVUT3rsdjzIRarGAbyVvEgyo0YN1gNxu4b4RknhqGOGV/vw+xcZRv26f3Ov4OhdI3yLHsHI8v11bXA8Bgn5BXFn0o/oRrzN8FnmhejnJ/FMayzWU70x5Fu+/9+b6veKajo5s+/ieureSPy8er8ex3V+shsnfGq+jYT1hv3mN2cH/WfJ30X1Wt/VV/J54yOqP7ZlJt6lnsecmP5A2NxVdR+aqKnvTPHfGTau8e4ONXTBPd80/e1dmF167N6nl+kJ87rM9xYL/JVz08mdsv2oVW7qb7vJN6qWnoS19R+YeIb2btyHSz1vukkz7Femh/T91eR0/T5o8WyZ59jHnLIIYcccsj/kH8XOm/i
   </data>
