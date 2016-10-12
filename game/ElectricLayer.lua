@@ -3,8 +3,7 @@ local levity = require "levity"
 local ElectricLayer = class(function(self, id)
 	self.layer = levity.map.layers[id]
 	assert(self.layer.type == "tilelayer")
-
-	self.timer = 0
+	self:setActive(false)
 end)
 
 local ElectricTileset = "electricity"
@@ -20,18 +19,21 @@ end
 
 function ElectricLayer:setActive(active)
 	self.layer.visible = active
+	if not active then
+		self.timer = 0
+	end
 end
 
 function ElectricLayer:beginMove(dt)
+	if not self.layer.visible then
+		return
+	end
+
 	local newtimer = self.timer + dt
 
-	if self.layer.visible then
-		if math.floor(self.timer * BuzzRate) < math.floor(newtimer * BuzzRate) then
-			levity.bank:play(Sounds.Buzz)
-			levity.machine:broadcast("buzz")
-		end
-	else
-		return
+	if math.floor(self.timer * BuzzRate) < math.floor(newtimer * BuzzRate) then
+		levity.bank:play(Sounds.Buzz)
+		levity.machine:broadcast("buzz")
 	end
 
 	self.timer = newtimer

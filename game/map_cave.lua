@@ -8,7 +8,7 @@ return {
   height = 200,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 65,
+  nextobjectid = 95,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "20 - My Kingdom.vgm",
@@ -1557,8 +1557,65 @@ return {
       }
     },
     {
-      name = "electricity",
+      name = "humanshots",
       firstgid = 543,
+      filename = "humanshots.tsx",
+      tilewidth = 32,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      image = "humanshots.png",
+      imagewidth = 32,
+      imageheight = 96,
+      tileoffset = {
+        x = -24,
+        y = 8
+      },
+      properties = {
+        ["commoncollision"] = 0,
+        ["row_arrow"] = 2,
+        ["row_ballista"] = 4,
+        ["row_magic"] = 3,
+        ["row_pike"] = 0,
+        ["row_sword"] = 1,
+        ["row_water"] = 5
+      },
+      terrains = {},
+      tilecount = 6,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -2,
+                y = 14,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "electricity",
+      firstgid = 549,
       filename = "electricity.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1587,6 +1644,175 @@ return {
             {
               tileid = "1",
               duration = "67"
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "demonizing",
+      firstgid = 581,
+      filename = "demonizing.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "demonizing.png",
+      imagewidth = 192,
+      imageheight = 64,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 3,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = "0",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
+            },
+            {
+              tileid = "0",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
+            },
+            {
+              tileid = "0",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
+            },
+            {
+              tileid = "0",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
+            },
+            {
+              tileid = "2",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
+            },
+            {
+              tileid = "2",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
+            },
+            {
+              tileid = "2",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
+            },
+            {
+              tileid = "2",
+              duration = "62"
+            },
+            {
+              tileid = "1",
+              duration = "62"
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "demonwomen",
+      firstgid = 584,
+      filename = "demonwomen.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "demonwomen.png",
+      imagewidth = 192,
+      imageheight = 832,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_archer"] = 12,
+        ["row_civ1"] = 0,
+        ["row_civ2"] = 1,
+        ["row_civ3"] = 2,
+        ["row_civ4"] = 3,
+        ["row_civ5"] = 4,
+        ["row_civ6"] = 5,
+        ["row_civ7"] = 6,
+        ["row_civ8"] = 7,
+        ["row_mage"] = 11,
+        ["row_pikeman"] = 8,
+        ["row_priest"] = 10,
+        ["row_swordsman"] = 9
+      },
+      terrains = {},
+      tilecount = 39,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -8,
+                y = 56,
+                width = 16,
+                height = 16,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = "0",
+              duration = "125"
+            },
+            {
+              tileid = "1",
+              duration = "125"
+            },
+            {
+              tileid = "2",
+              duration = "125"
             }
           }
         }
@@ -1626,7 +1852,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztWu1q40AMDH4Vc5ijhOMIIZSQ93+tq6ECdTqjr6T3y4IlcWKPR1qtpJV9Oh1yCJd1OZ3eP8bt89O+s+NfS4xz/hhvn5/2HYc/x/A97g3Owes8Pt7Djo0rw8muZ7zP5BrUVV3Hvit9EHeCp2zH+KvjyNYRV3VOZ+6iOc/wKv5Snatsziv+ks1NpFNlXjuc1LxEPq3sE923YrtsHir2yHw4Wy/Rmq/iTPSM+FY4RL4R+e8WzHFlbvzvu+x4j8BOylb2fb/29/I1h+yY90Rv++/+ORADZRN8bPxJrke5CvueC1wyblMcz83r+XeIs8sFuD2DdSU6RrVEB2syhx6LrccutxVw/Oja7RKsva6elx/gpeJfx2ZXwmeyJlfBp+u3K+gSxflMz2twLYuvCg99qprLGN6VXGufd/jN3xNtp2p8b2eMQUzXVfg3rudNcLPxnsz9/uljKfodW/uKO9oC51nlPYaHWJmeUS5m/n0h50U2ssHyDstRUV7OYsvW5JXlwssS27+TU68FTtXYFK2Dbp73sZf5RScvIBZy7OQFFusiP59g+VHJMSu5Xq2jDI+tI+W7+2A9knX53tOI4g4e+z6MinVKx+i8ynG2FqL4xOyW8YjuGekUrbMMO5rPKJ5X7FThh8P2NZEdo3nx/5ls5NxonSHeY/nq0xjDKzZk+z2/zjKfttHd7yl7VWPTFnB5K3JSeDgHk32f7cPv7nO6f7RY5fu+z+zTUMfJPg1rxWewsA72c9jRM9t3dLipPaiNSQ5VsWuyr1JrsspL2fxtwAt7EizOdNZ1lDO688hibCduobCeSZeTCbPbNN6wunbSG2I9kwkWrkU/Mv3w2ZOq2Suc7BqLmWx/WPUDtnbRP6t+oHx7kgsrtVPVp6K6qOvnjyAmdH2KzR1+z3KFr/mzGi7jhlwehJPHj/pJdp6vEVR9Y7hsP+PPR8E4qGzH9mlMME4j15vgrwRrzWieI16IpfIlclPC7KawMyzjhhxYjMx09FiMD4spkah6R8WDSLblu15TLM9N+VplHhlWxi0S1ZtG7Erdz/rAyKUav1ldN8HZ5SJ06+Kgrab5xPRTa2ZSyzFf6HJidbnpOXmeo+LUK2rVjNNK/lN7vcjmdg3jxGKy4uTvrbAqdYX3Qeyb7MJ6ucw//VzvuqO9MH8yHbH3uI/35XvMyfZVUT3rsdjzIRarGAbyVvEgyo0YN1gNxu4b4RknhqGOGV/vw+xcZRv26f3Ov4OhdI3yLHsHI8v11bXA8Bgn5BXFn0o/oRrzN8FnmhejnJ/FMayzWU70x5Fu+/9+b6veKajo5s+/ieureSPy8er8ex3V+shsnfGq+jYT1hv3mN2cH/WfJ30X1Wt/VV/J54yOqP7ZlJt6lnsecmP5A2NxVdR+aqKnvTPHfGTau8e4ONXTBPd80/e1dmF167N6nl+kJ87rM9xYL/JVz08mdsv2oVW7qb7vJN6qWnoS19R+YeIb2btyHSz1vukkz7Femh/T91eR0/T5o8WyZ59jHnLIIYcccsj/kH8XOm/i"
+      data = "eJztWu1q40AMDH4bc5ijhOMIIZSQ93+nq6ECdTqjr6T3y4IlcWKPR1qtpJV9Oh1yCJd1OZ3eP8bt89O+s+NfS4xz/hhvn5/2HYc/x/A97g3Owes8Pt7Djo0rw8muZ7zP5BrUVV3Hvit9EHeCp2zH+KvjyNYRV3VOZ+6iOc/wKv5Snatsziv+ks1NpFNlXjuc1LxEPq3sE923YrtsHir2yHw4Wy/Rmq/iTPSM+FY4RL4R+e8WzHFlbvzvu+x4j8BOylb2fb/29/I1h+yY90Rv++/+ORADZRN8bPxJrke5CvueC1wyblMcz83r+XeIs8sFuD2DdSU6RrVEB2syhx6LrccutxVw/Oja7RKsva6elx/gpeJfx2ZXwmeyJlfBp+u3K+gSxflMz2twLYuvCg99qprLGN6VXGufd/jN3xNtp2p8b2eMQUzXVfg3rudNcLPxnsz9/uljKfodW/uKO9oC51nlPYaHWJmeUS5m/n0h50U2ssHyDstRUV7OYsvW5JXlwssS27+TU68FTtXYFK2Dbp73sZf5RScvIBZy7OQFFusiP59g+VHJMSu5Xq2jDI+tI+W7+2A9knX53tOI4g4e+z6MinVKx+i8ynG2FqL4xOyW8YjuGekUrbMMO5rPKJ5X7FThh8P2NZEdo3nx/5ls5NxonSHeY/nq0xjDKzZk+z2/zjKfttHd7yl7VWPTFnB5K3JSeDgHk32f7cPv7nO6f7RY5fu+z+zTUMfJPg1rxWewsA72c9jRM9t3dLipPaiNSQ5VsWuyr1JrsspL2fxtwAt7EizOdNZ1lDO688hibCduobCeSZeTCbPbNN6wunbSG2I9kwkWrkU/Mv3w2ZOq2Suc7BqLmWx/WPUDtnbRP6t+oHx7kgsrtVPVp6K6qOvnjyAmdH2KzR1+z3KFr/mzGi7jhlwehJPHj/pJdp6vEVR9Y7hsP+PPR8E4qGzH9mlMME4j15vgrwRrzWieI16IpfIlclPC7KawMyzjhhxYjMx09FiMD4spkah6R8WDSLblu15TLM9N+VplHhlWxi0S1ZtG7Erdz/rAyKUav1ldN8HZ5SJ06+Kgrab5xPRTa2ZSyzFf6HJidbnpOXmeo+LUK2rVjNNK/lN7vcjmdg3jxGKy4uTvrbAqdYX3Qeyb7MJ6ucw//VzvuqO9MH8yHbH3uI/35XvMyfZVUT3rsdjzIRarGAbyVvEgyo0YN1gNxu4b4RknhqGOGV/vw+xcZRv26f3Ov4OhdI3yLHsHI8v11bXA8Bgn5BXFn0o/oRrzN8FnmhejnJ/FMayzWU70x5Fu+/9+b6veKajo5s+/ieureSPy8er8ex3V+shsnfGq+jYT1hv3mN2cH/WfJ30X1Wt/VV/J54yOqP7ZlJt6lnsecmP5A2NxVdR+aqKnvTPHfGTau8e4ONXTBPd80/e1dmF167N6nl+kJ87rM9xYL/JVz08mdsv2oVW7qb7vJN6qWnoS19R+YeIb2btyHSz1vukkz7Femh/T91eR0/T5o8WyZ59jHnLIIYcccsj/kH/iYJ9q"
     },
     {
       type = "objectgroup",
@@ -1787,6 +2013,22 @@ return {
             ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
+        },
+        {
+          id = 68,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 1488,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 384,
+          visible = true,
+          properties = {
+            ["script"] = "NPCInquisitor"
+          }
         }
       }
     },
@@ -1897,13 +2139,45 @@ return {
           x = 0,
           y = 2288,
           width = 304,
-          height = 56,
+          height = 64,
           rotation = 0,
           visible = true,
           properties = {
             ["collidable"] = true,
             ["sensor"] = true,
             ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 66,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 2336,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 402,
+          visible = true,
+          properties = {
+            ["script"] = "NPCInquisitor"
+          }
+        },
+        {
+          id = 67,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 2336,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 438,
+          visible = true,
+          properties = {
+            ["script"] = "NPCInquisitor"
           }
         }
       }
@@ -1954,15 +2228,458 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 2720,
+          y = 2672,
           width = 304,
-          height = 56,
+          height = 112,
           rotation = 0,
           visible = true,
           properties = {
             ["collidable"] = true,
             ["sensor"] = true,
             ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 92,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 2688,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 504,
+          visible = true,
+          properties = {
+            ["script"] = "NPCInquisitor"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "pikes1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 77,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 2784,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 90,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 76,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 304,
+          y = 2752,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 90,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 75,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 2736,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 90,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 72,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 2752,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 89,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 85,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 2800,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 89,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 74,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 2784,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 89,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 82,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 2816,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 89,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 70,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -32,
+          y = 2784,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 89,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 86,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -16,
+          y = 2768,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 89,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 78,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 256,
+          y = 2800,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 90,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 73,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 2800,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 89,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 79,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 2768,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 90,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 80,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 2816,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 90,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 71,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 2768,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 89,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 83,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 304,
+          y = 2800,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 90,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 84,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 336,
+          y = 2784,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 90,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 69,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 2736,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 89,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 81,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 320,
+          y = 2768,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 414,
+          visible = true,
+          properties = {
+            ["pathid"] = 90,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 88,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 2784,
+          width = 304,
+          height = 64,
+          rotation = 0,
+          visible = false,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 89,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 64,
+          y = 2832,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 80, y = 80 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 90,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 240,
+          y = 2832,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -80, y = 80 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 94,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 2832,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 417,
+          visible = true,
+          properties = {
+            ["pathid"] = 90,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 93,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 2832,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 417,
+          visible = true,
+          properties = {
+            ["pathid"] = 89,
+            ["pathtime"] = 0.5,
+            ["script"] = "NPCSwordsman"
           }
         }
       }
