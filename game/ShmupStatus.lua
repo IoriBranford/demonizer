@@ -1,5 +1,7 @@
 local levity = require "levity"
-local ShmupAlly -- delayed require to avoid circular dependency
+local ShmupWingman -- delayed require to avoid circular dependency
+
+local MaxBombs = 3
 
 local ShmupStatus = class(function(self, id)
 	self.layer = levity.map.layers[id]
@@ -8,20 +10,24 @@ local ShmupStatus = class(function(self, id)
 	self.elements = {}
 	for _, object in pairs(self.layer.objects) do
 		self.elements[object.name] = object
+		for _, fixture in pairs(object.body:getFixtureList()) do
+			fixture:setFilterData(0,0,0)
+		end
 	end
 
-	self.numlives = 2
-	self.numbombpieces = 0
-	self.reservegids = {}
+	local nextmapdata = levity.nextmapdata
+	self.numlives = nextmapdata.numlives or 2
+	self.numbombpieces = nextmapdata.numbombpieces or 0
+	self.reservegids = nextmapdata.reservegids or {}
 
 	self:updateLives()
 	self:updateBombs()
 
-	ShmupAlly = ShmupAlly or levity.machine:requireScript("ShmupAlly")
+	ShmupWingman = ShmupWingman or levity.machine:requireScript("ShmupWingman")
 end)
 
 ShmupStatus.MaxLives = 9
-ShmupStatus.MaxBombs = 3
+ShmupStatus.MaxBombs = MaxBombs
 ShmupStatus.PiecesPerBomb = 50
 ShmupStatus.MaxBombPieces = ShmupStatus.MaxBombs * ShmupStatus.PiecesPerBomb
 --ShmupStatus.BombsPer100CaptivesPerSec = 1/32
@@ -57,8 +63,8 @@ function ShmupStatus:npcCaptured()
 	self:updateBombs()
 end
 
-function ShmupStatus:allyReserved(allyid, allygid)
-	self.reservegids[#self.reservegids + 1] = allygid
+function ShmupStatus:wingmanReserved(wingmanid, wingmangid)
+	self.reservegids[#self.reservegids + 1] = wingmangid
 	self:updateReserves()
 end
 
@@ -136,8 +142,8 @@ function ShmupStatus:beginMove(dt)
 	local playerid = levity.map.properties.playerid
 
 	if self:hasReserves()
-	and levity.machine:call(playerid, "roomForAllies") then
-		local allygid = self.reservegids[#self.reservegids]
+	and levity.machine:call(playerid, "roomForWingmen") then
+		local wingmangid = self.reservegids[#self.reservegids]
 
 		local camera = levity.map.objects[levity.map.properties.cameraid]
 		local x, y = camera.body:getWorldCenter()
@@ -146,13 +152,13 @@ function ShmupStatus:beginMove(dt)
 			y = math.max(y, b)
 		end
 
-		local allyid = ShmupAlly.create(allygid, x, y, false)
+		local wingmanid = ShmupWingman.create(wingmangid, x, y, false)
 
 		self.reservegids[#self.reservegids] = nil
 		self:updateReserves()
 
 		local scoreid = levity.machine:call("hud", "getScoreId")
-		levity.machine:call(scoreid, "allyJoined", allyid)
+		levity.machine:call(scoreid, "wingmanJoined", wingmanid)
 	end
 end
 

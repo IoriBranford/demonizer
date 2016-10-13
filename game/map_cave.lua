@@ -62,7 +62,7 @@ return {
               },
               {
                 id = 7,
-                name = "ally1",
+                name = "wingman1",
                 type = "",
                 shape = "ellipse",
                 x = -24,
@@ -77,7 +77,7 @@ return {
               },
               {
                 id = 8,
-                name = "ally2",
+                name = "wingman2",
                 type = "",
                 shape = "ellipse",
                 x = 24,
@@ -92,7 +92,7 @@ return {
               },
               {
                 id = 10,
-                name = "ally3",
+                name = "wingman3",
                 type = "",
                 shape = "ellipse",
                 x = -16,
@@ -107,7 +107,7 @@ return {
               },
               {
                 id = 11,
-                name = "ally4",
+                name = "wingman4",
                 type = "",
                 shape = "ellipse",
                 x = 16,
@@ -122,7 +122,7 @@ return {
               },
               {
                 id = 12,
-                name = "focusally1",
+                name = "focuswingman1",
                 type = "",
                 shape = "ellipse",
                 x = -32,
@@ -137,7 +137,7 @@ return {
               },
               {
                 id = 13,
-                name = "focusally2",
+                name = "focuswingman2",
                 type = "",
                 shape = "ellipse",
                 x = 32,
@@ -152,7 +152,7 @@ return {
               },
               {
                 id = 14,
-                name = "focusally3",
+                name = "focuswingman3",
                 type = "",
                 shape = "ellipse",
                 x = -16,
@@ -167,7 +167,7 @@ return {
               },
               {
                 id = 15,
-                name = "focusally4",
+                name = "focuswingman4",
                 type = "",
                 shape = "ellipse",
                 x = 16,
@@ -216,10 +216,10 @@ return {
       },
       properties = {
         ["commoncollision"] = 0,
-        ["row_ally"] = 1,
         ["row_bombpackage"] = 2,
         ["row_bombshrapnel"] = 3,
-        ["row_player"] = 0
+        ["row_player"] = 0,
+        ["row_wingman"] = 1
       },
       terrains = {},
       tilecount = 4,

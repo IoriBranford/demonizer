@@ -1,6 +1,6 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
-local ShmupAlly = levity.machine:requireScript("ShmupAlly")
+local ShmupWingman = levity.machine:requireScript("ShmupWingman")
 
 local Sounds = {
 	Hit = "hit.wav",
@@ -288,14 +288,14 @@ function ShmupNPC:capture(captorid)
 	self.captured = true
 
 	if self.female then
-		local newallyid = ShmupAlly.create(
+		local newwingmanid = ShmupWingman.create(
 				levity:getTileGid(self.object.tile.tileset,
 							"up", self.npctype),
 				self.object.x, self.object.y, true)
 
 		levity.bank:play(Sounds.Convert)
 		levity.bank:play(Sounds.FemaleCapture)
-		levity.machine:broadcast("allyJoined", newallyid)
+		levity.machine:broadcast("wingmanJoined", newwingmanid)
 	else
 		levity.bank:play(Sounds.MaleCapture)
 		levity.machine:broadcast("npcCaptured", self.object.id, captorid)

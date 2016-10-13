@@ -7,7 +7,7 @@ local ShmupNPC -- delayed require to avoid circular dependency
 local OS = love.system.getOS()
 local IsMobile = OS == "Android" or OS == "iOS"
 
-local MaxAllies = 4
+local MaxWingmen = 4
 
 local ShmupPlayer = class(function(self, id)
 	self.object = levity.map.objects[id]
@@ -23,7 +23,7 @@ local ShmupPlayer = class(function(self, id)
 	self.firetimer = 0
 	self.focused = false
 
-	self.numallies = 0
+	self.numwingmen = 0
 
 	self.killed = false
 	self.deathtimer = 0
@@ -44,12 +44,12 @@ local ShmupPlayer = class(function(self, id)
 			ShmupCollision.Category_PlayerBomb)
 	end
 
-	for i = 1, MaxAllies do
-		local fixture = fixtures["ally"..i]
+	for i = 1, MaxWingmen do
+		local fixture = fixtures["wingman"..i]
 		if fixture then
 			fixture:setFilterData(0, 0, 0)
 		end
-		fixture = fixtures["focusally"..i]
+		fixture = fixtures["focuswingman"..i]
 		if fixture then
 			fixture:setFilterData(0, 0, 0)
 		end
@@ -113,18 +113,18 @@ ShmupPlayer.BombParams = {
 		end
 	end
 }
-ShmupPlayer.MaxAllies = MaxAllies
+ShmupPlayer.MaxWingmen = MaxWingmen
 ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
 ShmupPlayer.DeathSnapToCameraVelocity = 1/16
-ShmupPlayer.AllyFleeDistance = 400
+ShmupPlayer.WingmanFleeDistance = 400
 ShmupPlayer.CaptivesReleasedOnKill = 10
 ShmupPlayer.Button_Fire = 1
 ShmupPlayer.Button_Focus = 2
 ShmupPlayer.Button_Bomb = 3
 
-function ShmupPlayer.isActiveAllyIndex(i)
-	return 0 < i and i <= ShmupPlayer.MaxAllies
+function ShmupPlayer.isActiveWingmanIndex(i)
+	return 0 < i and i <= ShmupPlayer.MaxWingmen
 end
 
 local Sounds = {
@@ -148,35 +148,35 @@ function ShmupPlayer:playSound(soundfile)
 end
 
 function ShmupPlayer:rankFactor()
-	return self.numallies / ShmupPlayer.MaxAllies
+	return self.numwingmen / ShmupPlayer.MaxWingmen
 end
 
-function ShmupPlayer:roomForAllies()
-	return self.numallies < ShmupPlayer.MaxAllies
+function ShmupPlayer:roomForWingmen()
+	return self.numwingmen < ShmupPlayer.MaxWingmen
 end
 
-function ShmupPlayer:newAllyIndex()
-	local newindex = self.numallies + 1
-	self.numallies = newindex
+function ShmupPlayer:newWingmanIndex()
+	local newindex = self.numwingmen + 1
+	self.numwingmen = newindex
 	return newindex
 end
 
-function ShmupPlayer:allyReserved(allyid, allygid)
-	self.numallies = self.numallies - 1
+function ShmupPlayer:wingmanReserved(wingmanid, wingmangid)
+	self.numwingmen = self.numwingmen - 1
 end
 
-function ShmupPlayer:allyKilled(allyid)
-	self.numallies = self.numallies - 1
+function ShmupPlayer:wingmanKilled(wingmanid)
+	self.numwingmen = self.numwingmen - 1
 end
 
-function ShmupPlayer:getAllyPosition(i)
+function ShmupPlayer:getWingmanPosition(i)
 	local x = self.object.x
 	local y = self.object.y
 	local offsetfixture
 	if self.focused then
-		offsetfixture = self.object.body:getUserData().fixtures["focusally"..i]
+		offsetfixture = self.object.body:getUserData().fixtures["focuswingman"..i]
 	else
-		offsetfixture = self.object.body:getUserData().fixtures["ally"..i]
+		offsetfixture = self.object.body:getUserData().fixtures["wingman"..i]
 	end
 
 	if offsetfixture then
@@ -189,7 +189,7 @@ function ShmupPlayer:getAllyPosition(i)
 			local angle = math.pi * .5
 			angle = angle + math.atan2(cx - x, y - cy) * .25
 
-			local distance = ShmupPlayer.AllyFleeDistance
+			local distance = ShmupPlayer.WingmanFleeDistance
 			x = x + distance * math.cos(angle)
 			y = y + distance * math.sin(angle)
 		end

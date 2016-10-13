@@ -19,7 +19,7 @@ local EnableCaptureMask = {
 	ShmupCollision.Category_PlayerBomb
 }
 
-local ShmupAlly = class(function(self, id)
+local ShmupWingman = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
@@ -29,7 +29,7 @@ local ShmupAlly = class(function(self, id)
 	self:refreshFixtures(DisableCaptureMask)
 
 	local playerid = levity.map.properties.playerid
-	self.allyindex = levity.machine:call(playerid, "newAllyIndex")
+	self.wingmanindex = levity.machine:call(playerid, "newWingmanIndex")
 	self.convertobject = self.properties.convertobject
 	self.properties.convertobject = nil
 	self.converttimer = 0
@@ -46,7 +46,7 @@ local ShmupAlly = class(function(self, id)
 	ShmupNPC = ShmupNPC or levity.machine:requireScript("ShmupNPC")
 end)
 
-function ShmupAlly:refreshFixtures(mask)
+function ShmupWingman:refreshFixtures(mask)
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setSensor(true)
 		fixture:setCategory(ShmupCollision.Category_PlayerTeam)
@@ -60,21 +60,21 @@ local Sounds = {
 }
 levity.bank:load(Sounds)
 
-ShmupAlly.Speed = 320
-ShmupAlly.SpeedSq = ShmupAlly.Speed * ShmupAlly.Speed
-ShmupAlly.MaxHealth = 8
-ShmupAlly.BulletParams = {
+ShmupWingman.Speed = 320
+ShmupWingman.SpeedSq = ShmupWingman.Speed * ShmupWingman.Speed
+ShmupWingman.MaxHealth = 8
+ShmupWingman.BulletParams = {
 	speed = ShmupPlayer.BulletParams.speed,
-	gid = levity:getTileGid("demonshots", "ally", 0),
+	gid = levity:getTileGid("demonshots", "wingman", 0),
 	category = ShmupCollision.Category_PlayerShot
 }
-ShmupAlly.ConvertTime = 1
-ShmupAlly.ConvertShake = 2
-ShmupAlly.LockSearchWidth = 120
-ShmupAlly.LockSearchHeight = 160
-ShmupAlly.UnfocusedHealRate = 1
+ShmupWingman.ConvertTime = 1
+ShmupWingman.ConvertShake = 2
+ShmupWingman.LockSearchWidth = 120
+ShmupWingman.LockSearchHeight = 160
+ShmupWingman.UnfocusedHealRate = 1
 
-function ShmupAlly:kill()
+function ShmupWingman:kill()
 	local cx, cy = self.object.body:getWorldCenter()
 	ShmupNPC.releaseCaptives(self.captivegids, cx, cy, self.object.layer)
 
@@ -89,14 +89,14 @@ function ShmupAlly:kill()
 	end
 
 	levity.bank:play(Sounds.Death)
-	levity.machine:broadcast("allyKilled", self.object.id)
+	levity.machine:broadcast("wingmanKilled", self.object.id)
 end
 
-function ShmupAlly:heal(healing)
-	self.health = math.min(self.health + healing, ShmupAlly.MaxHealth)
+function ShmupWingman:heal(healing)
+	self.health = math.min(self.health + healing, ShmupWingman.MaxHealth)
 end
 
-function ShmupAlly:npcCaptured(npcid)
+function ShmupWingman:npcCaptured(npcid)
 	local healing = 1
 	local npc = levity.map.objects[npcid]
 	if npc then
@@ -110,25 +110,25 @@ function ShmupAlly:npcCaptured(npcid)
 	end
 end
 
-function ShmupAlly:allyReserved(allyid, allygid)
-	self:allyKilled(allyid)
+function ShmupWingman:wingmanReserved(wingmanid, wingmangid)
+	self:wingmanKilled(wingmanid)
 end
 
-function ShmupAlly:allyKilled(allyid)
-	local allyindex = levity.machine:call(allyid, "getAllyIndex")
-	if self.allyindex > allyindex then
-		self.allyindex = self.allyindex - 1
-		if ShmupPlayer.isActiveAllyIndex(self.allyindex) then
+function ShmupWingman:wingmanKilled(wingmanid)
+	local wingmanindex = levity.machine:call(wingmanid, "getWingmanIndex")
+	if self.wingmanindex > wingmanindex then
+		self.wingmanindex = self.wingmanindex - 1
+		if ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
 			self:refreshFixtures(EnableCaptureMask)
 		end
 	end
 end
 
-function ShmupAlly:getAllyIndex()
-	return self.allyindex
+function ShmupWingman:getWingmanIndex()
+	return self.wingmanindex
 end
 
-function ShmupAlly:beginContact(myfixture, otherfixture, contact)
+function ShmupWingman:beginContact(myfixture, otherfixture, contact)
 	local otherdata = otherfixture:getBody():getUserData()
 	local otherproperties = otherdata.properties
 	local category = otherfixture:getCategory()
@@ -155,7 +155,7 @@ function ShmupAlly:beginContact(myfixture, otherfixture, contact)
 	end
 end
 
-function ShmupAlly:endContact(myfixture, otherfixture, contact)
+function ShmupWingman:endContact(myfixture, otherfixture, contact)
 	local category = otherfixture:getCategory()
 
 	if category == ShmupCollision.Category_Camera then
@@ -163,19 +163,19 @@ function ShmupAlly:endContact(myfixture, otherfixture, contact)
 	end
 end
 
-function ShmupAlly:playerKilled()
+function ShmupWingman:playerKilled()
 	self:refreshFixtures(DisableCaptureMask)
 end
 
-function ShmupAlly:playerRespawned()
-	if ShmupPlayer.isActiveAllyIndex(self.allyindex) then
+function ShmupWingman:playerRespawned()
+	if ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
 		self:refreshFixtures(EnableCaptureMask)
 	end
 end
 
-function ShmupAlly:updateConversion(dt)
+function ShmupWingman:updateConversion(dt)
 	self.converttimer = self.converttimer + dt
-	if self.converttimer >= ShmupAlly.ConvertTime then
+	if self.converttimer >= ShmupWingman.ConvertTime then
 		levity:discardObject(self.convertobject.id)
 		self.convertobject = nil
 		self.converttimer = nil
@@ -183,7 +183,7 @@ function ShmupAlly:updateConversion(dt)
 		local gid = levity:getTileGid("demonwomen", self.npctype, 0)
 		levity:setObjectGid(self.object, gid)
 
-		if ShmupPlayer.isActiveAllyIndex(self.allyindex) then
+		if ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
 			self:refreshFixtures(EnableCaptureMask)
 		else
 			self:refreshFixtures(DisableCaptureMask)
@@ -191,7 +191,7 @@ function ShmupAlly:updateConversion(dt)
 	end
 end
 
-function ShmupAlly:updateFiring(dt)
+function ShmupWingman:updateFiring(dt)
 	if self.firetimer <= 0 then
 		local angle = math.pi*1.5
 		local cx, cy = self.object.body:getWorldCenter()
@@ -217,7 +217,7 @@ function ShmupAlly:updateFiring(dt)
 				math.atan2(cx - playercx, playercy - cy) * .0625
 		end
 
-		local params = ShmupAlly.BulletParams
+		local params = ShmupWingman.BulletParams
 		params.x = cx + 8*math.cos(angle)
 		params.y = cy + 8*math.sin(angle)
 		params.angle = angle
@@ -228,17 +228,17 @@ function ShmupAlly:updateFiring(dt)
 	self.firetimer = self.firetimer - dt
 end
 
-function ShmupAlly:findTarget(canbetargetfunc)
+function ShmupWingman:findTarget(canbetargetfunc)
 	local playerid = levity.map.properties.playerid
 	local player = levity.map.objects[playerid]
 	local playercx, playercy = player.body:getWorldCenter()
 	local cx, cy = self.object.body:getWorldCenter()
 	local dx, dy = cx - playercx, cy - playercy
 
-	local x0 = dx + cx - ShmupAlly.LockSearchWidth
-	local x1 = dx + cx + ShmupAlly.LockSearchWidth
-	local y0 = dy + cy - ShmupAlly.LockSearchHeight
-	local y1 = dy + cy + ShmupAlly.LockSearchHeight
+	local x0 = dx + cx - ShmupWingman.LockSearchWidth
+	local x1 = dx + cx + ShmupWingman.LockSearchWidth
+	local y0 = dy + cy - ShmupWingman.LockSearchHeight
+	local y1 = dy + cy + ShmupWingman.LockSearchHeight
 
 	local foundlocktargetid = nil
 	levity.world:queryBoundingBox(x0, y0, x1, y1, function(fixture)
@@ -255,7 +255,7 @@ function ShmupAlly:findTarget(canbetargetfunc)
 	return foundlocktargetid
 end
 
-function ShmupAlly:beginMove(dt)
+function ShmupWingman:beginMove(dt)
 	local body = self.object.body
 
 	local playerid = levity.map.properties.playerid
@@ -275,38 +275,38 @@ function ShmupAlly:beginMove(dt)
 			captive = levity.map.objects[self.targetcaptiveid]
 		end
 	else
-		self:heal(ShmupAlly.UnfocusedHealRate * dt)
+		self:heal(ShmupWingman.UnfocusedHealRate * dt)
 	end
 
 	if captive then
 		destx, desty = captive.body:getWorldCenter()
-	elseif ShmupPlayer.isActiveAllyIndex(self.allyindex) then
-		destx, desty = levity.machine:call(playerid, "getAllyPosition",
-						self.allyindex)
+	elseif ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
+		destx, desty = levity.machine:call(playerid, "getWingmanPosition",
+						self.wingmanindex)
 		self.targetcaptiveid = nil
 
 		if self.convertobject then
-			desty = desty + ShmupAlly.ConvertShake--*self.converttimer
+			desty = desty + ShmupWingman.ConvertShake--*self.converttimer
 				*math.sin(self.converttimer * 60)
 		end
 	else
 		destx, desty = self.object.body:getWorldCenter()
 		if self.convertobject then
-			desty = desty + ShmupAlly.ConvertShake--*self.converttimer
+			desty = desty + ShmupWingman.ConvertShake--*self.converttimer
 				*math.sin(self.converttimer * 60)
 		else
-			desty = desty + ShmupAlly.Speed
+			desty = desty + ShmupWingman.Speed
 		end
 	end
 
 	local dx, dy = destx - cx, desty - cy
 	local distsq = math.hypotsq(dx, dy)
 	local vx1, vy1
-	if distsq < ShmupAlly.SpeedSq * dt * dt then
+	if distsq < ShmupWingman.SpeedSq * dt * dt then
 		vx1 = dx / dt
 		vy1 = dy / dt
 	else
-		local speed = ShmupAlly.Speed / math.sqrt(distsq)
+		local speed = ShmupWingman.Speed / math.sqrt(distsq)
 		vx1 = dx * speed
 		vy1 = dy * speed
 	end
@@ -324,13 +324,13 @@ function ShmupAlly:beginMove(dt)
 	end
 end
 
-function ShmupAlly:endMove(dt)
+function ShmupWingman:endMove(dt)
 	if self.convertobject then
 		local x, y = self.object.body:getPosition()
 		self.convertobject.body:setPosition(x, y + 1/64)
 	elseif not self.oncamera then
-		if not ShmupPlayer.isActiveAllyIndex(self.allyindex) then
-			levity.machine:broadcast("allyReserved",
+		if not ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
+			levity.machine:broadcast("wingmanReserved",
 						self.object.id,
 						self.object.gid)
 			levity:discardObject(self.object.id)
@@ -341,14 +341,14 @@ function ShmupAlly:endMove(dt)
 	end
 end
 
-function ShmupAlly:beginDraw()
+function ShmupWingman:beginDraw()
 	if self.convertobject then
 		local flashrate = 30 * self.converttimer
 		local flash = 0x80 * (math.cos(flashrate*math.pi) + 3)
 
 		love.graphics.setColor(flash, 0xff, flash)
 	else
-		local wound = 0xff * (self.health / ShmupAlly.MaxHealth)
+		local wound = 0xff * (self.health / ShmupWingman.MaxHealth)
 		love.graphics.setColor(0xff, wound, wound)
 	end
 
@@ -362,11 +362,11 @@ function ShmupAlly:beginDraw()
 	self.properties.textfont = "pressstart2p.fnt"
 end
 
-function ShmupAlly:endDraw()
+function ShmupWingman:endDraw()
 	love.graphics.setColor(0xff, 0xff, 0xff)
 end
 
-function ShmupAlly.create(gid, x, y, converted)
+function ShmupWingman.create(gid, x, y, converted)
 	local playerid = levity.map.properties.playerid
 	local convertobject
 	if converted then
@@ -377,22 +377,22 @@ function ShmupAlly.create(gid, x, y, converted)
 		}
 	end
 
-	local ally = {
+	local wingman = {
 		id = levity:newObjectId(),
 		gid = gid,
 		x = x,
 		y = y,
 		properties = {
-			script = "ShmupAlly",
+			script = "ShmupWingman",
 			convertobject = convertobject
 		}
 	}
 
 	local player = levity.map.objects[playerid]
-	player.layer:addObject(ally)
+	player.layer:addObject(wingman)
 	player.layer:addObject(convertobject)
 
-	return ally.id
+	return wingman.id
 end
 
-return ShmupAlly
+return ShmupWingman

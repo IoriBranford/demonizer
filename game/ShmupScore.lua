@@ -6,13 +6,14 @@ local ShmupScore = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.properties = self.object.properties
 
-	self.points = 0
-	self.extendpoints = 2000000
-	self.multipliers = {
+	local nextmapdata = levity.nextmapdata
+	self.points = nextmapdata.points or 0
+	self.extendpoints = nextmapdata.extendpoints or 2000000
+	self.multipliers = nextmapdata.multipliers or {
 		[levity.map.properties.playerid] = 0
 	}
 
-	self.totalmultiplier = 0
+	self.totalmultiplier = nextmapdata.totalmultiplier or 0
 end)
 
 ShmupScore.MaxPoints = 999999999
@@ -40,8 +41,8 @@ function ShmupScore:getNextCapturePoints()
 	return ShmupScore.BaseCapturePoints * self.totalmultiplier
 end
 
-function ShmupScore:allyJoined(newallyid)
-	self.multipliers[newallyid] = 0
+function ShmupScore:wingmanJoined(newwingmanid)
+	self.multipliers[newwingmanid] = 0
 end
 
 function ShmupScore:npcCaptured(npcid, captorid)
@@ -109,11 +110,11 @@ function ShmupScore:playerRespawned()
 	self.multipliers[levity.map.properties.playerid] = 0
 end
 
-function ShmupScore:allyReserved(id, gid)
+function ShmupScore:wingmanReserved(id, gid)
 	self:multiplierLost(id)
 end
 
-function ShmupScore:allyKilled(id)
+function ShmupScore:wingmanKilled(id)
 	self:multiplierLost(id)
 end
 

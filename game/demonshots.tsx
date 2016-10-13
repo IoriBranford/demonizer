@@ -3,7 +3,7 @@
  <tileoffset x="-16" y="8"/>
  <properties>
   <property name="commoncollision" type="int" value="0"/>
-  <property name="row_ally" type="int" value="1"/>
+  <property name="row_wingman" type="int" value="1"/>
   <property name="row_bombpackage" type="int" value="2"/>
   <property name="row_bombshrapnel" type="int" value="3"/>
   <property name="row_player" type="int" value="0"/>
