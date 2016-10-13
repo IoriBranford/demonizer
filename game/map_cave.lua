@@ -8,7 +8,7 @@ return {
   height = 200,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 95,
+  nextobjectid = 99,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "20 - My Kingdom.vgm",
@@ -1979,7 +1979,12 @@ return {
           rotation = 0,
           gid = 371,
           visible = true,
-          properties = {}
+          properties = {
+            ["cageid"] = 48,
+            ["pathid"] = 60,
+            ["pathtime"] = 60,
+            ["script"] = "ShmupFriend"
+          }
         },
         {
           id = 48,
@@ -2054,7 +2059,12 @@ return {
           rotation = 0,
           gid = 371,
           visible = true,
-          properties = {}
+          properties = {
+            ["cageid"] = 42,
+            ["pathid"] = 60,
+            ["pathtime"] = 60,
+            ["script"] = "ShmupFriend"
+          }
         },
         {
           id = 42,
@@ -2113,7 +2123,12 @@ return {
           rotation = 0,
           gid = 371,
           visible = true,
-          properties = {}
+          properties = {
+            ["cageid"] = 36,
+            ["pathid"] = 60,
+            ["pathtime"] = 60,
+            ["script"] = "ShmupFriend"
+          }
         },
         {
           id = 36,
@@ -2204,7 +2219,12 @@ return {
           rotation = 0,
           gid = 371,
           visible = true,
-          properties = {}
+          properties = {
+            ["cageid"] = 33,
+            ["pathid"] = 60,
+            ["pathtime"] = 60,
+            ["script"] = "ShmupFriend"
+          }
         },
         {
           id = 33,
@@ -2686,7 +2706,7 @@ return {
     },
     {
       type = "objectgroup",
-      name = "mermaidpath",
+      name = "friends",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -2696,7 +2716,7 @@ return {
       objects = {
         {
           id = 60,
-          name = "",
+          name = "path1",
           type = "",
           shape = "polyline",
           x = 160,
@@ -2706,26 +2726,25 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 0 },
+            { x = 0, y = 32 },
             { x = 16, y = -48 },
             { x = 0, y = -112 },
             { x = -48, y = -176 },
-            { x = -64, y = -240 },
-            { x = -64, y = -304 },
-            { x = -32, y = -384 },
-            { x = -16, y = -464 },
-            { x = -32, y = -560 },
-            { x = -32, y = -608 },
-            { x = 0, y = -720 },
-            { x = 32, y = -832 },
-            { x = 0, y = -944 },
+            { x = -80, y = -272 },
+            { x = -64, y = -576 },
+            { x = -16, y = -736 },
+            { x = -16, y = -832 },
+            { x = -32, y = -960 },
             { x = -64, y = -1040 },
-            { x = -48, y = -1152 },
-            { x = -16, y = -1264 },
-            { x = 0, y = -1376 },
+            { x = -64, y = -1136 },
+            { x = -48, y = -1168 },
+            { x = -32, y = -1280 },
+            { x = -48, y = -1360 },
             { x = 0, y = -1488 }
           },
-          properties = {}
+          properties = {
+            ["script"] = "LinearPath"
+          }
         }
       }
     },

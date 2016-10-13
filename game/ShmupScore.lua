@@ -75,7 +75,6 @@ function ShmupScore:npcDied(npcid)
 		self.multipliers[id] = 0
 	end
 	self.totalmultiplier = 0
-
 end
 
 function ShmupScore:multiplierInc(id)
@@ -116,6 +115,13 @@ end
 
 function ShmupScore:wingmanKilled(id)
 	self:multiplierLost(id)
+end
+
+function ShmupScore:friendKilled(id)
+	for id, mult in pairs(self.multipliers) do
+		self.multipliers[id] = 0
+	end
+	self.totalmultiplier = 0
 end
 
 function ShmupScore:getMultiplier(id)

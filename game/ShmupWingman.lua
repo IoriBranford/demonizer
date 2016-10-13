@@ -1,5 +1,6 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
+local Targeting = require "Targeting"
 local ShmupPlayer = levity.machine:requireScript("ShmupPlayer")
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 local ShmupNPC -- delayed require to avoid circular dependency
@@ -240,19 +241,7 @@ function ShmupWingman:findTarget(canbetargetfunc)
 	local y0 = dy + cy - ShmupWingman.LockSearchHeight
 	local y1 = dy + cy + ShmupWingman.LockSearchHeight
 
-	local foundlocktargetid = nil
-	levity.world:queryBoundingBox(x0, y0, x1, y1, function(fixture)
-		local userdata = fixture:getBody():getUserData()
-		local id = userdata.id
-		if not levity.machine:call(id, canbetargetfunc) then
-			return true
-		end
-
-		foundlocktargetid = id
-		return false
-	end)
-
-	return foundlocktargetid
+	return Targeting.queryRectangle(canbetargetfunc, x0, y0, x1, y1)
 end
 
 function ShmupWingman:beginMove(dt)
