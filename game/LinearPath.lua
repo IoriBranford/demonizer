@@ -41,7 +41,41 @@ local Walker = class(function(self, path, pathtime)
 	self.speed = self.path.totallength / (pathtime or 1)
 end)
 
+function Walker:findStartPoint(sx, sy)
+	local points = self.path.points
+	local p = points[1]
+	local closestdistsq = math.hypotsq(sx - p.x, sy - p.y)
+	for i = 2, #points do
+		local q = points[i]
+
+		local pqx, pqy = q.x - p.x, q.y - p.y
+		local psx, psy = sx - p.x, sy - p.y
+		local qsx, qsy = sx - q.x, sy - q.y
+
+		local pqdotps = math.dot(pqx, pqy, psx, psy)
+		local pqdotqs = math.dot(pqx, pqy, qsx, qsy)
+
+		local distsq = math.huge
+
+		if pqdotps < 0 then
+			distsq = math.hypotsq(psx, psy)
+		elseif pqdotqs < 0 then
+			local psdistsq = math.hypotsq(psx, psy)
+			local projdist = pqdotps / math.sqrt(psdistsq)
+			distsq = psdistsq - (projdist*projdist)
+		end
+
+		if distsq <= closestdistsq then
+			self.desti = i
+			closestdistsq = distsq
+		end
+
+		p = q
+	end
+end
+
 function Walker:getVelocityAt(dt, x, y)
+	local vx, vy
 	local point = self.path.points[self.desti]
 	local px, py = point.x, point.y
 
@@ -64,19 +98,15 @@ function Walker:getVelocityAt(dt, x, y)
 			desty = endpoint.y
 		end
 
-		return (destx - x) / dt, (desty - y) / dt
-	end
-
-	local dirx, diry
-
-	if self.desti > 1 then
-		dirx, diry = self.path:getDirection(self.desti - 1)
+		vx, vy = (destx - x) / dt, (desty - y) / dt
 	else
 		local dist = math.sqrt(distsq)
-		dirx, diry = distx / dist, disty / dist
+		local dirx, diry = distx / dist, disty / dist
+
+		vx, vy = dirx * self.speed, diry * self.speed
 	end
 
-	return dirx * self.speed, diry * self.speed
+	return vx, vy
 end
 
 function Walker:finished()
