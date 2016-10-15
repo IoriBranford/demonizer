@@ -26,16 +26,20 @@ local ShmupFriend = class(function(self, id)
 	self.locktargetid = nil
 	self.firetimer = 0
 	self.health = MaxHealth
+	self.electrocutiontimer = 0
 end)
 
 ShmupFriend.LockSearchWidth = 120
 ShmupFriend.LockSearchHeight = 160
 ShmupFriend.BulletParams = {
-	speed = 4*60,
+	speed = 8*60,
 	gid = levity:getTileGid("demonshots", "wingman", 0),
 	category = ShmupCollision.Category_PlayerShot
 }
-ShmupFriend.BulletInterval = .5
+ShmupFriend.BulletInterval = .0625
+ShmupFriend.ElectrocutionTime = .5
+ShmupFriend.PlayerTouchHealRate = 4
+ShmupFriend.HealDistSq = 48*48
 
 local Sounds = {
 	Lock = "targetlock.wav",
@@ -160,20 +164,36 @@ function ShmupFriend:beginMove(dt)
 		return
 	end
 
-	if not self.pathwalker then
-		local pathid = self.properties.pathid
-		self.pathwalker = levity.machine:call(pathid, "newWalker",
-						self.properties.pathtime)
+	if self.electrocutiontimer > 0 then
+		self.electrocutiontimer = self.electrocutiontimer - dt
 	end
 
-	if self.properties.cageid then
+	if not self.properties.cageid then
+		self:updateFiring(dt)
+	end
+
+	if self.properties.cageid or self.electrocutiontimer > 0 then
 		body:setLinearVelocity(0, 0)
 	else
-		self:updateFiring(dt)
-		if self.pathwalker then
-			body:setLinearVelocity(self.pathwalker:walk(dt,
-						body:getX(), body:getY()))
+		if not self.pathwalker then
+			local pathid = self.properties.pathid
+			self.pathwalker = levity.machine:call(pathid, "newWalker",
+			self.properties.pathtime)
+			self.pathwalker:findStartPoint(body:getWorldCenter())
 		end
+
+		body:setLinearVelocity(self.pathwalker:walk(dt,
+					body:getWorldCenter()))
+	end
+end
+
+function ShmupFriend:endMove(dt)
+	local cx, cy = self.object.body:getWorldCenter()
+	local playerid = levity.map.properties.playerid
+	local distsq = levity.machine:call(playerid, "getDistanceSq", cx, cy)
+
+	if distsq <= ShmupFriend.HealDistSq then
+		self:heal(dt*ShmupFriend.PlayerTouchHealRate)
 	end
 end
 
@@ -184,6 +204,7 @@ function ShmupFriend:electrocuted()
 
 	levity.bank:play(Sounds.HelpMe)
 	self:damage(1)
+	self.electrocutiontimer = ShmupFriend.ElectrocutionTime
 end
 
 function ShmupFriend:vehicleDestroyed(vehicleid)
@@ -191,6 +212,38 @@ function ShmupFriend:vehicleDestroyed(vehicleid)
 		self.properties.cageid = nil
 		levity:setObjectLayer(self.object, levity.map.layers["friends"])
 	end
+end
+
+function ShmupFriend:beginDraw()
+	local healthpercent = self.health / MaxHealth
+
+	if healthpercent < 1 then
+		local cx, cy = self.object.body:getWorldCenter()
+		local playerid = levity.map.properties.playerid
+		local distsq = levity.machine:call(playerid, "getDistanceSq",
+							cx, cy)
+
+		if distsq <= ShmupFriend.HealDistSq then
+			love.graphics.setColor(0, 0xff, 0)
+		else
+			local wound = 0xff * healthpercent
+			love.graphics.setColor(0xff, wound, wound)
+		end
+	end
+
+	--if self.pathwalker then
+	--	local i = self.pathwalker.desti
+	--	self.properties.text = i
+	--	love.graphics.line(
+	--			self.object.body:getX(),
+	--			self.object.body:getY(),
+	--			self.pathwalker.path.points[i].x,
+	--			self.pathwalker.path.points[i].y)
+	--end
+end
+
+function ShmupFriend:endDraw()
+	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
 end
 
 return ShmupFriend

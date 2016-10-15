@@ -375,6 +375,9 @@ function ShmupNPC:beginMove(dt)
 		local pathid = self.properties.pathid
 		self.pathwalker = levity.machine:call(pathid, "newWalker",
 						self.properties.pathtime)
+		if self.pathwalker then
+			self.pathwalker:findStartPoint(body:getWorldCenter())
+		end
 	end
 
 	if self.pulledbyplayer then

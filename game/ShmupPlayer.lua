@@ -213,6 +213,13 @@ function ShmupPlayer:setFocused(focused)
 	self.focused = focused
 end
 
+function ShmupPlayer:getDistanceSq(fromx, fromy)
+	local cx, cy = self.object.body:getWorldCenter()
+	dx = cx - fromx
+	dy = cy - fromy
+	return math.hypotsq(dx, dy)
+end
+
 function ShmupPlayer:joystickaxis(joystick, axis, value)
 	local speed = ShmupPlayer.Speed
 	local lockspeedfactor = .5

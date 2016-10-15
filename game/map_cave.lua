@@ -1305,13 +1305,39 @@ return {
         y = 16
       },
       properties = {
-        ["commonanimation"] = 0
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0
       },
       terrains = {},
       tilecount = 12,
       tiles = {
         {
           id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          },
           animation = {
             {
               tileid = "0",
@@ -2730,16 +2756,14 @@ return {
             { x = 16, y = -48 },
             { x = 0, y = -112 },
             { x = -48, y = -176 },
-            { x = -80, y = -272 },
-            { x = -64, y = -576 },
-            { x = -16, y = -736 },
-            { x = -16, y = -832 },
-            { x = -32, y = -960 },
-            { x = -64, y = -1040 },
-            { x = -64, y = -1136 },
-            { x = -48, y = -1168 },
-            { x = -32, y = -1280 },
-            { x = -48, y = -1360 },
+            { x = -48, y = -400 },
+            { x = 0, y = -736 },
+            { x = 32, y = -880 },
+            { x = -32, y = -992 },
+            { x = -64, y = -1072 },
+            { x = -48, y = -1152 },
+            { x = -16, y = -1232 },
+            { x = 0, y = -1344 },
             { x = 0, y = -1488 }
           },
           properties = {
@@ -2747,6 +2771,17 @@ return {
           }
         }
       }
+    },
+    {
+      type = "objectgroup",
+      name = "npcshots",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {}
     },
     {
       type = "objectgroup",

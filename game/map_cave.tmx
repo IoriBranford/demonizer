@@ -335,7 +335,7 @@
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="0,32 16,-48 0,-112 -48,-176 -80,-272 -64,-576 -16,-736 -16,-832 -32,-960 -64,-1040 -64,-1136 -48,-1168 -32,-1280 -48,-1360 0,-1488"/>
+   <polyline points="0,32 16,-48 0,-112 -48,-176 -48,-400 0,-736 32,-880 -32,-992 -64,-1072 -48,-1152 -16,-1232 0,-1344 0,-1488"/>
   </object>
  </objectgroup>
  <objectgroup name="npcshots"/>
