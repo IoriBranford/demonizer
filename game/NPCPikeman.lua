@@ -17,6 +17,8 @@ NPCPikeman.BulletParams = {
 }
 
 function NPCPikeman:updateFiring(dt)
+	local aimer = self.object
+
 	local cx, cy = self.object.body:getWorldCenter()
 	local playerdx = 0
 	local playerdy = 1
@@ -25,8 +27,21 @@ function NPCPikeman:updateFiring(dt)
 	if playerid then
 		local player = levity.map.objects[playerid]
 		local playercx, playercy = player.body:getWorldCenter()
-		playerdx = playercx - cx
-		playerdy = playercy - cy
+
+		local leader
+		local leaderid = self.properties.leaderid
+		if leaderid then
+			leader = levity.map.objects[leaderid]
+		end
+
+		if leader then
+			local leadercx, leadercy = leader.body:getWorldCenter()
+			playerdx = playercx - leadercx
+			playerdy = playercy - leadercy
+		else
+			playerdx = playercx - cx
+			playerdy = playercy - cy
+		end
 	end
 
 	if self.firetimer <= 0 then

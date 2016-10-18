@@ -37,13 +37,13 @@ ShmupFriend.BulletParams = {
 	category = ShmupCollision.Category_PlayerShot
 }
 ShmupFriend.BulletInterval = .0625
-ShmupFriend.ElectrocutionTime = .5
+ShmupFriend.ElectrocutionTime = 1
 ShmupFriend.PlayerTouchHealRate = 4
 ShmupFriend.HealDistSq = 48*48
 
 local Sounds = {
 	Lock = "targetlock.wav",
-	HelpMe = "hyaa.wav",
+	--HelpMe = "hyaa.wav",
 	Death = "shriek.wav"
 }
 levity.bank:load(Sounds)
@@ -168,23 +168,29 @@ function ShmupFriend:beginMove(dt)
 		self.electrocutiontimer = self.electrocutiontimer - dt
 	end
 
-	if not self.properties.cageid then
-		self:updateFiring(dt)
-	end
+	local vx, vy = 0, 0
 
-	if self.properties.cageid or self.electrocutiontimer > 0 then
-		body:setLinearVelocity(0, 0)
+	if self.properties.cageid then
+		local vehicle = levity.map.objects[self.properties.cageid]
+		if vehicle then
+			vx, vy = vehicle.body:getLinearVelocity()
+		end
+	elseif self.electrocutiontimer > 0 then
+		vx = 32*math.cos((ShmupFriend.ElectrocutionTime - self.electrocutiontimer)*30*math.pi)
 	else
+		self:updateFiring(dt)
+
 		if not self.pathwalker then
 			local pathid = self.properties.pathid
-			self.pathwalker = levity.machine:call(pathid, "newWalker",
-			self.properties.pathtime)
+			self.pathwalker = levity.machine:call(pathid,
+					"newWalker", self.properties.pathtime)
 			self.pathwalker:findStartPoint(body:getWorldCenter())
 		end
 
-		body:setLinearVelocity(self.pathwalker:walk(dt,
-					body:getWorldCenter()))
+		vx, vy = self.pathwalker:walk(dt, body:getWorldCenter())
 	end
+
+	body:setLinearVelocity(vx, vy)
 end
 
 function ShmupFriend:endMove(dt)
@@ -202,7 +208,7 @@ function ShmupFriend:electrocuted()
 		return
 	end
 
-	levity.bank:play(Sounds.HelpMe)
+	--levity.bank:play(Sounds.HelpMe)
 	self:damage(1)
 	self.electrocutiontimer = ShmupFriend.ElectrocutionTime
 end

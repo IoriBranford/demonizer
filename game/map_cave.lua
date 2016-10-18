@@ -8,7 +8,7 @@ return {
   height = 200,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 99,
+  nextobjectid = 117,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "20 - My Kingdom.vgm",
@@ -1860,7 +1860,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "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"
+      data = "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"
     },
     {
       type = "tilelayer",
@@ -1878,7 +1878,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztWu1q40AMDH4bc5ijhOMIIZSQ93+nq6ECdTqjr6T3y4IlcWKPR1qtpJV9Oh1yCJd1OZ3eP8bt89O+s+NfS4xz/hhvn5/2HYc/x/A97g3Owes8Pt7Djo0rw8muZ7zP5BrUVV3Hvit9EHeCp2zH+KvjyNYRV3VOZ+6iOc/wKv5Snatsziv+ks1NpFNlXjuc1LxEPq3sE923YrtsHir2yHw4Wy/Rmq/iTPSM+FY4RL4R+e8WzHFlbvzvu+x4j8BOylb2fb/29/I1h+yY90Rv++/+ORADZRN8bPxJrke5CvueC1wyblMcz83r+XeIs8sFuD2DdSU6RrVEB2syhx6LrccutxVw/Oja7RKsva6elx/gpeJfx2ZXwmeyJlfBp+u3K+gSxflMz2twLYuvCg99qprLGN6VXGufd/jN3xNtp2p8b2eMQUzXVfg3rudNcLPxnsz9/uljKfodW/uKO9oC51nlPYaHWJmeUS5m/n0h50U2ssHyDstRUV7OYsvW5JXlwssS27+TU68FTtXYFK2Dbp73sZf5RScvIBZy7OQFFusiP59g+VHJMSu5Xq2jDI+tI+W7+2A9knX53tOI4g4e+z6MinVKx+i8ynG2FqL4xOyW8YjuGekUrbMMO5rPKJ5X7FThh8P2NZEdo3nx/5ls5NxonSHeY/nq0xjDKzZk+z2/zjKfttHd7yl7VWPTFnB5K3JSeDgHk32f7cPv7nO6f7RY5fu+z+zTUMfJPg1rxWewsA72c9jRM9t3dLipPaiNSQ5VsWuyr1JrsspL2fxtwAt7EizOdNZ1lDO688hibCduobCeSZeTCbPbNN6wunbSG2I9kwkWrkU/Mv3w2ZOq2Suc7BqLmWx/WPUDtnbRP6t+oHx7kgsrtVPVp6K6qOvnjyAmdH2KzR1+z3KFr/mzGi7jhlwehJPHj/pJdp6vEVR9Y7hsP+PPR8E4qGzH9mlMME4j15vgrwRrzWieI16IpfIlclPC7KawMyzjhhxYjMx09FiMD4spkah6R8WDSLblu15TLM9N+VplHhlWxi0S1ZtG7Erdz/rAyKUav1ldN8HZ5SJ06+Kgrab5xPRTa2ZSyzFf6HJidbnpOXmeo+LUK2rVjNNK/lN7vcjmdg3jxGKy4uTvrbAqdYX3Qeyb7MJ6ucw//VzvuqO9MH8yHbH3uI/35XvMyfZVUT3rsdjzIRarGAbyVvEgyo0YN1gNxu4b4RknhqGOGV/vw+xcZRv26f3Ov4OhdI3yLHsHI8v11bXA8Bgn5BXFn0o/oRrzN8FnmhejnJ/FMayzWU70x5Fu+/9+b6veKajo5s+/ieureSPy8er8ex3V+shsnfGq+jYT1hv3mN2cH/WfJ30X1Wt/VV/J54yOqP7ZlJt6lnsecmP5A2NxVdR+aqKnvTPHfGTau8e4ONXTBPd80/e1dmF167N6nl+kJ87rM9xYL/JVz08mdsv2oVW7qb7vJN6qWnoS19R+YeIb2btyHSz1vukkz7Femh/T91eR0/T5o8WyZ59jHnLIIYcccsj/kH/iYJ9q"
+      data = "eJztWtmK20AQNPM3JohgTAjCLMbo//8pEeyQ3nJVX1rIixoGX6NSdU9fM/LlcsopXK7jcvkg42nG/O7H8HFuf8fdDPX59jnmfSzuE+bdCQYbds7EVNcgF8aN3ZPpofSs3Aux2bXKDh4P7xplS7V2ah2VzTx7eHb2dMv4RXYN1Bxv7ZV9ovWscM7YO+sLWX+L7qXizItBxqEaL5G/deNGfc76MONR4ePZOGO/rJ3t5yXgWuGwy463BTbw/H6/9uf4WkN2zFfSptvnXMRAWcZX/vj6K7geZXX0jLgobjiqOFMewOd3E2eXFWz1nVj78HoJTx7EJ7vcEKvL7TrefevetNs63v29i/UAXkds9hCcOjZbx3vsdGLyKnKLxczoeSUcVD6L9MQYVLUrwlM+FeVwhmc54fzN4YbrcHXuPe38GJrz5ObhWCwvd+/jw7HRfG9z6Tq0/aIaj360kjkq1vAVsRZxjfIbez8WKyzuM7Wd1R3VN3h+6MXc4tiF+WBUC6N1yOJEdvPsrbBU/1PhZHVUflXJ5awWd7Ew1x3prbC+dGvMVejHcDO5PPIH+xueZUw+H44PqHi8G8x5BuPlQqar4q3snJmn/Fn5ZoSj7s9wou89X6zo5+F52Kz+VNZsf/8a//ZAio9ab7zHlIXMjXKTnf8aX30aa0LGNmy/h3Hm6ZLNmQtco2I/m+dYD4I2quzXEM+Ozr5v7pm3kd8TK9lz1cw1M+9092msLlf32pMTi6kOFvqZ5VbRk+0XLFanHqv4q9ZQltOrPh/15/cCL3Ve0vEL7KmOxrWqPx3bL0Q/i1+NSZUTO2cdqhft5AnG6zvjuqqfxUFfiPTD/LaOdz/I+vq8ZmJi71ipFV5uqdpc9WEWO2tz5kPdGhb1RBU/2Mb7mlXXb4pdO5UbolqBPT+zf9b2uMfaHF4eN3tWZnsE1RvO79h+xs5BwbMMHOoM6CZ4Y15Ffk/hj0pYjDPd7YjWRvWb7Dsl0TowG3jCzmu9GtzBYrgRFp4/oA9kbY82U3plsRg3rz+IxPMN/N4TPAdGW8333v6KcWL1pdITPIRu1TqAWNUaboXZqlMDJiflS51ejtn9SK+Dr0f0Q1+v6qfOJz1OV/Kbt36K07SJp5/FUTa39ZHpx/IM08/Wtc3BQm7Iy+LsuqO9sA5b+08s1ofMz8hJ2X3WbPQXlr/UczR2HfMXyzuay4b9bbfZc7zbiPFSudD6sJfDPV7IaRdWr1QdY79Zv3uJOaquIi/2HwzPXmpNVKwzvGg9vPyDvop4mVhn3JQNKzmf7Y2Rl8LBPlvtRTO5dZ9j/6/pnTFFutl7PwUf5UuMV+SX2d5BxbHn2x4W8+msH1nxnuVWsSaeyoFHz0Cz/qQEfdRyq54bY55Q+a7KjeXpDjfl80ftdhQL/4dn8bpn9+wZxXf8/6sbA1bYGf4RPdFHOmtguaGPHHl+gtyO/M+NxVbnf24sBqr+gX0ixkLlOYWq2VWbqTPyW0NH1U9n+qWIF+u/snVO5bFKj+PhRT1OBm8+w8ycZ5xyyimnnHLK/5Q/q/Ceqw=="
     },
     {
       type = "objectgroup",
@@ -1998,8 +1998,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 144,
-          y = 1408,
+          x = 160,
+          y = 1328,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2017,14 +2017,16 @@ return {
           name = "cage",
           type = "",
           shape = "rectangle",
-          x = 128,
-          y = 1424,
+          x = 144,
+          y = 1344,
           width = 32,
           height = 64,
           rotation = 0,
           gid = 364,
           visible = true,
           properties = {
+            ["pathid"] = 113,
+            ["pathtime"] = 1,
             ["script"] = "ShmupVehicle"
           }
         },
@@ -2034,11 +2036,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 1360,
+          y = 1264,
           width = 304,
-          height = 56,
+          height = 80,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["collidable"] = true,
             ["sensor"] = true,
@@ -2046,19 +2048,133 @@ return {
           }
         },
         {
-          id = 68,
+          id = 101,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 80,
-          y = 1488,
+          x = 96,
+          y = 1280,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 384,
+          gid = 504,
           visible = true,
           properties = {
+            ["pathid"] = 116,
+            ["pathtime"] = 1.5,
             ["script"] = "NPCInquisitor"
+          }
+        },
+        {
+          id = 102,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 1328,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 402,
+          visible = true,
+          properties = {
+            ["pathid"] = 114,
+            ["pathtime"] = 1.5,
+            ["script"] = "NPCInquisitor"
+          }
+        },
+        {
+          id = 103,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 1328,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 438,
+          visible = true,
+          properties = {
+            ["pathid"] = 115,
+            ["pathtime"] = 1.5,
+            ["script"] = "NPCInquisitor"
+          }
+        },
+        {
+          id = 113,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 144,
+          y = 1344,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 48 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 114,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 32,
+          y = 1328,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 48, y = 16 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 115,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 272,
+          y = 1328,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -48, y = 16 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 116,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 96,
+          y = 1280,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 64, y = 0 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
           }
         }
       }
@@ -2078,8 +2194,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 176,
-          y = 1888,
+          x = 208,
+          y = 1696,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2097,14 +2213,16 @@ return {
           name = "cage",
           type = "",
           shape = "rectangle",
-          x = 160,
-          y = 1904,
+          x = 192,
+          y = 1712,
           width = 32,
           height = 64,
           rotation = 0,
           gid = 364,
           visible = true,
           properties = {
+            ["pathid"] = 112,
+            ["pathtime"] = 1,
             ["script"] = "ShmupVehicle"
           }
         },
@@ -2114,15 +2232,108 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 1840,
+          y = 1696,
           width = 304,
-          height = 56,
+          height = 16,
           rotation = 0,
           visible = true,
           properties = {
             ["collidable"] = true,
             ["sensor"] = true,
             ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 99,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 1680,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 420,
+          visible = true,
+          properties = {
+            ["pathid"] = 109,
+            ["pathtime"] = 1,
+            ["script"] = "NPCInquisitor"
+          }
+        },
+        {
+          id = 109,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 192,
+          y = 1680,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 48 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 110,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 1680,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 420,
+          visible = true,
+          properties = {
+            ["pathid"] = 111,
+            ["pathtime"] = 1,
+            ["script"] = "NPCInquisitor"
+          }
+        },
+        {
+          id = 111,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 224,
+          y = 1680,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 48 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 112,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 192,
+          y = 1712,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 96 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
           }
         }
       }
@@ -2143,7 +2354,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 2336,
+          y = 2320,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2162,7 +2373,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 128,
-          y = 2352,
+          y = 2336,
           width = 32,
           height = 64,
           rotation = 0,
@@ -2180,9 +2391,9 @@ return {
           x = 0,
           y = 2288,
           width = 304,
-          height = 64,
+          height = 80,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["collidable"] = true,
             ["sensor"] = true,
@@ -2194,14 +2405,16 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 64,
-          y = 2336,
+          x = -32,
+          y = 2304,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 402,
           visible = true,
           properties = {
+            ["pathid"] = 107,
+            ["pathtime"] = 2,
             ["script"] = "NPCInquisitor"
           }
         },
@@ -2210,15 +2423,55 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 224,
-          y = 2336,
+          x = 320,
+          y = 2304,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 438,
           visible = true,
           properties = {
+            ["pathid"] = 108,
+            ["pathtime"] = 2,
             ["script"] = "NPCInquisitor"
+          }
+        },
+        {
+          id = 107,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = -32,
+          y = 2304,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 96, y = 48 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 108,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 320,
+          y = 2304,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -96, y = 48 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
           }
         }
       }
@@ -2226,7 +2479,7 @@ return {
     {
       type = "objectgroup",
       name = "mermaid1",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -2239,7 +2492,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 160,
-          y = 2768,
+          y = 2752,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2258,7 +2511,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 2784,
+          y = 2768,
           width = 32,
           height = 64,
           rotation = 0,
@@ -2274,9 +2527,9 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 2672,
+          y = 2704,
           width = 304,
-          height = 112,
+          height = 64,
           rotation = 0,
           visible = true,
           properties = {
@@ -2286,19 +2539,40 @@ return {
           }
         },
         {
-          id = 92,
+          id = 104,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 112,
-          y = 2688,
+          x = -64,
+          y = 2672,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 504,
+          gid = 489,
           visible = true,
           properties = {
+            ["pathid"] = 106,
+            ["pathtime"] = 2,
             ["script"] = "NPCInquisitor"
+          }
+        },
+        {
+          id = 106,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = -64,
+          y = 2672,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 160, y = 48 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
           }
         }
       }
@@ -2326,8 +2600,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 94,
             ["pathid"] = 90,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2344,8 +2619,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 94,
             ["pathid"] = 90,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2362,8 +2638,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 94,
             ["pathid"] = 90,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2380,8 +2657,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 93,
             ["pathid"] = 89,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2398,8 +2676,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 93,
             ["pathid"] = 89,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2416,8 +2695,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 93,
             ["pathid"] = 89,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2434,8 +2714,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 93,
             ["pathid"] = 89,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2452,8 +2733,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 93,
             ["pathid"] = 89,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2470,8 +2752,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 93,
             ["pathid"] = 89,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2488,8 +2771,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 94,
             ["pathid"] = 90,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2506,8 +2790,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 93,
             ["pathid"] = 89,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2524,8 +2809,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 94,
             ["pathid"] = 90,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2542,8 +2828,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 94,
             ["pathid"] = 90,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2560,8 +2847,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 93,
             ["pathid"] = 89,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2578,8 +2866,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 94,
             ["pathid"] = 90,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2596,8 +2885,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 94,
             ["pathid"] = 90,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2614,8 +2904,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 93,
             ["pathid"] = 89,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2632,8 +2923,9 @@ return {
           gid = 414,
           visible = true,
           properties = {
+            ["leaderid"] = 94,
             ["pathid"] = 90,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2706,7 +2998,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 90,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCSwordsman"
           }
         },
@@ -2724,7 +3016,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 89,
-            ["pathtime"] = 0.5,
+            ["pathtime"] = 1,
             ["script"] = "NPCSwordsman"
           }
         }
@@ -2752,11 +3044,11 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 32 },
-            { x = 16, y = -48 },
-            { x = 0, y = -112 },
-            { x = -48, y = -176 },
-            { x = -48, y = -400 },
+            { x = 0, y = 16 },
+            { x = 0, y = -80 },
+            { x = -32, y = -176 },
+            { x = -64, y = -256 },
+            { x = -48, y = -464 },
             { x = 0, y = -736 },
             { x = 32, y = -880 },
             { x = -32, y = -992 },
@@ -2798,7 +3090,7 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 144,
+          x = 152,
           y = 3168,
           width = 64,
           height = 64,
@@ -2825,7 +3117,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAwI8BO2AAAQ=="
+      data = "eJztzqsNgDAYhdF/FzYAj+E1APvvQpsgKqCCViDOSa79ciMAAAAAAAAAAAAAAAAAAP7l6NRZ08ZOrSFtifZv+dOZNkf7t+nu5LV8Kz+19J46X3q1TtnbK83c2F46FxnKDMo="
     },
     {
       type = "objectgroup",

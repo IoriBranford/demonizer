@@ -19,13 +19,6 @@ local function beginMove(self, dt)
 	end
 end
 
-local function endMove(self, dt)
-	self.time = self.time - dt
-	if self.time <= 0 then
-		levity:discardObject(self.object.id)
-	end
-end
-
 local ShmupBullet = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.object.body:setBullet(true)
@@ -74,8 +67,9 @@ local ShmupBullet = class(function(self, id)
 
 	if properties.lifetime then
 		self.time = properties.lifetime
-		self.endMove = endMove
 	end
+
+	self.oncamera = false
 end)
 
 function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
@@ -85,12 +79,25 @@ function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
 		if not self.object.properties.persist then
 			levity:discardObject(self.object.id)
 		end
+	elseif otherfixture:getCategory() == ShmupCollision.Category_Camera then
+		self.oncamera = true
 	end
 end
 
 function ShmupBullet:endContact(yourfixture, otherfixture, contact)
 	if otherfixture:getCategory() == ShmupCollision.Category_Camera then
+		self.oncamera = false
+	end
+end
+
+function ShmupBullet:endMove(dt)
+	if not self.oncamera then
 		levity:discardObject(self.object.id)
+	elseif self.time then
+		self.time = self.time - dt
+		if self.time <= 0 then
+			levity:discardObject(self.object.id)
+		end
 	end
 end
 
