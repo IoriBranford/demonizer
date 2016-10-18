@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="map_cave" tilewidth="16" tileheight="16" tilecount="336" columns="16">
- <image source="map_cave.png" width="256" height="336"/>
+<tileset name="map_cave" tilewidth="16" tileheight="16" tilecount="384" columns="16">
+ <image source="map_cave.png" width="256" height="384"/>
  <terraintypes>
   <terrain name="Ground" tile="17"/>
   <terrain name="Dark Water" tile="50"/>
@@ -13,7 +13,7 @@
   <terrain name="darkwaterwallbase" tile="157"/>
   <terrain name="bluewaterwallbase" tile="253"/>
   <terrain name="lavawallbase" tile="291"/>
-  <terrain name="abovelava" tile="226"/>
+  <terrain name="Above Lava" tile="226"/>
  </terraintypes>
  <tile id="0" terrain="1,1,1,0"/>
  <tile id="1" terrain="1,1,0,0"/>
@@ -194,10 +194,10 @@
  <tile id="303" terrain="4,0,9,3"/>
  <tile id="304">
   <animation>
-   <frame tileid="304" duration="100"/>
-   <frame tileid="306" duration="100"/>
-   <frame tileid="308" duration="100"/>
-   <frame tileid="306" duration="100"/>
+   <frame tileid="304" duration="33"/>
+   <frame tileid="306" duration="33"/>
+   <frame tileid="308" duration="33"/>
+   <frame tileid="306" duration="33"/>
   </animation>
  </tile>
  <tile id="305">
@@ -222,6 +222,54 @@
    <frame tileid="323" duration="100"/>
    <frame tileid="325" duration="100"/>
    <frame tileid="323" duration="100"/>
+  </animation>
+ </tile>
+ <tile id="336">
+  <animation>
+   <frame tileid="336" duration="33"/>
+   <frame tileid="338" duration="33"/>
+   <frame tileid="340" duration="33"/>
+   <frame tileid="342" duration="33"/>
+  </animation>
+ </tile>
+ <tile id="337">
+  <animation>
+   <frame tileid="337" duration="33"/>
+   <frame tileid="339" duration="33"/>
+   <frame tileid="341" duration="33"/>
+   <frame tileid="343" duration="33"/>
+  </animation>
+ </tile>
+ <tile id="352">
+  <animation>
+   <frame tileid="352" duration="33"/>
+   <frame tileid="354" duration="33"/>
+   <frame tileid="356" duration="33"/>
+   <frame tileid="358" duration="33"/>
+  </animation>
+ </tile>
+ <tile id="353">
+  <animation>
+   <frame tileid="353" duration="33"/>
+   <frame tileid="355" duration="33"/>
+   <frame tileid="357" duration="33"/>
+   <frame tileid="359" duration="33"/>
+  </animation>
+ </tile>
+ <tile id="368">
+  <animation>
+   <frame tileid="368" duration="33"/>
+   <frame tileid="370" duration="33"/>
+   <frame tileid="372" duration="33"/>
+   <frame tileid="374" duration="33"/>
+  </animation>
+ </tile>
+ <tile id="369">
+  <animation>
+   <frame tileid="369" duration="33"/>
+   <frame tileid="371" duration="33"/>
+   <frame tileid="373" duration="33"/>
+   <frame tileid="375" duration="33"/>
   </animation>
  </tile>
 </tileset>

@@ -264,7 +264,7 @@ return {
       margin = 0,
       image = "map_cave.png",
       imagewidth = 256,
-      imageheight = 336,
+      imageheight = 384,
       tileoffset = {
         x = 0,
         y = 0
@@ -327,12 +327,12 @@ return {
           properties = {}
         },
         {
-          name = "abovelava",
+          name = "Above Lava",
           tile = 226,
           properties = {}
         }
       },
-      tilecount = 336,
+      tilecount = 384,
       tiles = {
         {
           id = 0,
@@ -1047,19 +1047,19 @@ return {
           animation = {
             {
               tileid = "304",
-              duration = "100"
+              duration = "33"
             },
             {
               tileid = "306",
-              duration = "100"
+              duration = "33"
             },
             {
               tileid = "308",
-              duration = "100"
+              duration = "33"
             },
             {
               tileid = "306",
-              duration = "100"
+              duration = "33"
             }
           }
         },
@@ -1125,12 +1125,138 @@ return {
               duration = "100"
             }
           }
+        },
+        {
+          id = 336,
+          animation = {
+            {
+              tileid = "336",
+              duration = "33"
+            },
+            {
+              tileid = "338",
+              duration = "33"
+            },
+            {
+              tileid = "340",
+              duration = "33"
+            },
+            {
+              tileid = "342",
+              duration = "33"
+            }
+          }
+        },
+        {
+          id = 337,
+          animation = {
+            {
+              tileid = "337",
+              duration = "33"
+            },
+            {
+              tileid = "339",
+              duration = "33"
+            },
+            {
+              tileid = "341",
+              duration = "33"
+            },
+            {
+              tileid = "343",
+              duration = "33"
+            }
+          }
+        },
+        {
+          id = 352,
+          animation = {
+            {
+              tileid = "352",
+              duration = "33"
+            },
+            {
+              tileid = "354",
+              duration = "33"
+            },
+            {
+              tileid = "356",
+              duration = "33"
+            },
+            {
+              tileid = "358",
+              duration = "33"
+            }
+          }
+        },
+        {
+          id = 353,
+          animation = {
+            {
+              tileid = "353",
+              duration = "33"
+            },
+            {
+              tileid = "355",
+              duration = "33"
+            },
+            {
+              tileid = "357",
+              duration = "33"
+            },
+            {
+              tileid = "359",
+              duration = "33"
+            }
+          }
+        },
+        {
+          id = 368,
+          animation = {
+            {
+              tileid = "368",
+              duration = "33"
+            },
+            {
+              tileid = "370",
+              duration = "33"
+            },
+            {
+              tileid = "372",
+              duration = "33"
+            },
+            {
+              tileid = "374",
+              duration = "33"
+            }
+          }
+        },
+        {
+          id = 369,
+          animation = {
+            {
+              tileid = "369",
+              duration = "33"
+            },
+            {
+              tileid = "371",
+              duration = "33"
+            },
+            {
+              tileid = "373",
+              duration = "33"
+            },
+            {
+              tileid = "375",
+              duration = "33"
+            }
+          }
         }
       }
     },
     {
       name = "hud_icons",
-      firstgid = 344,
+      firstgid = 392,
       filename = "hud_icons.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1150,7 +1276,7 @@ return {
     },
     {
       name = "bombgauge",
-      firstgid = 348,
+      firstgid = 396,
       filename = "bombgauge.tsx",
       tilewidth = 16,
       tileheight = 32,
@@ -1242,7 +1368,7 @@ return {
     },
     {
       name = "cage",
-      firstgid = 364,
+      firstgid = 412,
       filename = "cage.tsx",
       tilewidth = 32,
       tileheight = 64,
@@ -1291,7 +1417,7 @@ return {
     },
     {
       name = "mermaid",
-      firstgid = 365,
+      firstgid = 413,
       filename = "mermaid.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1361,7 +1487,7 @@ return {
     },
     {
       name = "darkboat",
-      firstgid = 377,
+      firstgid = 425,
       filename = "darkboat.tsx",
       tilewidth = 128,
       tileheight = 64,
@@ -1423,7 +1549,7 @@ return {
     },
     {
       name = "infmen",
-      firstgid = 378,
+      firstgid = 426,
       filename = "infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1504,7 +1630,7 @@ return {
     },
     {
       name = "infwomen",
-      firstgid = 468,
+      firstgid = 516,
       filename = "infwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1584,7 +1710,7 @@ return {
     },
     {
       name = "humanshots",
-      firstgid = 543,
+      firstgid = 591,
       filename = "humanshots.tsx",
       tilewidth = 32,
       tileheight = 16,
@@ -1641,7 +1767,7 @@ return {
     },
     {
       name = "electricity",
-      firstgid = 549,
+      firstgid = 597,
       filename = "electricity.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1677,7 +1803,7 @@ return {
     },
     {
       name = "demonizing",
-      firstgid = 581,
+      firstgid = 629,
       filename = "demonizing.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1767,7 +1893,7 @@ return {
     },
     {
       name = "demonwomen",
-      firstgid = 584,
+      firstgid = 632,
       filename = "demonwomen.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1848,6 +1974,22 @@ return {
   layers = {
     {
       type = "tilelayer",
+      name = "lava",
+      x = 0,
+      y = 0,
+      width = 19,
+      height = 200,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJztlEEOwyAMBJtfwQ/g/x9qD4k03W7aezUjIVAC9toYj+PxGOfYr7EwT8zjXHPMc+/Anms98W3HeuA8bfA8tVDHiu+7+Jz4P8MXdWSc1HlppJ5dbLcYR7G3jvcc5vcd4zrPnDD2Ff6YU87UlvebNvIs89JqgrmnTcY9j8+YVtht9UXfLQf0zzjzfKsN7qFv5r/F3u6IMfEuuG+UOd9Wzlnf7f3lt118M07mLd9XakhtbbQ63MXPPj7vZ4WNrKXUkTWSPjO3aTe1tvrIt7RiT6uD9v5T4w5/maNWp9lHqCX1/OpXd++B69YLspdmnbEG833dvRnaydy0/kDN2ePu7v9bD2v9ovWp64yIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiI/C9PT5R04A=="
+    },
+    {
+      type = "tilelayer",
       name = "ground",
       x = 0,
       y = 0,
@@ -1860,7 +2002,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztm82OG0UQxyu3wA242NyDgDso8ARBwJ3PhDsf5riWpcDRliXgOCNbsMeZR9mX2M2S+zrJAyRM2/WbLrd6uns2e0HaQ2m84+n//Ku6uz66vPdE5L1O7pnr55180cmXhfe5ftTJx8H1206+6+T7wvtca5HTthOuTXfvx05+6uTnTqrDM9IG92sd06i0AdbyMPYUcfc33b0Tc3/dfd520gTP1fpMbe5Vnh/vO13pc41iO7yN3nPfzQ/Yjns/Fs7uvUv9rjHfO34rw2mteq3UBvBa6NjKjD9RfXaGF+L+nuuYubfrftxn3ecPCuWB0Qf7VPo+h/NhJ58WyvsR3Eb/HoMzhPvgNTBimDeFdSu3ciu3UiJv3iDWJzeEd1cOcc7hvXFNzLs69n4n007O5BD3SjEZD8ZcMeaK42JlYzBTeBM55AXE77WKw1jovTP923F9N8HJcdnqezf6PHxq/VzrM9MBbuDUqsNGfA60VJnrPc1z9s9sI9zQjefdczt999zorLnMHkNzjijWVm2xVAzyGOw3U86N4Rvj5eLpA7XvXDnM9Hl0PdF3rfU+8xmz/0T10vxrj7XTcQvDE9xKsWNYcKv0nWAxF634dXai36Vyn4l591LxyA1Z+zu9NgOcLNZMddIcsF8njdGTNZjD2ga2nyqXueq2NN+nsKzN2IczMx+V+D2Z2kOWW2u4sAcXqtdW9S7JOSeKgV02Zh52ileau6In63umwt5eF+gWwwPD1AzFnIb4VeL3d8pnpfztRPwemGU44WuG3gW3EntPdL5Tvps8P4WDL8UHj5mbGCfW9+4GsPBtdUbPEixqP/bFdbjZuOP0xGddhxvrZi5+D+NbxuDBCT+Oz12pzAt1BWeqNoeP3XOle3eiY/FrxOFGPxMfc1hwIs7gI2fi842qUMeJ8ofPWrwfIZfZSdm6RT/GoCvxhlhfoiPxait+75CHLBRrIWVrFv9xppyw04nyOtN3jPXl5AlT8fGcORmzj+y5A1zgc90zDXtG8rrnIrfy/xDqmpuo1dw+HaozSoUcAT+5vQaerffAwQ8M5eFDOPfFx2DnA4jtnH2WcpuIz9kaHXsi3r9RT+Tw4ISfdVhL8XXkWrzPStkOHHwQeTQ1Ark+MZ4c3eF91cnXKt8ozkafwWc34uts6kXiM7H1RSdv3RF5W+WdTp7Lcf7NZ+pK/Ddxh7zmWSdPA7kSX2tuDBfiwc58x9w6TnInjkVdRj1LTN+Jr9Pw5UOcnLyUg5476XsCR+cA2Hqm7xjiZLltxa8l1iZYxNYmwcliYXvOOYjlzAMxbAjrvJMnxv5T8fHc1mfE+5R+L/U7sBjDfoQfdTyc4DCkI3Yhx9N6eN9raLXf8CzgMIRFTsZ60ryj74W4678JPhbLcWIvmTOOnlOt/Z8YHjq76+WByym+irVKT4f+UKu9nHAurd2r4HnjI456TfRoYusCTtbGZnzfm6L+ppc0tK81D+vta/j1+4hzhllijen89fbdKi5YrFvOdYZw0K8NsFbefvJKDvues52h/XMlvZ876hXSh2vMHIGZsvnS6Iif2fh3ROd9YG2e4oNtz5AzknZAnyEs5ow+ZqufqW9yOHZNIUvDDZ1LsK7MOObPYtT+O7mQ9F5mTTVm/sC1e6ZKzF0YK8I9aPicvtB1kPJTMdu3AVboB84zulpu4Vq1++RC58mtk5QfBA8d3VoL9xt7HvuW4DUBH3Qz89Bj5vBeRWz8Uo58hp3fqP9KrecnER2x6Rgs1kJMxzaj55AM6ViP5PZUjve78yeaFw/6/DG8ONcvyXdiWNb2NtcYazNrI6ejw9qY6xhuVkf6RpzXzEZgnRvbEwvoozi8XK5p/cKl+N+L1OJzRmqbHCf890yfr3XPU7vQH1plsMAhBpHLkReS320zWCZv6vte5Cb0FqhjUrmAE/JC5ofzp0p8TcKZZV3AaWWen+pne6ZFbyGVl5M3kddjF3JOzmKpHXL6tead5PngkXPSA8nptxXfw6F+pF6glqwyWFdmjO1xnKguc2O/RUI/OGEfzlmtTcCnRk5x4vwQX9IE7wZrqe9JYZFrsY7AYU9S3+oeSGJxfrsLcC71b/q3m4StwFrqMzY+2niJr0qtT8akcqJz1fssw8nipXjHcoycz3oSuXcp8dxgLDfNQ4sxcj6xNCdPieNELzqX+5Zwoh5y++s6eQicbD1EL3osHpxsPUQf2u3XMTHacQrrIVMvFXOztaSth4g7+PrS+Bqrh54bvEUBFucAsXrI1qGpWBaugVg9ZPdGaj+BE6uHqN3HzP9QPcRaHbO2Y/WQ9jf3WLk1QP24CGzOfNlz0Nya4mxwabixHojdnJfk6gJqZM5n4IWODk+/6/PVTPw5+t1wWFPYs6FULUXMKNUxVzdeeT2KdEzVZrYGTelo66EcN3gM7cewHkrNQantbb0diwHhOUXK9syRW8dDZwL2XC5ne7jyO6VQX/QssT21KOevsXNRe+YR2t76IVs/Dvn/Kxn2hWA14n+rTx4V87Nwoxfg3klObe1uf6NGbjt0zkpdSN9D8+BTdFqLPxslv45hWW68l1qkVt3AoQbI5ZwL8Xk1NTE1x0x8f6ykf0IPjr4LtR85fq4eCtZtrwuxmvqxlnRvKMSydQY2Yk75rUuuDwPWVI5/w7kS30OpJJ3vkKsS54hB2G0lxz2wMDaFebOta+kt2XqRuq0VXz+BZ/NmcOi9ICvxdQK/e5qK/33fVPEujNg8sBJ/7s/fZ+LzYPYN+2AlvofHezmPtnPGem0MDusMDGtDnuEz49pgPPu0DcZVZhw+chng1GY8z1tbMrYO/p7LMa8meL/NfzhXWMmRT+l9J+NX4n8b05jvHMaZse1UfG+FM3931X51n3PZOZvr9Tcjfys2PRHyYeIXvQn27z/B+L+MPFY81WXPgX6StcVacX4Pxofy2PBrpP+/rD5fcnglOMgv0u/To15CqzHh10Icy83mu+SGYzhZbnbuONsaw8li0T+zcf+6WDae16+JxZpoDF4K64cEFvYmBrcJrIcJW8KrUW7E39TzOSwrKR1LsGzOVg1gOf3+6OTPAZsxj2Dh52NY+uz+3Q7vUYCJ7S2WXRMPdcwj5aR+tPcBlmPIK1wTvIt153zLf1GpTXU="
+      data = "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"
     },
     {
       type = "tilelayer",
@@ -1869,7 +2011,7 @@ return {
       y = 0,
       width = 19,
       height = 200,
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -1878,7 +2020,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztWtmK20AQNPM3JohgTAjCLMbo//8pEeyQ3nJVX1rIixoGX6NSdU9fM/LlcsopXK7jcvkg42nG/O7H8HFuf8fdDPX59jnmfSzuE+bdCQYbds7EVNcgF8aN3ZPpofSs3Aux2bXKDh4P7xplS7V2ah2VzTx7eHb2dMv4RXYN1Bxv7ZV9ovWscM7YO+sLWX+L7qXizItBxqEaL5G/deNGfc76MONR4ePZOGO/rJ3t5yXgWuGwy463BTbw/H6/9uf4WkN2zFfSptvnXMRAWcZX/vj6K7geZXX0jLgobjiqOFMewOd3E2eXFWz1nVj78HoJTx7EJ7vcEKvL7TrefevetNs63v29i/UAXkds9hCcOjZbx3vsdGLyKnKLxczoeSUcVD6L9MQYVLUrwlM+FeVwhmc54fzN4YbrcHXuPe38GJrz5ObhWCwvd+/jw7HRfG9z6Tq0/aIaj360kjkq1vAVsRZxjfIbez8WKyzuM7Wd1R3VN3h+6MXc4tiF+WBUC6N1yOJEdvPsrbBU/1PhZHVUflXJ5awWd7Ew1x3prbC+dGvMVejHcDO5PPIH+xueZUw+H44PqHi8G8x5BuPlQqar4q3snJmn/Fn5ZoSj7s9wou89X6zo5+F52Kz+VNZsf/8a//ZAio9ab7zHlIXMjXKTnf8aX30aa0LGNmy/h3Hm6ZLNmQtco2I/m+dYD4I2quzXEM+Ozr5v7pm3kd8TK9lz1cw1M+9092msLlf32pMTi6kOFvqZ5VbRk+0XLFanHqv4q9ZQltOrPh/15/cCL3Ve0vEL7KmOxrWqPx3bL0Q/i1+NSZUTO2cdqhft5AnG6zvjuqqfxUFfiPTD/LaOdz/I+vq8ZmJi71ipFV5uqdpc9WEWO2tz5kPdGhb1RBU/2Mb7mlXXb4pdO5UbolqBPT+zf9b2uMfaHF4eN3tWZnsE1RvO79h+xs5BwbMMHOoM6CZ4Y15Ffk/hj0pYjDPd7YjWRvWb7Dsl0TowG3jCzmu9GtzBYrgRFp4/oA9kbY82U3plsRg3rz+IxPMN/N4TPAdGW8333v6KcWL1pdITPIRu1TqAWNUaboXZqlMDJiflS51ejtn9SK+Dr0f0Q1+v6qfOJz1OV/Kbt36K07SJp5/FUTa39ZHpx/IM08/Wtc3BQm7Iy+LsuqO9sA5b+08s1ofMz8hJ2X3WbPQXlr/UczR2HfMXyzuay4b9bbfZc7zbiPFSudD6sJfDPV7IaRdWr1QdY79Zv3uJOaquIi/2HwzPXmpNVKwzvGg9vPyDvop4mVhn3JQNKzmf7Y2Rl8LBPlvtRTO5dZ9j/6/pnTFFutl7PwUf5UuMV+SX2d5BxbHn2x4W8+msH1nxnuVWsSaeyoFHz0Cz/qQEfdRyq54bY55Q+a7KjeXpDjfl80ftdhQL/4dn8bpn9+wZxXf8/6sbA1bYGf4RPdFHOmtguaGPHHl+gtyO/M+NxVbnf24sBqr+gX0ixkLlOYWq2VWbqTPyW0NH1U9n+qWIF+u/snVO5bFKj+PhRT1OBm8+w8ycZ5xyyimnnHLK/5Q/q/Ceqw=="
+      data = "eJztWmuL2zAQDPqXoZgSQikmHCH4/0NrONG9ycy+fNAvXhB5yePZ1b4k53I55RQu13G5fJDxNGN+92P4OLe/426G+nz7HPM+FvcJ8+4Egw07Z2Kqa5AL48buyfRQelbuhdjsWmUHj4d3jbKlWju1jspmnj08O3u6ZfwiuwZqjrf2yj7RelY4Z+yd9YWsv0X3UnHmxSDjUI2XyN+6caM+Z32Y8ajw8WycsV/WzvbzEnCtcNhlx9sCG3h+v1/7c3ytITvmK2nT7XMuYqAs4yt/fP0VXI+yOnpGXBQ3HFWcKQ/g87uJs8sKtvpOrH14vYQnD+KTXW6I1eV2He++dW/abR3v/t7FegCvIzZ7CE4dm63jPXY6MXkVucViZvS8Eg4qn0V6Ygyq2hXhKZ+KcjjDs5xw/uZww3W4Oveedn4MzXly83Aslpe79/Hh2Gi+t7l0Hdp+UY1HP1rJHBVr+IpYi7hG+Y29H4sVFveZ2s7qjuobPD/0Ym5x7MJ8MKqF0TpkcSK7efZWWKr/qXCyOiq/quRyVou7WJjrjvRWWF+6NeYq9GO4mVwe+YP9Dc8yJp8PxwdUPN4N5jyD8XIh01XxVnbOzFP+rHwzwlH3ZzjR954vVvTz8DxsVn8qa7a/f41/eyDFR6033mPKQuZGucnOf42vPo01IWMbtt/DOPN0yebMBa5RsZ/Nc6wHQRtV9muIZ0dn3zf3zNvI74mV7Llq5pqZd7r7NFaXq3vtyYnFVAcL/cxyq+jJ9gsWq1OPVfxVayjL6VWfj/rze4GXOi/p+AX2VEfjWtWfju0Xop/Fr8akyomdsw7Vi3byBOP1nXFd1c/ioC9E+mF+W8e7H2R9fV4zMbF3rNQKL7dUba76MIudtTnzoW4Ni3qiih9s433Nqus3xa6dyg1RrcCen9k/a3vcY20OL4+bPSuzPYLqDed3bD9j56DgWQYOdQZ0E7wxryK/p/BHJSzGme52RGuj+k32nZJoHZgNPGHntV4N7mAx3AgLzx/QB7K2R5spvbJYjJvXH0Ti+QZ+7wmeA6Ot5ntvf8U4sfpS6QkeQrdqHUCsag23wmzVqQGTk/KlTi/H7H6k18HXI/qhr1f1U+eTHqcr+c1bP8Vp2sTTz+Iom9v6yPRjeYbpZ+va5mAhN+RlcXbd0V5Yh639JxbrQ+Zn5KTsPms2+gvLX+o5GruO+YvlHc1lw/622+w53m3EeKlcaH3Yy+EeL+S0C6tXqo6x36zfvcQcVVeRF/sPhmcvtSYq1hletB5e/kFfRbxMrDNuyoaVnM/2xshL4WCfrfaimdy6z7H/1/TOmCLd7L2fgo/yJcYr8sts76Di2PNtD4v5dNaPrHjPcqtYE0/lwKNnoFl/UoI+arlVz40xT6h8V+XG8nSHm/L5o3Y7ioX/w7N43bN79oziO/7/1Y0BK+wM/4ie6COdNbDc0EeOPD9Bbkf+58Ziq/M/NxYDVf/APhFjofKcQtXsqs3UGfmtoaPqpzP9UsSL9V/ZOqfyWKXH8fCiHieDN59hZs4zTjnllFNOOeV/yh/lbxp5"
     },
     {
       type = "objectgroup",
@@ -1889,82 +2031,45 @@ return {
       offsety = 0,
       draworder = "topdown",
       properties = {},
+      objects = {}
+    },
+    {
+      type = "objectgroup",
+      name = "midbossboats2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
       objects = {
+        {
+          id = 58,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 368,
+          y = 864,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 2147484073,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupVehicle"
+          }
+        },
         {
           id = 55,
           name = "",
           type = "",
           shape = "rectangle",
           x = -64,
-          y = 160,
+          y = 864,
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 377,
-          visible = true,
-          properties = {
-            ["script"] = "ShmupVehicle"
-          }
-        },
-        {
-          id = 56,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -64,
-          y = 160,
-          width = 128,
-          height = 64,
-          rotation = 0,
-          gid = 377,
-          visible = true,
-          properties = {
-            ["script"] = "ShmupVehicle"
-          }
-        },
-        {
-          id = 57,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -80,
-          y = 224,
-          width = 128,
-          height = 64,
-          rotation = 0,
-          gid = 377,
-          visible = true,
-          properties = {
-            ["script"] = "ShmupVehicle"
-          }
-        },
-        {
-          id = 58,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 352,
-          y = 176,
-          width = 128,
-          height = 64,
-          rotation = 0,
-          gid = 2147484025,
-          visible = true,
-          properties = {
-            ["script"] = "ShmupVehicle"
-          }
-        },
-        {
-          id = 59,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 352,
-          y = 240,
-          width = 128,
-          height = 64,
-          rotation = 0,
-          gid = 2147484025,
+          gid = 425,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -1982,6 +2087,50 @@ return {
       draworder = "topdown",
       properties = {},
       objects = {}
+    },
+    {
+      type = "objectgroup",
+      name = "midbossboats1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 57,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -64,
+          y = 1072,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 425,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupVehicle"
+          }
+        },
+        {
+          id = 59,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 368,
+          y = 1072,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 2147484073,
+          visible = true,
+          properties = {
+            ["script"] = "ShmupVehicle"
+          }
+        }
+      }
     },
     {
       type = "objectgroup",
@@ -2003,7 +2152,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 371,
+          gid = 419,
           visible = true,
           properties = {
             ["cageid"] = 48,
@@ -2022,7 +2171,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 364,
+          gid = 412,
           visible = true,
           properties = {
             ["pathid"] = 113,
@@ -2052,12 +2201,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 96,
-          y = 1280,
+          x = 160,
+          y = 1184,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 504,
+          gid = 552,
           visible = true,
           properties = {
             ["pathid"] = 116,
@@ -2070,12 +2219,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 32,
-          y = 1328,
+          x = 48,
+          y = 1264,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 402,
+          gid = 450,
           visible = true,
           properties = {
             ["pathid"] = 114,
@@ -2089,11 +2238,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 272,
-          y = 1328,
+          y = 1264,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 438,
+          gid = 486,
           visible = true,
           properties = {
             ["pathid"] = 115,
@@ -2125,15 +2274,15 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 32,
-          y = 1328,
+          x = 48,
+          y = 1264,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 48, y = 16 }
+            { x = 48, y = 48 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -2145,14 +2294,14 @@ return {
           type = "",
           shape = "polyline",
           x = 272,
-          y = 1328,
+          y = 1264,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = -48, y = 16 }
+            { x = -48, y = 48 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -2163,15 +2312,15 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 96,
-          y = 1280,
+          x = 160,
+          y = 1184,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 64, y = 0 }
+            { x = 0, y = 48 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -2199,7 +2348,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 371,
+          gid = 419,
           visible = true,
           properties = {
             ["cageid"] = 42,
@@ -2218,7 +2367,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 364,
+          gid = 412,
           visible = true,
           properties = {
             ["pathid"] = 112,
@@ -2253,7 +2402,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 420,
+          gid = 468,
           visible = true,
           properties = {
             ["pathid"] = 109,
@@ -2290,7 +2439,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 420,
+          gid = 468,
           visible = true,
           properties = {
             ["pathid"] = 111,
@@ -2358,7 +2507,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 371,
+          gid = 419,
           visible = true,
           properties = {
             ["cageid"] = 36,
@@ -2377,7 +2526,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 364,
+          gid = 412,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -2410,7 +2559,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 402,
+          gid = 450,
           visible = true,
           properties = {
             ["pathid"] = 107,
@@ -2428,7 +2577,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 438,
+          gid = 486,
           visible = true,
           properties = {
             ["pathid"] = 108,
@@ -2479,7 +2628,7 @@ return {
     {
       type = "objectgroup",
       name = "mermaid1",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -2496,7 +2645,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 371,
+          gid = 419,
           visible = true,
           properties = {
             ["cageid"] = 33,
@@ -2515,7 +2664,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 364,
+          gid = 412,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -2543,12 +2692,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = -64,
-          y = 2672,
+          x = 64,
+          y = 2608,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 489,
+          gid = 537,
           visible = true,
           properties = {
             ["pathid"] = 106,
@@ -2561,15 +2710,15 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = -64,
-          y = 2672,
+          x = 64,
+          y = 2608,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 160, y = 48 }
+            { x = 32, y = 96 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -2597,7 +2746,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -2616,7 +2765,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -2635,7 +2784,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -2654,7 +2803,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -2673,7 +2822,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -2692,7 +2841,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -2711,7 +2860,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -2730,7 +2879,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -2749,7 +2898,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -2768,7 +2917,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -2787,7 +2936,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -2806,7 +2955,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -2825,7 +2974,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -2844,7 +2993,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -2863,7 +3012,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -2882,7 +3031,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -2901,7 +3050,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -2920,7 +3069,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 414,
+          gid = 462,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -2994,7 +3143,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 417,
+          gid = 465,
           visible = true,
           properties = {
             ["pathid"] = 90,
@@ -3012,7 +3161,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 417,
+          gid = 465,
           visible = true,
           properties = {
             ["pathid"] = 89,
@@ -3046,17 +3195,15 @@ return {
           polyline = {
             { x = 0, y = 16 },
             { x = 0, y = -80 },
-            { x = -32, y = -176 },
-            { x = -64, y = -256 },
-            { x = -48, y = -464 },
-            { x = 0, y = -736 },
-            { x = 32, y = -880 },
-            { x = -32, y = -992 },
-            { x = -64, y = -1072 },
-            { x = -48, y = -1152 },
-            { x = -16, y = -1232 },
-            { x = 0, y = -1344 },
-            { x = 0, y = -1488 }
+            { x = -64, y = -240 },
+            { x = -48, y = -384 },
+            { x = -48, y = -512 },
+            { x = -32, y = -704 },
+            { x = 16, y = -880 },
+            { x = -64, y = -1040 },
+            { x = -64, y = -1120 },
+            { x = 0, y = -1296 },
+            { x = 0, y = -1440 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -3122,7 +3269,7 @@ return {
     {
       type = "objectgroup",
       name = "camera",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -3225,7 +3372,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 344,
+          gid = 392,
           visible = true,
           properties = {}
         },
@@ -3239,7 +3386,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 344,
+          gid = 392,
           visible = true,
           properties = {}
         },
@@ -3253,7 +3400,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 344,
+          gid = 392,
           visible = true,
           properties = {}
         },
@@ -3267,7 +3414,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 344,
+          gid = 392,
           visible = true,
           properties = {}
         },
@@ -3281,7 +3428,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 344,
+          gid = 392,
           visible = true,
           properties = {}
         },
@@ -3295,7 +3442,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 344,
+          gid = 392,
           visible = true,
           properties = {}
         },
@@ -3309,7 +3456,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 344,
+          gid = 392,
           visible = true,
           properties = {}
         },
@@ -3323,7 +3470,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 344,
+          gid = 392,
           visible = true,
           properties = {}
         },
@@ -3337,7 +3484,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 344,
+          gid = 392,
           visible = true,
           properties = {}
         },
@@ -3351,7 +3498,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 348,
+          gid = 396,
           visible = true,
           properties = {
             ["script"] = "GaugeBomb"
@@ -3367,7 +3514,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 348,
+          gid = 396,
           visible = true,
           properties = {
             ["script"] = "GaugeBomb"
@@ -3383,7 +3530,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 348,
+          gid = 396,
           visible = true,
           properties = {
             ["script"] = "GaugeBomb"
@@ -3399,7 +3546,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 346,
+          gid = 394,
           visible = true,
           properties = {}
         },
@@ -3413,7 +3560,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 347,
+          gid = 395,
           visible = true,
           properties = {}
         },
