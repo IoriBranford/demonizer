@@ -27,6 +27,7 @@ local ShmupFriend = class(function(self, id)
 	self.firetimer = 0
 	self.health = MaxHealth
 	self.electrocutiontimer = 0
+	self.catchupwithcam = false
 end)
 
 ShmupFriend.LockSearchWidth = 120
@@ -40,6 +41,9 @@ ShmupFriend.BulletInterval = .0625
 ShmupFriend.ElectrocutionTime = 1
 ShmupFriend.PlayerTouchHealRate = 4
 ShmupFriend.HealDistSq = 48*48
+ShmupFriend.CatchupDistY = 80
+ShmupFriend.CatchupTime = 3
+ShmupFriend.CatchupTimeScale = 4
 
 local Sounds = {
 	Lock = "targetlock.wav",
@@ -187,7 +191,28 @@ function ShmupFriend:beginMove(dt)
 			self.pathwalker:findStartPoint(body:getWorldCenter())
 		end
 
-		vx, vy = self.pathwalker:walk(dt, body:getWorldCenter())
+		local fromccx, fromccy = levity.machine:call(
+						levity.map.properties.cameraid,
+						"getVectorFromCenter",
+						body:getWorldCenter())
+
+		if self.catchupwithcam then
+			if fromccy < -ShmupFriend.CatchupDistY then
+				self.catchupwithcam = false
+			end
+		else
+			if fromccy > ShmupFriend.CatchupDistY then
+				self.catchupwithcam = true
+			end
+		end
+
+		local timescale = 1
+		if self.catchupwithcam then
+			timescale = ShmupFriend.CatchupTimeScale
+		end
+
+		local cx, cy = body:getWorldCenter()
+		vx, vy = self.pathwalker:walk(dt, cx, cy, timescale)
 	end
 
 	body:setLinearVelocity(vx, vy)
@@ -229,10 +254,10 @@ function ShmupFriend:beginDraw()
 		local distsq = levity.machine:call(playerid, "getDistanceSq",
 							cx, cy)
 
+		local wound = 0xff * healthpercent
 		if distsq <= ShmupFriend.HealDistSq then
-			love.graphics.setColor(0, 0xff, 0)
+			love.graphics.setColor(wound, 0xff, wound)
 		else
-			local wound = 0xff * healthpercent
 			love.graphics.setColor(0xff, wound, wound)
 		end
 	end

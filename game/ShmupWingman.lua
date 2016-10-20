@@ -341,10 +341,10 @@ function ShmupWingman:beginDraw()
 		local focused = levity.machine:call(playerid, "isFocused")
 		local healthpercent = self.health / ShmupWingman.MaxHealth
 
+		local wound = 0xff * healthpercent
 		if not focused and healthpercent < 1 then
-			love.graphics.setColor(0, 0xff, 0)
+			love.graphics.setColor(wound, 0xff, wound)
 		else
-			local wound = 0xff * healthpercent
 			love.graphics.setColor(0xff, wound, wound)
 		end
 	end

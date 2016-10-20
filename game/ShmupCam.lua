@@ -126,4 +126,9 @@ function ShmupCam:pausePath(pause)
 	self.pathpaused = pause
 end
 
+function ShmupCam:getVectorFromCenter(x, y)
+	local cx, cy = self.object.body:getWorldCenter()
+	return x - cx, y - cy
+end
+
 return ShmupCam

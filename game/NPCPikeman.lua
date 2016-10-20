@@ -5,7 +5,7 @@ local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 
 local NPCPikeman = class(ShmupNPC, function(self, id)
 	ShmupNPC.init(self, id)
-	self.firetimer = 0--love.math.random()
+	self.firetimer = .5--love.math.random()
 	self.health = 8
 end)
 

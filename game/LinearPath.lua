@@ -113,10 +113,13 @@ function Walker:finished()
 	return self.desti > #self.path.points or self.t >= (self.pathtime or 1)
 end
 
-function Walker:walk(dt, x, y)
+function Walker:walk(dt, x, y, timescale)
 	if self:finished() then
 		return 0, 0
 	end
+
+	timescale = timescale or 1
+	dt = dt * timescale
 
 	local vx, vy = 0, 0
 	if not self:finished() then
@@ -125,7 +128,7 @@ function Walker:walk(dt, x, y)
 
 	self.t = self.t + dt
 
-	return vx, vy
+	return vx*timescale, vy*timescale
 end
 
 function LinearPath:newWalker(pathtime)
