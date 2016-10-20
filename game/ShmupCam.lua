@@ -101,6 +101,7 @@ function ShmupCam:beginMove(dt)
 		local pathid = self.properties.pathid
 		self.pathwalker = levity.machine:call(pathid, "newWalker",
 						self.properties.pathtime)
+		self.pathwalker:findStartPoint(body:getPosition())
 	end
 
 	if self.pathwalker and not self.pathpaused then

@@ -20,9 +20,13 @@
  <tileset firstgid="597" source="electricity.tsx"/>
  <tileset firstgid="629" source="demonizing.tsx"/>
  <tileset firstgid="632" source="demonwomen.tsx"/>
- <layer name="lava" width="19" height="200">
+ <tileset firstgid="671" source="lavapit.tsx"/>
+ <layer name="lava" width="19" height="200" offsetx="0" offsety="-240">
+  <properties>
+   <property name="script" value="LavaLayer"/>
+  </properties>
   <data encoding="base64" compression="zlib">
-   eJztlEEOwyAMBJtfwQ/g/x9qD4k03W7aezUjIVAC9toYj+PxGOfYr7EwT8zjXHPMc+/Anms98W3HeuA8bfA8tVDHiu+7+Jz4P8MXdWSc1HlppJ5dbLcYR7G3jvcc5vcd4zrPnDD2Ff6YU87UlvebNvIs89JqgrmnTcY9j8+YVtht9UXfLQf0zzjzfKsN7qFv5r/F3u6IMfEuuG+UOd9Wzlnf7f3lt118M07mLd9XakhtbbQ63MXPPj7vZ4WNrKXUkTWSPjO3aTe1tvrIt7RiT6uD9v5T4w5/maNWp9lHqCX1/OpXd++B69YLspdmnbEG833dvRnaydy0/kDN2ePu7v9bD2v9ovWp64yIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiI/C9PT5R04A==
+   eJztlTuOwzAMBQPf/w5UZx8zKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q03euAN
   </data>
  </layer>
  <layer name="ground" width="19" height="200">
@@ -31,11 +35,14 @@
   </data>
  </layer>
  <layer name="lavapitwall" width="19" height="200" offsetx="0" offsety="-240">
+  <properties>
+   <property name="script" value="LavaPitWall"/>
+  </properties>
   <data encoding="base64" compression="zlib">
-   eJztzrENACAMA8GwJWwAG8D2pGOBNEh3kuX2e4sYuV7wM7eKvqJHly5dunS937lT9AAAAAAAAAAAAAAAAAA/u1sOmbU=
+   eJztzrEJACAQBMHH/nvRTDMtzc9s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswvXFhvM
   </data>
  </layer>
- <layer name="electricity" width="19" height="200" visible="0">
+ <layer name="electricity" width="19" height="200">
   <properties>
    <property name="script" value="ElectricLayer"/>
   </properties>

@@ -269,7 +269,10 @@ return {
         x = 0,
         y = 0
       },
-      properties = {},
+      properties = {
+        ["row_lava"] = 19,
+        ["row_lavapitwall"] = 21
+      },
       terrains = {
         {
           name = "Ground",
@@ -1969,6 +1972,224 @@ return {
           }
         }
       }
+    },
+    {
+      name = "lavapit",
+      firstgid = 671,
+      filename = "lavapit.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      image = "lavapit.png",
+      imagewidth = 128,
+      imageheight = 80,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      properties = {
+        ["row_lava"] = 0,
+        ["row_pitwall"] = 2
+      },
+      terrains = {},
+      tilecount = 40,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = "0",
+              duration = "67"
+            },
+            {
+              tileid = "2",
+              duration = "67"
+            },
+            {
+              tileid = "4",
+              duration = "67"
+            }
+          }
+        },
+        {
+          id = 1,
+          animation = {
+            {
+              tileid = "1",
+              duration = "67"
+            },
+            {
+              tileid = "3",
+              duration = "67"
+            },
+            {
+              tileid = "5",
+              duration = "67"
+            }
+          }
+        },
+        {
+          id = 8,
+          animation = {
+            {
+              tileid = "8",
+              duration = "67"
+            },
+            {
+              tileid = "10",
+              duration = "67"
+            },
+            {
+              tileid = "12",
+              duration = "67"
+            }
+          }
+        },
+        {
+          id = 9,
+          animation = {
+            {
+              tileid = "9",
+              duration = "67"
+            },
+            {
+              tileid = "11",
+              duration = "67"
+            },
+            {
+              tileid = "13",
+              duration = "67"
+            }
+          }
+        },
+        {
+          id = 16,
+          animation = {
+            {
+              tileid = "16",
+              duration = "33"
+            },
+            {
+              tileid = "18",
+              duration = "33"
+            },
+            {
+              tileid = "20",
+              duration = "33"
+            },
+            {
+              tileid = "22",
+              duration = "33"
+            }
+          }
+        },
+        {
+          id = 17,
+          animation = {
+            {
+              tileid = "17",
+              duration = "33"
+            },
+            {
+              tileid = "19",
+              duration = "33"
+            },
+            {
+              tileid = "21",
+              duration = "33"
+            },
+            {
+              tileid = "23",
+              duration = "33"
+            }
+          }
+        },
+        {
+          id = 24,
+          animation = {
+            {
+              tileid = "24",
+              duration = "33"
+            },
+            {
+              tileid = "26",
+              duration = "33"
+            },
+            {
+              tileid = "28",
+              duration = "33"
+            },
+            {
+              tileid = "30",
+              duration = "33"
+            }
+          }
+        },
+        {
+          id = 25,
+          animation = {
+            {
+              tileid = "25",
+              duration = "33"
+            },
+            {
+              tileid = "27",
+              duration = "33"
+            },
+            {
+              tileid = "29",
+              duration = "33"
+            },
+            {
+              tileid = "31",
+              duration = "33"
+            }
+          }
+        },
+        {
+          id = 32,
+          animation = {
+            {
+              tileid = "32",
+              duration = "33"
+            },
+            {
+              tileid = "34",
+              duration = "33"
+            },
+            {
+              tileid = "36",
+              duration = "33"
+            },
+            {
+              tileid = "38",
+              duration = "33"
+            }
+          }
+        },
+        {
+          id = 33,
+          animation = {
+            {
+              tileid = "33",
+              duration = "33"
+            },
+            {
+              tileid = "35",
+              duration = "33"
+            },
+            {
+              tileid = "37",
+              duration = "33"
+            },
+            {
+              tileid = "39",
+              duration = "33"
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -1982,11 +2203,13 @@ return {
       visible = true,
       opacity = 1,
       offsetx = 0,
-      offsety = 0,
-      properties = {},
+      offsety = -240,
+      properties = {
+        ["script"] = "LavaLayer"
+      },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztlEEOwyAMBJtfwQ/g/x9qD4k03W7aezUjIVAC9toYj+PxGOfYr7EwT8zjXHPMc+/Anms98W3HeuA8bfA8tVDHiu+7+Jz4P8MXdWSc1HlppJ5dbLcYR7G3jvcc5vcd4zrPnDD2Ff6YU87UlvebNvIs89JqgrmnTcY9j8+YVtht9UXfLQf0zzjzfKsN7qFv5r/F3u6IMfEuuG+UOd9Wzlnf7f3lt118M07mLd9XakhtbbQ63MXPPj7vZ4WNrKXUkTWSPjO3aTe1tvrIt7RiT6uD9v5T4w5/maNWp9lHqCX1/OpXd++B69YLspdmnbEG833dvRnaydy0/kDN2ePu7v9bD2v9ovWp64yIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiI/C9PT5R04A=="
+      data = "eJztlTuOwzAMBQPf/w5UZx8zKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q03euAN"
     },
     {
       type = "tilelayer",
@@ -2015,10 +2238,12 @@ return {
       opacity = 1,
       offsetx = 0,
       offsety = -240,
-      properties = {},
+      properties = {
+        ["script"] = "LavaPitWall"
+      },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzrENACAMA8GwJWwAG8D2pGOBNEh3kuX2e4sYuV7wM7eKvqJHly5dunS937lT9AAAAAAAAAAAAAAAAAA/u1sOmbU="
+      data = "eJztzrEJACAQBMHH/nvRTDMtzc9s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswvXFhvM"
     },
     {
       type = "tilelayer",
@@ -2027,7 +2252,7 @@ return {
       y = 0,
       width = 19,
       height = 200,
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,

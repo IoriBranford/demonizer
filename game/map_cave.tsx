@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="map_cave" tilewidth="16" tileheight="16" tilecount="384" columns="16">
+ <properties>
+  <property name="row_lava" type="int" value="19"/>
+  <property name="row_lavapitwall" type="int" value="21"/>
+ </properties>
  <image source="map_cave.png" width="256" height="384"/>
  <terraintypes>
   <terrain name="Ground" tile="17"/>
