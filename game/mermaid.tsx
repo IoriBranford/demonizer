@@ -4,6 +4,10 @@
  <properties>
   <property name="commonanimation" type="int" value="0"/>
   <property name="commoncollision" type="int" value="0"/>
+  <property name="row_down" type="int" value="2"/>
+  <property name="row_left" type="int" value="3"/>
+  <property name="row_right" type="int" value="1"/>
+  <property name="row_up" type="int" value="0"/>
  </properties>
  <image source="mermaid.png" width="72" height="128"/>
  <tile id="0">

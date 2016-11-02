@@ -186,8 +186,6 @@ return {
           visible = false,
           properties = {
             ["collidable"] = true,
-            ["pathid"] = 44,
-            ["pathtime"] = 60,
             ["script"] = "ShmupCam",
             ["sensor"] = true
           }

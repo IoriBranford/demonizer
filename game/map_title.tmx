@@ -41,8 +41,6 @@ C key: BOMB</property>
   <object id="11" name="camera" x="0" y="0" width="240" height="320" visible="0">
    <properties>
     <property name="collidable" type="bool" value="true"/>
-    <property name="pathid" type="int" value="44"/>
-    <property name="pathtime" type="int" value="60"/>
     <property name="script" value="ShmupCam"/>
     <property name="sensor" type="bool" value="true"/>
    </properties>

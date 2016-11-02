@@ -8,7 +8,7 @@ return {
   height = 200,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 117,
+  nextobjectid = 124,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "20 - My Kingdom.vgm",
@@ -1435,7 +1435,11 @@ return {
       },
       properties = {
         ["commonanimation"] = 0,
-        ["commoncollision"] = 0
+        ["commoncollision"] = 0,
+        ["row_down"] = 2,
+        ["row_left"] = 3,
+        ["row_right"] = 1,
+        ["row_up"] = 0
       },
       terrains = {},
       tilecount = 12,
@@ -1720,8 +1724,8 @@ return {
       spacing = 0,
       margin = 0,
       image = "humanshots.png",
-      imagewidth = 32,
-      imageheight = 96,
+      imagewidth = 128,
+      imageheight = 112,
       tileoffset = {
         x = -24,
         y = 8
@@ -1730,13 +1734,14 @@ return {
         ["commoncollision"] = 0,
         ["row_arrow"] = 2,
         ["row_ballista"] = 4,
+        ["row_fire"] = 6,
         ["row_magic"] = 3,
         ["row_pike"] = 0,
         ["row_sword"] = 1,
         ["row_water"] = 5
       },
       terrains = {},
-      tilecount = 6,
+      tilecount = 28,
       tiles = {
         {
           id = 0,
@@ -1765,12 +1770,33 @@ return {
               }
             }
           }
+        },
+        {
+          id = 24,
+          animation = {
+            {
+              tileid = "24",
+              duration = "67"
+            },
+            {
+              tileid = "25",
+              duration = "67"
+            },
+            {
+              tileid = "26",
+              duration = "67"
+            },
+            {
+              tileid = "27",
+              duration = "67"
+            }
+          }
         }
       }
     },
     {
       name = "electricity",
-      firstgid = 597,
+      firstgid = 619,
       filename = "electricity.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1806,7 +1832,7 @@ return {
     },
     {
       name = "demonizing",
-      firstgid = 629,
+      firstgid = 651,
       filename = "demonizing.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1896,7 +1922,7 @@ return {
     },
     {
       name = "demonwomen",
-      firstgid = 632,
+      firstgid = 654,
       filename = "demonwomen.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1975,7 +2001,7 @@ return {
     },
     {
       name = "lavapit",
-      firstgid = 671,
+      firstgid = 693,
       filename = "lavapit.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -2190,6 +2216,256 @@ return {
           }
         }
       }
+    },
+    {
+      name = "flames",
+      firstgid = 733,
+      filename = "flames.tsx",
+      tilewidth = 16,
+      tileheight = 24,
+      spacing = 0,
+      margin = 0,
+      image = "flames.png",
+      imagewidth = 64,
+      imageheight = 72,
+      tileoffset = {
+        x = -8,
+        y = 12
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -6,
+                y = 18,
+                width = 12,
+                height = 12,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = "0",
+              duration = "100"
+            },
+            {
+              tileid = "1",
+              duration = "100"
+            },
+            {
+              tileid = "2",
+              duration = "100"
+            },
+            {
+              tileid = "3",
+              duration = "100"
+            },
+            {
+              tileid = "4",
+              duration = "100"
+            },
+            {
+              tileid = "5",
+              duration = "100"
+            },
+            {
+              tileid = "6",
+              duration = "100"
+            },
+            {
+              tileid = "7",
+              duration = "100"
+            },
+            {
+              tileid = "8",
+              duration = "100"
+            },
+            {
+              tileid = "9",
+              duration = "100"
+            },
+            {
+              tileid = "10",
+              duration = "100"
+            },
+            {
+              tileid = "11",
+              duration = "100"
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "sparks_med",
+      firstgid = 745,
+      filename = "sparks_med.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "sparks_med.png",
+      imagewidth = 1024,
+      imageheight = 64,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["row_explosion"] = "0"
+      },
+      terrains = {},
+      tilecount = 16,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = "0",
+              duration = "64"
+            },
+            {
+              tileid = "1",
+              duration = "64"
+            },
+            {
+              tileid = "2",
+              duration = "64"
+            },
+            {
+              tileid = "3",
+              duration = "64"
+            },
+            {
+              tileid = "4",
+              duration = "64"
+            },
+            {
+              tileid = "5",
+              duration = "64"
+            },
+            {
+              tileid = "6",
+              duration = "64"
+            },
+            {
+              tileid = "7",
+              duration = "64"
+            },
+            {
+              tileid = "8",
+              duration = "64"
+            },
+            {
+              tileid = "9",
+              duration = "64"
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "demonbomb",
+      firstgid = 761,
+      filename = "demonbomb.tsx",
+      tilewidth = 128,
+      tileheight = 128,
+      spacing = 0,
+      margin = 0,
+      image = "demonbomb.png",
+      imagewidth = 512,
+      imageheight = 256,
+      tileoffset = {
+        x = -64,
+        y = 128
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 8,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -64,
+                y = 128,
+                width = 128,
+                height = 128,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = "0",
+              duration = "50"
+            },
+            {
+              tileid = "1",
+              duration = "50"
+            },
+            {
+              tileid = "2",
+              duration = "50"
+            },
+            {
+              tileid = "3",
+              duration = "50"
+            },
+            {
+              tileid = "4",
+              duration = "50"
+            },
+            {
+              tileid = "5",
+              duration = "50"
+            },
+            {
+              tileid = "6",
+              duration = "50"
+            },
+            {
+              tileid = "7",
+              duration = "50"
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -2209,7 +2485,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztlTuOwzAMBQPf/w5UZx8zKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q03euAN"
+      data = "eJztlTuOwzAMBQPf/zpUZ58tKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q3UxR/K"
     },
     {
       type = "tilelayer",
@@ -2243,7 +2519,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzrEJACAQBMHH/nvRTDMtzc9s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswvXFhvM"
+      data = "eJztzrEJACAQBMHH/tvSTDOtx89s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswuT1D4W"
     },
     {
       type = "tilelayer",
@@ -2261,7 +2537,92 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztWu2KIjEQFN9yWGQRWY5BRMT3h3PAhqa2qron/jmONAT3NKmp7vRXMnc4TJkyZcqUKVOmTJkyZcqUf0lux8Ph/hpfx89wltf6cxojeMuby7b+Ap+39+jgLmntJXG6EFyFF1zYGvx0eEvCuAAPxS3Gn+NvHKULG3luxroWPPATx0/CWgUXtha5I9aV8DiT79ienAUW4rB/M87MXs6PHNY32KujH/OJjLPJqeFDjBviKLzK5goH8Zz/o60rvMo3u1ibOB+p8kOWRaxltqvw1kI/xGO5e+NzEz6pfC+PqAl38Uznr8zfFHcVN12eLhd216gc5Z7vdHPx29G54lbZdM8+x7rHazyN/s/3eDT4uVjN+TnPYfZ4wFysWYgVc9CmLB+w52IMrWnO4z1UvsOYzdwW4FTFP8vBGIvKno6by3GuJjBuLlY6OCGqrnZ1U9zQ9/diBTem4wgW1vwRWzGsywf6BRbu5SjWlei3pxaHYLyM+kNwYrXK2V3FZ84tMSr9WLwvx9/+2dGP2RP7l66tmO+N+PtCcLAXyryU3WMNCvP1ykevBEtxclh5DcNnObBTHz7htMmW53ItwnM3jj0xuAKnkXqTObk+ocvL9S17c5brkfbmmaoH6+QHxov1kMG1cxap7L5nL1WvwGzn7lG280T4bWUzZbfsUyHqfInc7mnc4PcsuS9Uw9kWhfXArGcKjEf6jcmJYKle7GZ4hazHWkf83mGpNYzzj/GZzj0E+ovzQbavDGc743ynOQqP3Xnlz1wHqrzC+gpVTxh+iLuDYPNdfmLnKKeDq+2on+O0ievN9vSYi8FhNVNxUr1JCKuZKn/F745TpxeIZz4b/okxh3Iye7EJs7nbPyXq/vqT8xTGcdWr3o+/v2N+UPkV20fkVO0hPjsL6+vPhhfGGHsGw0JeC8zLWCusZTbDGstqB74PcZiqruf6xuax+aqGoA6qNqj6zerwFht49lTPU9hRh1BPZivGH+P0IZ6l1jE+Wba88TR7prBd3mB1f09MobC7dLZ3I3dfe+ojEzxv49+j92jVvmWJWM19Djtzd/hgHrgRjKfBWRKPTj5gvVl+7xF50t0xq7qBtSp+d++DlV/iPgcvF38q1+PexLPwXr7aP1YX8H2n0pHpF3qvBMu9s1P3WZkbzsFeXvkE64FUL8XyXZ57Is9y7xVQV6Znfl7sDfq0umv6Am4sjzG7dfyV9YP4zIzXiUvEYvNG7qKzD2Q81T85bmq/2Bm50lXFS/W+nuFlHVTsdWIL7aXuf9VAbqp2qv6O5cAQ9W4N8xDD7NRc9U5hpOa68zrLpRUW0y3jdvsA9f8GRnoT1Yft5ZTxnkS/kfdfGbN6LztlypQpU6b8b/IXvb9v4w=="
+      data = "eJztWu2KIjEQFF94WGQRWY5BRMS3PgdsaGqrqnvin+NIQ3BPk5rqTn8lc4fDlClTpkyZMmXKlClTpkz5l+R2PBzur/F1/Axnea0/pzGCt7y5bOsv8Hl7jw7uktZeEqcLwVV4wYWtwU+HtySMC/BQ3GL8Of7GUbqwkedmrGvBAz9x/CSsVXBha5E7Yl0JjzP5ju3JWWAhDvs348zs5fzIYX2DvTr6MZ/IOJucGj7EuCGOwqtsrnAQz/k/2rrCq3yzi7WJ85EqP2RZxFpmuwpvLfRDPJa7Nz434ZPK9/KImnAXz3T+yvxNcVdx0+XpcmF3jcpR7vlONxe/HZ0rbpVN9+xzrHu8xtPo/3yPR4Ofi9Wcn/McZo8HzMWahVgxB23K8gF7LsbQmuY83kPlO4zZzG0BTlX8sxyMsajs6bi5HOdqAuPmYqWDE6Lqalc3xQ19fy9WcGM6jmBhzR+xFcO6fKBfYOFejmJdiX57anEIxsuoPwQnVquc3VV85twSo9KPxfty/O2fHf2YPbF/6dqK+d6Ivy8EB3uhzEvZPdagMF+vfPRKsBQnh5XXMHyWAzv14RNOm2x5LtciPHfj2BODK3AaqTeZk+sTurxc37I3Z7keaW+eqXqwTn5gvFgPGVw7Z5HK7nv2UvUKzHbuHmU7T4TfVjZTdss+FaLOl8jtnsYNfs+S+0I1nG1RWA/MeqbAeKTfmJwIlurFboZXyHqsdcTvHZZawzj/GJ/p3EOgvzgfZPvKcLYzzneao/DYnVf+zHWgyiusr1D1hOGHuDsINt/lJ3aOcjq42o76OU6buN5sT4+5GBxWMxUn1ZuEsJqp8lf87jh1eoF45rPhnxhzKCezF5swm7v9U6Lurz85T2EcV73q/fj7O+YHlV+xfURO1R7is7Owvv5seGGMsWcwLOS1wLyMtcJaZjOssax24PsQh6nqeq5vbB6br2oI6qBqg6rfrA5vsYFnT/U8hR11CPVktmL8MU4f4llqHeOTZcsbT7NnCtvlDVb398QUCrtLZ3s3cve1pz4ywfM2/j16j1btW5aI1dznsDN3hw/mgRvBeBqcJfHo5APWm+X3HpEn3R2zqhtYq+J39z5Y+SXuc/By8adyPe5NPAvv5av9Y3UB33cqHZl+ofdKsNw7O3WflbnhHOzllU+wHkj1Uizf5bkn8iz3XgF1ZXrm58XeoE+ru6Yv4MbyGLNbx19ZP4jPzHiduEQsNm/kLjr7QMZT/ZPjpvaLnZErXVW8VO/rGV7WQcVeJ7bQXur+Vw3kpmqn6u9YDgxR79YwDzHMTs1V7xRGaq47r7NcWmEx3TJutw9Q/29gpDdRfdheThnvSfQbef+VMav3slOmTJkyZcr/Jn8BwmL4hw=="
+    },
+    {
+      type = "objectgroup",
+      name = "boss",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 117,
+          name = "trigger",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 0,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 304, y = 0 }
+          },
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 118,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 152,
+          y = 48,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 471,
+          visible = true,
+          properties = {
+            ["kolaunch"] = true,
+            ["onDiscard"] = "endMap",
+            ["script"] = "NPCFireMage"
+          }
+        },
+        {
+          id = 121,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 304,
+          width = 16,
+          height = 24,
+          rotation = 0,
+          gid = 733,
+          visible = true,
+          properties = {
+            ["operatorid"] = 118,
+            ["script"] = "VehicleLavaSpray"
+          }
+        },
+        {
+          id = 122,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 304,
+          width = 16,
+          height = 24,
+          rotation = 0,
+          gid = 733,
+          visible = true,
+          properties = {
+            ["operatorid"] = 118,
+            ["script"] = "VehicleLavaSpray"
+          }
+        }
+      }
     },
     {
       type = "objectgroup",
@@ -2271,8 +2632,33 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
-      objects = {}
+      properties = {
+        ["activatemusic"] = "12 - Typhoone Vol 2.vgm",
+        ["activatesound"] = "alarm4.wav"
+      },
+      objects = {
+        {
+          id = 123,
+          name = "trigger",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 128,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 304, y = 0 }
+          },
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        }
+      }
     },
     {
       type = "objectgroup",
@@ -2389,7 +2775,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 160,
-          y = 1328,
+          y = 1248,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2408,7 +2794,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 1344,
+          y = 1264,
           width = 32,
           height = 64,
           rotation = 0,
@@ -2426,11 +2812,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 0,
-          y = 1264,
+          y = 1216,
           width = 304,
           height = 80,
           rotation = 0,
-          visible = false,
+          visible = true,
           properties = {
             ["collidable"] = true,
             ["sensor"] = true,
@@ -2497,7 +2883,7 @@ return {
           type = "",
           shape = "polyline",
           x = 144,
-          y = 1344,
+          y = 1264,
           width = 0,
           height = 0,
           rotation = 0,
@@ -2783,7 +3169,7 @@ return {
           width = 304,
           height = 80,
           rotation = 0,
-          visible = false,
+          visible = true,
           properties = {
             ["collidable"] = true,
             ["sensor"] = true,
@@ -2862,6 +3248,64 @@ return {
           },
           properties = {
             ["script"] = "LinearPath"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "guards3",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 120,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 2448,
+          width = 304,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "guards2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 119,
+          name = "trigger",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 2576,
+          width = 304,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["collidable"] = true,
+            ["sensor"] = true,
+            ["triggertype"] = "activategroup"
           }
         }
       }
@@ -2969,7 +3413,7 @@ return {
     },
     {
       type = "objectgroup",
-      name = "pikes1",
+      name = "guards1",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -3329,7 +3773,7 @@ return {
           width = 304,
           height = 64,
           rotation = 0,
-          visible = false,
+          visible = true,
           properties = {
             ["collidable"] = true,
             ["sensor"] = true,
@@ -3454,7 +3898,7 @@ return {
     },
     {
       type = "objectgroup",
-      name = "npcshots",
+      name = "sparks",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -3490,6 +3934,17 @@ return {
           }
         }
       }
+    },
+    {
+      type = "objectgroup",
+      name = "npcshots",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {}
     },
     {
       type = "tilelayer",

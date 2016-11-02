@@ -36,6 +36,10 @@ Frogatto Explosion Animations
 Jetrel http://opengameart.org/users/jetrel
 CC0
 
+Flames extracted from Sharm's LPC Fireplace
+http://opengameart.org/users/williamthompsonj
+CC-BY 3.0 GPL 3.0 GPL 2.0
+
 bg_swirl
 based on Chocolate Swirl pattern
 GIMP http://www.gimp.org/

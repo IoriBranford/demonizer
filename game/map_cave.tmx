@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="19" height="200" tilewidth="16" tileheight="16" nextobjectid="117">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="19" height="200" tilewidth="16" tileheight="16" nextobjectid="124">
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="20 - My Kingdom.vgm"/>
@@ -17,16 +17,19 @@
  <tileset firstgid="426" source="infmen.tsx"/>
  <tileset firstgid="516" source="infwomen.tsx"/>
  <tileset firstgid="591" source="humanshots.tsx"/>
- <tileset firstgid="597" source="electricity.tsx"/>
- <tileset firstgid="629" source="demonizing.tsx"/>
- <tileset firstgid="632" source="demonwomen.tsx"/>
- <tileset firstgid="671" source="lavapit.tsx"/>
+ <tileset firstgid="619" source="electricity.tsx"/>
+ <tileset firstgid="651" source="demonizing.tsx"/>
+ <tileset firstgid="654" source="demonwomen.tsx"/>
+ <tileset firstgid="693" source="lavapit.tsx"/>
+ <tileset firstgid="733" source="flames.tsx"/>
+ <tileset firstgid="745" source="sparks_med.tsx"/>
+ <tileset firstgid="761" source="demonbomb.tsx"/>
  <layer name="lava" width="19" height="200" offsetx="0" offsety="-240">
   <properties>
    <property name="script" value="LavaLayer"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztlTuOwzAMBQPf/w5UZx8zKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q03euAN
+   eJztlTuOwzAMBQPf/zpUZ58tKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q3UxR/K
   </data>
  </layer>
  <layer name="ground" width="19" height="200">
@@ -39,7 +42,7 @@
    <property name="script" value="LavaPitWall"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztzrEJACAQBMHH/nvRTDMtzc9s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswvXFhvM
+   eJztzrEJACAQBMHH/tvSTDOtx89s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswuT1D4W
   </data>
  </layer>
  <layer name="electricity" width="19" height="200">
@@ -47,10 +50,52 @@
    <property name="script" value="ElectricLayer"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztWu2KIjEQFN9yWGQRWY5BRMT3h3PAhqa2qron/jmONAT3NKmp7vRXMnc4TJkyZcqUKVOmTJkyZcqUf0lux8Ph/hpfx89wltf6cxojeMuby7b+Ap+39+jgLmntJXG6EFyFF1zYGvx0eEvCuAAPxS3Gn+NvHKULG3luxroWPPATx0/CWgUXtha5I9aV8DiT79ienAUW4rB/M87MXs6PHNY32KujH/OJjLPJqeFDjBviKLzK5goH8Zz/o60rvMo3u1ibOB+p8kOWRaxltqvw1kI/xGO5e+NzEz6pfC+PqAl38Uznr8zfFHcVN12eLhd216gc5Z7vdHPx29G54lbZdM8+x7rHazyN/s/3eDT4uVjN+TnPYfZ4wFysWYgVc9CmLB+w52IMrWnO4z1UvsOYzdwW4FTFP8vBGIvKno6by3GuJjBuLlY6OCGqrnZ1U9zQ9/diBTem4wgW1vwRWzGsywf6BRbu5SjWlei3pxaHYLyM+kNwYrXK2V3FZ84tMSr9WLwvx9/+2dGP2RP7l66tmO+N+PtCcLAXyryU3WMNCvP1ykevBEtxclh5DcNnObBTHz7htMmW53ItwnM3jj0xuAKnkXqTObk+ocvL9S17c5brkfbmmaoH6+QHxov1kMG1cxap7L5nL1WvwGzn7lG280T4bWUzZbfsUyHqfInc7mnc4PcsuS9Uw9kWhfXArGcKjEf6jcmJYKle7GZ4hazHWkf83mGpNYzzj/GZzj0E+ovzQbavDGc743ynOQqP3Xnlz1wHqrzC+gpVTxh+iLuDYPNdfmLnKKeDq+2on+O0ievN9vSYi8FhNVNxUr1JCKuZKn/F745TpxeIZz4b/okxh3Iye7EJs7nbPyXq/vqT8xTGcdWr3o+/v2N+UPkV20fkVO0hPjsL6+vPhhfGGHsGw0JeC8zLWCusZTbDGstqB74PcZiqruf6xuax+aqGoA6qNqj6zerwFht49lTPU9hRh1BPZivGH+P0IZ6l1jE+Wba88TR7prBd3mB1f09MobC7dLZ3I3dfe+ojEzxv49+j92jVvmWJWM19Djtzd/hgHrgRjKfBWRKPTj5gvVl+7xF50t0xq7qBtSp+d++DlV/iPgcvF38q1+PexLPwXr7aP1YX8H2n0pHpF3qvBMu9s1P3WZkbzsFeXvkE64FUL8XyXZ57Is9y7xVQV6Znfl7sDfq0umv6Am4sjzG7dfyV9YP4zIzXiUvEYvNG7qKzD2Q81T85bmq/2Bm50lXFS/W+nuFlHVTsdWIL7aXuf9VAbqp2qv6O5cAQ9W4N8xDD7NRc9U5hpOa68zrLpRUW0y3jdvsA9f8GRnoT1Yft5ZTxnkS/kfdfGbN6LztlypQpU6b8b/IXvb9v4w==
+   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
   </data>
  </layer>
- <objectgroup name="preboss"/>
+ <objectgroup name="boss">
+  <object id="117" name="trigger" x="0" y="0">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+   <polyline points="0,0 304,0"/>
+  </object>
+  <object id="118" gid="471" x="152" y="48" width="24" height="32">
+   <properties>
+    <property name="kolaunch" type="bool" value="true"/>
+    <property name="onDiscard" value="endMap"/>
+    <property name="script" value="NPCFireMage"/>
+   </properties>
+  </object>
+  <object id="121" gid="733" x="80" y="304" width="16" height="24">
+   <properties>
+    <property name="operatorid" type="int" value="118"/>
+    <property name="script" value="VehicleLavaSpray"/>
+   </properties>
+  </object>
+  <object id="122" gid="733" x="224" y="304" width="16" height="24">
+   <properties>
+    <property name="operatorid" type="int" value="118"/>
+    <property name="script" value="VehicleLavaSpray"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="preboss">
+  <properties>
+   <property name="activatemusic" type="file" value="12 - Typhoone Vol 2.vgm"/>
+   <property name="activatesound" type="file" value="alarm4.wav"/>
+  </properties>
+  <object id="123" name="trigger" x="0" y="128">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+   <polyline points="0,0 304,0"/>
+  </object>
+ </objectgroup>
  <objectgroup name="midbossboats2">
   <object id="58" gid="2147484073" x="368" y="864" width="128" height="64">
    <properties>
@@ -77,7 +122,7 @@
   </object>
  </objectgroup>
  <objectgroup name="mermaid4">
-  <object id="47" gid="419" x="160" y="1328" width="24" height="32">
+  <object id="47" gid="419" x="160" y="1248" width="24" height="32">
    <properties>
     <property name="cageid" type="int" value="48"/>
     <property name="pathid" type="int" value="60"/>
@@ -85,14 +130,14 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="48" name="cage" gid="412" x="144" y="1344" width="32" height="64">
+  <object id="48" name="cage" gid="412" x="144" y="1264" width="32" height="64">
    <properties>
     <property name="pathid" type="int" value="113"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="50" name="trigger" x="0" y="1264" width="304" height="80" visible="0">
+  <object id="50" name="trigger" x="0" y="1216" width="304" height="80">
    <properties>
     <property name="collidable" type="bool" value="true"/>
     <property name="sensor" type="bool" value="true"/>
@@ -120,7 +165,7 @@
     <property name="script" value="NPCInquisitor"/>
    </properties>
   </object>
-  <object id="113" x="144" y="1344">
+  <object id="113" x="144" y="1264">
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
@@ -215,7 +260,7 @@
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="52" name="trigger" x="0" y="2288" width="304" height="80" visible="0">
+  <object id="52" name="trigger" x="0" y="2288" width="304" height="80">
    <properties>
     <property name="collidable" type="bool" value="true"/>
     <property name="sensor" type="bool" value="true"/>
@@ -247,6 +292,24 @@
     <property name="script" value="LinearPath"/>
    </properties>
    <polyline points="0,0 -96,48"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="guards3">
+  <object id="120" name="trigger" x="0" y="2448" width="304" height="16">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="guards2">
+  <object id="119" name="trigger" x="0" y="2576" width="304" height="16">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="mermaid1">
@@ -284,7 +347,7 @@
    <polyline points="0,0 32,96"/>
   </object>
  </objectgroup>
- <objectgroup name="pikes1">
+ <objectgroup name="guards1">
   <object id="77" gid="462" x="288" y="2784" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="94"/>
@@ -429,7 +492,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="88" name="trigger" x="0" y="2784" width="304" height="64" visible="0">
+  <object id="88" name="trigger" x="0" y="2784" width="304" height="64">
    <properties>
     <property name="collidable" type="bool" value="true"/>
     <property name="sensor" type="bool" value="true"/>
@@ -471,7 +534,7 @@
    <polyline points="0,16 0,-80 -64,-240 -48,-384 -48,-512 -32,-704 16,-880 -64,-1040 -64,-1120 0,-1296 0,-1440"/>
   </object>
  </objectgroup>
- <objectgroup name="npcshots"/>
+ <objectgroup name="sparks"/>
  <objectgroup name="player">
   <object id="2" gid="1" x="152" y="3168" width="64" height="64">
    <properties>
@@ -479,6 +542,7 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="npcshots"/>
  <layer name="ceiling" width="19" height="200">
   <data encoding="base64" compression="zlib">
    eJztzqsNgDAYhdF/FzYAj+E1APvvQpsgKqCCViDOSa79ciMAAAAAAAAAAAAAAAAAAP7l6NRZ08ZOrSFtifZv+dOZNkf7t+nu5LV8Kz+19J46X3q1TtnbK83c2F46FxnKDMo=
