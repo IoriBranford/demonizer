@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="19" height="200" tilewidth="16" tileheight="16" nextobjectid="124">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="19" height="200" tilewidth="16" tileheight="16" nextobjectid="132">
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="20 - My Kingdom.vgm"/>
@@ -45,12 +45,12 @@
    eJztzrEJACAQBMHH/tvSTDOtx89s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswuT1D4W
   </data>
  </layer>
- <layer name="electricity" width="19" height="200">
+ <layer name="electricity" width="19" height="200" visible="0">
   <properties>
    <property name="script" value="ElectricLayer"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   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
+   eJztWttq6zAQLP5hU0oJppRgQij+61bUgmUye1UeStGCsJtjj2dXe5N0Xl6mTJkyZcqUKVOmTJkyZcpfktvyO16XMZz15/3Lz9jOUcFbTy4XGNv5+z2Iu57vSD5yXMRVw1vP723AYyPcJCbioV1QNwv3c+E47LvsN4n5IbB28m3GjXG6AC/Ewnu84r9LXldFL/Y+++0TsDT9rHmI2svSEb/1TnS0bKLZQOI0eTN0YH6/KTgMz9LNw5F4nr/ivEXxmP9izHiyK/zkyOQbbV4zeDu8r81jHyx3R3KXNq8d80YworFj2dPzeSterRi2/NTC8X6PxHtEPwsvGm8el4zt5Pg6hzZnBzxj2VfGKn4LY/ONcJHfxLiQ32Jxfl0e9fwgz0lu/YoxdBU4XXct31ncsG578Y82ae+0OLwRG0VyndRD85/N0E3jpvl7BEfjJu8zebxz0/yS+UCUG2JleTGsaP1ksoOeFVtJXuhrVSzWI1XsrvXLo3Mosap2H/XRJiux+Yhfsfw+6qMj/oC90Ii/o39W/R1z8Eg8s1jO5FDkxHqFDCev98zEzb5w38zaHXVj3KK8Iv1WBsvqu7JYzFaV/BDt4yJrEa0/q+RTq59EXG8fpdXnw+Fk+Zn08y7WelD+3fun+/K4ppHC+lFtbjHmNsDqeJqfsPtD4eXxY3N+d7Ca4H6LN8dRLMsHIzHLemDNZhFfju5DWD2+FOz3cS4ydYDtQYzWkxEcqR/aqtJXaPsZlR6M9XOjPeYzOVVqLnJ6BhZbBz8DS16ztlqBU7X/6pxYPrCw+tmCxgmxNFuxOtQ5MT+36pl8Vsq+PNrb0hHjlXFleR11xDmSWGwfAXN0r7E35Rmpt5bfLb5afbNyusbXq1FRPuzaYkPb22C9BNPxXejJOFnfl8/0OD2cdzxe7OxB7hlqds3UItYvafMUyRvauU0ll2EPwXCyay2th2D2tkTrvTwcdvbLamzERvId1me3+yOoVyRWo+fLbM+yWhfvhAfOXXX9yEYU6yvAa6QntWqGJ9a+bKX245qv4hNSWK3dBrixmB7ZU2W5pqKndtZS6Qk7HqsV1f9HwtYcVW7Yi3XcUf/AucjisXXtNoDHzgKqtvPOwqPcrP3ffh+NB2t/IhNbrOdkNovkSFZrK5ya7Ip+2AdGsVgfka0lTdj5aLZfQjx2vlxZbyNmdM9mypQpU6ZM+Q/yDczRs+8=
   </data>
  </layer>
  <objectgroup name="boss">
@@ -80,6 +80,20 @@
     <property name="operatorid" type="int" value="118"/>
     <property name="script" value="VehicleLavaSpray"/>
    </properties>
+  </object>
+  <object id="130" x="0" y="288">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,32"/>
+  </object>
+  <object id="131" x="304" y="288">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,32"/>
   </object>
  </objectgroup>
  <objectgroup name="preboss">
@@ -536,7 +550,7 @@
  </objectgroup>
  <objectgroup name="sparks"/>
  <objectgroup name="player">
-  <object id="2" gid="1" x="152" y="3168" width="64" height="64">
+  <object id="2" gid="1" x="152" y="432" width="64" height="64">
    <properties>
     <property name="script" value="ShmupPlayer"/>
    </properties>
@@ -549,7 +563,7 @@
   </data>
  </layer>
  <objectgroup name="camera">
-  <object id="1" x="32" y="2880" width="240" height="320">
+  <object id="1" x="32" y="144" width="240" height="320">
    <properties>
     <property name="collidable" type="bool" value="true"/>
     <property name="pathid" type="int" value="6"/>

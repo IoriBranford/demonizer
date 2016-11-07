@@ -20,6 +20,7 @@ local ShmupVehicle = class(function(self, id)
 		fixture:setSensor(true)
 		fixture:setCategory(ShmupCollision.Category_NPCTeam)
 		fixture:setMask(ShmupCollision.Category_CameraEdge,
+			ShmupCollision.Category_PlayerTeam,
 			ShmupCollision.Category_NPCTeam,
 			ShmupCollision.Category_NPCShot)
 	end
