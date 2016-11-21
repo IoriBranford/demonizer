@@ -97,8 +97,8 @@ function ShmupCam:beginMove(dt)
 	local vx0, vy0 = body:getLinearVelocity()
 	local vx1, vy1 = 0, 0
 
-	if not self.pathwalker then
-		local pathid = self.properties.pathid
+	local pathid = self.properties.pathid
+	if pathid and not self.pathwalker then
 		self.pathwalker = levity.machine:call(pathid, "newWalker",
 						self.properties.pathtime)
 		self.pathwalker:findStartPoint(body:getPosition())
