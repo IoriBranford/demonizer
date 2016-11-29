@@ -19,12 +19,12 @@ return {
     {
       name = "imp",
       firstgid = 1,
-      filename = "imp.tsx",
+      filename = "img/imp.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "imp.png",
+      image = "img/imp.png",
       imagewidth = 192,
       imageheight = 64,
       tileoffset = {
@@ -202,12 +202,12 @@ return {
     {
       name = "demonshots",
       firstgid = 4,
-      filename = "demonshots.tsx",
+      filename = "img/demonshots.tsx",
       tilewidth = 32,
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      image = "demonshots.png",
+      image = "img/demonshots.png",
       imagewidth = 32,
       imageheight = 64,
       tileoffset = {
@@ -257,12 +257,12 @@ return {
     {
       name = "map_cave",
       firstgid = 8,
-      filename = "map_cave.tsx",
+      filename = "img/map_cave.tsx",
       tilewidth = 16,
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      image = "map_cave.png",
+      image = "img/map_cave.png",
       imagewidth = 256,
       imageheight = 384,
       tileoffset = {
@@ -1260,12 +1260,12 @@ return {
     {
       name = "hud_icons",
       firstgid = 392,
-      filename = "hud_icons.tsx",
+      filename = "img/hud_icons.tsx",
       tilewidth = 16,
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      image = "hud_icons.png",
+      image = "img/hud_icons.png",
       imagewidth = 32,
       imageheight = 32,
       tileoffset = {
@@ -1280,12 +1280,12 @@ return {
     {
       name = "bombgauge",
       firstgid = 396,
-      filename = "bombgauge.tsx",
+      filename = "img/bombgauge.tsx",
       tilewidth = 16,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "bombgauge.png",
+      image = "img/bombgauge.png",
       imagewidth = 128,
       imageheight = 64,
       tileoffset = {
@@ -1372,12 +1372,12 @@ return {
     {
       name = "cage",
       firstgid = 412,
-      filename = "cage.tsx",
+      filename = "img/cage.tsx",
       tilewidth = 32,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "cage.png",
+      image = "img/cage.png",
       imagewidth = 32,
       imageheight = 64,
       tileoffset = {
@@ -1421,12 +1421,12 @@ return {
     {
       name = "mermaid",
       firstgid = 413,
-      filename = "mermaid.tsx",
+      filename = "img/mermaid.tsx",
       tilewidth = 24,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "mermaid.png",
+      image = "img/mermaid.png",
       imagewidth = 72,
       imageheight = 128,
       tileoffset = {
@@ -1495,12 +1495,12 @@ return {
     {
       name = "darkboat",
       firstgid = 425,
-      filename = "darkboat.tsx",
+      filename = "img/darkboat.tsx",
       tilewidth = 128,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "darkboat.png",
+      image = "img/darkboat.png",
       imagewidth = 128,
       imageheight = 64,
       tileoffset = {
@@ -1557,12 +1557,12 @@ return {
     {
       name = "infmen",
       firstgid = 426,
-      filename = "infmen.tsx",
+      filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "infmen.png",
+      image = "img/infmen.png",
       imagewidth = 432,
       imageheight = 160,
       tileoffset = {
@@ -1638,12 +1638,12 @@ return {
     {
       name = "infwomen",
       firstgid = 516,
-      filename = "infwomen.tsx",
+      filename = "img/infwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "infwomen.png",
+      image = "img/infwomen.png",
       imagewidth = 360,
       imageheight = 160,
       tileoffset = {
@@ -1718,12 +1718,12 @@ return {
     {
       name = "humanshots",
       firstgid = 591,
-      filename = "humanshots.tsx",
+      filename = "img/humanshots.tsx",
       tilewidth = 32,
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      image = "humanshots.png",
+      image = "img/humanshots.png",
       imagewidth = 128,
       imageheight = 112,
       tileoffset = {
@@ -1797,12 +1797,12 @@ return {
     {
       name = "electricity",
       firstgid = 619,
-      filename = "electricity.tsx",
+      filename = "img/electricity.tsx",
       tilewidth = 16,
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      image = "electricity.png",
+      image = "img/electricity.png",
       imagewidth = 64,
       imageheight = 128,
       tileoffset = {
@@ -1833,12 +1833,12 @@ return {
     {
       name = "demonizing",
       firstgid = 651,
-      filename = "demonizing.tsx",
+      filename = "img/demonizing.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "demonizing.png",
+      image = "img/demonizing.png",
       imagewidth = 192,
       imageheight = 64,
       tileoffset = {
@@ -1923,12 +1923,12 @@ return {
     {
       name = "demonwomen",
       firstgid = 654,
-      filename = "demonwomen.tsx",
+      filename = "img/demonwomen.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "demonwomen.png",
+      image = "img/demonwomen.png",
       imagewidth = 192,
       imageheight = 832,
       tileoffset = {
@@ -2002,12 +2002,12 @@ return {
     {
       name = "lavapit",
       firstgid = 693,
-      filename = "lavapit.tsx",
+      filename = "img/lavapit.tsx",
       tilewidth = 16,
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      image = "lavapit.png",
+      image = "img/lavapit.png",
       imagewidth = 128,
       imageheight = 80,
       tileoffset = {
@@ -2220,12 +2220,12 @@ return {
     {
       name = "flames",
       firstgid = 733,
-      filename = "flames.tsx",
+      filename = "img/flames.tsx",
       tilewidth = 16,
       tileheight = 24,
       spacing = 0,
       margin = 0,
-      image = "flames.png",
+      image = "img/flames.png",
       imagewidth = 64,
       imageheight = 72,
       tileoffset = {
@@ -2319,12 +2319,12 @@ return {
     {
       name = "sparks_med",
       firstgid = 745,
-      filename = "sparks_med.tsx",
+      filename = "img/sparks_med.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "sparks_med.png",
+      image = "img/sparks_med.png",
       imagewidth = 1024,
       imageheight = 64,
       tileoffset = {
@@ -2387,12 +2387,12 @@ return {
     {
       name = "demonbomb",
       firstgid = 761,
-      filename = "demonbomb.tsx",
+      filename = "img/demonbomb.tsx",
       tilewidth = 128,
       tileheight = 128,
       spacing = 0,
       margin = 0,
-      image = "demonbomb.png",
+      image = "img/demonbomb.png",
       imagewidth = 512,
       imageheight = 256,
       tileoffset = {

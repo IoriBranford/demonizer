@@ -3,8 +3,8 @@
  <properties>
   <property name="DeleteTiles" type="bool" value="true"/>
  </properties>
- <tileset firstgid="1" source="map_cave.tsx"/>
- <tileset firstgid="385" source="electricity.tsx"/>
+ <tileset firstgid="1" source="img/map_cave.tsx"/>
+ <tileset firstgid="385" source="img/electricity.tsx"/>
  <layer name="regions_input" width="16" height="16" visible="0" opacity="0.5">
   <data encoding="base64" compression="zlib">
    eJwzZmQAA2MiaWoDfPZhY9PCfkJ2Dmf7R8HIBgBWsQXl

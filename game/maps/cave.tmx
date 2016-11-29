@@ -6,24 +6,24 @@
   <property name="playerid" type="int" value="2"/>
   <property name="script" value="ShmupMap"/>
  </properties>
- <tileset firstgid="1" source="imp.tsx"/>
- <tileset firstgid="4" source="demonshots.tsx"/>
- <tileset firstgid="8" source="map_cave.tsx"/>
- <tileset firstgid="392" source="hud_icons.tsx"/>
- <tileset firstgid="396" source="bombgauge.tsx"/>
- <tileset firstgid="412" source="cage.tsx"/>
- <tileset firstgid="413" source="mermaid.tsx"/>
- <tileset firstgid="425" source="darkboat.tsx"/>
- <tileset firstgid="426" source="infmen.tsx"/>
- <tileset firstgid="516" source="infwomen.tsx"/>
- <tileset firstgid="591" source="humanshots.tsx"/>
- <tileset firstgid="619" source="electricity.tsx"/>
- <tileset firstgid="651" source="demonizing.tsx"/>
- <tileset firstgid="654" source="demonwomen.tsx"/>
- <tileset firstgid="693" source="lavapit.tsx"/>
- <tileset firstgid="733" source="flames.tsx"/>
- <tileset firstgid="745" source="sparks_med.tsx"/>
- <tileset firstgid="761" source="demonbomb.tsx"/>
+ <tileset firstgid="1" source="img/imp.tsx"/>
+ <tileset firstgid="4" source="img/demonshots.tsx"/>
+ <tileset firstgid="8" source="img/map_cave.tsx"/>
+ <tileset firstgid="392" source="img/hud_icons.tsx"/>
+ <tileset firstgid="396" source="img/bombgauge.tsx"/>
+ <tileset firstgid="412" source="img/cage.tsx"/>
+ <tileset firstgid="413" source="img/mermaid.tsx"/>
+ <tileset firstgid="425" source="img/darkboat.tsx"/>
+ <tileset firstgid="426" source="img/infmen.tsx"/>
+ <tileset firstgid="516" source="img/infwomen.tsx"/>
+ <tileset firstgid="591" source="img/humanshots.tsx"/>
+ <tileset firstgid="619" source="img/electricity.tsx"/>
+ <tileset firstgid="651" source="img/demonizing.tsx"/>
+ <tileset firstgid="654" source="img/demonwomen.tsx"/>
+ <tileset firstgid="693" source="img/lavapit.tsx"/>
+ <tileset firstgid="733" source="img/flames.tsx"/>
+ <tileset firstgid="745" source="img/sparks_med.tsx"/>
+ <tileset firstgid="761" source="img/demonbomb.tsx"/>
  <layer name="lava" width="19" height="200" offsetx="0" offsety="-240">
   <properties>
    <property name="script" value="LavaLayer"/>

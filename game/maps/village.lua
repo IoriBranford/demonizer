@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "0.17.0",
+  tiledversion = "0.17.1",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 36,
@@ -19,12 +19,12 @@ return {
     {
       name = "imp",
       firstgid = 1,
-      filename = "imp.tsx",
+      filename = "img/imp.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "imp.png",
+      image = "img/imp.png",
       imagewidth = 192,
       imageheight = 64,
       tileoffset = {
@@ -184,16 +184,16 @@ return {
           },
           animation = {
             {
-              tileid = "0",
-              duration = "125"
+              tileid = 0,
+              duration = 125
             },
             {
-              tileid = "1",
-              duration = "125"
+              tileid = 1,
+              duration = 125
             },
             {
-              tileid = "2",
-              duration = "125"
+              tileid = 2,
+              duration = 125
             }
           }
         }
@@ -202,12 +202,12 @@ return {
     {
       name = "demonizing",
       firstgid = 4,
-      filename = "demonizing.tsx",
+      filename = "img/demonizing.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "demonizing.png",
+      image = "img/demonizing.png",
       imagewidth = 192,
       imageheight = 64,
       tileoffset = {
@@ -222,68 +222,68 @@ return {
           id = 0,
           animation = {
             {
-              tileid = "0",
-              duration = "62"
+              tileid = 0,
+              duration = 62
             },
             {
-              tileid = "1",
-              duration = "62"
+              tileid = 1,
+              duration = 62
             },
             {
-              tileid = "0",
-              duration = "62"
+              tileid = 0,
+              duration = 62
             },
             {
-              tileid = "1",
-              duration = "62"
+              tileid = 1,
+              duration = 62
             },
             {
-              tileid = "0",
-              duration = "62"
+              tileid = 0,
+              duration = 62
             },
             {
-              tileid = "1",
-              duration = "62"
+              tileid = 1,
+              duration = 62
             },
             {
-              tileid = "0",
-              duration = "62"
+              tileid = 0,
+              duration = 62
             },
             {
-              tileid = "1",
-              duration = "62"
+              tileid = 1,
+              duration = 62
             },
             {
-              tileid = "2",
-              duration = "62"
+              tileid = 2,
+              duration = 62
             },
             {
-              tileid = "1",
-              duration = "62"
+              tileid = 1,
+              duration = 62
             },
             {
-              tileid = "2",
-              duration = "62"
+              tileid = 2,
+              duration = 62
             },
             {
-              tileid = "1",
-              duration = "62"
+              tileid = 1,
+              duration = 62
             },
             {
-              tileid = "2",
-              duration = "62"
+              tileid = 2,
+              duration = 62
             },
             {
-              tileid = "1",
-              duration = "62"
+              tileid = 1,
+              duration = 62
             },
             {
-              tileid = "2",
-              duration = "62"
+              tileid = 2,
+              duration = 62
             },
             {
-              tileid = "1",
-              duration = "62"
+              tileid = 1,
+              duration = 62
             }
           }
         }
@@ -292,12 +292,12 @@ return {
     {
       name = "demonwomen",
       firstgid = 7,
-      filename = "demonwomen.tsx",
+      filename = "img/demonwomen.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "demonwomen.png",
+      image = "img/demonwomen.png",
       imagewidth = 192,
       imageheight = 832,
       tileoffset = {
@@ -353,16 +353,16 @@ return {
           },
           animation = {
             {
-              tileid = "0",
-              duration = "125"
+              tileid = 0,
+              duration = 125
             },
             {
-              tileid = "1",
-              duration = "125"
+              tileid = 1,
+              duration = 125
             },
             {
-              tileid = "2",
-              duration = "125"
+              tileid = 2,
+              duration = 125
             }
           }
         }
@@ -371,12 +371,12 @@ return {
     {
       name = "demonshots",
       firstgid = 46,
-      filename = "demonshots.tsx",
+      filename = "img/demonshots.tsx",
       tilewidth = 32,
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      image = "demonshots.png",
+      image = "img/demonshots.png",
       imagewidth = 32,
       imageheight = 64,
       tileoffset = {
@@ -426,12 +426,12 @@ return {
     {
       name = "demonbomb",
       firstgid = 50,
-      filename = "demonbomb.tsx",
+      filename = "img/demonbomb.tsx",
       tilewidth = 128,
       tileheight = 128,
       spacing = 0,
       margin = 0,
-      image = "demonbomb.png",
+      image = "img/demonbomb.png",
       imagewidth = 512,
       imageheight = 256,
       tileoffset = {
@@ -471,36 +471,36 @@ return {
           },
           animation = {
             {
-              tileid = "0",
-              duration = "50"
+              tileid = 0,
+              duration = 50
             },
             {
-              tileid = "1",
-              duration = "50"
+              tileid = 1,
+              duration = 50
             },
             {
-              tileid = "2",
-              duration = "50"
+              tileid = 2,
+              duration = 50
             },
             {
-              tileid = "3",
-              duration = "50"
+              tileid = 3,
+              duration = 50
             },
             {
-              tileid = "4",
-              duration = "50"
+              tileid = 4,
+              duration = 50
             },
             {
-              tileid = "5",
-              duration = "50"
+              tileid = 5,
+              duration = 50
             },
             {
-              tileid = "6",
-              duration = "50"
+              tileid = 6,
+              duration = 50
             },
             {
-              tileid = "7",
-              duration = "50"
+              tileid = 7,
+              duration = 50
             }
           }
         }
@@ -509,12 +509,12 @@ return {
     {
       name = "infwomen",
       firstgid = 58,
-      filename = "infwomen.tsx",
+      filename = "img/infwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "infwomen.png",
+      image = "img/infwomen.png",
       imagewidth = 360,
       imageheight = 160,
       tileoffset = {
@@ -567,20 +567,20 @@ return {
           },
           animation = {
             {
-              tileid = "0",
-              duration = "125"
+              tileid = 0,
+              duration = 125
             },
             {
-              tileid = "1",
-              duration = "125"
+              tileid = 1,
+              duration = 125
             },
             {
-              tileid = "2",
-              duration = "125"
+              tileid = 2,
+              duration = 125
             },
             {
-              tileid = "1",
-              duration = "125"
+              tileid = 1,
+              duration = 125
             }
           }
         }
@@ -589,12 +589,12 @@ return {
     {
       name = "infmen",
       firstgid = 133,
-      filename = "infmen.tsx",
+      filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "infmen.png",
+      image = "img/infmen.png",
       imagewidth = 432,
       imageheight = 160,
       tileoffset = {
@@ -648,20 +648,20 @@ return {
           },
           animation = {
             {
-              tileid = "0",
-              duration = "125"
+              tileid = 0,
+              duration = 125
             },
             {
-              tileid = "1",
-              duration = "125"
+              tileid = 1,
+              duration = 125
             },
             {
-              tileid = "2",
-              duration = "125"
+              tileid = 2,
+              duration = 125
             },
             {
-              tileid = "1",
-              duration = "125"
+              tileid = 1,
+              duration = 125
             }
           }
         }
@@ -670,12 +670,12 @@ return {
     {
       name = "boat",
       firstgid = 223,
-      filename = "boat.tsx",
+      filename = "img/boat.tsx",
       tilewidth = 128,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "boat.png",
+      image = "img/boat.png",
       imagewidth = 128,
       imageheight = 64,
       tileoffset = {
@@ -732,12 +732,12 @@ return {
     {
       name = "ballista",
       firstgid = 224,
-      filename = "ballista.tsx",
+      filename = "img/ballista.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "ballista.png",
+      image = "img/ballista.png",
       imagewidth = 512,
       imageheight = 192,
       tileoffset = {
@@ -790,20 +790,20 @@ return {
           },
           animation = {
             {
-              tileid = "16",
-              duration = "967"
+              tileid = 16,
+              duration = 967
             },
             {
-              tileid = "0",
-              duration = "250"
+              tileid = 0,
+              duration = 250
             },
             {
-              tileid = "8",
-              duration = "500"
+              tileid = 8,
+              duration = 500
             },
             {
-              tileid = "0",
-              duration = "33"
+              tileid = 0,
+              duration = 33
             }
           }
         }
@@ -812,12 +812,12 @@ return {
     {
       name = "humanshots",
       firstgid = 248,
-      filename = "humanshots.tsx",
+      filename = "img/humanshots.tsx",
       tilewidth = 32,
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      image = "humanshots.png",
+      image = "img/humanshots.png",
       imagewidth = 128,
       imageheight = 112,
       tileoffset = {
@@ -869,20 +869,20 @@ return {
           id = 24,
           animation = {
             {
-              tileid = "24",
-              duration = "67"
+              tileid = 24,
+              duration = 67
             },
             {
-              tileid = "25",
-              duration = "67"
+              tileid = 25,
+              duration = 67
             },
             {
-              tileid = "26",
-              duration = "67"
+              tileid = 26,
+              duration = 67
             },
             {
-              tileid = "27",
-              duration = "67"
+              tileid = 27,
+              duration = 67
             }
           }
         }
@@ -891,12 +891,12 @@ return {
     {
       name = "civwomen",
       firstgid = 276,
-      filename = "civwomen.tsx",
+      filename = "img/civwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "civwomen.png",
+      image = "img/civwomen.png",
       imagewidth = 576,
       imageheight = 160,
       tileoffset = {
@@ -952,20 +952,20 @@ return {
           },
           animation = {
             {
-              tileid = "0",
-              duration = "125"
+              tileid = 0,
+              duration = 125
             },
             {
-              tileid = "1",
-              duration = "125"
+              tileid = 1,
+              duration = 125
             },
             {
-              tileid = "2",
-              duration = "125"
+              tileid = 2,
+              duration = 125
             },
             {
-              tileid = "1",
-              duration = "125"
+              tileid = 1,
+              duration = 125
             }
           }
         }
@@ -974,12 +974,12 @@ return {
     {
       name = "civmen",
       firstgid = 396,
-      filename = "civmen.tsx",
+      filename = "img/civmen.tsx",
       tilewidth = 24,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "civmen.png",
+      image = "img/civmen.png",
       imagewidth = 648,
       imageheight = 160,
       tileoffset = {
@@ -1036,20 +1036,20 @@ return {
           },
           animation = {
             {
-              tileid = "0",
-              duration = "125"
+              tileid = 0,
+              duration = 125
             },
             {
-              tileid = "1",
-              duration = "125"
+              tileid = 1,
+              duration = 125
             },
             {
-              tileid = "2",
-              duration = "125"
+              tileid = 2,
+              duration = 125
             },
             {
-              tileid = "1",
-              duration = "125"
+              tileid = 1,
+              duration = 125
             }
           }
         }
@@ -1058,12 +1058,12 @@ return {
     {
       name = "sparks_med",
       firstgid = 531,
-      filename = "sparks_med.tsx",
+      filename = "img/sparks_med.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "sparks_med.png",
+      image = "img/sparks_med.png",
       imagewidth = 1024,
       imageheight = 64,
       tileoffset = {
@@ -1080,44 +1080,44 @@ return {
           id = 0,
           animation = {
             {
-              tileid = "0",
-              duration = "64"
+              tileid = 0,
+              duration = 64
             },
             {
-              tileid = "1",
-              duration = "64"
+              tileid = 1,
+              duration = 64
             },
             {
-              tileid = "2",
-              duration = "64"
+              tileid = 2,
+              duration = 64
             },
             {
-              tileid = "3",
-              duration = "64"
+              tileid = 3,
+              duration = 64
             },
             {
-              tileid = "4",
-              duration = "64"
+              tileid = 4,
+              duration = 64
             },
             {
-              tileid = "5",
-              duration = "64"
+              tileid = 5,
+              duration = 64
             },
             {
-              tileid = "6",
-              duration = "64"
+              tileid = 6,
+              duration = 64
             },
             {
-              tileid = "7",
-              duration = "64"
+              tileid = 7,
+              duration = 64
             },
             {
-              tileid = "8",
-              duration = "64"
+              tileid = 8,
+              duration = 64
             },
             {
-              tileid = "9",
-              duration = "64"
+              tileid = 9,
+              duration = 64
             }
           }
         }
@@ -1126,12 +1126,12 @@ return {
     {
       name = "test_bank.png",
       firstgid = 547,
-      filename = "test_bank.png.tsx",
+      filename = "img/test_bank.png.tsx",
       tilewidth = 8,
       tileheight = 8,
       spacing = 0,
       margin = 0,
-      image = "test_bank.png",
+      image = "img/test_bank.png",
       imagewidth = 1024,
       imageheight = 424,
       tileoffset = {
@@ -1146,12 +1146,12 @@ return {
     {
       name = "hud_icons",
       firstgid = 7331,
-      filename = "hud_icons.tsx",
+      filename = "img/hud_icons.tsx",
       tilewidth = 16,
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      image = "hud_icons.png",
+      image = "img/hud_icons.png",
       imagewidth = 32,
       imageheight = 32,
       tileoffset = {
@@ -1166,12 +1166,12 @@ return {
     {
       name = "bombgauge",
       firstgid = 7335,
-      filename = "bombgauge.tsx",
+      filename = "img/bombgauge.tsx",
       tilewidth = 16,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "bombgauge.png",
+      image = "img/bombgauge.png",
       imagewidth = 128,
       imageheight = 64,
       tileoffset = {
@@ -1220,36 +1220,36 @@ return {
           id = 8,
           animation = {
             {
-              tileid = "8",
-              duration = "100"
+              tileid = 8,
+              duration = 100
             },
             {
-              tileid = "9",
-              duration = "100"
+              tileid = 9,
+              duration = 100
             },
             {
-              tileid = "10",
-              duration = "100"
+              tileid = 10,
+              duration = 100
             },
             {
-              tileid = "11",
-              duration = "100"
+              tileid = 11,
+              duration = 100
             },
             {
-              tileid = "12",
-              duration = "100"
+              tileid = 12,
+              duration = 100
             },
             {
-              tileid = "13",
-              duration = "100"
+              tileid = 13,
+              duration = 100
             },
             {
-              tileid = "14",
-              duration = "100"
+              tileid = 14,
+              duration = 100
             },
             {
-              tileid = "15",
-              duration = "100"
+              tileid = 15,
+              duration = 100
             }
           }
         }
@@ -1258,12 +1258,12 @@ return {
     {
       name = "touchmarkers",
       firstgid = 7351,
-      filename = "touchmarkers.tsx",
+      filename = "img/touchmarkers.tsx",
       tilewidth = 64,
       tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "touchmarkers.png",
+      image = "img/touchmarkers.png",
       imagewidth = 128,
       imageheight = 64,
       tileoffset = {
@@ -1278,12 +1278,12 @@ return {
     {
       name = "playerhitbox",
       firstgid = 7353,
-      filename = "playerhitbox.tsx",
+      filename = "img/playerhitbox.tsx",
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "playerhitbox.png",
+      image = "img/playerhitbox.png",
       imagewidth = 32,
       imageheight = 32,
       tileoffset = {

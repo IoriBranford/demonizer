@@ -1,2 +1,7 @@
 *~
 *.swp
+
+*.love
+bin*/
+
+**/ignore/**/*

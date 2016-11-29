@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "0.17.0",
+  tiledversion = "0.17.1",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 48,
@@ -17,12 +17,12 @@ return {
     {
       name = "bg_swirl",
       firstgid = 1,
-      filename = "bg_swirl.tsx",
+      filename = "img/bg_swirl.tsx",
       tilewidth = 5,
       tileheight = 5,
       spacing = 0,
       margin = 0,
-      image = "bg_swirl.png",
+      image = "img/bg_swirl.png",
       imagewidth = 50,
       imageheight = 50,
       tileoffset = {
@@ -37,12 +37,12 @@ return {
     {
       name = "title",
       firstgid = 101,
-      filename = "title.tsx",
+      filename = "img/title.tsx",
       tilewidth = 128,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "title.png",
+      image = "img/title.png",
       imagewidth = 128,
       imageheight = 128,
       tileoffset = {
