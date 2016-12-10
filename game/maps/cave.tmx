@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="19" height="200" tilewidth="16" tileheight="16" nextobjectid="132">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="19" height="200" tilewidth="16" tileheight="16" nextobjectid="183">
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="20 - My Kingdom.vgm"/>
@@ -9,40 +9,50 @@
  <tileset firstgid="1" source="img/imp.tsx"/>
  <tileset firstgid="4" source="img/demonshots.tsx"/>
  <tileset firstgid="8" source="img/map_cave.tsx"/>
- <tileset firstgid="392" source="img/hud_icons.tsx"/>
- <tileset firstgid="396" source="img/bombgauge.tsx"/>
- <tileset firstgid="412" source="img/cage.tsx"/>
- <tileset firstgid="413" source="img/mermaid.tsx"/>
- <tileset firstgid="425" source="img/darkboat.tsx"/>
- <tileset firstgid="426" source="img/infmen.tsx"/>
- <tileset firstgid="516" source="img/infwomen.tsx"/>
- <tileset firstgid="591" source="img/humanshots.tsx"/>
- <tileset firstgid="619" source="img/electricity.tsx"/>
- <tileset firstgid="651" source="img/demonizing.tsx"/>
- <tileset firstgid="654" source="img/demonwomen.tsx"/>
- <tileset firstgid="693" source="img/lavapit.tsx"/>
- <tileset firstgid="733" source="img/flames.tsx"/>
- <tileset firstgid="745" source="img/sparks_med.tsx"/>
- <tileset firstgid="761" source="img/demonbomb.tsx"/>
+ <tileset firstgid="408" source="img/hud_icons.tsx"/>
+ <tileset firstgid="412" source="img/bombgauge.tsx"/>
+ <tileset firstgid="428" source="img/cage.tsx"/>
+ <tileset firstgid="429" source="img/mermaid.tsx"/>
+ <tileset firstgid="441" source="img/darkboat.tsx"/>
+ <tileset firstgid="442" source="img/infmen.tsx"/>
+ <tileset firstgid="532" source="img/infwomen.tsx"/>
+ <tileset firstgid="607" source="img/humanshots.tsx"/>
+ <tileset firstgid="635" source="img/electricity.tsx"/>
+ <tileset firstgid="667" source="img/demonizing.tsx"/>
+ <tileset firstgid="670" source="img/demonwomen.tsx"/>
+ <tileset firstgid="709" source="img/lavapit.tsx"/>
+ <tileset firstgid="749" source="img/cave_objects.tsx"/>
+ <tileset firstgid="798" source="img/flames.tsx"/>
+ <tileset firstgid="810" source="img/sparks_med.tsx"/>
+ <tileset firstgid="826" source="img/demonbomb.tsx"/>
+ <tileset firstgid="834" source="img/ballista.tsx"/>
  <layer name="lava" width="19" height="200" offsetx="0" offsety="-240">
   <properties>
    <property name="script" value="LavaLayer"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztlTuOwzAMBQPf/zpUZ58tKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q3UxR/K
+   eJztlTuOwzAMBQPf/1pUZ58pKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q11wk4a
   </data>
  </layer>
  <layer name="ground" width="19" height="200">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
+ <objectgroup name="friends">
+  <object id="60" name="path1" x="160" y="2736">
+   <properties>
+    <property name="script" value="LinearPath"/>
+   </properties>
+   <polyline points="0,16 0,-80 -64,-240 -48,-384 -48,-512 -32,-704 16,-880 -64,-1040 -64,-1120 0,-1296 0,-1440"/>
+  </object>
+ </objectgroup>
  <layer name="lavapitwall" width="19" height="200" offsetx="0" offsety="-240">
   <properties>
    <property name="script" value="LavaPitWall"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztzrEJACAQBMHH/tvSTDOtx89s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswuT1D4W
+   eJztzrEJACAQBMHH/tvTTDOtw89s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswsF2FcG
   </data>
  </layer>
  <layer name="electricity" width="19" height="200" visible="0">
@@ -50,7 +60,12 @@
    <property name="script" value="ElectricLayer"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztWttq6zAQLP5hU0oJppRgQij+61bUgmUye1UeStGCsJtjj2dXe5N0Xl6mTJkyZcqUKVOmTJkyZcpfktvyO16XMZz15/3Lz9jOUcFbTy4XGNv5+z2Iu57vSD5yXMRVw1vP723AYyPcJCbioV1QNwv3c+E47LvsN4n5IbB28m3GjXG6AC/Ewnu84r9LXldFL/Y+++0TsDT9rHmI2svSEb/1TnS0bKLZQOI0eTN0YH6/KTgMz9LNw5F4nr/ivEXxmP9izHiyK/zkyOQbbV4zeDu8r81jHyx3R3KXNq8d80YworFj2dPzeSterRi2/NTC8X6PxHtEPwsvGm8el4zt5Pg6hzZnBzxj2VfGKn4LY/ONcJHfxLiQ32Jxfl0e9fwgz0lu/YoxdBU4XXct31ncsG578Y82ae+0OLwRG0VyndRD85/N0E3jpvl7BEfjJu8zebxz0/yS+UCUG2JleTGsaP1ksoOeFVtJXuhrVSzWI1XsrvXLo3Mosap2H/XRJiux+Yhfsfw+6qMj/oC90Ii/o39W/R1z8Eg8s1jO5FDkxHqFDCev98zEzb5w38zaHXVj3KK8Iv1WBsvqu7JYzFaV/BDt4yJrEa0/q+RTq59EXG8fpdXnw+Fk+Zn08y7WelD+3fun+/K4ppHC+lFtbjHmNsDqeJqfsPtD4eXxY3N+d7Ca4H6LN8dRLMsHIzHLemDNZhFfju5DWD2+FOz3cS4ydYDtQYzWkxEcqR/aqtJXaPsZlR6M9XOjPeYzOVVqLnJ6BhZbBz8DS16ztlqBU7X/6pxYPrCw+tmCxgmxNFuxOtQ5MT+36pl8Vsq+PNrb0hHjlXFleR11xDmSWGwfAXN0r7E35Rmpt5bfLb5afbNyusbXq1FRPuzaYkPb22C9BNPxXejJOFnfl8/0OD2cdzxe7OxB7hlqds3UItYvafMUyRvauU0ll2EPwXCyay2th2D2tkTrvTwcdvbLamzERvId1me3+yOoVyRWo+fLbM+yWhfvhAfOXXX9yEYU6yvAa6QntWqGJ9a+bKX245qv4hNSWK3dBrixmB7ZU2W5pqKndtZS6Qk7HqsV1f9HwtYcVW7Yi3XcUf/AucjisXXtNoDHzgKqtvPOwqPcrP3ffh+NB2t/IhNbrOdkNovkSFZrK5ya7Ip+2AdGsVgfka0lTdj5aLZfQjx2vlxZbyNmdM9mypQpU6ZM+Q/yDczRs+8=
+   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
+  </data>
+ </layer>
+ <layer name="overground" width="19" height="200">
+  <data encoding="base64" compression="zlib">
+   eJzt2DdLBUEUQOF9/8qAWcGAWcGAWcGAWXtjb/y/nmJvs7CzAS3U88FhimWmG967k2WSJEmSJEmSJOkndHWyrJt6qDex9tNAJ33WON8naJKmEusMzVactcL3VVqj9cS6SVsVZx3y/YiO6SSxntF5xVmSJH2XQX5zhmiYRmiUxlr+Ds2xb54WaJGWaLnlWdvs26Fd2qN9Omh51gX7LumKrumGbluedce+e3qgR3qi55ZnvbDvld7onT7o0/8AkvSvxWzcl8/AxbXOTBxiNp7OZ+DiWmcmDjEbb+QzcHGtMxOHmI1P8xm4uDoT668rewNrcr9D2RtYk/sdyt7AmtzvUPYG5v2WJEmSJOl3+wJ5YTaX
   </data>
  </layer>
  <objectgroup name="boss">
@@ -62,20 +77,20 @@
    </properties>
    <polyline points="0,0 304,0"/>
   </object>
-  <object id="118" gid="471" x="152" y="48" width="24" height="32">
+  <object id="118" gid="487" x="152" y="48" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="onDiscard" value="endMap"/>
     <property name="script" value="NPCFireMage"/>
    </properties>
   </object>
-  <object id="121" gid="733" x="80" y="304" width="16" height="24">
+  <object id="121" gid="798" x="80" y="304" width="16" height="24">
    <properties>
     <property name="operatorid" type="int" value="118"/>
     <property name="script" value="VehicleLavaSpray"/>
    </properties>
   </object>
-  <object id="122" gid="733" x="224" y="304" width="16" height="24">
+  <object id="122" gid="798" x="224" y="304" width="16" height="24">
    <properties>
     <property name="operatorid" type="int" value="118"/>
     <property name="script" value="VehicleLavaSpray"/>
@@ -111,12 +126,12 @@
   </object>
  </objectgroup>
  <objectgroup name="midbossboats2">
-  <object id="58" gid="2147484073" x="368" y="864" width="128" height="64">
+  <object id="58" gid="2147484089" x="368" y="864" width="128" height="64">
    <properties>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="55" gid="425" x="-64" y="864" width="128" height="64">
+  <object id="55" gid="441" x="-64" y="864" width="128" height="64">
    <properties>
     <property name="script" value="ShmupVehicle"/>
    </properties>
@@ -124,19 +139,54 @@
  </objectgroup>
  <objectgroup name="midboss"/>
  <objectgroup name="midbossboats1">
-  <object id="57" gid="425" x="-64" y="1072" width="128" height="64">
+  <object id="57" gid="441" x="-64" y="1072" width="128" height="64">
    <properties>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="59" gid="2147484073" x="368" y="1072" width="128" height="64">
+  <object id="59" gid="2147484089" x="368" y="1072" width="128" height="64">
    <properties>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="mermaid4b">
+  <object id="103" gid="502" x="304" y="1328" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="115"/>
+    <property name="pathtime" type="float" value="0.5"/>
+    <property name="script" value="NPCInquisitor"/>
+   </properties>
+  </object>
+  <object id="114" x="16" y="1296">
+   <properties>
+    <property name="script" value="LinearPath"/>
+   </properties>
+   <polyline points="-16,32 96,48"/>
+  </object>
+  <object id="115" x="304" y="1328">
+   <properties>
+    <property name="script" value="LinearPath"/>
+   </properties>
+   <polyline points="0,0 -96,16"/>
+  </object>
+  <object id="102" gid="466" x="0" y="1328" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="114"/>
+    <property name="pathtime" type="float" value="0.5"/>
+    <property name="script" value="NPCInquisitor"/>
+   </properties>
+  </object>
+  <object id="135" name="trigger" x="0" y="1264" width="304" height="32">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="mermaid4">
-  <object id="47" gid="419" x="160" y="1248" width="24" height="32">
+  <object id="47" gid="435" x="160" y="1312" width="24" height="32">
    <properties>
     <property name="cageid" type="int" value="48"/>
     <property name="pathid" type="int" value="60"/>
@@ -144,68 +194,42 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="48" name="cage" gid="412" x="144" y="1264" width="32" height="64">
+  <object id="48" name="cage" gid="428" x="144" y="1328" width="32" height="64">
    <properties>
     <property name="pathid" type="int" value="113"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="50" name="trigger" x="0" y="1216" width="304" height="80">
+  <object id="50" name="trigger" x="0" y="1296" width="304" height="32">
    <properties>
     <property name="collidable" type="bool" value="true"/>
     <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="101" gid="552" x="160" y="1184" width="24" height="32">
+  <object id="101" gid="568" x="160" y="1280" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="116"/>
     <property name="pathtime" type="float" value="1.5"/>
     <property name="script" value="NPCInquisitor"/>
    </properties>
   </object>
-  <object id="102" gid="450" x="48" y="1264" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="114"/>
-    <property name="pathtime" type="float" value="1.5"/>
-    <property name="script" value="NPCInquisitor"/>
-   </properties>
-  </object>
-  <object id="103" gid="486" x="272" y="1264" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="115"/>
-    <property name="pathtime" type="float" value="1.5"/>
-    <property name="script" value="NPCInquisitor"/>
-   </properties>
-  </object>
-  <object id="113" x="144" y="1264">
+  <object id="113" x="144" y="1328">
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
    <polyline points="0,0 0,48"/>
   </object>
-  <object id="114" x="48" y="1264">
+  <object id="116" x="160" y="1280">
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="0,0 48,48"/>
-  </object>
-  <object id="115" x="272" y="1264">
-   <properties>
-    <property name="script" value="LinearPath"/>
-   </properties>
-   <polyline points="0,0 -48,48"/>
-  </object>
-  <object id="116" x="160" y="1184">
-   <properties>
-    <property name="script" value="LinearPath"/>
-   </properties>
-   <polyline points="0,0 0,48"/>
+   <polyline points="0,0 0,16"/>
   </object>
  </objectgroup>
  <objectgroup name="mermaid3">
-  <object id="41" gid="419" x="208" y="1696" width="24" height="32">
+  <object id="41" gid="435" x="208" y="1696" width="24" height="32">
    <properties>
     <property name="cageid" type="int" value="42"/>
     <property name="pathid" type="int" value="60"/>
@@ -213,7 +237,7 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="42" name="cage" gid="412" x="192" y="1712" width="32" height="64">
+  <object id="42" name="cage" gid="428" x="192" y="1712" width="32" height="64">
    <properties>
     <property name="pathid" type="int" value="112"/>
     <property name="pathtime" type="float" value="1"/>
@@ -227,7 +251,7 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="99" gid="468" x="192" y="1680" width="24" height="32">
+  <object id="99" gid="484" x="192" y="1680" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="109"/>
     <property name="pathtime" type="float" value="1"/>
@@ -240,7 +264,7 @@
    </properties>
    <polyline points="0,0 0,48"/>
   </object>
-  <object id="110" gid="468" x="224" y="1680" width="24" height="32">
+  <object id="110" gid="484" x="224" y="1680" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="111"/>
     <property name="pathtime" type="float" value="1"/>
@@ -260,8 +284,84 @@
    <polyline points="0,0 0,96"/>
   </object>
  </objectgroup>
+ <objectgroup name="ballistae4">
+  <object id="143" gid="837" x="272" y="1888" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="144" gid="835" x="80" y="1840" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="174" name="trigger" x="0" y="1808" width="304" height="112">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="ballistae3">
+  <object id="148" gid="835" x="80" y="1920" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="150" gid="837" x="224" y="1952" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="173" name="trigger" x="0" y="1888" width="304" height="96">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="ballistae2">
+  <object id="155" gid="835" x="64" y="1984" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="157" gid="837" x="208" y="2032" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="172" name="trigger" x="0" y="1952" width="304" height="112">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="ballistae1">
+  <object id="161" gid="837" x="224" y="2112" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="162" gid="835" x="32" y="2048" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="171" name="trigger" x="0" y="2016" width="304" height="128">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="mermaid2">
-  <object id="35" gid="419" x="144" y="2320" width="24" height="32">
+  <object id="35" gid="435" x="144" y="2320" width="24" height="32">
    <properties>
     <property name="cageid" type="int" value="36"/>
     <property name="pathid" type="int" value="60"/>
@@ -269,43 +369,51 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="36" name="cage" gid="412" x="128" y="2336" width="32" height="64">
+  <object id="36" name="cage" gid="428" x="128" y="2336" width="32" height="64">
    <properties>
+    <property name="pathid" type="int" value="132"/>
+    <property name="pathtime" type="float" value="0.5"/>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="52" name="trigger" x="0" y="2288" width="304" height="80">
+  <object id="52" name="trigger" x="0" y="2288" width="304" height="48" visible="0">
    <properties>
     <property name="collidable" type="bool" value="true"/>
     <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="66" gid="450" x="-32" y="2304" width="24" height="32">
+  <object id="66" gid="466" x="128" y="2304" width="24" height="32">
    <properties>
-    <property name="pathid" type="int" value="107"/>
-    <property name="pathtime" type="float" value="2"/>
+    <property name="pathid" type="int" value="133"/>
+    <property name="pathtime" type="float" value="0.5"/>
     <property name="script" value="NPCInquisitor"/>
    </properties>
   </object>
-  <object id="67" gid="486" x="320" y="2304" width="24" height="32">
+  <object id="67" gid="502" x="160" y="2304" width="24" height="32">
    <properties>
-    <property name="pathid" type="int" value="108"/>
-    <property name="pathtime" type="float" value="2"/>
+    <property name="pathid" type="int" value="134"/>
+    <property name="pathtime" type="float" value="0.5"/>
     <property name="script" value="NPCInquisitor"/>
    </properties>
   </object>
-  <object id="107" x="-32" y="2304">
+  <object id="132" x="128" y="2336">
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="0,0 96,48"/>
+   <polyline points="0,0 0,48"/>
   </object>
-  <object id="108" x="320" y="2304">
+  <object id="133" x="128" y="2304">
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="0,0 -96,48"/>
+   <polyline points="0,0 0,32"/>
+  </object>
+  <object id="134" x="160" y="2304">
+   <properties>
+    <property name="script" value="LinearPath"/>
+   </properties>
+   <polyline points="0,0 0,32"/>
   </object>
  </objectgroup>
  <objectgroup name="guards3">
@@ -327,7 +435,7 @@
   </object>
  </objectgroup>
  <objectgroup name="mermaid1">
-  <object id="32" gid="419" x="160" y="2752" width="24" height="32">
+  <object id="32" gid="435" x="160" y="2752" width="24" height="32">
    <properties>
     <property name="cageid" type="int" value="33"/>
     <property name="pathid" type="int" value="60"/>
@@ -335,7 +443,7 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="33" name="cage" gid="412" x="144" y="2768" width="32" height="64">
+  <object id="33" name="cage" gid="428" x="144" y="2768" width="32" height="64">
    <properties>
     <property name="script" value="ShmupVehicle"/>
    </properties>
@@ -347,7 +455,7 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="104" gid="537" x="64" y="2608" width="24" height="32">
+  <object id="104" gid="553" x="64" y="2608" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="2"/>
@@ -362,7 +470,7 @@
   </object>
  </objectgroup>
  <objectgroup name="guards1">
-  <object id="77" gid="462" x="288" y="2784" width="24" height="32">
+  <object id="77" gid="478" x="288" y="2784" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="94"/>
     <property name="pathid" type="int" value="90"/>
@@ -370,7 +478,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="76" gid="462" x="304" y="2752" width="24" height="32">
+  <object id="76" gid="478" x="304" y="2752" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="94"/>
     <property name="pathid" type="int" value="90"/>
@@ -378,7 +486,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="75" gid="462" x="288" y="2736" width="24" height="32">
+  <object id="75" gid="478" x="288" y="2736" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="94"/>
     <property name="pathid" type="int" value="90"/>
@@ -386,7 +494,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="72" gid="462" x="0" y="2752" width="24" height="32">
+  <object id="72" gid="478" x="0" y="2752" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="93"/>
     <property name="pathid" type="int" value="89"/>
@@ -394,7 +502,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="85" gid="462" x="0" y="2800" width="24" height="32">
+  <object id="85" gid="478" x="0" y="2800" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="93"/>
     <property name="pathid" type="int" value="89"/>
@@ -402,7 +510,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="74" gid="462" x="16" y="2784" width="24" height="32">
+  <object id="74" gid="478" x="16" y="2784" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="93"/>
     <property name="pathid" type="int" value="89"/>
@@ -410,7 +518,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="82" gid="462" x="32" y="2816" width="24" height="32">
+  <object id="82" gid="478" x="32" y="2816" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="93"/>
     <property name="pathid" type="int" value="89"/>
@@ -418,7 +526,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="70" gid="462" x="-32" y="2784" width="24" height="32">
+  <object id="70" gid="478" x="-32" y="2784" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="93"/>
     <property name="pathid" type="int" value="89"/>
@@ -426,7 +534,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="86" gid="462" x="-16" y="2768" width="24" height="32">
+  <object id="86" gid="478" x="-16" y="2768" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="93"/>
     <property name="pathid" type="int" value="89"/>
@@ -434,7 +542,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="78" gid="462" x="256" y="2800" width="24" height="32">
+  <object id="78" gid="478" x="256" y="2800" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="94"/>
     <property name="pathid" type="int" value="90"/>
@@ -442,7 +550,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="73" gid="462" x="48" y="2800" width="24" height="32">
+  <object id="73" gid="478" x="48" y="2800" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="93"/>
     <property name="pathid" type="int" value="89"/>
@@ -450,7 +558,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="79" gid="462" x="272" y="2768" width="24" height="32">
+  <object id="79" gid="478" x="272" y="2768" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="94"/>
     <property name="pathid" type="int" value="90"/>
@@ -458,7 +566,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="80" gid="462" x="272" y="2816" width="24" height="32">
+  <object id="80" gid="478" x="272" y="2816" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="94"/>
     <property name="pathid" type="int" value="90"/>
@@ -466,7 +574,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="71" gid="462" x="32" y="2768" width="24" height="32">
+  <object id="71" gid="478" x="32" y="2768" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="93"/>
     <property name="pathid" type="int" value="89"/>
@@ -474,7 +582,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="83" gid="462" x="304" y="2800" width="24" height="32">
+  <object id="83" gid="478" x="304" y="2800" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="94"/>
     <property name="pathid" type="int" value="90"/>
@@ -482,7 +590,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="84" gid="462" x="336" y="2784" width="24" height="32">
+  <object id="84" gid="478" x="336" y="2784" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="94"/>
     <property name="pathid" type="int" value="90"/>
@@ -490,7 +598,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="69" gid="462" x="16" y="2736" width="24" height="32">
+  <object id="69" gid="478" x="16" y="2736" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="93"/>
     <property name="pathid" type="int" value="89"/>
@@ -498,7 +606,7 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="81" gid="462" x="320" y="2768" width="24" height="32">
+  <object id="81" gid="478" x="320" y="2768" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="94"/>
     <property name="pathid" type="int" value="90"/>
@@ -525,14 +633,14 @@
    </properties>
    <polyline points="0,0 -80,80"/>
   </object>
-  <object id="94" gid="465" x="240" y="2832" width="24" height="32">
+  <object id="94" gid="481" x="240" y="2832" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="90"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
-  <object id="93" gid="465" x="64" y="2832" width="24" height="32">
+  <object id="93" gid="481" x="64" y="2832" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="89"/>
     <property name="pathtime" type="float" value="1"/>
@@ -540,17 +648,38 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="friends">
-  <object id="60" name="path1" x="160" y="2736">
+ <objectgroup name="ballistae0">
+  <object id="176" gid="836" x="80" y="2944" width="64" height="64">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="VehicleBallista"/>
    </properties>
-   <polyline points="0,16 0,-80 -64,-240 -48,-384 -48,-512 -32,-704 16,-880 -64,-1040 -64,-1120 0,-1296 0,-1440"/>
+  </object>
+  <object id="178" gid="836" x="128" y="2960" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="179" gid="836" x="176" y="2960" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="180" gid="836" x="224" y="2944" width="64" height="64">
+   <properties>
+    <property name="script" value="VehicleBallista"/>
+   </properties>
+  </object>
+  <object id="182" name="trigger" x="0" y="2896" width="304" height="96">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="sensor" type="bool" value="true"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="sparks"/>
  <objectgroup name="player">
-  <object id="2" gid="1" x="152" y="432" width="64" height="64">
+  <object id="2" gid="1" x="152" y="3168" width="64" height="64">
    <properties>
     <property name="script" value="ShmupPlayer"/>
    </properties>
@@ -563,7 +692,7 @@
   </data>
  </layer>
  <objectgroup name="camera">
-  <object id="1" x="32" y="144" width="240" height="320">
+  <object id="1" x="32" y="2880" width="240" height="320">
    <properties>
     <property name="collidable" type="bool" value="true"/>
     <property name="pathid" type="int" value="6"/>
@@ -599,32 +728,32 @@
     <property name="textformat" value="SC%8d EX%8d"/>
    </properties>
   </object>
-  <object id="8" name="life1" gid="392" x="0" y="32" width="16" height="16"/>
-  <object id="9" name="life2" gid="392" x="16" y="32" width="16" height="16"/>
-  <object id="10" name="life3" gid="392" x="32" y="32" width="16" height="16"/>
-  <object id="11" name="life4" gid="392" x="48" y="32" width="16" height="16"/>
-  <object id="12" name="life5" gid="392" x="64" y="32" width="16" height="16"/>
-  <object id="13" name="life6" gid="392" x="80" y="32" width="16" height="16"/>
-  <object id="14" name="life7" gid="392" x="96" y="32" width="16" height="16"/>
-  <object id="15" name="life8" gid="392" x="112" y="32" width="16" height="16"/>
-  <object id="16" name="life9" gid="392" x="128" y="32" width="16" height="16"/>
-  <object id="17" name="bomb1" gid="396" x="0" y="320" width="16" height="32">
+  <object id="8" name="life1" gid="408" x="0" y="32" width="16" height="16"/>
+  <object id="9" name="life2" gid="408" x="16" y="32" width="16" height="16"/>
+  <object id="10" name="life3" gid="408" x="32" y="32" width="16" height="16"/>
+  <object id="11" name="life4" gid="408" x="48" y="32" width="16" height="16"/>
+  <object id="12" name="life5" gid="408" x="64" y="32" width="16" height="16"/>
+  <object id="13" name="life6" gid="408" x="80" y="32" width="16" height="16"/>
+  <object id="14" name="life7" gid="408" x="96" y="32" width="16" height="16"/>
+  <object id="15" name="life8" gid="408" x="112" y="32" width="16" height="16"/>
+  <object id="16" name="life9" gid="408" x="128" y="32" width="16" height="16"/>
+  <object id="17" name="bomb1" gid="412" x="0" y="320" width="16" height="32">
    <properties>
     <property name="script" value="GaugeBomb"/>
    </properties>
   </object>
-  <object id="18" name="bomb2" gid="396" x="16" y="320" width="16" height="32">
+  <object id="18" name="bomb2" gid="412" x="16" y="320" width="16" height="32">
    <properties>
     <property name="script" value="GaugeBomb"/>
    </properties>
   </object>
-  <object id="19" name="bomb3" gid="396" x="32" y="320" width="16" height="32">
+  <object id="19" name="bomb3" gid="412" x="32" y="320" width="16" height="32">
    <properties>
     <property name="script" value="GaugeBomb"/>
    </properties>
   </object>
-  <object id="20" name="wingleft" gid="394" x="0" y="48" width="16" height="16"/>
-  <object id="21" name="wingright" gid="395" x="16" y="48" width="16" height="16"/>
+  <object id="20" name="wingleft" gid="410" x="0" y="48" width="16" height="16"/>
+  <object id="21" name="wingright" gid="411" x="16" y="48" width="16" height="16"/>
   <object id="22" name="reserves" x="8" y="36" width="16" height="8">
    <properties>
     <property name="text" value="0"/>
