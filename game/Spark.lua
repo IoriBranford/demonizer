@@ -15,11 +15,13 @@ local Spark = class(function(self, id)
 	self.time = properties.lifetime or 1
 
 	if self.object.animation then
-		self.loopedAnimation = loopedAnimation
+		levity.machine:scriptAddEventFunc(self, id,
+			"loopedAnimation", loopedAnimation)
 	end
 
 	if properties.accelx or properties.accely then
-		self.beginMove = beginMove
+		levity.machine:scriptAddEventFunc(self, id,
+			"beginMove", beginMove)
 		self.ax = properties.accelx or 0
 		self.ay = properties.accely or 0
 	end
