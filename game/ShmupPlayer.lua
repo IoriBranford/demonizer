@@ -2,7 +2,10 @@ local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 local ShmupStatus = levity.machine:requireScript("ShmupStatus")
-local ShmupNPC -- delayed require to avoid circular dependency
+
+-- delayed requires to avoid circular dependency
+local ShmupNPC
+local ShmupWingman
 
 local OS = love.system.getOS()
 local IsMobile = OS == "Android" or OS == "iOS"
@@ -10,6 +13,9 @@ local IsMobile = OS == "Android" or OS == "iOS"
 local MaxWingmen = 4
 
 local ShmupPlayer = class(function(self, id)
+	ShmupNPC = ShmupNPC or levity.machine:requireScript("ShmupNPC")
+	ShmupWingman = ShmupWingman or levity.machine:requireScript("ShmupWingman")
+
 	self.object = levity.map.objects[id]
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
@@ -19,19 +25,29 @@ local ShmupPlayer = class(function(self, id)
 	self.vy = 0
 	self.didmousemove = false
 
-	self.firing = IsMobile
+	self.firebutton = IsMobile
 	self.firetimer = 0
-	self.focused = false
-
-	self.numwingmen = 0
+	self.focusbutton = false
 
 	self.killed = false
 	self.deathtimer = 0
 
 	self.shieldtimer = 0
 
-	self.captivegids = {}
-	self.numcaptives = 0
+	self.exiting = false
+	self.exittimer = 0
+
+	self.numwingmen = 0
+	self.wingmenids = {}
+
+	local nextmapplayer = levity.nextmapdata.player or {}
+	self.numcaptives = nextmapplayer.numcaptives or 0
+	self.captivegids = levity:tileNamesToGids(nextmapplayer.captivenames) or {}
+
+	local wingmengids = levity:tileNamesToGids(nextmapplayer.wingmennames) or {}
+	for _, gid in ipairs(wingmengids) do
+		ShmupWingman.create(gid, self.object.x, self.object.y, false)
+	end
 
 	local fixtures = self.object.body:getUserData().fixtures
 	local bodyfixture = fixtures["body"]
@@ -65,7 +81,6 @@ local ShmupPlayer = class(function(self, id)
 	}
 
 	self.object.layer:addObject(self.hitbox)
-	ShmupNPC = ShmupNPC or levity.machine:requireScript("ShmupNPC")
 end)
 
 ShmupPlayer.Speed = 180
@@ -122,6 +137,8 @@ ShmupPlayer.CaptivesReleasedOnKill = 10
 ShmupPlayer.Button_Fire = 1
 ShmupPlayer.Button_Focus = 2
 ShmupPlayer.Button_Bomb = 3
+ShmupPlayer.ExitWaitTime = 8
+ShmupPlayer.ExitSpeed = ShmupPlayer.Speed * 2
 
 function ShmupPlayer.isActiveWingmanIndex(i)
 	return 0 < i and i <= ShmupPlayer.MaxWingmen
@@ -133,7 +150,8 @@ local Sounds = {
 	Bomb = "bomb.wav",
 	Death = "selfdestruct.wav",
 	Scream = "shriek.wav",
-	Respawn = "respawn.wav"
+	Respawn = "respawn.wav",
+	Exit = "turbo.wav"
 }
 levity.bank:load(Sounds)
 
@@ -155,25 +173,28 @@ function ShmupPlayer:roomForWingmen()
 	return self.numwingmen < ShmupPlayer.MaxWingmen
 end
 
-function ShmupPlayer:newWingmanIndex()
+function ShmupPlayer:newWingmanIndex(wingmanid)
 	local newindex = self.numwingmen + 1
 	self.numwingmen = newindex
+	self.wingmenids[#self.wingmenids + 1] = wingmanid
 	return newindex
 end
 
-function ShmupPlayer:wingmanReserved(wingmanid, wingmangid)
+function ShmupPlayer:wingmanReserved(wingmanid, wingmangid, wingmanindex)
 	self.numwingmen = self.numwingmen - 1
+	table.remove(self.wingmenids, wingmanindex)
 end
 
-function ShmupPlayer:wingmanKilled(wingmanid)
+function ShmupPlayer:wingmanKilled(wingmanid, wingmanindex)
 	self.numwingmen = self.numwingmen - 1
+	table.remove(self.wingmenids, wingmanindex)
 end
 
 function ShmupPlayer:getWingmanPosition(i)
 	local x = self.object.x
 	local y = self.object.y
 	local offsetfixture
-	if self.focused then
+	if self:isFocused() then
 		offsetfixture = self.object.body:getUserData().fixtures["focuswingman"..i]
 	else
 		offsetfixture = self.object.body:getUserData().fixtures["wingman"..i]
@@ -198,19 +219,19 @@ function ShmupPlayer:getWingmanPosition(i)
 end
 
 function ShmupPlayer:isFiring()
-	return not self.killed and self.firing
+	return not self.killed and not self.exiting and self.firebutton
 end
 
 function ShmupPlayer:isFocused()
-	return not self.killed and self.focused
+	return not self.killed and not self.exiting and self.focusbutton
 end
 
 function ShmupPlayer:isKilled()
 	return self.killed
 end
 
-function ShmupPlayer:setFocused(focused)
-	self.focused = focused
+function ShmupPlayer:setFocused(focusbutton)
+	self.focusbutton = focusbutton
 end
 
 function ShmupPlayer:getDistanceSq(fromx, fromy)
@@ -223,7 +244,7 @@ end
 function ShmupPlayer:joystickaxis(joystick, axis, value)
 	local speed = ShmupPlayer.Speed
 	local lockspeedfactor = .5
-	if self.focused then
+	if self.focusbutton then
 		speed = speed * lockspeedfactor
 	end
 
@@ -237,16 +258,16 @@ function ShmupPlayer:joystickaxis(joystick, axis, value)
 end
 
 function ShmupPlayer:joystickchanged(button, pressed)
-	if button == ShmupPlayer.Button_Fire and self.firing ~= pressed then
-		self.firing = pressed
+	if button == ShmupPlayer.Button_Fire and self.firebutton ~= pressed then
+		self.firebutton = pressed
 		self.firetimer = 0
-	elseif button == ShmupPlayer.Button_Focus and self.focused ~= pressed then
+	elseif button == ShmupPlayer.Button_Focus and self.focusbutton ~= pressed then
 		local lockspeedfactor = .5
 		if not pressed then
 			lockspeedfactor = 1/lockspeedfactor
 		end
 
-		self.focused = pressed
+		self.focusbutton = pressed
 		self.vx = self.vx * lockspeedfactor
 		self.vy = self.vy * lockspeedfactor
 	elseif button == ShmupPlayer.Button_Bomb and pressed
@@ -275,7 +296,7 @@ end
 function ShmupPlayer:keychanged(key, pressed)
 	local speed = ShmupPlayer.Speed
 	local lockspeedfactor = .5
-	if self.focused then
+	if self.focusbutton then
 		speed = speed * lockspeedfactor
 	end
 
@@ -370,18 +391,22 @@ function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 	end
 end
 
+function ShmupPlayer:getRecenterVelocity(dt)
+	local cx, cy = self.object.body:getWorldCenter()
+	local cameraid = levity.map.properties.cameraid
+	local camera = levity.map.objects[cameraid]
+	local camcx, camcy = camera.body:getWorldCenter()
+	camcy = camcy + camera.height * (3 / 8)
+
+	local snaptocamv = self.deathtimer
+			* ShmupPlayer.DeathSnapToCameraVelocity / dt
+	return (camcx - cx) * snaptocamv, (camcy - cy) * snaptocamv
+end
+
 function ShmupPlayer:beginMove(dt)
 	local body = self.object.body
 	local cx, cy = body:getWorldCenter()
 	local vx1, vy1 = self.vx, self.vy
-
-	if self.didmousemove then
-		vx1 = vx1 / dt
-		vy1 = vy1 / dt
-		self.vx = 0
-		self.vy = 0
-		self.didmousemove = false
-	end
 
 	self.shieldtimer = math.max(0, self.shieldtimer - dt)
 
@@ -391,12 +416,36 @@ function ShmupPlayer:beginMove(dt)
 		camera = levity.map.objects[cameraid]
 	end
 
+	if self.didmousemove then
+		vx1 = vx1 / dt
+		vy1 = vy1 / dt
+		self.vx = 0
+		self.vy = 0
+		self.didmousemove = false
+	end
+
+	if self.exiting then
+		if self.deathtimer < ShmupPlayer.ExitWaitTime then
+			if self.deathtimer + dt >= ShmupPlayer.ExitWaitTime then
+				self:playSound(Sounds.Exit)
+			else
+				vx1, vy1 = self:getRecenterVelocity(dt)
+			end
+		end
+
+		self.deathtimer = self.deathtimer + dt
+		if self.deathtimer >= ShmupPlayer.ExitWaitTime then
+			vx1 = 0
+			vy1 = -ShmupPlayer.ExitSpeed
+		end
+	end
+
 	if self.killed then
 		local haslives = levity.machine:call("hud", "hasLives")
 		if not haslives then
 			if self.deathtimer < ShmupPlayer.DeathTime
 			and self.deathtimer + dt >= ShmupPlayer.DeathTime then
-				levity.bank:changeMusic("33 - All Over Tonight.vgm", "emu")
+				levity.machine:broadcast("playerDefeated")
 			end
 		end
 
@@ -410,14 +459,12 @@ function ShmupPlayer:beginMove(dt)
 			local camcx, camcy = camera.body:getWorldCenter()
 			camcy = camcy + camera.height * (3 / 8)
 
-			local recentered = math.abs(cx - camcx) < 1
-					and math.abs(cy - camcy) < 1
+			local recentered =
+				math.abs(cx - camcx) < ShmupPlayer.Speed * dt
+				and math.abs(cy - camcy) < ShmupPlayer.Speed * dt
 			respawn = respawn and recentered
 
-			local snaptocamv = self.deathtimer *
-				ShmupPlayer.DeathSnapToCameraVelocity / dt
-			vx1 = (camcx - cx) * snaptocamv
-			vy1 = (camcy - cy) * snaptocamv
+			vx1, vy1 = self:getRecenterVelocity(dt)
 		end
 
 		if respawn then
@@ -446,7 +493,7 @@ function ShmupPlayer:beginMove(dt)
 
 	body:setLinearVelocity(vx1, vy1)
 
-	if self.firing and not self.killed then
+	if self:isFiring() then
 		if self.firetimer <= 0 then
 			local params = ShmupPlayer.BulletParams
 			params.x = cx - 8
@@ -478,7 +525,7 @@ function ShmupPlayer:endMove(dt)
 		levity.machine:call(cameraid, "swayWithPlayer", cx)
 	end
 
-	self.hitbox.visible = self.focused and not self.killed
+	self.hitbox.visible = self:isFocused()
 	if self.hitbox.body then
 		local x, y = self.object.body:getPosition()
 		self.hitbox.body:setPosition(x, y + 1/64)
@@ -505,6 +552,27 @@ function ShmupPlayer:endDraw()
 	if self.shieldtimer > 0 then
 		love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
 	end
+end
+
+function ShmupPlayer:playerVictorious()
+	self.exiting = true
+	self.deathtimer = 0
+	for _, fixture in pairs(self.object.body:getFixtureList()) do
+		fixture:setFilterData(0, 0, 0)
+	end
+end
+
+function ShmupPlayer:nextMap(nextmapfile, nextmapdata)
+	local wingmengids = {}
+	for _, id in ipairs(self.wingmenids) do
+		wingmengids[#wingmengids + 1] = levity.map.objects[id].gid
+	end
+
+	nextmapdata.player = {
+		wingmennames = levity:tileGidsToNames(wingmengids),
+		captivenames = levity:tileGidsToNames(self.captivegids),
+		numcaptives = self.numcaptives
+	}
 end
 
 return ShmupPlayer

@@ -15,10 +15,10 @@ local ShmupStatus = class(function(self, id)
 		end
 	end
 
-	local nextmapdata = levity.nextmapdata
-	self.numlives = nextmapdata.numlives or 2
-	self.numbombpieces = nextmapdata.numbombpieces or 0
-	self.reservegids = nextmapdata.reservegids or {}
+	local nextmapstatus = levity.nextmapdata.status or {}
+	self.numlives = nextmapstatus.numlives or 2
+	self.numbombpieces = nextmapstatus.numbombpieces or 0
+	self.reservegids = levity:tileNamesToGids(nextmapstatus.reservenames) or {}
 
 	self:updateLives()
 	self:updateBombs()
@@ -165,6 +165,14 @@ end
 function ShmupStatus:beginDraw()
 	self.layer.offsetx = levity.camera.x
 	self.layer.offsety = levity.camera.y
+end
+
+function ShmupStatus:nextMap(nextmapfile, nextmapdata)
+	nextmapdata.status = {
+		numlives = self.numlives,
+		numbombpieces = self.numbombpieces,
+		reservenames = levity:tileGidsToNames(self.reservegids)
+	}
 end
 
 return ShmupStatus

@@ -67,7 +67,8 @@ function ShmupCam:endContact_activategroup(myfixture, otherfixture, contact)
 end
 
 function ShmupCam:beginContact(myfixture, otherfixture, contact)
-	local otherproperties = otherfixture:getUserData().properties
+	local otherdata = otherfixture:getUserData()
+	local otherproperties = otherdata.properties
 
 	local triggertype = otherproperties.triggertype
 	if triggertype then
@@ -130,6 +131,11 @@ end
 function ShmupCam:getVectorFromCenter(x, y)
 	local cx, cy = self.object.body:getWorldCenter()
 	return x - cx, y - cy
+end
+
+function ShmupCam:playerDefeated()
+	self.properties.pathid = nil
+	self.pathwalker = nil
 end
 
 return ShmupCam

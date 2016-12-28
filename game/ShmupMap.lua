@@ -68,7 +68,13 @@ local ShmupMap = class(function(self, id)
 
 	love.mouse.setVisible(false)
 	love.mouse.setRelativeMode(true)
+
+	self.resulttimer = nil
+	self.resulttime = nil
 end)
+
+ShmupMap.VictoryTime = 10
+ShmupMap.DefeatTime = 16
 
 --function ShmupMap:keypressed_escape()
 --	levity:setNextMap(levity.mapfile)
@@ -77,6 +83,14 @@ end)
 function ShmupMap:endMove(dt)
 	local playerid = self.properties.playerid
 	self.rank = levity.machine:call(playerid, "rankFactor")
+
+	if self.resulttimer then
+		self.resulttimer = self.resulttimer + dt
+		if self.resulttimer >= self.resulttime then
+			levity:setNextMap(self.properties.nextmap
+						or "maps/title.lua")
+		end
+	end
 end
 
 function ShmupMap:getRank()
@@ -93,6 +107,19 @@ function ShmupMap:keypressed_f12()
 		end
 	end
 	print("Screenshot folder is full")
+end
+
+function ShmupMap:playerVictorious()
+	levity.bank:changeMusic("07 - Great Job!.vgm", "emu")
+	self.resulttimer = 0
+	self.resulttime = ShmupMap.VictoryTime
+end
+
+function ShmupMap:playerDefeated()
+	levity.bank:changeMusic("33 - All Over Tonight.vgm", "emu")
+	self.resulttimer = 0
+	self.resulttime = ShmupMap.DefeatTime
+	self.properties.nextmap = "maps/title.lua"
 end
 
 return ShmupMap

@@ -6,14 +6,14 @@ local ShmupScore = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.properties = self.object.properties
 
-	local nextmapdata = levity.nextmapdata
-	self.points = nextmapdata.points or 0
-	self.extendpoints = nextmapdata.extendpoints or 2000000
-	self.multipliers = nextmapdata.multipliers or {
+	local nextmapscore = levity.nextmapdata.score or {}
+	self.points = nextmapscore.points or 0
+	self.extendpoints = nextmapscore.extendpoints or 2000000
+	self.multipliers = nextmapscore.multipliers or {
 		[levity.map.properties.playerid] = 0
 	}
 
-	self.totalmultiplier = nextmapdata.totalmultiplier or 0
+	self.totalmultiplier = nextmapscore.totalmultiplier or 0
 end)
 
 ShmupScore.MaxPoints = 999999999
@@ -139,6 +139,16 @@ end
 function ShmupScore:beginDraw()
 	self.properties.text = string.format(self.properties.textformat,
 					self.points, self.extendpoints)
+end
+
+function ShmupScore:nextMap(nextmapfile, nextmapdata)
+	nextmapdata.score = {
+		points = self.points,
+		extendpoints = self.extendpoints,
+		--TODO convert keys to something map-agnostic
+		--multipliers = self.multipliers,
+		totalmultiplier = self.totalmultiplier
+	}
 end
 
 return ShmupScore

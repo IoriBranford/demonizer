@@ -30,7 +30,7 @@ local ShmupWingman = class(function(self, id)
 	self:refreshFixtures(DisableCaptureMask)
 
 	local playerid = levity.map.properties.playerid
-	self.wingmanindex = levity.machine:call(playerid, "newWingmanIndex")
+	self.wingmanindex = levity.machine:call(playerid, "newWingmanIndex", id)
 	self.convertobject = self.properties.convertobject
 	self.properties.convertobject = nil
 	self.converttimer = 0
@@ -45,6 +45,8 @@ local ShmupWingman = class(function(self, id)
 	self.numcaptives = 0
 
 	ShmupNPC = ShmupNPC or levity.machine:requireScript("ShmupNPC")
+
+	levity.machine:broadcast("wingmanJoined", id)
 end)
 
 function ShmupWingman:refreshFixtures(mask)
@@ -90,7 +92,8 @@ function ShmupWingman:kill()
 	end
 
 	levity.bank:play(Sounds.Death)
-	levity.machine:broadcast("wingmanKilled", self.object.id)
+	levity.machine:broadcast("wingmanKilled", self.object.id,
+				self.wingmanindex)
 end
 
 function ShmupWingman:heal(healing)
@@ -321,7 +324,8 @@ function ShmupWingman:endMove(dt)
 		if not ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
 			levity.machine:broadcast("wingmanReserved",
 						self.object.id,
-						self.object.gid)
+						self.object.gid,
+						self.wingmanindex)
 			levity:discardObject(self.object.id)
 			if self.convertobject then
 				levity:discardObject(self.convertobject.id)

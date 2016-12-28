@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "2016.11.18",
+  tiledversion = "0.18.0",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 19,
@@ -255,8 +255,28 @@ return {
       }
     },
     {
-      name = "map_cave",
+      name = "playerhitbox",
       firstgid = 8,
+      filename = "img/playerhitbox.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/playerhitbox.png",
+      imagewidth = 32,
+      imageheight = 32,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "map_cave",
+      firstgid = 9,
       filename = "img/map_cave.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1049,7 +1069,7 @@ return {
     },
     {
       name = "hud_icons",
-      firstgid = 408,
+      firstgid = 409,
       filename = "img/hud_icons.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1069,7 +1089,7 @@ return {
     },
     {
       name = "bombgauge",
-      firstgid = 412,
+      firstgid = 413,
       filename = "img/bombgauge.tsx",
       tilewidth = 16,
       tileheight = 32,
@@ -1161,7 +1181,7 @@ return {
     },
     {
       name = "cage",
-      firstgid = 428,
+      firstgid = 429,
       filename = "img/cage.tsx",
       tilewidth = 32,
       tileheight = 64,
@@ -1210,7 +1230,7 @@ return {
     },
     {
       name = "mermaid",
-      firstgid = 429,
+      firstgid = 430,
       filename = "img/mermaid.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1284,7 +1304,7 @@ return {
     },
     {
       name = "darkboat",
-      firstgid = 441,
+      firstgid = 442,
       filename = "img/darkboat.tsx",
       tilewidth = 128,
       tileheight = 64,
@@ -1346,7 +1366,7 @@ return {
     },
     {
       name = "infmen",
-      firstgid = 442,
+      firstgid = 443,
       filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1427,7 +1447,7 @@ return {
     },
     {
       name = "infwomen",
-      firstgid = 532,
+      firstgid = 533,
       filename = "img/infwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1507,7 +1527,7 @@ return {
     },
     {
       name = "humanshots",
-      firstgid = 607,
+      firstgid = 608,
       filename = "img/humanshots.tsx",
       tilewidth = 32,
       tileheight = 16,
@@ -1586,7 +1606,7 @@ return {
     },
     {
       name = "electricity",
-      firstgid = 635,
+      firstgid = 636,
       filename = "img/electricity.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1622,7 +1642,7 @@ return {
     },
     {
       name = "demonizing",
-      firstgid = 667,
+      firstgid = 668,
       filename = "img/demonizing.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1712,7 +1732,7 @@ return {
     },
     {
       name = "demonwomen",
-      firstgid = 670,
+      firstgid = 671,
       filename = "img/demonwomen.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1791,7 +1811,7 @@ return {
     },
     {
       name = "lavapit",
-      firstgid = 709,
+      firstgid = 710,
       filename = "img/lavapit.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -2009,7 +2029,7 @@ return {
     },
     {
       name = "cave_objects",
-      firstgid = 749,
+      firstgid = 750,
       filename = "img/cave_objects.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -2029,7 +2049,7 @@ return {
     },
     {
       name = "flames",
-      firstgid = 798,
+      firstgid = 799,
       filename = "img/flames.tsx",
       tilewidth = 16,
       tileheight = 24,
@@ -2128,7 +2148,7 @@ return {
     },
     {
       name = "sparks_med",
-      firstgid = 810,
+      firstgid = 811,
       filename = "img/sparks_med.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2196,7 +2216,7 @@ return {
     },
     {
       name = "demonbomb",
-      firstgid = 826,
+      firstgid = 827,
       filename = "img/demonbomb.tsx",
       tilewidth = 128,
       tileheight = 128,
@@ -2279,7 +2299,7 @@ return {
     },
     {
       name = "ballista",
-      firstgid = 834,
+      firstgid = 835,
       filename = "img/ballista.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2356,6 +2376,89 @@ return {
           }
         }
       }
+    },
+    {
+      name = "civwomen",
+      firstgid = 859,
+      filename = "img/civwomen.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/civwomen.png",
+      imagewidth = 576,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      properties = {
+        ["column_civ1"] = 0,
+        ["column_civ2"] = 3,
+        ["column_civ3"] = 6,
+        ["column_civ4"] = 9,
+        ["column_civ5"] = 12,
+        ["column_civ6"] = 15,
+        ["column_civ7"] = 18,
+        ["column_civ8"] = 21,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_down"] = 2,
+        ["row_ko"] = 4,
+        ["row_left"] = 3,
+        ["row_right"] = 1,
+        ["row_up"] = 0
+      },
+      terrains = {},
+      tilecount = 120,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -2375,7 +2478,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztlTuOwzAMBQPf/1pUZ58pKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q11wk4a"
+      data = "eJztlTuOwzAMBQPf/1xUZ18pKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q2fz1D/"
     },
     {
       type = "tilelayer",
@@ -2391,7 +2494,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "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"
+      data = "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"
     },
     {
       type = "objectgroup",
@@ -2449,7 +2552,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzrEJACAQBMHH/tvTTDOtw89s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswsF2FcG"
+      data = "eJztzrEJACAQBMHH/uvTTDNtw89s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswu87ViV"
     },
     {
       type = "tilelayer",
@@ -2467,7 +2570,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztWotq3DAQDP5xU45iTCmHKea4v01MT3SZzKx2Vym0oAGTy8UajfaltZy3t4mJiYmJiYmJiYmJiYl/Cb+W39e3ZYxn/Ri/m6vCd3Gcr/Gb4dqWnM4Vxm7AF9G5vubbgEd93gQf07I74+31Y/F58NqXz7Zrv1uuQ9hY2Qh5FZcajxrtT8t174zx1nxdPwkXswvjQC6mS61RcbTvvjv2Uutk3Jbnwq1jD6UTeSxfxGdKD+NjMebZOsIX9VsPh9Bj54jWm6g/e3yH0KHqxkk4bR1lY7xY3V9jW72N1K5ITnkavDrU41P1zqtrPTv0ct2ruapOZe3Sm1+txVub0v38uB5Cy27+/hTz2c82V/EeW5/bPYrrAfceoInlud0/Gg/Oaef18vJu7nm8LlXvMGftnNm+yNqtjTkX3hdFah3uXSpOe7WcaWO+i/A0WLthPmTqeNOmcpnFQFQbrjGzPsuFNqtosrpG13cB+62v1LUVfHhhBT2ZWEdgPWhXxYd3oqliK9srjNpd5U+Vi9WGrN1XsFO2xjBNo7HA+rOqrQ7CVVmf9zyX0YQ8I/67Ey2VuMIcZroiXNFn3ggXex5kvVjPXitZF+Nt33nnC95Y9X3vfKFnq2ifwvrAnk77zIDjrv35IeKCzeX9vYH1mB4X+96C9RAshnEO1MX4PFvaPpPpQj42N2o+zX0KrOb3bJjh8nR6Ocv6c8+nvfxX5xDoT6/Ht2C9gOXO7AN3oWdP8mBfYblG993KvmS5mN1He7ARTaoHq/b2GEejmqwPq33vV3KxOM/aivX12f6kQdUtj6ud5ytNGAvKh3YMalJ7F9OFfTLjYns404X1SM2BNQt1oT3sGllM4c+2/5/LZ/80LtYbepxqb7Jnk2xtvb3W2ztVbVfz2P271X9WqyLXc/mTW/ui34f1bIa+fRCOiJ3Unnh7aVW+RH3R8yXbAzE7Z+vOjfD0+g8P6NcRrr9xLoS+yLyHbe8NVI5E6qs9q/Tiy/MjO8dluffs8FxgPXNmXRb4PoTlY5RL5aLVGY0FzBm2N2bPZSsxwIC9fHS/7vGxuKj8zwE7zxnRNhJfCPY+vLpOpi0Trz2+Sr2xwPc7I9pYja5qw/jYB/i884CKX5m2bB1qUM+hWb+yZ6vqHseePdBukXUqTWi7SI1U+2wlbtn5Pa41Wrc9rmw8sNwe7cFYr1h53rac7Z30CM/ExMTExMT/hHf/IRPs"
+      data = "eJztWotq3DAQDP5yU45iTCmHKea4r01MT3SZzKx2Vym0oAGTy8UajfaltZy3t4mJiYmJiYmJiYmJiYl/Cb+W39e3ZYxn/Ri/m6vCd3Gcr/Gb4dqWnM4Vxm7AF9G5vubbgEd93gQf07I74+31Y/F58NqXz7Zrv1uuQ9hY2Qh5FZcajxrtT8t174zx1nxdPwkXswvjQC6mS61RcbTvvjv2Uutk3Jbnwq1jD6UTeSxfxGdKD+NjMebZOsIX9VsPh9Bj54jWm6g/e3yH0KHqxkk4bR1lY7xY3V9jW72N1K5ITnkavDrU41P1zqtrPTv0ct2ruapOZe3Sm1+txVub0v38uB5Cy27+/hTz2c82V/EeW5/bPYrrAfceoInlud0/Gg/Oaef18vJu7nm8LlXvMGftnNm+yNqtjTkX3hdFah3uXSpOe7WcaWO+i/A0WLthPmTqeNOmcpnFQFQbrjGzPsuFNqtosrpG13cB+62v1LUVfHhhBT2ZWEdgPWhXxYd3oqliK9srjNpd5U+Vi9WGrN1XsFO2xjBNo7HA+rOqrQ7CVVmf9zyX0YQ8I/67Ey2VuMIcZroiXNFn3ggXex5kvVjPXitZF+Nt33nnC95Y9X3vfKFnq2ifwvrAnk77zIDjrv35IeKCzeX9vYH1mB4X+96C9RAshnEO1MX4PFvaPpPpQj42N2o+zX0KrOb3bJjh8nR6Ocv6c8+nvfxX5xDoT6/Ht2C9gOXO7AN3oWdP8mBfYblG993KvmS5mN1He7ARTaoHq/b2GEejmqwPq33vV3KxOM/aivX12f6kQdUtj6ud5ytNGAvKh3YMalJ7F9OFfTLjYns404X1SM2BNQt1oT3sGllM4c+2/5/LZ/80LtYbepxqb7Jnk2xtvb3W2ztVbVfz2P271X9WqyLXc/mTW/ui34f1bIa+fRCOiJ3Unnh7aVW+RH3R8yXbAzE7Z+vOjfD0+g8P6NcRrr9xLoS+yLyHbe8NVI5E6qs9q/Tiy/MjO8dluffs8FxgPXNmXRb4PoTlY5RL5aLVGY0FzBm2N2bPZSsxwIC9fHS/7vGxuKj8zwE7zxnRNhJfCPY+vLpOpi0Trz2+Sr2xwPc7I9pYja5qw/jYB/i884CKX5m2bB1qUM+hWb+yZ6vqHseePdBukXUqTWi7SI1U+2wlbtn5Pa41Wrc9rmw8sNwe7cFYr1h53rac7Z30CM/ExMTExMT/hHdgxhmc"
     },
     {
       type = "tilelayer",
@@ -2483,7 +2586,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt2DdLBUEUQOF9/8qAWcGAWcGAWcGAWXtjb/y/nmJvs7CzAS3U88FhimWmG967k2WSJEmSJEmSJOkndHWyrJt6qDex9tNAJ33WON8naJKmEusMzVactcL3VVqj9cS6SVsVZx3y/YiO6SSxntF5xVmSJH2XQX5zhmiYRmiUxlr+Ds2xb54WaJGWaLnlWdvs26Fd2qN9Omh51gX7LumKrumGbluedce+e3qgR3qi55ZnvbDvld7onT7o0/8AkvSvxWzcl8/AxbXOTBxiNp7OZ+DiWmcmDjEbb+QzcHGtMxOHmI1P8xm4uDoT668rewNrcr9D2RtYk/sdyt7AmtzvUPYG5v2WJEmSJOl3+wJ5YTaX"
+      data = "eJzt2DdLBUEUQOF9P8uAWcGAWcGAWcGAWXtjb/y9nmJvs7CzAS3U88FhimWmG967k2WSJEmSJEmSJOkndHWyrJt6qDex9tNAJ33WON8naJKmEusMzVactcL3VVqj9cS6SVsVZx3y/YiO6SSxntF5xVmSJH2XQX5zhmiYRmiUxlr+Ds2xb54WaJGWaLnlWdvs26Fd2qN9Omh51gX7LumKrumGbluedce+e3qgR3qi55ZnvbDvld7onT7o0/8AkvSvxWzcl8/AxbXOTBxiNp7OZ+DiWmcmDjEbb+QzcHGtMxOHmI1P8xm4uDoT668rewNrcr9D2RtYk/sdyt7AmtzvUPYG5v2WJEmSJOl3+wIusTcz"
     },
     {
       type = "objectgroup",
@@ -2526,11 +2629,11 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 487,
+          gid = 488,
           visible = true,
           properties = {
             ["kolaunch"] = true,
-            ["onDiscard"] = "endMap",
+            ["onDiscard"] = "playerVictory",
             ["script"] = "NPCFireMage"
           }
         },
@@ -2544,7 +2647,7 @@ return {
           width = 16,
           height = 24,
           rotation = 0,
-          gid = 798,
+          gid = 799,
           visible = true,
           properties = {
             ["operatorid"] = 118,
@@ -2561,7 +2664,7 @@ return {
           width = 16,
           height = 24,
           rotation = 0,
-          gid = 798,
+          gid = 799,
           visible = true,
           properties = {
             ["operatorid"] = 118,
@@ -2666,7 +2769,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 2147484089,
+          gid = 2147484090,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -2682,7 +2785,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 441,
+          gid = 442,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -2721,7 +2824,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 441,
+          gid = 442,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -2737,7 +2840,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 2147484089,
+          gid = 2147484090,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -2765,7 +2868,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 502,
+          gid = 503,
           visible = true,
           properties = {
             ["pathid"] = 115,
@@ -2821,7 +2924,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 466,
+          gid = 467,
           visible = true,
           properties = {
             ["pathid"] = 114,
@@ -2868,7 +2971,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 435,
+          gid = 436,
           visible = true,
           properties = {
             ["cageid"] = 48,
@@ -2887,7 +2990,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 428,
+          gid = 429,
           visible = true,
           properties = {
             ["pathid"] = 113,
@@ -2922,7 +3025,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 568,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 116,
@@ -2990,7 +3093,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 435,
+          gid = 436,
           visible = true,
           properties = {
             ["cageid"] = 42,
@@ -3009,7 +3112,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 428,
+          gid = 429,
           visible = true,
           properties = {
             ["pathid"] = 112,
@@ -3044,7 +3147,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 484,
+          gid = 485,
           visible = true,
           properties = {
             ["pathid"] = 109,
@@ -3081,7 +3184,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 484,
+          gid = 485,
           visible = true,
           properties = {
             ["pathid"] = 111,
@@ -3149,7 +3252,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 837,
+          gid = 838,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3165,7 +3268,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 835,
+          gid = 836,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3210,7 +3313,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 835,
+          gid = 836,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3226,7 +3329,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 837,
+          gid = 838,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3271,7 +3374,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 835,
+          gid = 836,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3287,7 +3390,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 837,
+          gid = 838,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3332,7 +3435,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 837,
+          gid = 838,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3348,7 +3451,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 835,
+          gid = 836,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3393,7 +3496,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 435,
+          gid = 436,
           visible = true,
           properties = {
             ["cageid"] = 36,
@@ -3412,7 +3515,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 428,
+          gid = 429,
           visible = true,
           properties = {
             ["pathid"] = 132,
@@ -3447,7 +3550,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 466,
+          gid = 467,
           visible = true,
           properties = {
             ["pathid"] = 133,
@@ -3465,7 +3568,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 502,
+          gid = 503,
           visible = true,
           properties = {
             ["pathid"] = 134,
@@ -3610,7 +3713,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 435,
+          gid = 436,
           visible = true,
           properties = {
             ["cageid"] = 33,
@@ -3629,7 +3732,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 428,
+          gid = 429,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -3662,7 +3765,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 553,
+          gid = 554,
           visible = true,
           properties = {
             ["pathid"] = 106,
@@ -3711,7 +3814,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -3730,7 +3833,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -3749,7 +3852,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -3768,7 +3871,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -3787,7 +3890,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -3806,7 +3909,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -3825,7 +3928,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -3844,7 +3947,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -3863,7 +3966,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -3882,7 +3985,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -3901,7 +4004,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -3920,7 +4023,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -3939,7 +4042,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -3958,7 +4061,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -3977,7 +4080,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -3996,7 +4099,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4015,7 +4118,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4034,7 +4137,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 479,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4108,7 +4211,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 481,
+          gid = 482,
           visible = true,
           properties = {
             ["pathid"] = 90,
@@ -4126,7 +4229,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 481,
+          gid = 482,
           visible = true,
           properties = {
             ["pathid"] = 89,
@@ -4156,7 +4259,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 836,
+          gid = 837,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4172,7 +4275,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 836,
+          gid = 837,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4188,7 +4291,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 836,
+          gid = 837,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4204,7 +4307,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 836,
+          gid = 837,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4293,7 +4396,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzqsNgDAYhdF/FzYAj+E1APvvQpsgKqCCViDOSa79ciMAAAAAAAAAAAAAAAAAAP7l6NRZ08ZOrSFtifZv+dOZNkf7t+nu5LV8Kz+19J46X3q1TtnbK83c2F46FxnKDMo="
+      data = "eJztzqsNgDAYhdF/GDYAj+E1APvPQpsgKqCCViDOSa79ciMAAAAAAAAAAAAAAAAAAP7l6NRZ08ZOrSFtifZv+dOZNkf7t+nu5LV8Kz+19J46X3q1TtnbK83c2F46F0ESDPw="
     },
     {
       type = "objectgroup",
@@ -4401,7 +4504,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 408,
+          gid = 409,
           visible = true,
           properties = {}
         },
@@ -4415,7 +4518,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 408,
+          gid = 409,
           visible = true,
           properties = {}
         },
@@ -4429,7 +4532,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 408,
+          gid = 409,
           visible = true,
           properties = {}
         },
@@ -4443,7 +4546,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 408,
+          gid = 409,
           visible = true,
           properties = {}
         },
@@ -4457,7 +4560,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 408,
+          gid = 409,
           visible = true,
           properties = {}
         },
@@ -4471,7 +4574,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 408,
+          gid = 409,
           visible = true,
           properties = {}
         },
@@ -4485,7 +4588,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 408,
+          gid = 409,
           visible = true,
           properties = {}
         },
@@ -4499,7 +4602,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 408,
+          gid = 409,
           visible = true,
           properties = {}
         },
@@ -4513,7 +4616,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 408,
+          gid = 409,
           visible = true,
           properties = {}
         },
@@ -4527,7 +4630,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 412,
+          gid = 413,
           visible = true,
           properties = {
             ["script"] = "GaugeBomb"
@@ -4543,7 +4646,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 412,
+          gid = 413,
           visible = true,
           properties = {
             ["script"] = "GaugeBomb"
@@ -4559,7 +4662,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 412,
+          gid = 413,
           visible = true,
           properties = {
             ["script"] = "GaugeBomb"
@@ -4575,7 +4678,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 410,
+          gid = 411,
           visible = true,
           properties = {}
         },
@@ -4589,7 +4692,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 411,
+          gid = 412,
           visible = true,
           properties = {}
         },

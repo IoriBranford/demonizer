@@ -295,7 +295,6 @@ function ShmupNPC:capture(captorid)
 
 		levity.bank:play(Sounds.Convert)
 		levity.bank:play(Sounds.FemaleCapture)
-		levity.machine:broadcast("wingmanJoined", newwingmanid)
 	else
 		levity.bank:play(Sounds.MaleCapture)
 		levity.machine:broadcast("npcCaptured", self.object.id, captorid)
@@ -466,8 +465,8 @@ function ShmupNPC:playSound(sound)
 	end
 end
 
-function ShmupNPC:endMap()
-	levity.bank:changeMusic("07 - Great Job!.vgm", "emu")
+function ShmupNPC:playerVictory()
+	levity.machine:broadcast("playerVictorious")
 end
 
 function ShmupNPC:vehicleDestroyed(vehicleid)

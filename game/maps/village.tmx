@@ -3,6 +3,7 @@
  <properties>
   <property name="cameraid" type="int" value="7"/>
   <property name="music" type="file" value="09 - Blue Sky Laundry.vgm"/>
+  <property name="nextmap" value="maps/cave.lua"/>
   <property name="playerid" type="int" value="1"/>
   <property name="script" value="ShmupMap"/>
  </properties>
@@ -49,7 +50,7 @@
  <objectgroup name="boss">
   <object id="261" gid="184" x="144" y="136" width="24" height="32">
    <properties>
-    <property name="onDiscard" value="endMap"/>
+    <property name="onDiscard" value="playerVictory"/>
     <property name="script" value="NPCHero"/>
    </properties>
   </object>

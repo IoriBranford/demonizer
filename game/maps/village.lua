@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "0.17.1",
+  tiledversion = "0.18.0",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 36,
@@ -12,6 +12,7 @@ return {
   properties = {
     ["cameraid"] = 7,
     ["music"] = "09 - Blue Sky Laundry.vgm",
+    ["nextmap"] = "maps/cave.lua",
     ["playerid"] = 1,
     ["script"] = "ShmupMap"
   },
@@ -1386,7 +1387,7 @@ return {
           gid = 184,
           visible = true,
           properties = {
-            ["onDiscard"] = "endMap",
+            ["onDiscard"] = "playerVictory",
             ["script"] = "NPCHero"
           }
         },
