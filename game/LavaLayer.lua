@@ -5,6 +5,10 @@ local LavaLayer = class(function(self, id)
 	assert(self.layer.type == "tilelayer")
 	self.active = false
 	self.timer = 0
+
+	-- let y = a + b*sin(t)/t
+	self.a = self.layer.offsety * .5
+	self.b = self.layer.offsety * .5
 end)
 
 local Tileset = "lavapit"
@@ -23,8 +27,8 @@ function LavaLayer:beginMove(dt)
 	local tileset = levity.map.tilesets[Tileset]
 	local timescale = 1
 	if self.active then
-		self.timer = self.timer + dt
-		self.layer.y = self.layer.y + math.cos(self.timer)/self.timer
+		self.timer = self.timer + dt*math.pi
+		self.layer.y = self.a + self.b*math.sin(self.timer)/self.timer
 		timescale = 1.5
 	end
 

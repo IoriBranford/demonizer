@@ -5,6 +5,10 @@ local LavaPitWall = class(function(self, id)
 	assert(self.layer.type == "tilelayer")
 	self.active = false
 	self.timer = 0
+
+	-- let y = a + b*sin(t)/t
+	self.a = self.layer.offsety * .25
+	self.b = self.layer.offsety * .75
 end)
 
 local Tileset = "lavapit"
@@ -22,8 +26,8 @@ end
 
 function LavaPitWall:beginMove(dt)
 	if self.active then
-		self.timer = self.timer + dt
-		self.layer.y = self.layer.y + math.cos(self.timer)/self.timer/1.25
+		self.timer = self.timer + dt*math.pi
+		self.layer.y = self.a + self.b*math.sin(self.timer)/self.timer
 
 		local tileset = levity.map.tilesets[Tileset]
 
