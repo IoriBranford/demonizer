@@ -85,6 +85,10 @@ function ShmupMap:endMove(dt)
 	self.rank = levity.machine:call(playerid, "rankFactor")
 
 	if self.resulttimer then
+		if self.resulttimer < self.resulttime - 1
+		and self.resulttimer + dt >= self.resulttime - 1 then
+			levity.machine:call("curtain", "beginFall")
+		end
 		self.resulttimer = self.resulttimer + dt
 		if self.resulttimer >= self.resulttime then
 			levity:setNextMap(self.properties.nextmap

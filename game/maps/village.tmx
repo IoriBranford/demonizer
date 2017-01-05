@@ -1270,4 +1270,9 @@
   <object id="341" name="move" gid="7351" x="0" y="0" width="64" height="64"/>
   <object id="342" name="focus" gid="7352" x="0" y="0" width="64" height="64"/>
  </objectgroup>
+ <objectgroup name="curtain">
+  <properties>
+   <property name="script" value="Curtain"/>
+  </properties>
+ </objectgroup>
 </map>

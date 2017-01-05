@@ -800,4 +800,9 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="curtain">
+  <properties>
+   <property name="script" value="Curtain"/>
+  </properties>
+ </objectgroup>
 </map>
