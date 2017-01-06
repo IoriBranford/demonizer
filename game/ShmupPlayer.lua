@@ -48,6 +48,7 @@ local ShmupPlayer = class(function(self, id)
 	for _, gid in ipairs(wingmengids) do
 		ShmupWingman.create(gid, self.object.x, self.object.y, false)
 	end
+	levity.nextmapdata.player = nil
 
 	local fixtures = self.object.body:getUserData().fixtures
 	local bodyfixture = fixtures["body"]
@@ -180,13 +181,15 @@ function ShmupPlayer:newWingmanIndex(wingmanid)
 	return newindex
 end
 
-function ShmupPlayer:wingmanReserved(wingmanid, wingmangid, wingmanindex)
+function ShmupPlayer:wingmanReserved(wingmanid, wingmangid)
 	self.numwingmen = self.numwingmen - 1
+	local wingmanindex = levity.machine:call(wingmanid, "getWingmanIndex")
 	table.remove(self.wingmenids, wingmanindex)
 end
 
-function ShmupPlayer:wingmanKilled(wingmanid, wingmanindex)
+function ShmupPlayer:wingmanKilled(wingmanid)
 	self.numwingmen = self.numwingmen - 1
+	local wingmanindex = levity.machine:call(wingmanid, "getWingmanIndex")
 	table.remove(self.wingmenids, wingmanindex)
 end
 

@@ -46,7 +46,7 @@ local ShmupWingman = class(function(self, id)
 
 	ShmupNPC = ShmupNPC or levity.machine:requireScript("ShmupNPC")
 
-	levity.machine:broadcast("wingmanJoined", id)
+	levity.machine:broadcast("wingmanJoined", self.wingmanindex)
 end)
 
 function ShmupWingman:refreshFixtures(mask)
@@ -92,8 +92,7 @@ function ShmupWingman:kill()
 	end
 
 	levity.bank:play(Sounds.Death)
-	levity.machine:broadcast("wingmanKilled", self.object.id,
-				self.wingmanindex)
+	levity.machine:broadcast("wingmanKilled", self.object.id)
 end
 
 function ShmupWingman:heal(healing)
@@ -323,9 +322,7 @@ function ShmupWingman:endMove(dt)
 	elseif not self.oncamera then
 		if not ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
 			levity.machine:broadcast("wingmanReserved",
-						self.object.id,
-						self.object.gid,
-						self.wingmanindex)
+						self.object.id, self.object.gid)
 			levity:discardObject(self.object.id)
 			if self.convertobject then
 				levity:discardObject(self.convertobject.id)

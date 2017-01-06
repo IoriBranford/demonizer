@@ -19,6 +19,7 @@ local ShmupStatus = class(function(self, id)
 	self.numlives = nextmapstatus.numlives or 2
 	self.numbombpieces = nextmapstatus.numbombpieces or 0
 	self.reservegids = levity:tileNamesToGids(nextmapstatus.reservenames) or {}
+	levity.nextmapdata.status = nil
 
 	self:updateLives()
 	self:updateBombs()
@@ -156,9 +157,6 @@ function ShmupStatus:beginMove(dt)
 
 		self.reservegids[#self.reservegids] = nil
 		self:updateReserves()
-
-		local scoreid = levity.machine:call("hud", "getScoreId")
-		levity.machine:call(scoreid, "wingmanJoined", wingmanid)
 	end
 end
 

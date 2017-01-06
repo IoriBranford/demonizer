@@ -2,6 +2,13 @@ local levity = require "levity"
 local ShmupPlayer = levity.machine:requireScript("ShmupPlayer")
 local Spark = levity.machine:requireScript("Spark")
 
+local function idToIdx(id)
+	if id == levity.map.properties.playerid then
+		return "player"
+	end
+	return levity.machine:call(id, "getWingmanIndex")
+end
+
 local ShmupScore = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.properties = self.object.properties
@@ -10,7 +17,7 @@ local ShmupScore = class(function(self, id)
 	self.points = nextmapscore.points or 0
 	self.extendpoints = nextmapscore.extendpoints or 2000000
 	self.multipliers = nextmapscore.multipliers or {
-		[levity.map.properties.playerid] = 0
+		[idToIdx(levity.map.properties.playerid)] = 0
 	}
 
 	self.totalmultiplier = nextmapscore.totalmultiplier or 0
@@ -41,12 +48,14 @@ function ShmupScore:getNextCapturePoints()
 	return ShmupScore.BaseCapturePoints * self.totalmultiplier
 end
 
-function ShmupScore:wingmanJoined(newwingmanid)
-	self.multipliers[newwingmanid] = 0
+function ShmupScore:wingmanJoined(newwingmanidx)
+	if not self.multipliers[newwingmanidx] then
+		self.multipliers[newwingmanidx] = 0
+	end
 end
 
 function ShmupScore:npcCaptured(npcid, captorid)
-	self:multiplierInc(captorid)
+	self:multiplierInc(idToIdx(captorid))
 
 	local points = self:getNextCapturePoints()
 	local npc = levity.map.objects[npcid]
@@ -71,61 +80,67 @@ function ShmupScore:npcCaptured(npcid, captorid)
 end
 
 function ShmupScore:npcDied(npcid)
-	for id, mult in pairs(self.multipliers) do
-		self.multipliers[id] = 0
+	for idx, mult in pairs(self.multipliers) do
+		self.multipliers[idx] = 0
 	end
 	self.totalmultiplier = 0
 end
 
-function ShmupScore:multiplierInc(id)
-	if self.multipliers[id] < ShmupScore.MaxMultiplier then
-		self.multipliers[id] = self.multipliers[id] + 1
+function ShmupScore:multiplierInc(idx)
+	if self.multipliers[idx] < ShmupScore.MaxMultiplier then
+		self.multipliers[idx] = self.multipliers[idx] + 1
 		self.totalmultiplier = self.totalmultiplier + 1
-		if self:isMaxMultiplier(id) then
+		if self.multipliers[idx] >= ShmupScore.MaxMultiplier then
 			levity.bank:play(Sounds.Maxed)
 			levity.bank:play(Sounds.Powerup)
 		end
 	else
-		for oid, mult in pairs(self.multipliers) do
+		for oidx, mult in pairs(self.multipliers) do
 			if mult < ShmupScore.MaxMultiplier then
-				self:multiplierInc(oid)
+				self:multiplierInc(oidx)
 				break
 			end
 		end
 	end
 end
 
-function ShmupScore:multiplierLost(id)
-	local lostmult = self.multipliers[id]
+function ShmupScore:multiplierLost(idx)
+	local lostmult = self.multipliers[idx]
 	self.totalmultiplier = self.totalmultiplier - lostmult
-	self.multipliers[id] = nil
+	if type(idx) == "number" then
+		local nummults = #self.multipliers
+		for i = idx, nummults do
+			self.multipliers[i] = self.multipliers[i+1]
+		end
+		self.multipliers[nummults] = nil
+	end
 end
 
 function ShmupScore:playerKilled()
-	self:multiplierLost(levity.map.properties.playerid)
+	self:multiplierLost("player")
 end
 
 function ShmupScore:playerRespawned()
-	self.multipliers[levity.map.properties.playerid] = 0
+	self.multipliers["player"] = 0
 end
 
 function ShmupScore:wingmanReserved(id, gid)
-	self:multiplierLost(id)
+	self:multiplierLost(idToIdx(id))
 end
 
 function ShmupScore:wingmanKilled(id)
-	self:multiplierLost(id)
+	self:multiplierLost(idToIdx(id))
 end
 
 function ShmupScore:friendKilled(id)
-	for id, mult in pairs(self.multipliers) do
-		self.multipliers[id] = 0
+	for idx, mult in pairs(self.multipliers) do
+		self.multipliers[idx] = 0
 	end
 	self.totalmultiplier = 0
 end
 
 function ShmupScore:getMultiplier(id)
-	return self.multipliers[id]
+	return self.multipliers[idToIdx(id)]
 end
 
 function ShmupScore:getTotalMultiplier()
@@ -133,7 +148,7 @@ function ShmupScore:getTotalMultiplier()
 end
 
 function ShmupScore:isMaxMultiplier(id)
-	return self.multipliers[id] == ShmupScore.MaxMultiplier
+	return self.multipliers[idToIdx(id)] == ShmupScore.MaxMultiplier
 end
 
 function ShmupScore:beginDraw()
@@ -145,8 +160,7 @@ function ShmupScore:nextMap(nextmapfile, nextmapdata)
 	nextmapdata.score = {
 		points = self.points,
 		extendpoints = self.extendpoints,
-		--TODO convert keys to something map-agnostic
-		--multipliers = self.multipliers,
+		multipliers = self.multipliers,
 		totalmultiplier = self.totalmultiplier
 	}
 end
