@@ -27,12 +27,15 @@ local ShmupWingman = class(function(self, id)
 	self.object.body:setBullet(true)
 	self.firetimer = 0
 
-	self:refreshFixtures(DisableCaptureMask)
-
 	local playerid = levity.map.properties.playerid
 	self.wingmanindex = levity.machine:call(playerid, "newWingmanIndex", id)
 	self.convertobject = self.properties.convertobject
 	self.properties.convertobject = nil
+	if self.convertobject then
+		self:refreshFixtures(DisableCaptureMask)
+	else
+		self:refreshFixtures(EnableCaptureMask)
+	end
 	self.converttimer = 0
 	self.npctype = levity:getTileColumnName(self.object.gid)
 	self.oncamera = false
