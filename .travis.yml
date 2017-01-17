@@ -36,16 +36,13 @@ before_install:
 
 install:
         - git lfs pull
-        - cd $TRAVIS_BUILD_DIR/love-android-sdl2
-        - ant deps
 
 script:
-        - cd $HOME
         - cmake $TRAVIS_BUILD_DIR
         - make game
         - cp -r $TRAVIS_BUILD_DIR/love-android/* $TRAVIS_BUILD_DIR/love-android-sdl2
         - mkdir $ANDROID_ASSETS_DIR
-        - cp game/game.love $ANDROID_ASSETS_DIR
+        - cp game.love $ANDROID_ASSETS_DIR
         - cd $TRAVIS_BUILD_DIR/love-android-sdl2
         - ndk-build
         - ant debug

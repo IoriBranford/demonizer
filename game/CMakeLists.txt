@@ -11,7 +11,7 @@ file(GLOB_RECURSE ASSETS
 	*.png *.vgm *.wav *.fnt)
 
 add_custom_command(OUTPUT game.love
-	COMMAND cmake -E tar "cfv" "${CMAKE_CURRENT_BINARY_DIR}/game.love" --format=zip ${SOURCES} ${ASSETS}
+	COMMAND cmake -E tar "cfv" "${CMAKE_BINARY_DIR}/game.love" --format=zip ${SOURCES} ${ASSETS}
 	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
-add_custom_target(game DEPENDS game.love)
+add_custom_target(game ALL DEPENDS game.love)
