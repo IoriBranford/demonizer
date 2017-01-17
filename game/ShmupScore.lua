@@ -49,7 +49,8 @@ function ShmupScore:getNextCapturePoints()
 end
 
 function ShmupScore:wingmanJoined(newwingmanidx)
-	if not self.multipliers[newwingmanidx] then
+	if not self.multipliers[newwingmanidx]
+	and ShmupPlayer.isActiveWingmanIndex(newwingmanidx) then
 		self.multipliers[newwingmanidx] = 0
 	end
 end
@@ -122,10 +123,6 @@ end
 
 function ShmupScore:playerRespawned()
 	self.multipliers["player"] = 0
-end
-
-function ShmupScore:wingmanReserved(id, gid)
-	self:multiplierLost(idToIdx(id))
 end
 
 function ShmupScore:wingmanKilled(id)

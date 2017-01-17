@@ -43,12 +43,7 @@ local ShmupPlayer = class(function(self, id)
 	local nextmapplayer = levity.nextmapdata.player or {}
 	self.numcaptives = nextmapplayer.numcaptives or 0
 	self.captivegids = levity:tileNamesToGids(nextmapplayer.captivenames) or {}
-
-	local wingmengids = levity:tileNamesToGids(nextmapplayer.wingmennames) or {}
-	for _, gid in ipairs(wingmengids) do
-		ShmupWingman.create(gid, self.object.x, self.object.y, false)
-	end
-	levity.nextmapdata.player = nil
+	-- delay adding wingmen, it's not safe in a constructor
 
 	local fixtures = self.object.body:getUserData().fixtures
 	local bodyfixture = fixtures["body"]
@@ -74,14 +69,6 @@ local ShmupPlayer = class(function(self, id)
 
 	self.soundsource = nil
 	self.soundfile = nil
-
-	self.hitbox = {
-		gid = levity:getTileGid("playerhitbox", 0, 0),
-		x = self.object.x,
-		y = self.object.y
-	}
-
-	self.object.layer:addObject(self.hitbox)
 end)
 
 ShmupPlayer.Speed = 180
@@ -194,8 +181,7 @@ function ShmupPlayer:wingmanKilled(wingmanid)
 end
 
 function ShmupPlayer:getWingmanPosition(i)
-	local x = self.object.x
-	local y = self.object.y
+	local wmx, wmy = self.object.body:getWorldCenter()
 	local offsetfixture
 	if self:isFocused() then
 		offsetfixture = self.object.body:getUserData().fixtures["focuswingman"..i]
@@ -205,20 +191,19 @@ function ShmupPlayer:getWingmanPosition(i)
 
 	if offsetfixture then
 		local ox, oy = offsetfixture:getShape():getPoint()
-		x = x + ox
-		y = y + oy
+		wmx = wmx + ox
+		wmy = wmy + oy
 
 		if self.killed then
-			local cx, cy = self.object.body:getWorldCenter()
 			local angle = math.pi * .5
-			angle = angle + math.atan2(cx - x, y - cy) * .25
+			angle = angle + math.atan2(-ox, -oy) * .25
 
 			local distance = ShmupPlayer.WingmanFleeDistance
-			x = x + distance * math.cos(angle)
-			y = y + distance * math.sin(angle)
+			wmx = wmx + distance * math.cos(angle)
+			wmy = wmy + distance * math.sin(angle)
 		end
 	end
-	return x, y
+	return wmx, wmy
 end
 
 function ShmupPlayer:isFiring()
@@ -515,6 +500,16 @@ function ShmupPlayer:beginMove(dt)
 
 		self.firetimer = self.firetimer - dt
 	end
+
+	local nextmapplayer = levity.nextmapdata.player
+	if nextmapplayer then
+		local wingmengids = levity:tileNamesToGids(nextmapplayer.wingmennames) or {}
+		for _, gid in ipairs(wingmengids) do
+			local cx, cy = self.object.body:getWorldCenter()
+			ShmupWingman.create(gid, cx, cy, nil)
+		end
+		levity.nextmapdata.player.wingmennames = nil
+	end
 end
 
 function ShmupPlayer:endMove(dt)
@@ -528,9 +523,17 @@ function ShmupPlayer:endMove(dt)
 		levity.machine:call(cameraid, "swayWithPlayer", cx)
 	end
 
+	if not self.hitbox then
+		self.hitbox = {
+			gid = levity:getTileGid("playerhitbox", 0, 0)
+		}
+		self.hitbox.x, self.hitbox.y = self.object.body:getWorldCenter()
+
+		self.object.layer:addObject(self.hitbox)
+	end
 	self.hitbox.visible = self:isFocused()
 	if self.hitbox.body then
-		local x, y = self.object.body:getPosition()
+		local x, y = self.object.body:getWorldCenter()
 		self.hitbox.body:setPosition(x, y + 1/64)
 	end
 end

@@ -153,7 +153,7 @@ function ShmupStatus:beginMove(dt)
 			y = math.max(y, b)
 		end
 
-		local wingmanid = ShmupWingman.create(wingmangid, x, y, false)
+		local wingmanid = ShmupWingman.create(wingmangid, x, y, nil)
 
 		self.reservegids[#self.reservegids] = nil
 		self:updateReserves()

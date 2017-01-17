@@ -288,10 +288,11 @@ function ShmupNPC:capture(captorid)
 	self.captured = true
 
 	if self.female then
+		local cx, cy = self.object.body:getWorldCenter()
 		local newwingmanid = ShmupWingman.create(
 				levity:getTileGid(self.object.tile.tileset,
 							"up", self.npctype),
-				self.object.x, self.object.y, true)
+				cx, cy, captorid)
 
 		levity.bank:play(Sounds.Convert)
 		levity.bank:play(Sounds.FemaleCapture)
