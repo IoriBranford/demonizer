@@ -3,4 +3,11 @@
 	url = https://github.com/karai17/Simple-Tiled-Implementation.git
 [submodule "levity"]
 	path = game/levity
-	url = https://IoriBranford@bitbucket.org/IoriBranford/levity.git
+	url = https://bitbucket.org/IoriBranford/levity.git
+[submodule "love-android/jni/game-music-emu-0.6.1/game-music-emu"]
+	path = love-android/jni/game-music-emu-0.6.1/game-music-emu
+	url = https://bitbucket.org/mpyne/game-music-emu.git
+[submodule "love-android-sdl2"]
+	path = love-android-sdl2
+	url = https://bitbucket.org/MartinFelis/love-android-sdl2.git
+	ignore = dirty

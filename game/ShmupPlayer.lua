@@ -25,7 +25,7 @@ local ShmupPlayer = class(function(self, id)
 	self.vy = 0
 	self.didmousemove = false
 
-	self.firebutton = IsMobile
+	self.firebutton = false
 	self.firetimer = 0
 	self.focusbutton = false
 
@@ -218,8 +218,12 @@ function ShmupPlayer:isKilled()
 	return self.killed
 end
 
-function ShmupPlayer:setFocused(focusbutton)
-	self.focusbutton = focusbutton
+function ShmupPlayer:setFiring(button)
+	self.firebutton = button
+end
+
+function ShmupPlayer:setFocused(button)
+	self.focusbutton = button
 end
 
 function ShmupPlayer:getDistanceSq(fromx, fromy)

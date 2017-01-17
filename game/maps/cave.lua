@@ -8,7 +8,7 @@ return {
   height = 200,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 183,
+  nextobjectid = 185,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "20 - My Kingdom.vgm",
@@ -2459,6 +2459,26 @@ return {
           }
         }
       }
+    },
+    {
+      name = "touchmarkers",
+      firstgid = 979,
+      filename = "img/touchmarkers.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/touchmarkers.png",
+      imagewidth = 128,
+      imageheight = 64,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {}
     }
   },
   layers = {
@@ -4812,6 +4832,48 @@ return {
         ["script"] = "Curtain"
       },
       objects = {}
+    },
+    {
+      type = "objectgroup",
+      name = "touchcontrols",
+      visible = false,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "ShmupTouchControls"
+      },
+      objects = {
+        {
+          id = 183,
+          name = "move",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 0,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 979,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 184,
+          name = "focus",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 0,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 980,
+          visible = true,
+          properties = {}
+        }
+      }
     }
   }
 }

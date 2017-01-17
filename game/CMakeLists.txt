@@ -5,13 +5,13 @@ file(GLOB_RECURSE SOURCES
 	RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
 	*.lua *.txt)
 
-file(GLOB ASSETS
+file(GLOB_RECURSE ASSETS
 	LIST_DIRECTORIES false
 	RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
 	*.png *.vgm *.wav *.fnt)
 
 add_custom_command(OUTPUT game.love
-	COMMAND cmake -E tar "cfv" "game.love" --format=zip ${SOURCES} ${ASSETS}
+	COMMAND cmake -E tar "cfv" "${CMAKE_CURRENT_BINARY_DIR}/game.love" --format=zip ${SOURCES} ${ASSETS}
 	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_custom_target(game DEPENDS game.love)

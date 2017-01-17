@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.github.ioribranford.demonizer"
-      android:versionCode="20"
-      android:versionName="0.10.1"
+      android:versionCode="22"
+      android:versionName="0.10.2"
       android:installLocation="auto" xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.VIBRATE"/>

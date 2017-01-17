@@ -35,6 +35,7 @@ function ShmupTouchControls:touchpressed(touch, x, y, dx, dy)
 
 	if not self.movetouch then
 		self.movetouch = touch
+		levity.machine:call(self.playerid, "setFiring", true)
 		self.movemarker.visible = true
 		self:updateMarker(self.movemarker, x, y)
 	elseif not self.focustouch then
@@ -66,6 +67,7 @@ function ShmupTouchControls:touchreleased(touch, x, y, dx, dy)
 		self.focustouch = nil
 		self.focusmarker.visible = false
 	elseif touch == self.movetouch then
+		levity.machine:call(self.playerid, "setFiring", false)
 		levity.machine:call(self.playerid, "mousemoved", x, y, dx, dy)
 		self.movetouch = nil
 		self.movemarker.visible = false

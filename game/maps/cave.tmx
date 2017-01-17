@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="19" height="200" tilewidth="16" tileheight="16" nextobjectid="183">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="19" height="200" tilewidth="16" tileheight="16" nextobjectid="185">
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="20 - My Kingdom.vgm"/>
@@ -28,6 +28,7 @@
  <tileset firstgid="827" source="img/demonbomb.tsx"/>
  <tileset firstgid="835" source="img/ballista.tsx"/>
  <tileset firstgid="859" source="img/civwomen.tsx"/>
+ <tileset firstgid="979" source="img/touchmarkers.tsx"/>
  <layer name="lava" width="19" height="200" offsetx="0" offsety="-240">
   <properties>
    <property name="script" value="LavaLayer"/>
@@ -804,5 +805,12 @@
   <properties>
    <property name="script" value="Curtain"/>
   </properties>
+ </objectgroup>
+ <objectgroup name="touchcontrols" visible="0">
+  <properties>
+   <property name="script" value="ShmupTouchControls"/>
+  </properties>
+  <object id="183" name="move" gid="979" x="0" y="0" width="64" height="64"/>
+  <object id="184" name="focus" gid="980" x="0" y="0" width="64" height="64"/>
  </objectgroup>
 </map>
