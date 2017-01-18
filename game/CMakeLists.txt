@@ -1,4 +1,4 @@
-project(game LANGUAGES NONE)
+project(game NONE)
 
 file(GLOB_RECURSE SOURCES
 	LIST_DIRECTORIES false
