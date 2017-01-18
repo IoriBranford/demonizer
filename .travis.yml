@@ -24,10 +24,7 @@ android:
     #- sys-img-armeabi-v7a-android-17
 
 env:
-        - ANDROID_NDK_HOME=$HOME/android-ndk
-        - PATH=$ANDROID_NDK_HOME:$PATH
-        - LOVE_ANDROID_SOURCE_DIR=$TRAVIS_BUILD_DIR/love-android-sdl2
-        - LOVE_ANDROID_ASSETS_DIR=$LOVE_ANDROID_SOURCE_DIR/assets
+        - GAME_ASSET=game.love GAME_DIR=$TRAVIS_BUILD_DIR/game ANDROID_NDK_HOME=$HOME/android-ndk PATH=$ANDROID_NDK_HOME:$PATH LOVE_ANDROID_DIR=$TRAVIS_BUILD_DIR/love-android-sdl2 LOVE_ANDROID_ASSETS_DIR=$LOVE_ANDROID_DIR/assets
 
 git:
         depth: 1
@@ -41,14 +38,20 @@ install:
         - git clone https://github.com/urho3d/android-ndk.git $ANDROID_NDK_HOME
 
 before_script:
-        - cmake $TRAVIS_BUILD_DIR
-        - make game
-        - cp -r $TRAVIS_BUILD_DIR/love-android/* $LOVE_ANDROID_SOURCE_DIR
-        - mkdir $LOVE_ANDROID_ASSETS_DIR
-        - cp game.love $LOVE_ANDROID_ASSETS_DIR
-        - cd $TRAVIS_BUILD_DIR/love-android-sdl2
-        - ndk-build
+        - cd $GAME_DIR
+        - find -name "*.lua" | zip $GAME_ASSET -@
+        - find -name "*.png" | zip $GAME_ASSET -@
+        - find -name "*.vgm" | zip $GAME_ASSET -@
+        - find -name "*.wav" | zip $GAME_ASSET -@
+        - find -name "*.fnt" | zip $GAME_ASSET -@
+        - find -name "*.txt" | zip $GAME_ASSET -@
+        - cd $TRAVIS_BUILD_DIR
 
+        - cp -r $TRAVIS_BUILD_DIR/love-android/* $LOVE_ANDROID_DIR
+        - mkdir $LOVE_ANDROID_ASSETS_DIR
+        - cp $GAME_DIR/$GAME_ASSET $LOVE_ANDROID_ASSETS_DIR
+        - cd $LOVE_ANDROID_DIR
+        - ndk-build
 
 script:
         - ant debug
