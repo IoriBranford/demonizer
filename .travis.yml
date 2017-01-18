@@ -3,18 +3,18 @@ android:
   components:
     # Uncomment the lines below if you want to
     # use the latest revision of Android SDK Tools
-    # - platform-tools
-    # - tools
+    - platform-tools
+    - tools
 
     # The BuildTools version used by your project
-    - build-tools-19.1.0
+    - build-tools-25.0.2
 
     # The SDK version used to compile your project
-    - android-19
+    - android-25
 
     # Additional components
     #- extra-google-google_play_services
-    #- extra-google-m2repository
+    - extra-google-m2repository
     - extra-android-m2repository
     #- addon-google_apis-google-19
 
@@ -24,25 +24,31 @@ android:
     #- sys-img-armeabi-v7a-android-17
 
 env:
-        - ANDROID_ASSETS_DIR=$TRAVIS_BUILD_DIR/love-android-sdl2/assets
-        - ANDROID_NDK_HOME=$HOME/android-ndk-root
+        - ANDROID_NDK_HOME=$HOME/android-ndk
+        - PATH=$ANDROID_NDK_HOME:$PATH
+        - LOVE_ANDROID_SOURCE_DIR=$TRAVIS_BUILD_DIR/love-android-sdl2
+        - LOVE_ANDROID_ASSETS_DIR=$LOVE_ANDROID_SOURCE_DIR/assets
+
 git:
         depth: 1
 
 before_install:
-        - git clone https://github.com/urho3d/android-ndk.git $HOME/android-ndk-root
         - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
         - sudo apt-get install -y git-lfs
 
 install:
         - git lfs pull
+        - git clone https://github.com/urho3d/android-ndk.git $ANDROID_NDK_HOME
 
-script:
+before_script:
         - cmake $TRAVIS_BUILD_DIR
         - make game
-        - cp -r $TRAVIS_BUILD_DIR/love-android/* $TRAVIS_BUILD_DIR/love-android-sdl2
-        - mkdir $ANDROID_ASSETS_DIR
-        - cp game.love $ANDROID_ASSETS_DIR
+        - cp -r $TRAVIS_BUILD_DIR/love-android/* $LOVE_ANDROID_SOURCE_DIR
+        - mkdir $LOVE_ANDROID_ASSETS_DIR
+        - cp game.love $LOVE_ANDROID_ASSETS_DIR
         - cd $TRAVIS_BUILD_DIR/love-android-sdl2
         - ndk-build
+
+
+script:
         - ant debug
