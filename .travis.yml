@@ -1,4 +1,5 @@
 language: android
+jdk: oraclejdk8
 android:
   components:
     # Uncomment the lines below if you want to
@@ -24,7 +25,13 @@ android:
     #- sys-img-armeabi-v7a-android-17
 
 env:
-        - GAME_ASSET=game.love GAME_DIR=$TRAVIS_BUILD_DIR/game ANDROID_NDK_HOME=$HOME/android-ndk PATH=$ANDROID_NDK_HOME:$PATH LOVE_ANDROID_DIR=$TRAVIS_BUILD_DIR/love-android-sdl2 LOVE_ANDROID_ASSETS_DIR=$LOVE_ANDROID_DIR/assets
+        global:
+                - GAME_DIR=$TRAVIS_BUILD_DIR/game
+                - GAME_ASSET=game.love
+                - ANDROID_NDK_HOME=$HOME/android-ndk
+                - PATH=$ANDROID_NDK_HOME:$PATH
+                - LOVE_ANDROID_DIR=$TRAVIS_BUILD_DIR/love-android-sdl2
+                - LOVE_ANDROID_ASSETS_DIR=$LOVE_ANDROID_DIR/assets
 
 git:
         depth: 1
