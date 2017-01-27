@@ -60,6 +60,8 @@ end
 
 local Sounds = {
 	Lock = "targetlock.wav",
+	Cut = "slash.wav",
+	Ouch = "ow.wav",
 	Death = "shriek.wav"
 }
 levity.bank:load(Sounds)
@@ -153,7 +155,10 @@ function ShmupWingman:beginContact(myfixture, otherfixture, contact)
 			self.health = self.health - damage
 			if self.health < 1 then
 				self:kill()
+			else
+				levity.bank:play(Sounds.Ouch);
 			end
+			levity.bank:play(Sounds.Cut);
 		end
 	elseif category == ShmupCollision.Category_Camera then
 		self.oncamera = true
