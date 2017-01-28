@@ -3,6 +3,12 @@ local levity = require "levity"
 local PauseMenu = class(function(self, id)
 	self.layer = levity.map.layers[id]
 	self.layer.visible = false
+
+	if levity.map.properties.delayinitobjects == true then
+		for _, object in pairs(self.layer.objects) do
+			levity:initObject(object, self.layer)
+		end
+	end
 end)
 
 local Sounds = {

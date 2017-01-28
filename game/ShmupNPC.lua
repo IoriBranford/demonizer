@@ -64,7 +64,8 @@ local ShmupNPC = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
-	self:setActive(self.properties.unconscious == true)
+	self:setActive(levity.map.properties.delayinitobjects == true or
+		self.properties.unconscious == true)
 
 	local mask
 	self.npctype = levity:getTileColumnName(self.object.gid)

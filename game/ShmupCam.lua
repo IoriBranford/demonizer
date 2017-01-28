@@ -31,13 +31,19 @@ local ShmupCam = class(function(self, id)
 
 	self.pathwalker = nil
 	self.pathpaused = false
+
+	self.activatedgrouptriggerids = {}
 end)
 
 function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getUserData().object
 	local triggerlayer = triggerobject.layer
-	for _, object in ipairs(triggerlayer.objects) do
-		levity.machine:call(object.id, "activate")
+	if levity.map.properties.delayinitobjects == true then
+		self.activatedgrouptriggerids[triggerobject.id] = triggerobject.id
+	else
+		for _, object in ipairs(triggerlayer.objects) do
+			levity.machine:call(object.id, "activate")
+		end
 	end
 
 	local music = triggerlayer.properties.activatemusic
@@ -64,6 +70,7 @@ function ShmupCam:endContact_activategroup(myfixture, otherfixture, contact)
 	for _, object in ipairs(triggerlayer.objects) do
 		levity:discardObject(object.id)
 	end
+	levity:discardObject(triggerobject.id)
 end
 
 function ShmupCam:beginContact(myfixture, otherfixture, contact)
@@ -100,9 +107,13 @@ function ShmupCam:beginMove(dt)
 
 	local pathid = self.properties.pathid
 	if pathid and not self.pathwalker then
+		local path = levity.map.objects[pathid]
+		path.layer:addObject(path)
 		self.pathwalker = levity.machine:call(pathid, "newWalker",
 						self.properties.pathtime)
-		self.pathwalker:findStartPoint(body:getPosition())
+		if self.pathwalker then
+			self.pathwalker:findStartPoint(body:getPosition())
+		end
 	end
 
 	if self.pathwalker and not self.pathpaused then
@@ -116,6 +127,18 @@ end
 function ShmupCam:endMove(dt)
 	local cx, cy = self.object.body:getWorldCenter()
 	self.camera:set(cx, cy)
+
+	if levity.map.properties.delayinitobjects == true then
+		for k, id in pairs(self.activatedgrouptriggerids) do
+			local trigger = levity.map.objects[id]
+			for _, object in ipairs(trigger.layer.objects) do
+				if object.id ~= id then
+					trigger.layer:addObject(object)
+				end
+			end
+			self.activatedgrouptriggerids[k] = nil
+		end
+	end
 end
 
 function ShmupCam:swayWithPlayer(playerx)

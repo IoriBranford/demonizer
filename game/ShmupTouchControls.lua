@@ -5,6 +5,12 @@ local ShmupTouchControls = class(function(self, id)
 	self.layer = levity.map.layers[id]
 	self.playerid = levity.map.properties.playerid
 
+	if levity.map.properties.delayinitobjects == true then
+		for _, object in pairs(self.layer.objects) do
+			levity:initObject(object, self.layer)
+		end
+	end
+
 	for i, object in ipairs(self.layer.objects) do
 		if object.name == "move" then
 			self.movemarker = object

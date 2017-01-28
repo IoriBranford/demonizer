@@ -9,7 +9,7 @@ local ShmupFriend = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
-	self:setActive(false)
+	self:setActive(levity.map.properties.delayinitobjects == true)
 	self:refreshFixtures({
 		ShmupCollision.Category_CameraEdge,
 		ShmupCollision.Category_PlayerTeam,

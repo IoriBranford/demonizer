@@ -7,6 +7,12 @@ local ShmupStatus = class(function(self, id)
 	self.layer = levity.map.layers[id]
 	self.properties = self.layer.properties
 
+	if levity.map.properties.delayinitobjects == true then
+		for _, object in pairs(self.layer.objects) do
+			levity:initObject(object, self.layer)
+		end
+	end
+
 	self.elements = {}
 	for _, object in pairs(self.layer.objects) do
 		self.elements[object.name] = object
