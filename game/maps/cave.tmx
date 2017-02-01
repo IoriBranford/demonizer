@@ -682,7 +682,7 @@
  </objectgroup>
  <objectgroup name="sparks"/>
  <objectgroup name="player">
-  <object id="2" gid="1" x="152" y="3168" width="64" height="64">
+  <object id="2" gid="1" x="152" y="3232" width="64" height="64">
    <properties>
     <property name="script" value="ShmupPlayer"/>
    </properties>

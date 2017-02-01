@@ -1172,7 +1172,7 @@
  </objectgroup>
  <objectgroup draworder="index" name="sparks"/>
  <objectgroup name="player">
-  <object id="1" name="player" gid="1" x="144" y="2072" width="64" height="64">
+  <object id="1" name="player" gid="1" x="144" y="2152" width="64" height="64">
    <properties>
     <property name="script" value="ShmupPlayer"/>
    </properties>

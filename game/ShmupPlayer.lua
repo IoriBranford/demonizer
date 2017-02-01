@@ -10,9 +10,23 @@ local ShmupWingman
 local OS = love.system.getOS()
 local IsMobile = OS == "Android" or OS == "iOS"
 
-local MaxWingmen = 4
+local PlayMask = {
+	ShmupCollision.Category_PlayerTeam,
+	ShmupCollision.Category_PlayerShot,
+	ShmupCollision.Category_PlayerBomb
+}
 
-local ShmupPlayer = class(function(self, id)
+local NonPlayMask = {
+	ShmupCollision.Category_CameraEdge,
+	ShmupCollision.Category_PlayerTeam,
+	ShmupCollision.Category_PlayerShot,
+	ShmupCollision.Category_PlayerBomb,
+	ShmupCollision.Category_NPCTeam,
+	ShmupCollision.Category_NPCShot
+}
+
+local ShmupPlayer
+ShmupPlayer = class(function(self, id)
 	ShmupNPC = ShmupNPC or levity.machine:requireScript("ShmupNPC")
 	ShmupWingman = ShmupWingman or levity.machine:requireScript("ShmupWingman")
 
@@ -30,7 +44,9 @@ local ShmupPlayer = class(function(self, id)
 	self.focusbutton = false
 
 	self.killed = false
-	self.deathtimer = 0
+	self.deathtimer = ShmupPlayer.DeathTime
+
+	self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
 
 	self.shieldtimer = 0
 
@@ -43,20 +59,22 @@ local ShmupPlayer = class(function(self, id)
 	local nextmapplayer = levity.nextmapdata.player or {}
 	self.numcaptives = nextmapplayer.numcaptives or 0
 	self.captivegids = levity:tileNamesToGids(nextmapplayer.captivenames) or {}
-	-- delay adding wingmen, it's not safe in a constructor
+
+	local wingmengids = levity:tileNamesToGids(nextmapplayer.wingmennames) or {}
+	local cx, cy = self.object.body:getWorldCenter()
+	for _, gid in ipairs(wingmengids) do
+		ShmupWingman.create(gid, cx, cy, nil)
+	end
 
 	local fixtures = self.object.body:getUserData().fixtures
 	local bodyfixture = fixtures["body"]
 	if bodyfixture then
 		bodyfixture:setFriction(0)
 		bodyfixture:setCategory(ShmupCollision.Category_PlayerTeam)
-		bodyfixture:setMask(
-			ShmupCollision.Category_PlayerTeam,
-			ShmupCollision.Category_PlayerShot,
-			ShmupCollision.Category_PlayerBomb)
+		bodyfixture:setMask(unpack(NonPlayMask))
 	end
 
-	for i = 1, MaxWingmen do
+	for i = 1, ShmupPlayer.MaxWingmen do
 		local fixture = fixtures["wingman"..i]
 		if fixture then
 			fixture:setFilterData(0, 0, 0)
@@ -72,6 +90,7 @@ local ShmupPlayer = class(function(self, id)
 end)
 
 ShmupPlayer.Speed = 180
+ShmupPlayer.SpeedSq = ShmupPlayer.Speed * ShmupPlayer.Speed
 ShmupPlayer.BulletInterval = 1/10
 ShmupPlayer.BulletParams = {
 	speed = 16*60,
@@ -116,7 +135,7 @@ ShmupPlayer.BombParams = {
 		end
 	end
 }
-ShmupPlayer.MaxWingmen = MaxWingmen
+ShmupPlayer.MaxWingmen = 4
 ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
 ShmupPlayer.DeathSnapToCameraVelocity = 1/16
@@ -337,34 +356,6 @@ function ShmupPlayer:mousemoved(x, y, dx, dy)
 	end
 end
 
-function ShmupPlayer:kill()
-	self.deathtimer = 0
-	self.killed = true
-
-	-- capturing not allowed while player killed
-	local fixtures = self.object.body:getUserData().fixtures
-	local bodyfixture = fixtures["body"]
-	bodyfixture:setMask(
-		ShmupCollision.Category_PlayerTeam,
-		ShmupCollision.Category_PlayerShot,
-		ShmupCollision.Category_PlayerBomb,
-		ShmupCollision.Category_NPCTeam,
-		ShmupCollision.Category_NPCShot)
-
-	levity.machine:broadcast("playerKilled")
-
-	self:playSound(Sounds.Death)
-	self:playSound(Sounds.Scream)
-
-	local cx, cy = self.object.body:getWorldCenter()
-	ShmupNPC.releaseCaptives(self.captivegids, cx, cy, self.object.layer)
-
-	for i = #self.captivegids, 1, -1 do
-		self.captivegids[i] = nil
-	end
-	self.numcaptives = 0
-end
-
 function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 	local category = otherfixture:getCategory()
 	if category == ShmupCollision.Category_NPCTeam then
@@ -378,24 +369,121 @@ function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 		end
 	elseif category == ShmupCollision.Category_NPCShot then
 		if not self.killed and self.shieldtimer == 0 then
-			self:kill()
+			self.coroutine = coroutine.create(
+				ShmupPlayer.deathCoroutine)
 		end
 	end
 end
 
-function ShmupPlayer:getRecenterVelocity(dt)
+function ShmupPlayer:deathCoroutine(dt)
+	self.deathtimer = 0
+	self.killed = true
+	self.object.visible = false
+
+	-- capturing not allowed while player killed
+	local fixtures = self.object.body:getUserData().fixtures
+	local bodyfixture = fixtures["body"]
+	bodyfixture:setMask(unpack(NonPlayMask))
+
+	levity.machine:broadcast("playerKilled")
+
+	self:playSound(Sounds.Death)
+	self:playSound(Sounds.Scream)
+
 	local cx, cy = self.object.body:getWorldCenter()
+	ShmupNPC.releaseCaptives(self.captivegids, cx, cy, self.object.layer)
+
+	for i = #self.captivegids, 1, -1 do
+		self.captivegids[i] = nil
+	end
+	self.numcaptives = 0
+
+	local t = 0
+	while t < ShmupPlayer.DeathTime do
+		local cameraid = levity.map.properties.cameraid
+		local camera = levity.map.objects[cameraid]
+		local camvx, camvy = camera.body:getLinearVelocity()
+		self.object.body:setLinearVelocity(camvx, camvy)
+
+		t = t + dt
+		self, dt = coroutine.yield()
+	end
+
+	if levity.machine:call("hud", "hasLives") then
+		self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
+	else
+		levity.machine:broadcast("playerDefeated")
+	end
+end
+
+local function getSpawnPosition()
 	local cameraid = levity.map.properties.cameraid
 	local camera = levity.map.objects[cameraid]
 	local camcx, camcy = camera.body:getWorldCenter()
-	camcy = camcy + camera.height * (3 / 8)
+	return camcx, camcy + camera.height * (3 / 8)
+end
 
-	local snaptocamv = self.deathtimer
-			* ShmupPlayer.DeathSnapToCameraVelocity / dt
-	return (camcx - cx) * snaptocamv, (camcy - cy) * snaptocamv
+function ShmupPlayer:getRecenterVelocity(dt)
+	local cx, cy = self.object.body:getWorldCenter()
+	local spawnx, spawny = getSpawnPosition()
+	local dx, dy = spawnx - cx, spawny - cy
+
+	local snaptocamv = 8
+		--self.deathtimer * ShmupPlayer.DeathSnapToCameraVelocity / dt
+
+	local cameraid = levity.map.properties.cameraid
+	local camera = levity.map.objects[cameraid]
+	local camvx, camvy = camera.body:getLinearVelocity()
+
+	if dx*dx + dy*dy < ShmupPlayer.SpeedSq*dt*dt then
+		return dx/dt + camvx, dy/dt + camvy
+	end
+
+	return dx * snaptocamv + camvx, dy * snaptocamv + camvy
+end
+
+function ShmupPlayer:spawnCoroutine(dt)
+	local recentered
+
+	repeat
+		local vx1, vy1 = self:getRecenterVelocity(dt)
+		self.object.body:setLinearVelocity(vx1, vy1)
+
+		local _, dt = coroutine.yield()
+
+		local cx, cy = self.object.body:getWorldCenter()
+		local spawnx, spawny = getSpawnPosition()
+		local dx, dy = spawnx - cx, spawny - cy
+
+		recentered = dx*dx + dy*dy < ShmupPlayer.SpeedSq*dt*dt
+	until recentered
+
+	local fixtures = self.object.body:getUserData().fixtures
+	local bodyfixture = fixtures["body"]
+	if bodyfixture then
+		bodyfixture:setMask(unpack(PlayMask))
+	end
+
+	self.shieldtimer = ShmupPlayer.RespawnShieldTime
+
+	if self.killed then
+		self.killed = false
+		levity.machine:broadcast("playerRespawned")
+		self:playSound(Sounds.Respawn)
+		self.object.visible = true
+	end
 end
 
 function ShmupPlayer:beginMove(dt)
+	if self.coroutine then
+		local ok, err = coroutine.resume(self.coroutine, self, dt)
+		if not ok then print(err) end
+		if coroutine.status(self.coroutine) ~= "dead" then
+			return
+		end
+		self.coroutine = nil
+	end
+
 	local body = self.object.body
 	local cx, cy = body:getWorldCenter()
 	local vx1, vy1 = self.vx, self.vy
@@ -442,40 +530,13 @@ function ShmupPlayer:beginMove(dt)
 		end
 
 		self.deathtimer = self.deathtimer + dt
-		local respawn = haslives and self.deathtimer >= ShmupPlayer.DeathTime
-
-		vx1 = 0
-		vy1 = 0
-
-		if camera and respawn then
-			local camcx, camcy = camera.body:getWorldCenter()
-			camcy = camcy + camera.height * (3 / 8)
-
-			local recentered =
-				math.abs(cx - camcx) < ShmupPlayer.Speed * dt
-				and math.abs(cy - camcy) < ShmupPlayer.Speed * dt
-			respawn = respawn and recentered
-
-			vx1, vy1 = self:getRecenterVelocity(dt)
+		if haslives and self.deathtimer >= ShmupPlayer.DeathTime then
+			self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
+			return
+		else
+			vx1 = 0
+			vy1 = 0
 		end
-
-		if respawn then
-			self.shieldtimer = ShmupPlayer.RespawnShieldTime
-			self.killed = false
-			local fixtures = self.object.body:getUserData().fixtures
-			local bodyfixture = fixtures["body"]
-			if bodyfixture then
-				--reenable capturing
-				bodyfixture:setMask(
-					ShmupCollision.Category_PlayerTeam,
-					ShmupCollision.Category_PlayerShot,
-					ShmupCollision.Category_PlayerBomb)
-			end
-			levity.machine:broadcast("playerRespawned")
-			self:playSound(Sounds.Respawn)
-		end
-
-		self.object.visible = respawn
 	end
 
 	if camera then
@@ -503,16 +564,6 @@ function ShmupPlayer:beginMove(dt)
 		end
 
 		self.firetimer = self.firetimer - dt
-	end
-
-	local nextmapplayer = levity.nextmapdata.player
-	if nextmapplayer then
-		local wingmengids = levity:tileNamesToGids(nextmapplayer.wingmennames) or {}
-		for _, gid in ipairs(wingmengids) do
-			local cx, cy = self.object.body:getWorldCenter()
-			ShmupWingman.create(gid, cx, cy, nil)
-		end
-		levity.nextmapdata.player.wingmennames = nil
 	end
 end
 
