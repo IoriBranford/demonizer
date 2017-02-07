@@ -73,16 +73,19 @@ local ShmupMap = class(function(self, id)
 	self.resulttime = nil
 
 	if levity.map.properties.delayinitobjects == true then
-		local camera = self.map.objects[self.map.properties.cameraid]
-		levity:initObject(camera, camera.layer)
-		local player = self.map.objects[self.map.properties.playerid]
-		levity:initObject(player, player.layer)
-
 		for _, layer in ipairs(self.map.layers) do
-			if layer.type == "dynamiclayer"
-			or layer.type == "objectgroup" then
+			if layer.type == "dynamiclayer" then
+				local istrigger = nil
 				for _, object in ipairs(layer.objects) do
 					if object.properties.triggertype then
+						levity:initObject(object, layer)
+						istrigger = true
+					end
+				end
+
+				if not istrigger
+				and layer.properties.static ~= true then
+					for _, object in ipairs(layer.objects) do
 						levity:initObject(object, layer)
 					end
 				end

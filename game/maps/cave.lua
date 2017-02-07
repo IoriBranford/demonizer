@@ -11,6 +11,7 @@ return {
   nextobjectid = 185,
   properties = {
     ["cameraid"] = 1,
+    ["delayinitobjects"] = true,
     ["music"] = "20 - My Kingdom.vgm",
     ["playerid"] = 2,
     ["script"] = "ShmupMap"

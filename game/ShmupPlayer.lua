@@ -35,8 +35,8 @@ ShmupPlayer = class(function(self, id)
 	self.object.body:setFixedRotation(true)
 	self.object.body:setBullet(true)
 
-	self.vx = 0
-	self.vy = 0
+	self.inputvx = 0
+	self.inputvy = 0
 	self.didmousemove = false
 
 	self.firebutton = false
@@ -254,17 +254,17 @@ end
 
 function ShmupPlayer:joystickaxis(joystick, axis, value)
 	local speed = ShmupPlayer.Speed
-	local lockspeedfactor = .5
+	local focusspeedfactor = .5
 	if self.focusbutton then
-		speed = speed * lockspeedfactor
+		speed = speed * focusspeedfactor
 	end
 
 	value = math.floor(value + .5)
 
 	if axis == 1 then
-		self.vx = speed * value
+		self.inputvx = speed * value
 	elseif axis == 2 then
-		self.vy = speed * value
+		self.inputvy = speed * value
 	end
 end
 
@@ -273,14 +273,14 @@ function ShmupPlayer:joystickchanged(button, pressed)
 		self.firebutton = pressed
 		self.firetimer = 0
 	elseif button == ShmupPlayer.Button_Focus and self.focusbutton ~= pressed then
-		local lockspeedfactor = .5
+		local focusspeedfactor = .5
 		if not pressed then
-			lockspeedfactor = 1/lockspeedfactor
+			focusspeedfactor = 1/focusspeedfactor
 		end
 
 		self.focusbutton = pressed
-		self.vx = self.vx * lockspeedfactor
-		self.vy = self.vy * lockspeedfactor
+		self.inputvx = self.inputvx * focusspeedfactor
+		self.inputvy = self.inputvy * focusspeedfactor
 	elseif button == ShmupPlayer.Button_Bomb and pressed
 	and not self.killed and not levity.mappaused then
 		local params = ShmupPlayer.BombParams
@@ -306,9 +306,9 @@ end
 
 function ShmupPlayer:keychanged(key, pressed)
 	local speed = ShmupPlayer.Speed
-	local lockspeedfactor = .5
+	local focusspeedfactor = .5
 	if self.focusbutton then
-		speed = speed * lockspeedfactor
+		speed = speed * focusspeedfactor
 	end
 
 	if not pressed then
@@ -316,13 +316,13 @@ function ShmupPlayer:keychanged(key, pressed)
 	end
 
 	if key == "up" then
-		self.vy = self.vy - speed
+		self.inputvy = self.inputvy - speed
 	elseif key == "down" then
-		self.vy = self.vy + speed
+		self.inputvy = self.inputvy + speed
 	elseif key == "left" then
-		self.vx = self.vx - speed
+		self.inputvx = self.inputvx - speed
 	elseif key == "right" then
-		self.vx = self.vx + speed
+		self.inputvx = self.inputvx + speed
 	elseif key == "z" then
 		self:joystickchanged(ShmupPlayer.Button_Fire, pressed)
 	elseif key == "x" then
@@ -350,8 +350,8 @@ end
 
 function ShmupPlayer:mousemoved(x, y, dx, dy)
 	if not levity.mappaused then
-		self.vx = self.vx + (dx / levity.camera.scale)
-		self.vy = self.vy + (dy / levity.camera.scale)
+		self.inputvx = self.inputvx + (dx / levity.camera.scale)
+		self.inputvy = self.inputvy + (dy / levity.camera.scale)
 		self.didmousemove = true
 	end
 end
@@ -413,6 +413,9 @@ function ShmupPlayer:deathCoroutine(dt)
 		self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
 	else
 		levity.machine:broadcast("playerDefeated")
+		while true do
+			coroutine.yield()
+		end
 	end
 end
 
@@ -474,6 +477,30 @@ function ShmupPlayer:spawnCoroutine(dt)
 	end
 end
 
+function ShmupPlayer:exitCoroutine(dt)
+	self.exiting = true
+
+	for _, fixture in pairs(self.object.body:getFixtureList()) do
+		fixture:setFilterData(0, 0, 0)
+	end
+
+	local t = 0
+	while t < ShmupPlayer.ExitWaitTime do
+		local vx, vy = self:getRecenterVelocity(dt)
+		self.object.body:setLinearVelocity(vx, vy)
+
+		t = t + dt
+		self, dt = coroutine.yield()
+	end
+
+	self:playSound(Sounds.Exit)
+	self.object.body:setLinearVelocity(0, -ShmupPlayer.ExitSpeed)
+
+	while true do
+		coroutine.yield()
+	end
+end
+
 function ShmupPlayer:beginMove(dt)
 	if self.coroutine then
 		local ok, err = coroutine.resume(self.coroutine, self, dt)
@@ -486,7 +513,7 @@ function ShmupPlayer:beginMove(dt)
 
 	local body = self.object.body
 	local cx, cy = body:getWorldCenter()
-	local vx1, vy1 = self.vx, self.vy
+	local vx1, vy1 = self.inputvx, self.inputvy
 
 	self.shieldtimer = math.max(0, self.shieldtimer - dt)
 
@@ -499,44 +526,9 @@ function ShmupPlayer:beginMove(dt)
 	if self.didmousemove then
 		vx1 = vx1 / dt
 		vy1 = vy1 / dt
-		self.vx = 0
-		self.vy = 0
+		self.inputvx = 0
+		self.inputvy = 0
 		self.didmousemove = false
-	end
-
-	if self.exiting then
-		if self.deathtimer < ShmupPlayer.ExitWaitTime then
-			if self.deathtimer + dt >= ShmupPlayer.ExitWaitTime then
-				self:playSound(Sounds.Exit)
-			else
-				vx1, vy1 = self:getRecenterVelocity(dt)
-			end
-		end
-
-		self.deathtimer = self.deathtimer + dt
-		if self.deathtimer >= ShmupPlayer.ExitWaitTime then
-			vx1 = 0
-			vy1 = -ShmupPlayer.ExitSpeed
-		end
-	end
-
-	if self.killed then
-		local haslives = levity.machine:call("hud", "hasLives")
-		if not haslives then
-			if self.deathtimer < ShmupPlayer.DeathTime
-			and self.deathtimer + dt >= ShmupPlayer.DeathTime then
-				levity.machine:broadcast("playerDefeated")
-			end
-		end
-
-		self.deathtimer = self.deathtimer + dt
-		if haslives and self.deathtimer >= ShmupPlayer.DeathTime then
-			self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
-			return
-		else
-			vx1 = 0
-			vy1 = 0
-		end
 	end
 
 	if camera then
@@ -616,11 +608,7 @@ function ShmupPlayer:endDraw()
 end
 
 function ShmupPlayer:playerVictorious()
-	self.exiting = true
-	self.deathtimer = 0
-	for _, fixture in pairs(self.object.body:getFixtureList()) do
-		fixture:setFilterData(0, 0, 0)
-	end
+	self.coroutine = coroutine.create(ShmupPlayer.exitCoroutine)
 end
 
 function ShmupPlayer:nextMap(nextmapfile, nextmapdata)

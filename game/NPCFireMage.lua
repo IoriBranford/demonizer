@@ -11,6 +11,10 @@ local NPCFireMage = class(ShmupNPC, function(self, id)
 	self.fireco = nil
 	self.leftbullets = 5
 	self.rightbullets = 5
+
+	if levity.map.properties.delayinitobjects == true then
+		levity.machine:broadcast("ascentStarted")
+	end
 end)
 
 NPCFireMage.BulletInterval = 0.125

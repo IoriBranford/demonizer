@@ -60,13 +60,15 @@ function ShmupScore:npcCaptured(npcid, captorid)
 
 	local points = self:getNextCapturePoints()
 	local npc = levity.map.objects[npcid]
+	local camera = levity.map.objects[levity.map.properties.cameraid]
+	local camvx, camvy = camera.body:getLinearVelocity()
 	local pointsobject = {
 		x = npc.body:getX()-32,
 		y = npc.body:getY()-8,
 		width = 64,
 		height = 16,
 		properties = {
-			vely = -60,
+			vely = camvy - 30,
 			script = "Spark",
 			text = tostring(points),
 			textfont = "pressstart2p.fnt"

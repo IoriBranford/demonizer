@@ -11,6 +11,7 @@ return {
   nextobjectid = 468,
   properties = {
     ["cameraid"] = 7,
+    ["delayinitobjects"] = true,
     ["music"] = "09 - Blue Sky Laundry.vgm",
     ["nextmap"] = "maps/cave.lua",
     ["playerid"] = 1,
@@ -1317,7 +1318,7 @@ return {
     {
       type = "objectgroup",
       name = "camera",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -1962,7 +1963,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["static"] = true
+      },
       objects = {
         {
           id = 331,

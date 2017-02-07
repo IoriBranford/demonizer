@@ -137,6 +137,9 @@ end
 
 function ShmupWingman:beginContact(myfixture, otherfixture, contact)
 	local otherdata = otherfixture:getBody():getUserData()
+	if not otherdata or not otherdata.properties then
+		return
+	end
 	local otherproperties = otherdata.properties
 	local category = otherfixture:getCategory()
 
@@ -372,6 +375,12 @@ end
 
 function ShmupWingman:endDraw()
 	love.graphics.setColor(0xff, 0xff, 0xff)
+end
+
+function ShmupWingman:playerVictorious()
+	for _, fixture in pairs(self.object.body:getFixtureList()) do
+		fixture:setFilterData(0, 0, 0)
+	end
 end
 
 function ShmupWingman.create(gid, x, y, captorid)
