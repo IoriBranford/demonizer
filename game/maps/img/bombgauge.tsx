@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="bombgauge" tilewidth="16" tileheight="32" tilecount="16" columns="8">
  <properties>
+  <property name="commoncollision" type="int" value="0"/>
   <property name="row_full" type="int" value="1"/>
   <property name="row_notfull" type="int" value="0"/>
  </properties>

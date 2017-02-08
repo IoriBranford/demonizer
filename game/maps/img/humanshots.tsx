@@ -15,6 +15,9 @@
  <tile id="0">
   <objectgroup draworder="index">
    <object id="1" x="-2" y="14" width="4" height="4">
+    <properties>
+     <property name="collidable" type="bool" value="true"/>
+    </properties>
     <ellipse/>
    </object>
   </objectgroup>

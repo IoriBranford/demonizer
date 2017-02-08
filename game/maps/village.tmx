@@ -255,7 +255,7 @@
   <object id="331" name="firepoint_tl" x="36.6863" y="552" width="16" height="16" rotation="315">
    <properties>
     <property name="aimatplayer" type="bool" value="false"/>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="collidable" type="bool" value="false"/>
     <property name="script" value="VehicleFountain"/>
    </properties>
    <ellipse/>
@@ -263,7 +263,7 @@
   <object id="332" name="firepoint_tr" x="240" y="563.314" width="16" height="16" rotation="225">
    <properties>
     <property name="aimatplayer" type="bool" value="false"/>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="collidable" type="bool" value="false"/>
     <property name="script" value="VehicleFountain"/>
    </properties>
    <ellipse/>
@@ -271,7 +271,7 @@
   <object id="333" name="firepoint_bl" x="38.202" y="749.657" width="16" height="16" rotation="285">
    <properties>
     <property name="aimatplayer" type="bool" value="false"/>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="collidable" type="bool" value="false"/>
     <property name="script" value="VehicleFountain"/>
    </properties>
    <ellipse/>
@@ -279,7 +279,7 @@
   <object id="334" name="firepoint_br" x="234.343" y="753.798" width="16" height="16" rotation="255">
    <properties>
     <property name="aimatplayer" type="bool" value="false"/>
-    <property name="collidable" type="bool" value="true"/>
+    <property name="collidable" type="bool" value="false"/>
     <property name="script" value="VehicleFountain"/>
    </properties>
    <ellipse/>
@@ -1095,14 +1095,14 @@
   <object id="132" gid="459" x="96" y="1920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="419"/>
-    <property name="pathtime" type="float" value="0.6"/>
+    <property name="pathtime" type="float" value="0.59999999999999998"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="136" gid="471" x="104" y="1944" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="419"/>
-    <property name="pathtime" type="float" value="0.9"/>
+    <property name="pathtime" type="float" value="0.90000000000000002"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
@@ -1116,7 +1116,7 @@
   <object id="150" gid="468" x="88" y="1936" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="419"/>
-    <property name="pathtime" type="float" value="0.9"/>
+    <property name="pathtime" type="float" value="0.90000000000000002"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
@@ -1129,35 +1129,35 @@
   <object id="77" gid="456" x="136" y="1960" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.8"/>
+    <property name="pathtime" type="float" value="0.80000000000000004"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="160" gid="465" x="152" y="1960" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="418"/>
-    <property name="pathtime" type="float" value="0.8"/>
+    <property name="pathtime" type="float" value="0.80000000000000004"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="133" gid="462" x="136" y="1944" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.6"/>
+    <property name="pathtime" type="float" value="0.59999999999999998"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="57" gid="450" x="152" y="1952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="418"/>
-    <property name="pathtime" type="float" value="0.7"/>
+    <property name="pathtime" type="float" value="0.69999999999999996"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="158" gid="453" x="168" y="1952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="418"/>
-    <property name="pathtime" type="float" value="0.7"/>
+    <property name="pathtime" type="float" value="0.69999999999999996"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>

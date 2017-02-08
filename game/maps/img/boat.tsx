@@ -4,8 +4,15 @@
  <image source="boat.png" width="128" height="64"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="6" x="-64" y="64" width="112" height="48"/>
+   <object id="6" x="-64" y="64" width="112" height="48">
+    <properties>
+     <property name="collidable" type="bool" value="true"/>
+    </properties>
+   </object>
    <object id="8" x="16" y="64" width="48" height="48">
+    <properties>
+     <property name="collidable" type="bool" value="true"/>
+    </properties>
     <ellipse/>
    </object>
   </objectgroup>

@@ -74,14 +74,22 @@ ShmupPlayer = class(function(self, id)
 		bodyfixture:setMask(unpack(NonPlayMask))
 	end
 
-	for i = 1, ShmupPlayer.MaxWingmen do
-		local fixture = fixtures["wingman"..i]
-		if fixture then
-			fixture:setFilterData(0, 0, 0)
-		end
-		fixture = fixtures["focuswingman"..i]
-		if fixture then
-			fixture:setFilterData(0, 0, 0)
+	self.wingmanpositions = {}
+	self.focuswingmanpositions = {}
+	local tile = levity.map.tiles[self.object.gid]
+	local tileobjects = tile.objectGroup.objects
+	local tileheight = levity:getMapTileset(tile.tileset).tileheight
+	-- bottom left origin
+	-- TODO in levity transform all tile objects so scripts don't have to
+	for _, object in pairs(tileobjects) do
+		local i = tonumber(object.name:match("focuswingman(%x)"))
+		if i then
+			self.focuswingmanpositions[i] = {object.x, object.y - tileheight}
+		else
+			i = tonumber(object.name:match("wingman(%x)"))
+			if i then
+				self.wingmanpositions[i] = {object.x, object.y - tileheight}
+			end
 		end
 	end
 
@@ -201,21 +209,21 @@ end
 
 function ShmupPlayer:getWingmanPosition(i)
 	local wmx, wmy = self.object.body:getWorldCenter()
-	local offsetfixture
+	local offset
+
 	if self:isFocused() then
-		offsetfixture = self.object.body:getUserData().fixtures["focuswingman"..i]
+		offset = self.focuswingmanpositions[i]
 	else
-		offsetfixture = self.object.body:getUserData().fixtures["wingman"..i]
+		offset = self.wingmanpositions[i]
 	end
 
-	if offsetfixture then
-		local ox, oy = offsetfixture:getShape():getPoint()
-		wmx = wmx + ox
-		wmy = wmy + oy
+	if offset then
+		wmx = wmx + offset[1]
+		wmy = wmy + offset[2]
 
 		if self.killed then
 			local angle = math.pi * .5
-			angle = angle + math.atan2(-ox, -oy) * .25
+			angle = angle + math.atan2(-offset[1], -offset[2]) * .25
 
 			local distance = ShmupPlayer.WingmanFleeDistance
 			wmx = wmx + distance * math.cos(angle)

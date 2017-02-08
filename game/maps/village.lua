@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "0.18.1",
+  tiledversion = "0.18.0",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 36,
@@ -60,7 +60,9 @@ return {
                 height = 8,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               },
               {
                 id = 7,
@@ -73,9 +75,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 8,
@@ -88,9 +88,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 10,
@@ -103,9 +101,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 11,
@@ -118,9 +114,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 12,
@@ -133,9 +127,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 13,
@@ -148,9 +140,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 14,
@@ -163,9 +153,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 15,
@@ -178,9 +166,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               }
             }
           },
@@ -349,7 +335,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           },
@@ -418,7 +406,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -467,7 +457,9 @@ return {
                 height = 128,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           },
@@ -563,7 +555,9 @@ return {
                 height = 20,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           },
@@ -644,7 +638,9 @@ return {
                 height = 20,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           },
@@ -711,7 +707,9 @@ return {
                 height = 48,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               },
               {
                 id = 8,
@@ -724,7 +722,9 @@ return {
                 height = 48,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -786,7 +786,9 @@ return {
                 height = 48,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           },
@@ -862,7 +864,9 @@ return {
                 height = 4,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -948,7 +952,9 @@ return {
                 height = 20,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           },
@@ -1032,7 +1038,9 @@ return {
                 height = 20,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           },
@@ -1181,6 +1189,7 @@ return {
         y = 0
       },
       properties = {
+        ["commoncollision"] = 0,
         ["row_full"] = 1,
         ["row_notfull"] = 0
       },
@@ -1980,7 +1989,7 @@ return {
           visible = true,
           properties = {
             ["aimatplayer"] = false,
-            ["collidable"] = true,
+            ["collidable"] = false,
             ["script"] = "VehicleFountain"
           }
         },
@@ -1997,7 +2006,7 @@ return {
           visible = true,
           properties = {
             ["aimatplayer"] = false,
-            ["collidable"] = true,
+            ["collidable"] = false,
             ["script"] = "VehicleFountain"
           }
         },
@@ -2014,7 +2023,7 @@ return {
           visible = true,
           properties = {
             ["aimatplayer"] = false,
-            ["collidable"] = true,
+            ["collidable"] = false,
             ["script"] = "VehicleFountain"
           }
         },
@@ -2031,7 +2040,7 @@ return {
           visible = true,
           properties = {
             ["aimatplayer"] = false,
-            ["collidable"] = true,
+            ["collidable"] = false,
             ["script"] = "VehicleFountain"
           }
         }
@@ -4304,7 +4313,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 419,
-            ["pathtime"] = 0.6,
+            ["pathtime"] = 0.59999999999999998,
             ["script"] = "ShmupNPC"
           }
         },
@@ -4322,7 +4331,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 419,
-            ["pathtime"] = 0.9,
+            ["pathtime"] = 0.90000000000000002,
             ["script"] = "ShmupNPC"
           }
         },
@@ -4358,7 +4367,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 419,
-            ["pathtime"] = 0.9,
+            ["pathtime"] = 0.90000000000000002,
             ["script"] = "ShmupNPC"
           }
         },
@@ -4395,7 +4404,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 85,
-            ["pathtime"] = 0.8,
+            ["pathtime"] = 0.80000000000000004,
             ["script"] = "ShmupNPC"
           }
         },
@@ -4413,7 +4422,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 418,
-            ["pathtime"] = 0.8,
+            ["pathtime"] = 0.80000000000000004,
             ["script"] = "ShmupNPC"
           }
         },
@@ -4431,7 +4440,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 85,
-            ["pathtime"] = 0.6,
+            ["pathtime"] = 0.59999999999999998,
             ["script"] = "ShmupNPC"
           }
         },
@@ -4449,7 +4458,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 418,
-            ["pathtime"] = 0.7,
+            ["pathtime"] = 0.69999999999999996,
             ["script"] = "ShmupNPC"
           }
         },
@@ -4467,7 +4476,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 418,
-            ["pathtime"] = 0.7,
+            ["pathtime"] = 0.69999999999999996,
             ["script"] = "ShmupNPC"
           }
         },

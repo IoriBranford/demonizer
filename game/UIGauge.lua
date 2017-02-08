@@ -3,10 +3,6 @@ local levity = require "levity"
 local UIGauge = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.fillrect = self.object
-	for _, fixture in ipairs(self.object.body:getFixtureList()) do
-		fixture:destroy()
-	end
-	self.object.body:getUserData().fixtures = nil
 
 	if self.object.tile then
 		local objectgroup = self.object.tile.objectGroup
