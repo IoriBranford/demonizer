@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "0.18.0",
+  tiledversion = "0.18.1",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 19,
@@ -2634,8 +2634,8 @@ return {
       objects = {
         {
           id = 117,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "polyline",
           x = 0,
           y = 0,
@@ -2648,8 +2648,6 @@ return {
             { x = 304, y = 0 }
           },
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         },
@@ -2762,8 +2760,8 @@ return {
       objects = {
         {
           id = 123,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "polyline",
           x = 0,
           y = 128,
@@ -2776,8 +2774,6 @@ return {
             { x = 304, y = 0 }
           },
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         }
@@ -2968,8 +2964,8 @@ return {
         },
         {
           id = 135,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "rectangle",
           x = 0,
           y = 1264,
@@ -2978,8 +2974,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         }
@@ -3034,8 +3028,8 @@ return {
         },
         {
           id = 50,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "rectangle",
           x = 0,
           y = 1296,
@@ -3044,8 +3038,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         },
@@ -3156,8 +3148,8 @@ return {
         },
         {
           id = 51,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "rectangle",
           x = 0,
           y = 1696,
@@ -3166,8 +3158,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         },
@@ -3310,8 +3300,8 @@ return {
         },
         {
           id = 174,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "rectangle",
           x = 0,
           y = 1808,
@@ -3320,8 +3310,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         }
@@ -3371,8 +3359,8 @@ return {
         },
         {
           id = 173,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "rectangle",
           x = 0,
           y = 1888,
@@ -3381,8 +3369,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         }
@@ -3432,8 +3418,8 @@ return {
         },
         {
           id = 172,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "rectangle",
           x = 0,
           y = 1952,
@@ -3442,8 +3428,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         }
@@ -3493,8 +3477,8 @@ return {
         },
         {
           id = 171,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "rectangle",
           x = 0,
           y = 2016,
@@ -3503,8 +3487,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         }
@@ -3681,8 +3663,8 @@ return {
       objects = {
         {
           id = 120,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "rectangle",
           x = 0,
           y = 2448,
@@ -3691,8 +3673,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         }
@@ -3710,8 +3690,8 @@ return {
       objects = {
         {
           id = 119,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "rectangle",
           x = 0,
           y = 2576,
@@ -3720,8 +3700,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         }
@@ -3774,8 +3752,8 @@ return {
         },
         {
           id = 53,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "rectangle",
           x = 0,
           y = 2704,
@@ -3784,8 +3762,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         },
@@ -4182,8 +4158,8 @@ return {
         },
         {
           id = 88,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "rectangle",
           x = 0,
           y = 2784,
@@ -4192,8 +4168,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         },
@@ -4349,8 +4323,8 @@ return {
         },
         {
           id = 182,
-          name = "trigger",
-          type = "",
+          name = "",
+          type = "Trigger",
           shape = "rectangle",
           x = 0,
           y = 2896,
@@ -4359,8 +4333,6 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         }

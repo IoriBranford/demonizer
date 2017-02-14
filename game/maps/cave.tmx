@@ -73,10 +73,8 @@
   </data>
  </layer>
  <objectgroup name="boss">
-  <object id="117" name="trigger" x="0" y="0">
+  <object id="117" type="Trigger" x="0" y="0">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 304,0"/>
@@ -120,10 +118,8 @@
    <property name="activatemusic" type="file" value="12 - Typhoone Vol 2.vgm"/>
    <property name="activatesound" type="file" value="alarm4.wav"/>
   </properties>
-  <object id="123" name="trigger" x="0" y="128">
+  <object id="123" type="Trigger" x="0" y="128">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 304,0"/>
@@ -181,10 +177,8 @@
     <property name="script" value="NPCInquisitor"/>
    </properties>
   </object>
-  <object id="135" name="trigger" x="0" y="1264" width="304" height="32">
+  <object id="135" type="Trigger" x="0" y="1264" width="304" height="32">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -205,10 +199,8 @@
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="50" name="trigger" x="0" y="1296" width="304" height="32">
+  <object id="50" type="Trigger" x="0" y="1296" width="304" height="32">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -248,10 +240,8 @@
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="51" name="trigger" x="0" y="1696" width="304" height="16">
+  <object id="51" type="Trigger" x="0" y="1696" width="304" height="16">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -299,10 +289,8 @@
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="174" name="trigger" x="0" y="1808" width="304" height="112">
+  <object id="174" type="Trigger" x="0" y="1808" width="304" height="112">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -318,10 +306,8 @@
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="173" name="trigger" x="0" y="1888" width="304" height="96">
+  <object id="173" type="Trigger" x="0" y="1888" width="304" height="96">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -337,10 +323,8 @@
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="172" name="trigger" x="0" y="1952" width="304" height="112">
+  <object id="172" type="Trigger" x="0" y="1952" width="304" height="112">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -356,10 +340,8 @@
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="171" name="trigger" x="0" y="2016" width="304" height="128">
+  <object id="171" type="Trigger" x="0" y="2016" width="304" height="128">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -421,19 +403,15 @@
   </object>
  </objectgroup>
  <objectgroup name="guards3">
-  <object id="120" name="trigger" x="0" y="2448" width="304" height="16">
+  <object id="120" type="Trigger" x="0" y="2448" width="304" height="16">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="guards2">
-  <object id="119" name="trigger" x="0" y="2576" width="304" height="16">
+  <object id="119" type="Trigger" x="0" y="2576" width="304" height="16">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -452,10 +430,8 @@
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="53" name="trigger" x="0" y="2704" width="304" height="64">
+  <object id="53" type="Trigger" x="0" y="2704" width="304" height="64">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -618,10 +594,8 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="88" name="trigger" x="0" y="2784" width="304" height="64">
+  <object id="88" type="Trigger" x="0" y="2784" width="304" height="64">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -673,10 +647,8 @@
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="182" name="trigger" x="0" y="2896" width="304" height="96">
+  <object id="182" type="Trigger" x="0" y="2896" width="304" height="96">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>

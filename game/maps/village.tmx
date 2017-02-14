@@ -55,10 +55,8 @@
     <property name="script" value="NPCHero"/>
    </properties>
   </object>
-  <object id="265" name="trigger" x="0" y="0">
+  <object id="265" type="Trigger" x="0" y="0">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>
@@ -69,10 +67,8 @@
    <property name="activatemusic" type="file" value="06 - Approaching.vgm"/>
    <property name="activatesound" value="alarm4.wav"/>
   </properties>
-  <object id="436" name="trigger" x="0" y="120">
+  <object id="436" type="Trigger" x="0" y="120">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>
@@ -94,10 +90,8 @@
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="409" name="trigger" x="0" y="288" width="288" height="56">
+  <object id="409" type="Trigger" x="0" y="288" width="288" height="56">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -113,10 +107,8 @@
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="300" name="trigger" x="0" y="328">
+  <object id="300" type="Trigger" x="0" y="328">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>
@@ -133,10 +125,8 @@
   </object>
  </objectgroup>
  <objectgroup name="knights3">
-  <object id="278" name="trigger" x="0" y="432" width="288" height="8">
+  <object id="278" type="Trigger" x="0" y="432" width="288" height="8">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -202,10 +192,8 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="400" name="trigger" x="0" y="480" width="288" height="8">
+  <object id="400" type="Trigger" x="0" y="480" width="288" height="8">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -308,10 +296,8 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="268" name="pause" x="0" y="536">
+  <object id="268" name="pause" type="Trigger" x="0" y="536">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="pausecamera"/>
    </properties>
    <polyline points="0,0 288,0"/>
@@ -365,19 +351,15 @@
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="416" name="trigger" x="0" y="624" width="288" height="128">
+  <object id="416" type="Trigger" x="0" y="624" width="288" height="128">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="knightsballistae">
-  <object id="213" name="trigger" x="0" y="824" width="288" height="48">
+  <object id="213" type="Trigger" x="0" y="824" width="288" height="48">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -418,10 +400,8 @@
    </properties>
    <polyline points="0,-24 144,-24"/>
   </object>
-  <object id="370" name="trigger" x="0" y="896" width="288" height="8">
+  <object id="370" type="Trigger" x="0" y="896" width="288" height="8">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -496,10 +476,8 @@
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="393" name="trigger" x="0" y="928" width="288" height="8">
+  <object id="393" type="Trigger" x="0" y="928" width="288" height="8">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -558,10 +536,8 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="391" name="trigger" x="0" y="968" width="288" height="8">
+  <object id="391" type="Trigger" x="0" y="968" width="288" height="8">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -601,19 +577,15 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="390" name="trigger" x="0" y="1064" width="288" height="8">
+  <object id="390" type="Trigger" x="0" y="1064" width="288" height="8">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="windowarcher2">
-  <object id="221" name="trigger" x="0" y="1016" width="288" height="8">
+  <object id="221" type="Trigger" x="0" y="1016" width="288" height="8">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -688,10 +660,8 @@
    </properties>
    <polyline points="0,0 152,0 216,-16 416,-16"/>
   </object>
-  <object id="239" name="trigger" x="0" y="1144" width="288" height="8">
+  <object id="239" type="Trigger" x="0" y="1144" width="288" height="8">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -730,20 +700,16 @@
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="392" name="trigger" x="0" y="1216">
+  <object id="392" type="Trigger" x="0" y="1216">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
  </objectgroup>
  <objectgroup name="busharchers2">
-  <object id="244" name="trigger" x="0" y="1264">
+  <object id="244" type="Trigger" x="0" y="1264">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>
@@ -762,10 +728,8 @@
   </object>
  </objectgroup>
  <objectgroup name="busharchers">
-  <object id="243" name="trigger" x="0" y="1336">
+  <object id="243" type="Trigger" x="0" y="1336">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>
@@ -790,10 +754,8 @@
   </object>
  </objectgroup>
  <objectgroup name="waterarchers">
-  <object id="253" name="trigger" x="0" y="1440">
+  <object id="253" type="Trigger" x="0" y="1440">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>
@@ -824,10 +786,8 @@
    </properties>
    <polyline points="-32,-72 104,-40"/>
   </object>
-  <object id="179" name="trigger" x="0" y="1576" width="288" height="8">
+  <object id="179" type="Trigger" x="0" y="1576" width="288" height="8">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -1008,10 +968,8 @@
     <property name="vehicleid" type="int" value="325"/>
    </properties>
   </object>
-  <object id="115" name="trigger" x="0" y="1632" width="288" height="8">
+  <object id="115" type="Trigger" x="0" y="1632" width="288" height="8">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -1038,10 +996,8 @@
    </properties>
    <polyline points="-48,-56 104,-24 232,-24 384,-56"/>
   </object>
-  <object id="108" name="trigger" x="0" y="1688" width="288" height="8">
+  <object id="108" type="Trigger" x="0" y="1688" width="288" height="8">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -1071,10 +1027,8 @@
  </objectgroup>
  <objectgroup name="unusedcivilians" visible="0"/>
  <objectgroup name="civilians">
-  <object id="43" name="trigger" x="0" y="1800" visible="0">
+  <object id="43" type="Trigger" x="0" y="1800">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>
@@ -1095,14 +1049,14 @@
   <object id="132" gid="459" x="96" y="1920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="419"/>
-    <property name="pathtime" type="float" value="0.59999999999999998"/>
+    <property name="pathtime" type="float" value="0.6"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="136" gid="471" x="104" y="1944" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="419"/>
-    <property name="pathtime" type="float" value="0.90000000000000002"/>
+    <property name="pathtime" type="float" value="0.9"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
@@ -1116,7 +1070,7 @@
   <object id="150" gid="468" x="88" y="1936" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="419"/>
-    <property name="pathtime" type="float" value="0.90000000000000002"/>
+    <property name="pathtime" type="float" value="0.9"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
@@ -1129,35 +1083,35 @@
   <object id="77" gid="456" x="136" y="1960" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.80000000000000004"/>
+    <property name="pathtime" type="float" value="0.8"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="160" gid="465" x="152" y="1960" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="418"/>
-    <property name="pathtime" type="float" value="0.80000000000000004"/>
+    <property name="pathtime" type="float" value="0.8"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="133" gid="462" x="136" y="1944" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.59999999999999998"/>
+    <property name="pathtime" type="float" value="0.6"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="57" gid="450" x="152" y="1952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="418"/>
-    <property name="pathtime" type="float" value="0.69999999999999996"/>
+    <property name="pathtime" type="float" value="0.7"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="158" gid="453" x="168" y="1952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="418"/>
-    <property name="pathtime" type="float" value="0.69999999999999996"/>
+    <property name="pathtime" type="float" value="0.7"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>

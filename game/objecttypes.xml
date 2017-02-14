@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objecttypes>
+ <objecttype name="Trigger" color="#0000ff">
+  <property name="collidable" type="bool" default="true"/>
+  <property name="sensor" type="bool" default="true"/>
+ </objecttype>
+</objecttypes>

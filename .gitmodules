@@ -15,3 +15,6 @@
 	url = https://bitbucket.org/MartinFelis/love-android-sdl2.git
 	branch = master
 	ignore = dirty
+[submodule "game/Penlight"]
+	path = game/Penlight
+	url = https://github.com/stevedonovan/Penlight.git
