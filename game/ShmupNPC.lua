@@ -361,7 +361,7 @@ function ShmupNPC:beginMove(dt)
 
 	if canbecaptured
 	and levity.machine:call(playerid, "isFocused")
-	and levity.machine:call(scoreid, "isMaxMultiplier", playerid)
+	--and levity.machine:call(scoreid, "isMaxMultiplier", playerid)
 	then
 		capturepulldistsq = ShmupNPC.EnhancedCapturePullDistSq
 	else

@@ -5,22 +5,8 @@ local ShmupPlayer = levity.machine:requireScript("ShmupPlayer")
 local ShmupBullet = levity.machine:requireScript("ShmupBullet")
 local ShmupNPC -- delayed require to avoid circular dependency
 
-local DisableCaptureMask = {
-	ShmupCollision.Category_CameraEdge,
-	ShmupCollision.Category_PlayerTeam,
-	ShmupCollision.Category_PlayerShot,
-	ShmupCollision.Category_PlayerBomb,
-	ShmupCollision.Category_NPCTeam
-}
-
-local EnableCaptureMask = {
-	ShmupCollision.Category_CameraEdge,
-	ShmupCollision.Category_PlayerTeam,
-	ShmupCollision.Category_PlayerShot,
-	ShmupCollision.Category_PlayerBomb
-}
-
-local ShmupWingman = class(function(self, id)
+local ShmupWingman
+ShmupWingman = class(function(self, id)
 	self.object = levity.map.objects[id]
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
@@ -29,11 +15,11 @@ local ShmupWingman = class(function(self, id)
 
 	local playerid = levity.map.properties.playerid
 	self.wingmanindex = levity.machine:call(playerid, "newWingmanIndex", id)
-	if self.properties.conversionid then
-		self:refreshFixtures(DisableCaptureMask)
-	else
-		self:refreshFixtures(EnableCaptureMask)
-	end
+
+	self:refreshFixtures()
+	self:setVulnerable(true)
+	self:setCaptureEnabled(self.properties.conversionid == nil)
+
 	self.converttimer = 0
 	self.npctype = levity:getTileColumnName(self.object.gid)
 	self.oncamera = false
@@ -50,14 +36,6 @@ local ShmupWingman = class(function(self, id)
 	levity.machine:broadcast("wingmanJoined", self.wingmanindex)
 end)
 
-function ShmupWingman:refreshFixtures(mask)
-	for _, fixture in ipairs(self.object.body:getFixtureList()) do
-		fixture:setSensor(true)
-		fixture:setCategory(ShmupCollision.Category_PlayerTeam)
-		fixture:setMask(unpack(mask))
-	end
-end
-
 local Sounds = {
 	Lock = "targetlock.wav",
 	Cut = "slash.wav",
@@ -65,6 +43,13 @@ local Sounds = {
 	Death = "shriek.wav"
 }
 levity.bank:load(Sounds)
+
+ShmupWingman.BaseMask = {
+	ShmupCollision.Category_CameraEdge,
+	ShmupCollision.Category_PlayerTeam,
+	ShmupCollision.Category_PlayerShot,
+	ShmupCollision.Category_PlayerBomb
+}
 
 ShmupWingman.Speed = 320
 ShmupWingman.SpeedSq = ShmupWingman.Speed * ShmupWingman.Speed
@@ -80,6 +65,28 @@ ShmupWingman.ConvertShake = 2
 ShmupWingman.LockSearchWidth = 120
 ShmupWingman.LockSearchHeight = 160
 ShmupWingman.UnfocusedHealRate = 1
+
+function ShmupWingman:refreshFixtures()
+	for _, fixture in pairs(self.object.body:getFixtureList()) do
+		fixture:setSensor(true)
+		fixture:setCategory(ShmupCollision.Category_PlayerTeam)
+		fixture:setMask(ShmupWingman.BaseMask)
+	end
+end
+
+function ShmupWingman:setVulnerable(vulnerable)
+	for _, fixture in pairs(self.object.body:getFixtureList()) do
+		ShmupCollision.setFixtureMask(fixture,
+			ShmupCollision.Category_NPCShot, vulnerable)
+	end
+end
+
+function ShmupWingman:setCaptureEnabled(enabled)
+	for _, fixture in pairs(self.object.body:getFixtureList()) do
+		ShmupCollision.setFixtureMask(fixture,
+			ShmupCollision.Category_NPCTeam, enabled)
+	end
+end
 
 function ShmupWingman:kill()
 	local cx, cy = self.object.body:getWorldCenter()
@@ -126,7 +133,7 @@ function ShmupWingman:wingmanKilled(wingmanid)
 	if self.wingmanindex > wingmanindex then
 		self.wingmanindex = self.wingmanindex - 1
 		if ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
-			self:refreshFixtures(EnableCaptureMask)
+			self:setCaptureEnabled(true)
 		end
 	end
 end
@@ -175,12 +182,12 @@ function ShmupWingman:endContact(myfixture, otherfixture, contact)
 end
 
 function ShmupWingman:playerKilled()
-	self:refreshFixtures(DisableCaptureMask)
+	self:setCaptureEnabled(false)
 end
 
 function ShmupWingman:playerRespawned()
 	if ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
-		self:refreshFixtures(EnableCaptureMask)
+		self:setCaptureEnabled(true)
 	end
 end
 
@@ -194,12 +201,8 @@ function ShmupWingman:updateConversion(dt)
 
 		local gid = levity:getTileGid("demonwomen", self.npctype, 0)
 		levity:setObjectGid(self.object, gid)
-
-		if ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
-			self:refreshFixtures(EnableCaptureMask)
-		else
-			self:refreshFixtures(DisableCaptureMask)
-		end
+		self:refreshFixtures()
+		self:setCaptureEnabled(ShmupPlayer.isActiveWingmanIndex(self.wingmanindex))
 	end
 end
 
@@ -268,7 +271,7 @@ function ShmupWingman:beginMove(dt)
 	local focused = levity.machine:call(playerid, "isFocused")
 	if focused then
 		if not self.properties.conversionid
-		and levity.machine:call(scoreid, "isMaxMultiplier", self.object.id) then
+		then--and levity.machine:call(scoreid, "isMaxMultiplier", self.object.id) then
 			if not self.targetcaptiveid then
 				self.targetcaptiveid = self:findTarget("canBeCaptured")
 			end
@@ -298,6 +301,8 @@ function ShmupWingman:beginMove(dt)
 			desty = desty + ShmupWingman.Speed
 		end
 	end
+
+	self:setVulnerable(self.targetcaptiveid ~= nil)
 
 	local dx, dy = destx - cx, desty - cy
 	local distsq = math.hypotsq(dx, dy)
@@ -350,6 +355,8 @@ function ShmupWingman:beginDraw()
 		local flash = 0x80 * (math.cos(flashrate*math.pi) + 3)
 
 		love.graphics.setColor(flash, 0xff, flash)
+	elseif not self.targetcaptiveid then
+		love.graphics.setColor(0x1ff, 0xff, 0x1ff)
 	else
 		local playerid = levity.map.properties.playerid
 		local focused = levity.machine:call(playerid, "isFocused")
@@ -378,9 +385,7 @@ function ShmupWingman:endDraw()
 end
 
 function ShmupWingman:playerVictorious()
-	for _, fixture in pairs(self.object.body:getFixtureList()) do
-		fixture:setFilterData(0, 0, 0)
-	end
+	self:setVulnerable(false)
 end
 
 function ShmupWingman.create(gid, x, y, captorid)
