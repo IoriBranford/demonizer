@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="30" height="40" tilewidth="8" tileheight="8" nextobjectid="41">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="30" height="40" tilewidth="8" tileheight="8" nextobjectid="52">
  <properties>
+  <property name="cameraid" type="int" value="39"/>
+  <property name="playerid" type="int" value="40"/>
   <property name="script" value="ShmupMap"/>
  </properties>
  <tileset firstgid="1" source="img/hud_icons.tsx"/>
@@ -13,6 +15,7 @@
  <tileset firstgid="77" source="img/demonizing.tsx"/>
  <tileset firstgid="80" source="img/humanshots.tsx"/>
  <tileset firstgid="108" source="img/sparks_med.tsx"/>
+ <tileset firstgid="124" source="img/infmen.tsx"/>
  <objectgroup name="camera">
   <object id="39" name="camera" x="0" y="0" width="240" height="320">
    <properties>
@@ -23,6 +26,44 @@
   </object>
  </objectgroup>
  <objectgroup name="sparks"/>
+ <objectgroup name="enemy">
+  <object id="49" gid="160" x="120" y="104" width="24" height="32">
+   <properties>
+    <property name="navlayerid" value="navlayer"/>
+    <property name="script" value="NavLayerTester"/>
+   </properties>
+  </object>
+  <object id="50" type="Trigger" x="0" y="0" width="8" height="8"/>
+ </objectgroup>
+ <objectgroup name="navlayer">
+  <properties>
+   <property name="script" value="NavLayer"/>
+  </properties>
+  <object id="41" x="8" y="80">
+   <polyline points="0,0 112,24"/>
+  </object>
+  <object id="42" x="104" y="8">
+   <polyline points="0,0 16,96"/>
+  </object>
+  <object id="43" x="232" y="96">
+   <polyline points="0,0 -112,8"/>
+  </object>
+  <object id="44" x="96" y="200">
+   <polyline points="0,0 24,-96"/>
+  </object>
+  <object id="45" x="8" y="80">
+   <polyline points="0,0 88,120"/>
+  </object>
+  <object id="46" x="104" y="8">
+   <polyline points="0,0 -96,72"/>
+  </object>
+  <object id="47" x="104" y="8">
+   <polyline points="0,0 128,88"/>
+  </object>
+  <object id="48" x="232" y="96">
+   <polyline points="0,0 -136,104"/>
+  </object>
+ </objectgroup>
  <objectgroup name="player">
   <object id="40" name="player" gid="23" x="120" y="280" width="64" height="64">
    <properties>

@@ -8,8 +8,10 @@ return {
   height = 40,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 41,
+  nextobjectid = 52,
   properties = {
+    ["cameraid"] = 39,
+    ["playerid"] = 40,
     ["script"] = "ShmupMap"
   },
   tilesets = {
@@ -49,6 +51,7 @@ return {
         y = 0
       },
       properties = {
+        ["commoncollision"] = 0,
         ["row_full"] = 1,
         ["row_notfull"] = 0
       },
@@ -187,7 +190,9 @@ return {
                 height = 8,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               },
               {
                 id = 7,
@@ -200,9 +205,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 8,
@@ -215,9 +218,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 10,
@@ -230,9 +231,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 11,
@@ -245,9 +244,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 12,
@@ -260,9 +257,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 13,
@@ -275,9 +270,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 14,
@@ -290,9 +283,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               },
               {
                 id = 15,
@@ -305,9 +296,7 @@ return {
                 height = 0,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["sensor"] = true
-                }
+                properties = {}
               }
             }
           },
@@ -370,7 +359,9 @@ return {
                 height = 128,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           },
@@ -459,7 +450,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -524,7 +517,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           },
@@ -686,7 +681,9 @@ return {
                 height = 4,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -781,6 +778,89 @@ return {
           }
         }
       }
+    },
+    {
+      name = "infmen",
+      firstgid = 124,
+      filename = "img/infmen.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/infmen.png",
+      imagewidth = 432,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      properties = {
+        ["column_archer"] = 12,
+        ["column_hero"] = 15,
+        ["column_mage"] = 9,
+        ["column_pikeman"] = 0,
+        ["column_priest"] = 6,
+        ["column_swordsman"] = 3,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_down"] = 2,
+        ["row_ko"] = 4,
+        ["row_left"] = 3,
+        ["row_right"] = 1,
+        ["row_up"] = 0
+      },
+      terrains = {},
+      tilecount = 90,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -823,6 +903,198 @@ return {
       draworder = "topdown",
       properties = {},
       objects = {}
+    },
+    {
+      type = "objectgroup",
+      name = "enemy",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 49,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 120,
+          y = 104,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 160,
+          visible = true,
+          properties = {
+            ["navlayerid"] = "navlayer",
+            ["script"] = "NavLayerTester"
+          }
+        },
+        {
+          id = 50,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = 0,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "navlayer",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "NavLayer"
+      },
+      objects = {
+        {
+          id = 41,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 8,
+          y = 80,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 112, y = 24 }
+          },
+          properties = {}
+        },
+        {
+          id = 42,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 104,
+          y = 8,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 16, y = 96 }
+          },
+          properties = {}
+        },
+        {
+          id = 43,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 232,
+          y = 96,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -112, y = 8 }
+          },
+          properties = {}
+        },
+        {
+          id = 44,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 96,
+          y = 200,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 24, y = -96 }
+          },
+          properties = {}
+        },
+        {
+          id = 45,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 8,
+          y = 80,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 88, y = 120 }
+          },
+          properties = {}
+        },
+        {
+          id = 46,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 104,
+          y = 8,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -96, y = 72 }
+          },
+          properties = {}
+        },
+        {
+          id = 47,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 104,
+          y = 8,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 128, y = 88 }
+          },
+          properties = {}
+        },
+        {
+          id = 48,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 232,
+          y = 96,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -136, y = 104 }
+          },
+          properties = {}
+        }
+      }
     },
     {
       type = "objectgroup",

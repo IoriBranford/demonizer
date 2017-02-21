@@ -356,7 +356,7 @@ function ShmupWingman:beginDraw()
 
 		love.graphics.setColor(flash, 0xff, flash)
 	elseif not self.targetcaptiveid then
-		love.graphics.setColor(0x1ff, 0xff, 0x1ff)
+		love.graphics.setColor(0xff, 0xff, 0xff, 0xc0)
 	else
 		local playerid = levity.map.properties.playerid
 		local focused = levity.machine:call(playerid, "isFocused")
