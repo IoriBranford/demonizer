@@ -84,12 +84,31 @@ function ShmupVehicle:explode()
 	levity.machine:broadcast("vehicleDestroyed", self.object.id)
 	levity.machine:broadcast("pointsScored",
 				self.properties.killpoints or 1000)
-	self:remove()
+
+	local destroyedtile = self.properties.destroyedtile
+	if destroyedtile then
+		local destroyedgid = levity:getTileGid(
+			self.object.tile.tileset,
+			destroyedtile)
+
+		-- Optimally, would change body type to static and
+		-- remove all fixtures.
+		-- But those can't change in a collision callback.
+		levity:setObjectGid(self.object, destroyedgid,
+					true, nil, false)
+
+		for _, fixture in pairs(self.object.body:getFixtureList()) do
+			fixture:setFilterData(0, 0, 0)
+		end
+	else
+		self:remove()
+	end
 end
 
 function ShmupVehicle:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	if self.health >= 1 then
-		local bulletproperties = otherfixture:getBody():getUserData().properties
+		local bulletproperties =
+			otherfixture:getBody():getUserData().properties
 		local damage = bulletproperties.damage or 1
 
 		self.health = self.health - damage

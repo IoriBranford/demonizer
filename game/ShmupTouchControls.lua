@@ -41,12 +41,14 @@ function ShmupTouchControls:touchpressed(touch, x, y, dx, dy)
 
 	if not self.movetouch then
 		self.movetouch = touch
-		levity.machine:call(self.playerid, "setFiring", true)
+		levity.machine:call(self.playerid, "joystickchanged",
+					ShmupPlayer.Button_Fire, true)
 		self.movemarker.visible = true
 		self:updateMarker(self.movemarker, x, y)
 	elseif not self.focustouch then
 		self.focustouch = touch
-		levity.machine:call(self.playerid, "setFocused", true)
+		levity.machine:call(self.playerid, "joystickchanged",
+					ShmupPlayer.Button_Focus, true)
 		self.focusmarker.visible = true
 		self:updateMarker(self.focusmarker, x, y)
 	elseif not self.bombtouch then
@@ -67,13 +69,17 @@ end
 
 function ShmupTouchControls:touchreleased(touch, x, y, dx, dy)
 	if touch == self.bombtouch then
+		levity.machine:call(self.playerid, "joystickchanged",
+					ShmupPlayer.Button_Bomb, false)
 		self.bombtouch = nil
 	elseif touch == self.focustouch then
-		levity.machine:call(self.playerid, "setFocused", false)
+		levity.machine:call(self.playerid, "joystickchanged",
+					ShmupPlayer.Button_Focus, false)
 		self.focustouch = nil
 		self.focusmarker.visible = false
 	elseif touch == self.movetouch then
-		levity.machine:call(self.playerid, "setFiring", false)
+		levity.machine:call(self.playerid, "joystickchanged",
+					ShmupPlayer.Button_Fire, false)
 		levity.machine:call(self.playerid, "mousemoved", x, y, dx, dy)
 		self.movetouch = nil
 		self.movemarker.visible = false
