@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="30" height="40" tilewidth="8" tileheight="8" nextobjectid="52">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="30" height="40" tilewidth="8" tileheight="8" nextobjectid="53">
  <properties>
   <property name="cameraid" type="int" value="39"/>
   <property name="playerid" type="int" value="40"/>
@@ -16,7 +16,7 @@
  <tileset firstgid="80" source="img/humanshots.tsx"/>
  <tileset firstgid="108" source="img/sparks_med.tsx"/>
  <tileset firstgid="124" source="img/infmen.tsx"/>
- <objectgroup name="camera">
+ <objectgroup name="camera" visible="0">
   <object id="39" name="camera" x="0" y="0" width="240" height="320">
    <properties>
     <property name="collidable" type="bool" value="true"/>
@@ -27,7 +27,7 @@
  </objectgroup>
  <objectgroup name="sparks"/>
  <objectgroup name="enemy">
-  <object id="49" gid="160" x="120" y="104" width="24" height="32">
+  <object id="49" gid="160" x="120" y="72" width="24" height="32">
    <properties>
     <property name="navlayerid" value="navlayer"/>
     <property name="script" value="NavLayerTester"/>
@@ -39,29 +39,11 @@
   <properties>
    <property name="script" value="NavLayer"/>
   </properties>
-  <object id="41" x="8" y="80">
-   <polyline points="0,0 112,24"/>
+  <object id="44" x="96" y="168">
+   <polyline points="32,-8 56,-48 -8,-56 24,-96"/>
   </object>
-  <object id="42" x="104" y="8">
-   <polyline points="0,0 16,96"/>
-  </object>
-  <object id="43" x="232" y="96">
-   <polyline points="0,0 -112,8"/>
-  </object>
-  <object id="44" x="96" y="200">
-   <polyline points="0,0 24,-96"/>
-  </object>
-  <object id="45" x="8" y="80">
-   <polyline points="0,0 88,120"/>
-  </object>
-  <object id="46" x="104" y="8">
-   <polyline points="0,0 -96,72"/>
-  </object>
-  <object id="47" x="104" y="8">
-   <polyline points="0,0 128,88"/>
-  </object>
-  <object id="48" x="232" y="96">
-   <polyline points="0,0 -136,104"/>
+  <object id="52" x="96" y="200">
+   <polygon points="-56,-8 32,-40 128,-8"/>
   </object>
  </objectgroup>
  <objectgroup name="player">

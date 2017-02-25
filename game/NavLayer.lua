@@ -10,14 +10,28 @@ NavLayer = class(function(self, id)
 	-- 	cell2 = {destpoint3, destpoint4, ...}, ...
 	-- }
 
-	for _, object in pairs(self.layer.objects) do
-		local line = object.polyline
-		if line then
-			local p1, p2 = line[1], line[2]
-			local n1 = self:getNode(p1.x, p1.y)
-			local n2 = self:getNode(p2.x, p2.y)
+	local function addSegment(p1, p2)
+		local n1 = self:getNode(p1.x, p1.y)
+		local n2 = self:getNode(p2.x, p2.y)
+		if n1 ~= n2 then
 			n1[#n1 + 1] = p2
 			n2[#n2 + 1] = p1
+		end
+	end
+
+	for _, object in pairs(self.layer.objects) do
+		local line = object.polyline or object.polygon
+		if line then
+			local p1 = line[1]
+			for i = 2, #line do
+				local p2 = line[i]
+				addSegment(p1, p2)
+				p1 = p2
+			end
+			if object.shape == "polygon" then
+				local p2 = line[1]
+				addSegment(p1, p2)
+			end
 		end
 	end
 end)
@@ -37,10 +51,18 @@ end
 
 function NavLayer:beginDraw()
 	for _, object in pairs(self.layer.objects) do
-		local line = object.polyline
+		local line = object.polyline or object.polygon
 		if line then
-			local p1, p2 = line[1], line[2]
-			love.graphics.line(p1.x, p1.y, p2.x, p2.y)
+			local p1 = line[1]
+			for i = 2, #line do
+				local p2 = line[i]
+				love.graphics.line(p1.x, p1.y, p2.x, p2.y)
+				p1 = p2
+			end
+			if object.shape == "polygon" then
+				local p2 = line[1]
+				love.graphics.line(p1.x, p1.y, p2.x, p2.y)
+			end
 		end
 	end
 end

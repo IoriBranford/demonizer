@@ -1,14 +1,14 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "0.18.1",
+  tiledversion = "0.18.2",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 30,
   height = 40,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 52,
+  nextobjectid = 53,
   properties = {
     ["cameraid"] = 39,
     ["playerid"] = 40,
@@ -867,7 +867,7 @@ return {
     {
       type = "objectgroup",
       name = "camera",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -920,7 +920,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 120,
-          y = 104,
+          y = 72,
           width = 24,
           height = 32,
           rotation = 0,
@@ -959,138 +959,39 @@ return {
       },
       objects = {
         {
-          id = 41,
-          name = "",
-          type = "",
-          shape = "polyline",
-          x = 8,
-          y = 80,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 112, y = 24 }
-          },
-          properties = {}
-        },
-        {
-          id = 42,
-          name = "",
-          type = "",
-          shape = "polyline",
-          x = 104,
-          y = 8,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 16, y = 96 }
-          },
-          properties = {}
-        },
-        {
-          id = 43,
-          name = "",
-          type = "",
-          shape = "polyline",
-          x = 232,
-          y = 96,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = -112, y = 8 }
-          },
-          properties = {}
-        },
-        {
           id = 44,
           name = "",
           type = "",
           shape = "polyline",
+          x = 96,
+          y = 168,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 32, y = -8 },
+            { x = 56, y = -48 },
+            { x = -8, y = -56 },
+            { x = 24, y = -96 }
+          },
+          properties = {}
+        },
+        {
+          id = 52,
+          name = "",
+          type = "",
+          shape = "polygon",
           x = 96,
           y = 200,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 24, y = -96 }
-          },
-          properties = {}
-        },
-        {
-          id = 45,
-          name = "",
-          type = "",
-          shape = "polyline",
-          x = 8,
-          y = 80,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 88, y = 120 }
-          },
-          properties = {}
-        },
-        {
-          id = 46,
-          name = "",
-          type = "",
-          shape = "polyline",
-          x = 104,
-          y = 8,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = -96, y = 72 }
-          },
-          properties = {}
-        },
-        {
-          id = 47,
-          name = "",
-          type = "",
-          shape = "polyline",
-          x = 104,
-          y = 8,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 128, y = 88 }
-          },
-          properties = {}
-        },
-        {
-          id = 48,
-          name = "",
-          type = "",
-          shape = "polyline",
-          x = 232,
-          y = 96,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = -136, y = 104 }
+          polygon = {
+            { x = -56, y = -8 },
+            { x = 32, y = -40 },
+            { x = 128, y = -8 }
           },
           properties = {}
         }
