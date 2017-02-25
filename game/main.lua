@@ -1,2 +1,5 @@
 local levity = require "levity"
-levity:setNextMap("maps/title.lua")
+levity:setNextMap("title.lua")
+love.filesystem.setRequirePath(
+	"scr/?.lua;",
+	love.filesystem.getRequirePath())

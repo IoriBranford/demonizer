@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="48" height="64" tilewidth="5" tileheight="5" nextobjectid="13">
+ <properties>
+  <property name="music" type="file" value="mus/02 - Burning Heart.vgm"/>
+  <property name="nextmap" type="file" value="village.lua"/>
+  <property name="script" value="TitleMap"/>
+ </properties>
+ <tileset firstgid="1" source="img/bg_swirl.tsx"/>
+ <tileset firstgid="101" source="img/title.tsx"/>
+ <layer name="Tile Layer 1" width="48" height="64">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3VVVZCAQBF0fdERQzEwsICu0WxFRMTEwtbnP8YPKNw3cW6H/vv/J8wCIIaRFCLOtQjigbE0IhQtGtCM1oQRysSaEM7OtAp3HUhiW70oBd96EcKAxgU7oYwjBGkkcEoxjCOCUwKd1OYxgxmMYd5LGARS8gKd8tYQQ6rWMM6NrCJLWwLdzvYRR572McBDnGEYxSEuxOc4gznuMAlirjCNW6Eu1vc4R4lPOART3jGC8rC3Sve8I4PfOIL3/hBBb/CnepX/V//1//1f/1f/9f/1e1Uv+r/+r/+r//r//q//q9up/pV/9f/9X/9X//X//V/dTvVr/q//u9/dKpf9X/9X//X//V//V//V7dT/ar/6//6v9X/3z8EBwieADAAAA==
+  </data>
+ </layer>
+ <objectgroup draworder="index" name="Object Layer 1">
+  <object id="1" name="copyright" x="0" y="300" width="240" height="20">
+   <properties>
+    <property name="text" value="© 2016 IoriBranford"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+  </object>
+  <object id="2" name="instructions" x="70" y="190" width="100" height="40">
+   <properties>
+    <property name="text">Z key: FIRE
+
+X key: FOCUS
+
+C key: BOMB</property>
+    <property name="textalign" value="left"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+  </object>
+  <object id="3" name="hiscore" x="0" y="5" width="240" height="10">
+   <properties>
+    <property name="text" value="HI SCORE 0"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+  </object>
+  <object id="7" name="dem" gid="101" x="90" y="125" width="128" height="32"/>
+  <object id="9" name="oni" gid="102" x="120" y="125" width="128" height="32"/>
+  <object id="10" name="zer" gid="103" x="150" y="125" width="128" height="32"/>
+  <object id="11" name="camera" x="0" y="0" width="240" height="320" visible="0">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+    <property name="script" value="ShmupCam"/>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="12" name="pressstart" x="0" y="260" width="240" height="10">
+   <properties>
+    <property name="text" value="PRESS Z TO START"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="curtain">
+  <properties>
+   <property name="script" value="Curtain"/>
+  </properties>
+ </objectgroup>
+</map>
