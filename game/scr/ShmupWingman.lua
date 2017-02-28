@@ -61,7 +61,8 @@ ShmupWingman.BulletParams = {
 }
 ShmupWingman.ConversionOffset = 1/64 --to ensure correct draw order for conversion vfx
 ShmupWingman.ConvertTime = 1
-ShmupWingman.ConvertShake = 2
+--ShmupWingman.ConvertShake = 4
+ShmupWingman.ConvertDist = 16
 ShmupWingman.LockSearchWidth = 120
 ShmupWingman.LockSearchHeight = 160
 ShmupWingman.UnfocusedHealRate = 1
@@ -142,6 +143,10 @@ function ShmupWingman:getWingmanIndex()
 	return self.wingmanindex
 end
 
+function ShmupWingman:getConvertTimer()
+	return self.converttimer
+end
+
 function ShmupWingman:beginContact(myfixture, otherfixture, contact)
 	local otherdata = otherfixture:getBody():getUserData()
 	if not otherdata or not otherdata.properties then
@@ -152,8 +157,9 @@ function ShmupWingman:beginContact(myfixture, otherfixture, contact)
 
 	if category == ShmupCollision.Category_NPCTeam then
 		local captiveid = otherfixture:getBody():getUserData().id
-		if not levity.machine:call(captiveid, "isFemale")
-		and levity.machine:call(captiveid, "canBeCaptured") then
+		if levity.machine:call(captiveid, "isFemale") then
+			self.targetcaptiveid = captiveid
+		elseif levity.machine:call(captiveid, "canBeCaptured") then
 			local captivegid = levity.machine:call(captiveid, "getKOGid")
 			local i = (self.numcaptives % ShmupPlayer.CaptivesReleasedOnKill) + 1
 			self.captivegids[i] = captivegid
@@ -264,7 +270,7 @@ function ShmupWingman:beginMove(dt)
 	local playerid = levity.map.properties.playerid
 
 	local cx, cy = body:getWorldCenter()
-	local destx, desty
+	local destx, desty = cx, cy
 	local captive
 
 	local scoreid = levity.machine:call("hud", "getScoreId")
@@ -275,31 +281,60 @@ function ShmupWingman:beginMove(dt)
 			if not self.targetcaptiveid then
 				self.targetcaptiveid = self:findTarget("canBeCaptured")
 			end
-			captive = levity.map.objects[self.targetcaptiveid]
 		end
 	else
 		self:heal(ShmupWingman.UnfocusedHealRate * dt)
+
+		if not levity.machine:call(self.targetcaptiveid, "isFemale") then
+			self.targetcaptiveid = nil
+		end
+	end
+
+	if self.targetcaptiveid then
+		captive = levity.map.objects[self.targetcaptiveid]
 	end
 
 	if captive then
 		destx, desty = captive.body:getWorldCenter()
+		if captive.properties.script == "ShmupWingman" then
+			if not captive.properties.conversionid
+			or captive.properties.captorid ~= self.object.id then
+				self.targetcaptiveid = nil
+			else
+				local captiveconverttimer =
+					levity.machine:call(self.targetcaptiveid,
+						"getConvertTimer") or 0
+
+				desty = desty
+					+ ShmupWingman.ConvertDist
+						* (.5 + captiveconverttimer)
+				--	ShmupWingman.ConvertShake
+				--		* math.sin(captiveconverttimer * 60)
+			end
+		end
+	elseif self.properties.conversionid then
+		if playerid == self.properties.captorid then
+			local player = levity.map.objects[playerid]
+			destx, desty = player.body:getWorldCenter()
+			desty = desty - ShmupWingman.ConvertDist
+		end
 	elseif ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
 		destx, desty = levity.machine:call(playerid, "getWingmanPosition",
 						self.wingmanindex)
 		self.targetcaptiveid = nil
 
-		if self.properties.conversionid then
-			desty = desty + ShmupWingman.ConvertShake--*self.converttimer
-				*math.sin(self.converttimer * 60)
-		end
+		--if self.properties.conversionid then
+		--	desty = desty + ShmupWingman.ConvertShake--*self.converttimer
+		--		*math.sin(self.converttimer * 60)
+		--end
 	else
 		destx, desty = self.object.body:getWorldCenter()
-		if self.properties.conversionid then
-			desty = desty + ShmupWingman.ConvertShake--*self.converttimer
-				*math.sin(self.converttimer * 60)
-		else
+		--if self.properties.conversionid then
+		--	desty = desty + ShmupWingman.ConvertShake--*self.converttimer
+		--		*math.sin(self.converttimer * 60)
+		--else
 			desty = desty + ShmupWingman.Speed
-		end
+		--end
 	end
 
 	self:setVulnerable(self.targetcaptiveid ~= nil)
@@ -370,14 +405,14 @@ function ShmupWingman:beginDraw()
 		end
 	end
 
-	local scoreid = levity.machine:call("hud", "getScoreId")
-	if scoreid then
-		self.properties.text = levity.machine:call(scoreid,
-					"getMultiplier", self.object.id)
-	else
-		self.properties.text = nil
-	end
-	self.properties.textfont = "fnt/pressstart2p.fnt"
+	--local scoreid = levity.machine:call("hud", "getScoreId")
+	--if scoreid then
+	--	self.properties.text = levity.machine:call(scoreid,
+	--				"getMultiplier", self.object.id)
+	--else
+	--	self.properties.text = nil
+	--end
+	--self.properties.textfont = "fnt/pressstart2p.fnt"
 end
 
 function ShmupWingman:endDraw()

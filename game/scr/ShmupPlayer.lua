@@ -599,14 +599,14 @@ function ShmupPlayer:beginDraw()
 		love.graphics.setColor(0xff, 0xff, 0xff, alpha)
 	end
 
-	local scoreid = levity.machine:call("hud", "getScoreId")
-	if scoreid then
-		self.properties.text = levity.machine:call(scoreid,
-					"getMultiplier", self.object.id)
-	else
-		self.properties.text = nil
-	end
-	self.properties.textfont = "fnt/pressstart2p.fnt"
+	--local scoreid = levity.machine:call("hud", "getScoreId")
+	--if scoreid then
+	--	self.properties.text = levity.machine:call(scoreid,
+	--				"getMultiplier", self.object.id)
+	--else
+	--	self.properties.text = nil
+	--end
+	--self.properties.textfont = "fnt/pressstart2p.fnt"
 end
 
 function ShmupPlayer:endDraw()
