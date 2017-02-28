@@ -388,7 +388,7 @@ function ShmupWingman:playerVictorious()
 	self:setVulnerable(false)
 end
 
-function ShmupWingman.create(gid, x, y, captorid)
+function ShmupWingman.create(gid, x, y, captorid, captiveid)
 	local playerid = levity.map.properties.playerid
 	local player = levity.map.objects[playerid]
 
@@ -406,16 +406,16 @@ function ShmupWingman.create(gid, x, y, captorid)
 		player.layer:addObject(conversion)
 	end
 
-	local wingman = {
-		id = levity:newObjectId(),
-		gid = gid,
-		x = x,
-		y = y,
-		properties = {
-			conversionid = conversionid,
-			script = "ShmupWingman",
-			captorid = captorid
-		}
+	local wingman = levity.map.objects[captiveid]
+			or { id = levity:newObjectId() }
+
+	wingman.gid = gid
+	wingman.x = x
+	wingman.y = y
+	wingman.properties = {
+		conversionid = conversionid,
+		script = "ShmupWingman",
+		captorid = captorid
 	}
 
 	player.layer:addObject(wingman)

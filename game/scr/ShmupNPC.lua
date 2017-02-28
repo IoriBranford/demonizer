@@ -293,16 +293,15 @@ function ShmupNPC:capture(captorid)
 		local newwingmanid = ShmupWingman.create(
 				levity:getTileGid(self.object.tile.tileset,
 							"up", self.npctype),
-				cx, cy, captorid)
+				cx, cy, captorid, self.object.id)
 
 		levity.bank:play(Sounds.Convert)
 		levity.bank:play(Sounds.FemaleCapture)
 	else
 		levity.bank:play(Sounds.MaleCapture)
 		levity.machine:broadcast("npcCaptured", self.object.id, captorid)
+		self:discard()
 	end
-
-	self:discard()
 end
 
 function ShmupNPC:die()
