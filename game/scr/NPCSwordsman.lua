@@ -12,7 +12,7 @@ end)
 NPCSwordsman.BulletInterval = 1
 NPCSwordsman.BulletParams = {
 	speed = 2.5*60,
-	gid = levity:getTileGid("humanshots", "sword", 0),
+	gid = levity.map:getTileGid("humanshots", "sword", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 

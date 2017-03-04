@@ -21,7 +21,7 @@ VehicleLavaSpray.BulletParams = {
 	speed = 60,
 	accelx = 0,
 	accely = 4*60,
-	gid = levity:getTileGid("humanshots", "fire", 0),
+	gid = levity.map:getTileGid("humanshots", "fire", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 

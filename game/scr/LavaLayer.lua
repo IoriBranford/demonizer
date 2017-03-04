@@ -13,7 +13,7 @@ end)
 
 local Tileset = "lavapit"
 local NumRows = 2
-local FirstGid = levity:getTileGid(Tileset, "lava", 0)
+local FirstGid = levity.map:getTileGid(Tileset, "lava", 0)
 
 function LavaLayer:keypressed_space()
 	self:ascentStarted()
@@ -34,7 +34,7 @@ function LavaLayer:beginMove(dt)
 
 	local gid = FirstGid
 	for r = 1, NumRows do
-		levity:updateTileAnimations(gid, tileset.tilecolumns,
+		levity.map:updateTileAnimations(gid, tileset.tilecolumns,
 							dt*timescale)
 		gid = gid + tileset.tilecolumns
 	end

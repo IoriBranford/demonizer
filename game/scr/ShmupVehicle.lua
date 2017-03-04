@@ -69,7 +69,7 @@ function ShmupVehicle:explode()
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		local l, t, r, b = fixture:getBoundingBox()
 		local explosion = {
-			gid = levity:getTileGid("sparks_med", "explosion", 0),
+			gid = levity.map:getTileGid("sparks_med", "explosion", 0),
 			x = l + (r-l)*.5,
 			y = t + (b-t)*.5,
 			properties = {
@@ -81,20 +81,20 @@ function ShmupVehicle:explode()
 
 	levity.bank:play(Sounds.KO)
 	levity.bank:play(Sounds.Boom2)
-	levity.machine:broadcast("vehicleDestroyed", self.object.id)
-	levity.machine:broadcast("pointsScored",
+	levity.map.scripts:broadcast("vehicleDestroyed", self.object.id)
+	levity.map.scripts:broadcast("pointsScored",
 				self.properties.killpoints or 1000)
 
 	local destroyedtile = self.properties.destroyedtile
 	if destroyedtile then
-		local destroyedgid = levity:getTileGid(
+		local destroyedgid = levity.map:getTileGid(
 			self.object.tile.tileset,
 			destroyedtile)
 
 		-- Optimally, would change body type to static and
 		-- remove all fixtures.
 		-- But those can't change in a collision callback.
-		levity:setObjectGid(self.object, destroyedgid,
+		self.object:setGid(destroyedgid,
 					true, nil, false)
 
 		for _, fixture in pairs(self.object.body:getFixtureList()) do
@@ -140,7 +140,7 @@ function ShmupVehicle:endContact(myfixture, otherfixture, contact)
 end
 
 function ShmupVehicle:remove()
-	levity:discardObject(self.object.id)
+	levity.map:discardObject(self.object.id)
 --	if self.onRemove then
 --		self.onRemove()
 --	end
@@ -164,7 +164,7 @@ function ShmupVehicle:beginMove(dt)
 
 	if not self.pathwalker then
 		local pathid = self.properties.pathid
-		self.pathwalker = levity.machine:call(pathid, "newWalker",
+		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
 						self.properties.pathtime)
 	end
 

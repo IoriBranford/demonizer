@@ -22,7 +22,7 @@ local ShmupCam = class(function(self, id)
 	edgefixture:setCategory(ShmupCollision.Category_CameraEdge)
 	edgefixture:setMask(ShmupCollision.Category_Default)
 
-	self.camera = levity.camera
+	self.camera = levity.map.camera
 	local cx, cy = self.object.body:getWorldCenter()
 	self.camera:set(cx, cy, self.object.width, self.object.height)
 
@@ -42,7 +42,7 @@ function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
 		self.activatedgrouptriggerids[triggerobject.id] = triggerobject.id
 	else
 		for _, object in ipairs(triggerlayer.objects) do
-			levity.machine:call(object.id, "activate")
+			levity.map.scripts:call(object.id, "activate")
 		end
 	end
 
@@ -60,24 +60,29 @@ end
 
 function ShmupCam:beginContact_pausecamera(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getUserData().object
-	levity:discardObject(triggerobject.id)
+	levity.map:discardObject(triggerobject.id)
 	self:pausePath(true)
 end
 
 function ShmupCam:endContact_activategroup(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getUserData().object
 	local triggerlayer = triggerobject.layer
-	for _, object in ipairs(triggerlayer.objects) do
-		levity:discardObject(object.id)
+	for _, object in pairs(triggerlayer.objects) do
+		levity.map:discardObject(object.id)
 	end
-	levity:discardObject(triggerobject.id)
+	levity.map:discardObject(triggerobject.id)
 end
 
 function ShmupCam:beginContact(myfixture, otherfixture, contact)
 	local otherdata = otherfixture:getUserData()
-	local otherproperties = otherdata.properties
-
-	local triggertype = otherproperties.triggertype
+	local otherproperties
+	local triggertype
+	if otherdata then
+		otherproperties = otherdata.properties
+		triggertype = otherproperties.triggertype
+	else
+		print(otherfixture:getBoundingBox())
+	end
 	if triggertype then
 		local f = self["beginContact_"..triggertype]
 		if f then
@@ -87,9 +92,13 @@ function ShmupCam:beginContact(myfixture, otherfixture, contact)
 end
 
 function ShmupCam:endContact(myfixture, otherfixture, contact)
-	local otherproperties = otherfixture:getUserData().properties
-
-	local triggertype = otherproperties.triggertype
+	local otherdata = otherfixture:getUserData()
+	local otherproperties
+	local triggertype
+	if otherdata then
+		otherproperties = otherdata.properties
+		triggertype = otherproperties.triggertype
+	end
 	if triggertype then
 		local f = self["endContact_"..triggertype]
 		if f then
@@ -109,7 +118,7 @@ function ShmupCam:beginMove(dt)
 	if pathid and not self.pathwalker then
 		local path = levity.map.objects[pathid]
 		path.layer:addObject(path)
-		self.pathwalker = levity.machine:call(pathid, "newWalker",
+		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
 						self.properties.pathtime)
 		if self.pathwalker then
 			self.pathwalker:findStartPoint(body:getPosition())

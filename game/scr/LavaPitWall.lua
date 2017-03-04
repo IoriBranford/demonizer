@@ -13,7 +13,7 @@ end)
 
 local Tileset = "lavapit"
 local NumRows = 3
-local FirstGid = levity:getTileGid(Tileset, "pitwall", 0)
+local FirstGid = levity.map:getTileGid(Tileset, "pitwall", 0)
 
 -- TEST
 function LavaPitWall:keypressed_space()
@@ -33,8 +33,8 @@ function LavaPitWall:beginMove(dt)
 
 		local gid = FirstGid
 		for r = 1, NumRows do
-			levity:updateTileAnimations(gid, tileset.tilecolumns,
-								dt)
+			levity.map:updateTileAnimations(gid,
+							tileset.tilecolumns, dt)
 			gid = gid + tileset.tilecolumns
 		end
 	end

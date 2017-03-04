@@ -6,7 +6,7 @@ local function idToIdx(id)
 	if id == levity.map.properties.playerid then
 		return "player"
 	end
-	return levity.machine:call(id, "getWingmanIndex")
+	return levity.map.scripts:call(id, "getWingmanIndex")
 end
 
 local ShmupScore = class(function(self, id)
@@ -38,7 +38,7 @@ levity.bank:load(Sounds)
 function ShmupScore:pointsScored(points)
 	self.points = math.min(self.points + points, ShmupScore.MaxPoints)
 	if self.points >= self.extendpoints then
-		levity.machine:broadcast("extendEarned")
+		levity.map.scripts:broadcast("extendEarned")
 		self.extendpoints = self.extendpoints + ShmupScore.ExtendInc
 		levity.bank:play(Sounds.Extend)
 	end

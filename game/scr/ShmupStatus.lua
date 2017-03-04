@@ -1,4 +1,5 @@
 local levity = require "levity"
+local Object = require "levity.object"
 local ShmupWingman -- delayed require to avoid circular dependency
 
 local MaxBombs = 3
@@ -9,7 +10,7 @@ local ShmupStatus = class(function(self, id)
 
 	if levity.map.properties.delayinitobjects == true then
 		for _, object in pairs(self.layer.objects) do
-			levity:initObject(object, self.layer)
+			Object.init(object, self.layer)
 		end
 	end
 
@@ -24,7 +25,7 @@ local ShmupStatus = class(function(self, id)
 	local nextmapstatus = levity.nextmapdata.status or {}
 	self.numlives = nextmapstatus.numlives or 2
 	self.numbombpieces = nextmapstatus.numbombpieces or 0
-	self.reservegids = levity:tileNamesToGids(nextmapstatus.reservenames) or {}
+	self.reservegids = levity.map:tileNamesToGids(nextmapstatus.reservenames) or {}
 	levity.nextmapdata.status = nil
 
 	self:updateLives()
@@ -128,7 +129,7 @@ function ShmupStatus:updateBombs()
 
 		if bomb.visible then
 			local fill = math.min(1, numbombpieces / ShmupStatus.PiecesPerBomb)
-			levity.machine:call(bomb.id, "setFill", fill)
+			levity.map.scripts:call(bomb.id, "setFill", fill)
 		end
 
 		numbombpieces = numbombpieces - ShmupStatus.PiecesPerBomb
@@ -140,7 +141,7 @@ function ShmupStatus:updateReserves()
 end
 
 function ShmupStatus:beginMove(dt)
-	local totalmultiplier = levity.machine:call(self.elements.score.id,
+	local totalmultiplier = levity.map.scripts:call(self.elements.score.id,
 							"getTotalMultiplier")
 
 	self:addBombPieces(totalmultiplier*ShmupStatus.PiecesPerCaptivePerSec*dt)
@@ -149,7 +150,7 @@ function ShmupStatus:beginMove(dt)
 	local playerid = levity.map.properties.playerid
 
 	if self:hasReserves()
-	and levity.machine:call(playerid, "roomForWingmen") then
+	and levity.map.scripts:call(playerid, "roomForWingmen") then
 		local wingmangid = self.reservegids[#self.reservegids]
 
 		local camera = levity.map.objects[levity.map.properties.cameraid]
@@ -167,15 +168,15 @@ function ShmupStatus:beginMove(dt)
 end
 
 function ShmupStatus:beginDraw()
-	self.layer.offsetx = levity.camera.x
-	self.layer.offsety = levity.camera.y
+	self.layer.offsetx = levity.map.camera.x
+	self.layer.offsety = levity.map.camera.y
 end
 
 function ShmupStatus:nextMap(nextmapfile, nextmapdata)
 	nextmapdata.status = {
 		numlives = self.numlives,
 		numbombpieces = self.numbombpieces,
-		reservenames = levity:tileGidsToNames(self.reservegids)
+		reservenames = levity.map:tileGidsToNames(self.reservegids)
 	}
 end
 

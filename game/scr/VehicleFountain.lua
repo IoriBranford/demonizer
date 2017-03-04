@@ -18,7 +18,7 @@ end)
 
 VehicleFountain.BulletParams = {
 	speed = 2*60,
-	gid = levity:getTileGid("humanshots", "water", 0),
+	gid = levity.map:getTileGid("humanshots", "water", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 

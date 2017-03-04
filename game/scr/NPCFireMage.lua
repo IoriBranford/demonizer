@@ -13,19 +13,19 @@ local NPCFireMage = class(ShmupNPC, function(self, id)
 	self.rightbullets = 5
 
 	if levity.map.properties.delayinitobjects == true then
-		levity.machine:broadcast("ascentStarted")
+		levity.map.scripts:broadcast("ascentStarted")
 	end
 end)
 
 NPCFireMage.BulletInterval = 0.125
 NPCFireMage.BulletParams = {
-	gid = levity:getTileGid("humanshots", "fire", 0),
+	gid = levity.map:getTileGid("humanshots", "fire", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 
 function NPCFireMage:activate()
 	ShmupNPC.activate(self)
-	levity.machine:broadcast("ascentStarted")
+	levity.map.scripts:broadcast("ascentStarted")
 end
 
 function NPCFireMage:fireCoroutine()

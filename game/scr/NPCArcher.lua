@@ -17,7 +17,7 @@ NPCArcher.PlayerShotSuppression = 1/8
 NPCArcher.NPCSuppressionReaction = 1/16
 NPCArcher.BulletParams = {
 	speed = 240,
-	gid = levity:getTileGid("humanshots", "arrow", 0),
+	gid = levity.map:getTileGid("humanshots", "arrow", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 
@@ -55,7 +55,7 @@ end
 function NPCArcher:suppress()
 	self.firetimer = math.min(BulletInterval,
 		self.firetimer + NPCArcher.PlayerShotSuppression)
-	levity.machine:broadcast("npcSuppressed", self.object.id)
+	levity.map.scripts:broadcast("npcSuppressed", self.object.id)
 end
 
 function NPCArcher:npcSuppressed(npcid)

@@ -68,7 +68,7 @@ local ShmupNPC = class(function(self, id)
 		self.properties.unconscious == true)
 
 	local mask
-	self.npctype = levity:getTileColumnName(self.object.gid)
+	self.npctype = levity.map:getTileColumnName(self.object.gid)
 	if string.find(self.npctype, "civ") == 1 then
 		self.health = 0
 		mask = NonCombatantMask
@@ -77,7 +77,7 @@ local ShmupNPC = class(function(self, id)
 		mask = CombatantMask
 	end
 
-	local tileset = levity:getMapTileset(self.object.tile.tileset)
+	local tileset = levity.map:getTileset(self.object.tile.tileset)
 	self.female = string.find(tileset.name, "women") ~= nil
 
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
@@ -144,7 +144,7 @@ function ShmupNPC:setActive(active)
 end
 
 function ShmupNPC:suppress()
-	levity.machine:broadcast("npcSuppressed", self.object.id)
+	levity.map.scripts:broadcast("npcSuppressed", self.object.id)
 end
 
 function ShmupNPC:canBeLockTarget()
@@ -159,7 +159,7 @@ function ShmupNPC:canBeCaptured()
 end
 
 function ShmupNPC:getKOGid()
-	return levity:getTileGid(self.object.tile.tileset,
+	return levity.map:getTileGid(self.object.tile.tileset,
 					"ko", self.npctype)
 end
 
@@ -175,7 +175,7 @@ function ShmupNPC:knockout()
 	self.health = 0
 	self.unconscious = true
 	self.pathwalker = nil
-	levity:setObjectGid(self.object, self:getKOGid())
+	self.object:setGid(self:getKOGid())
 
 	self:setInCover(false)
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
@@ -226,8 +226,8 @@ function ShmupNPC:dealDamage(damage)
 		if self.health < 1 then
 			self:knockout()
 			levity.bank:play(Sounds.KO)
-			levity.machine:broadcast("npcKnockedOut", self.object.id)
-			levity.machine:broadcast("pointsScored",
+			levity.map.scripts:broadcast("npcKnockedOut", self.object.id)
+			levity.map.scripts:broadcast("pointsScored",
 						self.properties.killpoints or 100)
 		else
 			levity.bank:play(Sounds.Hit)
@@ -291,7 +291,7 @@ function ShmupNPC:capture(captorid)
 	if self.female then
 		local cx, cy = self.object.body:getWorldCenter()
 		local newwingmanid = ShmupWingman.create(
-				levity:getTileGid(self.object.tile.tileset,
+				levity.map:getTileGid(self.object.tile.tileset,
 							"up", self.npctype),
 				cx, cy, captorid, self.object.id)
 
@@ -299,7 +299,7 @@ function ShmupNPC:capture(captorid)
 		levity.bank:play(Sounds.FemaleCapture)
 	else
 		levity.bank:play(Sounds.MaleCapture)
-		levity.machine:broadcast("npcCaptured", self.object.id, captorid)
+		levity.map.scripts:broadcast("npcCaptured", self.object.id, captorid)
 		self:discard()
 	end
 end
@@ -310,12 +310,12 @@ function ShmupNPC:die()
 	else
 		levity.bank:play(Sounds.MaleDeath)
 	end
-	levity.machine:broadcast("npcDied", self.object.id)
+	levity.map.scripts:broadcast("npcDied", self.object.id)
 	self:discard()
 end
 
 function ShmupNPC:discard()
-	levity:discardObject(self.object.id)
+	levity.map:discardObject(self.object.id)
 	if self.onDiscard then
 		self.onDiscard()
 	end
@@ -354,13 +354,13 @@ function ShmupNPC:beginMove(dt)
 	end
 
 	local capturepulldistsq
-	local scoreid = levity.machine:call("hud", "getScoreId")
+	local scoreid = levity.map.scripts:call("hud", "getScoreId")
 
 	local canbecaptured = self:canBeCaptured()
 
 	if canbecaptured
-	and levity.machine:call(playerid, "isFocused")
-	--and levity.machine:call(scoreid, "isMaxMultiplier", playerid)
+	and levity.map.scripts:call(playerid, "isFocused")
+	--and levity.map.scripts:call(scoreid, "isMaxMultiplier", playerid)
 	then
 		capturepulldistsq = ShmupNPC.EnhancedCapturePullDistSq
 	else
@@ -369,11 +369,11 @@ function ShmupNPC:beginMove(dt)
 
 	self.pulledbyplayer = self.pulledbyplayer or
 		(canbecaptured and playerdsq < capturepulldistsq
-		and not levity.machine:call(playerid, "isKilled"))
+		and not levity.map.scripts:call(playerid, "isKilled"))
 
 	if not self.pathwalker then
 		local pathid = self.properties.pathid
-		self.pathwalker = levity.machine:call(pathid, "newWalker",
+		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
 						self.properties.pathtime)
 		if self.pathwalker then
 			self.pathwalker:findStartPoint(body:getWorldCenter())
@@ -455,7 +455,7 @@ end
 function ShmupNPC:unpauseCamera()
 	local cameraid = levity.map.properties.cameraid
 	if cameraid then
-		levity.machine:call(cameraid, "pausePath", false)
+		levity.map.scripts:call(cameraid, "pausePath", false)
 	end
 end
 
@@ -467,13 +467,13 @@ function ShmupNPC:playSound(sound)
 end
 
 function ShmupNPC:playerVictory()
-	levity.machine:broadcast("playerVictorious")
+	levity.map.scripts:broadcast("playerVictorious")
 end
 
 function ShmupNPC:vehicleDestroyed(vehicleid)
 	if self.properties.vehicleid == vehicleid then
 		self:knockout()
-		levity.machine:broadcast("npcKnockedOut", self.object.id)
+		levity.map.scripts:broadcast("npcKnockedOut", self.object.id)
 	end
 end
 

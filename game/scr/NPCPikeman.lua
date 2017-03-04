@@ -12,7 +12,7 @@ end)
 NPCPikeman.BulletInterval = 1.5
 NPCPikeman.BulletParams = {
 	speed = 120,
-	gid = levity:getTileGid("humanshots", "pike", 0),
+	gid = levity.map:getTileGid("humanshots", "pike", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 

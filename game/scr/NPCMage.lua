@@ -15,7 +15,7 @@ end)
 NPCMage.BulletInterval = 0.125
 NPCMage.BulletParams = {
 	speed = 4*60,
-	gid = levity:getTileGid("humanshots", "magic", 0),
+	gid = levity.map:getTileGid("humanshots", "magic", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 

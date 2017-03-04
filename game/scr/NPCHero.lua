@@ -15,7 +15,7 @@ end)
 NPCHero.JumpGravity = 480
 NPCHero.BulletParams = {
 	speed = 180,
-	gid = levity:getTileGid("humanshots", "sword", 0),
+	gid = levity.map:getTileGid("humanshots", "sword", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 

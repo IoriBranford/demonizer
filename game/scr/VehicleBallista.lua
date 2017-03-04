@@ -8,14 +8,14 @@ local VehicleBallista = class(ShmupVehicle, function(self, id)
 	ShmupVehicle.init(self, id)
 	self.health = 64
 
-	local row = levity:getTileColumnName(self.object.gid)
+	local row = levity.map:getTileColumnName(self.object.gid)
 	local angle = string.match(row, "angle(%d+)")
 	self.angle = math.rad(tonumber(angle))
 end)
 
 VehicleBallista.BulletParams = {
 	speed = 8*60,
-	gid = levity:getTileGid("humanshots", "ballista", 0),
+	gid = levity.map:getTileGid("humanshots", "ballista", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 

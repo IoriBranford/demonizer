@@ -1,4 +1,6 @@
 local levity = require "levity"
+local Object = require "levity.object"
+
 local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = require("ShmupNPC")
 
@@ -78,7 +80,7 @@ local ShmupMap = class(function(self, id)
 				local istrigger = nil
 				for _, object in ipairs(layer.objects) do
 					if object.properties.triggertype then
-						levity:initObject(object, layer)
+						Object.init(object, layer)
 						istrigger = true
 					end
 				end
@@ -86,7 +88,7 @@ local ShmupMap = class(function(self, id)
 				if not istrigger
 				and layer.properties.static ~= true then
 					for _, object in ipairs(layer.objects) do
-						levity:initObject(object, layer)
+						Object.init(object, layer)
 					end
 				end
 			end
@@ -103,12 +105,12 @@ ShmupMap.DefeatTime = 16
 
 function ShmupMap:endMove(dt)
 	local playerid = self.properties.playerid
-	self.rank = levity.machine:call(playerid, "rankFactor")
+	self.rank = levity.map.scripts:call(playerid, "rankFactor")
 
 	if self.resulttimer then
 		if self.resulttimer < self.resulttime - 1
 		and self.resulttimer + dt >= self.resulttime - 1 then
-			levity.machine:call("curtain", "beginFall")
+			levity.map.scripts:call("curtain", "beginFall")
 		end
 		self.resulttimer = self.resulttimer + dt
 		if self.resulttimer >= self.resulttime then
