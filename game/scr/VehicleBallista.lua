@@ -4,18 +4,20 @@ local ShmupNPC = require("ShmupNPC")
 local ShmupVehicle = require("ShmupVehicle")
 local ShmupBullet = require("ShmupBullet")
 
-local VehicleBallista = class(ShmupVehicle, function(self, id)
-	ShmupVehicle.init(self, id)
+local VehicleBallista
+VehicleBallista = class(ShmupVehicle, function(self, object)
+	VehicleBallista.BulletParams.gid =
+		object.layer.map:getTileGid("humanshots", "ballista", 0)
+	ShmupVehicle.init(self, object)
 	self.health = 64
 
-	local row = levity.map:getTileColumnName(self.object.gid)
+	local row = self.object.layer.map:getTileColumnName(self.object.gid)
 	local angle = string.match(row, "angle(%d+)")
 	self.angle = math.rad(tonumber(angle))
 end)
 
 VehicleBallista.BulletParams = {
 	speed = 8*60,
-	gid = levity.map:getTileGid("humanshots", "ballista", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 

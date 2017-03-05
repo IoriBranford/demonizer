@@ -8,11 +8,11 @@ local Sounds = {
 }
 levity.bank:load(Sounds)
 
-local ShmupVehicle = class(function(self, id)
-	self.object = levity.map.objects[id]
+local ShmupVehicle = class(function(self, object)
+	self.object = object
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
-	self:setActive(levity.map.properties.delayinitobjects == true)
+	self:setActive(self.object.layer.map.properties.delayinitobjects == true)
 
 	self.health = 64
 
@@ -69,7 +69,7 @@ function ShmupVehicle:explode()
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		local l, t, r, b = fixture:getBoundingBox()
 		local explosion = {
-			gid = levity.map:getTileGid("sparks_med", "explosion", 0),
+			gid = self.object.layer.map:getTileGid("sparks_med", "explosion", 0),
 			x = l + (r-l)*.5,
 			y = t + (b-t)*.5,
 			properties = {
@@ -81,13 +81,13 @@ function ShmupVehicle:explode()
 
 	levity.bank:play(Sounds.KO)
 	levity.bank:play(Sounds.Boom2)
-	levity.map.scripts:broadcast("vehicleDestroyed", self.object.id)
-	levity.map.scripts:broadcast("pointsScored",
+	self.object.layer.map.scripts:broadcast("vehicleDestroyed", self.object.id)
+	self.object.layer.map.scripts:broadcast("pointsScored",
 				self.properties.killpoints or 1000)
 
 	local destroyedtile = self.properties.destroyedtile
 	if destroyedtile then
-		local destroyedgid = levity.map:getTileGid(
+		local destroyedgid = self.object.layer.map:getTileGid(
 			self.object.tile.tileset,
 			destroyedtile)
 
@@ -140,7 +140,7 @@ function ShmupVehicle:endContact(myfixture, otherfixture, contact)
 end
 
 function ShmupVehicle:remove()
-	levity.map:discardObject(self.object.id)
+	self.object.layer.map:discardObject(self.object.id)
 --	if self.onRemove then
 --		self.onRemove()
 --	end
@@ -164,7 +164,7 @@ function ShmupVehicle:beginMove(dt)
 
 	if not self.pathwalker then
 		local pathid = self.properties.pathid
-		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
+		self.pathwalker = self.object.layer.map.scripts:call(pathid, "newWalker",
 						self.properties.pathtime)
 	end
 

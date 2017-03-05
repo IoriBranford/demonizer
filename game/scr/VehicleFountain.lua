@@ -4,8 +4,11 @@ local ShmupNPC = require("ShmupNPC")
 local ShmupVehicle = require("ShmupVehicle")
 local ShmupBullet = require("ShmupBullet")
 
-local VehicleFountain = class(ShmupVehicle, function(self, id)
-	ShmupVehicle.init(self, id)
+local VehicleFountain
+VehicleFountain = class(ShmupVehicle, function(self, object)
+	VehicleFountain.BulletParams.gid =
+		object.layer.map:getTileGid("humanshots", "water", 0)
+	ShmupVehicle.init(self, object)
 	self.health = 128
 	self.fireco = nil
 
@@ -18,7 +21,6 @@ end)
 
 VehicleFountain.BulletParams = {
 	speed = 2*60,
-	gid = levity.map:getTileGid("humanshots", "water", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 
@@ -36,8 +38,8 @@ function VehicleFountain:fireCoroutine()
 		local accely = 4*60
 
 		if self.properties.aimatplayer then
-			local playerid = levity.map.properties.playerid
-			local player = levity.map.objects[playerid]
+			local playerid = self.object.layer.map.properties.playerid
+			local player = self.object.layer.map.objects[playerid]
 			local playerbody = player.body
 			local plx, ply = playerbody:getWorldCenter()
 			local pldistx, pldisty = plx - x, ply - y

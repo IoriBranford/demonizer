@@ -4,11 +4,11 @@ local ShmupWingman -- delayed require to avoid circular dependency
 
 local MaxBombs = 3
 
-local ShmupStatus = class(function(self, id)
-	self.layer = levity.map.layers[id]
+local ShmupStatus = class(function(self, layer)
+	self.layer = layer
 	self.properties = self.layer.properties
 
-	if levity.map.properties.delayinitobjects == true then
+	if self.layer.map.properties.delayinitobjects == true then
 		for _, object in pairs(self.layer.objects) do
 			Object.init(object, self.layer)
 		end
@@ -25,7 +25,7 @@ local ShmupStatus = class(function(self, id)
 	local nextmapstatus = levity.nextmapdata.status or {}
 	self.numlives = nextmapstatus.numlives or 2
 	self.numbombpieces = nextmapstatus.numbombpieces or 0
-	self.reservegids = levity.map:tileNamesToGids(nextmapstatus.reservenames) or {}
+	self.reservegids = self.layer.map:tileNamesToGids(nextmapstatus.reservenames) or {}
 	levity.nextmapdata.status = nil
 
 	self:updateLives()
@@ -129,7 +129,7 @@ function ShmupStatus:updateBombs()
 
 		if bomb.visible then
 			local fill = math.min(1, numbombpieces / ShmupStatus.PiecesPerBomb)
-			levity.map.scripts:call(bomb.id, "setFill", fill)
+			self.layer.map.scripts:call(bomb.id, "setFill", fill)
 		end
 
 		numbombpieces = numbombpieces - ShmupStatus.PiecesPerBomb
@@ -141,26 +141,27 @@ function ShmupStatus:updateReserves()
 end
 
 function ShmupStatus:beginMove(dt)
-	local totalmultiplier = levity.map.scripts:call(self.elements.score.id,
+	local totalmultiplier = self.layer.map.scripts:call(self.elements.score.id,
 							"getTotalMultiplier")
 
 	self:addBombPieces(totalmultiplier*ShmupStatus.PiecesPerCaptivePerSec*dt)
 	self:updateBombs()
 
-	local playerid = levity.map.properties.playerid
+	local playerid = self.layer.map.properties.playerid
 
 	if self:hasReserves()
-	and levity.map.scripts:call(playerid, "roomForWingmen") then
+	and self.layer.map.scripts:call(playerid, "roomForWingmen") then
 		local wingmangid = self.reservegids[#self.reservegids]
 
-		local camera = levity.map.objects[levity.map.properties.cameraid]
+		local camera = self.layer.map.objects[self.layer.map.properties.cameraid]
 		local x, y = camera.body:getWorldCenter()
 		for _, fixture in ipairs(camera.body:getFixtureList()) do
 			local _, _, _, b = fixture:getBoundingBox()
 			y = math.max(y, b)
 		end
 
-		local wingmanid = ShmupWingman.create(wingmangid, x, y, nil)
+		local wingmanid = ShmupWingman.create(self.layer.map,
+						wingmangid, x, y, nil, nil)
 
 		self.reservegids[#self.reservegids] = nil
 		self:updateReserves()
@@ -168,15 +169,15 @@ function ShmupStatus:beginMove(dt)
 end
 
 function ShmupStatus:beginDraw()
-	self.layer.offsetx = levity.map.camera.x
-	self.layer.offsety = levity.map.camera.y
+	self.layer.offsetx = self.layer.map.camera.x
+	self.layer.offsety = self.layer.map.camera.y
 end
 
 function ShmupStatus:nextMap(nextmapfile, nextmapdata)
 	nextmapdata.status = {
 		numlives = self.numlives,
 		numbombpieces = self.numbombpieces,
-		reservenames = levity.map:tileGidsToNames(self.reservegids)
+		reservenames = self.layer.map:tileGidsToNames(self.reservegids)
 	}
 end
 

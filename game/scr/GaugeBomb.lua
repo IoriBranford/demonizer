@@ -1,10 +1,15 @@
 local levity = require "levity"
 local UIGauge = require("UIGauge")
 
-local GaugeBomb = class(UIGauge, UIGauge.init)
+local GaugeBomb
+GaugeBomb = class(UIGauge, function(self, object)
+	GaugeBomb.NotFullGid =
+		object.layer.map:getTileGid("bombgauge", "notfull", 0)
+	GaugeBomb.FullGid =
+		object.layer.map:getTileGid("bombgauge", "full", 0)
 
-GaugeBomb.NotFullGid = levity.map:getTileGid("bombgauge", "notfull", 0)
-GaugeBomb.FullGid = levity.map:getTileGid("bombgauge", "full", 0)
+	UIGauge.init(self, object)
+end)
 
 function GaugeBomb:setFill(fill)
 	if fill == 1 then

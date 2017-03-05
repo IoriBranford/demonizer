@@ -1,7 +1,7 @@
 local levity = require "levity"
 
-local BezierPath = class(function(self, id)
-	local path = levity.map.objects[id]
+local BezierPath = class(function(self, object)
+	local path = object
 	local polyline = path.polyline
 	local points = {}
 

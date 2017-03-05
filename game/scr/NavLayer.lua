@@ -1,8 +1,8 @@
 local levity = require "levity"
 
 local NavLayer
-NavLayer = class(function(self, id)
-	self.layer = levity.map.layers[id]
+NavLayer = class(function(self, layer)
+	self.layer = layer
 	self.nodegrid = {} -- lists of possible destinations from each grid cell
 	-- in the form:
 	-- {
@@ -37,9 +37,9 @@ NavLayer = class(function(self, id)
 end)
 
 function NavLayer:getNode(x, y)
-	local mapcolumns = levity.map.width
-	local c = math.floor(x / levity.map.tilewidth)
-	local r = math.floor(y / levity.map.tileheight)
+	local mapcolumns = self.layer.map.width
+	local c = math.floor(x / self.layer.map.tilewidth)
+	local r = math.floor(y / self.layer.map.tileheight)
 	local ni = mapcolumns*r + c
 	local n = self.nodegrid[ni]
 	if not n then

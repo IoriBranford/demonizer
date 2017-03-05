@@ -1,7 +1,7 @@
 local levity = require "levity"
 
-local UIButton = class(function(self, id)
-	self.object = levity.map.objects[id]
+local UIButton = class(function(self, object)
+	self.object = object
 	self.pressed = false
 end)
 

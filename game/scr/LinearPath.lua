@@ -1,7 +1,7 @@
 local levity = require "levity"
 
-local LinearPath = class(function(self, id)
-	local path = levity.map.objects[id]
+local LinearPath = class(function(self, object)
+	local path = object
 	self.points = path.polyline
 
 	local p = self.points[1]

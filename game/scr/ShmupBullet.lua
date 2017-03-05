@@ -19,8 +19,8 @@ local function beginMove(self, dt)
 	end
 end
 
-local ShmupBullet = class(function(self, id)
-	self.object = levity.map.objects[id]
+local ShmupBullet = class(function(self, object)
+	self.object = object
 	self.object.body:setBullet(true)
 	self.object.body:setFixedRotation(true)
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
@@ -57,13 +57,15 @@ local ShmupBullet = class(function(self, id)
 	properties.vely = nil
 
 	if properties.coroutine then
-		levity.map.scripts:scriptAddEventFunc(self, id,
+		self.object.layer.map.scripts:scriptAddEventFunc(self,
+				self.object.id,
 				"beginMove", beginMove)
 		self.coroutine = coroutine.create(properties.coroutine)
 	end
 
 	if properties.accelx and properties.accely then
-		levity.map.scripts:scriptAddEventFunc(self, id,
+		self.object.layer.map.scripts:scriptAddEventFunc(self,
+				self.object.id,
 				"beginMove", beginMove)
 	end
 
@@ -79,7 +81,7 @@ function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
 	or otherfixture:getCategory() == ShmupCollision.Category_PlayerBomb
 	or otherfixture:getCategory() == ShmupCollision.Category_NPCTeam then
 		if not self.object.properties.persist then
-			levity.map:discardObject(self.object.id)
+			self.object.layer.map:discardObject(self.object.id)
 		end
 	elseif otherfixture:getCategory() == ShmupCollision.Category_Camera then
 		self.oncamera = true
@@ -94,11 +96,11 @@ end
 
 function ShmupBullet:endMove(dt)
 	if not self.oncamera then
-		levity.map:discardObject(self.object.id)
+		self.object.layer.map:discardObject(self.object.id)
 	elseif self.time then
 		self.time = self.time - dt
 		if self.time <= 0 then
-			levity.map:discardObject(self.object.id)
+			self.object.layer.map:discardObject(self.object.id)
 		end
 	end
 end
@@ -137,7 +139,7 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 
 	local gid = params.gid
 	if not gid then
-		local tileset = levity.map:getTileset(tilesetid)
+		local tileset = layer.map:getTileset(tilesetid)
 		gid = tileset.firstgid + tileid
 	end
 

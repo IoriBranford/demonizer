@@ -4,28 +4,31 @@ local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = require("ShmupNPC")
 local ShmupBullet = require("ShmupBullet")
 
-local NPCFireMage = class(ShmupNPC, function(self, id)
-	ShmupNPC.init(self, id)
+local NPCFireMage
+NPCFireMage = class(ShmupNPC, function(self, object)
+	NPCFireMage.BulletParams.gid =
+		object.layer.map:getTileGid("humanshots", "fire", 0)
+
+	ShmupNPC.init(self, object)
 	self.health = 128
 
 	self.fireco = nil
 	self.leftbullets = 5
 	self.rightbullets = 5
 
-	if levity.map.properties.delayinitobjects == true then
-		levity.map.scripts:broadcast("ascentStarted")
+	if self.object.layer.map.properties.delayinitobjects == true then
+		self.object.layer.map.scripts:broadcast("ascentStarted")
 	end
 end)
 
 NPCFireMage.BulletInterval = 0.125
 NPCFireMage.BulletParams = {
-	gid = levity.map:getTileGid("humanshots", "fire", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 
 function NPCFireMage:activate()
 	ShmupNPC.activate(self)
-	levity.map.scripts:broadcast("ascentStarted")
+	self.object.layer.map.scripts:broadcast("ascentStarted")
 end
 
 function NPCFireMage:fireCoroutine()
@@ -37,8 +40,8 @@ function NPCFireMage:fireCoroutine()
 
 		local x, y = body:getWorldCenter()
 
-		local playerid = levity.map.properties.playerid
-		local player = levity.map.objects[playerid]
+		local playerid = self.object.layer.map.properties.playerid
+		local player = self.object.layer.map.objects[playerid]
 		local plx, ply = player.body:getWorldCenter()
 		local pldx = plx - x
 		local pldy = ply - y

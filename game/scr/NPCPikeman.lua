@@ -3,8 +3,11 @@ local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = require("ShmupNPC")
 local ShmupBullet = require("ShmupBullet")
 
-local NPCPikeman = class(ShmupNPC, function(self, id)
-	ShmupNPC.init(self, id)
+local NPCPikeman
+NPCPikeman = class(ShmupNPC, function(self, object)
+	NPCPikeman.BulletParams.gid =
+		object.layer.map:getTileGid("humanshots", "pike", 0)
+	ShmupNPC.init(self, object)
 	self.firetimer = .5--love.math.random()
 	self.health = 8
 end)
@@ -12,7 +15,6 @@ end)
 NPCPikeman.BulletInterval = 1.5
 NPCPikeman.BulletParams = {
 	speed = 120,
-	gid = levity.map:getTileGid("humanshots", "pike", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 
@@ -23,15 +25,15 @@ function NPCPikeman:updateFiring(dt)
 	local playerdx = 0
 	local playerdy = 1
 
-	local playerid = levity.map.properties.playerid
+	local playerid = self.object.layer.map.properties.playerid
 	if playerid then
-		local player = levity.map.objects[playerid]
+		local player = self.object.layer.map.objects[playerid]
 		local playercx, playercy = player.body:getWorldCenter()
 
 		local leader
 		local leaderid = self.properties.leaderid
 		if leaderid then
-			leader = levity.map.objects[leaderid]
+			leader = self.object.layer.map.objects[leaderid]
 		end
 
 		if leader then

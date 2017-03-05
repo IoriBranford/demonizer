@@ -1,8 +1,8 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 
-local ShmupCam = class(function(self, id)
-	self.object = levity.map.objects[id]
+local ShmupCam = class(function(self, object)
+	self.object = object
 	self.x0 = self.object.x
 	self.properties = self.object.properties
 	self.object.visible = false
@@ -22,11 +22,11 @@ local ShmupCam = class(function(self, id)
 	edgefixture:setCategory(ShmupCollision.Category_CameraEdge)
 	edgefixture:setMask(ShmupCollision.Category_Default)
 
-	self.camera = levity.map.camera
+	self.camera = self.object.layer.map.camera
 	local cx, cy = self.object.body:getWorldCenter()
 	self.camera:set(cx, cy, self.object.width, self.object.height)
 
-	local mapwidth = (levity.map.width * levity.map.tilewidth)
+	local mapwidth = (self.object.layer.map.width * self.object.layer.map.tilewidth)
 	self.mapwidthratio = 1 - (self.object.width / mapwidth)
 
 	self.pathwalker = nil
@@ -38,11 +38,11 @@ end)
 function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getUserData().object
 	local triggerlayer = triggerobject.layer
-	if levity.map.properties.delayinitobjects == true then
+	if self.object.layer.map.properties.delayinitobjects == true then
 		self.activatedgrouptriggerids[triggerobject.id] = triggerobject.id
 	else
 		for _, object in ipairs(triggerlayer.objects) do
-			levity.map.scripts:call(object.id, "activate")
+			self.object.layer.map.scripts:call(object.id, "activate")
 		end
 	end
 
@@ -60,7 +60,7 @@ end
 
 function ShmupCam:beginContact_pausecamera(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getUserData().object
-	levity.map:discardObject(triggerobject.id)
+	self.object.layer.map:discardObject(triggerobject.id)
 	self:pausePath(true)
 end
 
@@ -68,9 +68,9 @@ function ShmupCam:endContact_activategroup(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getUserData().object
 	local triggerlayer = triggerobject.layer
 	for _, object in pairs(triggerlayer.objects) do
-		levity.map:discardObject(object.id)
+		self.object.layer.map:discardObject(object.id)
 	end
-	levity.map:discardObject(triggerobject.id)
+	self.object.layer.map:discardObject(triggerobject.id)
 end
 
 function ShmupCam:beginContact(myfixture, otherfixture, contact)
@@ -116,9 +116,9 @@ function ShmupCam:beginMove(dt)
 
 	local pathid = self.properties.pathid
 	if pathid and not self.pathwalker then
-		local path = levity.map.objects[pathid]
+		local path = self.object.layer.map.objects[pathid]
 		path.layer:addObject(path)
-		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
+		self.pathwalker = self.object.layer.map.scripts:call(pathid, "newWalker",
 						self.properties.pathtime)
 		if self.pathwalker then
 			self.pathwalker:findStartPoint(body:getPosition())
@@ -137,9 +137,9 @@ function ShmupCam:endMove(dt)
 	local cx, cy = self.object.body:getWorldCenter()
 	self.camera:set(cx, cy)
 
-	if levity.map.properties.delayinitobjects == true then
+	if self.object.layer.map.properties.delayinitobjects == true then
 		for k, id in pairs(self.activatedgrouptriggerids) do
-			local trigger = levity.map.objects[id]
+			local trigger = self.object.layer.map.objects[id]
 			for _, object in ipairs(trigger.layer.objects) do
 				if object.id ~= id then
 					trigger.layer:addObject(object)

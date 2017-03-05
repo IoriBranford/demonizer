@@ -6,8 +6,11 @@ local NPCSwordsman = require("NPCSwordsman")
 local NPCArcher = require("NPCArcher")
 local ShmupBullet = require("ShmupBullet")
 
-local NPCHero = class(ShmupNPC, function(self, id)
-	ShmupNPC.init(self, id)
+local NPCHero
+NPCHero = class(ShmupNPC, function(self, object)
+	NPCHero.BulletParams.gid = 
+		object.layer.map:getTileGid("humanshots", "sword", 0)
+	ShmupNPC.init(self, object)
 	self.fireco = nil
 	self.health = 256
 end)
@@ -15,7 +18,6 @@ end)
 NPCHero.JumpGravity = 480
 NPCHero.BulletParams = {
 	speed = 180,
-	gid = levity.map:getTileGid("humanshots", "sword", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 
@@ -50,9 +52,9 @@ function NPCHero:fireCoroutine()
 			local playerdx = 0
 			local playerdy = 1
 
-			local playerid = levity.map.properties.playerid
+			local playerid = self.object.layer.map.properties.playerid
 			if playerid then
-				local player = levity.map.objects[playerid]
+				local player = self.object.layer.map.objects[playerid]
 				local playercx, playercy = player.body:getWorldCenter()
 				playerdx = playercx - cx
 				playerdy = playercy - cy

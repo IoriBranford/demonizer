@@ -1,8 +1,8 @@
 local levity = require "levity"
 
 local NavLayerTester
-NavLayerTester = class(function(self, id)
-	self.object = levity.map.objects[id]
+NavLayerTester = class(function(self, object)
+	self.object = object
 	self.walker = nil
 end)
 
@@ -14,7 +14,7 @@ function NavLayerTester:beginMove(dt)
 	local x, y = self.object.body:getPosition()
 
 	if not self.walker then
-		self.walker = levity.map.scripts:call(
+		self.walker = self.object.layer.map.scripts:call(
 			self.object.properties.navlayerid, "newWalker",
 			NavLayerTester.pickNextDest, x, y)
 	end

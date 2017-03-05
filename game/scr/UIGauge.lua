@@ -1,7 +1,7 @@
 local levity = require "levity"
 
-local UIGauge = class(function(self, id)
-	self.object = levity.map.objects[id]
+local UIGauge = class(function(self, object)
+	self.object = object
 	self.fillrect = self.object
 
 	if self.object.tile then
@@ -37,7 +37,7 @@ function UIGauge:setFill(fill)
 	self.x = self.object.x + self.fillrect.x
 	self.y = self.object.y + self.fillrect.y
 	if self.object.tile then
-		local tileset = levity.map:getTileset(self.object.tile.tileset)
+		local tileset = self.object.layer.map:getTileset(self.object.tile.tileset)
 		self.y = self.y - tileset.tileheight
 	end
 	self.w = self.fillrect.width

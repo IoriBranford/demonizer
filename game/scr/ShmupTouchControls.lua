@@ -2,11 +2,11 @@ local levity = require "levity"
 local Object = require "levity.object"
 local ShmupPlayer = require("ShmupPlayer")
 
-local ShmupTouchControls = class(function(self, id)
-	self.layer = levity.map.layers[id]
-	self.playerid = levity.map.properties.playerid
+local ShmupTouchControls = class(function(self, layer)
+	self.layer = layer
+	self.playerid = self.layer.map.properties.playerid
 
-	if levity.map.properties.delayinitobjects == true then
+	if self.layer.map.properties.delayinitobjects == true then
 		for _, object in pairs(self.layer.objects) do
 			Object.init(object, self.layer)
 		end
@@ -36,32 +36,32 @@ function ShmupTouchControls:updateMarker(marker, x, y, dx, dy)
 end
 
 function ShmupTouchControls:touchpressed(touch, x, y, dx, dy)
-	if levity.map.paused then
+	if self.layer.map.paused then
 		return
 	end
 
 	if not self.movetouch then
 		self.movetouch = touch
-		levity.map.scripts:call(self.playerid, "joystickchanged",
+		self.layer.map.scripts:call(self.playerid, "joystickchanged",
 					ShmupPlayer.Button_Fire, true)
 		self.movemarker.visible = true
 		self:updateMarker(self.movemarker, x, y)
 	elseif not self.focustouch then
 		self.focustouch = touch
-		levity.map.scripts:call(self.playerid, "joystickchanged",
+		self.layer.map.scripts:call(self.playerid, "joystickchanged",
 					ShmupPlayer.Button_Focus, true)
 		self.focusmarker.visible = true
 		self:updateMarker(self.focusmarker, x, y)
 	elseif not self.bombtouch then
 		self.bombtouch = touch
-		levity.map.scripts:call(self.playerid, "joystickchanged",
+		self.layer.map.scripts:call(self.playerid, "joystickchanged",
 					ShmupPlayer.Button_Bomb, true)
 	end
 end
 
 function ShmupTouchControls:touchmoved(touch, x, y, dx, dy)
 	if touch == self.movetouch then
-		levity.map.scripts:call(self.playerid, "mousemoved", x, y, dx, dy)
+		self.layer.map.scripts:call(self.playerid, "mousemoved", x, y, dx, dy)
 		self:updateMarker(self.movemarker, x, y, dx, dy)
 	elseif touch == self.focustouch then
 		self:updateMarker(self.focusmarker, x, y)
@@ -70,26 +70,26 @@ end
 
 function ShmupTouchControls:touchreleased(touch, x, y, dx, dy)
 	if touch == self.bombtouch then
-		levity.map.scripts:call(self.playerid, "joystickchanged",
+		self.layer.map.scripts:call(self.playerid, "joystickchanged",
 					ShmupPlayer.Button_Bomb, false)
 		self.bombtouch = nil
 	elseif touch == self.focustouch then
-		levity.map.scripts:call(self.playerid, "joystickchanged",
+		self.layer.map.scripts:call(self.playerid, "joystickchanged",
 					ShmupPlayer.Button_Focus, false)
 		self.focustouch = nil
 		self.focusmarker.visible = false
 	elseif touch == self.movetouch then
-		levity.map.scripts:call(self.playerid, "joystickchanged",
+		self.layer.map.scripts:call(self.playerid, "joystickchanged",
 					ShmupPlayer.Button_Fire, false)
-		levity.map.scripts:call(self.playerid, "mousemoved", x, y, dx, dy)
+		self.layer.map.scripts:call(self.playerid, "mousemoved", x, y, dx, dy)
 		self.movetouch = nil
 		self.movemarker.visible = false
 	end
 end
 
 function ShmupTouchControls:beginDraw()
-	self.layer.offsetx = levity.map.camera.x
-	self.layer.offsety = levity.map.camera.y
+	self.layer.offsetx = self.layer.map.camera.x
+	self.layer.offsety = self.layer.map.camera.y
 end
 
 return ShmupTouchControls

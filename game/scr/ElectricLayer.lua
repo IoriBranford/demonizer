@@ -1,7 +1,7 @@
 local levity = require "levity"
 
-local ElectricLayer = class(function(self, id)
-	self.layer = levity.map.layers[id]
+local ElectricLayer = class(function(self, layer)
+	self.layer = layer
 	assert(self.layer.type == "tilelayer")
 	self:setActive(false)
 end)
@@ -33,14 +33,14 @@ function ElectricLayer:beginMove(dt)
 
 	if math.floor(self.timer * BuzzRate) < math.floor(newtimer * BuzzRate) then
 		levity.bank:play(Sounds.Buzz)
-		levity.map.scripts:broadcast("electrocuted")
+		self.layer.map.scripts:broadcast("electrocuted")
 	end
 
 	self.timer = newtimer
 
 	self.layer.opacity = .125*(1 + math.cos(4*math.pi*self.timer*BuzzRate))
 
-	levity.map:updateTilesetAnimations(ElectricTileset, dt)
+	self.layer.map:updateTilesetAnimations(ElectricTileset, dt)
 end
 
 return ElectricLayer

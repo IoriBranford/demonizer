@@ -5,11 +5,14 @@ local ShmupBullet = require("ShmupBullet")
 
 local MaxHealth = 32
 
-local ShmupFriend = class(function(self, id)
-	self.object = levity.map.objects[id]
+local ShmupFriend
+ShmupFriend = class(function(self, object)
+	ShmupFriend.BulletParams.gid =
+		object.layer.map:getTileGid("demonshots", "wingman", 0)
+	self.object = object
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
-	self:setActive(levity.map.properties.delayinitobjects == true)
+	self:setActive(self.object.layer.map.properties.delayinitobjects == true)
 	self:refreshFixtures({
 		ShmupCollision.Category_CameraEdge,
 		ShmupCollision.Category_PlayerTeam,
@@ -34,7 +37,6 @@ ShmupFriend.LockSearchWidth = 120
 ShmupFriend.LockSearchHeight = 160
 ShmupFriend.BulletParams = {
 	speed = 8*60,
-	gid = levity.map:getTileGid("demonshots", "wingman", 0),
 	category = ShmupCollision.Category_PlayerShot
 }
 ShmupFriend.BulletInterval = .0625
@@ -80,9 +82,9 @@ function ShmupFriend:setActive(active)
 end
 
 function ShmupFriend:kill()
-	levity.map:discardObject(self.object.id)
+	self.object.layer.map:discardObject(self.object.id)
 	levity.bank:play(Sounds.Death)
-	levity.map.scripts:broadcast("friendKilled", self.object.id)
+	self.object.layer.map.scripts:broadcast("friendKilled", self.object.id)
 end
 
 function ShmupFriend:damage(damage)
@@ -128,7 +130,7 @@ function ShmupFriend:updateFiring(dt)
 			levity.bank:play(Sounds.Lock)
 		end
 		self.locktargetid = locktargetid
-		local targetbody = levity.map.objects[locktargetid].body
+		local targetbody = self.object.layer.map.objects[locktargetid].body
 		local tx, ty = targetbody:getWorldCenter()
 		angle = math.atan2(ty-cy, tx-cx)
 
@@ -151,7 +153,8 @@ function ShmupFriend:findTarget(canbetargetfunc)
 	local y0 = cy - ShmupFriend.LockSearchHeight
 	local y1 = cy + ShmupFriend.LockSearchHeight
 
-	return Targeting.queryRectangle(canbetargetfunc, x0, y0, x1, y1)
+	return Targeting.queryRectangle(self.object.layer.map,
+					canbetargetfunc, x0, y0, x1, y1)
 end
 
 function ShmupFriend:beginMove(dt)
@@ -175,7 +178,7 @@ function ShmupFriend:beginMove(dt)
 	local vx, vy = 0, 0
 
 	if self.properties.cageid then
-		local vehicle = levity.map.objects[self.properties.cageid]
+		local vehicle = self.object.layer.map.objects[self.properties.cageid]
 		if vehicle then
 			vx, vy = vehicle.body:getLinearVelocity()
 		end
@@ -186,13 +189,13 @@ function ShmupFriend:beginMove(dt)
 
 		if not self.pathwalker then
 			local pathid = self.properties.pathid
-			self.pathwalker = levity.map.scripts:call(pathid,
+			self.pathwalker = self.object.layer.map.scripts:call(pathid,
 					"newWalker", self.properties.pathtime)
 			self.pathwalker:findStartPoint(body:getWorldCenter())
 		end
 
-		local fromccx, fromccy = levity.map.scripts:call(
-						levity.map.properties.cameraid,
+		local fromccx, fromccy = self.object.layer.map.scripts:call(
+						self.object.layer.map.properties.cameraid,
 						"getVectorFromCenter",
 						body:getWorldCenter())
 
@@ -220,8 +223,8 @@ end
 
 function ShmupFriend:endMove(dt)
 	local cx, cy = self.object.body:getWorldCenter()
-	local playerid = levity.map.properties.playerid
-	local distsq = levity.map.scripts:call(playerid, "getDistanceSq", cx, cy)
+	local playerid = self.object.layer.map.properties.playerid
+	local distsq = self.object.layer.map.scripts:call(playerid, "getDistanceSq", cx, cy)
 
 	if distsq <= ShmupFriend.HealDistSq then
 		self:heal(dt*ShmupFriend.PlayerTouchHealRate)
@@ -241,7 +244,7 @@ end
 function ShmupFriend:vehicleDestroyed(vehicleid)
 	if vehicleid == self.properties.cageid then
 		self.properties.cageid = nil
-		self.object:setLayer(levity.map.layers["friends"])
+		self.object:setLayer(self.object.layer.map.layers["friends"])
 	end
 end
 
@@ -250,8 +253,8 @@ function ShmupFriend:beginDraw()
 
 	if healthpercent < 1 then
 		local cx, cy = self.object.body:getWorldCenter()
-		local playerid = levity.map.properties.playerid
-		local distsq = levity.map.scripts:call(playerid, "getDistanceSq",
+		local playerid = self.object.layer.map.properties.playerid
+		local distsq = self.object.layer.map.scripts:call(playerid, "getDistanceSq",
 							cx, cy)
 
 		local wound = 0xff * healthpercent

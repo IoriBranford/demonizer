@@ -1,5 +1,6 @@
 local levity = require "levity"
 local Object = require "levity.object"
+local Layer = require "levity.layer"
 
 local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = require("ShmupNPC")
@@ -35,14 +36,14 @@ local function setFilterFromProperties(body)
 	end
 end
 
-local ShmupMap = class(function(self, id)
-	self.map = levity.map
+local ShmupMap = class(function(self, map)
+	self.map = map
 	self.properties = self.map.properties
 
 	ShmupNPC.ShotLayer = self.map.layers["npcshots"] or
-				levity:addDynamicLayer("npcshots")
+				Layer(self.map, "npcshots")
 	local sparklayer = self.map.layers["sparks"] or
-				levity:addDynamicLayer("sparks")
+				Layer(self.map, "sparks")
  
 	for _, layer in ipairs(self.map.layers) do
 		if layer.type == "dynamiclayer"
@@ -74,7 +75,7 @@ local ShmupMap = class(function(self, id)
 	self.resulttimer = nil
 	self.resulttime = nil
 
-	if levity.map.properties.delayinitobjects == true then
+	if self.map.properties.delayinitobjects == true then
 		for _, layer in ipairs(self.map.layers) do
 			if layer.type == "dynamiclayer" then
 				local istrigger = nil
@@ -105,12 +106,12 @@ ShmupMap.DefeatTime = 16
 
 function ShmupMap:endMove(dt)
 	local playerid = self.properties.playerid
-	self.rank = levity.map.scripts:call(playerid, "rankFactor")
+	self.rank = self.map.scripts:call(playerid, "rankFactor")
 
 	if self.resulttimer then
 		if self.resulttimer < self.resulttime - 1
 		and self.resulttimer + dt >= self.resulttime - 1 then
-			levity.map.scripts:call("curtain", "beginFall")
+			self.map.scripts:call("curtain", "beginFall")
 		end
 		self.resulttimer = self.resulttimer + dt
 		if self.resulttimer >= self.resulttime then

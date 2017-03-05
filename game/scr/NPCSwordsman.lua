@@ -3,8 +3,11 @@ local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = require("ShmupNPC")
 local ShmupBullet = require("ShmupBullet")
 
-local NPCSwordsman = class(ShmupNPC, function(self, id)
-	ShmupNPC.init(self, id)
+local NPCSwordsman
+NPCSwordsman = class(ShmupNPC, function(self, object)
+	NPCSwordsman.BulletParams.gid =
+		object.layer.map:getTileGid("humanshots", "sword", 0)
+	ShmupNPC.init(self, object)
 	self.fireco = nil
 	self.health = 16
 end)
@@ -12,7 +15,6 @@ end)
 NPCSwordsman.BulletInterval = 1
 NPCSwordsman.BulletParams = {
 	speed = 2.5*60,
-	gid = levity.map:getTileGid("humanshots", "sword", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 
@@ -28,9 +30,9 @@ function NPCSwordsman:fireCoroutine()
 			local playerdx = 0
 			local playerdy = 1
 
-			local playerid = levity.map.properties.playerid
+			local playerid = self.object.layer.map.properties.playerid
 			if playerid then
-				local player = levity.map.objects[playerid]
+				local player = self.object.layer.map.objects[playerid]
 				local playercx, playercy = player.body:getWorldCenter()
 				playerdx = playercx - cx
 				playerdy = playercy - cy

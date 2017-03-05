@@ -1,7 +1,7 @@
 local levity = require "levity"
 
-local TitleMap = class(function(self, id)
-	self.map = levity.map
+local TitleMap = class(function(self, map)
+	self.map = map
 	self.properties = self.map.properties
 
 	local music = self.map.properties.music

@@ -1,13 +1,13 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = require("ShmupNPC")
-local NPCInquisitor = class(ShmupNPC, function(self, id)
-	ShmupNPC.init(self, id)
+local NPCInquisitor = class(ShmupNPC, function(self, object)
+	ShmupNPC.init(self, object)
 end)
 
 function NPCInquisitor:knockout()
 	ShmupNPC.knockout(self)
-	levity.map.scripts:call("electricity", "setActive", false)
+	self.object.layer.map.scripts:call("electricity", "setActive", false)
 end
 
 function NPCInquisitor:beginMove(dt)
@@ -23,7 +23,7 @@ function NPCInquisitor:beginMove(dt)
 	end
 
 	if not self.pathwalker or self.pathwalker:finished() then
-		levity.map.scripts:call("electricity", "setActive", true)
+		self.object.layer.map.scripts:call("electricity", "setActive", true)
 	end
 end
 

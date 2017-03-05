@@ -1,7 +1,12 @@
 local levity = require "levity"
 
-local LavaPitWall = class(function(self, id)
-	self.layer = levity.map.layers[id]
+local Tileset = "lavapit"
+local NumRows = 3
+local FirstGid
+
+local LavaPitWall = class(function(self, layer)
+	FirstGid = layer.map:getTileGid(Tileset, "pitwall", 0)
+	self.layer = layer
 	assert(self.layer.type == "tilelayer")
 	self.active = false
 	self.timer = 0
@@ -10,10 +15,6 @@ local LavaPitWall = class(function(self, id)
 	self.a = self.layer.offsety * .25
 	self.b = self.layer.offsety * .75
 end)
-
-local Tileset = "lavapit"
-local NumRows = 3
-local FirstGid = levity.map:getTileGid(Tileset, "pitwall", 0)
 
 -- TEST
 function LavaPitWall:keypressed_space()
@@ -29,11 +30,11 @@ function LavaPitWall:beginMove(dt)
 		self.timer = self.timer + dt*math.pi
 		self.layer.y = self.a + self.b*math.sin(self.timer)/self.timer
 
-		local tileset = levity.map.tilesets[Tileset]
+		local tileset = self.layer.map.tilesets[Tileset]
 
 		local gid = FirstGid
 		for r = 1, NumRows do
-			levity.map:updateTileAnimations(gid,
+			self.layer.map:updateTileAnimations(gid,
 							tileset.tilecolumns, dt)
 			gid = gid + tileset.tilecolumns
 		end

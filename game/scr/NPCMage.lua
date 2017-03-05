@@ -3,8 +3,11 @@ local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = require("ShmupNPC")
 local ShmupBullet = require("ShmupBullet")
 
-local NPCMage = class(ShmupNPC, function(self, id)
-	ShmupNPC.init(self, id)
+local NPCMage
+NPCMage = class(ShmupNPC, function(self, object)
+	NPCMage.BulletParams.gid = 
+		object.layer.map:getTileGid("humanshots", "magic", 0)
+	ShmupNPC.init(self, object)
 	self.health = 128
 
 	self.fireco = nil
@@ -15,7 +18,6 @@ end)
 NPCMage.BulletInterval = 0.125
 NPCMage.BulletParams = {
 	speed = 4*60,
-	gid = levity.map:getTileGid("humanshots", "magic", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 
@@ -28,8 +30,8 @@ function NPCMage:fireCoroutine()
 
 		local x, y = body:getWorldCenter()
 
-		local playerid = levity.map.properties.playerid
-		local player = levity.map.objects[playerid]
+		local playerid = self.object.layer.map.properties.playerid
+		local player = self.object.layer.map.objects[playerid]
 		local plx, ply = player.body:getWorldCenter()
 		local pldx = plx - x
 		local pldy = ply - y

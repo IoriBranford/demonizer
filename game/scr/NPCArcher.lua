@@ -5,8 +5,12 @@ local ShmupBullet = require("ShmupBullet")
 
 local BulletInterval = 2
 
-local NPCArcher = class(ShmupNPC, function(self, id)
-	ShmupNPC.init(self, id)
+local NPCArcher
+NPCArcher = class(ShmupNPC, function(self, object)
+	NPCArcher.BulletParams.gid =
+		object.layer.map:getTileGid("humanshots", "arrow", 0)
+
+	ShmupNPC.init(self, object)
 	self.firetimer = BulletInterval
 	self.health = 8
 end)
@@ -17,7 +21,6 @@ NPCArcher.PlayerShotSuppression = 1/8
 NPCArcher.NPCSuppressionReaction = 1/16
 NPCArcher.BulletParams = {
 	speed = 240,
-	gid = levity.map:getTileGid("humanshots", "arrow", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 
@@ -28,9 +31,9 @@ function NPCArcher:updateFiring(dt)
 		local playerdx = 0
 		local playerdy = 1
 
-		local playerid = levity.map.properties.playerid
+		local playerid = self.object.layer.map.properties.playerid
 		if playerid then
-			local player = levity.map.objects[playerid]
+			local player = self.object.layer.map.objects[playerid]
 			local playercx, playercy = player.body:getWorldCenter()
 			playerdx = playercx - cx
 			playerdy = playercy - cy
@@ -55,7 +58,7 @@ end
 function NPCArcher:suppress()
 	self.firetimer = math.min(BulletInterval,
 		self.firetimer + NPCArcher.PlayerShotSuppression)
-	levity.map.scripts:broadcast("npcSuppressed", self.object.id)
+	self.object.layer.map.scripts:broadcast("npcSuppressed", self.object.id)
 end
 
 function NPCArcher:npcSuppressed(npcid)

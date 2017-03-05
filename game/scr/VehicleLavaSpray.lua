@@ -4,8 +4,11 @@ local ShmupNPC = require("ShmupNPC")
 local ShmupVehicle = require("ShmupVehicle")
 local ShmupBullet = require("ShmupBullet")
 
-local VehicleLavaSpray = class(ShmupVehicle, function(self, id)
-	ShmupVehicle.init(self, id)
+local VehicleLavaSpray
+VehicleLavaSpray = class(ShmupVehicle, function(self, object)
+	VehicleLavaSpray.BulletParams.gid =
+		object.layer.map:getTileGid("humanshots", "fire", 0),
+	ShmupVehicle.init(self, object)
 	self.health = 128
 	self.coroutine = nil
 	self.flash = nil
@@ -21,7 +24,6 @@ VehicleLavaSpray.BulletParams = {
 	speed = 60,
 	accelx = 0,
 	accely = 4*60,
-	gid = levity.map:getTileGid("humanshots", "fire", 0),
 	category = ShmupCollision.Category_NPCShot
 }
 
@@ -36,8 +38,8 @@ function VehicleLavaSpray:mainCoroutine()
 	local mass = body:getMass()
 
 	while true do
-		local playerid = levity.map.properties.playerid
-		local player = levity.map.objects[playerid]
+		local playerid = self.object.layer.map.properties.playerid
+		local player = self.object.layer.map.objects[playerid]
 		local x, y = body:getWorldCenter()
 		local plx, ply = player.body:getWorldCenter()
 
