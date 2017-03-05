@@ -696,13 +696,10 @@
   </data>
  </layer>
  <objectgroup name="camera">
-  <object id="1" x="32" y="2880" width="240" height="320">
+  <object id="1" type="Camera" x="32" y="2880" width="240" height="320">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
     <property name="pathid" type="int" value="6"/>
     <property name="pathtime" type="int" value="90"/>
-    <property name="script" value="ShmupCam"/>
-    <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
   <object id="6" x="32" y="2880">

@@ -17,13 +17,7 @@
  <tileset firstgid="108" source="img/sparks_med.tsx"/>
  <tileset firstgid="124" source="img/infmen.tsx"/>
  <objectgroup name="camera" visible="0">
-  <object id="39" name="camera" x="0" y="0" width="240" height="320">
-   <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="script" value="ShmupCam"/>
-    <property name="sensor" type="bool" value="true"/>
-   </properties>
-  </object>
+  <object id="39" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>
  <objectgroup name="sparks"/>
  <objectgroup name="enemy">

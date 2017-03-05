@@ -1337,7 +1337,7 @@ return {
         {
           id = 7,
           name = "camera",
-          type = "",
+          type = "Camera",
           shape = "rectangle",
           x = 24,
           y = 1800,
@@ -1346,11 +1346,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["collidable"] = true,
             ["pathid"] = 44,
-            ["pathtime"] = 60,
-            ["script"] = "ShmupCam",
-            ["sensor"] = true
+            ["pathtime"] = 60
           }
         },
         {

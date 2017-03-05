@@ -9,7 +9,7 @@
  <tileset firstgid="101" source="img/title.tsx"/>
  <layer name="Tile Layer 1" width="48" height="64">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA+3VVVZCAQBF0fdERQzEwsICu0WxFRMTEwtbnP8YPKNw3cW6H/vv/J8wCIIaRFCLOtQjigbE0IhQtGtCM1oQRysSaEM7OtAp3HUhiW70oBd96EcKAxgU7oYwjBGkkcEoxjCOCUwKd1OYxgxmMYd5LGARS8gKd8tYQQ6rWMM6NrCJLWwLdzvYRR572McBDnGEYxSEuxOc4gznuMAlirjCNW6Eu1vc4R4lPOART3jGC8rC3Sve8I4PfOIL3/hBBb/CnepX/V//1//1f/1f/9f/1e1Uv+r/+r/+r//r//q//q9up/pV/9f/9X/9X//X//V/dTvVr/q//u9/dKpf9X/9X//X//V//V//V7dT/ar/6//6v9X/3z8EBwieADAAAA==
+   H4sIAAAAAAAAC+3VVVZCAQBF0fdERQzEwsICu0WxFRMTEwtbnP8YPKNw3cW6H/vv/J8wCIIaRFCLOtQjigbE0IhQtGtCM1oQRysSaEM7OtAp3HUhiW70oBd96EcKAxgU7oYwjBGkkcEoxjCOCUwKd1OYxgxmMYd5LGARS8gKd8tYQQ6rWMM6NrCJLWwLdzvYRR572McBDnGEYxSEuxOc4gznuMAlirjCNW6Eu1vc4R4lPOART3jGC8rC3Sve8I4PfOIL3/hBBb/CnepX/V//1//1f/1f/9f/1e1Uv+r/+r/+r//r//q//q9up/pV/9f/9X/9X//X//V/dTvVr/q//u9/dKpf9X/9X//X//V//V//V7dT/ar/6//6v9X/3z8EBwieADAAAA==
   </data>
  </layer>
  <objectgroup draworder="index" name="Object Layer 1">
@@ -39,13 +39,7 @@ C key: BOMB</property>
   <object id="7" name="dem" gid="101" x="90" y="125" width="128" height="32"/>
   <object id="9" name="oni" gid="102" x="120" y="125" width="128" height="32"/>
   <object id="10" name="zer" gid="103" x="150" y="125" width="128" height="32"/>
-  <object id="11" name="camera" x="0" y="0" width="240" height="320" visible="0">
-   <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="script" value="ShmupCam"/>
-    <property name="sensor" type="bool" value="true"/>
-   </properties>
-  </object>
+  <object id="11" name="camera" type="Camera" x="0" y="0" width="240" height="320" visible="0"/>
   <object id="12" name="pressstart" x="0" y="260" width="240" height="10">
    <properties>
     <property name="text" value="PRESS Z TO START"/>

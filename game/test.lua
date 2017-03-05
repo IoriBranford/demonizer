@@ -877,7 +877,7 @@ return {
         {
           id = 39,
           name = "camera",
-          type = "",
+          type = "Camera",
           shape = "rectangle",
           x = 0,
           y = 0,
@@ -885,11 +885,7 @@ return {
           height = 320,
           rotation = 0,
           visible = true,
-          properties = {
-            ["collidable"] = true,
-            ["script"] = "ShmupCam",
-            ["sensor"] = true
-          }
+          properties = {}
         }
       }
     },
