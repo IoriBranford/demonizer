@@ -84,7 +84,7 @@ end
 function ShmupFriend:kill()
 	self.object.layer.map:discardObject(self.object.id)
 	levity.bank:play(Sounds.Death)
-	self.object.layer.map.scripts:broadcast("friendKilled", self.object.id)
+	self.object.layer.map:broadcast("friendKilled", self.object.id)
 end
 
 function ShmupFriend:damage(damage)

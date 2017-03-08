@@ -299,13 +299,14 @@ function ShmupPlayer:joystickchanged(button, pressed)
 	and not self.killed and not self.object.layer.map.paused then
 		local params = ShmupPlayer.BombParams
 
-		if self.object.layer.map.scripts:call("hud", "hasBombs") then
+		local uimap = self.object.layer.map.overlaymap
+		if not uimap or uimap.scripts:call("status", "hasBombs") then
 			params.x, params.y = self.object.body:getWorldCenter()
 			params.y = params.y - 128
 			ShmupBullet.create(params, self.object.layer)
 			levity.bank:play(Sounds.Bomb)
 			levity.bank:play(Sounds.Bomber)
-			self.object.layer.map.scripts:broadcast("playerBombed")
+			self.object.layer.map:broadcast("playerBombed")
 		end
 	end
 end
@@ -399,7 +400,7 @@ function ShmupPlayer:deathCoroutine(dt)
 	local bodyfixture = fixtures["body"]
 	bodyfixture:setMask(unpack(NonPlayMask))
 
-	self.object.layer.map.scripts:broadcast("playerKilled")
+	self.object.layer.map:broadcast("playerKilled")
 
 	self:playSound(Sounds.Death)
 	self:playSound(Sounds.Scream)
@@ -423,10 +424,11 @@ function ShmupPlayer:deathCoroutine(dt)
 		self, dt = coroutine.yield()
 	end
 
-	if self.object.layer.map.scripts:call("hud", "hasLives") then
+	local uimap = self.object.layer.map.overlaymap
+	if not uimap or uimap.scripts:call("status", "hasLives") then
 		self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
 	else
-		self.object.layer.map.scripts:broadcast("playerDefeated")
+		self.object.layer.map:broadcast("playerDefeated")
 		while true do
 			coroutine.yield()
 		end
@@ -485,7 +487,7 @@ function ShmupPlayer:spawnCoroutine(dt)
 
 	if self.killed then
 		self.killed = false
-		self.object.layer.map.scripts:broadcast("playerRespawned")
+		self.object.layer.map:broadcast("playerRespawned")
 		self:playSound(Sounds.Respawn)
 		self.object.visible = true
 	end
@@ -605,9 +607,13 @@ function ShmupPlayer:beginDraw()
 		love.graphics.setColor(0xff, 0xff, 0xff, alpha)
 	end
 
-	--local scoreid = self.object.layer.map.scripts:call("hud", "getScoreId")
+	--local uimap = self.object.layer.map.overlaymap
+	--local scoreid
+	--if uimap then
+	--	scoreid = uimap.scripts:call("hud", "getScoreId")
+	--end
 	--if scoreid then
-	--	self.properties.text = self.object.layer.map.scripts:call(scoreid,
+	--	self.properties.text = uimap.scripts:call(scoreid,
 	--				"getMultiplier", self.object.id)
 	--else
 	--	self.properties.text = nil

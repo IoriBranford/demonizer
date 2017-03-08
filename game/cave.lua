@@ -13,6 +13,7 @@ return {
     ["cameraid"] = 1,
     ["delayinitobjects"] = true,
     ["music"] = "mus/20 - My Kingdom.vgm",
+    ["overlaymap"] = "gameui.lua",
     ["playerid"] = 2,
     ["script"] = "ShmupMap"
   },
@@ -1057,121 +1058,8 @@ return {
       }
     },
     {
-      name = "hud_icons",
-      firstgid = 409,
-      filename = "img/hud_icons.tsx",
-      tilewidth = 16,
-      tileheight = 16,
-      spacing = 0,
-      margin = 0,
-      image = "img/hud_icons.png",
-      imagewidth = 32,
-      imageheight = 32,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 4,
-      tiles = {}
-    },
-    {
-      name = "bombgauge",
-      firstgid = 413,
-      filename = "img/bombgauge.tsx",
-      tilewidth = 16,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/bombgauge.png",
-      imagewidth = 128,
-      imageheight = 64,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      properties = {
-        ["commoncollision"] = 0,
-        ["row_full"] = 1,
-        ["row_notfull"] = 0
-      },
-      terrains = {},
-      tilecount = 16,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "fill",
-                type = "",
-                shape = "rectangle",
-                x = 6,
-                y = 4,
-                width = 4,
-                height = 24,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["color"] = "#ffaadfff",
-                  ["direction"] = "up"
-                }
-              }
-            }
-          }
-        },
-        {
-          id = 8,
-          animation = {
-            {
-              tileid = 8,
-              duration = 100
-            },
-            {
-              tileid = 9,
-              duration = 100
-            },
-            {
-              tileid = 10,
-              duration = 100
-            },
-            {
-              tileid = 11,
-              duration = 100
-            },
-            {
-              tileid = 12,
-              duration = 100
-            },
-            {
-              tileid = 13,
-              duration = 100
-            },
-            {
-              tileid = 14,
-              duration = 100
-            },
-            {
-              tileid = 15,
-              duration = 100
-            }
-          }
-        }
-      }
-    },
-    {
       name = "cage",
-      firstgid = 429,
+      firstgid = 409,
       filename = "img/cage.tsx",
       tilewidth = 32,
       tileheight = 64,
@@ -1222,7 +1110,7 @@ return {
     },
     {
       name = "mermaid",
-      firstgid = 430,
+      firstgid = 410,
       filename = "img/mermaid.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1298,7 +1186,7 @@ return {
     },
     {
       name = "darkboat",
-      firstgid = 442,
+      firstgid = 422,
       filename = "img/darkboat.tsx",
       tilewidth = 128,
       tileheight = 64,
@@ -1364,7 +1252,7 @@ return {
     },
     {
       name = "infmen",
-      firstgid = 443,
+      firstgid = 423,
       filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1447,7 +1335,7 @@ return {
     },
     {
       name = "infwomen",
-      firstgid = 533,
+      firstgid = 513,
       filename = "img/infwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1529,7 +1417,7 @@ return {
     },
     {
       name = "humanshots",
-      firstgid = 608,
+      firstgid = 588,
       filename = "img/humanshots.tsx",
       tilewidth = 32,
       tileheight = 16,
@@ -1610,7 +1498,7 @@ return {
     },
     {
       name = "electricity",
-      firstgid = 636,
+      firstgid = 616,
       filename = "img/electricity.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1646,7 +1534,7 @@ return {
     },
     {
       name = "demonizing",
-      firstgid = 668,
+      firstgid = 648,
       filename = "img/demonizing.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1736,7 +1624,7 @@ return {
     },
     {
       name = "demonwomen",
-      firstgid = 671,
+      firstgid = 651,
       filename = "img/demonwomen.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1817,7 +1705,7 @@ return {
     },
     {
       name = "lavapit",
-      firstgid = 710,
+      firstgid = 690,
       filename = "img/lavapit.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -2035,7 +1923,7 @@ return {
     },
     {
       name = "cave_objects",
-      firstgid = 750,
+      firstgid = 730,
       filename = "img/cave_objects.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -2055,7 +1943,7 @@ return {
     },
     {
       name = "flames",
-      firstgid = 799,
+      firstgid = 779,
       filename = "img/flames.tsx",
       tilewidth = 16,
       tileheight = 24,
@@ -2156,7 +2044,7 @@ return {
     },
     {
       name = "sparks_med",
-      firstgid = 811,
+      firstgid = 791,
       filename = "img/sparks_med.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2224,7 +2112,7 @@ return {
     },
     {
       name = "demonbomb",
-      firstgid = 827,
+      firstgid = 807,
       filename = "img/demonbomb.tsx",
       tilewidth = 128,
       tileheight = 128,
@@ -2309,7 +2197,7 @@ return {
     },
     {
       name = "ballista",
-      firstgid = 835,
+      firstgid = 815,
       filename = "img/ballista.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2391,7 +2279,7 @@ return {
     },
     {
       name = "civwomen",
-      firstgid = 859,
+      firstgid = 839,
       filename = "img/civwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -2475,28 +2363,8 @@ return {
       }
     },
     {
-      name = "touchmarkers",
-      firstgid = 979,
-      filename = "img/touchmarkers.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/touchmarkers.png",
-      imagewidth = 128,
-      imageheight = 64,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 2,
-      tiles = {}
-    },
-    {
       name = "cauldron",
-      firstgid = 981,
+      firstgid = 959,
       filename = "img/cauldron.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2592,7 +2460,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztlTuOwzAMBQPf/1xUZ18pKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q2fz1D/"
+      data = "eJztlTuOwzAMBQPf/zRUZ18uKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q1Wnhcb"
     },
     {
       type = "tilelayer",
@@ -2666,7 +2534,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzrEJACAQBMHH/uvTTDNtw89s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswu87ViV"
+      data = "eJztzrEJACAQBMHH/qvSTDNtyM9s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswtudzlp"
     },
     {
       type = "tilelayer",
@@ -2684,7 +2552,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztWmuL2zAQPPTLTTElmFKMCUe4X3snanHbycxqtc6HUjQg4jw8nl1pH5bz9jYxMTExMTExMTExMTHxL+G9/Bk/yjWe5ev829fYzpHhqxx34Lmd436OCK/Vgq8bcCu+5fQLnoNclv834UK/2N8zje34V/F5IrYpXUfHP0xPe4+6DvM7T1/Ext3xd28+mY3sfMVnP2c22u+VrUzjz46NyBnlqVgdfyl+xmP5PD/Z79BHio/pQz4WNz0+FTtRropdcKm1rrA4/o7kGgtca2pe61D5sOUuL45VfL6fvO/AEbFP5RE8z/teXcOLj148efo8X0Tz44hWTzv7vOdrdk2lUfn9cQ6lr33/EZjXhpVowHhiv7kZTSwuvNjcCRfLB5jn6sA4snHYbFe5c4drWm3Yi/RywFqefdriEecnkp+O8jxnbM15dQG1eWszwtPA5qtxRXMv04ZxMMpVcRCeUfsa0M6MfZYLfT5S8yyO8rwusrrQX1kuVkuzXNibtpGdw6trtGIpPHYyXGxdXeVCbaNcmO+u+J3FoMrpUU2Y90btY/GXyX3sHnVL2LcQDjtGuNg9U2ZdLUQH6ovoUn01fhbh6tkWXQ9er8/4vP0Fr0djOZD1KQv5jeoDPVuRhx339LZ7Bpzz+lrrM/aPSqf3GfaY7FrMf0q/Ra+/UXoYl+VT6wSPPxwutFfZ3M6/E38h9vLsL29dK10Vao8EtUXiDHu53jz2YnYlWpjfvB4f/eblpJE6gHnJ8o7WE7VGs3X3aq1ErlvSNsuVyf0I1WNe6e2zNbenKdvLsZyQnT+WV0d9pfavX9X39tZCe7agNGF+UVx2niwOYpunC3skxYXzyPyFc4T2qZrDnjGgDfYaXo3dyvczGnxuYmsa3v+oHM/Ox2sxLao+qxyraryqh6oW1dH6mxobKocq/vb6KN+xtZW/932UzyLrF/f3vONITWz9XM9/I/m+1yNm8g7W/it1o4L1Oa/gulI7Ktj9ez0eeQ6rnnlGalE7F+Nf5R5vHlXPgOv10eGp8Hq/0RrL9mBx/qJc6GMWh9G18AhwjfakKh9k9mXVWsjUfu+ZZ+Y/BypPZ+JwLc9+v5ofWI7O2KnuqbLa2L1yVlsF2z9+VS7cLmhjz2OztrJnO1f0KW2Z2MJahDqj2rz+bjTud6IH4z66j6h6wmhNsppUXRr1PfvvTLbf8f43MBpLK+Gyr5keDGtUhodxRvdsJiYmJiYm/gd8Ai2REiI="
+      data = "eJztWmuL2zAQPPR7TTElmFKMCUe4330nanHbycxqtc6HUjQg4jw8nl1pH5bz9jYxMTExMTExMTExMTHxL+G9/Bk/yjWe5ev829fYzpHhqxx34Lmd436OCK/Vgq8bcCu+5fQLnoNclv834UK/2N8zje34V/F5IrYpXUfHP0xPe4+6DvM7T1/Ext3xd28+mY3sfMVnP2c22u+VrUzjz46NyBnlqVgdfyl+xmP5PD/Z79BHio/pQz4WNz0+FTtRropdcKm1rrA4/o7kGgtca2pe61D5sOUuL45VfL6fvO/AEbFP5RE8z/teXcOLj148efo8X0Tz44hWTzv7vOdrdk2lUfn9cQ6lr33/EZjXhpVowHhiv7kZTSwuvNjcCRfLB5jn6sA4snHYbFe5c4drWm3Yi/RywFqefdriEecnkp+O8jxnbM15dQG1eWszwtPA5qtxRXMv04ZxMMpVcRCeUfsa0M6MfZYLfT5S8yyO8rwusrrQX1kuVkuzXNibtpGdw6trtGIpPHYyXGxdXeVCbaNcmO+u+J3FoMrpUU2Y90btY/GXyX3sHnVL2LcQDjtGuNg9U2ZdLUQH6ovoUn01fhbh6tkWXQ9er8/4vP0Fr0djOZD1KQv5jeoDPVuRhx339LZ7Bpzz+lrrM/aPSqf3GfaY7FrMf0q/Ra+/UXoYl+VT6wSPPxwutFfZ3M6/E38h9vLsL29dK10Vao8EtUXiDHu53jz2YnYlWpjfvB4f/eblpJE6gHnJ8o7WE7VGs3X3aq1ErlvSNsuVyf0I1WNe6e2zNbenKdvLsZyQnT+WV0d9pfavX9X39tZCe7agNGF+UVx2niwOYpunC3skxYXzyPyFc4T2qZrDnjGgDfYaXo3dyvczGnxuYmsa3v+oHM/Ox2sxLao+qxyraryqh6oW1dH6mxobKocq/vb6KN+xtZW/932UzyLrF/f3vONITWz9XM9/I/m+1yNm8g7W/it1o4L1Oa/gulI7Ktj9ez0eeQ6rnnlGalE7F+Nf5R5vHlXPgOv10eGp8Hq/0RrL9mBx/qJc6GMWh9G18AhwjfakKh9k9mXVWsjUfu+ZZ+Y/BypPZ+JwLc9+v5ofWI7O2KnuqbLa2L1yVlsF2z9+VS7cLmhjz2OztrJnO1f0KW2Z2MJahDqj2rz+bjTud6IH4z66j6h6wmhNsppUXRr1PfvvTLbf8f43MBpLK+Gyr5keDGtUhodxRvdsJiYmJiYm/gd8AuVToWs="
     },
     {
       type = "tilelayer",
@@ -2741,7 +2609,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 488,
+          gid = 468,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -2759,7 +2627,7 @@ return {
           width = 16,
           height = 24,
           rotation = 0,
-          gid = 799,
+          gid = 779,
           visible = true,
           properties = {
             ["operatorid"] = 118,
@@ -2776,7 +2644,7 @@ return {
           width = 16,
           height = 24,
           rotation = 0,
-          gid = 799,
+          gid = 779,
           visible = true,
           properties = {
             ["operatorid"] = 118,
@@ -2879,7 +2747,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 2147484090,
+          gid = 2147484070,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -2895,7 +2763,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 442,
+          gid = 422,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -2923,7 +2791,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 981,
+          gid = 959,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -2940,7 +2808,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 981,
+          gid = 959,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -2957,7 +2825,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 981,
+          gid = 959,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -2974,7 +2842,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 981,
+          gid = 959,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -3027,7 +2895,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 442,
+          gid = 422,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -3043,7 +2911,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 2147484090,
+          gid = 2147484070,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -3071,7 +2939,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 503,
+          gid = 483,
           visible = true,
           properties = {
             ["pathid"] = 115,
@@ -3127,7 +2995,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 467,
+          gid = 447,
           visible = true,
           properties = {
             ["pathid"] = 114,
@@ -3172,7 +3040,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 436,
+          gid = 416,
           visible = true,
           properties = {
             ["cageid"] = 48,
@@ -3191,7 +3059,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 429,
+          gid = 409,
           visible = true,
           properties = {
             ["pathid"] = 113,
@@ -3224,7 +3092,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 569,
+          gid = 549,
           visible = true,
           properties = {
             ["pathid"] = 116,
@@ -3292,7 +3160,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 436,
+          gid = 416,
           visible = true,
           properties = {
             ["cageid"] = 42,
@@ -3311,7 +3179,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 429,
+          gid = 409,
           visible = true,
           properties = {
             ["pathid"] = 112,
@@ -3344,7 +3212,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 485,
+          gid = 465,
           visible = true,
           properties = {
             ["pathid"] = 109,
@@ -3381,7 +3249,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 485,
+          gid = 465,
           visible = true,
           properties = {
             ["pathid"] = 111,
@@ -3449,7 +3317,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 838,
+          gid = 818,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3465,7 +3333,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 836,
+          gid = 816,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3508,7 +3376,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 836,
+          gid = 816,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3524,7 +3392,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 838,
+          gid = 818,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3567,7 +3435,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 836,
+          gid = 816,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3583,7 +3451,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 838,
+          gid = 818,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3626,7 +3494,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 838,
+          gid = 818,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3642,7 +3510,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 836,
+          gid = 816,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3685,7 +3553,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 436,
+          gid = 416,
           visible = true,
           properties = {
             ["cageid"] = 36,
@@ -3704,7 +3572,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 429,
+          gid = 409,
           visible = true,
           properties = {
             ["pathid"] = 132,
@@ -3739,7 +3607,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 467,
+          gid = 447,
           visible = true,
           properties = {
             ["pathid"] = 133,
@@ -3757,7 +3625,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 503,
+          gid = 483,
           visible = true,
           properties = {
             ["pathid"] = 134,
@@ -3898,7 +3766,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 436,
+          gid = 416,
           visible = true,
           properties = {
             ["cageid"] = 33,
@@ -3917,7 +3785,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 429,
+          gid = 409,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -3948,7 +3816,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 554,
+          gid = 534,
           visible = true,
           properties = {
             ["pathid"] = 106,
@@ -3997,7 +3865,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4016,7 +3884,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4035,7 +3903,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4054,7 +3922,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4073,7 +3941,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4092,7 +3960,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4111,7 +3979,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4130,7 +3998,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4149,7 +4017,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4168,7 +4036,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4187,7 +4055,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4206,7 +4074,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4225,7 +4093,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4244,7 +4112,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4263,7 +4131,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4282,7 +4150,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4301,7 +4169,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4320,7 +4188,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 479,
+          gid = 459,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4392,7 +4260,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 462,
           visible = true,
           properties = {
             ["pathid"] = 90,
@@ -4410,7 +4278,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 462,
           visible = true,
           properties = {
             ["pathid"] = 89,
@@ -4440,7 +4308,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 837,
+          gid = 817,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4456,7 +4324,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 837,
+          gid = 817,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4472,7 +4340,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 837,
+          gid = 817,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4488,7 +4356,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 837,
+          gid = 817,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4637,399 +4505,6 @@ return {
         ["static"] = true
       },
       objects = {}
-    },
-    {
-      type = "objectgroup",
-      name = "hud",
-      visible = false,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "index",
-      properties = {
-        ["scoreid"] = 7,
-        ["script"] = "ShmupStatus"
-      },
-      objects = {
-        {
-          id = 7,
-          name = "score",
-          type = "",
-          shape = "rectangle",
-          x = 4,
-          y = 4,
-          width = 232,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["script"] = "ShmupScore",
-            ["text"] = "SC00000000 EX01000000",
-            ["textalign"] = "left",
-            ["textfont"] = "fnt/pressstart2p.fnt",
-            ["textformat"] = "SC%8d EX%8d"
-          }
-        },
-        {
-          id = 8,
-          name = "life1",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 409,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 9,
-          name = "life2",
-          type = "",
-          shape = "rectangle",
-          x = 16,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 409,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 10,
-          name = "life3",
-          type = "",
-          shape = "rectangle",
-          x = 32,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 409,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 11,
-          name = "life4",
-          type = "",
-          shape = "rectangle",
-          x = 48,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 409,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 12,
-          name = "life5",
-          type = "",
-          shape = "rectangle",
-          x = 64,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 409,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 13,
-          name = "life6",
-          type = "",
-          shape = "rectangle",
-          x = 80,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 409,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 14,
-          name = "life7",
-          type = "",
-          shape = "rectangle",
-          x = 96,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 409,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 15,
-          name = "life8",
-          type = "",
-          shape = "rectangle",
-          x = 112,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 409,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 16,
-          name = "life9",
-          type = "",
-          shape = "rectangle",
-          x = 128,
-          y = 32,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 409,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 17,
-          name = "bomb1",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 320,
-          width = 16,
-          height = 32,
-          rotation = 0,
-          gid = 413,
-          visible = true,
-          properties = {
-            ["script"] = "GaugeBomb"
-          }
-        },
-        {
-          id = 18,
-          name = "bomb2",
-          type = "",
-          shape = "rectangle",
-          x = 16,
-          y = 320,
-          width = 16,
-          height = 32,
-          rotation = 0,
-          gid = 413,
-          visible = true,
-          properties = {
-            ["script"] = "GaugeBomb"
-          }
-        },
-        {
-          id = 19,
-          name = "bomb3",
-          type = "",
-          shape = "rectangle",
-          x = 32,
-          y = 320,
-          width = 16,
-          height = 32,
-          rotation = 0,
-          gid = 413,
-          visible = true,
-          properties = {
-            ["script"] = "GaugeBomb"
-          }
-        },
-        {
-          id = 20,
-          name = "wingleft",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 48,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 411,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 21,
-          name = "wingright",
-          type = "",
-          shape = "rectangle",
-          x = 16,
-          y = 48,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          gid = 412,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 22,
-          name = "reserves",
-          type = "",
-          shape = "rectangle",
-          x = 8,
-          y = 36,
-          width = 16,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["text"] = "0",
-            ["textalign"] = "center",
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "pausemenu",
-      visible = false,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["script"] = "PauseMenu"
-      },
-      objects = {
-        {
-          id = 23,
-          name = "pause",
-          type = "",
-          shape = "rectangle",
-          x = 16,
-          y = 32,
-          width = 208,
-          height = 16,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["text"] = "Paused",
-            ["textalign"] = "center",
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
-        },
-        {
-          id = 24,
-          name = "resume",
-          type = "",
-          shape = "rectangle",
-          x = 48,
-          y = 112,
-          width = 144,
-          height = 16,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["script"] = "ButtonResume",
-            ["text"] = "RESUME",
-            ["textalign"] = "center",
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
-        },
-        {
-          id = 25,
-          name = "restart",
-          type = "",
-          shape = "rectangle",
-          x = 48,
-          y = 160,
-          width = 144,
-          height = 16,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["script"] = "ButtonRestart",
-            ["text"] = "RESTART",
-            ["textalign"] = "center",
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
-        },
-        {
-          id = 26,
-          name = "title",
-          type = "",
-          shape = "rectangle",
-          x = 48,
-          y = 208,
-          width = 144,
-          height = 16,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["script"] = "ButtonTitle",
-            ["text"] = "TITLE",
-            ["textalign"] = "center",
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "curtain",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["script"] = "Curtain"
-      },
-      objects = {}
-    },
-    {
-      type = "objectgroup",
-      name = "touchcontrols",
-      visible = false,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["script"] = "ShmupTouchControls"
-      },
-      objects = {
-        {
-          id = 183,
-          name = "move",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 0,
-          width = 64,
-          height = 64,
-          rotation = 0,
-          gid = 979,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 184,
-          name = "focus",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 0,
-          width = 64,
-          height = 64,
-          rotation = 0,
-          gid = 980,
-          visible = true,
-          properties = {}
-        }
-      }
     }
   }
 }

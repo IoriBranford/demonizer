@@ -34,7 +34,7 @@ ShmupWingman = class(function(self, object)
 
 	ShmupNPC = ShmupNPC or require("ShmupNPC")
 
-	self.object.layer.map.scripts:broadcast("wingmanJoined", self.wingmanindex)
+	self.object.layer.map:broadcast("wingmanJoined", self.wingmanindex)
 
 	ShmupWingman.BulletParams.gid =
 		self.object.layer.map:getTileGid("demonshots", "wingman", 0)
@@ -107,7 +107,7 @@ function ShmupWingman:kill()
 	end
 
 	levity.bank:play(Sounds.Death)
-	self.object.layer.map.scripts:broadcast("wingmanKilled", self.object.id)
+	self.object.layer.map:broadcast("wingmanKilled", self.object.id)
 end
 
 function ShmupWingman:heal(healing)
@@ -277,11 +277,17 @@ function ShmupWingman:beginMove(dt)
 	local destx, desty = cx, cy
 	local captive
 
-	local scoreid = self.object.layer.map.scripts:call("hud", "getScoreId")
+	--local uimap = self.object.layer.map.overlaymap
+	--local scoreid
+	--if uimap then
+	--	scoreid = uimap.scripts:call("hud", "getScoreId")
+	--end
 	local focused = self.object.layer.map.scripts:call(playerid, "isFocused")
 	if focused then
 		if not self.properties.conversionid
-		then--and self.object.layer.map.scripts:call(scoreid, "isMaxMultiplier", self.object.id) then
+		then
+		--and scoreid
+		--and uimap.scripts:call(scoreid, "isMaxMultiplier", self.object.id) then
 			if not self.targetcaptiveid then
 				self.targetcaptiveid = self:findTarget("canBeCaptured")
 			end
@@ -378,7 +384,7 @@ function ShmupWingman:endMove(dt)
 		end
 	elseif not self.oncamera then
 		if not ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
-			self.object.layer.map.scripts:broadcast("wingmanReserved",
+			self.object.layer.map:broadcast("wingmanReserved",
 						self.object.id, self.object.gid)
 			self.object.layer.map:discardObject(self.object.id)
 			if self.properties.conversionid then
@@ -409,9 +415,13 @@ function ShmupWingman:beginDraw()
 		end
 	end
 
-	--local scoreid = self.object.layer.map.scripts:call("hud", "getScoreId")
+	--local uimap = self.object.layer.map.overlaymap
+	--local scoreid
+	--if uimap then
+	--	scoreid = uimap.scripts:call("hud", "getScoreId")
+	--end
 	--if scoreid then
-	--	self.properties.text = self.object.layer.map.scripts:call(scoreid,
+	--	self.properties.text = uimap.scripts:call(scoreid,
 	--				"getMultiplier", self.object.id)
 	--else
 	--	self.properties.text = nil

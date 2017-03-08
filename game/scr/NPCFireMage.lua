@@ -17,7 +17,7 @@ NPCFireMage = class(ShmupNPC, function(self, object)
 	self.rightbullets = 5
 
 	if self.object.layer.map.properties.delayinitobjects == true then
-		self.object.layer.map.scripts:broadcast("ascentStarted")
+		self.object.layer.map:broadcast("ascentStarted")
 	end
 end)
 
@@ -28,7 +28,7 @@ NPCFireMage.BulletParams = {
 
 function NPCFireMage:activate()
 	ShmupNPC.activate(self)
-	self.object.layer.map.scripts:broadcast("ascentStarted")
+	self.object.layer.map:broadcast("ascentStarted")
 end
 
 function NPCFireMage:fireCoroutine()

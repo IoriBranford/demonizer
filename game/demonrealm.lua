@@ -12,6 +12,7 @@ return {
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
+    ["overlaymap"] = "gameui.lua",
     ["playerid"] = 3,
     ["script"] = "ShmupMap"
   },

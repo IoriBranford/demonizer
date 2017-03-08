@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" nextobjectid="24">
+ <tileset firstgid="1" source="img/bombgauge.tsx"/>
+ <tileset firstgid="17" source="img/hud_icons.tsx"/>
+ <tileset firstgid="21" source="img/touchmarkers.tsx"/>
+ <objectgroup draworder="index" name="status">
+  <properties>
+   <property name="scoreid" type="int" value="16"/>
+   <property name="script" value="ShmupStatus"/>
+  </properties>
+  <object id="2" name="wingright" gid="20" x="16" y="48" width="16" height="16"/>
+  <object id="3" name="wingleft" gid="19" x="0" y="48" width="16" height="16"/>
+  <object id="1" name="reserves" x="8" y="36" width="16" height="8">
+   <properties>
+    <property name="text" value="0"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+  </object>
+  <object id="4" name="bomb3" gid="1" x="32" y="320" width="16" height="32">
+   <properties>
+    <property name="script" value="GaugeBomb"/>
+   </properties>
+  </object>
+  <object id="5" name="bomb2" gid="1" x="16" y="320" width="16" height="32">
+   <properties>
+    <property name="script" value="GaugeBomb"/>
+   </properties>
+  </object>
+  <object id="6" name="bomb1" gid="1" x="0" y="320" width="16" height="32">
+   <properties>
+    <property name="script" value="GaugeBomb"/>
+   </properties>
+  </object>
+  <object id="7" name="life9" gid="17" x="128" y="32" width="16" height="16"/>
+  <object id="8" name="life8" gid="17" x="112" y="32" width="16" height="16"/>
+  <object id="9" name="life7" gid="17" x="96" y="32" width="16" height="16"/>
+  <object id="10" name="life6" gid="17" x="80" y="32" width="16" height="16"/>
+  <object id="11" name="life5" gid="17" x="64" y="32" width="16" height="16"/>
+  <object id="12" name="life4" gid="17" x="48" y="32" width="16" height="16"/>
+  <object id="13" name="life3" gid="17" x="32" y="32" width="16" height="16"/>
+  <object id="14" name="life2" gid="17" x="16" y="32" width="16" height="16"/>
+  <object id="15" name="life1" gid="17" x="0" y="32" width="16" height="16"/>
+  <object id="16" name="score" x="4" y="4" width="232" height="8">
+   <properties>
+    <property name="script" value="ShmupScore"/>
+    <property name="text" value="SC00000000 EX01000000"/>
+    <property name="textalign" value="left"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+    <property name="textformat" value="SC%8d EX%8d"/>
+   </properties>
+  </object>
+  <object id="21" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
+ </objectgroup>
+ <objectgroup name="pausemenu">
+  <properties>
+   <property name="script" value="PauseMenu"/>
+  </properties>
+  <object id="17" name="title" x="48" y="208" width="144" height="16">
+   <properties>
+    <property name="script" value="ButtonTitle"/>
+    <property name="text" value="TITLE"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+  </object>
+  <object id="18" name="restart" x="48" y="160" width="144" height="16">
+   <properties>
+    <property name="script" value="ButtonRestart"/>
+    <property name="text" value="RESTART"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+  </object>
+  <object id="19" name="resume" x="48" y="112" width="144" height="16">
+   <properties>
+    <property name="script" value="ButtonResume"/>
+    <property name="text" value="RESUME"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+  </object>
+  <object id="20" name="pause" x="16" y="32" width="208" height="16" visible="0">
+   <properties>
+    <property name="text" value="Paused"/>
+    <property name="textalign" value="center"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="touchcontrols">
+  <properties>
+   <property name="script" value="ShmupTouchControls"/>
+  </properties>
+  <object id="22" name="move" gid="21" x="0" y="0" width="64" height="64"/>
+  <object id="23" name="focus" gid="22" x="0" y="0" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup name="curtain">
+  <properties>
+   <property name="script" value="Curtain"/>
+  </properties>
+ </objectgroup>
+</map>

@@ -108,10 +108,12 @@ function ShmupMap:endMove(dt)
 	local playerid = self.properties.playerid
 	self.rank = self.map.scripts:call(playerid, "rankFactor")
 
+	local uimap = self.map.overlaymap
 	if self.resulttimer then
-		if self.resulttimer < self.resulttime - 1
+		if uimap
+		and self.resulttimer < self.resulttime - 1
 		and self.resulttimer + dt >= self.resulttime - 1 then
-			self.map.scripts:call("curtain", "beginFall")
+			uimap.scripts:call("curtain", "beginFall")
 		end
 		self.resulttimer = self.resulttimer + dt
 		if self.resulttimer >= self.resulttime then

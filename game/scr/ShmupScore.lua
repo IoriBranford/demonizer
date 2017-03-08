@@ -11,7 +11,7 @@ ShmupScore = class(function(self, object)
 	self.points = nextmapscore.points or 0
 	self.extendpoints = nextmapscore.extendpoints or 2000000
 	self.multipliers = nextmapscore.multipliers or {
-		[self:idToIdx(self.object.layer.map.properties.playerid)] = 0
+		[self:idToIdx(levity.map.properties.playerid)] = 0
 	}
 
 	self.totalmultiplier = nextmapscore.totalmultiplier or 0
@@ -30,16 +30,16 @@ local Sounds = {
 levity.bank:load(Sounds)
 
 function ShmupScore:idToIdx(id)
-	if id == self.object.layer.map.properties.playerid then
+	if id == levity.map.properties.playerid then
 		return "player"
 	end
-	return self.object.layer.map.scripts:call(id, "getWingmanIndex")
+	return levity.map.scripts:call(id, "getWingmanIndex")
 end
 
 function ShmupScore:pointsScored(points)
 	self.points = math.min(self.points + points, ShmupScore.MaxPoints)
 	if self.points >= self.extendpoints then
-		self.object.layer.map.scripts:broadcast("extendEarned")
+		levity.map:broadcast("extendEarned")
 		self.extendpoints = self.extendpoints + ShmupScore.ExtendInc
 		levity.bank:play(Sounds.Extend)
 	end
@@ -60,8 +60,8 @@ function ShmupScore:npcCaptured(npcid, captorid)
 	self:multiplierInc(self:idToIdx(captorid))
 
 	local points = self:getNextCapturePoints()
-	local npc = self.object.layer.map.objects[npcid]
-	local camera = self.object.layer.map.objects[self.object.layer.map.properties.cameraid]
+	local npc = levity.map.objects[npcid]
+	local camera = levity.map.objects[levity.map.properties.cameraid]
 	local camvx, camvy = camera.body:getLinearVelocity()
 	local pointsobject = {
 		x = npc.body:getX()-32,
@@ -75,7 +75,7 @@ function ShmupScore:npcCaptured(npcid, captorid)
 			textfont = "fnt/pressstart2p.fnt"
 		}
 	}
-	local sparks = self.object.layer.map.layers["sparks"]
+	local sparks = levity.map.layers["sparks"]
 	if sparks then
 		sparks:addObject(pointsobject)
 	end

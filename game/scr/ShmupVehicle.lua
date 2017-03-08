@@ -81,8 +81,8 @@ function ShmupVehicle:explode()
 
 	levity.bank:play(Sounds.KO)
 	levity.bank:play(Sounds.Boom2)
-	self.object.layer.map.scripts:broadcast("vehicleDestroyed", self.object.id)
-	self.object.layer.map.scripts:broadcast("pointsScored",
+	self.object.layer.map:broadcast("vehicleDestroyed", self.object.id)
+	self.object.layer.map:broadcast("pointsScored",
 				self.properties.killpoints or 1000)
 
 	local destroyedtile = self.properties.destroyedtile

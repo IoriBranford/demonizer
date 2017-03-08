@@ -3,6 +3,7 @@
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="mus/05 - Twilight Express.vgm"/>
+  <property name="overlaymap" type="file" value="gameui.lua"/>
   <property name="playerid" type="int" value="3"/>
   <property name="script" value="ShmupMap"/>
  </properties>

@@ -58,7 +58,7 @@ end
 function NPCArcher:suppress()
 	self.firetimer = math.min(BulletInterval,
 		self.firetimer + NPCArcher.PlayerShotSuppression)
-	self.object.layer.map.scripts:broadcast("npcSuppressed", self.object.id)
+	self.object.layer.map:broadcast("npcSuppressed", self.object.id)
 end
 
 function NPCArcher:npcSuppressed(npcid)

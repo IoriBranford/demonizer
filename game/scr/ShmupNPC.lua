@@ -144,7 +144,7 @@ function ShmupNPC:setActive(active)
 end
 
 function ShmupNPC:suppress()
-	self.object.layer.map.scripts:broadcast("npcSuppressed", self.object.id)
+	self.object.layer.map:broadcast("npcSuppressed", self.object.id)
 end
 
 function ShmupNPC:canBeLockTarget()
@@ -226,8 +226,8 @@ function ShmupNPC:dealDamage(damage)
 		if self.health < 1 then
 			self:knockout()
 			levity.bank:play(Sounds.KO)
-			self.object.layer.map.scripts:broadcast("npcKnockedOut", self.object.id)
-			self.object.layer.map.scripts:broadcast("pointsScored",
+			self.object.layer.map:broadcast("npcKnockedOut", self.object.id)
+			self.object.layer.map:broadcast("pointsScored",
 						self.properties.killpoints or 100)
 		else
 			levity.bank:play(Sounds.Hit)
@@ -301,7 +301,7 @@ function ShmupNPC:capture(captorid)
 		levity.bank:play(Sounds.FemaleCapture)
 	else
 		levity.bank:play(Sounds.MaleCapture)
-		self.object.layer.map.scripts:broadcast("npcCaptured", self.object.id, captorid)
+		self.object.layer.map:broadcast("npcCaptured", self.object.id, captorid)
 		self:discard()
 	end
 end
@@ -312,7 +312,7 @@ function ShmupNPC:die()
 	else
 		levity.bank:play(Sounds.MaleDeath)
 	end
-	self.object.layer.map.scripts:broadcast("npcDied", self.object.id)
+	self.object.layer.map:broadcast("npcDied", self.object.id)
 	self:discard()
 end
 
@@ -356,13 +356,14 @@ function ShmupNPC:beginMove(dt)
 	end
 
 	local capturepulldistsq
-	local scoreid = self.object.layer.map.scripts:call("hud", "getScoreId")
+	--local uimap = self.object.layer.map.overlaymap
+	--local scoreid = uimap.scripts:call("status", "getScoreId")
 
 	local canbecaptured = self:canBeCaptured()
 
 	if canbecaptured
 	and self.object.layer.map.scripts:call(playerid, "isFocused")
-	--and self.object.layer.map.scripts:call(scoreid, "isMaxMultiplier", playerid)
+	--and uimap.scripts:call(scoreid, "isMaxMultiplier", playerid)
 	then
 		capturepulldistsq = ShmupNPC.EnhancedCapturePullDistSq
 	else
@@ -469,13 +470,13 @@ function ShmupNPC:playSound(sound)
 end
 
 function ShmupNPC:playerVictory()
-	self.object.layer.map.scripts:broadcast("playerVictorious")
+	self.object.layer.map:broadcast("playerVictorious")
 end
 
 function ShmupNPC:vehicleDestroyed(vehicleid)
 	if self.properties.vehicleid == vehicleid then
 		self:knockout()
-		self.object.layer.map.scripts:broadcast("npcKnockedOut", self.object.id)
+		self.object.layer.map:broadcast("npcKnockedOut", self.object.id)
 	end
 end
 
