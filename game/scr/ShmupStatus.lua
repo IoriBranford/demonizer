@@ -141,6 +141,9 @@ function ShmupStatus:updateReserves()
 end
 
 function ShmupStatus:beginMove(dt)
+	if levity.map.paused then
+		return
+	end
 	local totalmultiplier = self.layer.map.scripts:call(self.elements.score.id,
 							"getTotalMultiplier")
 
