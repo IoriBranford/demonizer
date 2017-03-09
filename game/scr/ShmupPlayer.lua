@@ -261,8 +261,8 @@ end
 
 function ShmupPlayer:getDistanceSq(fromx, fromy)
 	local cx, cy = self.object.body:getWorldCenter()
-	dx = cx - fromx
-	dy = cy - fromy
+	local dx = cx - fromx
+	local dy = cy - fromy
 	return math.hypotsq(dx, dy)
 end
 

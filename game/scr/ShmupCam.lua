@@ -126,7 +126,7 @@ function ShmupCam:beginMove(dt)
 	end
 
 	if self.pathwalker and not self.pathpaused then
-		_, vy1 = self.pathwalker:walk(dt, self.x0, body:getY())
+		vx1, vy1 = self.pathwalker:walk(dt, self.x0, body:getY())
 		vx1 = vx0
 	end
 

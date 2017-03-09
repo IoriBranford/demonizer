@@ -79,6 +79,7 @@ Walker = class(function(self, navlayer, pickNextDest, x, y)
 end)
 
 function Walker:getVelocity(dt, speed, x, y)
+	local vx, vy = 0, 0
 	local distx = self.destpoint.x - x
 	local disty = self.destpoint.y - y
 	local distsq = math.hypotsq(distx, disty)
