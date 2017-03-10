@@ -396,19 +396,6 @@ return {
             ["textfont"] = "fnt/pressstart2p.fnt",
             ["textformat"] = "SC%8d EX%8d"
           }
-        },
-        {
-          id = 21,
-          name = "camera",
-          type = "Camera",
-          shape = "rectangle",
-          x = 0,
-          y = 0,
-          width = 240,
-          height = 320,
-          rotation = 0,
-          visible = true,
-          properties = {}
         }
       }
     },

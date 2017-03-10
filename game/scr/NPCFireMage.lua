@@ -7,7 +7,7 @@ local ShmupBullet = require("ShmupBullet")
 local NPCFireMage
 NPCFireMage = class(ShmupNPC, function(self, object)
 	NPCFireMage.BulletParams.gid =
-		object.layer.map:getTileGid("humanshots", "fire", 0)
+		levity.map:getTileGid("humanshots", "fire", 0)
 
 	ShmupNPC.init(self, object)
 	self.health = 128
@@ -16,8 +16,8 @@ NPCFireMage = class(ShmupNPC, function(self, object)
 	self.leftbullets = 5
 	self.rightbullets = 5
 
-	if self.object.layer.map.properties.delayinitobjects == true then
-		self.object.layer.map:broadcast("ascentStarted")
+	if levity.map.properties.delayinitobjects == true then
+		levity.map:broadcast("ascentStarted")
 	end
 end)
 
@@ -28,7 +28,7 @@ NPCFireMage.BulletParams = {
 
 function NPCFireMage:activate()
 	ShmupNPC.activate(self)
-	self.object.layer.map:broadcast("ascentStarted")
+	levity.map:broadcast("ascentStarted")
 end
 
 function NPCFireMage:fireCoroutine()
@@ -40,8 +40,8 @@ function NPCFireMage:fireCoroutine()
 
 		local x, y = body:getWorldCenter()
 
-		local playerid = self.object.layer.map.properties.playerid
-		local player = self.object.layer.map.objects[playerid]
+		local playerid = levity.map.properties.playerid
+		local player = levity.map.objects[playerid]
 		local plx, ply = player.body:getWorldCenter()
 		local pldx = plx - x
 		local pldy = ply - y
@@ -55,7 +55,7 @@ function NPCFireMage:fireCoroutine()
 		params.speed = 60
 
 		for i = 1, 4 do
-			ShmupBullet.create(params, ShmupNPC.ShotLayer)
+			ShmupBullet.create(params, levity.map.layers["npcshots"])
 			params.angle = params.angle + math.pi/3/3
 		end
 
@@ -78,7 +78,7 @@ function NPCFireMage:fireCoroutine()
 			params.angle = math.atan2(vy, vx)
 			params.speed = math.hypot(vx, vy)
 
-			ShmupBullet.create(params, ShmupNPC.ShotLayer)
+			ShmupBullet.create(params, levity.map.layers["npcshots"])
 			coroutine.wait(1/32)
 		end
 	end

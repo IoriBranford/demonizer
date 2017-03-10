@@ -6,11 +6,11 @@ local ShmupTouchControls = class(function(self, layer)
 	self.layer = layer
 	self.playerid = levity.map.properties.playerid
 
-	if self.layer.map.properties.delayinitobjects == true then
-		for _, object in pairs(self.layer.objects) do
-			Object.init(object, self.layer)
-		end
-	end
+	--if levity.map.properties.delayinitobjects == true then
+	--	for _, object in pairs(self.layer.objects) do
+	--		Object.init(object, self.layer)
+	--	end
+	--end
 
 	for i, object in ipairs(self.layer.objects) do
 		if object.name == "move" then
@@ -88,8 +88,8 @@ function ShmupTouchControls:touchreleased(touch, x, y, dx, dy)
 end
 
 function ShmupTouchControls:beginDraw()
-	self.layer.offsetx = self.layer.map.camera.x
-	self.layer.offsety = self.layer.map.camera.y
+	self.layer.offsetx = levity.map.overlaymap.camera.x
+	self.layer.offsety = levity.map.overlaymap.camera.y
 end
 
 return ShmupTouchControls

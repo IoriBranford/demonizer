@@ -40,8 +40,9 @@ local ShmupMap = class(function(self, map)
 	self.map = map
 	self.properties = self.map.properties
 
-	ShmupNPC.ShotLayer = self.map.layers["npcshots"] or
-				Layer(self.map, "npcshots")
+	if not levity.map.layers["npcshots"] then
+		Layer(self.map, "npcshots")
+	end
 	local sparklayer = self.map.layers["sparks"] or
 				Layer(self.map, "sparks")
  
@@ -81,7 +82,7 @@ local ShmupMap = class(function(self, map)
 				local istrigger = nil
 				for _, object in ipairs(layer.objects) do
 					if object.properties.triggertype then
-						Object.init(object, layer)
+						Object.init(object, layer, map)
 						istrigger = true
 					end
 				end
@@ -89,7 +90,7 @@ local ShmupMap = class(function(self, map)
 				if not istrigger
 				and layer.properties.static ~= true then
 					for _, object in ipairs(layer.objects) do
-						Object.init(object, layer)
+						Object.init(object, layer, map)
 					end
 				end
 			end

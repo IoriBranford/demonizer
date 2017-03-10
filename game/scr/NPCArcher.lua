@@ -8,7 +8,7 @@ local BulletInterval = 2
 local NPCArcher
 NPCArcher = class(ShmupNPC, function(self, object)
 	NPCArcher.BulletParams.gid =
-		object.layer.map:getTileGid("humanshots", "arrow", 0)
+		levity.map:getTileGid("humanshots", "arrow", 0)
 
 	ShmupNPC.init(self, object)
 	self.firetimer = BulletInterval
@@ -31,9 +31,9 @@ function NPCArcher:updateFiring(dt)
 		local playerdx = 0
 		local playerdy = 1
 
-		local playerid = self.object.layer.map.properties.playerid
+		local playerid = levity.map.properties.playerid
 		if playerid then
-			local player = self.object.layer.map.objects[playerid]
+			local player = levity.map.objects[playerid]
 			local playercx, playercy = player.body:getWorldCenter()
 			playerdx = playercx - cx
 			playerdy = playercy - cy
@@ -43,7 +43,7 @@ function NPCArcher:updateFiring(dt)
 		params.y = cy
 		params.angle = math.atan2(playerdy, playerdx)
 		self.firetimer = ShmupBullet.fireOverTime(params,
-			ShmupNPC.ShotLayer, self.firetimer,
+			levity.map.layers["npcshots"], self.firetimer,
 			NPCArcher.BulletInterval)
 
 		levity.bank:play("snd/bow.wav")
@@ -58,7 +58,7 @@ end
 function NPCArcher:suppress()
 	self.firetimer = math.min(BulletInterval,
 		self.firetimer + NPCArcher.PlayerShotSuppression)
-	self.object.layer.map:broadcast("npcSuppressed", self.object.id)
+	levity.map:broadcast("npcSuppressed", self.object.id)
 end
 
 function NPCArcher:npcSuppressed(npcid)

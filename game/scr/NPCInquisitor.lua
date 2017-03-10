@@ -7,7 +7,7 @@ end)
 
 function NPCInquisitor:knockout()
 	ShmupNPC.knockout(self)
-	self.object.layer.map.scripts:call("electricity", "setActive", false)
+	levity.map.scripts:call("electricity", "setActive", false)
 end
 
 function NPCInquisitor:beginMove(dt)
@@ -23,7 +23,7 @@ function NPCInquisitor:beginMove(dt)
 	end
 
 	if not self.pathwalker or self.pathwalker:finished() then
-		self.object.layer.map.scripts:call("electricity", "setActive", true)
+		levity.map.scripts:call("electricity", "setActive", true)
 	end
 end
 

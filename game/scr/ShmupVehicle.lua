@@ -12,7 +12,7 @@ local ShmupVehicle = class(function(self, object)
 	self.object = object
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
-	self:setActive(self.object.layer.map.properties.delayinitobjects == true)
+	self:setActive(levity.map.properties.delayinitobjects == true)
 
 	self.health = 64
 
@@ -69,7 +69,7 @@ function ShmupVehicle:explode()
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		local l, t, r, b = fixture:getBoundingBox()
 		local explosion = {
-			gid = self.object.layer.map:getTileGid("sparks_med", "explosion", 0),
+			gid = levity.map:getTileGid("sparks_med", "explosion", 0),
 			x = l + (r-l)*.5,
 			y = t + (b-t)*.5,
 			properties = {
@@ -81,20 +81,20 @@ function ShmupVehicle:explode()
 
 	levity.bank:play(Sounds.KO)
 	levity.bank:play(Sounds.Boom2)
-	self.object.layer.map:broadcast("vehicleDestroyed", self.object.id)
-	self.object.layer.map:broadcast("pointsScored",
+	levity.map:broadcast("vehicleDestroyed", self.object.id)
+	levity.map:broadcast("pointsScored",
 				self.properties.killpoints or 1000)
 
 	local destroyedtile = self.properties.destroyedtile
 	if destroyedtile then
-		local destroyedgid = self.object.layer.map:getTileGid(
+		local destroyedgid = levity.map:getTileGid(
 			self.object.tile.tileset,
 			destroyedtile)
 
 		-- Optimally, would change body type to static and
 		-- remove all fixtures.
 		-- But those can't change in a collision callback.
-		self.object:setGid(destroyedgid,
+		self.object:setGid(destroyedgid, levity.map,
 					true, nil, false)
 
 		for _, fixture in pairs(self.object.body:getFixtureList()) do
@@ -140,7 +140,7 @@ function ShmupVehicle:endContact(myfixture, otherfixture, contact)
 end
 
 function ShmupVehicle:remove()
-	self.object.layer.map:discardObject(self.object.id)
+	levity.map:discardObject(self.object.id)
 --	if self.onRemove then
 --		self.onRemove()
 --	end
@@ -164,7 +164,7 @@ function ShmupVehicle:beginMove(dt)
 
 	if not self.pathwalker then
 		local pathid = self.properties.pathid
-		self.pathwalker = self.object.layer.map.scripts:call(pathid, "newWalker",
+		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
 						self.properties.pathtime)
 	end
 

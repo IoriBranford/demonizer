@@ -6,7 +6,7 @@ local ShmupBullet = require("ShmupBullet")
 local NPCMage
 NPCMage = class(ShmupNPC, function(self, object)
 	NPCMage.BulletParams.gid = 
-		object.layer.map:getTileGid("humanshots", "magic", 0)
+		levity.map:getTileGid("humanshots", "magic", 0)
 	ShmupNPC.init(self, object)
 	self.health = 128
 
@@ -30,8 +30,8 @@ function NPCMage:fireCoroutine()
 
 		local x, y = body:getWorldCenter()
 
-		local playerid = self.object.layer.map.properties.playerid
-		local player = self.object.layer.map.objects[playerid]
+		local playerid = levity.map.properties.playerid
+		local player = levity.map.objects[playerid]
 		local plx, ply = player.body:getWorldCenter()
 		local pldx = plx - x
 		local pldy = ply - y
@@ -51,14 +51,14 @@ function NPCMage:fireCoroutine()
 				params.angle = langle
 				params.accelx = laccelx
 				params.accely = laccely
-				ShmupBullet.create(params, ShmupNPC.ShotLayer)
+				ShmupBullet.create(params, levity.map.layers["npcshots"])
 				langle = langle + math.pi*.0625
 			end
 			if i <= self.rightbullets then
 				params.angle = rangle
 				params.accelx = raccelx
 				params.accely = raccely
-				ShmupBullet.create(params, ShmupNPC.ShotLayer)
+				ShmupBullet.create(params, levity.map.layers["npcshots"])
 				rangle = rangle - math.pi*.0625
 			end
 			coroutine.wait(1/8)

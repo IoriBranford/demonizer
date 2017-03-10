@@ -64,11 +64,11 @@ local ShmupNPC = class(function(self, object)
 	self.object = object
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
-	self:setActive(self.object.layer.map.properties.delayinitobjects == true or
+	self:setActive(levity.map.properties.delayinitobjects == true or
 		self.properties.unconscious == true)
 
 	local mask
-	self.npctype = self.object.layer.map:getTileColumnName(self.object.gid)
+	self.npctype = levity.map:getTileColumnName(self.object.gid)
 	if string.find(self.npctype, "civ") == 1 then
 		self.health = 0
 		mask = NonCombatantMask
@@ -77,7 +77,7 @@ local ShmupNPC = class(function(self, object)
 		mask = CombatantMask
 	end
 
-	local tileset = self.object.layer.map:getTileset(self.object.tile.tileset)
+	local tileset = levity.map:getTileset(self.object.tile.tileset)
 	self.female = string.find(tileset.name, "women") ~= nil
 
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
@@ -119,7 +119,6 @@ ShmupNPC.BleedOutTime = 8
 ShmupNPC.CapturePullSpeed = 4*60
 ShmupNPC.CapturePullDistSq = 30*30
 ShmupNPC.EnhancedCapturePullDistSq = 120*120
-ShmupNPC.ShotLayer = nil -- ShmupMap, set me once it's created
 ShmupNPC.KnockoutLaunchVelY = -150
 ShmupNPC.KnockoutGravity = 200
 ShmupNPC.ReleaseLaunchVelY = -250
@@ -144,7 +143,7 @@ function ShmupNPC:setActive(active)
 end
 
 function ShmupNPC:suppress()
-	self.object.layer.map:broadcast("npcSuppressed", self.object.id)
+	levity.map:broadcast("npcSuppressed", self.object.id)
 end
 
 function ShmupNPC:canBeLockTarget()
@@ -159,7 +158,7 @@ function ShmupNPC:canBeCaptured()
 end
 
 function ShmupNPC:getKOGid()
-	return self.object.layer.map:getTileGid(self.object.tile.tileset,
+	return levity.map:getTileGid(self.object.tile.tileset,
 					"ko", self.npctype)
 end
 
@@ -175,7 +174,7 @@ function ShmupNPC:knockout()
 	self.health = 0
 	self.unconscious = true
 	self.pathwalker = nil
-	self.object:setGid(self:getKOGid())
+	self.object:setGid(self:getKOGid(), levity.map)
 
 	self:setInCover(false)
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
@@ -226,8 +225,8 @@ function ShmupNPC:dealDamage(damage)
 		if self.health < 1 then
 			self:knockout()
 			levity.bank:play(Sounds.KO)
-			self.object.layer.map:broadcast("npcKnockedOut", self.object.id)
-			self.object.layer.map:broadcast("pointsScored",
+			levity.map:broadcast("npcKnockedOut", self.object.id)
+			levity.map:broadcast("pointsScored",
 						self.properties.killpoints or 100)
 		else
 			levity.bank:play(Sounds.Hit)
@@ -291,8 +290,8 @@ function ShmupNPC:capture(captorid)
 	if self.female then
 		local cx, cy = self.object.body:getWorldCenter()
 		local newwingmanid = ShmupWingman.create(
-				self.object.layer.map,
-				self.object.layer.map:getTileGid(
+				levity.map,
+				levity.map:getTileGid(
 						self.object.tile.tileset,
 						"up", self.npctype),
 				cx, cy, captorid, self.object.id)
@@ -301,7 +300,7 @@ function ShmupNPC:capture(captorid)
 		levity.bank:play(Sounds.FemaleCapture)
 	else
 		levity.bank:play(Sounds.MaleCapture)
-		self.object.layer.map:broadcast("npcCaptured", self.object.id, captorid)
+		levity.map:broadcast("npcCaptured", self.object.id, captorid)
 		self:discard()
 	end
 end
@@ -312,12 +311,12 @@ function ShmupNPC:die()
 	else
 		levity.bank:play(Sounds.MaleDeath)
 	end
-	self.object.layer.map:broadcast("npcDied", self.object.id)
+	levity.map:broadcast("npcDied", self.object.id)
 	self:discard()
 end
 
 function ShmupNPC:discard()
-	self.object.layer.map:discardObject(self.object.id)
+	levity.map:discardObject(self.object.id)
 	if self.onDiscard then
 		self.onDiscard()
 	end
@@ -342,8 +341,8 @@ function ShmupNPC:beginMove(dt)
 	local vehicleid = self.properties.vehicleid
 
 	local cx, cy = body:getWorldCenter()
-	local playerid = self.object.layer.map.properties.playerid
-	local player = self.object.layer.map.objects[playerid]
+	local playerid = levity.map.properties.playerid
+	local player = levity.map.objects[playerid]
 
 	local playerdx, playerdy
 	local playerdsq = math.huge
@@ -356,13 +355,13 @@ function ShmupNPC:beginMove(dt)
 	end
 
 	local capturepulldistsq
-	--local uimap = self.object.layer.map.overlaymap
+	--local uimap = levity.map.overlaymap
 	--local scoreid = uimap.scripts:call("status", "getScoreId")
 
 	local canbecaptured = self:canBeCaptured()
 
 	if canbecaptured
-	and self.object.layer.map.scripts:call(playerid, "isFocused")
+	and levity.map.scripts:call(playerid, "isFocused")
 	--and uimap.scripts:call(scoreid, "isMaxMultiplier", playerid)
 	then
 		capturepulldistsq = ShmupNPC.EnhancedCapturePullDistSq
@@ -372,11 +371,11 @@ function ShmupNPC:beginMove(dt)
 
 	self.pulledbyplayer = self.pulledbyplayer or
 		(canbecaptured and playerdsq < capturepulldistsq
-		and not self.object.layer.map.scripts:call(playerid, "isKilled"))
+		and not levity.map.scripts:call(playerid, "isKilled"))
 
 	if not self.pathwalker then
 		local pathid = self.properties.pathid
-		self.pathwalker = self.object.layer.map.scripts:call(pathid, "newWalker",
+		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
 						self.properties.pathtime)
 		if self.pathwalker then
 			self.pathwalker:findStartPoint(body:getWorldCenter())
@@ -394,7 +393,7 @@ function ShmupNPC:beginMove(dt)
 			body:setLinearVelocity(0, 0)
 		end
 	elseif vehicleid then
-		local vehicle = self.object.layer.map.objects[vehicleid]
+		local vehicle = levity.map.objects[vehicleid]
 		if vehicle then
 			body:setLinearVelocity(vehicle.body:getLinearVelocity())
 		else
@@ -409,9 +408,9 @@ function ShmupNPC:endMove(dt)
 	if self.bleedouttimer > 0 then
 		local x, y = self.object.body:getWorldCenter()
 		local mapleft = 0
-		local mapright = self.object.layer.map.width * self.object.layer.map.tilewidth
+		local mapright = levity.map.width * levity.map.tilewidth
 
-		local camera = self.object.layer.map.objects[self.object.layer.map.properties.cameraid]
+		local camera = levity.map.objects[levity.map.properties.cameraid]
 		local cambottom = 0
 		for _, fixture in ipairs(camera.body:getFixtureList()) do
 			local _, _, _, b = fixture:getBoundingBox()
@@ -456,9 +455,9 @@ function ShmupNPC:endDraw()
 end
 
 function ShmupNPC:unpauseCamera()
-	local cameraid = self.object.layer.map.properties.cameraid
+	local cameraid = levity.map.properties.cameraid
 	if cameraid then
-		self.object.layer.map.scripts:call(cameraid, "pausePath", false)
+		levity.map.scripts:call(cameraid, "pausePath", false)
 	end
 end
 
@@ -470,13 +469,13 @@ function ShmupNPC:playSound(sound)
 end
 
 function ShmupNPC:playerVictory()
-	self.object.layer.map:broadcast("playerVictorious")
+	levity.map:broadcast("playerVictorious")
 end
 
 function ShmupNPC:vehicleDestroyed(vehicleid)
 	if self.properties.vehicleid == vehicleid then
 		self:knockout()
-		self.object.layer.map:broadcast("npcKnockedOut", self.object.id)
+		levity.map:broadcast("npcKnockedOut", self.object.id)
 	end
 end
 

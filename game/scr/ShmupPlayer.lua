@@ -58,12 +58,12 @@ ShmupPlayer = class(function(self, object)
 
 	local nextmapplayer = levity.nextmapdata.player or {}
 	self.numcaptives = nextmapplayer.numcaptives or 0
-	self.captivegids = self.object.layer.map:tileNamesToGids(nextmapplayer.captivenames) or {}
+	self.captivegids = levity.map:tileNamesToGids(nextmapplayer.captivenames) or {}
 
-	local wingmengids = self.object.layer.map:tileNamesToGids(nextmapplayer.wingmennames) or {}
+	local wingmengids = levity.map:tileNamesToGids(nextmapplayer.wingmennames) or {}
 	local cx, cy = self.object.body:getWorldCenter()
 	for _, gid in ipairs(wingmengids) do
-		ShmupWingman.create(self.object.layer.map, gid, cx, cy, nil, nil)
+		ShmupWingman.create(levity.map, gid, cx, cy, nil, nil)
 	end
 
 	local fixtures = self.object.body:getUserData().fixtures
@@ -76,9 +76,9 @@ ShmupPlayer = class(function(self, object)
 
 	self.wingmanpositions = {}
 	self.focuswingmanpositions = {}
-	local tile = self.object.layer.map.tiles[self.object.gid]
+	local tile = levity.map.tiles[self.object.gid]
 	local tileobjects = tile.objectGroup.objects
-	local tileheight = self.object.layer.map:getTileset(tile.tileset).tileheight
+	local tileheight = levity.map:getTileset(tile.tileset).tileheight
 	-- bottom left origin
 	-- TODO in levity transform all tile objects so scripts don't have to
 	for _, object in pairs(tileobjects) do
@@ -97,13 +97,13 @@ ShmupPlayer = class(function(self, object)
 	self.soundfile = nil
 
 	ShmupPlayer.BulletParams.gid =
-		self.object.layer.map:getTileGid("demonshots", "player", 0)
+		levity.map:getTileGid("demonshots", "player", 0)
 
 	ShmupPlayer.BombShrapnelParams.gid =
-		self.object.layer.map:getTileGid("demonshots", "bombshrapnel", 0)
+		levity.map:getTileGid("demonshots", "bombshrapnel", 0)
 
 	ShmupPlayer.BombParams.gid =
-		self.object.layer.map:getTileGid("demonbomb", 0, 0)
+		levity.map:getTileGid("demonbomb", 0, 0)
 end)
 
 ShmupPlayer.Speed = 180
@@ -203,13 +203,13 @@ end
 
 function ShmupPlayer:wingmanReserved(wingmanid, wingmangid)
 	self.numwingmen = self.numwingmen - 1
-	local wingmanindex = self.object.layer.map.scripts:call(wingmanid, "getWingmanIndex")
+	local wingmanindex = levity.map.scripts:call(wingmanid, "getWingmanIndex")
 	table.remove(self.wingmenids, wingmanindex)
 end
 
 function ShmupPlayer:wingmanKilled(wingmanid)
 	self.numwingmen = self.numwingmen - 1
-	local wingmanindex = self.object.layer.map.scripts:call(wingmanid, "getWingmanIndex")
+	local wingmanindex = levity.map.scripts:call(wingmanid, "getWingmanIndex")
 	table.remove(self.wingmenids, wingmanindex)
 end
 
@@ -296,17 +296,17 @@ function ShmupPlayer:joystickchanged(button, pressed)
 		self.inputvx = self.inputvx * focusspeedfactor
 		self.inputvy = self.inputvy * focusspeedfactor
 	elseif button == ShmupPlayer.Button_Bomb and pressed
-	and not self.killed and not self.object.layer.map.paused then
+	and not self.killed and not levity.map.paused then
 		local params = ShmupPlayer.BombParams
 
-		local uimap = self.object.layer.map.overlaymap
+		local uimap = levity.map.overlaymap
 		if not uimap or uimap.scripts:call("status", "hasBombs") then
 			params.x, params.y = self.object.body:getWorldCenter()
 			params.y = params.y - 128
 			ShmupBullet.create(params, self.object.layer)
 			levity.bank:play(Sounds.Bomb)
 			levity.bank:play(Sounds.Bomber)
-			self.object.layer.map:broadcast("playerBombed")
+			levity.map:broadcast("playerBombed")
 		end
 	end
 end
@@ -364,9 +364,9 @@ function ShmupPlayer:keyreleased(key, u)
 end
 
 function ShmupPlayer:mousemoved(x, y, dx, dy)
-	if not self.object.layer.map.paused then
-		self.inputvx = self.inputvx + (dx / self.object.layer.map.camera.scale)
-		self.inputvy = self.inputvy + (dy / self.object.layer.map.camera.scale)
+	if not levity.map.paused then
+		self.inputvx = self.inputvx + (dx / levity.map.camera.scale)
+		self.inputvy = self.inputvy + (dy / levity.map.camera.scale)
 		self.didmousemove = true
 	end
 end
@@ -375,9 +375,9 @@ function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 	local category = otherfixture:getCategory()
 	if category == ShmupCollision.Category_NPCTeam then
 		local captiveid = otherfixture:getBody():getUserData().id
-		if not self.object.layer.map.scripts:call(captiveid, "isFemale")
-		and self.object.layer.map.scripts:call(captiveid, "canBeCaptured") then
-			local captivegid = self.object.layer.map.scripts:call(captiveid, "getKOGid")
+		if not levity.map.scripts:call(captiveid, "isFemale")
+		and levity.map.scripts:call(captiveid, "canBeCaptured") then
+			local captivegid = levity.map.scripts:call(captiveid, "getKOGid")
 			local i = (self.numcaptives % ShmupPlayer.CaptivesReleasedOnKill) + 1
 			self.captivegids[i] = captivegid
 			self.numcaptives = self.numcaptives + 1
@@ -400,7 +400,7 @@ function ShmupPlayer:deathCoroutine(dt)
 	local bodyfixture = fixtures["body"]
 	bodyfixture:setMask(unpack(NonPlayMask))
 
-	self.object.layer.map:broadcast("playerKilled")
+	levity.map:broadcast("playerKilled")
 
 	self:playSound(Sounds.Death)
 	self:playSound(Sounds.Scream)
@@ -415,8 +415,8 @@ function ShmupPlayer:deathCoroutine(dt)
 
 	local t = 0
 	while t < ShmupPlayer.DeathTime do
-		local cameraid = self.object.layer.map.properties.cameraid
-		local camera = self.object.layer.map.objects[cameraid]
+		local cameraid = levity.map.properties.cameraid
+		local camera = levity.map.objects[cameraid]
 		local camvx, camvy = camera.body:getLinearVelocity()
 		self.object.body:setLinearVelocity(camvx, camvy)
 
@@ -424,11 +424,11 @@ function ShmupPlayer:deathCoroutine(dt)
 		self, dt = coroutine.yield()
 	end
 
-	local uimap = self.object.layer.map.overlaymap
+	local uimap = levity.map.overlaymap
 	if not uimap or uimap.scripts:call("status", "hasLives") then
 		self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
 	else
-		self.object.layer.map:broadcast("playerDefeated")
+		levity.map:broadcast("playerDefeated")
 		while true do
 			coroutine.yield()
 		end
@@ -436,8 +436,8 @@ function ShmupPlayer:deathCoroutine(dt)
 end
 
 function ShmupPlayer:getSpawnPosition()
-	local cameraid = self.object.layer.map.properties.cameraid
-	local camera = self.object.layer.map.objects[cameraid]
+	local cameraid = levity.map.properties.cameraid
+	local camera = levity.map.objects[cameraid]
 	local camcx, camcy = camera.body:getWorldCenter()
 	return camcx, camcy + camera.height * (3 / 8)
 end
@@ -450,8 +450,8 @@ function ShmupPlayer:getRecenterVelocity(dt)
 	local snaptocamv = 8
 		--self.deathtimer * ShmupPlayer.DeathSnapToCameraVelocity / dt
 
-	local cameraid = self.object.layer.map.properties.cameraid
-	local camera = self.object.layer.map.objects[cameraid]
+	local cameraid = levity.map.properties.cameraid
+	local camera = levity.map.objects[cameraid]
 	local camvx, camvy = camera.body:getLinearVelocity()
 
 	if dx*dx + dy*dy < ShmupPlayer.SpeedSq*dt*dt then
@@ -487,7 +487,7 @@ function ShmupPlayer:spawnCoroutine(dt)
 
 	if self.killed then
 		self.killed = false
-		self.object.layer.map:broadcast("playerRespawned")
+		levity.map:broadcast("playerRespawned")
 		self:playSound(Sounds.Respawn)
 		self.object.visible = true
 	end
@@ -533,10 +533,10 @@ function ShmupPlayer:beginMove(dt)
 
 	self.shieldtimer = math.max(0, self.shieldtimer - dt)
 
-	local cameraid = self.object.layer.map.properties.cameraid
+	local cameraid = levity.map.properties.cameraid
 	local camera = nil
 	if cameraid then
-		camera = self.object.layer.map.objects[cameraid]
+		camera = levity.map.objects[cameraid]
 	end
 
 	if self.didmousemove then
@@ -576,19 +576,19 @@ function ShmupPlayer:beginMove(dt)
 end
 
 function ShmupPlayer:endMove(dt)
-	local cameraid = self.object.layer.map.properties.cameraid
+	local cameraid = levity.map.properties.cameraid
 	local camera = nil
 	if cameraid then
-		camera = self.object.layer.map.objects[cameraid]
+		camera = levity.map.objects[cameraid]
 	end
 	if camera then
 		local cx, cy = self.object.body:getWorldCenter()
-		self.object.layer.map.scripts:call(cameraid, "swayWithPlayer", cx)
+		levity.map.scripts:call(cameraid, "swayWithPlayer", cx)
 	end
 
 	if not self.hitbox then
 		self.hitbox = {
-			gid = self.object.layer.map:getTileGid("playerhitbox", 0, 0)
+			gid = levity.map:getTileGid("playerhitbox", 0, 0)
 		}
 		self.hitbox.x, self.hitbox.y = self.object.body:getWorldCenter()
 
@@ -607,7 +607,7 @@ function ShmupPlayer:beginDraw()
 		love.graphics.setColor(0xff, 0xff, 0xff, alpha)
 	end
 
-	--local uimap = self.object.layer.map.overlaymap
+	--local uimap = levity.map.overlaymap
 	--local scoreid
 	--if uimap then
 	--	scoreid = uimap.scripts:call("hud", "getScoreId")
@@ -634,12 +634,12 @@ end
 function ShmupPlayer:nextMap(nextmapfile, nextmapdata)
 	local wingmengids = {}
 	for _, id in ipairs(self.wingmenids) do
-		wingmengids[#wingmengids + 1] = self.object.layer.map.objects[id].gid
+		wingmengids[#wingmengids + 1] = levity.map.objects[id].gid
 	end
 
 	nextmapdata.player = {
-		wingmennames = self.object.layer.map:tileGidsToNames(wingmengids),
-		captivenames = self.object.layer.map:tileGidsToNames(self.captivegids),
+		wingmennames = levity.map:tileGidsToNames(wingmengids),
+		captivenames = levity.map:tileGidsToNames(self.captivegids),
 		numcaptives = self.numcaptives
 	}
 end

@@ -5,7 +5,7 @@ local NumRows = 3
 local FirstGid
 
 local LavaPitWall = class(function(self, layer)
-	FirstGid = layer.map:getTileGid(Tileset, "pitwall", 0)
+	FirstGid = levity.map:getTileGid(Tileset, "pitwall", 0)
 	self.layer = layer
 	assert(self.layer.type == "tilelayer")
 	self.active = false
@@ -30,11 +30,11 @@ function LavaPitWall:beginMove(dt)
 		self.timer = self.timer + dt*math.pi
 		self.layer.y = self.a + self.b*math.sin(self.timer)/self.timer
 
-		local tileset = self.layer.map.tilesets[Tileset]
+		local tileset = levity.map.tilesets[Tileset]
 
 		local gid = FirstGid
 		for r = 1, NumRows do
-			self.layer.map:updateTileAnimations(gid,
+			levity.map:updateTileAnimations(gid,
 							tileset.tilecolumns, dt)
 			gid = gid + tileset.tilecolumns
 		end

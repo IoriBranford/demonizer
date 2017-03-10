@@ -6,7 +6,7 @@ local ShmupBullet = require("ShmupBullet")
 local NPCPikeman
 NPCPikeman = class(ShmupNPC, function(self, object)
 	NPCPikeman.BulletParams.gid =
-		object.layer.map:getTileGid("humanshots", "pike", 0)
+		levity.map:getTileGid("humanshots", "pike", 0)
 	ShmupNPC.init(self, object)
 	self.firetimer = .5--love.math.random()
 	self.health = 8
@@ -25,15 +25,15 @@ function NPCPikeman:updateFiring(dt)
 	local playerdx = 0
 	local playerdy = 1
 
-	local playerid = self.object.layer.map.properties.playerid
+	local playerid = levity.map.properties.playerid
 	if playerid then
-		local player = self.object.layer.map.objects[playerid]
+		local player = levity.map.objects[playerid]
 		local playercx, playercy = player.body:getWorldCenter()
 
 		local leader
 		local leaderid = self.properties.leaderid
 		if leaderid then
-			leader = self.object.layer.map.objects[leaderid]
+			leader = levity.map.objects[leaderid]
 		end
 
 		if leader then
@@ -53,7 +53,7 @@ function NPCPikeman:updateFiring(dt)
 		params.angle = math.atan2(playerdy, playerdx)
 
 		self.firetimer = ShmupBullet.fireOverTime(params,
-				ShmupNPC.ShotLayer, self.firetimer,
+				levity.map.layers["npcshots"], self.firetimer,
 				NPCPikeman.BulletInterval)
 
 		levity.bank:play("snd/pike.wav")

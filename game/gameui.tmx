@@ -50,7 +50,6 @@
     <property name="textformat" value="SC%8d EX%8d"/>
    </properties>
   </object>
-  <object id="21" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>
  <objectgroup name="pausemenu">
   <properties>

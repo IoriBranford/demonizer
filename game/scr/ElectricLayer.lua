@@ -33,14 +33,14 @@ function ElectricLayer:beginMove(dt)
 
 	if math.floor(self.timer * BuzzRate) < math.floor(newtimer * BuzzRate) then
 		levity.bank:play(Sounds.Buzz)
-		self.layer.map:broadcast("electrocuted")
+		levity.map:broadcast("electrocuted")
 	end
 
 	self.timer = newtimer
 
 	self.layer.opacity = .125*(1 + math.cos(4*math.pi*self.timer*BuzzRate))
 
-	self.layer.map:updateTilesetAnimations(ElectricTileset, dt)
+	levity.map:updateTilesetAnimations(ElectricTileset, dt)
 end
 
 return ElectricLayer

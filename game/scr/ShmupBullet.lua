@@ -57,14 +57,14 @@ local ShmupBullet = class(function(self, object)
 	properties.vely = nil
 
 	if properties.coroutine then
-		self.object.layer.map.scripts:scriptAddEventFunc(self,
+		levity.map.scripts:scriptAddEventFunc(self,
 				self.object.id,
 				"beginMove", beginMove)
 		self.coroutine = coroutine.create(properties.coroutine)
 	end
 
 	if properties.accelx and properties.accely then
-		self.object.layer.map.scripts:scriptAddEventFunc(self,
+		levity.map.scripts:scriptAddEventFunc(self,
 				self.object.id,
 				"beginMove", beginMove)
 	end
@@ -81,7 +81,7 @@ function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
 	or otherfixture:getCategory() == ShmupCollision.Category_PlayerBomb
 	or otherfixture:getCategory() == ShmupCollision.Category_NPCTeam then
 		if not self.object.properties.persist then
-			self.object.layer.map:discardObject(self.object.id)
+			levity.map:discardObject(self.object.id)
 		end
 	elseif otherfixture:getCategory() == ShmupCollision.Category_Camera then
 		self.oncamera = true
@@ -96,11 +96,11 @@ end
 
 function ShmupBullet:endMove(dt)
 	if not self.oncamera then
-		self.object.layer.map:discardObject(self.object.id)
+		levity.map:discardObject(self.object.id)
 	elseif self.time then
 		self.time = self.time - dt
 		if self.time <= 0 then
-			self.object.layer.map:discardObject(self.object.id)
+			levity.map:discardObject(self.object.id)
 		end
 	end
 end
@@ -139,7 +139,7 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 
 	local gid = params.gid
 	if not gid then
-		local tileset = layer.map:getTileset(tilesetid)
+		local tileset = levity.map:getTileset(tilesetid)
 		gid = tileset.firstgid + tileid
 	end
 

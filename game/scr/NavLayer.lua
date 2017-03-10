@@ -37,9 +37,9 @@ NavLayer = class(function(self, layer)
 end)
 
 function NavLayer:getNode(x, y)
-	local mapcolumns = self.layer.map.width
-	local c = math.floor(x / self.layer.map.tilewidth)
-	local r = math.floor(y / self.layer.map.tileheight)
+	local mapcolumns = levity.map.width
+	local c = math.floor(x / levity.map.tilewidth)
+	local r = math.floor(y / levity.map.tileheight)
 	local ni = mapcolumns*r + c
 	local n = self.nodegrid[ni]
 	if not n then

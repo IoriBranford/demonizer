@@ -6,7 +6,7 @@ local ShmupBullet = require("ShmupBullet")
 local NPCSwordsman
 NPCSwordsman = class(ShmupNPC, function(self, object)
 	NPCSwordsman.BulletParams.gid =
-		object.layer.map:getTileGid("humanshots", "sword", 0)
+		levity.map:getTileGid("humanshots", "sword", 0)
 	ShmupNPC.init(self, object)
 	self.fireco = nil
 	self.health = 16
@@ -30,9 +30,9 @@ function NPCSwordsman:fireCoroutine()
 			local playerdx = 0
 			local playerdy = 1
 
-			local playerid = self.object.layer.map.properties.playerid
+			local playerid = levity.map.properties.playerid
 			if playerid then
-				local player = self.object.layer.map.objects[playerid]
+				local player = levity.map.objects[playerid]
 				local playercx, playercy = player.body:getWorldCenter()
 				playerdx = playercx - cx
 				playerdy = playercy - cy
@@ -42,7 +42,7 @@ function NPCSwordsman:fireCoroutine()
 			params.y = cy
 			params.angle = math.atan2(playerdy, playerdx)
 
-			ShmupBullet.create(params, ShmupNPC.ShotLayer)
+			ShmupBullet.create(params, levity.map.layers["npcshots"])
 			levity.bank:play("snd/sword.wav")
 
 			coroutine.wait(NPCSwordsman.BulletInterval / 8)

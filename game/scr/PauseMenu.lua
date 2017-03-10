@@ -5,11 +5,11 @@ local PauseMenu = class(function(self, layer)
 	self.layer = layer
 	self.layer.visible = false
 
-	if self.layer.map.properties.delayinitobjects == true then
-		for _, object in pairs(self.layer.objects) do
-			Object.init(object, self.layer)
-		end
-	end
+	--if levity.map.properties.delayinitobjects == true then
+	--	for _, object in pairs(self.layer.objects) do
+	--		Object.init(object, self.layer)
+	--	end
+	--end
 end)
 
 local Sounds = {
@@ -39,12 +39,12 @@ function PauseMenu:keypressed_pause()
 end
 
 function PauseMenu:beginDraw()
-	self.layer.offsetx = self.layer.map.camera.x
-	self.layer.offsety = self.layer.map.camera.y
+	self.layer.offsetx = levity.map.overlaymap.camera.x
+	self.layer.offsety = levity.map.overlaymap.camera.y
 	love.graphics.setColor(0,0,0, 0xc0)
 	love.graphics.rectangle("fill",
-		self.layer.map.camera.x, self.layer.map.camera.y,
-		self.layer.map.camera.w, self.layer.map.camera.h)
+		levity.map.overlaymap.camera.x, levity.map.overlaymap.camera.y,
+		levity.map.overlaymap.camera.w, levity.map.overlaymap.camera.h)
 	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
 end
 
@@ -53,8 +53,8 @@ function PauseMenu:endDraw()
 --		local x, y = love.mouse.getPosition()
 --		x, y = levity:screenToCamera(x, y)
 --		love.graphics.circle("line",
---			self.layer.map.camera.x + x,
---			self.layer.map.camera.y + y, 2)
+--			levity.map.camera.x + x,
+--			levity.map.camera.y + y, 2)
 --	end
 end
 

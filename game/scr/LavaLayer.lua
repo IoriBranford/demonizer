@@ -5,7 +5,7 @@ local NumRows = 2
 local FirstGid
 
 local LavaLayer = class(function(self, layer)
-	FirstGid = layer.map:getTileGid(Tileset, "lava", 0)
+	FirstGid = levity.map:getTileGid(Tileset, "lava", 0)
 	self.layer = layer
 	assert(self.layer.type == "tilelayer")
 	self.active = false
@@ -25,7 +25,7 @@ function LavaLayer:ascentStarted()
 end
 
 function LavaLayer:beginMove(dt)
-	local tileset = self.layer.map.tilesets[Tileset]
+	local tileset = levity.map.tilesets[Tileset]
 	local timescale = 1
 	if self.active then
 		self.timer = self.timer + dt*math.pi
@@ -35,7 +35,7 @@ function LavaLayer:beginMove(dt)
 
 	local gid = FirstGid
 	for r = 1, NumRows do
-		self.layer.map:updateTileAnimations(gid, tileset.tilecolumns,
+		levity.map:updateTileAnimations(gid, tileset.tilecolumns,
 							dt*timescale)
 		gid = gid + tileset.tilecolumns
 	end

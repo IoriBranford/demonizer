@@ -12,7 +12,7 @@ local FreeCam = class(function(self, object)
 	end
 
 	local cx, cy = self.object.body:getWorldCenter()
-	self.object.layer.map.camera:set(cx, cy, self.object.width, self.object.height)
+	levity.map.camera:set(cx, cy, self.object.width, self.object.height)
 end)
 
 local keyforce = 60
@@ -50,7 +50,7 @@ end
 
 function FreeCam:endMove(dt)
 	local cx, cy = self.object.body:getWorldCenter()
-	self.object.layer.map.camera:set(cx, cy)
+	levity.map.camera:set(cx, cy)
 end
 
 return FreeCam

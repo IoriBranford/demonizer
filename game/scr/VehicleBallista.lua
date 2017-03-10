@@ -7,11 +7,11 @@ local ShmupBullet = require("ShmupBullet")
 local VehicleBallista
 VehicleBallista = class(ShmupVehicle, function(self, object)
 	VehicleBallista.BulletParams.gid =
-		object.layer.map:getTileGid("humanshots", "ballista", 0)
+		levity.map:getTileGid("humanshots", "ballista", 0)
 	ShmupVehicle.init(self, object)
 	self.health = 64
 
-	local row = self.object.layer.map:getTileColumnName(self.object.gid)
+	local row = levity.map:getTileColumnName(self.object.gid)
 	local angle = string.match(row, "angle(%d+)")
 	self.angle = math.rad(tonumber(angle))
 end)
@@ -29,7 +29,7 @@ function VehicleBallista:loopedAnimation()
 	params.y = cy
 	params.angle = self.angle
 
-	ShmupBullet.create(params, ShmupNPC.ShotLayer)
+	ShmupBullet.create(params, levity.map.layers["npcshots"])
 
 	levity.bank:play("snd/ballista.wav")
 end
