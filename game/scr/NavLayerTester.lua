@@ -6,7 +6,7 @@ NavLayerTester = class(function(self, object)
 	self.walker = nil
 end)
 
-function NavLayerTester.pickNextDest(dests)
+function NavLayerTester.pickNextDest(navlayername, dests, self)
 	return dests[love.math.random(#dests)]
 end
 
@@ -16,7 +16,7 @@ function NavLayerTester:beginMove(dt)
 	if not self.walker then
 		self.walker = levity.map.scripts:call(
 			self.object.properties.navlayerid, "newWalker",
-			NavLayerTester.pickNextDest, x, y)
+			NavLayerTester.pickNextDest, x, y, self)
 	end
 
 	local vx, vy = self.walker:getVelocity(dt, 60, x, y)

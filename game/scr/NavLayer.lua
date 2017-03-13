@@ -1,6 +1,16 @@
 local levity = require "levity"
 
 local NavLayer
+
+local function addSegment(self, p1, p2)
+	local n1 = self:getNode(p1.x, p1.y, true)
+	local n2 = self:getNode(p2.x, p2.y, true)
+	if n1 ~= n2 then
+		n1[#n1 + 1] = p2
+		n2[#n2 + 1] = p1
+	end
+end
+
 NavLayer = class(function(self, layer)
 	self.layer = layer
 	self.nodegrid = {} -- lists of possible destinations from each grid cell
@@ -10,43 +20,51 @@ NavLayer = class(function(self, layer)
 	-- 	cell2 = {destpoint3, destpoint4, ...}, ...
 	-- }
 
-	local function addSegment(p1, p2)
-		local n1 = self:getNode(p1.x, p1.y)
-		local n2 = self:getNode(p2.x, p2.y)
-		if n1 ~= n2 then
-			n1[#n1 + 1] = p2
-			n2[#n2 + 1] = p1
-		end
-	end
-
 	for _, object in pairs(self.layer.objects) do
 		local line = object.polyline or object.polygon
 		if line then
 			local p1 = line[1]
 			for i = 2, #line do
 				local p2 = line[i]
-				addSegment(p1, p2)
+				addSegment(self, p1, p2)
 				p1 = p2
 			end
 			if object.shape == "polygon" then
 				local p2 = line[1]
-				addSegment(p1, p2)
+				addSegment(self, p1, p2)
 			end
 		end
 	end
 end)
 
-function NavLayer:getNode(x, y)
+function NavLayer:getNode(x, y, createnode)
+	local c, r = levity.map:convertPixelToTile(x, y)
+	c = math.floor(c)
+	r = math.floor(r)
 	local mapcolumns = levity.map.width
-	local c = math.floor(x / levity.map.tilewidth)
-	local r = math.floor(y / levity.map.tileheight)
 	local ni = mapcolumns*r + c
 	local n = self.nodegrid[ni]
-	if not n then
+	if createnode and not n then
 		self.nodegrid[ni] = {}
 		n = self.nodegrid[ni]
 	end
 	return n
+end
+
+function NavLayer:findNearestPoint(x, y)
+	local nearestpoint
+	local nearestdistsq = math.huge
+	for ni, node in pairs(self.nodegrid) do
+		for di, dest in pairs(node) do
+			local distsq = math.hypotsq(dest.x - x, dest.y - y)
+			if distsq < nearestdistsq then
+				nearestpoint = dest
+				nearestdistsq = distsq
+			end
+		end
+	end
+
+	return nearestpoint
 end
 
 function NavLayer:beginDraw()
@@ -69,29 +87,54 @@ end
 
 local Walker
 
-Walker = class(function(self, navlayer, pickNextDest, x, y)
+Walker = class(function(self, navlayer, pickNextDest, x, y, userdata)
 	self.navlayer = navlayer
 
 	local node = navlayer:getNode(x, y)
-	self.destpoint = pickNextDest(node)
+	if node then
+		self.destpoint = pickNextDest(navlayer, node)
+	else
+		self.destpoint = navlayer:findNearestPoint(x, y)
+	end
 
 	self.pickNextDest = pickNextDest
+	self.userdata = userdata
 end)
 
 function Walker:getVelocity(dt, speed, x, y)
+	if not self.destpoint then
+		return 0, 0
+	end
 	local vx, vy = 0, 0
 	local distx = self.destpoint.x - x
 	local disty = self.destpoint.y - y
 	local distsq = math.hypotsq(distx, disty)
 
 	local exdistsq = (speed * speed * dt * dt) - distsq
-	-- amount you would overshoot destination this frame
+	-- amount squared by which you would overshoot destination this frame
 
 	if exdistsq >= 0 then
-		vx, vy = distx / dt, disty / dt
 		local node = self.navlayer:getNode(self.destpoint.x,
 							self.destpoint.y)
-		self.destpoint = self.pickNextDest(node)
+		local newdest = self.pickNextDest(self.navlayer.layer.name,
+							node, self.userdata)
+		if newdest then
+			-- apply excess dist towards new destination
+			local exdist = math.sqrt(exdistsq)
+
+			local newdirx = newdest.x - self.destpoint.x
+			local newdiry = newdest.y - self.destpoint.y
+			local newdestdist = math.hypot(newdirx, newdiry)
+
+			newdirx = exdist * newdirx / newdestdist
+			newdiry = exdist * newdiry / newdestdist
+
+			distx = distx + newdirx
+			disty = disty + newdiry
+		end
+		self.destpoint = newdest
+
+		vx, vy = distx / dt, disty / dt
 	else
 		local dist = math.sqrt(distsq)
 		local dirx, diry = distx / dist, disty / dist

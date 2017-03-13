@@ -21,7 +21,7 @@
  </objectgroup>
  <objectgroup name="sparks"/>
  <objectgroup name="enemy">
-  <object id="49" gid="160" x="120" y="72" width="24" height="32">
+  <object id="49" gid="160" x="120" y="16" width="24" height="32">
    <properties>
     <property name="navlayerid" value="navlayer"/>
     <property name="script" value="NavLayerTester"/>
