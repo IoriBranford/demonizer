@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="30" height="40" tilewidth="8" tileheight="8" nextobjectid="21">
+ <properties>
+  <property name="cameraid" type="int" value="2"/>
+  <property name="overlaymap" type="file" value="gameui.lua"/>
+  <property name="playerid" type="int" value="1"/>
+  <property name="script" value="ShmupMap"/>
+ </properties>
+ <tileset firstgid="1" source="img/imp.tsx"/>
+ <tileset firstgid="4" source="img/playerhitbox.tsx"/>
+ <tileset firstgid="5" source="img/demonshots.tsx"/>
+ <tileset firstgid="9" source="img/demonbomb.tsx"/>
+ <tileset firstgid="17" source="img/demonizing.tsx"/>
+ <tileset firstgid="20" source="img/demonwomen.tsx"/>
+ <tileset firstgid="59" source="img/sparks_med.tsx"/>
+ <tileset firstgid="75" source="img/humanshots.tsx"/>
+ <tileset firstgid="103" source="img/infmen.tsx"/>
+ <objectgroup name="camera" visible="0">
+  <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
+ </objectgroup>
+ <objectgroup name="pikemen">
+  <object id="3" name="trigger" type="Trigger" x="8" y="8" width="8" height="8">
+   <properties>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+  <object id="4" name="leader" gid="139" x="-32" y="-48" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="5"/>
+    <property name="pathtime" type="float" value="4"/>
+    <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+  <object id="5" name="path" x="-32" y="-48">
+   <properties>
+    <property name="script" value="LinearPath"/>
+   </properties>
+   <polyline points="0,0 120,128 184,128 304,0"/>
+  </object>
+  <object id="6" gid="139" x="-32" y="-16" width="24" height="32">
+   <properties>
+    <property name="leaderid" type="int" value="4"/>
+    <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+  <object id="8" gid="139" x="-16" y="-16" width="24" height="32">
+   <properties>
+    <property name="leaderid" type="int" value="4"/>
+    <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+  <object id="9" gid="139" x="-8" y="-32" width="24" height="32">
+   <properties>
+    <property name="leaderid" type="int" value="4"/>
+    <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+  <object id="10" gid="139" x="-48" y="-16" width="24" height="32">
+   <properties>
+    <property name="leaderid" type="int" value="4"/>
+    <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+  <object id="11" gid="139" x="-56" y="-32" width="24" height="32">
+   <properties>
+    <property name="leaderid" type="int" value="4"/>
+    <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+  <object id="12" gid="139" x="-24" y="-32" width="24" height="32">
+   <properties>
+    <property name="leaderid" type="int" value="4"/>
+    <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+  <object id="17" gid="139" x="-40" y="-32" width="24" height="32">
+   <properties>
+    <property name="leaderid" type="int" value="4"/>
+    <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+  <object id="18" gid="139" x="-48" y="-48" width="24" height="32">
+   <properties>
+    <property name="leaderid" type="int" value="4"/>
+    <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+  <object id="19" gid="139" x="-16" y="-48" width="24" height="32">
+   <properties>
+    <property name="leaderid" type="int" value="4"/>
+    <property name="script" value="NPCPikeman"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="sparks"/>
+ <objectgroup name="player">
+  <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

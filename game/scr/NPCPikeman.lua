@@ -3,6 +3,7 @@ local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = require("ShmupNPC")
 local ShmupBullet = require("ShmupBullet")
 
+--- Foot soldiers fighting in groups to overwhelm with numbers
 local NPCPikeman
 NPCPikeman = class(ShmupNPC, function(self, object)
 	NPCPikeman.BulletParams.gid =
@@ -12,7 +13,7 @@ NPCPikeman = class(ShmupNPC, function(self, object)
 	self.health = 8
 end)
 
-NPCPikeman.BulletInterval = 1.5
+NPCPikeman.BulletInterval = 0.5
 NPCPikeman.BulletParams = {
 	speed = 120,
 	category = ShmupCollision.Category_NPCShot
@@ -61,17 +62,45 @@ function NPCPikeman:updateFiring(dt)
 	self.firetimer = self.firetimer - dt
 end
 
+function NPCPikeman:fireTimer()
+	return self.firetimer
+end
+
+function NPCPikeman:isOnCamera()
+	return self.oncamera
+end
+
 function NPCPikeman:beginMove(dt)
 	ShmupNPC.beginMove(self, dt)
 	if not self.object.body:isActive() then
 		return
 	end
+
 	if self.health < 1 then
 		return
 	end
 
-	if self.oncamera then
+	local leader = self.properties.leaderid
+	if leader then
+		leader = levity.map.objects[leader]
+	end
+	if leader then
+		self.object.body:setLinearVelocity(leader.body:getLinearVelocity())
+	end
+
+	if (leader and levity.map.scripts:call(leader.id, "isOnCamera"))
+	or (not leader and self.oncamera) then
 		self:updateFiring(dt)
+	end
+end
+
+function NPCPikeman:npcKnockedOut(npcid)
+	local leader = self.properties.leaderid
+	if leader == npcid then
+		leader = levity.map.objects[leader]
+		self.properties.leaderid = nil
+		self.properties.pathid = leader.properties.pathid
+		self.properties.pathtime = leader.properties.pathtime
 	end
 end
 
