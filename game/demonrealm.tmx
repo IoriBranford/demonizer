@@ -13,9 +13,9 @@
  <tileset firstgid="16" source="img/demonizing.tsx"/>
  <tileset firstgid="19" source="img/demonwomen.tsx"/>
  <tileset firstgid="58" source="img/basic_terrain.tsx"/>
- <tileset firstgid="586" source="img/forest.tsx"/>
- <tileset firstgid="874" source="img/humanshots.tsx"/>
- <tileset firstgid="902" source="img/infmen.tsx"/>
+ <tileset firstgid="442" source="img/forest.tsx"/>
+ <tileset firstgid="730" source="img/humanshots.tsx"/>
+ <tileset firstgid="758" source="img/infmen.tsx"/>
  <layer name="Earth" width="18" height="140">
   <data encoding="base64" compression="zlib">
    eJyF1luuo0oQRFHmP0TPwv5H3G6pkfZZJ/D9QH4AVVmR8cjXcRyfP9f153r/u/7+fv377+/3M//d1zv37vfOvHM/d797P997V57pvnc993oXa/e9i+dbd5955f4n69619QzvnLHr9uxnrv6+8rvPXuyx9rnvifV9pivPfbKOeK2ziHW/Lxyu4zcn+nnv2/WKd/9f/fQs91ov1lrYWNv7+Hmmrr/+637v8X/xerHv6/hZT89ob9uf9sbfSz/l0MWe936fY/fj/m/Vf98rHuWumu+5yyXfU1/tx8nzq+57fbl9/7Y/y5eqVbl/HT9rKt/kUHUvR+W465b777GPePV7+SjP6mnib39b0/LGJ79yj3Konm/NT15YvOyXGi3marz/FWt9bWmiXLCP9b6Tvc7jZ9/k4eJN/as9kuf6jB6t397PtL/6l/qrDhc/i/GL/b5lRzG2P8VMb3wdvzE1r5fmnzK+HlqvLs+WfrvmwkjuqYPu9eT79df2pXU4E1Xza87p2nqzutUnnbGKt7nY/om73laO13/bS7Ne7urf4m2OrFnHLG3+lMve993qUU55ffNDtWhOqd3lPcVYHC72kgOL5/pssZefS0vlunwoVt1Pj5YL5YP6LB7mVb/rxQvjNVvKE3X4YT9rvHjf/VuH/rbyR6ydDeSCc5nnqfbbj6XdaqF7qy/93lqKRXF2vigO/d66+rt7naztHOOn/rH4bl/kxYv7ntv5wixZ+a4/iquzzprRnjLaHuoRzhRydvnyOd7XP1rP0zznDKSmPLOZYrZap1rXr8Rb3vf9ZoYzUD3hZK8nT6kuzuMnB8z0+l5nhTWXOC88aUHfPcd7ns8zP+lN7jxpvPX2fEtH8uE6ftdVXO3H05ygd52s4bzyNB+W0/Kj9Tz1q56kp+l5cmjlsDNHn1maLBfE2Vxb+tEfiv3K5W98cmY1B+tJZsRnrOdcUb7ow2Kkz3QWMJvam+rGLFzzl9wpRkuXF/ve1/IBeai+6nvf/GB5j31cOWOmrz68WLN96LnkgHuaVytz9CCx01ut63P8xqd80sPLq84F9u0c95xBnFe+aar1vLlatzOI+dSr55Hj5e7FmtWSuKgvs9xZTLz0iWpAH1hnKO8/D88/zTfmrJrxnnvJuXp/uel65t3ycn2yulJTrcV+mwHln/7fczgbiZfeKqflyMm+7d+aoZ789Tp+Y2vGilXP03308vJDvxA//aLnU+Pqovf0BTFSQ3K899Y84JyjT5glelyf/eZ7S5/1E/tuDnXNcmp54DXW98yLw8WwfV1alMPWs/CrjvTU1vBiveW/rU/M+n6z0l7pda5TrKordawP6rH/N/eUq/pya5GL7Wu1Kf/1lnJTbMVF3/G8L9Y3A5xx+v6a6xZu5sjK1aWT8qyf57H7tLxF729f9Ebns/Zl+Yb1ta436+gf9r/8Kb/NfXPHechsbq3Lp5sLT168+lrut05nodUf63B28hm12bPrYcVhacTz9rmlaTOsPSin2oPW8W0eXDWZE2bC0tbKLPWq9sWy+OqfTz4sHn3XusTXOWdlYbFpXizPqa7ffH/K1uW7clNOVr89Y3msxrq3s5b5fh6/a+36xcjZr3zU69Ra+7B81zMtH3iaI1q3nNALVw6XW2JVznavYr+y3t8rl/WQD9+bv3qI/Fw5ebLnwtO6Fhf13WJobry4Lzfuuv4DLo5N5w==
@@ -28,7 +28,7 @@
  </layer>
  <layer name="Trees" width="18" height="140">
   <data encoding="base64" compression="zlib">
-   eJztmr9PAkEQhQn/f63YoraorT9KtEZrpUZrtHU25iUvGzhy+80lF3NfMo3nscc+3ptZwnY+m62ibqJuo+6iNlGvUW9Ry6jLqKuo6+qa3/MVdR/1EPUY9RT1HvURtT2whl/ze36ianbxt88ja/i1U+zjf76PrNF1bWJiYqIP55Eji6iLhjxZxz3PUS9V9vblWFb35VhW96VPVncxRFYTvQpn87/XIHoV1G+JXgX1W6JXQf12DLgviFbuC6KV+4Jo5b4gWg3hC+13K9JM+92KNNN+tyLNaA5JM7rf0iwLmmOC5JiycAFzzM8eJMf87EHws8fYmPrXYbL6l3KMohyjKMeoz5VjrXoL5Vir3gXPjVa9C54bBM8Nnz364rnhs0cr5Vl89milPEvGTF6eJWP22CXl6j6pBy5hFooVzEL3BcnCIXxBcF/QOVMQb7nHibfc48Rb7nHirf987hZ0bpHH6Nwij9G5RR6jZJ7f10mvs0nS/D0pn3dQc7GHmo+N6fuWbjwPx5Jj0ozmmDSjOSbNaH+XZnR2lmakv/s8Rvqqz2Okrw4xj2V8lgsZ+VzIyOfCWPJZPqX7LJ/SfZZP6T7Lp3Sfs78XJed3v5ec3/1ecn73e8ls7/eS2X6Ic8GUP4dR76Go99C+rN5D+7J6D/1OS2Scdwv0c52tl3zhM0gfn0gv+aL+fVfXe/C1pJd8Uf++q1Bnbtda8kX9+65Cnbn1Wv58XftSZ269lj9f17Oeylx/vl+oWpoI
+   eJztmj1Pw0AQRFEKCG2ANkDLRxmoA3VIHagD//8fsCc00siyDb63lizkJ22DcXy5yczuRdkvTk7WUddRN1G3Uduol6jXqFXURdRl1FXjmt/zEXUXdR/1EPUYtYt6i9q3PMOv+T1fUU0O8bf3jmf4td84xv98djyj79rMzMzMEM4iR5ZR5xV5sol7nqKeG9k7lK6sHkpXVg9lSFb3MUZWE70Kp4uf1yB6FdRviV4F9VuiV0H9dgq4L4hW7guilfuCaOW+IFqN4Qvtdy3STPtdizTTftcizWgOSTO639IsC5pjguSYsnAJc8zPHiTH/OxB8LPH1Jj7VztZ/Us5RlGOUZRj1OfKsVq9hXKsVu+C50at3gXPDYLnhs8eQ/Hc8NmjlrIWnz1qKWvJmMnLWjJmj0NSrh6TeuAKZqFYwyx0X5AsHMMXBPcFnTMF8ZZ7nHjLPU685R4n3vrP525B5xZ5jM4t8hidW+QxSub5fZP0OtskzXdJ+XyAmosj1HxqzN+39ON5OJUck2Y0x6QZzTFpRvu7NKOzszQj/d3nMdJXfR4jfXWMeSzjs1zIyOdCRj4XppLP8indZ/mU7rN8SvdZPqX7nP29KDm/+73k/O73kvO730tme7+XzPZjnAvm/GlHvYei3kP7snoP7cvqPfQ7LZFx3i3Qz3W2XvKFzyBDfCK95Ivm77v63oM/S3rJF83fd/W9h7ZnyRfN33f1vQc9y9fXttau7G8+y9fXtta/Zr+v7xvxy2jF
   </data>
  </layer>
  <objectgroup name="enemy4">
@@ -42,52 +42,52 @@
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="0,0 0,112 0,-480"/>
+   <polyline points="0,0 0,176 0,-272"/>
   </object>
-  <object id="26" name="leader" gid="938" x="144" y="1664" width="24" height="32">
+  <object id="26" name="leader" gid="794" x="144" y="1664" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="25"/>
-    <property name="pathtime" type="float" value="10"/>
+    <property name="pathtime" type="float" value="7"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="27" gid="938" x="128" y="1680" width="24" height="32">
+  <object id="27" gid="794" x="128" y="1680" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="26"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="28" gid="938" x="160" y="1680" width="24" height="32">
+  <object id="28" gid="794" x="160" y="1680" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="26"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="29" gid="938" x="112" y="1696" width="24" height="32">
+  <object id="29" gid="794" x="112" y="1696" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="26"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="30" gid="938" x="144" y="1712" width="24" height="32">
+  <object id="30" gid="794" x="144" y="1712" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="26"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="31" gid="938" x="176" y="1696" width="24" height="32">
+  <object id="31" gid="794" x="176" y="1696" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="26"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="32" gid="938" x="96" y="1664" width="24" height="32">
+  <object id="32" gid="794" x="96" y="1664" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="26"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="33" gid="938" x="192" y="1664" width="24" height="32">
+  <object id="33" gid="794" x="192" y="1664" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="26"/>
     <property name="script" value="NPCPikeman"/>
@@ -105,28 +105,28 @@
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="64,0 0,112 0,-480"/>
+   <polyline points="64,0 0,176 0,-272"/>
   </object>
-  <object id="16" name="leader" gid="938" x="256" y="1728" width="24" height="32">
+  <object id="16" name="leader" gid="794" x="256" y="1728" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="15"/>
-    <property name="pathtime" type="float" value="10"/>
+    <property name="pathtime" type="float" value="7"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="20" gid="938" x="256" y="1760" width="24" height="32">
+  <object id="20" gid="794" x="256" y="1760" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="16"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="22" gid="938" x="240" y="1744" width="24" height="32">
+  <object id="22" gid="794" x="240" y="1744" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="16"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="23" gid="938" x="272" y="1744" width="24" height="32">
+  <object id="23" gid="794" x="272" y="1744" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="16"/>
     <property name="script" value="NPCPikeman"/>
@@ -144,35 +144,35 @@
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="-64,0 0,112 0,-480"/>
+   <polyline points="-64,0 0,176 0,-272"/>
   </object>
-  <object id="6" name="leader" gid="938" x="32" y="1776" width="24" height="32">
+  <object id="6" name="leader" gid="794" x="32" y="1776" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="5"/>
-    <property name="pathtime" type="float" value="10"/>
+    <property name="pathtime" type="float" value="7"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="10" gid="938" x="32" y="1808" width="24" height="32">
+  <object id="10" gid="794" x="32" y="1808" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="6"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="12" gid="938" x="16" y="1792" width="24" height="32">
+  <object id="12" gid="794" x="16" y="1792" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="6"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="13" gid="938" x="48" y="1792" width="24" height="32">
+  <object id="13" gid="794" x="48" y="1792" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="6"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="enemy1" visible="0">
+ <objectgroup name="enemy1">
   <object id="34" name="trigger" type="Trigger" x="0" y="1872">
    <properties>
     <property name="triggertype" value="activategroup"/>
@@ -183,28 +183,28 @@
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="0,0 0,112 0,-480"/>
+   <polyline points="0,0 0,176 0,-336"/>
   </object>
-  <object id="36" name="leader" gid="938" x="144" y="1824" width="24" height="32">
+  <object id="36" name="leader" gid="794" x="144" y="1824" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="35"/>
-    <property name="pathtime" type="float" value="10"/>
+    <property name="pathtime" type="float" value="7"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="37" gid="938" x="144" y="1856" width="24" height="32">
+  <object id="37" gid="794" x="144" y="1856" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="36"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="38" gid="938" x="128" y="1840" width="24" height="32">
+  <object id="38" gid="794" x="128" y="1840" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="36"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="39" gid="938" x="160" y="1840" width="24" height="32">
+  <object id="39" gid="794" x="160" y="1840" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="36"/>
     <property name="script" value="NPCPikeman"/>
@@ -212,7 +212,7 @@
   </object>
  </objectgroup>
  <objectgroup name="camera">
-  <object id="1" name="camera" type="Camera" x="24" y="1920" width="240" height="320">
+  <object id="1" name="camera" type="Camera" x="24" y="1920" width="240" height="320" visible="0">
    <properties>
     <property name="pathid" type="int" value="2"/>
     <property name="pathtime" type="int" value="60"/>

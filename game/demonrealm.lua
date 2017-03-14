@@ -509,7 +509,7 @@ return {
       margin = 0,
       image = "img/basic_terrain.png",
       imagewidth = 192,
-      imageheight = 704,
+      imageheight = 512,
       tileoffset = {
         x = 0,
         y = 0
@@ -572,7 +572,7 @@ return {
           properties = {}
         }
       },
-      tilecount = 528,
+      tilecount = 384,
       tiles = {
         {
           id = 0,
@@ -1526,7 +1526,7 @@ return {
     },
     {
       name = "forest",
-      firstgid = 586,
+      firstgid = 442,
       filename = "img/forest.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1546,7 +1546,7 @@ return {
     },
     {
       name = "humanshots",
-      firstgid = 874,
+      firstgid = 730,
       filename = "img/humanshots.tsx",
       tilewidth = 32,
       tileheight = 16,
@@ -1627,7 +1627,7 @@ return {
     },
     {
       name = "infmen",
-      firstgid = 902,
+      firstgid = 758,
       filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1756,7 +1756,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmr9PAkEQhQn/f63YoraorT9KtEZrpUZrtHU25iUvGzhy+80lF3NfMo3nscc+3ptZwnY+m62ibqJuo+6iNlGvUW9Ry6jLqKuo6+qa3/MVdR/1EPUY9RT1HvURtT2whl/ze36ianbxt88ja/i1U+zjf76PrNF1bWJiYqIP55Eji6iLhjxZxz3PUS9V9vblWFb35VhW96VPVncxRFYTvQpn87/XIHoV1G+JXgX1W6JXQf12DLgviFbuC6KV+4Jo5b4gWg3hC+13K9JM+92KNNN+tyLNaA5JM7rf0iwLmmOC5JiycAFzzM8eJMf87EHws8fYmPrXYbL6l3KMohyjKMeoz5VjrXoL5Vir3gXPjVa9C54bBM8Nnz364rnhs0cr5Vl89milPEvGTF6eJWP22CXl6j6pBy5hFooVzEL3BcnCIXxBcF/QOVMQb7nHibfc48Rb7nHirf987hZ0bpHH6Nwij9G5RR6jZJ7f10mvs0nS/D0pn3dQc7GHmo+N6fuWbjwPx5Jj0ozmmDSjOSbNaH+XZnR2lmakv/s8Rvqqz2Okrw4xj2V8lgsZ+VzIyOfCWPJZPqX7LJ/SfZZP6T7Lp3Sfs78XJed3v5ec3/1ecn73e8ls7/eS2X6Ic8GUP4dR76Go99C+rN5D+7J6D/1OS2Scdwv0c52tl3zhM0gfn0gv+aL+fVfXe/C1pJd8Uf++q1Bnbtda8kX9+65Cnbn1Wv58XftSZ269lj9f17Oeylx/vl+oWpoI"
+      data = "eJztmj1Pw0AQRFEKCG2ANkDLRxmoA3VIHagD//8fsCc00siyDb63lizkJ22DcXy5yczuRdkvTk7WUddRN1G3Uduol6jXqFXURdRl1FXjmt/zEXUXdR/1EPUYtYt6i9q3PMOv+T1fUU0O8bf3jmf4td84xv98djyj79rMzMzMEM4iR5ZR5xV5sol7nqKeG9k7lK6sHkpXVg9lSFb3MUZWE70Kp4uf1yB6FdRviV4F9VuiV0H9dgq4L4hW7guilfuCaOW+IFqN4Qvtdy3STPtdizTTftcizWgOSTO639IsC5pjguSYsnAJc8zPHiTH/OxB8LPH1Jj7VztZ/Us5RlGOUZRj1OfKsVq9hXKsVu+C50at3gXPDYLnhs8eQ/Hc8NmjlrIWnz1qKWvJmMnLWjJmj0NSrh6TeuAKZqFYwyx0X5AsHMMXBPcFnTMF8ZZ7nHjLPU685R4n3vrP525B5xZ5jM4t8hidW+QxSub5fZP0OtskzXdJ+XyAmosj1HxqzN+39ON5OJUck2Y0x6QZzTFpRvu7NKOzszQj/d3nMdJXfR4jfXWMeSzjs1zIyOdCRj4XppLP8indZ/mU7rN8SvdZPqX7nP29KDm/+73k/O73kvO730tme7+XzPZjnAvm/GlHvYei3kP7snoP7cvqPfQ7LZFx3i3Qz3W2XvKFzyBDfCK95Ivm77v63oM/S3rJF83fd/W9h7ZnyRfN33f1vQc9y9fXttau7G8+y9fXtta/Zr+v7xvxy2jF"
     },
     {
       type = "objectgroup",
@@ -1800,8 +1800,8 @@ return {
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 0, y = 112 },
-            { x = 0, y = -480 }
+            { x = 0, y = 176 },
+            { x = 0, y = -272 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -1817,11 +1817,11 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["pathid"] = 25,
-            ["pathtime"] = 10,
+            ["pathtime"] = 7,
             ["script"] = "NPCPikeman"
           }
         },
@@ -1835,7 +1835,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 26,
@@ -1852,7 +1852,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 26,
@@ -1869,7 +1869,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 26,
@@ -1886,7 +1886,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 26,
@@ -1903,7 +1903,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 26,
@@ -1920,7 +1920,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 26,
@@ -1937,7 +1937,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 26,
@@ -1988,8 +1988,8 @@ return {
           visible = true,
           polyline = {
             { x = 64, y = 0 },
-            { x = 0, y = 112 },
-            { x = 0, y = -480 }
+            { x = 0, y = 176 },
+            { x = 0, y = -272 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -2005,11 +2005,11 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["pathid"] = 15,
-            ["pathtime"] = 10,
+            ["pathtime"] = 7,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2023,7 +2023,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 16,
@@ -2040,7 +2040,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 16,
@@ -2057,7 +2057,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 16,
@@ -2108,8 +2108,8 @@ return {
           visible = true,
           polyline = {
             { x = -64, y = 0 },
-            { x = 0, y = 112 },
-            { x = 0, y = -480 }
+            { x = 0, y = 176 },
+            { x = 0, y = -272 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -2125,11 +2125,11 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["pathid"] = 5,
-            ["pathtime"] = 10,
+            ["pathtime"] = 7,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2143,7 +2143,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 6,
@@ -2160,7 +2160,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 6,
@@ -2177,7 +2177,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 6,
@@ -2189,7 +2189,7 @@ return {
     {
       type = "objectgroup",
       name = "enemy1",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -2228,8 +2228,8 @@ return {
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 0, y = 112 },
-            { x = 0, y = -480 }
+            { x = 0, y = 176 },
+            { x = 0, y = -336 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -2245,11 +2245,11 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["pathid"] = 35,
-            ["pathtime"] = 10,
+            ["pathtime"] = 7,
             ["script"] = "NPCPikeman"
           }
         },
@@ -2263,7 +2263,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 36,
@@ -2280,7 +2280,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 36,
@@ -2297,7 +2297,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 938,
+          gid = 794,
           visible = true,
           properties = {
             ["leaderid"] = 36,
@@ -2326,7 +2326,7 @@ return {
           width = 240,
           height = 320,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["pathid"] = 2,
             ["pathtime"] = 60
