@@ -915,8 +915,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 128,
-          y = 176,
+          x = 120,
+          y = 16,
           width = 24,
           height = 32,
           rotation = 0,
@@ -971,7 +971,9 @@ return {
             { x = -8, y = -56 },
             { x = 24, y = -96 }
           },
-          properties = {}
+          properties = {
+            ["cost"] = 0.5
+          }
         },
         {
           id = 52,
@@ -989,7 +991,9 @@ return {
             { x = 32, y = -40 },
             { x = 128, y = -8 }
           },
-          properties = {}
+          properties = {
+            ["cost"] = 2
+          }
         }
       }
     },

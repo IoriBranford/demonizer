@@ -4,10 +4,13 @@ local NavLayerTester
 NavLayerTester = class(function(self, object)
 	self.object = object
 	self.walker = nil
+	self.speed = 60
 end)
 
-function NavLayerTester.pickNextDest(navlayername, dests, self)
-	return dests[love.math.random(#dests)]
+function NavLayerTester.pickNextDest(navlayername, node, self)
+	local edge = node[love.math.random(#node)]
+	self.speed = 60 / edge.cost
+	return edge.dest
 end
 
 function NavLayerTester:beginMove(dt)
@@ -19,7 +22,7 @@ function NavLayerTester:beginMove(dt)
 			NavLayerTester.pickNextDest, x, y, self)
 	end
 
-	local vx, vy = self.walker:getVelocity(dt, 60, x, y)
+	local vx, vy = self.walker:getVelocity(dt, self.speed, x, y)
 	self.object.body:setLinearVelocity(vx, vy)
 end
 

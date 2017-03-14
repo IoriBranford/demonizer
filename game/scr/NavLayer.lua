@@ -1,13 +1,17 @@
 local levity = require "levity"
 
+--- @table NavEdge
+-- @field dest
+-- @field cost
+
 local NavLayer
 
-local function addSegment(self, p1, p2)
+local function addSegment(self, p1, p2, cost)
 	local n1 = self:getNode(p1.x, p1.y, true)
 	local n2 = self:getNode(p2.x, p2.y, true)
 	if n1 ~= n2 then
-		n1[#n1 + 1] = p2
-		n2[#n2 + 1] = p1
+		n1[#n1 + 1] = { dest = p2, cost = cost }
+		n2[#n2 + 1] = { dest = p1, cost = cost }
 	end
 end
 
@@ -16,22 +20,23 @@ NavLayer = class(function(self, layer)
 	self.nodegrid = {} -- lists of possible destinations from each grid cell
 	-- in the form:
 	-- {
-	-- 	cell1 = {destpoint1, destpoint2, ...},
-	-- 	cell2 = {destpoint3, destpoint4, ...}, ...
+	-- 	cell1 = {edge1, edge2, ...},
+	-- 	cell2 = {edge3, edge4, ...}, ...
 	-- }
 
 	for _, object in pairs(self.layer.objects) do
 		local line = object.polyline or object.polygon
 		if line then
+			local cost = object.properties.cost or 1
 			local p1 = line[1]
 			for i = 2, #line do
 				local p2 = line[i]
-				addSegment(self, p1, p2)
+				addSegment(self, p1, p2, cost)
 				p1 = p2
 			end
 			if object.shape == "polygon" then
 				local p2 = line[1]
-				addSegment(self, p1, p2)
+				addSegment(self, p1, p2, cost)
 			end
 		end
 	end
@@ -55,7 +60,8 @@ function NavLayer:findNearestPoint(x, y)
 	local nearestpoint
 	local nearestdistsq = math.huge
 	for ni, node in pairs(self.nodegrid) do
-		for di, dest in pairs(node) do
+		for ei, edge in pairs(node) do
+			local dest = edge.dest
 			local distsq = math.hypotsq(dest.x - x, dest.y - y)
 			if distsq < nearestdistsq then
 				nearestpoint = dest
@@ -92,7 +98,7 @@ Walker = class(function(self, navlayer, pickNextDest, x, y, userdata)
 
 	local node = navlayer:getNode(x, y)
 	if node then
-		self.destpoint = pickNextDest(navlayer, node)
+		self.destpoint = pickNextDest(navlayer, node, userdata)
 	else
 		self.destpoint = navlayer:findNearestPoint(x, y)
 	end
@@ -145,8 +151,8 @@ function Walker:getVelocity(dt, speed, x, y)
 	return vx, vy
 end
 
-function NavLayer:newWalker(pickNextDest, x, y)
-	return Walker(self, pickNextDest, x, y)
+function NavLayer:newWalker(pickNextDest, x, y, userdata)
+	return Walker(self, pickNextDest, x, y, userdata)
 end
 
 return NavLayer
