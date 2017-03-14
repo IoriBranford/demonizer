@@ -40,11 +40,12 @@ local ShmupMap = class(function(self, map)
 	self.map = map
 	self.properties = self.map.properties
 
-	if not levity.map.layers["npcshots"] then
-		Layer(self.map, "npcshots")
-	end
+	local npcshotslayer = levity.map.layers["npcshots"] or
+				Layer(self.map, "npcshots")
 	local sparklayer = self.map.layers["sparks"] or
 				Layer(self.map, "sparks")
+	npcshotslayer.draworder = "manual"
+	sparklayer.draworder = "manual"
  
 	for _, layer in ipairs(self.map.layers) do
 		if layer.type == "dynamiclayer"
@@ -114,12 +115,12 @@ function ShmupMap:endMove(dt)
 		if uimap
 		and self.resulttimer < self.resulttime - 1
 		and self.resulttimer + dt >= self.resulttime - 1 then
-			uimap.scripts:call("curtain", "beginFall")
+			uimap.scripts:call("curtain", "beginClose")
 		end
 		self.resulttimer = self.resulttimer + dt
 		if self.resulttimer >= self.resulttime then
 			levity:setNextMap(self.properties.nextmap
-						or "title.lua")
+						or "title.lua", {})
 		end
 	end
 end

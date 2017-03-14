@@ -22,11 +22,12 @@ local ShmupStatus = class(function(self, layer)
 		end
 	end
 
-	local nextmapstatus = levity.nextmapdata.status or {}
+	local nextmapdata = levity.nextmapdata or {}
+	local nextmapstatus = nextmapdata.status or {}
 	self.numlives = nextmapstatus.numlives or 2
 	self.numbombpieces = nextmapstatus.numbombpieces or 0
 	self.reservegids = levity.map:tileNamesToGids(nextmapstatus.reservenames) or {}
-	levity.nextmapdata.status = nil
+	nextmapdata.status = nil
 
 	self:updateLives()
 	self:updateBombs()
@@ -177,11 +178,13 @@ end
 --end
 
 function ShmupStatus:nextMap(nextmapfile, nextmapdata)
-	nextmapdata.status = {
-		numlives = self.numlives,
-		numbombpieces = self.numbombpieces,
-		reservenames = levity.map:tileGidsToNames(self.reservegids)
-	}
+	if nextmapdata then
+		nextmapdata.status = {
+			numlives = self.numlives,
+			numbombpieces = self.numbombpieces,
+			reservenames = levity.map:tileGidsToNames(self.reservegids)
+		}
+	end
 end
 
 return ShmupStatus

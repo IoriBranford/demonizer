@@ -1,42 +1,56 @@
 local levity = require "levity"
-local Curtain = class(function(self, layer)
+
+local Curtain
+Curtain = class(function(self, layer)
 	self.layer = layer
-	self.vy = -1024
-	self.falling = false
+	self:beginOpen()
 end)
 
-function Curtain:beginMove(dt)
+Curtain.Speed = 1024
+Curtain.CloseTimeout = 2
+
+local function beginMove(self, dt)
+	self.openwidth = self.openwidth + self.direction*Curtain.Speed*dt
+
 	local map = levity.map.overlaymap or levity.map
-	self.layer.offsety = self.layer.offsety + self.vy*dt
-	if self.falling then
-		if self.layer.offsety <= 0 then
-			self.vy = 0
-			self.layer.offsety = 0
-		end
-	else
-		if self.layer.offsety < -map.camera.h then
-			self.vy = 0
-		end
+	if self.openwidth >= map.camera.w
+	or self.openwidth < -Curtain.CloseTimeout*Curtain.Speed then
+		map.scripts:scriptRemoveEventFunc(self, self.layer.name,
+							"beginMove")
+		map.scripts:scriptRemoveEventFunc(self, self.layer.name,
+							"beginDraw")
 	end
 end
 
-function Curtain:beginFall()
-	local map = levity.map.overlaymap or levity.map
-	self.falling = true
-	self.vy = -512
-	self.layer.offsety = map.camera.h
-	self.layer.visible = true
-end
-
-function Curtain:beginDraw()
+local function beginDraw(self)
 	love.graphics.setColor(0, 0, 0, 0xff)
 	local map = levity.map.overlaymap or levity.map
 	local camera = map.camera
-	love.graphics.rectangle("fill",
-		self.layer.offsetx + camera.x,
-		self.layer.offsety + camera.y,
-		camera.w, camera.h)
+	local width = (camera.w - self.openwidth)*.5
+	love.graphics.rectangle("fill", camera.x, camera.y, width, camera.h)
+	love.graphics.rectangle("fill", camera.x + (camera.w + self.openwidth)*.5,
+		camera.y, width, camera.h)
 	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
+end
+
+function Curtain:beginOpen()
+	local map = levity.map.overlaymap or levity.map
+	self.openwidth = 0
+	self.direction = 1
+	map.scripts:scriptAddEventFunc(self, self.layer.name, "beginMove",
+							beginMove)
+	map.scripts:scriptAddEventFunc(self, self.layer.name, "beginDraw",
+							beginDraw)
+end
+
+function Curtain:beginClose()
+	local map = levity.map.overlaymap or levity.map
+	self.openwidth = map.camera.w
+	self.direction = -1
+	map.scripts:scriptAddEventFunc(self, self.layer.name, "beginMove",
+							beginMove)
+	map.scripts:scriptAddEventFunc(self, self.layer.name, "beginDraw",
+							beginDraw)
 end
 
 return Curtain

@@ -56,7 +56,8 @@ ShmupPlayer = class(function(self, object)
 	self.numwingmen = 0
 	self.wingmenids = {}
 
-	local nextmapplayer = levity.nextmapdata.player or {}
+	local nextmapdata = levity.nextmapdata or {}
+	local nextmapplayer = nextmapdata.player or {}
 	self.numcaptives = nextmapplayer.numcaptives or 0
 	self.captivegids = levity.map:tileNamesToGids(nextmapplayer.captivenames) or {}
 
@@ -637,11 +638,13 @@ function ShmupPlayer:nextMap(nextmapfile, nextmapdata)
 		wingmengids[#wingmengids + 1] = levity.map.objects[id].gid
 	end
 
-	nextmapdata.player = {
-		wingmennames = levity.map:tileGidsToNames(wingmengids),
-		captivenames = levity.map:tileGidsToNames(self.captivegids),
-		numcaptives = self.numcaptives
-	}
+	if nextmapdata then
+		nextmapdata.player = {
+			wingmennames = levity.map:tileGidsToNames(wingmengids),
+			captivenames = levity.map:tileGidsToNames(self.captivegids),
+			numcaptives = self.numcaptives
+		}
+	end
 end
 
 return ShmupPlayer

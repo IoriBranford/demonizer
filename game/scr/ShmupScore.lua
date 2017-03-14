@@ -7,7 +7,8 @@ ShmupScore = class(function(self, object)
 	self.object = object
 	self.properties = self.object.properties
 
-	local nextmapscore = levity.nextmapdata.score or {}
+	local nextmapdata = levity.nextmapdata or {}
+	local nextmapscore = nextmapdata.score or {}
 	self.points = nextmapscore.points or 0
 	self.extendpoints = nextmapscore.extendpoints or 2000000
 	self.multipliers = nextmapscore.multipliers or {
@@ -157,12 +158,14 @@ function ShmupScore:beginDraw()
 end
 
 function ShmupScore:nextMap(nextmapfile, nextmapdata)
-	nextmapdata.score = {
-		points = self.points,
-		extendpoints = self.extendpoints,
-		multipliers = self.multipliers,
-		totalmultiplier = self.totalmultiplier
-	}
+	if nextmapdata then
+		nextmapdata.score = {
+			points = self.points,
+			extendpoints = self.extendpoints,
+			multipliers = self.multipliers,
+			totalmultiplier = self.totalmultiplier
+		}
+	end
 end
 
 return ShmupScore
