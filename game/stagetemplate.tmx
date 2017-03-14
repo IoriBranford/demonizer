@@ -13,6 +13,7 @@
  <tileset firstgid="17" source="img/demonizing.tsx"/>
  <tileset firstgid="20" source="img/demonwomen.tsx"/>
  <tileset firstgid="59" source="img/sparks_med.tsx"/>
+ <tileset firstgid="75" source="img/humanshots.tsx"/>
  <objectgroup name="camera">
   <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>

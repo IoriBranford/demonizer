@@ -8,7 +8,7 @@ return {
   height = 140,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 4,
+  nextobjectid = 40,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -18,8 +18,490 @@ return {
   },
   tilesets = {
     {
-      name = "basic_terrain",
+      name = "imp",
       firstgid = 1,
+      filename = "img/imp.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/imp.png",
+      imagewidth = 192,
+      imageheight = 64,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 3,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 4,
+                name = "body",
+                type = "",
+                shape = "ellipse",
+                x = -4,
+                y = 60,
+                width = 8,
+                height = 8,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              },
+              {
+                id = 7,
+                name = "wingman1",
+                type = "",
+                shape = "ellipse",
+                x = -24,
+                y = 72,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 8,
+                name = "wingman2",
+                type = "",
+                shape = "ellipse",
+                x = 24,
+                y = 72,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 10,
+                name = "wingman3",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 48,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 11,
+                name = "wingman4",
+                type = "",
+                shape = "ellipse",
+                x = 16,
+                y = 48,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 12,
+                name = "focuswingman1",
+                type = "",
+                shape = "ellipse",
+                x = -32,
+                y = 40,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 13,
+                name = "focuswingman2",
+                type = "",
+                shape = "ellipse",
+                x = 32,
+                y = 40,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 14,
+                name = "focuswingman3",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 8,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 15,
+                name = "focuswingman4",
+                type = "",
+                shape = "ellipse",
+                x = 16,
+                y = 8,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "demonshots",
+      firstgid = 4,
+      filename = "img/demonshots.tsx",
+      tilewidth = 32,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      image = "img/demonshots.png",
+      imagewidth = 32,
+      imageheight = 64,
+      tileoffset = {
+        x = -16,
+        y = 8
+      },
+      properties = {
+        ["commoncollision"] = 0,
+        ["row_bombpackage"] = 2,
+        ["row_bombshrapnel"] = 3,
+        ["row_player"] = 0,
+        ["row_wingman"] = 1
+      },
+      terrains = {},
+      tilecount = 4,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -8,
+                y = 8,
+                width = 16,
+                height = 16,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "demonbomb",
+      firstgid = 8,
+      filename = "img/demonbomb.tsx",
+      tilewidth = 128,
+      tileheight = 128,
+      spacing = 0,
+      margin = 0,
+      image = "img/demonbomb.png",
+      imagewidth = 512,
+      imageheight = 256,
+      tileoffset = {
+        x = -64,
+        y = 128
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 8,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -64,
+                y = 128,
+                width = 128,
+                height = 128,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 50
+            },
+            {
+              tileid = 1,
+              duration = 50
+            },
+            {
+              tileid = 2,
+              duration = 50
+            },
+            {
+              tileid = 3,
+              duration = 50
+            },
+            {
+              tileid = 4,
+              duration = 50
+            },
+            {
+              tileid = 5,
+              duration = 50
+            },
+            {
+              tileid = 6,
+              duration = 50
+            },
+            {
+              tileid = 7,
+              duration = 50
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "demonizing",
+      firstgid = 16,
+      filename = "img/demonizing.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/demonizing.png",
+      imagewidth = 192,
+      imageheight = 64,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 3,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 62
+            },
+            {
+              tileid = 1,
+              duration = 62
+            },
+            {
+              tileid = 0,
+              duration = 62
+            },
+            {
+              tileid = 1,
+              duration = 62
+            },
+            {
+              tileid = 0,
+              duration = 62
+            },
+            {
+              tileid = 1,
+              duration = 62
+            },
+            {
+              tileid = 0,
+              duration = 62
+            },
+            {
+              tileid = 1,
+              duration = 62
+            },
+            {
+              tileid = 2,
+              duration = 62
+            },
+            {
+              tileid = 1,
+              duration = 62
+            },
+            {
+              tileid = 2,
+              duration = 62
+            },
+            {
+              tileid = 1,
+              duration = 62
+            },
+            {
+              tileid = 2,
+              duration = 62
+            },
+            {
+              tileid = 1,
+              duration = 62
+            },
+            {
+              tileid = 2,
+              duration = 62
+            },
+            {
+              tileid = 1,
+              duration = 62
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "demonwomen",
+      firstgid = 19,
+      filename = "img/demonwomen.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/demonwomen.png",
+      imagewidth = 192,
+      imageheight = 832,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_archer"] = 12,
+        ["row_civ1"] = 0,
+        ["row_civ2"] = 1,
+        ["row_civ3"] = 2,
+        ["row_civ4"] = 3,
+        ["row_civ5"] = 4,
+        ["row_civ6"] = 5,
+        ["row_civ7"] = 6,
+        ["row_civ8"] = 7,
+        ["row_mage"] = 11,
+        ["row_pikeman"] = 8,
+        ["row_priest"] = 10,
+        ["row_swordsman"] = 9
+      },
+      terrains = {},
+      tilecount = 39,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -8,
+                y = 56,
+                width = 16,
+                height = 16,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "basic_terrain",
+      firstgid = 58,
       filename = "img/basic_terrain.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1044,7 +1526,7 @@ return {
     },
     {
       name = "forest",
-      firstgid = 529,
+      firstgid = 586,
       filename = "img/forest.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1063,198 +1545,32 @@ return {
       tiles = {}
     },
     {
-      name = "imp",
-      firstgid = 817,
-      filename = "img/imp.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/imp.png",
-      imagewidth = 192,
-      imageheight = 64,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 3,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 4,
-                name = "body",
-                type = "",
-                shape = "ellipse",
-                x = -4,
-                y = 60,
-                width = 8,
-                height = 8,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              },
-              {
-                id = 7,
-                name = "wingman1",
-                type = "",
-                shape = "ellipse",
-                x = -24,
-                y = 72,
-                width = 0,
-                height = 0,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 8,
-                name = "wingman2",
-                type = "",
-                shape = "ellipse",
-                x = 24,
-                y = 72,
-                width = 0,
-                height = 0,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 10,
-                name = "wingman3",
-                type = "",
-                shape = "ellipse",
-                x = -16,
-                y = 48,
-                width = 0,
-                height = 0,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 11,
-                name = "wingman4",
-                type = "",
-                shape = "ellipse",
-                x = 16,
-                y = 48,
-                width = 0,
-                height = 0,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 12,
-                name = "focuswingman1",
-                type = "",
-                shape = "ellipse",
-                x = -32,
-                y = 40,
-                width = 0,
-                height = 0,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 13,
-                name = "focuswingman2",
-                type = "",
-                shape = "ellipse",
-                x = 32,
-                y = 40,
-                width = 0,
-                height = 0,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 14,
-                name = "focuswingman3",
-                type = "",
-                shape = "ellipse",
-                x = -16,
-                y = 8,
-                width = 0,
-                height = 0,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 15,
-                name = "focuswingman4",
-                type = "",
-                shape = "ellipse",
-                x = 16,
-                y = 8,
-                width = 0,
-                height = 0,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "demonshots",
-      firstgid = 820,
-      filename = "img/demonshots.tsx",
+      name = "humanshots",
+      firstgid = 874,
+      filename = "img/humanshots.tsx",
       tilewidth = 32,
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      image = "img/demonshots.png",
-      imagewidth = 32,
-      imageheight = 64,
+      image = "img/humanshots.png",
+      imagewidth = 128,
+      imageheight = 112,
       tileoffset = {
-        x = -16,
+        x = -24,
         y = 8
       },
       properties = {
         ["commoncollision"] = 0,
-        ["row_bombpackage"] = 2,
-        ["row_bombshrapnel"] = 3,
-        ["row_player"] = 0,
-        ["row_wingman"] = 1
+        ["row_arrow"] = 2,
+        ["row_ballista"] = 4,
+        ["row_fire"] = 6,
+        ["row_magic"] = 3,
+        ["row_pike"] = 0,
+        ["row_sword"] = 1,
+        ["row_water"] = 5
       },
       terrains = {},
-      tilecount = 4,
+      tilecount = 28,
       tiles = {
         {
           id = 0,
@@ -1273,10 +1589,10 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -8,
-                y = 8,
-                width = 16,
-                height = 16,
+                x = -2,
+                y = 14,
+                width = 4,
+                height = 4,
                 rotation = 0,
                 visible = true,
                 properties = {
@@ -1285,128 +1601,62 @@ return {
               }
             }
           }
-        }
-      }
-    },
-    {
-      name = "demonbomb",
-      firstgid = 824,
-      filename = "img/demonbomb.tsx",
-      tilewidth = 128,
-      tileheight = 128,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonbomb.png",
-      imagewidth = 512,
-      imageheight = 256,
-      tileoffset = {
-        x = -64,
-        y = 128
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 8,
-      tiles = {
+        },
         {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -64,
-                y = 128,
-                width = 128,
-                height = 128,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
+          id = 24,
           animation = {
             {
-              tileid = 0,
-              duration = 50
+              tileid = 24,
+              duration = 67
             },
             {
-              tileid = 1,
-              duration = 50
+              tileid = 25,
+              duration = 67
             },
             {
-              tileid = 2,
-              duration = 50
+              tileid = 26,
+              duration = 67
             },
             {
-              tileid = 3,
-              duration = 50
-            },
-            {
-              tileid = 4,
-              duration = 50
-            },
-            {
-              tileid = 5,
-              duration = 50
-            },
-            {
-              tileid = 6,
-              duration = 50
-            },
-            {
-              tileid = 7,
-              duration = 50
+              tileid = 27,
+              duration = 67
             }
           }
         }
       }
     },
     {
-      name = "demonwomen",
-      firstgid = 832,
-      filename = "img/demonwomen.tsx",
-      tilewidth = 64,
-      tileheight = 64,
+      name = "infmen",
+      firstgid = 902,
+      filename = "img/infmen.tsx",
+      tilewidth = 24,
+      tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "img/demonwomen.png",
-      imagewidth = 192,
-      imageheight = 832,
+      image = "img/infmen.png",
+      imagewidth = 432,
+      imageheight = 160,
       tileoffset = {
-        x = -32,
-        y = 32
+        x = -12,
+        y = 16
       },
       properties = {
+        ["column_archer"] = 12,
+        ["column_hero"] = 15,
+        ["column_mage"] = 9,
+        ["column_pikeman"] = 0,
+        ["column_priest"] = 6,
+        ["column_swordsman"] = 3,
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["row_archer"] = 12,
-        ["row_civ1"] = 0,
-        ["row_civ2"] = 1,
-        ["row_civ3"] = 2,
-        ["row_civ4"] = 3,
-        ["row_civ5"] = 4,
-        ["row_civ6"] = 5,
-        ["row_civ7"] = 6,
-        ["row_civ8"] = 7,
-        ["row_mage"] = 11,
-        ["row_pikeman"] = 8,
-        ["row_priest"] = 10,
-        ["row_swordsman"] = 9
+        ["row_down"] = 2,
+        ["row_ko"] = 4,
+        ["row_left"] = 3,
+        ["row_right"] = 1,
+        ["row_up"] = 0
       },
       terrains = {},
-      tilecount = 39,
+      tilecount = 90,
       tiles = {
         {
           id = 0,
@@ -1425,10 +1675,10 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -8,
-                y = 56,
-                width = 16,
-                height = 16,
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
                 rotation = 0,
                 visible = true,
                 properties = {
@@ -1448,6 +1698,10 @@ return {
             },
             {
               tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
               duration = 125
             }
           }
@@ -1470,7 +1724,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJyF1luuo0oQRFHmPwvPwv5HjOt2S420zzqB7wfyA6jKioxHvo7j+Py5rj/X+9/19/fr339/v5/5777euXe/d+ad+7n73fv53rvyTPe967nXu1i7710837r7zCv3P1n3rq1neOeMXbdnP3P195XfffZij7XPfU+s7zNdee6TdcRrnUWs+33hcB2/OdHPe9+uV7z7/+qnZ7nXerHWwsba3sfPM3X99V/3e4//i9eLfV/Hz3p6Rnvb/rQ3/l76KYcu9rz3+xy7H/d/q/77XvEod9V8z10u+Z76aj9Onl913+vL7fu3/Vm+VK3K/ev4WVP5Joeqezkqx1233H+PfcSr38tHeVZPE3/725qWNz75lXuUQ/V8a37ywuJlv9RoMVfj/a9Y62tLE+WCfaz3nex1Hj/7Jg8Xb+pf7ZE812f0aP32fqb91b/UX3W4+FmMX+z3LTuKsf0pZnrj6/iNqXm9NP+U8fXQenV5tvTbNRdGck8ddK8n36+/ti+tw5moml9zTtfWm9WtPumMVbzNxfZP3PW2crz+216a9XJX/xZvc2TNOmZp86dc9r7vVo9yyuubH6pFc0rtLu8pxuJwsZccWDzXZ4u9/FxaKtflQ7Hqfnq0XCgf1GfxMK/6XS9eGK/ZUp6oww/7WePF++7fOvS3lT9i7WwgF5zLPE+1334s7VYL3Vt96ffWUiyKs/NFcej31tXf3etkbecYP/WPxXf7Ii9e3Pfczhdmycp3/VFcnXXWjPaU0fZQj3CmkLPLl8/xvv7Rep7mOWcgNeWZzRSz1TrVun4l3vK+7zcznIHqCSd7PXlKdXEePzlgptf3OiusucR54UkL+u453vN8nvlJb3LnSeOtt+dbOpIP1/G7ruJqP57mBL3rZA3nlaf5sJyWH63nqV/1JD1Nz5NDK4edOfrM0mS5IM7m2tKP/lDsVy5/45MzqzlYTzIjPmM954ryRR8WI32ms4DZ1N5UN2bhmr/kTjFaurzY976WD8hD9VXf++YHy3vs48oZM3314cWa7UPPJQfc07xamaMHiZ3eal2f4zc+5ZMeXl51LrBv57jnDOK88k1TrefN1bqdQcynXj2PHC93L9aslsRFfZnlzmLipU9UA/rAOkN5/3l4/mm+MWfVjPfcS87V+8tN1zPvlpfrk9WVmmot9tsMKP/0/57D2Ui89FY5LUdO9m3/1gz15K/X8RtbM1asep7uo5eXH/qF+OkXPZ8aVxe9py+IkRqS47235gHnHH3CLNHj+uw331v6rJ/Yd3Ooa5ZTywOvsb5nXhwuhu3r0qIctp6FX3Wkp7aGF+st/219Ytb3m5X2Sq9znWJVXaljfVCP/b+5p1zVl1uLXGxfq035r7eUm2IrLvqO532xvhngjNP311y3cDNHVq4unZRn/TyP3aflLXp/+6I3Op+1L8s3rK91vVlH/7D/5U/5be6bO85DZnNrXT7dXHjy4tXXcr91Ogut/liHs5PPqM2eXQ8rDksjnrfPLU2bYe1BOdUetI5v8+CqyZwwE5a2VmapV7UvlsVX/3zyYfHou9Ylvs45KwuLTfNieU51/eb7U7Yu35WbcrL67RnLYzXWvZ21zPfz+F1r1y9Gzn7lo16n1tqH5bueafnA0xzRuuWEXrhyuNwSq3K2exX7lfX+Xrmsh3z43vzVQ+TnysmTPRee1rW4qO8WQ3PjxX25cdf1H7wsHLE="
+      data = "eJyF1luuo0oQRFHmP0TPwv5H3G6pkfZZJ/D9QH4AVVmR8cjXcRyfP9f153r/u/7+fv377+/3M//d1zv37vfOvHM/d797P997V57pvnc993oXa/e9i+dbd5955f4n69619QzvnLHr9uxnrv6+8rvPXuyx9rnvifV9pivPfbKOeK2ziHW/Lxyu4zcn+nnv2/WKd/9f/fQs91ov1lrYWNv7+Hmmrr/+637v8X/xerHv6/hZT89ob9uf9sbfSz/l0MWe936fY/fj/m/Vf98rHuWumu+5yyXfU1/tx8nzq+57fbl9/7Y/y5eqVbl/HT9rKt/kUHUvR+W465b777GPePV7+SjP6mnib39b0/LGJ79yj3Konm/NT15YvOyXGi3marz/FWt9bWmiXLCP9b6Tvc7jZ9/k4eJN/as9kuf6jB6t397PtL/6l/qrDhc/i/GL/b5lRzG2P8VMb3wdvzE1r5fmnzK+HlqvLs+WfrvmwkjuqYPu9eT79df2pXU4E1Xza87p2nqzutUnnbGKt7nY/om73laO13/bS7Ne7urf4m2OrFnHLG3+lMve993qUU55ffNDtWhOqd3lPcVYHC72kgOL5/pssZefS0vlunwoVt1Pj5YL5YP6LB7mVb/rxQvjNVvKE3X4YT9rvHjf/VuH/rbyR6ydDeSCc5nnqfbbj6XdaqF7qy/93lqKRXF2vigO/d66+rt7naztHOOn/rH4bl/kxYv7ntv5wixZ+a4/iquzzprRnjLaHuoRzhRydvnyOd7XP1rP0zznDKSmPLOZYrZap1rXr8Rb3vf9ZoYzUD3hZK8nT6kuzuMnB8z0+l5nhTWXOC88aUHfPcd7ns8zP+lN7jxpvPX2fEtH8uE6ftdVXO3H05ygd52s4bzyNB+W0/Kj9Tz1q56kp+l5cmjlsDNHn1maLBfE2Vxb+tEfiv3K5W98cmY1B+tJZsRnrOdcUb7ow2Kkz3QWMJvam+rGLFzzl9wpRkuXF/ve1/IBeai+6nvf/GB5j31cOWOmrz68WLN96LnkgHuaVytz9CCx01ut63P8xqd80sPLq84F9u0c95xBnFe+aar1vLlatzOI+dSr55Hj5e7FmtWSuKgvs9xZTLz0iWpAH1hnKO8/D88/zTfmrJrxnnvJuXp/uel65t3ycn2yulJTrcV+mwHln/7fczgbiZfeKqflyMm+7d+aoZ789Tp+Y2vGilXP03308vJDvxA//aLnU+Pqovf0BTFSQ3K899Y84JyjT5glelyf/eZ7S5/1E/tuDnXNcmp54DXW98yLw8WwfV1alMPWs/CrjvTU1vBiveW/rU/M+n6z0l7pda5TrKordawP6rH/N/eUq/pya5GL7Wu1Kf/1lnJTbMVF3/G8L9Y3A5xx+v6a6xZu5sjK1aWT8qyf57H7tLxF729f9Ebns/Zl+Yb1ta436+gf9r/8Kb/NfXPHechsbq3Lp5sLT168+lrut05nodUf63B28hm12bPrYcVhacTz9rmlaTOsPSin2oPW8W0eXDWZE2bC0tbKLPWq9sWy+OqfTz4sHn3XusTXOWdlYbFpXizPqa7ffH/K1uW7clNOVr89Y3msxrq3s5b5fh6/a+36xcjZr3zU69Ra+7B81zMtH3iaI1q3nNALVw6XW2JVznavYr+y3t8rl/WQD9+bv3qI/Fw5ebLnwtO6Fhf13WJobry4Lzfuuv4DLo5N5w=="
     },
     {
       type = "tilelayer",
@@ -1486,7 +1740,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmrtyGzEMRdklrjOuo9Rxasl1klaPVrL+/zeymPDMHjPSLkFlUoUzHNmWFgLxuLgAfS6l7KZ9nPZh2qdpn6d91d8u9ee3ae/r3/b1MzzD5n0+c6rPH+rnd1X+sb5e6t9O9f2TnjtKt6P+dtVzF/0e8j5M+4f2k74fXfaSyXft6vnOdb+W9+t7lbWX/of6fU/SYV/lvNX3fpY/13OVgS34nL/jTXp9uiHDOl3qfr3x3r7KuKeLP4/N2s/Fex/vvPd//Zv17S/J+fyXZB0elPV12i9lxpYRWSHjS5nzDQxoc3dtkSsh41Dm3MvKQR9w6VTlZeVsy4x16LOEA/dW4My+zHgSr2s4cE/OSTJih7825bcPe/0WcqgN4O+uzBjcez78ZVnUncz58BdydvX1nNAl1rbMPkfWEv7fW89lrmfEYuiSzY3n+jw1ibNl9bll53jNxmGssFGcBT9dk3LAC/w14u9YYRv8TNwRzxkbk6PwAfhQ1l+2sXEMrpLBDmTBy8DWbDzHivPBk5CTtbXzC1lZHDOmwjGJw1HbcKYs7rDCNnDFa5ljcSSGnOu8ZushZ4NPYquRnHfNMM/u1Sf8tSlzXXbdMNft0cN9hnuJkNfrM2oXPqKPABN7Ywj8otYgJ2tjMN45jrxMHMLJ4f/oNsqliMWLdjbH2nqK7zM6mdOdy3tMpBfssRPnMdegt8tgmbkhdnE8Znz2XGbscd87kqNgKXV+hNdxNuwyIsM6kZtww1E+fy3zLCCLq8ggr+Aa4GuvLHp08gA7m5f1+B48Jd+Zc3C+bByCh8gayVN0ck4gtzeesbPr8aXkOWI7CyFfybFMTwAegtHkxyhvQR/kjPRxYBacM2w00sfRA6JPyBnpC+xzZn0Znmm/m2tk+eFWuly1s/kOTwDjsU8Wz8x7jK1Zv4cc4wRxnI1B7EPMjPQD6AMue747OiOBP2OfEa7h/pT8yMazuYZnCfCGnhxr8xy+Sn3OYDOzZuIYvjvae5Fb6DIqh7k9XCx0G+V0rjkZbI5FnsLFqWHZWLQcZkfE9kg/2NbTEQ7ELAA/jeRpLGohtWsE45EDzzB3yXBwZi3YF94LpvXIIo7BZPeVnrUt2co5ynwFPuWeYG2uQM9OL+o7L99Z9chBf2ziuy/X6KVzOcd974Tf0HOp33Fuut7Amy1zKV9ds3wuzond1+Z2zNasC8+bb1JD7tmHmsUZqH8trmKje3K2+iyyfC74Kti4pM9Bz6IPZyKG1jgH+vhsfHfLE5diB+yi7lHf4T34vwfLtmXOJfzT5mlvn2P7YHPjRw8m+mw+y67kZy3Igp+aIzzKox6ZZbZ3DaFfBue3ZY5H/O/8zcy0iGFyy7HZoxNnsm19f4/MNZ3AVc9TwR3z+jU5vqsylpH7vfNDctXxzLNgT4//W0w86hUO03MufN7O0rE1Oq3J8czHOeF7oiVsbs8G7oEVrl+9d6jW6db/fmQ4Ij23fY3c7NyYvOAsxHNmTuL7Hcc2fh+ZHzrniYmsHOf6KPeFr5JfGZxv5TgGyYuReQs2QZ9sv4McuCVneqQvoIcf7Qs4F3bpzc92uXfK9gQs8N51g9zIzH09A+COwHyKO6eXujf6md830sX9JNgMllAned+zQd8LgYn43HdF/v83zy58L7nThnf+AnboTGA="
+      data = "eJztmrtyGzEMRflpG9cZ1XHqOLXkOkmrRytZ35vFhGf2mLFWBO1JFc5wZFtaCMTj4gL0uZSym/dx3od5n+Z9nvdVf7vUn1/mva9/29fP8Ayb9/nMqT5/qJ/fVfnH+nqpfzvV90967ijdjvrbVc9d9HvIm+b9U/tB348ue8nku3b1fOe6n8vr9aPK2kv/Q/2+B+mwr3Je6nu/yt9rU2VgCz7n73iRXp/fkGGdLnU/v/Hevsq4pYs/j83az8V7n26893/9m/X9g+R8+SBZh3fK+jbvp7Jgy4iskPG1LPkGBrS5e2+RKyHjUJbcy8pBH3DpVOVl5WzLgnXos4YDt1bgzL4seBKvU8nn8Kbqg4zY4a/H8seHvX4LOdQG8HdXFgzuPR/+sizqzlT6z4e/kLOrr+eELrG2ZfE5stbw/9balKWeEYuhSzY3NvV5ahJny+rzlp3jNRuHscJGcRb8dE3KAS/w14i/Y4Vt8DNxRzxnbEyOwgfgQ1l/2cbGMbhKBjuQBS8DW7PxHCvOB09CzlRytnZ+ISuLY8ZUOCZxOGobzpTFHVbYBq54LUssjsSQc53XbD3kbPBJbDWS864Z5tm9+oS/oi5Ql103zHV79HCf4V4i5PX6jNqFj+gjwMTeGAK/qDXIydoYjHeOIy8Th3By+D+6jXIpYvGinc2xtp7i+4xO5nTn8hoT6QV77MR5zDXo7TJYZm6IXRyPGZ9tyoI97nt7dWnl0LNeB2TE4mzYZUSGdSI34YajfP5alllAFleRQV7BNcDXXln06OQBdjYv6/E9eEq+M+fgfFPJxSF4iKyRPEUn5wRye+MZO7seX0qeI7azEPKVHMv0BOAhGE1+TGWMt6APckb6ODALzhk2Gunj6AHRJ+SM9AX2ObO+DM+03801svxwK12u2tl8hyeA8dgni2fmPcbWrN9DjnGCOM7oEgv7EDMj/QD6gMue747OSODP2GeEa7g/JT+y8Wyu4VkCvKEnx9o8h69Sn6fSj83Mmolj+O5o70VuocuoHOb2cLHQbZTTueZksDkWeQoXp4ZlY9FymB0R2yP9YFtPp5LnQMwC8NNInsaiFlK7RjAeOfAMc5cMB2fWgn3hvWBajyziGEx2X+lZ25qtnKPMV+BT7gnuzRXo2elFfeflO6seOeiPTXz35Rq9di7nuO+d8Bt6rvU7zk3XG3izZa7lq2uWz8U5sfu9uR2zNevC8+ab1JBb9qFmcQbqX4ur2OiWnK0+iyyfC74KNq7pc9Cz6MOZiKF7nAN9fDa+u+WJa7EDdlH3qO/wHvy/pot1IpfwT5unvX2O7YPNjR89mOiz+Sy7kp+1IAt+ao7wXh71nllme9cQ+mVwfluWeMT/zt/MTIsYJrccmz06cSbb1vf3yLynE7jqeSq4Y15/T47vqoxl5H7v/JBcdTzzLNjT4/8WE496hcP0nAuft7N0bI1O9+R45uOc8D3RGja3ZwP3wArXr947VOv01v9+ZDgiPbd9jdzs3Ji84CzEc2ZO4vsdxzZ+H5kfOueJiawc5/oo94Wvkl8ZnG/lOAbJi5F5CzZBn2y/gxy4JWeaynhfQA8/2hdwLuzSm5/tcu+U7QlY4L3rBrmRmft6BsAdgfkUd05PdT/qZ37nnqntJ8FmsIQ6yfueDfpeCEzE574r8v+/eXbhe8mdNrzzN6QZYog="
     },
     {
       type = "tilelayer",
@@ -1502,7 +1756,555 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmk1PwzAQRKv+TyjXAtcCVz6OhXPhXHounAu/jbXQSCMrSbGfK0UoT9oLIbXj8c6uo+zms9kq4ibiNuIuYhPxGvEWsYy4jLiKuM6u+T2fEfcRDxGPEU8R24j3iF3HGH7N7/mOyNnH3z56xvBrxzjE/3z1jDF0bWJiYqKE8/CRRcRFhZ+s457niJfMe0vp8+pS+ry6lBKvHuIUXk30SpzNf3+D6JVQvSV6JVRviV4J1dsx4HlBtPK8IFp5XhCtPC+IVqfIC613LdJM612LNNN61yLNqA9JM7re0qwV1McE8TF54QL6mJ89iI/52YPgZ4+xMdWvblrVL/kYRT5GkY/RPJeP1eot5GO1eifcN2r1TrhvENw3vPcoxX3De49a0ly896glzaVFT57m0qL32Dfy1UOjGriEXihW0As9L4gXniIvCJ4XtM8UJLc8x0lueY6T3PIcJ7n1n8/dgvYtyjHatyjHaN+iHKO0PL+vG/3OppHm20b+vIeaiwPUfGxM71uGcT8ci49JM+pj0oz6mDSj9V2a0d5ZmpH67v0Yqavej5G6eop+rMVeTrTw50QLf06MxZ+Vp3Sdlad0nZWndJ2Vp3SdW78XJed3v5ec3/1ecn73e0lv7/eS3n7s3064X5Ncy7+FqSX/FqYEPUsi/xamBD0Lrct6FlqX9Sz0nZZocd5N0H3tehGkl/Zw7Z6WXtrDf9nTXWNJL+3hrj2de+7QWNrDXXs699x8LJ/f0LrknpuP5fMbmusxz/X5/QBlBCWR"
+      data = "eJztmr9PAkEQhQn/f63YoraorT9KtEZrpUZrtHU25iUvGzhy+80lF3NfMo3nscc+3ptZwnY+m62ibqJuo+6iNlGvUW9Ry6jLqKuo6+qa3/MVdR/1EPUY9RT1HvURtT2whl/ze36ianbxt88ja/i1U+zjf76PrNF1bWJiYqIP55Eji6iLhjxZxz3PUS9V9vblWFb35VhW96VPVncxRFYTvQpn87/XIHoV1G+JXgX1W6JXQf12DLgviFbuC6KV+4Jo5b4gWg3hC+13K9JM+92KNNN+tyLNaA5JM7rf0iwLmmOC5JiycAFzzM8eJMf87EHws8fYmPrXYbL6l3KMohyjKMeoz5VjrXoL5Vir3gXPjVa9C54bBM8Nnz364rnhs0cr5Vl89milPEvGTF6eJWP22CXl6j6pBy5hFooVzEL3BcnCIXxBcF/QOVMQb7nHibfc48Rb7nHirf987hZ0bpHH6Nwij9G5RR6jZJ7f10mvs0nS/D0pn3dQc7GHmo+N6fuWbjwPx5Jj0ozmmDSjOSbNaH+XZnR2lmakv/s8Rvqqz2Okrw4xj2V8lgsZ+VzIyOfCWPJZPqX7LJ/SfZZP6T7Lp3Sfs78XJed3v5ec3/1ecn73e8ls7/eS2X6Ic8GUP4dR76Go99C+rN5D+7J6D/1OS2Scdwv0c52tl3zhM0gfn0gv+aL+fVfXe/C1pJd8Uf++q1Bnbtda8kX9+65Cnbn1Wv58XftSZ269lj9f17Oeylx/vl+oWpoI"
+    },
+    {
+      type = "objectgroup",
+      name = "enemy4",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 24,
+          name = "trigger",
+          type = "Trigger",
+          shape = "polyline",
+          x = 0,
+          y = 1728,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 25,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 144,
+          y = 1664,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 112 },
+            { x = 0, y = -480 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 26,
+          name = "leader",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1664,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["pathid"] = 25,
+            ["pathtime"] = 10,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 27,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 1680,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 26,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 28,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 160,
+          y = 1680,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 26,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 29,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 1696,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 26,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 30,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1712,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 26,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 31,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 1696,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 26,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 32,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 1664,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 26,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 33,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 1664,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 26,
+            ["script"] = "NPCPikeman"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "enemy3",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 14,
+          name = "trigger",
+          type = "Trigger",
+          shape = "polyline",
+          x = 0,
+          y = 1776,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 15,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 192,
+          y = 1728,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 64, y = 0 },
+            { x = 0, y = 112 },
+            { x = 0, y = -480 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 16,
+          name = "leader",
+          type = "",
+          shape = "rectangle",
+          x = 256,
+          y = 1728,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["pathid"] = 15,
+            ["pathtime"] = 10,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 20,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 256,
+          y = 1760,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 16,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 22,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 1744,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 16,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 23,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 1744,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 16,
+            ["script"] = "NPCPikeman"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "enemy2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 4,
+          name = "trigger",
+          type = "Trigger",
+          shape = "polyline",
+          x = 0,
+          y = 1824,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 5,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 96,
+          y = 1776,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -64, y = 0 },
+            { x = 0, y = 112 },
+            { x = 0, y = -480 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 6,
+          name = "leader",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 1776,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["pathid"] = 5,
+            ["pathtime"] = 10,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 10,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 1808,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 6,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 12,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 1792,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 6,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 13,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 1792,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 6,
+            ["script"] = "NPCPikeman"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "enemy1",
+      visible = false,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 34,
+          name = "trigger",
+          type = "Trigger",
+          shape = "polyline",
+          x = 0,
+          y = 1872,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 35,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 144,
+          y = 1824,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 112 },
+            { x = 0, y = -480 }
+          },
+          properties = {
+            ["script"] = "LinearPath"
+          }
+        },
+        {
+          id = 36,
+          name = "leader",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1824,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["pathid"] = 35,
+            ["pathtime"] = 10,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 37,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1856,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 36,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 38,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 1840,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 36,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 39,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 160,
+          y = 1840,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 938,
+          visible = true,
+          properties = {
+            ["leaderid"] = 36,
+            ["script"] = "NPCPikeman"
+          }
+        }
+      }
     },
     {
       type = "objectgroup",
@@ -1553,6 +2355,17 @@ return {
     },
     {
       type = "objectgroup",
+      name = "sparks",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {}
+    },
+    {
+      type = "objectgroup",
       name = "player",
       visible = true,
       opacity = 1,
@@ -1571,7 +2384,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 817,
+          gid = 1,
           visible = true,
           properties = {
             ["script"] = "ShmupPlayer"

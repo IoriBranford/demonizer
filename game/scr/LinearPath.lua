@@ -55,20 +55,25 @@ function Walker:findStartPoint(sx, sy)
 		local pqdotps = math.dot(pqx, pqy, psx, psy)
 		local pqdotqs = math.dot(pqx, pqy, qsx, qsy)
 
-		local distsq = math.huge
-
-		if pqdotps < 0 then
-			distsq = math.hypotsq(psx, psy)
-		elseif pqdotqs < 0 then
-			local psdistsq = math.hypotsq(psx, psy)
-			local projdist = pqdotps / math.sqrt(psdistsq)
-			distsq = psdistsq - (projdist*projdist)
-		end
-
-		if distsq <= closestdistsq then
+		if pqdotps <= 0 and pqdotqs > 0 then
 			self.desti = i
-			closestdistsq = distsq
+			break
 		end
+
+		--local distsq = math.huge
+		--
+		--if pqdotps < 0 then
+		--	distsq = math.hypotsq(psx, psy)
+		--elseif pqdotqs < 0 then
+		--	local psdistsq = math.hypotsq(psx, psy)
+		--	local projdist = pqdotps / math.sqrt(psdistsq)
+		--	distsq = psdistsq - (projdist*projdist)
+		--end
+                --
+		--if distsq <= closestdistsq then
+		--	self.desti = i
+		--	closestdistsq = distsq
+		--end
 
 		p = q
 	end
