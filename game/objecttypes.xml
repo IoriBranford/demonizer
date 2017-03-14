@@ -3,6 +3,7 @@
  <objecttype name="Trigger" color="#00ff00">
   <property name="collidable" type="bool" default="true"/>
   <property name="sensor" type="bool" default="true"/>
+  <property name="triggertype" type="string"/>
  </objecttype>
  <objecttype name="Camera" color="#0000ff">
   <property name="collidable" type="bool" default="true"/>
