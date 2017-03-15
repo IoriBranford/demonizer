@@ -378,7 +378,8 @@ function ShmupNPC:beginMove(dt)
 		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
 						self.properties.pathtime)
 		if self.pathwalker then
-			self.pathwalker:findStartPoint(body:getWorldCenter())
+			self.pathwalker:findStartPoint(body:getX(), body:getY(),
+							vx0, vy0)
 		end
 	end
 

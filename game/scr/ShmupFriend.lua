@@ -191,7 +191,9 @@ function ShmupFriend:beginMove(dt)
 			local pathid = self.properties.pathid
 			self.pathwalker = levity.map.scripts:call(pathid,
 					"newWalker", self.properties.pathtime)
-			self.pathwalker:findStartPoint(body:getWorldCenter())
+			self.pathwalker:findStartPoint(body:getX(), body:getY(),
+							0, 0)
+			-- don't want velocity from cage or elec to skew result
 		end
 
 		local fromccx, fromccy = levity.map.scripts:call(
@@ -214,8 +216,8 @@ function ShmupFriend:beginMove(dt)
 			timescale = ShmupFriend.CatchupTimeScale
 		end
 
-		local cx, cy = body:getWorldCenter()
-		vx, vy = self.pathwalker:walk(dt, cx, cy, timescale)
+		vx, vy = self.pathwalker:walk(dt, body:getX(), body:getY(),
+						timescale)
 	end
 
 	body:setLinearVelocity(vx, vy)

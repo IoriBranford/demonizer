@@ -41,10 +41,11 @@ local Walker = class(function(self, path, pathtime)
 	self.speed = self.path.totallength / (pathtime or 1)
 end)
 
-function Walker:findStartPoint(sx, sy)
+function Walker:findStartPoint(sx, sy, svx, svy)
 	local points = self.path.points
 	local p = points[1]
-	local closestdistsq = math.hypotsq(sx - p.x, sy - p.y)
+	--local closestdistsq = math.hypotsq(sx - p.x, sy - p.y)
+
 	for i = 2, #points do
 		local q = points[i]
 
@@ -54,8 +55,9 @@ function Walker:findStartPoint(sx, sy)
 
 		local pqdotps = math.dot(pqx, pqy, psx, psy)
 		local pqdotqs = math.dot(pqx, pqy, qsx, qsy)
+		local pqdotsv = math.dot(pqx, pqy, svx, svy)
 
-		if pqdotps <= 0 and pqdotqs > 0 then
+		if pqdotsv >= 0 and pqdotps >= 0 and pqdotqs < 0 then
 			self.desti = i
 			break
 		end
