@@ -1801,7 +1801,7 @@ return {
           polyline = {
             { x = 0, y = 0 },
             { x = 0, y = 176 },
-            { x = 0, y = -272 }
+            { x = 0, y = -432 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -1831,7 +1831,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 128,
-          y = 1680,
+          y = 1696,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1848,7 +1848,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 160,
-          y = 1680,
+          y = 1696,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1864,8 +1864,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 112,
-          y = 1696,
+          x = 128,
+          y = 1648,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1898,8 +1898,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 176,
-          y = 1696,
+          x = 160,
+          y = 1648,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1915,8 +1915,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 96,
-          y = 1664,
+          x = 112,
+          y = 1680,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1932,8 +1932,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 192,
-          y = 1664,
+          x = 176,
+          y = 1680,
           width = 24,
           height = 32,
           rotation = 0,
@@ -1988,8 +1988,8 @@ return {
           visible = true,
           polyline = {
             { x = 64, y = 0 },
-            { x = 0, y = 176 },
-            { x = 0, y = -272 }
+            { x = 16, y = 176 },
+            { x = 16, y = -416 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -2108,8 +2108,8 @@ return {
           visible = true,
           polyline = {
             { x = -64, y = 0 },
-            { x = 0, y = 176 },
-            { x = 0, y = -272 }
+            { x = -16, y = 176 },
+            { x = -16, y = -416 }
           },
           properties = {
             ["script"] = "LinearPath"
@@ -2229,7 +2229,7 @@ return {
           polyline = {
             { x = 0, y = 0 },
             { x = 0, y = 176 },
-            { x = 0, y = -336 }
+            { x = 0, y = -416 }
           },
           properties = {
             ["script"] = "LinearPath"

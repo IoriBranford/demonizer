@@ -42,7 +42,7 @@
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="0,0 0,176 0,-272"/>
+   <polyline points="0,0 0,176 0,-432"/>
   </object>
   <object id="26" name="leader" gid="794" x="144" y="1664" width="24" height="32">
    <properties>
@@ -51,19 +51,19 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="27" gid="794" x="128" y="1680" width="24" height="32">
+  <object id="27" gid="794" x="128" y="1696" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="26"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="28" gid="794" x="160" y="1680" width="24" height="32">
+  <object id="28" gid="794" x="160" y="1696" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="26"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="29" gid="794" x="112" y="1696" width="24" height="32">
+  <object id="29" gid="794" x="128" y="1648" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="26"/>
     <property name="script" value="NPCPikeman"/>
@@ -75,19 +75,19 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="31" gid="794" x="176" y="1696" width="24" height="32">
+  <object id="31" gid="794" x="160" y="1648" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="26"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="32" gid="794" x="96" y="1664" width="24" height="32">
+  <object id="32" gid="794" x="112" y="1680" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="26"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="33" gid="794" x="192" y="1664" width="24" height="32">
+  <object id="33" gid="794" x="176" y="1680" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="26"/>
     <property name="script" value="NPCPikeman"/>
@@ -105,7 +105,7 @@
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="64,0 0,176 0,-272"/>
+   <polyline points="64,0 16,176 16,-416"/>
   </object>
   <object id="16" name="leader" gid="794" x="256" y="1728" width="24" height="32">
    <properties>
@@ -144,7 +144,7 @@
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="-64,0 0,176 0,-272"/>
+   <polyline points="-64,0 -16,176 -16,-416"/>
   </object>
   <object id="6" name="leader" gid="794" x="32" y="1776" width="24" height="32">
    <properties>
@@ -183,7 +183,7 @@
    <properties>
     <property name="script" value="LinearPath"/>
    </properties>
-   <polyline points="0,0 0,176 0,-336"/>
+   <polyline points="0,0 0,176 0,-416"/>
   </object>
   <object id="36" name="leader" gid="794" x="144" y="1824" width="24" height="32">
    <properties>
