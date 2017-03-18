@@ -13,7 +13,7 @@ NPCPikeman = class(ShmupNPC, function(self, object)
 	self.health = 8
 end)
 
-NPCPikeman.BulletInterval = 0.5
+NPCPikeman.BulletInterval = 1
 NPCPikeman.BulletParams = {
 	speed = 120,
 	category = ShmupCollision.Category_NPCShot
@@ -66,10 +66,6 @@ function NPCPikeman:fireTimer()
 	return self.firetimer
 end
 
-function NPCPikeman:isOnCamera()
-	return self.oncamera
-end
-
 function NPCPikeman:beginMove(dt)
 	ShmupNPC.beginMove(self, dt)
 	if not self.object.body:isActive() then
@@ -91,16 +87,6 @@ function NPCPikeman:beginMove(dt)
 	if (leader and levity.map.scripts:call(leader.id, "isOnCamera"))
 	or (not leader and self.oncamera) then
 		self:updateFiring(dt)
-	end
-end
-
-function NPCPikeman:npcKnockedOut(npcid)
-	local leader = self.properties.leaderid
-	if leader == npcid then
-		leader = levity.map.objects[leader]
-		self.properties.leaderid = nil
-		self.properties.pathid = leader.properties.pathid
-		self.properties.pathtime = leader.properties.pathtime
 	end
 end
 

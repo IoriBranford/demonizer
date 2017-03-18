@@ -277,17 +277,16 @@ function ShmupWingman:beginMove(dt)
 	local destx, desty = cx, cy
 	local captive
 
-	--local uimap = levity.map.overlaymap
-	--local scoreid
-	--if uimap then
-	--	scoreid = uimap.scripts:call("hud", "getScoreId")
-	--end
+	local uimap = levity.map.overlaymap
+	local scoreid
+	if uimap then
+		scoreid = uimap.scripts:call("status", "getScoreId")
+	end
 	local focused = levity.map.scripts:call(playerid, "isFocused")
 	if focused then
 		if not self.properties.conversionid
-		then
-		--and scoreid
-		--and uimap.scripts:call(scoreid, "isMaxMultiplier", self.object.id) then
+		and scoreid
+		and uimap.scripts:call(scoreid, "isMaxMultiplier", self.object.id) then
 			if not self.targetcaptiveid then
 				self.targetcaptiveid = self:findTarget("canBeCaptured")
 			end
@@ -415,18 +414,18 @@ function ShmupWingman:beginDraw()
 		end
 	end
 
-	--local uimap = levity.map.overlaymap
-	--local scoreid
-	--if uimap then
-	--	scoreid = uimap.scripts:call("hud", "getScoreId")
-	--end
-	--if scoreid then
-	--	self.properties.text = uimap.scripts:call(scoreid,
-	--				"getMultiplier", self.object.id)
-	--else
-	--	self.properties.text = nil
-	--end
-	--self.properties.textfont = "fnt/pressstart2p.fnt"
+	local uimap = levity.map.overlaymap
+	local scoreid
+	if uimap then
+		scoreid = uimap.scripts:call("status", "getScoreId")
+	end
+	if scoreid then
+		self.properties.text = uimap.scripts:call(scoreid,
+					"getMultiplier", self.object.id)
+	else
+		self.properties.text = nil
+	end
+	self.properties.textfont = "fnt/pressstart2p.fnt"
 end
 
 function ShmupWingman:endDraw()

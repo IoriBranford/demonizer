@@ -65,6 +65,14 @@ function ShmupVehicle:canBeLockTarget()
 		and self.health > 0
 end
 
+function ShmupVehicle:knocksOutPassengers()
+	return self.properties.kopassengers == true
+end
+
+function ShmupVehicle:isOnCamera()
+	return self.oncamera
+end
+
 function ShmupVehicle:explode()
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		local l, t, r, b = fixture:getBoundingBox()

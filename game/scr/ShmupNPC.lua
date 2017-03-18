@@ -166,6 +166,10 @@ function ShmupNPC:isFemale()
 	return self.female
 end
 
+function ShmupNPC:isOnCamera()
+	return self.oncamera
+end
+
 function ShmupNPC:knockout()
 	if self.unconscious then
 		return
@@ -338,8 +342,6 @@ function ShmupNPC:beginMove(dt)
 	local vx0, vy0 = body:getLinearVelocity()
 	local vx1, vy1 = 0, 0
 
-	local vehicleid = self.properties.vehicleid
-
 	local cx, cy = body:getWorldCenter()
 	local playerid = levity.map.properties.playerid
 	local player = levity.map.objects[playerid]
@@ -355,14 +357,14 @@ function ShmupNPC:beginMove(dt)
 	end
 
 	local capturepulldistsq
-	--local uimap = levity.map.overlaymap
-	--local scoreid = uimap.scripts:call("status", "getScoreId")
+	local uimap = levity.map.overlaymap
+	local scoreid = uimap.scripts:call("status", "getScoreId")
 
 	local canbecaptured = self:canBeCaptured()
 
 	if canbecaptured
 	and levity.map.scripts:call(playerid, "isFocused")
-	--and uimap.scripts:call(scoreid, "isMaxMultiplier", playerid)
+	and uimap.scripts:call(scoreid, "isMaxMultiplier", playerid)
 	then
 		capturepulldistsq = ShmupNPC.EnhancedCapturePullDistSq
 	else
@@ -373,8 +375,10 @@ function ShmupNPC:beginMove(dt)
 		(canbecaptured and playerdsq < capturepulldistsq
 		and not levity.map.scripts:call(playerid, "isKilled"))
 
-	if not self.pathwalker then
-		local pathid = self.properties.pathid
+	local pathid = self.properties.pathid
+	local leaderid = self.properties.leaderid
+
+	if pathid and not self.pathwalker then
 		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
 						self.properties.pathtime)
 		if self.pathwalker then
@@ -393,10 +397,10 @@ function ShmupNPC:beginMove(dt)
 		else
 			body:setLinearVelocity(0, 0)
 		end
-	elseif vehicleid then
-		local vehicle = levity.map.objects[vehicleid]
-		if vehicle then
-			body:setLinearVelocity(vehicle.body:getLinearVelocity())
+	elseif leaderid then
+		local leader = levity.map.objects[leaderid]
+		if leader then
+			body:setLinearVelocity(leader.body:getLinearVelocity())
 		else
 			body:setLinearVelocity(0, 0)
 		end
@@ -474,9 +478,15 @@ function ShmupNPC:playerVictory()
 end
 
 function ShmupNPC:vehicleDestroyed(vehicleid)
-	if self.properties.vehicleid == vehicleid then
-		self:knockout()
-		levity.map:broadcast("npcKnockedOut", self.object.id)
+	if self.properties.leaderid == vehicleid then
+		if levity.map.scripts:call(vehicleid, "knocksOutPassengers") then
+			self:knockout()
+			levity.map:broadcast("npcKnockedOut", self.object.id)
+		else
+			self:inheritPath(vehicleid)
+		end
+
+		self.properties.leaderid = nil
 	end
 end
 
@@ -486,6 +496,19 @@ function ShmupNPC:playerKilled()
 		self.pulledbyplayer = false
 		self.object.body:setLinearVelocity(0, ShmupNPC.KnockoutLaunchVelY)
 	end
+end
+
+function ShmupNPC:npcKnockedOut(npcid)
+	if self.properties.leaderid == npcid then
+		self:inheritPath(npcid)
+		self.properties.leaderid = nil
+	end
+end
+
+function ShmupNPC:inheritPath(leaderid)
+	local leader = levity.map.objects[leaderid]
+	self.properties.pathid = leader.properties.pathid
+	self.properties.pathtime = leader.properties.pathtime
 end
 
 function ShmupNPC.releaseCaptives(captivegids, x, y, layer)

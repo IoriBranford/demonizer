@@ -608,18 +608,18 @@ function ShmupPlayer:beginDraw()
 		love.graphics.setColor(0xff, 0xff, 0xff, alpha)
 	end
 
-	--local uimap = levity.map.overlaymap
-	--local scoreid
-	--if uimap then
-	--	scoreid = uimap.scripts:call("hud", "getScoreId")
-	--end
-	--if scoreid then
-	--	self.properties.text = uimap.scripts:call(scoreid,
-	--				"getMultiplier", self.object.id)
-	--else
-	--	self.properties.text = nil
-	--end
-	--self.properties.textfont = "fnt/pressstart2p.fnt"
+	local uimap = levity.map.overlaymap
+	local scoreid
+	if uimap then
+		scoreid = uimap.scripts:call("status", "getScoreId")
+	end
+	if scoreid then
+		self.properties.text = uimap.scripts:call(scoreid,
+					"getMultiplier", self.object.id)
+	else
+		self.properties.text = nil
+	end
+	self.properties.textfont = "fnt/pressstart2p.fnt"
 end
 
 function ShmupPlayer:endDraw()

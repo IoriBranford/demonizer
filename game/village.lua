@@ -3386,10 +3386,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 345,
             ["pathid"] = 178,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 345
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3439,10 +3439,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 345,
             ["pathid"] = 178,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 345
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3458,10 +3458,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 345,
             ["pathid"] = 178,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 345
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3477,10 +3477,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 343,
             ["pathid"] = 174,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 343
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3496,10 +3496,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 343,
             ["pathid"] = 174,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 343
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3515,10 +3515,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 343,
             ["pathid"] = 174,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 343
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3553,6 +3553,7 @@ return {
           gid = 2147483871,
           visible = true,
           properties = {
+            ["kopassengers"] = true,
             ["pathid"] = 174,
             ["pathtime"] = 1,
             ["script"] = "ShmupVehicle"
@@ -3571,6 +3572,7 @@ return {
           gid = 223,
           visible = true,
           properties = {
+            ["kopassengers"] = true,
             ["pathid"] = 178,
             ["pathtime"] = 1,
             ["script"] = "ShmupVehicle"
@@ -3589,8 +3591,8 @@ return {
           gid = 88,
           visible = true,
           properties = {
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 346
+            ["leaderid"] = 346,
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3606,8 +3608,8 @@ return {
           gid = 169,
           visible = true,
           properties = {
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 346
+            ["leaderid"] = 346,
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3623,6 +3625,7 @@ return {
           gid = 223,
           visible = true,
           properties = {
+            ["kopassengers"] = true,
             ["script"] = "ShmupVehicle"
           }
         },
@@ -3639,8 +3642,8 @@ return {
           gid = 169,
           visible = true,
           properties = {
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 346
+            ["leaderid"] = 346,
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3656,10 +3659,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 421,
             ["pathid"] = 104,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 421
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3675,6 +3678,7 @@ return {
           gid = 223,
           visible = true,
           properties = {
+            ["kopassengers"] = true,
             ["pathid"] = 104,
             ["pathtime"] = 5,
             ["script"] = "ShmupVehicle"
@@ -3693,10 +3697,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 421,
             ["pathid"] = 104,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 421
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3712,10 +3716,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 421,
             ["pathid"] = 104,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 421
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3731,10 +3735,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 426,
             ["pathid"] = 106,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 426
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3750,10 +3754,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 426,
             ["pathid"] = 106,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 426
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3769,6 +3773,7 @@ return {
           gid = 2147483871,
           visible = true,
           properties = {
+            ["kopassengers"] = true,
             ["pathid"] = 106,
             ["pathtime"] = 5,
             ["script"] = "ShmupVehicle"
@@ -3787,10 +3792,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 426,
             ["pathid"] = 106,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 426
+            ["script"] = "NPCPikeman"
           }
         }
       }
@@ -3818,10 +3823,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 325,
             ["pathid"] = 106,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 325
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3837,10 +3842,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 325,
             ["pathid"] = 106,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 325
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3877,10 +3882,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 325,
             ["pathid"] = 106,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 325
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3911,6 +3916,7 @@ return {
           gid = 2147483871,
           visible = true,
           properties = {
+            ["kopassengers"] = true,
             ["pathid"] = 106,
             ["pathtime"] = 5,
             ["script"] = "ShmupVehicle"
@@ -3941,10 +3947,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 324,
             ["pathid"] = 104,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 324
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3996,10 +4002,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 324,
             ["pathid"] = 104,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 324
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -4015,10 +4021,10 @@ return {
           gid = 169,
           visible = true,
           properties = {
+            ["leaderid"] = 324,
             ["pathid"] = 104,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["vehicleid"] = 324
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -4034,6 +4040,7 @@ return {
           gid = 223,
           visible = true,
           properties = {
+            ["kopassengers"] = true,
             ["pathid"] = 104,
             ["pathtime"] = 5,
             ["script"] = "ShmupVehicle"
