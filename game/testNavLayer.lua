@@ -972,7 +972,7 @@ return {
             { x = 24, y = -96 }
           },
           properties = {
-            ["cost"] = 0.5
+            ["cost"] = 0.25
           }
         },
         {
@@ -992,7 +992,7 @@ return {
             { x = 128, y = -8 }
           },
           properties = {
-            ["cost"] = 2
+            ["cost"] = 0.5
           }
         }
       }

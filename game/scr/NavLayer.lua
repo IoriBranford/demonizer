@@ -1,27 +1,28 @@
 local levity = require "levity"
 
---- @table NavEdge
--- @field dest
+--- @table NavPath a possible move from a NavLayer node
+-- @field destx
+-- @field desty
 -- @field cost
 
 local NavLayer
 
 local function addSegment(self, p1, p2, cost)
-	local n1 = self:getNode(p1.x, p1.y, true)
-	local n2 = self:getNode(p2.x, p2.y, true)
+	local n1 = self:getPaths(p1.x, p1.y, true)
+	local n2 = self:getPaths(p2.x, p2.y, true)
 	if n1 ~= n2 then
-		n1[#n1 + 1] = { dest = p2, cost = cost }
-		n2[#n2 + 1] = { dest = p1, cost = cost }
+		n1[#n1 + 1] = { destx = p2.x, desty = p2.y, cost = cost }
+		n2[#n2 + 1] = { destx = p1.x, desty = p1.y, cost = cost }
 	end
 end
 
 NavLayer = class(function(self, layer)
 	self.layer = layer
-	self.nodegrid = {} -- lists of possible destinations from each grid cell
+	self.nodegrid = {} -- lists of possible paths from each grid cell
 	-- in the form:
 	-- {
-	-- 	cell1 = {edge1, edge2, ...},
-	-- 	cell2 = {edge3, edge4, ...}, ...
+	-- 	cell1 = {path1, path2, ...},
+	-- 	cell2 = {path3, path4, ...}, ...
 	-- }
 
 	for _, object in pairs(self.layer.objects) do
@@ -42,7 +43,7 @@ NavLayer = class(function(self, layer)
 	end
 end)
 
-function NavLayer:getNode(x, y, createnode)
+function NavLayer:getPaths(x, y, createnode)
 	local c, r = levity.map:convertPixelToTile(x, y)
 	c = math.floor(c)
 	r = math.floor(r)
@@ -57,20 +58,21 @@ function NavLayer:getNode(x, y, createnode)
 end
 
 function NavLayer:findNearestPoint(x, y)
-	local nearestpoint
+	local nearestx, nearesty
 	local nearestdistsq = math.huge
-	for ni, node in pairs(self.nodegrid) do
-		for ei, edge in pairs(node) do
-			local dest = edge.dest
-			local distsq = math.hypotsq(dest.x - x, dest.y - y)
+	for ni, paths in pairs(self.nodegrid) do
+		for pi, path in pairs(paths) do
+			local destx, desty = path.destx, path.desty
+			local distsq = math.hypotsq(destx - x, desty - y)
 			if distsq < nearestdistsq then
-				nearestpoint = dest
+				nearestx = destx
+				nearesty = desty
 				nearestdistsq = distsq
 			end
 		end
 	end
 
-	return nearestpoint
+	return nearestx, nearesty
 end
 
 function NavLayer:beginDraw()
@@ -93,52 +95,64 @@ end
 
 local Walker
 
-Walker = class(function(self, navlayer, pickNextDest, x, y, userdata)
+Walker = class(function(self, navlayer, pickNextPath, x, y, userdata)
 	self.navlayer = navlayer
 
-	local node = navlayer:getNode(x, y)
-	if node then
-		self.destpoint = pickNextDest(navlayer, node, userdata)
+	local paths = navlayer:getPaths(x, y)
+	if paths then
+		local path = pickNextPath(navlayer, paths, nil, nil, userdata)
+		if path then
+			self.destx = path.destx
+			self.desty = path.desty
+		end
 	else
-		self.destpoint = navlayer:findNearestPoint(x, y)
+		self.destx, self.desty = navlayer:findNearestPoint(x, y)
 	end
+	self.prevx = nil
+	self.prevy = nil
 
-	self.pickNextDest = pickNextDest
+	self.pickNextPath = pickNextPath
 	self.userdata = userdata
 end)
 
 function Walker:getVelocity(dt, speed, x, y)
-	if not self.destpoint then
+	if not self.destx or not self.desty then
 		return 0, 0
 	end
 	local vx, vy = 0, 0
-	local distx = self.destpoint.x - x
-	local disty = self.destpoint.y - y
+	local distx = self.destx - x
+	local disty = self.desty - y
 	local distsq = math.hypotsq(distx, disty)
 
 	local exdistsq = (speed * speed * dt * dt) - distsq
 	-- amount squared by which you would overshoot destination this frame
 
 	if exdistsq >= 0 then
-		local node = self.navlayer:getNode(self.destpoint.x,
-							self.destpoint.y)
-		local newdest = self.pickNextDest(self.navlayer.layer.name,
-							node, self.userdata)
-		if newdest then
-			-- apply excess dist towards new destination
+		local paths = self.navlayer:getPaths(self.destx,
+							self.desty)
+		local nextpath = self.pickNextPath(self.navlayer.layer.name,
+							paths,
+							self.prevx, self.prevy,
+							self.userdata)
+		if nextpath then
+			local nextdestx, nextdesty =
+				nextpath.destx, nextpath.desty
+
+			-- apply excess dist towards next destination
 			local exdist = math.sqrt(exdistsq)
 
-			local newdirx = newdest.x - self.destpoint.x
-			local newdiry = newdest.y - self.destpoint.y
-			local newdestdist = math.hypot(newdirx, newdiry)
+			local nextdirx = nextdestx - self.destx
+			local nextdiry = nextdesty - self.desty
+			local nextdestdist = math.hypot(nextdirx, nextdiry)
 
-			newdirx = exdist * newdirx / newdestdist
-			newdiry = exdist * newdiry / newdestdist
+			nextdirx = exdist * nextdirx / nextdestdist
+			nextdiry = exdist * nextdiry / nextdestdist
 
-			distx = distx + newdirx
-			disty = disty + newdiry
+			distx = distx + nextdirx
+			disty = disty + nextdiry
+			self.prevx, self.prevy = self.destx, self.desty
+			self.destx, self.desty = nextdestx, nextdesty
 		end
-		self.destpoint = newdest
 
 		vx, vy = distx / dt, disty / dt
 	else
@@ -151,8 +165,14 @@ function Walker:getVelocity(dt, speed, x, y)
 	return vx, vy
 end
 
-function NavLayer:newWalker(pickNextDest, x, y, userdata)
-	return Walker(self, pickNextDest, x, y, userdata)
+--- Init state of a journey through a NavLayer.
+-- @param pickNextPath function(navlayername, paths, prevx, prevy, userdata) returns desired path from paths
+-- @param x starting position
+-- @param y starting position
+-- @param userdata
+-- @return new walker
+function NavLayer:newWalker(pickNextPath, x, y, userdata)
+	return Walker(self, pickNextPath, x, y, userdata)
 end
 
 return NavLayer

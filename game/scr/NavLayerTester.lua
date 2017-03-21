@@ -7,10 +7,16 @@ NavLayerTester = class(function(self, object)
 	self.speed = 60
 end)
 
-function NavLayerTester.pickNextDest(navlayername, node, self)
-	local edge = node[love.math.random(#node)]
-	self.speed = 60 / edge.cost
-	return edge.dest
+function NavLayerTester.pickNextPath(navlayername, paths, prevx, prevy, self)
+	local path = paths[love.math.random(#paths)]
+	if #paths > 1 then
+		while path.destx == prevx and path.desty == prevy do
+			path = paths[love.math.random(#paths)]
+		end
+	end
+
+	self.speed = 60 / path.cost
+	return path
 end
 
 function NavLayerTester:beginMove(dt)
@@ -19,7 +25,7 @@ function NavLayerTester:beginMove(dt)
 	if not self.walker then
 		self.walker = levity.map.scripts:call(
 			self.object.properties.navlayerid, "newWalker",
-			NavLayerTester.pickNextDest, x, y, self)
+			NavLayerTester.pickNextPath, x, y, self)
 	end
 
 	local vx, vy = self.walker:getVelocity(dt, self.speed, x, y)

@@ -35,13 +35,13 @@
   </properties>
   <object id="44" x="96" y="168">
    <properties>
-    <property name="cost" type="float" value="0.5"/>
+    <property name="cost" type="float" value="0.25"/>
    </properties>
    <polyline points="32,-8 56,-48 -8,-56 24,-96"/>
   </object>
   <object id="52" x="96" y="200">
    <properties>
-    <property name="cost" type="float" value="2"/>
+    <property name="cost" type="float" value="0.5"/>
    </properties>
    <polygon points="-56,-8 32,-40 128,-8"/>
   </object>
