@@ -25,7 +25,7 @@ function NavLayerTester:beginMove(dt)
 	if not self.walker then
 		self.walker = levity.map.scripts:call(
 			self.object.properties.navlayerid, "newWalker",
-			NavLayerTester.pickNextPath, x, y, self)
+			NavLayerTester.pickNextPath, x, y, "relative", self)
 	end
 
 	local vx, vy = self.walker:getVelocity(dt, self.speed, x, y)

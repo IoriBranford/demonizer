@@ -95,12 +95,24 @@ end
 
 local Walker
 
-Walker = class(function(self, navlayer, pickNextPath, x, y, userdata)
+Walker = class(function(self, navlayer, pickNextPath, x, y, mode, userdata)
 	self.navlayer = navlayer
+
+	if mode == "relative" then
+		local nearestx, nearesty = navlayer:findNearestPoint(x, y)
+		self.offx = x - nearestx
+		self.offy = y - nearesty
+	else
+		self.offx = 0
+		self.offy = 0
+	end
+
+	x = x - self.offx
+	y = y - self.offy
 
 	local paths = navlayer:getPaths(x, y)
 	if paths then
-		local path = pickNextPath(navlayer, paths, nil, nil, userdata)
+		local path = pickNextPath(navlayer, paths, x, y, userdata)
 		if path then
 			self.destx = path.destx
 			self.desty = path.desty
@@ -108,8 +120,8 @@ Walker = class(function(self, navlayer, pickNextPath, x, y, userdata)
 	else
 		self.destx, self.desty = navlayer:findNearestPoint(x, y)
 	end
-	self.prevx = nil
-	self.prevy = nil
+	self.prevx = x
+	self.prevy = y
 
 	self.pickNextPath = pickNextPath
 	self.userdata = userdata
@@ -120,20 +132,18 @@ function Walker:getVelocity(dt, speed, x, y)
 		return 0, 0
 	end
 	local vx, vy = 0, 0
-	local distx = self.destx - x
-	local disty = self.desty - y
+	local distx = self.destx + self.offx - x
+	local disty = self.desty + self.offy - y
 	local distsq = math.hypotsq(distx, disty)
 
 	local exdistsq = (speed * speed * dt * dt) - distsq
 	-- amount squared by which you would overshoot destination this frame
 
 	if exdistsq >= 0 then
-		local paths = self.navlayer:getPaths(self.destx,
-							self.desty)
+		local paths = self.navlayer:getPaths(self.destx, self.desty)
 		local nextpath = self.pickNextPath(self.navlayer.layer.name,
-							paths,
-							self.prevx, self.prevy,
-							self.userdata)
+				paths, self.prevx, self.prevy, self.userdata)
+
 		if nextpath then
 			local nextdestx, nextdesty =
 				nextpath.destx, nextpath.desty
@@ -166,13 +176,17 @@ function Walker:getVelocity(dt, speed, x, y)
 end
 
 --- Init state of a journey through a NavLayer.
+-- Paths can be considered one of:
+-- 	absolute positions - get on and stay on line
+-- 	relative positions - move in line direction, not necessarily on line
 -- @param pickNextPath function(navlayername, paths, prevx, prevy, userdata) returns desired path from paths
 -- @param x starting position
 -- @param y starting position
+-- @param mode "absolute" or "relative"
 -- @param userdata
 -- @return new walker
-function NavLayer:newWalker(pickNextPath, x, y, userdata)
-	return Walker(self, pickNextPath, x, y, userdata)
+function NavLayer:newWalker(pickNextPath, x, y, mode, userdata)
+	return Walker(self, pickNextPath, x, y, mode, userdata)
 end
 
 return NavLayer
