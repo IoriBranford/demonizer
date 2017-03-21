@@ -16,8 +16,24 @@ local function addSegment(self, p1, p2, cost)
 	end
 end
 
-NavLayer = class(function(self, layer)
-	self.layer = layer
+local function addLineObject(self, object)
+	local line = object.polyline or object.polygon
+	if line then
+		local cost = object.properties.cost or 1
+		local p1 = line[1]
+		for i = 2, #line do
+			local p2 = line[i]
+			addSegment(self, p1, p2, cost)
+			p1 = p2
+		end
+		if object.shape == "polygon" then
+			local p2 = line[1]
+			addSegment(self, p1, p2, cost)
+		end
+	end
+end
+
+NavLayer = class(function(self, element)
 	self.nodegrid = {} -- lists of possible paths from each grid cell
 	-- in the form:
 	-- {
@@ -25,21 +41,14 @@ NavLayer = class(function(self, layer)
 	-- 	cell2 = {path3, path4, ...}, ...
 	-- }
 
-	for _, object in pairs(self.layer.objects) do
-		local line = object.polyline or object.polygon
-		if line then
-			local cost = object.properties.cost or 1
-			local p1 = line[1]
-			for i = 2, #line do
-				local p2 = line[i]
-				addSegment(self, p1, p2, cost)
-				p1 = p2
-			end
-			if object.shape == "polygon" then
-				local p2 = line[1]
-				addSegment(self, p1, p2, cost)
-			end
+	if element.objects then
+		self.layer = element
+		for _, object in pairs(self.layer.objects) do
+			addLineObject(self, object)
 		end
+	else
+		self.object = element
+		addLineObject(self, self.object)
 	end
 end)
 
@@ -75,20 +84,36 @@ function NavLayer:findNearestPoint(x, y)
 	return nearestx, nearesty
 end
 
+function NavLayer:getId()
+	if self.object then
+		return self.object.id
+	elseif self.layer then
+		return self.layer.name
+	end
+end
+
+local function drawLineObject(object)
+	local line = object.polyline or object.polygon
+	if line then
+		local p1 = line[1]
+		for i = 2, #line do
+			local p2 = line[i]
+			love.graphics.line(p1.x, p1.y, p2.x, p2.y)
+			p1 = p2
+		end
+		if object.shape == "polygon" then
+			local p2 = line[1]
+			love.graphics.line(p1.x, p1.y, p2.x, p2.y)
+		end
+	end
+end
+
 function NavLayer:beginDraw()
-	for _, object in pairs(self.layer.objects) do
-		local line = object.polyline or object.polygon
-		if line then
-			local p1 = line[1]
-			for i = 2, #line do
-				local p2 = line[i]
-				love.graphics.line(p1.x, p1.y, p2.x, p2.y)
-				p1 = p2
-			end
-			if object.shape == "polygon" then
-				local p2 = line[1]
-				love.graphics.line(p1.x, p1.y, p2.x, p2.y)
-			end
+	if self.object then
+		drawLineObject(self.object)
+	elseif self.layer then
+		for _, object in pairs(self.layer.objects) do
+			drawLineObject(object)
 		end
 	end
 end
@@ -141,7 +166,7 @@ function Walker:getVelocity(dt, speed, x, y)
 
 	if exdistsq >= 0 then
 		local paths = self.navlayer:getPaths(self.destx, self.desty)
-		local nextpath = self.pickNextPath(self.navlayer.layer.name,
+		local nextpath = self.pickNextPath(self.navlayer:getId(),
 				paths, self.prevx, self.prevy, self.userdata)
 
 		if nextpath then
@@ -179,7 +204,7 @@ end
 -- Paths can be considered one of:
 -- 	absolute positions - get on and stay on line
 -- 	relative positions - move in line direction, not necessarily on line
--- @param pickNextPath function(navlayername, paths, prevx, prevy, userdata) returns desired path from paths
+-- @param pickNextPath function(navlayerid, paths, prevx, prevy, userdata) returns desired path from paths
 -- @param x starting position
 -- @param y starting position
 -- @param mode "absolute" or "relative"

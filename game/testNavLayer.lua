@@ -8,7 +8,7 @@ return {
   height = 40,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 53,
+  nextobjectid = 54,
   properties = {
     ["cameraid"] = 39,
     ["playerid"] = 40,
@@ -923,7 +923,7 @@ return {
           gid = 160,
           visible = true,
           properties = {
-            ["navlayerid"] = "navlayer",
+            ["navlayerid"] = 53,
             ["script"] = "NavLayerTester"
           }
         },
@@ -939,6 +939,34 @@ return {
           rotation = 0,
           visible = true,
           properties = {}
+        },
+        {
+          id = 53,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 104,
+          y = 24,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -32, y = 0 },
+            { x = -48, y = 48 },
+            { x = -16, y = 72 },
+            { x = 32, y = 56 },
+            { x = 88, y = 24 },
+            { x = 112, y = 64 },
+            { x = 104, y = 96 },
+            { x = 56, y = 136 },
+            { x = 16, y = 144 },
+            { x = -56, y = 128 }
+          },
+          properties = {
+            ["script"] = "NavLayer"
+          }
         }
       }
     },
