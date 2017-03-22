@@ -923,8 +923,8 @@ return {
           gid = 160,
           visible = true,
           properties = {
-            ["navlayerid"] = 53,
-            ["script"] = "NavLayerTester"
+            ["pathgraphid"] = 53,
+            ["script"] = "PathGraphTester"
           }
         },
         {
@@ -945,8 +945,8 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 104,
-          y = 24,
+          x = 120,
+          y = 64,
           width = 0,
           height = 0,
           rotation = 0,
@@ -965,21 +965,21 @@ return {
             { x = -56, y = 128 }
           },
           properties = {
-            ["script"] = "NavLayer"
+            ["script"] = "PathGraph"
           }
         }
       }
     },
     {
       type = "objectgroup",
-      name = "navlayer",
+      name = "pathgraph",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
       properties = {
-        ["script"] = "NavLayer"
+        ["script"] = "PathGraph"
       },
       objects = {
         {

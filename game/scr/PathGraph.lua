@@ -1,11 +1,11 @@
 local levity = require "levity"
 
---- @table NavPath a possible move from a NavLayer node
+--- @table Path a possible move from a PathGraph node
 -- @field destx
 -- @field desty
 -- @field cost
 
-local NavLayer
+local PathGraph
 
 local function addSegment(self, p1, p2, cost)
 	local n1 = self:getPaths(p1.x, p1.y, true)
@@ -33,7 +33,7 @@ local function addLineObject(self, object)
 	end
 end
 
-NavLayer = class(function(self, element)
+PathGraph = class(function(self, element)
 	self.nodegrid = {} -- lists of possible paths from each grid cell
 	-- in the form:
 	-- {
@@ -52,7 +52,7 @@ NavLayer = class(function(self, element)
 	end
 end)
 
-function NavLayer:getPaths(x, y, createnode)
+function PathGraph:getPaths(x, y, createnode)
 	local c, r = levity.map:convertPixelToTile(x, y)
 	c = math.floor(c)
 	r = math.floor(r)
@@ -66,7 +66,7 @@ function NavLayer:getPaths(x, y, createnode)
 	return n
 end
 
-function NavLayer:findNearestPoint(x, y)
+function PathGraph:findNearestPoint(x, y)
 	local nearestx, nearesty
 	local nearestdistsq = math.huge
 	for ni, paths in pairs(self.nodegrid) do
@@ -84,7 +84,7 @@ function NavLayer:findNearestPoint(x, y)
 	return nearestx, nearesty
 end
 
-function NavLayer:getId()
+function PathGraph:getId()
 	if self.object then
 		return self.object.id
 	elseif self.layer then
@@ -108,7 +108,7 @@ local function drawLineObject(object)
 	end
 end
 
-function NavLayer:beginDraw()
+function PathGraph:beginDraw()
 	if self.object then
 		drawLineObject(self.object)
 	elseif self.layer then
@@ -120,11 +120,11 @@ end
 
 local Walker
 
-Walker = class(function(self, navlayer, pickNextPath, x, y, mode, userdata)
-	self.navlayer = navlayer
+Walker = class(function(self, graph, pickNextPath, x, y, mode, userdata)
+	self.graph = graph
 
 	if mode == "relative" then
-		local nearestx, nearesty = navlayer:findNearestPoint(x, y)
+		local nearestx, nearesty = graph:findNearestPoint(x, y)
 		self.offx = x - nearestx
 		self.offy = y - nearesty
 	else
@@ -135,15 +135,15 @@ Walker = class(function(self, navlayer, pickNextPath, x, y, mode, userdata)
 	x = x - self.offx
 	y = y - self.offy
 
-	local paths = navlayer:getPaths(x, y)
+	local paths = graph:getPaths(x, y)
 	if paths then
-		local path = pickNextPath(navlayer, paths, x, y, userdata)
+		local path = pickNextPath(graph, paths, x, y, userdata)
 		if path then
 			self.destx = path.destx
 			self.desty = path.desty
 		end
 	else
-		self.destx, self.desty = navlayer:findNearestPoint(x, y)
+		self.destx, self.desty = graph:findNearestPoint(x, y)
 	end
 	self.prevx = x
 	self.prevy = y
@@ -165,8 +165,8 @@ function Walker:getVelocity(dt, speed, x, y)
 	-- amount squared by which you would overshoot destination this frame
 
 	if exdistsq >= 0 then
-		local paths = self.navlayer:getPaths(self.destx, self.desty)
-		local nextpath = self.pickNextPath(self.navlayer:getId(),
+		local paths = self.graph:getPaths(self.destx, self.desty)
+		local nextpath = self.pickNextPath(self.graph:getId(),
 				paths, self.prevx, self.prevy, self.userdata)
 
 		if nextpath then
@@ -200,18 +200,18 @@ function Walker:getVelocity(dt, speed, x, y)
 	return vx, vy
 end
 
---- Init state of a journey through a NavLayer.
+--- Init state of a journey through a PathGraph.
 -- Paths can be considered one of:
 -- 	absolute positions - get on and stay on line
 -- 	relative positions - move in line direction, not necessarily on line
--- @param pickNextPath function(navlayerid, paths, prevx, prevy, userdata) returns desired path from paths
+-- @param pickNextPath function(graphid, paths, prevx, prevy, userdata) returns desired path from paths
 -- @param x starting position
 -- @param y starting position
 -- @param mode "absolute" or "relative"
 -- @param userdata
 -- @return new walker
-function NavLayer:newWalker(pickNextPath, x, y, mode, userdata)
+function PathGraph:newWalker(pickNextPath, x, y, mode, userdata)
 	return Walker(self, pickNextPath, x, y, mode, userdata)
 end
 
-return NavLayer
+return PathGraph
