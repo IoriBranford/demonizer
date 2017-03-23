@@ -773,6 +773,7 @@
     <property name="pathid" type="int" value="178"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="345"/>
    </properties>
   </object>
   <object id="178" name="path3" x="-24" y="1632">
@@ -792,6 +793,7 @@
     <property name="pathid" type="int" value="178"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="345"/>
    </properties>
   </object>
   <object id="181" name="pike4" gid="169" x="-56" y="1576" width="24" height="32">
@@ -800,6 +802,7 @@
     <property name="pathid" type="int" value="178"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="345"/>
    </properties>
   </object>
   <object id="172" name="pike6" gid="169" x="328" y="1584" width="24" height="32">
@@ -808,6 +811,7 @@
     <property name="pathid" type="int" value="174"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="343"/>
    </properties>
   </object>
   <object id="173" name="pike7" gid="169" x="344" y="1576" width="24" height="32">
@@ -816,6 +820,7 @@
     <property name="pathid" type="int" value="174"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="343"/>
    </properties>
   </object>
   <object id="175" name="pike8" gid="169" x="360" y="1568" width="24" height="32">
@@ -824,6 +829,7 @@
     <property name="pathid" type="int" value="174"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="343"/>
    </properties>
   </object>
   <object id="174" name="path4" x="304" y="1648">
@@ -852,12 +858,14 @@
    <properties>
     <property name="leaderid" type="int" value="346"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="346"/>
    </properties>
   </object>
   <object id="161" name="pike9" gid="169" x="128" y="1552" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="346"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="346"/>
    </properties>
   </object>
   <object id="346" gid="223" x="144" y="1528" width="128" height="64">
@@ -870,6 +878,7 @@
    <properties>
     <property name="leaderid" type="int" value="346"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="346"/>
    </properties>
   </object>
   <object id="420" name="pike3" gid="169" x="-56" y="1704" width="24" height="32">
@@ -878,6 +887,7 @@
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="421"/>
    </properties>
   </object>
   <object id="421" gid="223" x="-72" y="1680" width="128" height="64">
@@ -894,6 +904,7 @@
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="421"/>
    </properties>
   </object>
   <object id="423" name="pike5" gid="169" x="-88" y="1688" width="24" height="32">
@@ -902,6 +913,7 @@
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="421"/>
    </properties>
   </object>
   <object id="424" name="pike7" gid="169" x="360" y="1640" width="24" height="32">
@@ -910,6 +922,7 @@
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="426"/>
    </properties>
   </object>
   <object id="425" name="pike8" gid="169" x="376" y="1632" width="24" height="32">
@@ -918,6 +931,7 @@
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="426"/>
    </properties>
   </object>
   <object id="426" gid="2147483871" x="360" y="1624" width="128" height="64">
@@ -934,16 +948,18 @@
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="426"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="waterpikes2">
+ <objectgroup name="waterpikes2" visible="0">
   <object id="113" name="pike6" gid="169" x="344" y="1648" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="325"/>
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="325"/>
    </properties>
   </object>
   <object id="68" name="pike7" gid="169" x="360" y="1640" width="24" height="32">
@@ -952,6 +968,7 @@
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="325"/>
    </properties>
   </object>
   <object id="106" name="path4" x="304" y="1728">
@@ -966,6 +983,7 @@
     <property name="pathid" type="int" value="106"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="325"/>
    </properties>
   </object>
   <object id="115" type="Trigger" x="0" y="1632" width="288" height="8">
@@ -982,13 +1000,14 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="waterpikes">
+ <objectgroup name="waterpikes" visible="0">
   <object id="67" name="pike3" gid="169" x="-56" y="1704" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="324"/>
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="324"/>
    </properties>
   </object>
   <object id="104" name="path3" x="-24" y="1736">
@@ -1008,6 +1027,7 @@
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="324"/>
    </properties>
   </object>
   <object id="112" name="pike4" gid="169" x="-72" y="1696" width="24" height="32">
@@ -1016,6 +1036,7 @@
     <property name="pathid" type="int" value="104"/>
     <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
+    <property name="volleyleaderid" type="int" value="324"/>
    </properties>
   </object>
   <object id="324" gid="223" x="-72" y="1680" width="128" height="64">

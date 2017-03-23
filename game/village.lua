@@ -3389,7 +3389,8 @@ return {
             ["leaderid"] = 345,
             ["pathid"] = 178,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 345
           }
         },
         {
@@ -3442,7 +3443,8 @@ return {
             ["leaderid"] = 345,
             ["pathid"] = 178,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 345
           }
         },
         {
@@ -3461,7 +3463,8 @@ return {
             ["leaderid"] = 345,
             ["pathid"] = 178,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 345
           }
         },
         {
@@ -3480,7 +3483,8 @@ return {
             ["leaderid"] = 343,
             ["pathid"] = 174,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 343
           }
         },
         {
@@ -3499,7 +3503,8 @@ return {
             ["leaderid"] = 343,
             ["pathid"] = 174,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 343
           }
         },
         {
@@ -3518,7 +3523,8 @@ return {
             ["leaderid"] = 343,
             ["pathid"] = 174,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 343
           }
         },
         {
@@ -3592,7 +3598,8 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 346,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 346
           }
         },
         {
@@ -3609,7 +3616,8 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 346,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 346
           }
         },
         {
@@ -3643,7 +3651,8 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 346,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 346
           }
         },
         {
@@ -3662,7 +3671,8 @@ return {
             ["leaderid"] = 421,
             ["pathid"] = 104,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 421
           }
         },
         {
@@ -3700,7 +3710,8 @@ return {
             ["leaderid"] = 421,
             ["pathid"] = 104,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 421
           }
         },
         {
@@ -3719,7 +3730,8 @@ return {
             ["leaderid"] = 421,
             ["pathid"] = 104,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 421
           }
         },
         {
@@ -3738,7 +3750,8 @@ return {
             ["leaderid"] = 426,
             ["pathid"] = 106,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 426
           }
         },
         {
@@ -3757,7 +3770,8 @@ return {
             ["leaderid"] = 426,
             ["pathid"] = 106,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 426
           }
         },
         {
@@ -3795,7 +3809,8 @@ return {
             ["leaderid"] = 426,
             ["pathid"] = 106,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 426
           }
         }
       }
@@ -3803,7 +3818,7 @@ return {
     {
       type = "objectgroup",
       name = "waterpikes2",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -3826,7 +3841,8 @@ return {
             ["leaderid"] = 325,
             ["pathid"] = 106,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 325
           }
         },
         {
@@ -3845,7 +3861,8 @@ return {
             ["leaderid"] = 325,
             ["pathid"] = 106,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 325
           }
         },
         {
@@ -3885,7 +3902,8 @@ return {
             ["leaderid"] = 325,
             ["pathid"] = 106,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 325
           }
         },
         {
@@ -3927,7 +3945,7 @@ return {
     {
       type = "objectgroup",
       name = "waterpikes",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -3950,7 +3968,8 @@ return {
             ["leaderid"] = 324,
             ["pathid"] = 104,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 324
           }
         },
         {
@@ -4005,7 +4024,8 @@ return {
             ["leaderid"] = 324,
             ["pathid"] = 104,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 324
           }
         },
         {
@@ -4024,7 +4044,8 @@ return {
             ["leaderid"] = 324,
             ["pathid"] = 104,
             ["pathtime"] = 3,
-            ["script"] = "NPCPikeman"
+            ["script"] = "NPCPikeman",
+            ["volleyleaderid"] = 324
           }
         },
         {

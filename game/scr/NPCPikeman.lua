@@ -38,7 +38,9 @@ function NPCPikeman:updateFiring(dt)
 		end
 
 		if volleyleader then
-			local volleyleadercx, volleyleadercy = volleyleader.body:getWorldCenter()
+			local volleyleadercx, volleyleadercy =
+				volleyleader.body:getWorldCenter()
+
 			playerdx = playercx - volleyleadercx
 			playerdy = playercy - volleyleadercy
 		else
