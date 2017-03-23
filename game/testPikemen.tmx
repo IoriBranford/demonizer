@@ -33,7 +33,7 @@
   </object>
   <object id="5" name="path" x="-32" y="-48">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,0 120,128 184,128 304,0"/>
   </object>

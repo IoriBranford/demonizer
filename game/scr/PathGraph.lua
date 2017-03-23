@@ -214,4 +214,29 @@ function PathGraph:newWalker(pickNextPath, x, y, mode, userdata)
 	return Walker(self, pickNextPath, x, y, mode, userdata)
 end
 
+function PathGraph.pickNextPath_linear1way(graphid, paths, prevx, prevy, userdata)
+	for i = 1, #paths do
+		local path = paths[i]
+		if path.destx ~= prevx or path.desty ~= prevy then
+			return path
+		end
+	end
+end
+
+function PathGraph.pickNextPath_linearUp(graphid, paths, prevx, prevy, userdata)
+	for i = 1, #paths do
+		local path = paths[i]
+		if path.desty < prevy then
+			return path
+		end
+	end
+end
+
+function PathGraph.pickNextPath_linear2way(graphid, paths, prevx, prevy, userdata)
+	if #paths == 1 then
+		return paths[1]
+	end
+	return PathGraph.pickNextPath_linear(graphid, paths, prevx, prevy, userdata)
+end
+
 return PathGraph

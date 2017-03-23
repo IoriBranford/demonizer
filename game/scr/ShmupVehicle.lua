@@ -1,5 +1,6 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
+local PathGraph = require "PathGraph"
 
 local Sounds = {
 	Hit = "snd/hit.wav",
@@ -173,11 +174,15 @@ function ShmupVehicle:beginMove(dt)
 	if not self.pathwalker then
 		local pathid = self.properties.pathid
 		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
-						self.properties.pathtime)
+					PathGraph.pickNextPath_linear1way,
+					body:getX(), body:getY(),
+					self.properties.pathmode, self)
 	end
 
 	if self.pathwalker then
-		vx1, vy1 = self.pathwalker:walk(dt, body:getX(), body:getY())
+		vx1, vy1 = self.pathwalker:getVelocity(dt,
+				self.properties.pathspeed or 60,
+				body:getX(), body:getY())
 	end
 
 	body:setLinearVelocity(vx1, vy1)

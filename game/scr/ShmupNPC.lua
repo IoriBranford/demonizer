@@ -1,6 +1,7 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupWingman = require("ShmupWingman")
+local PathGraph = require "PathGraph"
 
 local Sounds = {
 	Hit = "snd/hit.wav",
@@ -380,11 +381,9 @@ function ShmupNPC:beginMove(dt)
 
 	if pathid and not self.pathwalker then
 		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
-						self.properties.pathtime)
-		if self.pathwalker then
-			self.pathwalker:findStartPoint(body:getX(), body:getY(),
-							vx0, vy0)
-		end
+					PathGraph.pickNextPath_linear1way,
+					body:getX(), body:getY(),
+					self.properties.pathmode, self)
 	end
 
 	if self.pulledbyplayer then
@@ -405,7 +404,8 @@ function ShmupNPC:beginMove(dt)
 			body:setLinearVelocity(0, 0)
 		end
 	elseif self.pathwalker then
-		body:setLinearVelocity(self.pathwalker:walk(dt, body:getX(), body:getY()))
+		body:setLinearVelocity(self.pathwalker:getVelocity(dt,
+			self.properties.pathspeed or 60, body:getX(), body:getY()))
 	end
 end
 
@@ -508,7 +508,7 @@ end
 function ShmupNPC:inheritPath(leaderid)
 	local leader = levity.map.objects[leaderid]
 	self.properties.pathid = leader.properties.pathid
-	self.properties.pathtime = leader.properties.pathtime
+	--self.properties.pathtime = leader.properties.pathtime
 end
 
 function ShmupNPC.releaseCaptives(captivegids, x, y, layer)

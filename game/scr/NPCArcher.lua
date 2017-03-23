@@ -50,7 +50,8 @@ function NPCArcher:updateFiring(dt)
 	end
 	self.firetimer = self.firetimer - dt
 
-	if not self.pathwalker or self.pathwalker:finished() then
+	local vx, vy = self.object.body:getLinearVelocity()
+	if vx == 0 and vy == 0 then
 		self:setInCover(self.firetimer > NPCArcher.LeaveCoverTime)
 	end
 end

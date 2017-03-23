@@ -31,16 +31,16 @@ function NPCPikeman:updateFiring(dt)
 		local player = levity.map.objects[playerid]
 		local playercx, playercy = player.body:getWorldCenter()
 
-		local leader
-		local leaderid = self.properties.leaderid
-		if leaderid then
-			leader = levity.map.objects[leaderid]
+		local volleyleader
+		local volleyleaderid = self.properties.volleyleaderid
+		if volleyleaderid then
+			volleyleader = levity.map.objects[volleyleaderid]
 		end
 
-		if leader then
-			local leadercx, leadercy = leader.body:getWorldCenter()
-			playerdx = playercx - leadercx
-			playerdy = playercy - leadercy
+		if volleyleader then
+			local volleyleadercx, volleyleadercy = volleyleader.body:getWorldCenter()
+			playerdx = playercx - volleyleadercx
+			playerdy = playercy - volleyleadercy
 		else
 			playerdx = playercx - cx
 			playerdy = playercy - cy
@@ -76,16 +76,13 @@ function NPCPikeman:beginMove(dt)
 		return
 	end
 
-	local leader = self.properties.leaderid
-	if leader then
-		leader = levity.map.objects[leader]
-	end
-	if leader then
-		self.object.body:setLinearVelocity(leader.body:getLinearVelocity())
+	local volleyleader = self.properties.volleyleaderid
+	if volleyleader then
+		volleyleader = levity.map.objects[volleyleader]
 	end
 
-	if (leader and levity.map.scripts:call(leader.id, "isOnCamera"))
-	or (not leader and self.oncamera) then
+	if (volleyleader and levity.map.scripts:call(volleyleader.id, "isOnCamera"))
+	or (not volleyleader and self.oncamera) then
 		self:updateFiring(dt)
 	end
 end

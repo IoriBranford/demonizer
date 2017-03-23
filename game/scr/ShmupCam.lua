@@ -1,5 +1,6 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
+local PathGraph = require "PathGraph"
 
 local ShmupCam = class(function(self, object)
 	self.object = object
@@ -121,18 +122,17 @@ function ShmupCam:beginMove(dt)
 
 	local pathid = self.properties.pathid
 	if pathid and not self.pathwalker then
+		local x, y = body:getPosition()
 		local path = levity.map.objects[pathid]
 		path.layer:addObject(path)
 		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
-						self.properties.pathtime)
-		if self.pathwalker then
-			local x, y = body:getPosition()
-			self.pathwalker:findStartPoint(x, y, vx0, vy0)
-		end
+						PathGraph.pickNextPath_linear1way,
+						x, y, "relative", self)
 	end
 
 	if self.pathwalker and not self.pathpaused then
-		vx1, vy1 = self.pathwalker:walk(dt, self.x0, body:getY())
+		vx1, vy1 = self.pathwalker:getVelocity(dt,
+			self.properties.pathspeed or 60, self.x0, body:getY())
 		vx1 = vx0
 	end
 

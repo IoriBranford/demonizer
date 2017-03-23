@@ -1212,10 +1212,10 @@ return {
           width = 240,
           height = 320,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["pathid"] = 44,
-            ["pathtime"] = 60
+            ["pathspeed"] = 30
           }
         },
         {
@@ -1234,7 +1234,7 @@ return {
             { x = 0, y = -1800 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         }
       }
@@ -1550,7 +1550,7 @@ return {
             { x = 32, y = 8 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -1587,7 +1587,7 @@ return {
             { x = 16, y = 8 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         }
       }
@@ -1675,7 +1675,7 @@ return {
             { x = 440, y = 328 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -2212,7 +2212,7 @@ return {
             { x = 0, y = 48 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         }
       }
@@ -2243,7 +2243,7 @@ return {
             { x = 168, y = -32 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -2262,7 +2262,7 @@ return {
             { x = 144, y = -24 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -2452,7 +2452,7 @@ return {
             { x = 0, y = 8 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -2504,7 +2504,7 @@ return {
             { x = -192, y = 8 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -2553,7 +2553,7 @@ return {
             { x = -48, y = 112 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -2626,7 +2626,7 @@ return {
             { x = 24, y = 56 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -2747,7 +2747,7 @@ return {
             { x = -384, y = 224 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -3014,7 +3014,7 @@ return {
             { x = 416, y = -16 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -3408,7 +3408,7 @@ return {
             { x = 104, y = -40 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -3537,7 +3537,7 @@ return {
             { x = -96, y = -56 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -3866,7 +3866,7 @@ return {
             { x = -376, y = -104 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -3971,7 +3971,7 @@ return {
             { x = 384, y = -56 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -4102,7 +4102,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 86,
-            ["pathtime"] = 0.5,
+            ["pathmode"] = "relative",
             ["script"] = "ShmupNPC"
           }
         },
@@ -4122,7 +4122,7 @@ return {
             { x = -8, y = -56 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -4139,7 +4139,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 419,
-            ["pathtime"] = 0.6,
+            ["pathmode"] = "relative",
             ["script"] = "ShmupNPC"
           }
         },
@@ -4157,7 +4157,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 419,
-            ["pathtime"] = 0.9,
+            ["pathmode"] = "relative",
             ["script"] = "ShmupNPC"
           }
         },
@@ -4175,7 +4175,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 86,
-            ["pathtime"] = 0.5,
+            ["pathmode"] = "relative",
             ["script"] = "ShmupNPC"
           }
         },
@@ -4193,7 +4193,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 419,
-            ["pathtime"] = 0.9,
+            ["pathmode"] = "relative",
             ["script"] = "ShmupNPC"
           }
         },
@@ -4213,7 +4213,7 @@ return {
             { x = 32, y = -56 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -4230,7 +4230,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 85,
-            ["pathtime"] = 0.8,
+            ["pathmode"] = "relative",
             ["script"] = "ShmupNPC"
           }
         },
@@ -4248,7 +4248,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 418,
-            ["pathtime"] = 0.8,
+            ["pathmode"] = "relative",
             ["script"] = "ShmupNPC"
           }
         },
@@ -4266,7 +4266,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 85,
-            ["pathtime"] = 0.6,
+            ["pathmode"] = "relative",
             ["script"] = "ShmupNPC"
           }
         },
@@ -4284,7 +4284,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 418,
-            ["pathtime"] = 0.7,
+            ["pathmode"] = "relative",
             ["script"] = "ShmupNPC"
           }
         },
@@ -4302,7 +4302,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 418,
-            ["pathtime"] = 0.7,
+            ["pathmode"] = "relative",
             ["script"] = "ShmupNPC"
           }
         },
@@ -4322,7 +4322,7 @@ return {
             { x = 32, y = -56 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -4341,7 +4341,7 @@ return {
             { x = -8, y = -56 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         }
       }

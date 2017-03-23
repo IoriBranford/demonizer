@@ -22,7 +22,8 @@ function NPCInquisitor:beginMove(dt)
 		return
 	end
 
-	if not self.pathwalker or self.pathwalker:finished() then
+	local vx, vy = self.object.body:getLinearVelocity()
+	if vx == 0 and vy == 0 then
 		levity.map.scripts:call("electricity", "setActive", true)
 	end
 end

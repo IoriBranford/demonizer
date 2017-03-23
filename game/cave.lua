@@ -2513,7 +2513,7 @@ return {
             { x = 0, y = -1440 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         }
       }
@@ -2963,7 +2963,7 @@ return {
             { x = 96, y = 48 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -2982,7 +2982,7 @@ return {
             { x = -96, y = 16 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -3045,7 +3045,7 @@ return {
           properties = {
             ["cageid"] = 48,
             ["pathid"] = 60,
-            ["pathtime"] = 60,
+            ["pathspeed"] = 28,
             ["script"] = "ShmupFriend"
           }
         },
@@ -3116,7 +3116,7 @@ return {
             { x = 0, y = 48 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -3135,7 +3135,7 @@ return {
             { x = 0, y = 16 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         }
       }
@@ -3165,7 +3165,7 @@ return {
           properties = {
             ["cageid"] = 42,
             ["pathid"] = 60,
-            ["pathtime"] = 60,
+            ["pathspeed"] = 28,
             ["script"] = "ShmupFriend"
           }
         },
@@ -3236,7 +3236,7 @@ return {
             { x = 0, y = 48 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -3273,7 +3273,7 @@ return {
             { x = 0, y = 48 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -3292,7 +3292,7 @@ return {
             { x = 0, y = 96 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         }
       }
@@ -3558,7 +3558,7 @@ return {
           properties = {
             ["cageid"] = 36,
             ["pathid"] = 60,
-            ["pathtime"] = 60,
+            ["pathspeed"] = 28,
             ["script"] = "ShmupFriend"
           }
         },
@@ -3649,7 +3649,7 @@ return {
             { x = 0, y = 48 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -3668,7 +3668,7 @@ return {
             { x = 0, y = 32 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -3687,7 +3687,7 @@ return {
             { x = 0, y = 32 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         }
       }
@@ -3771,7 +3771,7 @@ return {
           properties = {
             ["cageid"] = 33,
             ["pathid"] = 60,
-            ["pathtime"] = 60,
+            ["pathspeed"] = 28,
             ["script"] = "ShmupFriend"
           }
         },
@@ -3840,7 +3840,7 @@ return {
             { x = 32, y = 96 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         }
       }
@@ -4228,7 +4228,7 @@ return {
             { x = 80, y = 80 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -4247,7 +4247,7 @@ return {
             { x = -80, y = 80 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {
@@ -4468,7 +4468,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 6,
-            ["pathtime"] = 90
+            ["pathspeed"] = 32
           }
         },
         {
@@ -4487,7 +4487,7 @@ return {
             { x = 0, y = -2880 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         }
       }

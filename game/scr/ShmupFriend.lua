@@ -2,6 +2,7 @@ local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local Targeting = require "Targeting"
 local ShmupBullet = require("ShmupBullet")
+local PathGraph = require "PathGraph"
 
 local MaxHealth = 32
 
@@ -190,10 +191,10 @@ function ShmupFriend:beginMove(dt)
 		if not self.pathwalker then
 			local pathid = self.properties.pathid
 			self.pathwalker = levity.map.scripts:call(pathid,
-					"newWalker", self.properties.pathtime)
-			self.pathwalker:findStartPoint(body:getX(), body:getY(),
-							0, 0)
-			-- don't want velocity from cage or elec to skew result
+					"newWalker",
+					PathGraph.pickNextPath_linearUp,
+					body:getX(), body:getY(),
+					self.properties.pathmode, self)
 		end
 
 		local fromccx, fromccy = levity.map.scripts:call(
@@ -216,8 +217,9 @@ function ShmupFriend:beginMove(dt)
 			timescale = ShmupFriend.CatchupTimeScale
 		end
 
-		vx, vy = self.pathwalker:walk(dt, body:getX(), body:getY(),
-						timescale)
+		vx, vy = self.pathwalker:getVelocity(dt,
+			timescale * (self.properties.pathspeed or 60),
+			body:getX(), body:getY())
 	end
 
 	body:setLinearVelocity(vx, vy)

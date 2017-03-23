@@ -838,7 +838,7 @@ return {
             { x = 304, y = 0 }
           },
           properties = {
-            ["script"] = "LinearPath"
+            ["script"] = "PathGraph"
           }
         },
         {

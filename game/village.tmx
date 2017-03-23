@@ -30,15 +30,15 @@
   </data>
  </layer>
  <objectgroup name="camera">
-  <object id="7" name="camera" type="Camera" x="24" y="1800" width="240" height="320">
+  <object id="7" name="camera" type="Camera" x="24" y="1800" width="240" height="320" visible="0">
    <properties>
     <property name="pathid" type="int" value="44"/>
-    <property name="pathtime" type="int" value="60"/>
+    <property name="pathspeed" type="float" value="30"/>
    </properties>
   </object>
   <object id="44" name="path" x="24" y="1800">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,0 0,-1800"/>
   </object>
@@ -134,7 +134,7 @@
   </object>
   <object id="281" name="path" x="120" y="496">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="32,-32 32,8"/>
   </object>
@@ -147,7 +147,7 @@
   </object>
   <object id="288" name="path" x="120" y="496">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="16,-32 16,8"/>
   </object>
@@ -176,7 +176,7 @@
   </object>
   <object id="397" name="path" x="16" y="368">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,104 0,160 80,160 248,160 440,328"/>
   </object>
@@ -377,7 +377,7 @@
   </object>
   <object id="366" x="144" y="856">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,0 0,48"/>
   </object>
@@ -385,13 +385,13 @@
  <objectgroup name="pikes4">
   <object id="272" name="path" x="-48" y="920">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="24,-32 168,-32"/>
   </object>
   <object id="219" name="path" x="-24" y="944">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,-24 144,-24"/>
   </object>
@@ -460,7 +460,7 @@
  <objectgroup name="roofarchers1">
   <object id="224" name="path" x="208" y="952">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,-32 0,8"/>
   </object>
@@ -478,7 +478,7 @@
   </object>
   <object id="223" name="path" x="304" y="1000">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="-208,-16 -192,8"/>
   </object>
@@ -493,7 +493,7 @@
  <objectgroup name="pikes3">
   <object id="211" name="path" x="320" y="928">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="-48,-8 -48,112"/>
   </object>
@@ -520,7 +520,7 @@
   </object>
   <object id="273" name="path" x="216" y="928">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="24,24 24,56"/>
   </object>
@@ -561,7 +561,7 @@
   </object>
   <object id="271" name="path" x="272" y="952">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,104 0,208 -80,208 -144,224 -384,224"/>
   </object>
@@ -651,7 +651,7 @@
   </object>
   <object id="195" name="path" x="-16" y="1192">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,0 152,0 216,-16 416,-16"/>
   </object>
@@ -777,7 +777,7 @@
   </object>
   <object id="178" name="path3" x="-24" y="1632">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="-32,-72 104,-40"/>
   </object>
@@ -828,7 +828,7 @@
   </object>
   <object id="174" name="path4" x="304" y="1648">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="40,-88 -96,-56"/>
   </object>
@@ -956,7 +956,7 @@
   </object>
   <object id="106" name="path4" x="304" y="1728">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="56,-104 -96,-72 -224,-72 -376,-104"/>
   </object>
@@ -993,7 +993,7 @@
   </object>
   <object id="104" name="path3" x="-24" y="1736">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="-48,-56 104,-24 232,-24 384,-56"/>
   </object>
@@ -1038,94 +1038,94 @@
   <object id="79" gid="324" x="64" y="1904" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.5"/>
+    <property name="pathmode" value="relative"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="86" name="path2" x="64" y="1888">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,8 -8,-56"/>
   </object>
   <object id="132" gid="459" x="96" y="1920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="419"/>
-    <property name="pathtime" type="float" value="0.6"/>
+    <property name="pathmode" value="relative"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="136" gid="471" x="104" y="1944" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="419"/>
-    <property name="pathtime" type="float" value="0.9"/>
+    <property name="pathmode" value="relative"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="152" gid="474" x="72" y="1912" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="86"/>
-    <property name="pathtime" type="float" value="0.5"/>
+    <property name="pathmode" value="relative"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="150" gid="468" x="88" y="1936" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="419"/>
-    <property name="pathtime" type="float" value="0.9"/>
+    <property name="pathmode" value="relative"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="85" name="path1" x="144" y="1968">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,-32 32,-56"/>
   </object>
   <object id="77" gid="456" x="136" y="1960" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.8"/>
+    <property name="pathmode" value="relative"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="160" gid="465" x="152" y="1960" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="418"/>
-    <property name="pathtime" type="float" value="0.8"/>
+    <property name="pathmode" value="relative"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="133" gid="462" x="136" y="1944" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="85"/>
-    <property name="pathtime" type="float" value="0.6"/>
+    <property name="pathmode" value="relative"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="57" gid="450" x="152" y="1952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="418"/>
-    <property name="pathtime" type="float" value="0.7"/>
+    <property name="pathmode" value="relative"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="158" gid="453" x="168" y="1952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="418"/>
-    <property name="pathtime" type="float" value="0.7"/>
+    <property name="pathmode" value="relative"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
   <object id="418" name="path1" x="176" y="1968">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,-32 32,-56"/>
   </object>
   <object id="419" name="path2" x="88" y="1904">
    <properties>
-    <property name="script" value="LinearPath"/>
+    <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,8 -8,-56"/>
   </object>
