@@ -221,7 +221,7 @@
   <object id="1" name="camera" type="Camera" x="24" y="1920" width="240" height="320">
    <properties>
     <property name="pathid" type="int" value="2"/>
-    <property name="pathspeed" type="float" value="32"/>
+    <property name="pathspeed" type="float" value="30"/>
    </properties>
   </object>
   <object id="2" name="path" x="24" y="1920">

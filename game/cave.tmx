@@ -697,7 +697,7 @@
   <object id="1" type="Camera" x="32" y="2880" width="240" height="320">
    <properties>
     <property name="pathid" type="int" value="6"/>
-    <property name="pathspeed" type="float" value="32"/>
+    <property name="pathspeed" type="float" value="30"/>
    </properties>
   </object>
   <object id="6" x="32" y="2880">

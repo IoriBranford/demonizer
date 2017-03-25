@@ -4468,7 +4468,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 6,
-            ["pathspeed"] = 32
+            ["pathspeed"] = 30
           }
         },
         {
