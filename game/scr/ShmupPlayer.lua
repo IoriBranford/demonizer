@@ -430,6 +430,7 @@ function ShmupPlayer:deathCoroutine(dt)
 		self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
 	else
 		levity.map:broadcast("playerDefeated")
+		self.object.body:setLinearVelocity(0, 0)
 		while true do
 			coroutine.yield()
 		end
