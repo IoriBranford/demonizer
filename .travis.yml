@@ -33,6 +33,7 @@ before_script:
 - find -name "*.wav" | zip $GAME_ASSET -@
 - find -name "*.fnt" | zip $GAME_ASSET -@
 - find -name "*.txt" | zip $GAME_ASSET -@
+- find -name "*.xml" | zip $GAME_ASSET -@
 - cd $TRAVIS_BUILD_DIR
 - cp -r $TRAVIS_BUILD_DIR/love-android/* $LOVE_ANDROID_DIR
 - mkdir $LOVE_ANDROID_ASSETS_DIR
