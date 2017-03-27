@@ -2,63 +2,52 @@ language: android
 jdk: oraclejdk8
 android:
   components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    - platform-tools
-    - tools
-
-    # The BuildTools version used by your project
-    - build-tools-25.0.2
-
-    # The SDK version used to compile your project
-    - android-25
-
-    # Additional components
-    #- extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
-    #- addon-google_apis-google-19
-
-    # Specify at least one system image,
-    # if you need to run emulator(s) during your tests
-    #- sys-img-armeabi-v7a-android-22
-    #- sys-img-armeabi-v7a-android-17
-
+  - platform-tools
+  - tools
+  - build-tools-25.0.2
+  - android-25
+  - extra-google-m2repository
+  - extra-android-m2repository
 env:
-        global:
-                - GAME_DIR=$TRAVIS_BUILD_DIR/game
-                - GAME_ASSET=game.love
-                - ANDROID_NDK_HOME=$HOME/android-ndk
-                - PATH=$ANDROID_NDK_HOME:$PATH
-                - LOVE_ANDROID_DIR=$TRAVIS_BUILD_DIR/love-android-sdl2
-                - LOVE_ANDROID_ASSETS_DIR=$LOVE_ANDROID_DIR/assets
-
+  global:
+  - GAME_DIR=$TRAVIS_BUILD_DIR/game
+  - GAME_ASSET=game.love
+  - ANDROID_NDK_HOME=$HOME/android-ndk
+  - PATH=$ANDROID_NDK_HOME:$PATH
+  - LOVE_ANDROID_DIR=$TRAVIS_BUILD_DIR/love-android-sdl2
+  - LOVE_ANDROID_ASSETS_DIR=$LOVE_ANDROID_DIR/assets
 git:
-        depth: 1
-
+  depth: 1
 before_install:
-        - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-        - sudo apt-get install -y git-lfs
-
+- curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh
+  | sudo bash
+- sudo apt-get install -y git-lfs
 install:
-        - git lfs pull
-        - git clone https://github.com/urho3d/android-ndk.git $ANDROID_NDK_HOME
-
+- git lfs pull
+- git clone https://github.com/urho3d/android-ndk.git $ANDROID_NDK_HOME
 before_script:
-        - cd $GAME_DIR
-        - find -name "*.lua" | zip $GAME_ASSET -@
-        - find -name "*.png" | zip $GAME_ASSET -@
-        - find -name "*.vgm" | zip $GAME_ASSET -@
-        - find -name "*.wav" | zip $GAME_ASSET -@
-        - find -name "*.fnt" | zip $GAME_ASSET -@
-        - find -name "*.txt" | zip $GAME_ASSET -@
-        - cd $TRAVIS_BUILD_DIR
-
-        - cp -r $TRAVIS_BUILD_DIR/love-android/* $LOVE_ANDROID_DIR
-        - mkdir $LOVE_ANDROID_ASSETS_DIR
-        - cp $GAME_DIR/$GAME_ASSET $LOVE_ANDROID_ASSETS_DIR
-        - cd $LOVE_ANDROID_DIR
-        - ndk-build
-
+- cd $GAME_DIR
+- find -name "*.lua" | zip $GAME_ASSET -@
+- find -name "*.png" | zip $GAME_ASSET -@
+- find -name "*.vgm" | zip $GAME_ASSET -@
+- find -name "*.wav" | zip $GAME_ASSET -@
+- find -name "*.fnt" | zip $GAME_ASSET -@
+- find -name "*.txt" | zip $GAME_ASSET -@
+- cd $TRAVIS_BUILD_DIR
+- cp -r $TRAVIS_BUILD_DIR/love-android/* $LOVE_ANDROID_DIR
+- mkdir $LOVE_ANDROID_ASSETS_DIR
+- cp $GAME_DIR/$GAME_ASSET $LOVE_ANDROID_ASSETS_DIR
+- cd $LOVE_ANDROID_DIR
+- ndk-build
 script:
-        - ant debug
+- ant debug
+deploy:
+  provider: releases
+  api_key:
+    secure: W8gvoZ3A6rL/XTHtaQoLrLmphXTPItFr7n9+nz7L/lyzo+dDtkfstyA4iZ6inTUke+L2cPIB+MDTSDhRUI/ltlQDZEX7karSs4oWaBnKDPFgB53/7/K8+6BRYoGtmbNkP68ar9WGvx5ebDMbFaed7DVN63OD+bD4F+ayAwitE8fiK7CEB2b/I/eYR5qekISWKzDeFt21RYjVX+6H6n5MUP/o5ZCQHcK1nNV4ukAzACceveCxYQfU2LULGxsvw7aIKOJub3id7y/vBBXwXTe3u19Db9GOFtEXMtXP2fp/Mx9PlvfSmXydohnWh9lXzmBBX5cPdhYQfDHmrpRune5HD+EsqkvY0oZ2/Zk8/bPWzuJAVKIla60W5m4Vm2AFUkbi68I+jT0FL7Qc23nVO7MD2ChTBiUR4Ed71sYe2rme/PO6Kw9AhuvsqZtsuAs2sYjruGeSW0J9JNOCicdrke95udtV3odLNTojogzRfETKkHDqgtN4O/bDyW9FkdxJXcm8jcXHcJyMtOS2Rpnv0bDSQMaWxvyUJO/XzKHcNNgD4MbRPYMIIFLG2bJx1Suk9Kq0GJ0joAE6hH6juuQ6bWa1iwZGFzqMrQhaaKo2XhvXtKZKVegaRWTvl8Jb2j4kx5MjEhrxP47p+iu5TRyWrGMjUAE0KSM+37n7oSdkt++k4hY=
+  file: $LOVE_ANDROID_DIR/bin/demonizer-android-debug.apk
+  skip_cleanup: true
+  overwrite: true
+  on:
+    repo: IoriBranford/demonizer
+    tags: true
