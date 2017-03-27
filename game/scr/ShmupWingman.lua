@@ -160,13 +160,15 @@ function ShmupWingman:beginContact(myfixture, otherfixture, contact)
 
 	if category == ShmupCollision.Category_NPCTeam then
 		local captiveid = otherfixture:getBody():getUserData().id
-		if levity.map.scripts:call(captiveid, "isFemale") then
-			self.targetcaptiveid = captiveid
-		elseif levity.map.scripts:call(captiveid, "canBeCaptured") then
-			local captivegid = levity.map.scripts:call(captiveid, "getKOGid")
-			local i = (self.numcaptives % ShmupPlayer.CaptivesReleasedOnKill) + 1
-			self.captivegids[i] = captivegid
-			self.numcaptives = self.numcaptives + 1
+		if levity.map.scripts:call(captiveid, "canBeCaptured") then
+			if levity.map.scripts:call(captiveid, "isFemale") then
+				self.targetcaptiveid = captiveid
+			else
+				local captivegid = levity.map.scripts:call(captiveid, "getKOGid")
+				local i = (self.numcaptives % ShmupPlayer.CaptivesReleasedOnKill) + 1
+				self.captivegids[i] = captivegid
+				self.numcaptives = self.numcaptives + 1
+			end
 		end
 	elseif category == ShmupCollision.Category_NPCShot then
 		if self.health >= 1 then
