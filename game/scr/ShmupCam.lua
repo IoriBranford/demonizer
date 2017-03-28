@@ -171,6 +171,10 @@ function ShmupCam:getVectorFromCenter(x, y)
 	return x - cx, y - cy
 end
 
+function ShmupCam:getVelocity()
+	return self.object.body:getLinearVelocity()
+end
+
 function ShmupCam:playerDefeated()
 	self.properties.pathid = nil
 	self.pathwalker = nil

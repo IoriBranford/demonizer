@@ -549,8 +549,8 @@ function ShmupPlayer:beginMove(dt)
 		self.didmousemove = false
 	end
 
-	if camera then
-		local camvx, camvy = camera.body:getLinearVelocity()
+	local camvx, camvy = levity.map.scripts:call(cameraid, "getVelocity")
+	if camvy then
 		vy1 = vy1 + camvy
 	end
 

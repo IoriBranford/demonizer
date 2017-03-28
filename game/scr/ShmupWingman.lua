@@ -296,7 +296,7 @@ function ShmupWingman:beginMove(dt)
 	else
 		self:heal(ShmupWingman.UnfocusedHealRate * dt)
 
-		if not levity.map.scripts:call(self.targetcaptiveid, "isFemale") then
+		if levity.map.scripts:call(self.targetcaptiveid, "isFemale") == false then
 			self.targetcaptiveid = nil
 		end
 	end
@@ -312,22 +312,25 @@ function ShmupWingman:beginMove(dt)
 			or captive.properties.captorid ~= self.object.id then
 				self.targetcaptiveid = nil
 			else
-				local captiveconverttimer =
-					levity.map.scripts:call(self.targetcaptiveid,
-						"getConvertTimer") or 0
+				destx, desty = self.object.body:getWorldCenter()
 
-				desty = desty
-					+ ShmupWingman.ConvertDist
-						* (.5 + captiveconverttimer)
-				--	ShmupWingman.ConvertShake
-				--		* math.sin(captiveconverttimer * 60)
+				local camvx, camvy = levity.map.scripts:call(
+					levity.map.properties.cameraid,
+					"getVelocity")
+
+				if camvy then
+					desty = desty + camvy*dt
+				end
 			end
 		end
 	elseif self.properties.conversionid then
-		if playerid == self.properties.captorid then
-			local player = levity.map.objects[playerid]
-			destx, desty = player.body:getWorldCenter()
-			desty = desty - ShmupWingman.ConvertDist
+		local captorid = self.properties.captorid
+		if captorid then
+			local captor = levity.map.objects[captorid]
+			destx, desty = captor.body:getWorldCenter()
+			local conversionpct = self.converttimer
+						/ ShmupWingman.ConvertTime
+			desty = desty - ShmupWingman.ConvertDist*(1+conversionpct)
 		end
 	elseif ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
 		destx, desty = levity.map.scripts:call(playerid, "getWingmanPosition",
@@ -348,7 +351,10 @@ function ShmupWingman:beginMove(dt)
 		--end
 	end
 
-	self:setVulnerable(self.targetcaptiveid ~= nil)
+	self:setVulnerable(not self.properties.conversionid
+		and self.targetcaptiveid
+		and not levity.map.scripts:call(self.targetcaptiveid, "is_a",
+						ShmupWingman))
 
 	local dx, dy = destx - cx, desty - cy
 	local distsq = math.hypotsq(dx, dy)
