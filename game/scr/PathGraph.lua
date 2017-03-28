@@ -7,30 +7,68 @@ local levity = require "levity"
 
 local PathGraph
 
-local function addSegment(self, p1, p2, cost)
-	local n1 = self:getPaths(p1.x, p1.y, true)
-	local n2 = self:getPaths(p2.x, p2.y, true)
-	if n1 ~= n2 then
-		n1[#n1 + 1] = { destx = p2.x, desty = p2.y, cost = cost }
-		n2[#n2 + 1] = { destx = p1.x, desty = p1.y, cost = cost }
-	end
+local function addSegment(self, x1, y1, x2, y2, cost)
+	local n1 = self:getPaths(x1, y1, true)
+	local n2 = self:getPaths(x2, y2, true)
+	n1[#n1 + 1] = { destx = x2, desty = y2, cost = cost }
+	n2[#n2 + 1] = { destx = x1, desty = y1, cost = cost }
 end
 
 local function addLineObject(self, object)
 	local line = object.polyline or object.polygon
-	if line then
-		local cost = object.properties.cost or 1
+	if not line then
+		return
+	end
+
+	local drawpoints = {}
+
+	local cost = object.properties.cost or 1
+	local beziercurve = object.properties.beziercurve or false
+	if beziercurve and #line > 2 then
+		local curve = love.math.newBezierCurve( line[1].x, line[1].y,
+							line[2].x, line[2].y,
+							line[3].x, line[3].y)
+
+		for i = 4, #line do
+			local p = line[i]
+			curve:insertControlPoint(p.x, p.y,
+				curve:getControlPointCount() + 1)
+		end
+
+		curve = curve:render(2)
+		drawpoints = curve
+
+		for i = 1, #curve-3, 2 do
+			addSegment(self, curve[i], curve[i+1],
+					curve[i+2], curve[i+3], cost)
+		end
+
+		if object.shape == "polygon" then
+			addSegment(self, curve[#curve-1], curve[#curve],
+					curve[1], curve[2], cost)
+			drawpoints[#drawpoints + 1] = curve[1]
+			drawpoints[#drawpoints + 1] = curve[2]
+		end
+	else
 		local p1 = line[1]
+		drawpoints[#drawpoints + 1] = p1.x
+		drawpoints[#drawpoints + 1] = p1.y
 		for i = 2, #line do
 			local p2 = line[i]
-			addSegment(self, p1, p2, cost)
+			drawpoints[#drawpoints + 1] = p2.x
+			drawpoints[#drawpoints + 1] = p2.y
+			addSegment(self, p1.x, p1.y, p2.x, p2.y, cost)
 			p1 = p2
 		end
 		if object.shape == "polygon" then
 			local p2 = line[1]
-			addSegment(self, p1, p2, cost)
+			drawpoints[#drawpoints + 1] = p2.x
+			drawpoints[#drawpoints + 1] = p2.y
+			addSegment(self, p1.x, p1.y, p2.x, p2.y, cost)
 		end
 	end
+
+	object.properties.drawpoints = drawpoints
 end
 
 PathGraph = class(function(self, element)
@@ -53,10 +91,10 @@ PathGraph = class(function(self, element)
 end)
 
 function PathGraph:getPaths(x, y, createnode)
-	local c, r = levity.map:convertPixelToTile(x, y)
+	local c, r = x, y--levity.map:convertPixelToTile(x, y)
 	c = math.floor(c)
 	r = math.floor(r)
-	local mapcolumns = levity.map.width
+	local mapcolumns = levity.map.width*levity.map.tilewidth
 	local ni = mapcolumns*r + c
 	local n = self.nodegrid[ni]
 	if createnode and not n then
@@ -92,28 +130,12 @@ function PathGraph:getId()
 	end
 end
 
-local function drawLineObject(object)
-	local line = object.polyline or object.polygon
-	if line then
-		local p1 = line[1]
-		for i = 2, #line do
-			local p2 = line[i]
-			love.graphics.line(p1.x, p1.y, p2.x, p2.y)
-			p1 = p2
-		end
-		if object.shape == "polygon" then
-			local p2 = line[1]
-			love.graphics.line(p1.x, p1.y, p2.x, p2.y)
-		end
-	end
-end
-
 function PathGraph:beginDraw()
 	if self.object then
-		drawLineObject(self.object)
+		love.graphics.line(self.object.properties.drawpoints)
 	elseif self.layer then
 		for _, object in pairs(self.layer.objects) do
-			drawLineObject(object)
+			love.graphics.line(object.properties.drawpoints)
 		end
 	end
 end
@@ -160,11 +182,18 @@ function Walker:getVelocity(dt, speed, x, y)
 	local distx = self.destx + self.offx - x
 	local disty = self.desty + self.offy - y
 	local distsq = math.hypotsq(distx, disty)
+	local dist = math.sqrt(distsq)
 
-	local exdistsq = (speed * speed * dt * dt) - distsq
-	-- amount squared by which you would overshoot destination this frame
+	local exdist = speed*dt - dist
+	-- amount by which you would overshoot destination this frame
 
-	if exdistsq >= 0 then
+	if exdist < 0 then
+		local dirx, diry = distx / dist, disty / dist
+
+		vx, vy = dirx * speed, diry * speed
+	end
+
+	while exdist >= 0 do
 		local paths = self.graph:getPaths(self.destx, self.desty)
 		local nextpath = self.pickNextPath(self.graph:getId(),
 				paths, self.prevx, self.prevy, self.userdata)
@@ -174,27 +203,28 @@ function Walker:getVelocity(dt, speed, x, y)
 				nextpath.destx, nextpath.desty
 
 			-- apply excess dist towards next destination
-			local exdist = math.sqrt(exdistsq)
 
 			local nextdirx = nextdestx - self.destx
 			local nextdiry = nextdesty - self.desty
 			local nextdestdist = math.hypot(nextdirx, nextdiry)
 
-			nextdirx = exdist * nextdirx / nextdestdist
-			nextdiry = exdist * nextdiry / nextdestdist
+			if exdist < nextdestdist then
+				nextdirx = exdist * nextdirx / nextdestdist
+				nextdiry = exdist * nextdiry / nextdestdist
+			end
 
 			distx = distx + nextdirx
 			disty = disty + nextdiry
 			self.prevx, self.prevy = self.destx, self.desty
 			self.destx, self.desty = nextdestx, nextdesty
+
+			exdist = exdist - nextdestdist
+
+			vx, vy = distx / dt, disty / dt
+		else
+			vx, vy = distx / dt, disty / dt
+			break
 		end
-
-		vx, vy = distx / dt, disty / dt
-	else
-		local dist = math.sqrt(distsq)
-		local dirx, diry = distx / dist, disty / dist
-
-		vx, vy = dirx * speed, diry * speed
 	end
 
 	return vx, vy

@@ -923,7 +923,7 @@ return {
           gid = 160,
           visible = true,
           properties = {
-            ["pathgraphid"] = 53,
+            ["pathgraphid"] = "pathgraph",
             ["script"] = "PathGraphTester"
           }
         },
@@ -950,7 +950,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          visible = true,
+          visible = false,
           polyline = {
             { x = 0, y = 0 },
             { x = -32, y = 0 },
@@ -1000,7 +1000,8 @@ return {
             { x = 24, y = -96 }
           },
           properties = {
-            ["cost"] = 0.25
+            ["beziercurve"] = true,
+            ["cost"] = 1
           }
         },
         {
@@ -1020,7 +1021,7 @@ return {
             { x = 128, y = -8 }
           },
           properties = {
-            ["cost"] = 0.5
+            ["cost"] = 2
           }
         }
       }

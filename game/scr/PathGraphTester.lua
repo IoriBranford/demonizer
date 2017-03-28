@@ -26,7 +26,7 @@ function PathGraphTester:beginMove(dt)
 	if not self.walker then
 		self.walker = levity.map.scripts:call(
 			self.object.properties.pathgraphid, "newWalker",
-			PathGraphTester.pickNextPath, x, y, "relative", self)
+			PathGraphTester.pickNextPath, x, y, "absolute", self)
 	end
 
 	local vx, vy = self.walker:getVelocity(dt, self.speed, x, y)

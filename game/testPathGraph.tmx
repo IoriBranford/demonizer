@@ -23,12 +23,12 @@
  <objectgroup name="enemy">
   <object id="49" gid="160" x="120" y="16" width="24" height="32">
    <properties>
-    <property name="pathgraphid" type="int" value="53"/>
+    <property name="pathgraphid" value="pathgraph"/>
     <property name="script" value="PathGraphTester"/>
    </properties>
   </object>
   <object id="50" type="Trigger" x="0" y="0" width="8" height="8"/>
-  <object id="53" x="120" y="64">
+  <object id="53" x="120" y="64" visible="0">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
@@ -41,13 +41,14 @@
   </properties>
   <object id="44" x="96" y="168">
    <properties>
-    <property name="cost" type="float" value="0.25"/>
+    <property name="beziercurve" type="bool" value="true"/>
+    <property name="cost" type="float" value="1"/>
    </properties>
    <polyline points="32,-8 56,-48 -8,-56 24,-96"/>
   </object>
   <object id="52" x="96" y="200">
    <properties>
-    <property name="cost" type="float" value="0.5"/>
+    <property name="cost" type="float" value="2"/>
    </properties>
    <polygon points="-56,-8 32,-40 128,-8"/>
   </object>
