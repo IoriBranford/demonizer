@@ -256,6 +256,8 @@ function ShmupNPC:beginContact(myfixture, otherfixture, contact)
 		self:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_PlayerBomb then
 		self:beginContact_PlayerBomb(myfixture, otherfixture, contact)
+	elseif category == ShmupCollision.Category_NPCCover then
+		self:setInCover(true)
 	elseif category == ShmupCollision.Category_Camera then
 		self.oncamera = true
 	end
@@ -266,6 +268,8 @@ function ShmupNPC:endContact(myfixture, otherfixture, contact)
 
 	if category == ShmupCollision.Category_Camera then
 		self.oncamera = false
+	elseif category == ShmupCollision.Category_NPCCover then
+		self:setInCover(false)
 	end
 end
 
@@ -380,13 +384,14 @@ function ShmupNPC:beginMove(dt)
 	local leaderid = self.properties.leaderid
 
 	if pathid and not self.pathwalker then
+		local pickNextPath = self.properties.pathpicker or "linear1way"
+		pickNextPath = PathGraph["pickNextPath_"..pickNextPath]
 		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
-					PathGraph.pickNextPath_linear1way,
-					body:getX(), body:getY(),
+					pickNextPath, body:getX(), body:getY(),
 					self.properties.pathmode, self)
 
 		local pathtime = self.properties.pathtime
-		if pathtime then
+		if not self.properties.pathspeed and pathtime then
 			local pathlength = levity.map.scripts:call(
 					pathid, "findTripLength",
 					PathGraph.pickNextPath_linear1way,

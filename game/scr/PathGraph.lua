@@ -287,7 +287,7 @@ function PathGraph.pickNextPath_linear2way(graphid, paths, prevx, prevy, userdat
 	if #paths == 1 then
 		return paths[1]
 	end
-	return PathGraph.pickNextPath_linear(graphid, paths, prevx, prevy, userdata)
+	return PathGraph.pickNextPath_linear1way(graphid, paths, prevx, prevy, userdata)
 end
 
 return PathGraph

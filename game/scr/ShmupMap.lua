@@ -9,28 +9,31 @@ local InitialRank = .25
 
 local function setFilterFromProperties(body)
 	for _, fixture in ipairs(body:getFixtureList()) do
-		local properties = fixture:getUserData().properties
-		local category = properties.category
-		local mask = properties.mask
+		local userdata = fixture:getUserData()
+		if userdata then
+			local properties = userdata.properties
+			local category = properties.category
+			local mask = properties.mask
 
-		if category then
-			category = ShmupCollision["Category_"..category]
-		end
-		if category then
-			fixture:setCategory(category)
-		end
-
-		if mask then
-			local maskcategories = {}
-			for categoryname in (mask..','):gmatch("(.-)"..',') do
-				local category =
-					ShmupCollision["Category_"..categoryname]
-				if category then
-					table.insert(maskcategories, category)
-				end
+			if category then
+				category = ShmupCollision["Category_"..category]
 			end
-			if #maskcategories > 0 then
-				fixture:setMask(unpack(maskcategories))
+			if category then
+				fixture:setCategory(category)
+			end
+
+			if mask then
+				local maskcategories = {}
+				for categoryname in (mask..','):gmatch("(.-)"..',') do
+					local category =
+						ShmupCollision["Category_"..categoryname]
+					if category then
+						table.insert(maskcategories, category)
+					end
+				end
+				if #maskcategories > 0 then
+					fixture:setMask(unpack(maskcategories))
+				end
 			end
 		end
 	end
@@ -56,7 +59,7 @@ local ShmupMap = class(function(self, map)
 				and not object.properties.text then
 					object.visible = false
 				end
-				--setFilterFromProperties(object.body)
+				setFilterFromProperties(object.body)
 			end
 		end
 	end

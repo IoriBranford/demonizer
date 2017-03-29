@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="18" height="140" tilewidth="16" tileheight="16" nextobjectid="44">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="18" height="140" tilewidth="16" tileheight="16" nextobjectid="59">
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="mus/05 - Twilight Express.vgm"/>
@@ -20,6 +20,7 @@
  <tileset firstgid="767" source="img/infmen.tsx"/>
  <tileset firstgid="857" source="img/infwomen.tsx"/>
  <tileset firstgid="932" source="img/demonshothit.tsx"/>
+ <tileset firstgid="940" source="img/trees.tsx"/>
  <layer name="Earth" width="18" height="140">
   <data encoding="base64" compression="zlib">
    eJyF1kGS40gMQ1F7o/D9r6hb2JueihlF/3oF1SwUliVlJgkCIM/H4/H553o9H4/349/r6//537Ov++P599l1Xd8dWfd1/+Lba+31fd99fXtmj+vdFc+1X+8/rOuz4/k97n5z3Xf/V2JrDu/k2H2b+/H8e/X/K//7bfHtup5zvRPrM/Fe332yj3itXMS69wuH1/MnJ/p7ndv9inefr3qay7XXyV4LG2O7rp5/XetZz2uu5efr+T2O8q7xNEdr2/ocz5+1M4fyuRxqvuXw57HrcT1b8V/vike5q+abd7nkOvXVehx8v+K+9pfb78f32OsRaqValfuv5/eYyjc5VN3LUTnuvuV+c9ELljeVj/Ksnib+1rcxLW+88yvPKIfq+cZ854XFy3qp0WKuxo+RV/PpGXKrXLCO9b6Ds64c5GUxWt6jX7vvSQzNqVh8OLOxGvPSX3W4+FmMT877rXcUY+tTzPTG8/ETU/v10vxdj6+H1qs/xKN+u+fCSO6pg5515/v119alcTgTVfNrzuneerO61SedsV7Pn/j12d1spbeV4/Xf1tJeL3f1b/G2j6xZx17a/lMu+9611aOc8vrND9WifUrtLu8pxuJQ75cza97SW6qJxc+lpXJdPhSrnqdHy4XyQX0WD/tV7/XihfGaLeWJOqw+lu91llrnNw79bfUfsXY2kAvOZeZT7bceS7vVQs9WX/q9sRSL4ux8URx637j6v2e1jmuO8Vf/WHy3LvKivW/NQs4X9pLV3/VHcXXWWTPaXY+2hnqEM4WcXb58jPX6R+O5m+ecgdSUOdtT7K3Gqdb1K/GW913fnuEMVE/o981BT6kurvovjyn/qw3r1to7Qywt6LvHWGd+5nynN7lzp/HzJr+lI/nwev6Mq7haj7s5Qe8qb+/mv/W+nJYfjeeuXvUkPU3Pk0OrDztz9JulyfeIzXlI/14zmrypLsXujk/OrPbBepI9onV3NnCv5cNipM90FrA3tTbVjb1wzV9ypxgtXXZdc10+IA/VV33vNz9Y3mMdV5+xp686nOzZOjQvOeCZ9qvVc/QgsdNbjevz+InPcZOzs2PnAutWnNRw82+ev2nqJP67HuYMYn/q1XzkeLlbXtpjxUV92cudxcRLn3iPGJY29X/50e/v5hv7rJrxnWfJuZMcygM9YOVaTuiT1ZWaaizW2x5Q/un/zcPZSLz0VjktRw4wbv3WDHXnr+X+6lHOIfbSnqOXlx/6hfjpF81PjauLvtMXxEgNyfG+W/OAc44+YS/R417Edud7S5/1E+tuH+qe5dTywNfY35wXh4th67q0KIeNZ+FXHempjaEx91e86h3FrOvbK62VXuc+xaq6Usf6oB77f3NPuaovNxa52LpWm/Jfbyk3xVZc9B3zPdnfHuCM0/Vrrlu42UdWX106Kc/6ezx3nZa36P2ti97ofNa6LN8wvsb1Zh/9w/qXP+W3fd++4zxkb26sy6fbF+68eNW13G+czkKrPsbh7OQ3arO562HFYWnEfPvd0rQ9rDUop1qDxvHbPLhisk/YE5a2Vs9Sr2pfLIuv/nnnw+LRtcYlvs45qxcWm/aL5TnV9Zv7u966fFduysnqtzmWx2qsZztr2d+7d/vG8k9nv/JRr1NrrcPyXXNaPnA3RzRuOaEXrj5cbolVOduziv3q9f5ffVkPaS+oZlvz+poeYZ88wGbhaVyLi/puMbRvlIPNoVz+uv4ADWCXVg==
@@ -27,14 +28,90 @@
  </layer>
  <layer name="Grass" width="18" height="140">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="Trees" width="18" height="140">
   <data encoding="base64" compression="zlib">
-   eJztmj1Pw0AQRFH+AIQ2QBug5aMM1IE6pA7Ugf9fsSc00siyDb63lizkJ22DcXy5yczuRdkvTk7WUddRN1G3Uduol6jXqFXURdRl1FXjmt/zEXUXdR/1EPUYtYt6i9q3PMOv+T1fUU0O8bf3jmf4td84xv98djyj79rMzMzMEM4iR5ZR5xV5sol7nqKeG9k7lK6sHkpXVg9lSFb3MUZWE70Kp4uf1yB6FdRviV4F9VuiV0H9dgq4L4hW7guilfuCaOW+IFqN4Qvtdy3STPtdizTTftcizWgOSTO639IsC5pjguSYsnAJc8zPHiTH/OxB8LPH1Jj7VztZ/Us5RlGOUZRj1OfKsVq9hXKsVu+C50at3gXPDYLnhs8eQ/Hc8NmjlrIWnz1qKWvJmMnLWjJmj0NSrh6TeuAKZqFYwyx0X5AsHMMXBPcFnTMF8ZZ7nHjLPU685R4n3vrP525B5xZ5jM4t8hidW+QxSub5fZP0OtskzXdJ+XyAmosj1HxqzN+39ON5OJUck2Y0x6QZzTFpRvu7NKOzszQj/d3nMdJXfR4jfXWMeSzjs1zIyOdCRj4XppLP8indZ/mU7rN8SvdZPqX7nP29KDm/+73k/O73kvO730tme7+XzPZjnAvm/GlHvYei3kP7snoP7cvqPfQ7LZFx3i3Qz3W2XvKFzyBDfCK95Ivm77v63oM/S3rJF83fd/W9h7ZnyRfN33f1vQc9y9fXttau7G8+y9fXtta/Zr+v7xv63XuC
+   eJztmjtPQkEUhG/4A6KtQOujVSiBGq2VWq3V/185FJNMNnuv7p1raOZLpnFZzz44e0jmHGdddwPdQnfQPXSAnqBn6BpaQEtoVYzpnA/oAXqE1tAGeoFeoWMlho7pnG+o5A1/e++JoWO/8YnPfPXEGBoLIYQQQgghhBBCCCGEEEII4VxsZ123m8DDos/nQp/vtKa98f/o89F7HAt9PnqPY7jAvDl02eA91lBv1fEe1Vt1UG/1tLerCe6fvrELfWMX+sbnhnnqnjPz1D1n5ql7zsxT95yZp1PB8x7zBulc7X9oRedq/0MrOrel/6FE5zr9D//RO5H3pw5rjwtrj1uXWXvcusza49RlxanLivu9nvq+mBf6G6QlT3hfzIuyv2toDxqL98W8KPu7hvZQi8W8KPu7hvbAWLq+2lr73v4ylq6vtta/vv26vh9Jjze9
   </data>
  </layer>
+ <objectgroup name="archer2">
+  <object id="46" name="tree" gid="941" x="144" y="1440" width="64" height="64"/>
+  <object id="45" name="tree" gid="941" x="48" y="1456" width="64" height="64"/>
+  <object id="49" name="tree" gid="941" x="240" y="1440" width="64" height="64"/>
+  <object id="54" name="path" x="48" y="1440">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,0 96,-16 192,-16"/>
+  </object>
+  <object id="55" type="Trigger" x="0" y="1392" width="288" height="80">
+   <properties>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+  <object id="56" name="archer" gid="815" x="48" y="1440" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="54"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="120"/>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="57" name="archer" gid="815" x="144" y="1400" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="54"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="120"/>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="58" name="archer" gid="815" x="240" y="1416" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="54"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="120"/>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="archer1">
+  <object id="50" name="archer" gid="815" x="80" y="1556" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="52"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="120"/>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="51" name="archer" gid="815" x="216" y="1516" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="52"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="120"/>
+    <property name="script" value="NPCArcher"/>
+   </properties>
+  </object>
+  <object id="52" name="path" x="96" y="1552">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="-16,8 120,-12"/>
+  </object>
+  <object id="53" type="Trigger" x="0" y="1504" width="288" height="80">
+   <properties>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+  <object id="47" name="tree" gid="941" x="80" y="1568" width="64" height="64"/>
+  <object id="48" name="tree" gid="941" x="216" y="1552" width="64" height="64"/>
+ </objectgroup>
  <objectgroup name="enemy3">
   <object id="25" name="path" x="144" y="1568">
    <properties>

@@ -10,4 +10,9 @@
   <property name="script" type="string" default="ShmupCam"/>
   <property name="sensor" type="bool" default="true"/>
  </objecttype>
+ <objecttype name="NPCCover" color="#a0a0a4">
+  <property name="category" type="string" default="NPCCover"/>
+  <property name="collidable" type="bool" default="true"/>
+  <property name="sensor" type="bool" default="true"/>
+ </objecttype>
 </objecttypes>

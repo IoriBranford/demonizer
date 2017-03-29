@@ -8,7 +8,7 @@ return {
   height = 140,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 44,
+  nextobjectid = 59,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -1925,6 +1925,57 @@ return {
           }
         }
       }
+    },
+    {
+      name = "trees",
+      firstgid = 940,
+      filename = "img/trees.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/trees.png",
+      imagewidth = 192,
+      imageheight = 64,
+      tileoffset = {
+        x = -32,
+        y = 16
+      },
+      properties = {
+        ["commoncollision"] = 0
+      },
+      terrains = {},
+      tilecount = 3,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "NPCCover",
+                shape = "ellipse",
+                x = -20,
+                y = 24,
+                width = 40,
+                height = 40,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -1958,7 +2009,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmrtyGzEMRfl7ieuM6jh1nFpynaTVo5WsX81iwjN7zEi7BJVJFc5wZFtaCMTj4gL0uZSym/Zx2odpn6Z9nvZVf7vUn9+mva9/29fP8Ayb9/nMqT5/qJ/fVfnH+nqpfzvV90967ijdjvrbVc9d9HvI+zDtH9pP+n502Usm37Wr5zvX/Vrer+9V1l76H+r3PUmHfZXzVt/7Wf5cmyoDW/A5f8eb9Pp0Q4Z1utT9euO9fZVxTxd/Hpu1n4v3Pt557//6N+vbX5Lz+S/JOjwo6+u0X8qMLSOyQsaXMucbGNDm7toiV0LGocy5l5WDPuDSqcrLytmWGevQZwkH7q3AmX2Z8SRe13DgnpyTZMQOfz2X3z7s9VvIoTaAv7syY3Dv+fCXZVF3MufDX8jZ1ddzQpdY2zL7HFlL+H9vbcpcz4jF0CWbG5v6PDWJs2X1uWXneM3GYaywUZwFP12TcsAL/DXi71hhG/xM3BHPGRuTo/AB+FDWX7axcQyuksEOZMHLwNZsPMeK88GTkJO1tfMLWVkcM6bCMYnDUdtwpizusMI2cMVrmWNxJIac67xm6yFng09iq5Gcd80wz+7VJ/wVdYG67Lphrtujh/sM9xIhr9dn1C58RB8BJvbGEPhFrUFO1sZgvHMceZk4hJPD/9FtlEsRixftbI619RTfZ3QypzuX95hIL9hjJ85jrkFvl8Eyc0Ps4njM+GxTZuxx3zuSo2ApdX6E13E27DIiwzqRm3DDUT5/LfMsIIuryCCv4Brga68senTyADubl/X4Hjwl35lzcL5sHIKHyBrJU3RyTiC3N56xs+vxpeQ5YjsLIV/JsUxPAB6C0eTHKG9BH+SM9HFgFpwzbDTSx9EDok/IGekL7HNmfRmeab+ba2T54Va6XLWz+Q5PAOOxTxbPzHuMrVm/hxzjBHGcjUHsQ8yM9APoAy57vjs6I4E/Y58RruH+lPzIxrO5hmcJ8IaeHGvzHL5Kfc5gM7Nm4hi+O9p7kVvoMiqHuT1cLHQb5XSuORlsjkWewsWpYdlYtBxmR8T2SD/Y1tMRDsQsAD+N5GksaiG1awTjkQPPMHfJcHBmLdgX3gum9cgijsFk95WetS3ZyjnKfAU+5Z5gba5Az04v6jsv31n1yEF/bOK7L9fopXM5x33vhN/Qc6nfcW663sCbLXMpX12zfC7Oid3X5nbM1qwLz5tvUkPu2YeaxRmofy2uYqN7crb6LLJ8Lvgq2Likz0HPog9nIobWOAf6+Gx8d8sTl2IH7KLuUd/hPfi/B8u2Zc4l/NPmaW+fY/tgc+NHDyb6bD7LruRnLciCn5ojPMqjHplltncNoV8G57dljkf87/zNzLSIYXLLsdmjE2eybX1/j8w1ncBVz1PBHfP6NTm+qzKWkfu980Ny1fHMs2BPj/9bTDzqFQ7Tcy583s7SsTU6rcnxzMc54XuiJWxuzwbugRWuX713qNbp1v9+ZDgiPbd9jdzs3Ji84CzEc2ZO4vsdxzZ+H5kfOueJiawc5/oo94Wvkl8ZnG/lOAbJi5F5CzZBn2y/gxy4JWd6pC+ghx/tCzgXdunNz3a5d8r2BCzw3nWD3MjMfT0D4I7AfIo7p5e6n/Uzv3PP1PaTYDNYQp3kfc8GfS8EJuJz3xX5/988u/C95E4b3vkLCZaOcQ=="
+      data = "eJztmstu2zAQRef36qwLr5Ou266trNNuJWsrW79aDcoD3jBSxGGCAgVEgHCix/VwXrwz9GRm3TKvyxyWOS5zWuYs127p7/sy+3StT8/wDpP7PDOm94f0fJfwr+nzlq6N6f4o711Ftqtcm+W9m/zveF+W+Uvmg3w/svSCyXd1aX1Tms/2erwkrF7kH9L3PYgMfcK5p3u/7e04Jwx0wXP6HXeR6+sKhsp0S/N55V6fMLZk0efRWfmc3ztt3DvGvxk/Pwnn8ZOwhg9ifV/mD8u5pQXLMb5ZjjdyQBm7e4NYcYzBcuxFcZCHvDQmvCjOxXKuQ5738sDW8DzTW84n/rmXB7ZwRsHw6fZ6sr82rLWb47A3kH87yzm4dn3YS7HYdyLrw17gdOlzCsji42LZ5mC9l/+3xtnyfoYvuizR2Din99mTWFtUnjU9+2fUD324jnwt2GkO4pAvsFeLvX24brAzfoc/R3RMjMIH4ENRe6mONY/BVSK5Ayx4Gbk16s8+fH3wJHCiutb4AiuaxzSnwjHxw1bdsKZo3mG4buCKs2VfbPEhjXU+o/sha4NPoquWmNc9Q3l2rTxuL98X2Jd131CuWyOH1hlaSzherc3Yu7ARdQQ5sdaHyF/sNeBEdUyO1xgHL+KHcHL4P7K1cil88SYzGmPlfortIzIpp5vsdU6kFqzRE+tRrkFtF8llyg3Ri/pjxGZny7lH696WGCWXss+38DrWhl5aMFQmYhNu2MrnZ8u9gGheBYO4gmuQX2uxqNGJA/SsvKzG9uRT4p0+B+uL+iH5EKyWOEUmjQlwa/0ZPet+fLM4Ryx7IcQrMRapCciH5Gjio5W3TIF3jnGMYxzjGB8f1Pplb4naYq3nxDtPMsnhuu8rv1zbN503Kl/UXgF1zKNljsGZhuIoD2Zv5ZyAd7TPiCylPPSV2MPov8P/BrkOj1vr8W3177l+kuucA5zs/+31q/+s+dHWO/gWE34DF1Fuu8VvqVvhQp3lHqfyEvC2aiN6ePgvXBE76jzZW5shn/KiCMdHH2Xtj3/sYWgfAP1Fa1Pl8moHOGsNVhmLcG/6tdTxezzzLO8iD2siP9ScPVAnIQ/xT21LvqnBIU9Rd8GhqZtqbH2xXI+S87T/U9uvK/UDl8fPa3uZ1DnIor2aaK8FLGoUrZmjZzJa31KjtPYyy7MGly8SFxfLdS32pzaN9rTwYWJLfTMSX6pbPb8Hc08m+jXaT6WfTozVrE3PqvT3AcR+bf+Qfp/6M++Sk2vsz3mD+o32IfHrGv3o7yrKszNk2sPRno/GhJ4TXStwWBt5j1xBno6coapMa7/9iJzpwpnU1uBG+8bEBWvBnyN9Ej3fUd/G7i39Q415fCKKo7FOL6mlD4nt8b/omRU46oPERcu5OTpBnrkRh/4sa2rpjXJGCB9s0Q049Pwi8VkOuCn50TGjZwXke903iI1I31fPqOHByqfgnXDxkptrjac9Uc3N5BL2Se5rb1DPhciJ2FzPivT3b8hNDBM/nUw46h9WjjJb"
     },
     {
       type = "tilelayer",
@@ -1974,7 +2025,270 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmj1Pw0AQRFH+AIQ2QBug5aMM1IE6pA7Ugf9fsSc00siyDb63lizkJ22DcXy5yczuRdkvTk7WUddRN1G3Uduol6jXqFXURdRl1FXjmt/zEXUXdR/1EPUYtYt6i9q3PMOv+T1fUU0O8bf3jmf4td84xv98djyj79rMzMzMEM4iR5ZR5xV5sol7nqKeG9k7lK6sHkpXVg9lSFb3MUZWE70Kp4uf1yB6FdRviV4F9VuiV0H9dgq4L4hW7guilfuCaOW+IFqN4Qvtdy3STPtdizTTftcizWgOSTO639IsC5pjguSYsnAJc8zPHiTH/OxB8LPH1Jj7VztZ/Us5RlGOUZRj1OfKsVq9hXKsVu+C50at3gXPDYLnhs8eQ/Hc8NmjlrIWnz1qKWvJmMnLWjJmj0NSrh6TeuAKZqFYwyx0X5AsHMMXBPcFnTMF8ZZ7nHjLPU685R4n3vrP525B5xZ5jM4t8hidW+QxSub5fZP0OtskzXdJ+XyAmosj1HxqzN+39ON5OJUck2Y0x6QZzTFpRvu7NKOzszQj/d3nMdJXfR4jfXWMeSzjs1zIyOdCRj4XppLP8indZ/mU7rN8SvdZPqX7nP29KDm/+73k/O73kvO730tme7+XzPZjnAvm/GlHvYei3kP7snoP7cvqPfQ7LZFx3i3Qz3W2XvKFzyBDfCK95Ivm77v63oM/S3rJF83fd/W9h7ZnyRfN33f1vQc9y9fXttau7G8+y9fXtta/Zr+v7xv63XuC"
+      data = "eJztmjtPQkEUhG/4A6KtQOujVSiBGq2VWq3V/185FJNMNnuv7p1raOZLpnFZzz44e0jmHGdddwPdQnfQPXSAnqBn6BpaQEtoVYzpnA/oAXqE1tAGeoFeoWMlho7pnG+o5A1/e++JoWO/8YnPfPXEGBoLIYQQQgghhBBCCCGEEEII4VxsZ123m8DDos/nQp/vtKa98f/o89F7HAt9PnqPY7jAvDl02eA91lBv1fEe1Vt1UG/1tLerCe6fvrELfWMX+sbnhnnqnjPz1D1n5ql7zsxT95yZp1PB8x7zBulc7X9oRedq/0MrOrel/6FE5zr9D//RO5H3pw5rjwtrj1uXWXvcusza49RlxanLivu9nvq+mBf6G6QlT3hfzIuyv2toDxqL98W8KPu7hvZQi8W8KPu7hvbAWLq+2lr73v4ylq6vtta/vv26vh9Jjze9"
+    },
+    {
+      type = "objectgroup",
+      name = "archer2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 46,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1440,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 941,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 45,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 1456,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 941,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 49,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 1440,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 941,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 54,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 48,
+          y = 1440,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 96, y = -16 },
+            { x = 192, y = -16 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 55,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = 1392,
+          width = 288,
+          height = 80,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 56,
+          name = "archer",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 1440,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 815,
+          visible = true,
+          properties = {
+            ["pathid"] = 54,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 120,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 57,
+          name = "archer",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1400,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 815,
+          visible = true,
+          properties = {
+            ["pathid"] = 54,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 120,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 58,
+          name = "archer",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 1416,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 815,
+          visible = true,
+          properties = {
+            ["pathid"] = 54,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 120,
+            ["script"] = "NPCArcher"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "archer1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 50,
+          name = "archer",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 1556,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 815,
+          visible = true,
+          properties = {
+            ["pathid"] = 52,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 120,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 51,
+          name = "archer",
+          type = "",
+          shape = "rectangle",
+          x = 216,
+          y = 1516,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 815,
+          visible = true,
+          properties = {
+            ["pathid"] = 52,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 120,
+            ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 52,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 96,
+          y = 1552,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 8 },
+            { x = 120, y = -12 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 53,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = 1504,
+          width = 288,
+          height = 80,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 47,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 1568,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 941,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 48,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 216,
+          y = 1552,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 941,
+          visible = true,
+          properties = {}
+        }
+      }
     },
     {
       type = "objectgroup",
