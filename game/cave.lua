@@ -2441,6 +2441,64 @@ return {
           }
         }
       }
+    },
+    {
+      name = "demonshothit",
+      firstgid = 965,
+      filename = "img/demonshothit.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      image = "img/demonshothit.png",
+      imagewidth = 64,
+      imageheight = 32,
+      tileoffset = {
+        x = -8,
+        y = 8
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 8,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 16
+            },
+            {
+              tileid = 1,
+              duration = 16
+            },
+            {
+              tileid = 2,
+              duration = 16
+            },
+            {
+              tileid = 3,
+              duration = 16
+            },
+            {
+              tileid = 4,
+              duration = 16
+            },
+            {
+              tileid = 5,
+              duration = 16
+            },
+            {
+              tileid = 6,
+              duration = 16
+            },
+            {
+              tileid = 7,
+              duration = 16
+            }
+          }
+        }
+      }
     }
   },
   layers = {

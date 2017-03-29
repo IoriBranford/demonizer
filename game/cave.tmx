@@ -29,6 +29,7 @@
  <tileset firstgid="815" source="img/ballista.tsx"/>
  <tileset firstgid="839" source="img/civwomen.tsx"/>
  <tileset firstgid="959" source="img/cauldron.tsx"/>
+ <tileset firstgid="965" source="img/demonshothit.tsx"/>
  <layer name="lava" width="19" height="200" offsetx="0" offsety="-240">
   <properties>
    <property name="script" value="LavaLayer"/>

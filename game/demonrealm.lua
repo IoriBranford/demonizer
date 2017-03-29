@@ -8,7 +8,7 @@ return {
   height = 140,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 43,
+  nextobjectid = 44,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -349,8 +349,66 @@ return {
       }
     },
     {
-      name = "demonizing",
+      name = "demonshothit",
       firstgid = 17,
+      filename = "img/demonshothit.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      image = "img/demonshothit.png",
+      imagewidth = 64,
+      imageheight = 32,
+      tileoffset = {
+        x = -8,
+        y = 8
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 8,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 16
+            },
+            {
+              tileid = 1,
+              duration = 16
+            },
+            {
+              tileid = 2,
+              duration = 16
+            },
+            {
+              tileid = 3,
+              duration = 16
+            },
+            {
+              tileid = 4,
+              duration = 16
+            },
+            {
+              tileid = 5,
+              duration = 16
+            },
+            {
+              tileid = 6,
+              duration = 16
+            },
+            {
+              tileid = 7,
+              duration = 16
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "demonizing",
+      firstgid = 25,
       filename = "img/demonizing.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -440,7 +498,7 @@ return {
     },
     {
       name = "demonwomen",
-      firstgid = 20,
+      firstgid = 28,
       filename = "img/demonwomen.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -521,7 +579,7 @@ return {
     },
     {
       name = "basic_terrain",
-      firstgid = 59,
+      firstgid = 67,
       filename = "img/basic_terrain.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1546,7 +1604,7 @@ return {
     },
     {
       name = "forest",
-      firstgid = 443,
+      firstgid = 451,
       filename = "img/forest.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1566,7 +1624,7 @@ return {
     },
     {
       name = "humanshots",
-      firstgid = 731,
+      firstgid = 739,
       filename = "img/humanshots.tsx",
       tilewidth = 32,
       tileheight = 16,
@@ -1647,7 +1705,7 @@ return {
     },
     {
       name = "infmen",
-      firstgid = 759,
+      firstgid = 767,
       filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1727,6 +1785,146 @@ return {
           }
         }
       }
+    },
+    {
+      name = "infwomen",
+      firstgid = 857,
+      filename = "img/infwomen.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/infwomen.png",
+      imagewidth = 360,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      properties = {
+        ["column_archer"] = 12,
+        ["column_mage"] = 9,
+        ["column_pikeman"] = 0,
+        ["column_priest"] = 6,
+        ["column_swordsman"] = 3,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_down"] = 2,
+        ["row_ko"] = 4,
+        ["row_left"] = 3,
+        ["row_right"] = 1,
+        ["row_up"] = 0
+      },
+      terrains = {},
+      tilecount = 75,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "demonshothit",
+      firstgid = 932,
+      filename = "img/demonshothit.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      image = "img/demonshothit.png",
+      imagewidth = 64,
+      imageheight = 32,
+      tileoffset = {
+        x = -8,
+        y = 8
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 8,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 16
+            },
+            {
+              tileid = 1,
+              duration = 16
+            },
+            {
+              tileid = 2,
+              duration = 16
+            },
+            {
+              tileid = 3,
+              duration = 16
+            },
+            {
+              tileid = 4,
+              duration = 16
+            },
+            {
+              tileid = 5,
+              duration = 16
+            },
+            {
+              tileid = 6,
+              duration = 16
+            },
+            {
+              tileid = 7,
+              duration = 16
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -1744,7 +1942,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJyF1lmu40YQRFF6/0vULqR/wv1gF3z7dFD+IDSQrMqKjCFf13V9fl3XX9f1vv65fn6//v3v5/ud/851nruv/96788557rx7nu+9n2dfWePcO/Wc9fr9w3v976buPnO+d/3z3Pv6/QzvnLHr9ux3rv4+ON48W3zvh33OPbE+ZzpXsT/PF6N1FrHu94VD9zr79fPs2/WKd/9f/fQsZ60Xay1srO19/X6mrr/+6349a/l53n2x77knvsVFTpy97J1nKJ/LoZ63HP5cux/nv1X/uVc8yl0133OXS76nvtqPcqLryvdyrTi29nqEWqlW5f7Br3jc7Lt0L0fluOuW+++xj3j1e/koz+pp4m9/W9Pyxie/co9yqJ5vzU9eWLzslxot5mq8/xVrfW1polywj/W+1l7+yctitLxHv3bdaleci8WHPVurNS/9VYeLn8X4xX7fsqMY259ipje+rj8xNa+X5p8yvh5ary7Pln675sJI7qmD7vXk+/XX9qV1OBNV82vO6dp6s7rVJ52xire52P6Ju95Wjtd/20uzXu7q3+JtjqxZxyxt/pTL3vfd6lFOeX3zQ7VoTqnd5T3FWBzq/XJmzVt6SzWx+Lm0VK7Lh2LV/fRouVA+qM/iYV71u168MF6zpTxRhx/2s8bOUmv/1qG/rfwRa2cDueBc5nmq/fZjabda6N7qS7+3lmJRnJ0vikO/t67+7l43azvH+Kl/LL7bF3nx4r7ndr4wS1a+64/i6qyzZrSnjLaHeoQzhZxdvty9nYNW5j/Nc85Aasozmylmq3Wqdf1KvOV9329mOAPVE272evKU6uK+fueAmV7f66yw5hLnhSct6LvtzcpvuW/Naz5amlJf63xLR/Kh9anj4u08oo/pXTdrOK88zYfltPxoPU/9qifpaXqeHFo57MzRZ5YmywVxNteWfvSHYr9y+RufnFnNwXqSGfEZ6zlXlC/6sBjpM50FzKb2proxC9f8JXeK0dJl3+tZlw/IQ/VV3/vmB8t77OPKGTN99eHFmu1DzyUH3NO8WpmjB4md3mpdn+tPfMonPby86lxg3+5xzxnEeeWbplpPe22GOYOYT716Hjle7paXZqy4qC+z3FlMvPSJakAfWGco7z8Pzz/NN+asmvGee8m5en+56Xrm3fJyfbK6UlOtxX6bAeWf/t9zOBuJl94qp+XIzb7t35qhnvy13F8Z5RxilnYfvbz80C/ET7/o+dS4uug9fUGM1JAc7701Dzjn6BNmiR7XZ7/53tJn/cS+m0Nds5xaHlhsqtGeeXG4GLavS4ty2HoWftWRntoaWnM/xevmt/7UPVev9DrXKVbVlTrWB/XY/5t7ylV9ubXIxfa12pT/eku5Kbbiou943hfrmwHOOH1/zXULN3Nk5erSSXnWz/vafVreove3L3qj81n7snzD+lrXm3X0D/tf/pTf5r654zxkNrfW5dPNhScvXn0t91uns9Dqj3U4O/mM2uzZ9bDisDTiefvc0rQZ1h6UU+1B6/g2D66azAkzYWlrZZZ6VftiWXz1zycfFo++a13i65yzsrDYNC+W51TXb74/ZevyXbkpJ6vfnrE8VmPd21nLfL+vP2vt+sXI2a981OvUWvuwfNczLR94miNat5zQC1cOl1tiVc52r2K/st7fK5f1kGZBNdue19f0CHPyZs+Fp3UtLuq7xdDcKAd7hnL55/ob1qhEtg=="
+      data = "eJyF1kGS40gMQ1F7o/D9r6hb2JueihlF/3oF1SwUliVlJgkCIM/H4/H553o9H4/349/r6//537Ov++P599l1Xd8dWfd1/+Lba+31fd99fXtmj+vdFc+1X+8/rOuz4/k97n5z3Xf/V2JrDu/k2H2b+/H8e/X/K//7bfHtup5zvRPrM/Fe332yj3itXMS69wuH1/MnJ/p7ndv9inefr3qay7XXyV4LG2O7rp5/XetZz2uu5efr+T2O8q7xNEdr2/ocz5+1M4fyuRxqvuXw57HrcT1b8V/vike5q+abd7nkOvXVehx8v+K+9pfb78f32OsRaqValfuv5/eYyjc5VN3LUTnuvuV+c9ELljeVj/Ksnib+1rcxLW+88yvPKIfq+cZ854XFy3qp0WKuxo+RV/PpGXKrXLCO9b6Ds64c5GUxWt6jX7vvSQzNqVh8OLOxGvPSX3W4+FmMT877rXcUY+tTzPTG8/ETU/v10vxdj6+H1qs/xKN+u+fCSO6pg5515/v119alcTgTVfNrzuneerO61SedsV7Pn/j12d1spbeV4/Xf1tJeL3f1b/G2j6xZx17a/lMu+9611aOc8vrND9WifUrtLu8pxuJQ75cza97SW6qJxc+lpXJdPhSrnqdHy4XyQX0WD/tV7/XihfGaLeWJOqw+lu91llrnNw79bfUfsXY2kAvOZeZT7bceS7vVQs9WX/q9sRSL4ux8URx637j6v2e1jmuO8Vf/WHy3LvKivW/NQs4X9pLV3/VHcXXWWTPaXY+2hnqEM4WcXb58jPX6R+O5m+ecgdSUOdtT7K3Gqdb1K/GW913fnuEMVE/o981BT6kurvovjyn/qw3r1to7Qywt6LvHWGd+5nynN7lzp/HzJr+lI/nwev6Mq7haj7s5Qe8qb+/mv/W+nJYfjeeuXvUkPU3Pk0OrDztz9JulyfeIzXlI/14zmrypLsXujk/OrPbBepI9onV3NnCv5cNipM90FrA3tTbVjb1wzV9ypxgtXXZdc10+IA/VV33vNz9Y3mMdV5+xp686nOzZOjQvOeCZ9qvVc/QgsdNbjevz+InPcZOzs2PnAutWnNRw82+ev2nqJP67HuYMYn/q1XzkeLlbXtpjxUV92cudxcRLn3iPGJY29X/50e/v5hv7rJrxnWfJuZMcygM9YOVaTuiT1ZWaaizW2x5Q/un/zcPZSLz0VjktRw4wbv3WDHXnr+X+6lHOIfbSnqOXlx/6hfjpF81PjauLvtMXxEgNyfG+W/OAc44+YS/R417Edud7S5/1E+tuH+qe5dTywNfY35wXh4th67q0KIeNZ+FXHempjaEx91e86h3FrOvbK62VXuc+xaq6Usf6oB77f3NPuaovNxa52LpWm/Jfbyk3xVZc9B3zPdnfHuCM0/Vrrlu42UdWX106Kc/6ezx3nZa36P2ti97ofNa6LN8wvsb1Zh/9w/qXP+W3fd++4zxkb26sy6fbF+68eNW13G+czkKrPsbh7OQ3arO562HFYWnEfPvd0rQ9rDUop1qDxvHbPLhisk/YE5a2Vs9Sr2pfLIuv/nnnw+LRtcYlvs45qxcWm/aL5TnV9Zv7u966fFduysnqtzmWx2qsZztr2d+7d/vG8k9nv/JRr1NrrcPyXXNaPnA3RzRuOaEXrj5cbolVOduziv3q9f5ffVkPaS+oZlvz+poeYZ88wGbhaVyLi/puMbRvlIPNoVz+uv4ADWCXVg=="
     },
     {
       type = "tilelayer",
@@ -1760,7 +1958,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmrtyGzEMRflrieuM6jh1nFpynaTVo5Ws381iwjN7zEi7BJVJFc5wZFtaCMTj4gL0uZSym/Zx2odpn6Z9nvZVf7vUn9+mva9/29fP8Ayb9/nMqT5/qJ/fVfnH+nqpfzvV90967ijdjvrbVc9d9HvI+zDtH9pP+n502Usm37Wr5zvX/Vrer+9V1l76H+r3PUmHfZXzVt/7Wf5cmyoDW/A5f8eb9Pp0Q4Z1utT9euO9fZVxTxd/Hpu1n4v3Pt557//6N+vbX5Lz+S/JOjwo6+u0X8qMLSOyQsaXMucbGNDm7toiV0LGocy5l5WDPuDSqcrLytmWGevQZwkH7q3AmX2Z8SRe13DgnpyTZMQOfz2X3z7s9VvIoTaAv7syY3Dv+fCXZVF3MufDX8jZ1ddzQpdY2zL7HFlL+H9vbcpcz4jF0CWbG5v6PDWJs2X1uWXneM3GYaywUZwFP12TcsAL/DXi71hhG/xM3BHPGRuTo/AB+FDWX7axcQyuksEOZMHLwNZsPMeK88GTkJO1tfMLWVkcM6bCMYnDUdtwpizusMI2cMVrmWNxJIac67xm6yFng09iq5Gcd80wz+7VJ/wVdYG67Lphrtujh/sM9xIhr9dn1C58RB8BJvbGEPhFrUFO1sZgvHMceZk4hJPD/9FtlEsRixftbI619RTfZ3QypzuX95hIL9hjJ85jrkFvl8Eyc0Ps4njM+GxTZuxx3zuSo2ApdX6E13E27DIiwzqRm3DDUT5/LfMsIIuryCCv4Brga68senTyADubl/X4Hjwl35lzcL5sHIKHyBrJU3RyTiC3N56xs+vxpeQ5YjsLIV/JsUxPAB6C0eTHKG9BH+SM9HFgFpwzbDTSx9EDok/IGekL7HNmfRmeab+ba2T54Va6XLWz+Q5PAOOxTxbPzHuMrVm/hxzjBHGcjUHsQ8yM9APoAy57vjs6I4E/Y58RruH+lPzIxrO5hmcJ8IaeHGvzHL5Kfc5gM7Nm4hi+O9p7kVvoMiqHuT1cLHQb5XSuORlsjkWewsWpYdlYtBxmR8T2SD/Y1tMRDsQsAD+N5GksaiG1awTjkQPPMHfJcHBmLdgX3gum9cgijsFk95WetS3ZyjnKfAU+5Z5gba5Az04v6jsv31n1yEF/bOK7L9fopXM5x33vhN/Qc6nfcW663sCbLXMpX12zfC7Oid3X5nbM1qwLz5tvUkPu2YeaxRmofy2uYqN7crb6LLJ8Lvgq2Likz0HPog9nIobWOAf6+Gx8d8sTl2IH7KLuUd/hPfi/B8u2Zc4l/NPmaW+fY/tgc+NHDyb6bD7LruRnLciCn5ojPMqjHplltncNoV8G57dljkf87/zNzLSIYXLLsdmjE2eybX1/j8w1ncBVz1PBHfP6NTm+qzKWkfu980Ny1fHMs2BPj/9bTDzqFQ7Tcy583s7SsTU6rcnxzMc54XuiJWxuzwbugRWuX713qNbp1v9+ZDgiPbd9jdzs3Ji84CzEc2ZO4vsdxzZ+H5kfOueJiawc5/oo94Wvkl8ZnG/lOAbJi5F5CzZBn2y/gxy4JWd6pC+ghx/tCzgXdunNz3a5d8r2BCzw3nWD3MjMfT0D4I7AfIo7p5e6n/Uzv3PP1PaTYDNYQp3kfc8GfS8EJuJz3xX5/988u/C95E4b3vkLku5naQ=="
+      data = "eJztmrtyGzEMRfl7ieuM6jh1nFpynaTVo5WsX81iwjN7zEi7BJVJFc5wZFtaCMTj4gL0uZSym/Zx2odpn6Z9nvZVf7vUn9+mva9/29fP8Ayb9/nMqT5/qJ/fVfnH+nqpfzvV90967ijdjvrbVc9d9HvI+zDtH9pP+n502Usm37Wr5zvX/Vrer+9V1l76H+r3PUmHfZXzVt/7Wf5cmyoDW/A5f8eb9Pp0Q4Z1utT9euO9fZVxTxd/Hpu1n4v3Pt557//6N+vbX5Lz+S/JOjwo6+u0X8qMLSOyQsaXMucbGNDm7toiV0LGocy5l5WDPuDSqcrLytmWGevQZwkH7q3AmX2Z8SRe13DgnpyTZMQOfz2X3z7s9VvIoTaAv7syY3Dv+fCXZVF3MufDX8jZ1ddzQpdY2zL7HFlL+H9vbcpcz4jF0CWbG5v6PDWJs2X1uWXneM3GYaywUZwFP12TcsAL/DXi71hhG/xM3BHPGRuTo/AB+FDWX7axcQyuksEOZMHLwNZsPMeK88GTkJO1tfMLWVkcM6bCMYnDUdtwpizusMI2cMVrmWNxJIac67xm6yFng09iq5Gcd80wz+7VJ/wVdYG67Lphrtujh/sM9xIhr9dn1C58RB8BJvbGEPhFrUFO1sZgvHMceZk4hJPD/9FtlEsRixftbI619RTfZ3QypzuX95hIL9hjJ85jrkFvl8Eyc0Ps4njM+GxTZuxx3zuSo2ApdX6E13E27DIiwzqRm3DDUT5/LfMsIIuryCCv4Brga68senTyADubl/X4Hjwl35lzcL5sHIKHyBrJU3RyTiC3N56xs+vxpeQ5YjsLIV/JsUxPAB6C0eTHKG9BH+SM9HFgFpwzbDTSx9EDok/IGekL7HNmfRmeab+ba2T54Va6XLWz+Q5PAOOxTxbPzHuMrVm/hxzjBHGcjUHsQ8yM9APoAy57vjs6I4E/Y58RruH+lPzIxrO5hmcJ8IaeHGvzHL5Kfc5gM7Nm4hi+O9p7kVvoMiqHuT1cLHQb5XSuORlsjkWewsWpYdlYtBxmR8T2SD/Y1tMRDsQsAD+N5GksaiG1awTjkQPPMHfJcHBmLdgX3gum9cgijsFk95WetS3ZyjnKfAU+5Z5gba5Az04v6jsv31n1yEF/bOK7L9fopXM5x33vhN/Qc6nfcW663sCbLXMpX12zfC7Oid3X5nbM1qwLz5tvUkPu2YeaxRmofy2uYqN7crb6LLJ8Lvgq2Likz0HPog9nIobWOAf6+Gx8d8sTl2IH7KLuUd/hPfi/B8u2Zc4l/NPmaW+fY/tgc+NHDyb6bD7LruRnLciCn5ojPMqjHplltncNoV8G57dljkf87/zNzLSIYXLLsdmjE2eybX1/j8w1ncBVz1PBHfP6NTm+qzKWkfu980Ny1fHMs2BPj/9bTDzqFQ7Tcy583s7SsTU6rcnxzMc54XuiJWxuzwbugRWuX713qNbp1v9+ZDgiPbd9jdzs3Ji84CzEc2ZO4vsdxzZ+H5kfOueJiawc5/oo94Wvkl8ZnG/lOAbJi5F5CzZBn2y/gxy4JWd6pC+ghx/tCzgXdunNz3a5d8r2BCzw3nWD3MjMfT0D4I7AfIo7p5e6n/Uzv3PP1PaTYDNYQp3kfc8GfS8EJuJz3xX5/988u/C95E4b3vkLCZaOcQ=="
     },
     {
       type = "tilelayer",
@@ -1776,7 +1974,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmj1Pw0AQRFEaCG2ANkDLRxmoA3VIHagD//8XsCc00siyDb63lizkJ22DcXy5yczuRdkvTk7WUddRN1G3Uduol6jXqFXURdRl1FXjmt/zEXUXdR/1EPUYtYt6i9q3PMOv+T1fUU0O8bf3jmf4td84xv98djyj79rMzMzMEM4iR5ZR5xV5sol7nqKeG9k7lK6sHkpXVg9lSFb3MUZWE70Kp4uf1yB6FdRviV4F9VuiV0H9dgq4L4hW7guilfuCaOW+IFqN4Qvtdy3STPtdizTTftcizWgOSTO639IsC5pjguSYsnAJc8zPHiTH/OxB8LPH1Jj7VztZ/Us5RlGOUZRj1OfKsVq9hXKsVu+C50at3gXPDYLnhs8eQ/Hc8NmjlrIWnz1qKWvJmMnLWjJmj0NSrh6TeuAKZqFYwyx0X5AsHMMXBPcFnTMF8ZZ7nHjLPU685R4n3vrP525B5xZ5jM4t8hidW+QxSub5fZP0OtskzXdJ+XyAmosj1HxqzN+39ON5OJUck2Y0x6QZzTFpRvu7NKOzszQj/d3nMdJXfR4jfXWMeSzjs1zIyOdCRj4XppLP8indZ/mU7rN8SvdZPqX7nP29KDm/+73k/O73kvO730tme7+XzPZjnAvm/GlHvYei3kP7snoP7cvqPfQ7LZFx3i3Qz3W2XvKFzyBDfCK95Ivm77v63oM/S3rJF83fd/W9h7ZnyRfN33f1vQc9y9fXttau7G8+y9fXtta/Zr+v7xvyzWra"
+      data = "eJztmj1Pw0AQRFH+AIQ2QBug5aMM1IE6pA7Ugf9fsSc00siyDb63lizkJ22DcXy5yczuRdkvTk7WUddRN1G3Uduol6jXqFXURdRl1FXjmt/zEXUXdR/1EPUYtYt6i9q3PMOv+T1fUU0O8bf3jmf4td84xv98djyj79rMzMzMEM4iR5ZR5xV5sol7nqKeG9k7lK6sHkpXVg9lSFb3MUZWE70Kp4uf1yB6FdRviV4F9VuiV0H9dgq4L4hW7guilfuCaOW+IFqN4Qvtdy3STPtdizTTftcizWgOSTO639IsC5pjguSYsnAJc8zPHiTH/OxB8LPH1Jj7VztZ/Us5RlGOUZRj1OfKsVq9hXKsVu+C50at3gXPDYLnhs8eQ/Hc8NmjlrIWnz1qKWvJmMnLWjJmj0NSrh6TeuAKZqFYwyx0X5AsHMMXBPcFnTMF8ZZ7nHjLPU685R4n3vrP525B5xZ5jM4t8hidW+QxSub5fZP0OtskzXdJ+XyAmosj1HxqzN+39ON5OJUck2Y0x6QZzTFpRvu7NKOzszQj/d3nMdJXfR4jfXWMeSzjs1zIyOdCRj4XppLP8indZ/mU7rN8SvdZPqX7nP29KDm/+73k/O73kvO730tme7+XzPZjnAvm/GlHvYei3kP7snoP7cvqPfQ7LZFx3i3Qz3W2XvKFzyBDfCK95Ivm77v63oM/S3rJF83fd/W9h7ZnyRfN33f1vQc9y9fXttau7G8+y9fXtta/Zr+v7xv63XuC"
     },
     {
       type = "objectgroup",
@@ -1794,16 +1992,16 @@ return {
           type = "",
           shape = "polyline",
           x = 144,
-          y = 1712,
+          y = 1568,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 0 },
-            { x = 0, y = 176 },
-            { x = 0, y = -128 },
-            { x = 0, y = 208 }
+            { x = 0, y = 96 },
+            { x = 0, y = 224 },
+            { x = 0, y = -16 },
+            { x = 0, y = 256 }
           },
           properties = {
             ["script"] = "PathGraph"
@@ -1811,15 +2009,15 @@ return {
         },
         {
           id = 26,
-          name = "leader",
+          name = "",
           type = "",
           shape = "rectangle",
-          x = 144,
-          y = 1712,
+          x = 160,
+          y = 1680,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -1832,12 +2030,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 96,
-          y = 1744,
+          x = 128,
+          y = 1648,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -1850,12 +2048,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 192,
-          y = 1744,
+          x = 160,
+          y = 1632,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -1869,11 +2067,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 128,
-          y = 1728,
+          y = 1664,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -1886,12 +2084,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 144,
-          y = 1744,
+          x = 128,
+          y = 1680,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -1905,11 +2103,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 160,
-          y = 1728,
+          y = 1664,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -1922,12 +2120,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 96,
-          y = 1728,
+          x = 160,
+          y = 1648,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -1940,12 +2138,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 192,
-          y = 1728,
+          x = 128,
+          y = 1632,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -1959,13 +2157,31 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1712,
+          y = 1648,
           width = 288,
           height = 48,
           rotation = 0,
           visible = true,
           properties = {
             ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 43,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1616,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 887,
+          visible = true,
+          properties = {
+            ["pathid"] = 25,
+            ["pathmode"] = "relative",
+            ["script"] = "NPCPikeman"
           }
         }
       }
@@ -1985,14 +2201,14 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = 96,
-          y = 1776,
+          x = 120,
+          y = 1760,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -64, y = 0 },
+            { x = -32, y = 0 },
             { x = -32, y = 160 },
             { x = -32, y = -128 },
             { x = -32, y = 192 }
@@ -2006,12 +2222,12 @@ return {
           name = "leader",
           type = "",
           shape = "rectangle",
-          x = 32,
+          x = 88,
           y = 1776,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -2024,12 +2240,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 32,
-          y = 1808,
+          x = 88,
+          y = 1792,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -2042,12 +2258,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 16,
-          y = 1792,
+          x = 104,
+          y = 1776,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -2060,12 +2276,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 48,
+          x = 104,
           y = 1792,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -2078,12 +2294,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 272,
+          x = 184,
           y = 1792,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -2096,12 +2312,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 240,
-          y = 1792,
+          x = 184,
+          y = 1776,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -2114,12 +2330,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 256,
-          y = 1808,
+          x = 200,
+          y = 1792,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -2132,12 +2348,12 @@ return {
           name = "leader",
           type = "",
           shape = "rectangle",
-          x = 256,
+          x = 200,
           y = 1776,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -2150,14 +2366,14 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = 192,
-          y = 1776,
+          x = 168,
+          y = 1760,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 64, y = 0 },
+            { x = 32, y = 0 },
             { x = 32, y = 160 },
             { x = 32, y = -128 },
             { x = 32, y = 192 }
@@ -2172,7 +2388,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1776,
+          y = 1760,
           width = 288,
           height = 48,
           rotation = 0,
@@ -2219,12 +2435,12 @@ return {
           name = "leader",
           type = "",
           shape = "rectangle",
-          x = 112,
+          x = 120,
           y = 1856,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -2237,12 +2453,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 176,
+          x = 152,
           y = 1856,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -2255,12 +2471,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 112,
-          y = 1840,
+          x = 136,
+          y = 1856,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -2273,12 +2489,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 176,
-          y = 1840,
+          x = 168,
+          y = 1856,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 795,
+          gid = 803,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -2306,7 +2522,7 @@ return {
     {
       type = "objectgroup",
       name = "camera",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
