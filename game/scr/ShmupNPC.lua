@@ -58,7 +58,8 @@ local NonCombatantMask = {
 	ShmupCollision.Category_CameraEdge,
 	ShmupCollision.Category_PlayerShot,
 	ShmupCollision.Category_NPCTeam,
-	ShmupCollision.Category_NPCShot
+	ShmupCollision.Category_NPCShot,
+	ShmupCollision.Category_NPCCover
 }
 
 local ShmupNPC = class(function(self, object)

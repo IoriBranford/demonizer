@@ -49,6 +49,9 @@ function NPCArcher:updateFiring(dt)
 		levity.bank:play("snd/bow.wav")
 	end
 	self.firetimer = self.firetimer - dt
+	if self.incover and self.firetimer < 0 then
+		self.firetimer = 0
+	end
 end
 
 function NPCArcher:suppress()
