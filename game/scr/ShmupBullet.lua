@@ -80,6 +80,27 @@ function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
 	if otherfixture:getCategory() == ShmupCollision.Category_PlayerTeam
 	or otherfixture:getCategory() == ShmupCollision.Category_PlayerBomb
 	or otherfixture:getCategory() == ShmupCollision.Category_NPCTeam then
+		local hstileset = self.object.properties.hitsparktileset
+		if hstileset then
+			--local x, y, x2, y2 = contact:getPositions()
+			--Why does this return nil?
+			--
+			--if x2 and y2 then
+			--	x = x + (x2 - x)*.5
+			--	y = y + (y2 - y)*.5
+			--end
+			local hstileid = self.object.properties.hitsparktileid or 0
+			local hitspark = {
+				gid = levity.map:getTileGid(hstileset, hstileid),
+				x = self.object.x,
+				y = self.object.y,
+				properties = {
+					script = "Spark"
+				}
+			}
+			self.object.layer:addObject(hitspark)
+		end
+
 		if not self.object.properties.persist then
 			levity.map:discardObject(self.object.id)
 		end
@@ -117,6 +138,7 @@ end
 -- @field accely in px/sec/sec
 -- @field lifetime in sec
 -- @field persist do not destroy on impact
+-- @field hitsparktileset name or index
 -- @field coroutine
 
 function ShmupBullet.create(params, layer)
@@ -158,6 +180,7 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 				accely = accely,
 				lifetime = params.lifetime,
 				persist = params.persist,
+				hitsparktileset = params.hitsparktileset,
 				coroutine = params.coroutine
 			}
 		}
