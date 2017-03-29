@@ -13,7 +13,6 @@ return {
     ["cameraid"] = 7,
     ["delayinitobjects"] = true,
     ["music"] = "mus/09 - Blue Sky Laundry.vgm",
-    ["nextmap"] = "cave.lua",
     ["overlaymap"] = "gameui.lua",
     ["playerid"] = 1,
     ["script"] = "ShmupMap"
@@ -1730,7 +1729,7 @@ return {
             { x = 0, y = 160 },
             { x = 80, y = 160 },
             { x = 248, y = 160 },
-            { x = 440, y = 328 }
+            { x = 288, y = 200 }
           },
           properties = {
             ["script"] = "PathGraph"
@@ -2286,25 +2285,6 @@ return {
       properties = {},
       objects = {
         {
-          id = 272,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = -48,
-          y = 920,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 24, y = -32 },
-            { x = 168, y = -32 }
-          },
-          properties = {
-            ["script"] = "PathGraph"
-          }
-        },
-        {
           id = 219,
           name = "path",
           type = "",
@@ -2351,7 +2331,8 @@ return {
           gid = 169,
           visible = true,
           properties = {
-            ["pathid"] = 272,
+            ["pathid"] = 219,
+            ["pathmode"] = "relative",
             ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
@@ -2369,7 +2350,8 @@ return {
           gid = 169,
           visible = true,
           properties = {
-            ["pathid"] = 272,
+            ["pathid"] = 219,
+            ["pathmode"] = "relative",
             ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
@@ -2387,7 +2369,8 @@ return {
           gid = 169,
           visible = true,
           properties = {
-            ["pathid"] = 272,
+            ["pathid"] = 219,
+            ["pathmode"] = "relative",
             ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
@@ -2405,7 +2388,8 @@ return {
           gid = 169,
           visible = true,
           properties = {
-            ["pathid"] = 272,
+            ["pathid"] = 219,
+            ["pathmode"] = "relative",
             ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
@@ -2424,6 +2408,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 219,
+            ["pathmode"] = "relative",
             ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
@@ -2442,6 +2427,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 219,
+            ["pathmode"] = "relative",
             ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
@@ -2460,6 +2446,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 219,
+            ["pathmode"] = "relative",
             ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
@@ -2478,6 +2465,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 219,
+            ["pathmode"] = "relative",
             ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
@@ -2628,6 +2616,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 211,
+            ["pathmode"] = "relative",
             ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
@@ -2646,6 +2635,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 273,
+            ["pathmode"] = "relative",
             ["pathtime"] = 0.5,
             ["script"] = "NPCPikeman"
           }
@@ -2664,6 +2654,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 211,
+            ["pathmode"] = "relative",
             ["pathtime"] = 1,
             ["script"] = "NPCPikeman"
           }
@@ -2701,6 +2692,7 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 273,
+            ["pathmode"] = "relative",
             ["pathtime"] = 0.5,
             ["script"] = "NPCPikeman"
           }
@@ -2802,7 +2794,7 @@ return {
             { x = 0, y = 208 },
             { x = -80, y = 208 },
             { x = -144, y = 224 },
-            { x = -384, y = 224 }
+            { x = -288, y = 224 }
           },
           properties = {
             ["script"] = "PathGraph"
@@ -3069,7 +3061,7 @@ return {
             { x = 0, y = 0 },
             { x = 152, y = 0 },
             { x = 216, y = -16 },
-            { x = 416, y = -16 }
+            { x = 320, y = -16 }
           },
           properties = {
             ["script"] = "PathGraph"
@@ -3876,7 +3868,7 @@ return {
     {
       type = "objectgroup",
       name = "waterpikes2",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -4003,7 +3995,7 @@ return {
     {
       type = "objectgroup",
       name = "waterpikes",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,

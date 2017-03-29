@@ -4,7 +4,6 @@
   <property name="cameraid" type="int" value="7"/>
   <property name="delayinitobjects" type="bool" value="true"/>
   <property name="music" type="file" value="mus/09 - Blue Sky Laundry.vgm"/>
-  <property name="nextmap" type="file" value="cave.lua"/>
   <property name="overlaymap" type="file" value="gameui.lua"/>
   <property name="playerid" type="int" value="1"/>
   <property name="script" value="ShmupMap"/>
@@ -179,7 +178,7 @@
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
-   <polyline points="0,104 0,160 80,160 248,160 440,328"/>
+   <polyline points="0,104 0,160 80,160 248,160 288,200"/>
   </object>
   <object id="399" gid="169" x="16" y="472" width="24" height="32">
    <properties>
@@ -384,12 +383,6 @@
   </object>
  </objectgroup>
  <objectgroup name="pikes4">
-  <object id="272" name="path" x="-48" y="920">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
-   <polyline points="24,-32 168,-32"/>
-  </object>
   <object id="219" name="path" x="-24" y="944">
    <properties>
     <property name="script" value="PathGraph"/>
@@ -403,28 +396,32 @@
   </object>
   <object id="371" name="pike9" gid="169" x="-24" y="888" width="24" height="32">
    <properties>
-    <property name="pathid" type="int" value="272"/>
+    <property name="pathid" type="int" value="219"/>
+    <property name="pathmode" value="relative"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
   <object id="372" name="pike9" gid="169" x="-48" y="888" width="24" height="32">
    <properties>
-    <property name="pathid" type="int" value="272"/>
+    <property name="pathid" type="int" value="219"/>
+    <property name="pathmode" value="relative"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
   <object id="373" name="pike9" gid="169" x="-72" y="888" width="24" height="32">
    <properties>
-    <property name="pathid" type="int" value="272"/>
+    <property name="pathid" type="int" value="219"/>
+    <property name="pathmode" value="relative"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
   <object id="374" name="pike9" gid="169" x="-96" y="888" width="24" height="32">
    <properties>
-    <property name="pathid" type="int" value="272"/>
+    <property name="pathid" type="int" value="219"/>
+    <property name="pathmode" value="relative"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
@@ -432,6 +429,7 @@
   <object id="378" name="pike9" gid="169" x="-48" y="920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="219"/>
+    <property name="pathmode" value="relative"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
@@ -439,6 +437,7 @@
   <object id="379" name="pike9" gid="169" x="-24" y="920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="219"/>
+    <property name="pathmode" value="relative"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
@@ -446,6 +445,7 @@
   <object id="380" name="pike9" gid="169" x="-96" y="920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="219"/>
+    <property name="pathmode" value="relative"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
@@ -453,6 +453,7 @@
   <object id="381" name="pike9" gid="169" x="-72" y="920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="219"/>
+    <property name="pathmode" value="relative"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
@@ -501,6 +502,7 @@
   <object id="388" name="pike9" gid="169" x="272" y="896" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="211"/>
+    <property name="pathmode" value="relative"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
@@ -508,6 +510,7 @@
   <object id="383" name="pike9" gid="169" x="240" y="952" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="273"/>
+    <property name="pathmode" value="relative"/>
     <property name="pathtime" type="float" value="0.5"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
@@ -515,6 +518,7 @@
   <object id="386" name="pike9" gid="169" x="272" y="920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="211"/>
+    <property name="pathmode" value="relative"/>
     <property name="pathtime" type="float" value="1"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
@@ -528,6 +532,7 @@
   <object id="385" name="pike9" gid="169" x="240" y="928" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="273"/>
+    <property name="pathmode" value="relative"/>
     <property name="pathtime" type="float" value="0.5"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
@@ -564,7 +569,7 @@
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
-   <polyline points="0,104 0,208 -80,208 -144,224 -384,224"/>
+   <polyline points="0,104 0,208 -80,208 -144,224 -288,224"/>
   </object>
   <object id="354" gid="169" x="272" y="1056" width="24" height="32">
    <properties>
@@ -654,7 +659,7 @@
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
-   <polyline points="0,0 152,0 216,-16 416,-16"/>
+   <polyline points="0,0 152,0 216,-16 320,-16"/>
   </object>
   <object id="239" type="Trigger" x="0" y="1144" width="288" height="8">
    <properties>
@@ -953,7 +958,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="waterpikes2" visible="0">
+ <objectgroup name="waterpikes2">
   <object id="113" name="pike6" gid="169" x="344" y="1648" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="325"/>
@@ -1001,7 +1006,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="waterpikes" visible="0">
+ <objectgroup name="waterpikes">
   <object id="67" name="pike3" gid="169" x="-56" y="1704" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="324"/>
