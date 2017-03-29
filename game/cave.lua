@@ -1111,12 +1111,12 @@ return {
     {
       name = "mermaid",
       firstgid = 410,
-      filename = "img/mermaid.tsx",
+      filename = "img/friend/mermaid.tsx",
       tilewidth = 24,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "img/mermaid.png",
+      image = "img/friend/mermaid.png",
       imagewidth = 72,
       imageheight = 128,
       tileoffset = {

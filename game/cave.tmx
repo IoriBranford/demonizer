@@ -13,7 +13,7 @@
  <tileset firstgid="8" source="img/playerhitbox.tsx"/>
  <tileset firstgid="9" source="img/map_cave.tsx"/>
  <tileset firstgid="409" source="img/cage.tsx"/>
- <tileset firstgid="410" source="img/mermaid.tsx"/>
+ <tileset firstgid="410" source="img/friend/mermaid.tsx"/>
  <tileset firstgid="422" source="img/darkboat.tsx"/>
  <tileset firstgid="423" source="img/infmen.tsx"/>
  <tileset firstgid="513" source="img/infwomen.tsx"/>
