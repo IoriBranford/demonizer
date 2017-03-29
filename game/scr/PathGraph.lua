@@ -10,8 +10,9 @@ local PathGraph
 local function addSegment(self, x1, y1, x2, y2, cost)
 	local n1 = self:getPaths(x1, y1, true)
 	local n2 = self:getPaths(x2, y2, true)
-	n1[#n1 + 1] = { destx = x2, desty = y2, cost = cost }
-	n2[#n2 + 1] = { destx = x1, desty = y1, cost = cost }
+	local length = math.hypot(x2-x1, y2-y1)
+	n1[#n1 + 1] = { destx = x2, desty = y2, length = length, cost = cost }
+	n2[#n2 + 1] = { destx = x1, desty = y1, length = length, cost = cost }
 end
 
 local function addLineObject(self, object)
@@ -140,6 +141,27 @@ function PathGraph:beginDraw()
 	end
 end
 
+function PathGraph:findTripLength(pickNextPath, x, y, userdata)
+	if not self:getPaths(x, y) then
+		x, y = self:findNearestPoint(x, y)
+	end
+
+	local length = 0
+	local prevx, prevy = x, y
+	local path = pickNextPath(self:getId(), self:getPaths(x, y),
+			prevx, prevy, userdata)
+
+	while path and length < 0x1000000 do
+		length = length + path.length
+
+		prevx, prevy = x, y
+		x, y = path.destx, path.desty
+		path = pickNextPath(self:getId(), self:getPaths(x, y),
+			prevx, prevy, userdata)
+	end
+	return length
+end
+
 local Walker
 
 Walker = class(function(self, graph, pickNextPath, x, y, mode, userdata)
@@ -181,8 +203,7 @@ function Walker:getVelocity(dt, speed, x, y)
 	local vx, vy = 0, 0
 	local distx = self.destx + self.offx - x
 	local disty = self.desty + self.offy - y
-	local distsq = math.hypotsq(distx, disty)
-	local dist = math.sqrt(distsq)
+	local dist = math.hypot(distx, disty)
 
 	local exdist = speed*dt - dist
 	-- amount by which you would overshoot destination this frame
@@ -206,7 +227,7 @@ function Walker:getVelocity(dt, speed, x, y)
 
 			local nextdirx = nextdestx - self.destx
 			local nextdiry = nextdesty - self.desty
-			local nextdestdist = math.hypot(nextdirx, nextdiry)
+			local nextdestdist = nextpath.length
 
 			if exdist < nextdestdist then
 				nextdirx = exdist * nextdirx / nextdestdist

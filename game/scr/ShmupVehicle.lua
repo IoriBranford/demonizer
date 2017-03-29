@@ -177,6 +177,16 @@ function ShmupVehicle:beginMove(dt)
 					PathGraph.pickNextPath_linear1way,
 					body:getX(), body:getY(),
 					self.properties.pathmode, self)
+
+		local pathtime = self.properties.pathtime
+		if pathtime then
+			local pathlength = levity.map.scripts:call(
+					pathid, "findTripLength",
+					PathGraph.pickNextPath_linear1way,
+					body:getX(), body:getY())
+
+			self.properties.pathspeed = pathlength / pathtime
+		end
 	end
 
 	if self.pathwalker then

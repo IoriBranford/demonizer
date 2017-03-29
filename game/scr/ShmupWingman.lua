@@ -60,7 +60,8 @@ ShmupWingman.SpeedSq = ShmupWingman.Speed * ShmupWingman.Speed
 ShmupWingman.MaxHealth = 8
 ShmupWingman.BulletParams = {
 	speed = ShmupPlayer.BulletParams.speed,
-	category = ShmupCollision.Category_PlayerShot
+	category = ShmupCollision.Category_PlayerShot,
+	hitsparktileset = "demonshothit"
 }
 ShmupWingman.ConversionOffset = 1/64 --to ensure correct draw order for conversion vfx
 ShmupWingman.ConvertTime = 1

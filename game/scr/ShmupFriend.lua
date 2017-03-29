@@ -38,7 +38,8 @@ ShmupFriend.LockSearchWidth = 120
 ShmupFriend.LockSearchHeight = 160
 ShmupFriend.BulletParams = {
 	speed = 8*60,
-	category = ShmupCollision.Category_PlayerShot
+	category = ShmupCollision.Category_PlayerShot,
+	hitsparktileset = "demonshothit"
 }
 ShmupFriend.BulletInterval = .0625
 ShmupFriend.ElectrocutionTime = 1
@@ -195,6 +196,15 @@ function ShmupFriend:beginMove(dt)
 					PathGraph.pickNextPath_linearUp,
 					body:getX(), body:getY(),
 					self.properties.pathmode, self)
+			local pathtime = self.properties.pathtime
+			if pathtime then
+				local pathlength = levity.map.scripts:call(
+						pathid, "findTripLength",
+						PathGraph.pickNextPath_linear1way,
+						body:getX(), body:getY())
+
+				self.properties.pathspeed = pathlength / pathtime
+			end
 		end
 
 		local fromccx, fromccy = levity.map.scripts:call(
