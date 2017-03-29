@@ -8,7 +8,7 @@ return {
   height = 140,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 59,
+  nextobjectid = 75,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -1976,6 +1976,842 @@ return {
           }
         }
       }
+    },
+    {
+      name = "black_harpy",
+      firstgid = 943,
+      filename = "img/friend/black_harpy.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/black_harpy.png",
+      imagewidth = 192,
+      imageheight = 256,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 48,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "devil_bug",
+      firstgid = 955,
+      filename = "img/friend/devil_bug.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/devil_bug.png",
+      imagewidth = 96,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -12,
+                y = 20,
+                width = 24,
+                height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "ghost",
+      firstgid = 967,
+      filename = "img/friend/ghost.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/ghost.png",
+      imagewidth = 96,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -12,
+                y = 20,
+                width = 24,
+                height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "goblin",
+      firstgid = 979,
+      filename = "img/friend/goblin.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/goblin.png",
+      imagewidth = 96,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -12,
+                y = 20,
+                width = 24,
+                height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "harpy",
+      firstgid = 991,
+      filename = "img/friend/harpy.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/harpy.png",
+      imagewidth = 192,
+      imageheight = 256,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 48,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "holstaurus",
+      firstgid = 1003,
+      filename = "img/friend/holstaurus.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/holstaurus.png",
+      imagewidth = 96,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -12,
+                y = 20,
+                width = 24,
+                height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "honey_bee",
+      firstgid = 1015,
+      filename = "img/friend/honey_bee.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/honey_bee.png",
+      imagewidth = 192,
+      imageheight = 256,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 48,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "siren",
+      firstgid = 1027,
+      filename = "img/friend/siren.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/siren.png",
+      imagewidth = 192,
+      imageheight = 256,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 48,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "werebat",
+      firstgid = 1039,
+      filename = "img/friend/werebat.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/werebat.png",
+      imagewidth = 192,
+      imageheight = 256,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 48,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "weresheep",
+      firstgid = 1051,
+      filename = "img/friend/weresheep.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/weresheep.png",
+      imagewidth = 96,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -12,
+                y = 20,
+                width = 24,
+                height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "youko",
+      firstgid = 1063,
+      filename = "img/friend/youko.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/youko.png",
+      imagewidth = 96,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -12,
+                y = 20,
+                width = 24,
+                height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -2025,7 +2861,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmjtPQkEUhG/4A6KtQOujVSiBGq2VWq3V/185FJNMNnuv7p1raOZLpnFZzz44e0jmHGdddwPdQnfQPXSAnqBn6BpaQEtoVYzpnA/oAXqE1tAGeoFeoWMlho7pnG+o5A1/e++JoWO/8YnPfPXEGBoLIYQQQgghhBBCCCGEEEII4VxsZ123m8DDos/nQp/vtKa98f/o89F7HAt9PnqPY7jAvDl02eA91lBv1fEe1Vt1UG/1tLerCe6fvrELfWMX+sbnhnnqnjPz1D1n5ql7zsxT95yZp1PB8x7zBulc7X9oRedq/0MrOrel/6FE5zr9D//RO5H3pw5rjwtrj1uXWXvcusza49RlxanLivu9nvq+mBf6G6QlT3hfzIuyv2toDxqL98W8KPu7hvZQi8W8KPu7hvbAWLq+2lr73v4ylq6vtta/vv26vh9Jjze9"
+      data = "eJztmrkOwkAMRCN+gKPlaDlajhKogRqogRr4/4pJMZIVJaDNBEExT5omG2fBG8fF+NzKsjE0gabQDNpBe+gA9aEBNIRGhbUYc4Pm0AJaQivoCJ2gc8kecS3GPKEiF1y7VuwR1z5xxz2Pij3erRljjDHGGGOMMcYYY4wxxhjzK9atLNs04GHR51Ohz5f/pq3wPPp89B7rQp+P3mMd2ojrQN0E77GM6K0q3mP0VhWit5r/t14D50/fWIW+sQp941/DOlXzzDpV88w6VfPMOlXzzDptCua7zjcoxsb5h1RibJx/SCXGpsw/FImxyvzDN2Yn/P0ph71Hhb1H7cvsPWpfZu9R+nJE6csR9b1u+rzUuuB5qXXB8/qXuvhXXjNyL7E="
     },
     {
       type = "objectgroup",
@@ -2835,8 +3671,276 @@ return {
     },
     {
       type = "objectgroup",
+      name = "friends",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["activatesound"] = "snd/scream.wav"
+      },
+      objects = {
+        {
+          id = 60,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 1984,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 943,
+          visible = true,
+          properties = {
+            ["pathid"] = 74,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linearDown",
+            ["pathspeed"] = 240,
+            ["script"] = "ShmupFriend"
+          }
+        },
+        {
+          id = 61,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 1904,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 955,
+          visible = true,
+          properties = {
+            ["pathid"] = 74,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linearDown",
+            ["pathspeed"] = 180,
+            ["script"] = "ShmupFriend"
+          }
+        },
+        {
+          id = 62,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 1888,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 967,
+          visible = true,
+          properties = {
+            ["pathid"] = 74,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linearDown",
+            ["pathspeed"] = 180,
+            ["script"] = "ShmupFriend"
+          }
+        },
+        {
+          id = 63,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 1904,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 979,
+          visible = true,
+          properties = {
+            ["pathid"] = 74,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linearDown",
+            ["pathspeed"] = 180,
+            ["script"] = "ShmupFriend"
+          }
+        },
+        {
+          id = 64,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 1968,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 991,
+          visible = true,
+          properties = {
+            ["pathid"] = 74,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linearDown",
+            ["pathspeed"] = 240,
+            ["script"] = "ShmupFriend"
+          }
+        },
+        {
+          id = 65,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 1904,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1003,
+          visible = true,
+          properties = {
+            ["pathid"] = 74,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linearDown",
+            ["pathspeed"] = 180,
+            ["script"] = "ShmupFriend"
+          }
+        },
+        {
+          id = 66,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 1984,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 1015,
+          visible = true,
+          properties = {
+            ["pathid"] = 74,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linearDown",
+            ["pathspeed"] = 240,
+            ["script"] = "ShmupFriend"
+          }
+        },
+        {
+          id = 69,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 1968,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 1027,
+          visible = true,
+          properties = {
+            ["pathid"] = 74,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linearDown",
+            ["pathspeed"] = 240,
+            ["script"] = "ShmupFriend"
+          }
+        },
+        {
+          id = 70,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 1968,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 1039,
+          visible = true,
+          properties = {
+            ["pathid"] = 74,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linearDown",
+            ["pathspeed"] = 240,
+            ["script"] = "ShmupFriend"
+          }
+        },
+        {
+          id = 71,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 1936,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1051,
+          visible = true,
+          properties = {
+            ["pathid"] = 74,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linearDown",
+            ["pathspeed"] = 180,
+            ["script"] = "ShmupFriend"
+          }
+        },
+        {
+          id = 72,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 1952,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1063,
+          visible = true,
+          properties = {
+            ["pathid"] = 74,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linearDown",
+            ["pathspeed"] = 180,
+            ["script"] = "ShmupFriend"
+          }
+        },
+        {
+          id = 73,
+          name = "trigger",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = 2112,
+          width = 288,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 74,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 1920,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 832 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
       name = "camera",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -2853,7 +3957,7 @@ return {
           width = 240,
           height = 320,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["pathid"] = 2,
             ["pathspeed"] = 30

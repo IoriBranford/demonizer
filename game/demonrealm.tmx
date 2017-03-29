@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="18" height="140" tilewidth="16" tileheight="16" nextobjectid="59">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="18" height="140" tilewidth="16" tileheight="16" nextobjectid="75">
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="mus/05 - Twilight Express.vgm"/>
@@ -21,6 +21,17 @@
  <tileset firstgid="857" source="img/infwomen.tsx"/>
  <tileset firstgid="932" source="img/demonshothit.tsx"/>
  <tileset firstgid="940" source="img/trees.tsx"/>
+ <tileset firstgid="943" source="img/friend/black_harpy.tsx"/>
+ <tileset firstgid="955" source="img/friend/devil_bug.tsx"/>
+ <tileset firstgid="967" source="img/friend/ghost.tsx"/>
+ <tileset firstgid="979" source="img/friend/goblin.tsx"/>
+ <tileset firstgid="991" source="img/friend/harpy.tsx"/>
+ <tileset firstgid="1003" source="img/friend/holstaurus.tsx"/>
+ <tileset firstgid="1015" source="img/friend/honey_bee.tsx"/>
+ <tileset firstgid="1027" source="img/friend/siren.tsx"/>
+ <tileset firstgid="1039" source="img/friend/werebat.tsx"/>
+ <tileset firstgid="1051" source="img/friend/weresheep.tsx"/>
+ <tileset firstgid="1063" source="img/friend/youko.tsx"/>
  <layer name="Earth" width="18" height="140">
   <data encoding="base64" compression="zlib">
    eJyF1kGS40gMQ1F7o/D9r6hb2JueihlF/3oF1SwUliVlJgkCIM/H4/H553o9H4/349/r6//537Ov++P599l1Xd8dWfd1/+Lba+31fd99fXtmj+vdFc+1X+8/rOuz4/k97n5z3Xf/V2JrDu/k2H2b+/H8e/X/K//7bfHtup5zvRPrM/Fe332yj3itXMS69wuH1/MnJ/p7ndv9inefr3qay7XXyV4LG2O7rp5/XetZz2uu5efr+T2O8q7xNEdr2/ocz5+1M4fyuRxqvuXw57HrcT1b8V/vike5q+abd7nkOvXVehx8v+K+9pfb78f32OsRaqValfuv5/eYyjc5VN3LUTnuvuV+c9ELljeVj/Ksnib+1rcxLW+88yvPKIfq+cZ854XFy3qp0WKuxo+RV/PpGXKrXLCO9b6Ds64c5GUxWt6jX7vvSQzNqVh8OLOxGvPSX3W4+FmMT877rXcUY+tTzPTG8/ETU/v10vxdj6+H1qs/xKN+u+fCSO6pg5515/v119alcTgTVfNrzuneerO61SedsV7Pn/j12d1spbeV4/Xf1tJeL3f1b/G2j6xZx17a/lMu+9611aOc8vrND9WifUrtLu8pxuJQ75cza97SW6qJxc+lpXJdPhSrnqdHy4XyQX0WD/tV7/XihfGaLeWJOqw+lu91llrnNw79bfUfsXY2kAvOZeZT7bceS7vVQs9WX/q9sRSL4ux8URx637j6v2e1jmuO8Vf/WHy3LvKivW/NQs4X9pLV3/VHcXXWWTPaXY+2hnqEM4WcXb58jPX6R+O5m+ecgdSUOdtT7K3Gqdb1K/GW913fnuEMVE/o981BT6kurvovjyn/qw3r1to7Qywt6LvHWGd+5nynN7lzp/HzJr+lI/nwev6Mq7haj7s5Qe8qb+/mv/W+nJYfjeeuXvUkPU3Pk0OrDztz9JulyfeIzXlI/14zmrypLsXujk/OrPbBepI9onV3NnCv5cNipM90FrA3tTbVjb1wzV9ypxgtXXZdc10+IA/VV33vNz9Y3mMdV5+xp686nOzZOjQvOeCZ9qvVc/QgsdNbjevz+InPcZOzs2PnAutWnNRw82+ev2nqJP67HuYMYn/q1XzkeLlbXtpjxUV92cudxcRLn3iPGJY29X/50e/v5hv7rJrxnWfJuZMcygM9YOVaTuiT1ZWaaizW2x5Q/un/zcPZSLz0VjktRw4wbv3WDHXnr+X+6lHOIfbSnqOXlx/6hfjpF81PjauLvtMXxEgNyfG+W/OAc44+YS/R417Edud7S5/1E+tuH+qe5dTywNfY35wXh4th67q0KIeNZ+FXHempjaEx91e86h3FrOvbK62VXuc+xaq6Usf6oB77f3NPuaovNxa52LpWm/Jfbyk3xVZc9B3zPdnfHuCM0/Vrrlu42UdWX106Kc/6ezx3nZa36P2ti97ofNa6LN8wvsb1Zh/9w/qXP+W3fd++4zxkb26sy6fbF+68eNW13G+czkKrPsbh7OQ3arO562HFYWnEfPvd0rQ9rDUop1qDxvHbPLhisk/YE5a2Vs9Sr2pfLIuv/nnnw+LRtcYlvs45qxcWm/aL5TnV9Zv7u966fFduysnqtzmWx2qsZztr2d+7d/vG8k9nv/JRr1NrrcPyXXNaPnA3RzRuOaEXrj5cbolVOduziv3q9f5ffVkPaS+oZlvz+poeYZ88wGbhaVyLi/puMbRvlIPNoVz+uv4ADWCXVg==
@@ -33,7 +44,7 @@
  </layer>
  <layer name="Trees" width="18" height="140">
   <data encoding="base64" compression="zlib">
-   eJztmjtPQkEUhG/4A6KtQOujVSiBGq2VWq3V/185FJNMNnuv7p1raOZLpnFZzz44e0jmHGdddwPdQnfQPXSAnqBn6BpaQEtoVYzpnA/oAXqE1tAGeoFeoWMlho7pnG+o5A1/e++JoWO/8YnPfPXEGBoLIYQQQgghhBBCCCGEEEII4VxsZ123m8DDos/nQp/vtKa98f/o89F7HAt9PnqPY7jAvDl02eA91lBv1fEe1Vt1UG/1tLerCe6fvrELfWMX+sbnhnnqnjPz1D1n5ql7zsxT95yZp1PB8x7zBulc7X9oRedq/0MrOrel/6FE5zr9D//RO5H3pw5rjwtrj1uXWXvcusza49RlxanLivu9nvq+mBf6G6QlT3hfzIuyv2toDxqL98W8KPu7hvZQi8W8KPu7hvbAWLq+2lr73v4ylq6vtta/vv26vh9Jjze9
+   eJztmrkOwkAMRCN+gKPlaDlajhKogRqogRr4/4pJMZIVJaDNBEExT5omG2fBG8fF+NzKsjE0gabQDNpBe+gA9aEBNIRGhbUYc4Pm0AJaQivoCJ2gc8kecS3GPKEiF1y7VuwR1z5xxz2Pij3erRljjDHGGGOMMcYYY4wxxhjzK9atLNs04GHR51Ohz5f/pq3wPPp89B7rQp+P3mMd2ojrQN0E77GM6K0q3mP0VhWit5r/t14D50/fWIW+sQp941/DOlXzzDpV88w6VfPMOlXzzDptCua7zjcoxsb5h1RibJx/SCXGpsw/FImxyvzDN2Yn/P0ph71Hhb1H7cvsPWpfZu9R+nJE6csR9b1u+rzUuuB5qXXB8/qXuvhXXjNyL7E=
   </data>
  </layer>
  <objectgroup name="archer2">
@@ -304,8 +315,123 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="camera" visible="0">
-  <object id="1" name="camera" type="Camera" x="24" y="1920" width="240" height="320">
+ <objectgroup name="friends">
+  <properties>
+   <property name="activatesound" type="file" value="snd/scream.wav"/>
+  </properties>
+  <object id="60" gid="943" x="192" y="1984" width="64" height="64">
+   <properties>
+    <property name="pathid" type="int" value="74"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linearDown"/>
+    <property name="pathspeed" type="float" value="240"/>
+    <property name="script" value="ShmupFriend"/>
+   </properties>
+  </object>
+  <object id="61" gid="955" x="128" y="1904" width="32" height="32">
+   <properties>
+    <property name="pathid" type="int" value="74"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linearDown"/>
+    <property name="pathspeed" type="float" value="180"/>
+    <property name="script" value="ShmupFriend"/>
+   </properties>
+  </object>
+  <object id="62" gid="967" x="176" y="1888" width="32" height="32">
+   <properties>
+    <property name="pathid" type="int" value="74"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linearDown"/>
+    <property name="pathspeed" type="float" value="180"/>
+    <property name="script" value="ShmupFriend"/>
+   </properties>
+  </object>
+  <object id="63" gid="979" x="224" y="1904" width="32" height="32">
+   <properties>
+    <property name="pathid" type="int" value="74"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linearDown"/>
+    <property name="pathspeed" type="float" value="180"/>
+    <property name="script" value="ShmupFriend"/>
+   </properties>
+  </object>
+  <object id="64" gid="991" x="240" y="1968" width="64" height="64">
+   <properties>
+    <property name="pathid" type="int" value="74"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linearDown"/>
+    <property name="pathspeed" type="float" value="240"/>
+    <property name="script" value="ShmupFriend"/>
+   </properties>
+  </object>
+  <object id="65" gid="1003" x="64" y="1904" width="32" height="32">
+   <properties>
+    <property name="pathid" type="int" value="74"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linearDown"/>
+    <property name="pathspeed" type="float" value="180"/>
+    <property name="script" value="ShmupFriend"/>
+   </properties>
+  </object>
+  <object id="66" gid="1015" x="112" y="1984" width="64" height="64">
+   <properties>
+    <property name="pathid" type="int" value="74"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linearDown"/>
+    <property name="pathspeed" type="float" value="240"/>
+    <property name="script" value="ShmupFriend"/>
+   </properties>
+  </object>
+  <object id="69" gid="1027" x="64" y="1968" width="64" height="64">
+   <properties>
+    <property name="pathid" type="int" value="74"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linearDown"/>
+    <property name="pathspeed" type="float" value="240"/>
+    <property name="script" value="ShmupFriend"/>
+   </properties>
+  </object>
+  <object id="70" gid="1039" x="176" y="1968" width="64" height="64">
+   <properties>
+    <property name="pathid" type="int" value="74"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linearDown"/>
+    <property name="pathspeed" type="float" value="240"/>
+    <property name="script" value="ShmupFriend"/>
+   </properties>
+  </object>
+  <object id="71" gid="1051" x="112" y="1936" width="32" height="32">
+   <properties>
+    <property name="pathid" type="int" value="74"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linearDown"/>
+    <property name="pathspeed" type="float" value="180"/>
+    <property name="script" value="ShmupFriend"/>
+   </properties>
+  </object>
+  <object id="72" gid="1063" x="176" y="1952" width="32" height="32">
+   <properties>
+    <property name="pathid" type="int" value="74"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linearDown"/>
+    <property name="pathspeed" type="float" value="180"/>
+    <property name="script" value="ShmupFriend"/>
+   </properties>
+  </object>
+  <object id="73" name="trigger" type="Trigger" x="0" y="2112" width="288" height="16">
+   <properties>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+  <object id="74" name="path" x="0" y="1920">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,0 0,832"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="camera">
+  <object id="1" name="camera" type="Camera" x="24" y="1920" width="240" height="320" visible="0">
    <properties>
     <property name="pathid" type="int" value="2"/>
     <property name="pathspeed" type="float" value="30"/>

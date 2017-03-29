@@ -189,18 +189,21 @@ function ShmupFriend:beginMove(dt)
 	else
 		self:updateFiring(dt)
 
-		if not self.pathwalker then
-			local pathid = self.properties.pathid
-			self.pathwalker = levity.map.scripts:call(pathid,
-					"newWalker",
-					PathGraph.pickNextPath_linearUp,
-					body:getX(), body:getY(),
-					self.properties.pathmode, self)
+		local pathid = self.properties.pathid
+
+		if pathid and not self.pathwalker then
+			local pickNextPath = self.properties.pathpicker or "linearUp"
+			pickNextPath = PathGraph["pickNextPath_"..pickNextPath]
+
+			self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
+						pickNextPath, body:getX(), body:getY(),
+						self.properties.pathmode, self)
+
 			local pathtime = self.properties.pathtime
-			if pathtime then
+			if not self.properties.pathspeed and pathtime then
 				local pathlength = levity.map.scripts:call(
 						pathid, "findTripLength",
-						PathGraph.pickNextPath_linear1way,
+						pickNextPath,
 						body:getX(), body:getY())
 
 				self.properties.pathspeed = pathlength / pathtime
@@ -212,13 +215,16 @@ function ShmupFriend:beginMove(dt)
 						"getVectorFromCenter",
 						body:getWorldCenter())
 
-		if self.catchupwithcam then
-			if fromccy < -ShmupFriend.CatchupDistY then
-				self.catchupwithcam = false
-			end
-		else
-			if fromccy > ShmupFriend.CatchupDistY then
-				self.catchupwithcam = true
+		local vx0, vy0 = self.object.body:getLinearVelocity()
+		if vy0 < 0 then
+			if self.catchupwithcam then
+				if fromccy < -ShmupFriend.CatchupDistY then
+					self.catchupwithcam = false
+				end
+			else
+				if fromccy > ShmupFriend.CatchupDistY then
+					self.catchupwithcam = true
+				end
 			end
 		end
 

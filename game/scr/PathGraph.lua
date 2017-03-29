@@ -283,6 +283,15 @@ function PathGraph.pickNextPath_linearUp(graphid, paths, prevx, prevy, userdata)
 	end
 end
 
+function PathGraph.pickNextPath_linearDown(graphid, paths, prevx, prevy, userdata)
+	for i = 1, #paths do
+		local path = paths[i]
+		if path.desty > prevy then
+			return path
+		end
+	end
+end
+
 function PathGraph.pickNextPath_linear2way(graphid, paths, prevx, prevy, userdata)
 	if #paths == 1 then
 		return paths[1]
