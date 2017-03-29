@@ -12,9 +12,8 @@ Curtain.CloseTimeout = 2
 local function beginMove(self, dt)
 	self.openwidth = self.openwidth + self.direction*Curtain.Speed*dt
 
-	local map = levity.map.overlaymap or levity.map
-	if self.openwidth >= map.camera.w
-	or self.openwidth < -Curtain.CloseTimeout*Curtain.Speed then
+	if self:finishedOpening() or self:finishedClosing() then
+		local map = levity.map.overlaymap or levity.map
 		map.scripts:scriptRemoveEventFunc(self, self.layer.name,
 							"beginMove")
 		map.scripts:scriptRemoveEventFunc(self, self.layer.name,
@@ -31,6 +30,15 @@ local function beginDraw(self)
 	love.graphics.rectangle("fill", camera.x + (camera.w + self.openwidth)*.5,
 		camera.y, width, camera.h)
 	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
+end
+
+function Curtain:finishedOpening()
+	local map = levity.map.overlaymap or levity.map
+	return self.openwidth >= map.camera.w
+end
+
+function Curtain:finishedClosing()
+	return self.openwidth < -Curtain.CloseTimeout*Curtain.Speed
 end
 
 function Curtain:beginOpen()
