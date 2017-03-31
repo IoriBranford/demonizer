@@ -26,9 +26,9 @@
    </object>
   </objectgroup>
   <animation>
-   <frame tileid="16" duration="967"/>
+   <frame tileid="16" duration="467"/>
    <frame tileid="0" duration="250"/>
-   <frame tileid="8" duration="500"/>
+   <frame tileid="8" duration="250"/>
    <frame tileid="0" duration="33"/>
   </animation>
  </tile>

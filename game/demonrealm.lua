@@ -8,7 +8,7 @@ return {
   height = 140,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 75,
+  nextobjectid = 93,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -1632,7 +1632,7 @@ return {
       margin = 0,
       image = "img/humanshots.png",
       imagewidth = 128,
-      imageheight = 112,
+      imageheight = 128,
       tileoffset = {
         x = -24,
         y = 8
@@ -1641,14 +1641,15 @@ return {
         ["commoncollision"] = 0,
         ["row_arrow"] = 2,
         ["row_ballista"] = 4,
-        ["row_fire"] = 6,
+        ["row_catapult"] = 5,
+        ["row_fire"] = 7,
         ["row_magic"] = 3,
         ["row_pike"] = 0,
         ["row_sword"] = 1,
-        ["row_water"] = 5
+        ["row_water"] = 6
       },
       terrains = {},
-      tilecount = 28,
+      tilecount = 32,
       tiles = {
         {
           id = 0,
@@ -1681,22 +1682,35 @@ return {
           }
         },
         {
-          id = 24,
+          id = 20,
           animation = {
             {
-              tileid = 24,
+              tileid = 20,
               duration = 67
             },
             {
-              tileid = 25,
+              tileid = 21,
+              duration = 67
+            }
+          }
+        },
+        {
+          id = 28,
+          animation = {
+            {
+              tileid = 28,
               duration = 67
             },
             {
-              tileid = 26,
+              tileid = 29,
               duration = 67
             },
             {
-              tileid = 27,
+              tileid = 30,
+              duration = 67
+            },
+            {
+              tileid = 31,
               duration = 67
             }
           }
@@ -1705,7 +1719,7 @@ return {
     },
     {
       name = "infmen",
-      firstgid = 767,
+      firstgid = 771,
       filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1788,7 +1802,7 @@ return {
     },
     {
       name = "infwomen",
-      firstgid = 857,
+      firstgid = 861,
       filename = "img/infwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1870,7 +1884,7 @@ return {
     },
     {
       name = "demonshothit",
-      firstgid = 932,
+      firstgid = 936,
       filename = "img/demonshothit.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1928,7 +1942,7 @@ return {
     },
     {
       name = "trees",
-      firstgid = 940,
+      firstgid = 944,
       filename = "img/trees.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1979,7 +1993,7 @@ return {
     },
     {
       name = "black_harpy",
-      firstgid = 943,
+      firstgid = 947,
       filename = "img/friend/black_harpy.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2055,7 +2069,7 @@ return {
     },
     {
       name = "devil_bug",
-      firstgid = 955,
+      firstgid = 959,
       filename = "img/friend/devil_bug.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2131,7 +2145,7 @@ return {
     },
     {
       name = "ghost",
-      firstgid = 967,
+      firstgid = 971,
       filename = "img/friend/ghost.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2207,7 +2221,7 @@ return {
     },
     {
       name = "goblin",
-      firstgid = 979,
+      firstgid = 983,
       filename = "img/friend/goblin.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2283,7 +2297,7 @@ return {
     },
     {
       name = "harpy",
-      firstgid = 991,
+      firstgid = 995,
       filename = "img/friend/harpy.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2359,7 +2373,7 @@ return {
     },
     {
       name = "holstaurus",
-      firstgid = 1003,
+      firstgid = 1007,
       filename = "img/friend/holstaurus.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2435,7 +2449,7 @@ return {
     },
     {
       name = "honey_bee",
-      firstgid = 1015,
+      firstgid = 1019,
       filename = "img/friend/honey_bee.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2511,7 +2525,7 @@ return {
     },
     {
       name = "siren",
-      firstgid = 1027,
+      firstgid = 1031,
       filename = "img/friend/siren.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2587,7 +2601,7 @@ return {
     },
     {
       name = "werebat",
-      firstgid = 1039,
+      firstgid = 1043,
       filename = "img/friend/werebat.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2663,7 +2677,7 @@ return {
     },
     {
       name = "weresheep",
-      firstgid = 1051,
+      firstgid = 1055,
       filename = "img/friend/weresheep.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2739,7 +2753,7 @@ return {
     },
     {
       name = "youko",
-      firstgid = 1063,
+      firstgid = 1067,
       filename = "img/friend/youko.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2784,6 +2798,242 @@ return {
                 y = 20,
                 width = 24,
                 height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "catapult",
+      firstgid = 1079,
+      filename = "img/catapult.tsx",
+      tilewidth = 72,
+      tileheight = 72,
+      spacing = 0,
+      margin = 0,
+      image = "img/catapult.png",
+      imagewidth = 576,
+      imageheight = 216,
+      tileoffset = {
+        x = -36,
+        y = 36
+      },
+      properties = {
+        ["column_angle0"] = 0,
+        ["column_angle135"] = 3,
+        ["column_angle180"] = 4,
+        ["column_angle225"] = 5,
+        ["column_angle270"] = 6,
+        ["column_angle315"] = 7,
+        ["column_angle45"] = 1,
+        ["column_angle90"] = 2,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_empty"] = 2,
+        ["row_windup"] = 0
+      },
+      terrains = {},
+      tilecount = 24,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -18,
+                y = 54,
+                width = 36,
+                height = 36,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 16,
+              duration = 467
+            },
+            {
+              tileid = 0,
+              duration = 250
+            },
+            {
+              tileid = 8,
+              duration = 250
+            },
+            {
+              tileid = 0,
+              duration = 33
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "sparks_med",
+      firstgid = 1103,
+      filename = "img/sparks_med.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/sparks_med.png",
+      imagewidth = 1024,
+      imageheight = 64,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["row_explosion"] = "0"
+      },
+      terrains = {},
+      tilecount = 16,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 64
+            },
+            {
+              tileid = 1,
+              duration = 64
+            },
+            {
+              tileid = 2,
+              duration = 64
+            },
+            {
+              tileid = 3,
+              duration = 64
+            },
+            {
+              tileid = 4,
+              duration = 64
+            },
+            {
+              tileid = 5,
+              duration = 64
+            },
+            {
+              tileid = 6,
+              duration = 64
+            },
+            {
+              tileid = 7,
+              duration = 64
+            },
+            {
+              tileid = 8,
+              duration = 64
+            },
+            {
+              tileid = 9,
+              duration = 64
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "civmen",
+      firstgid = 1119,
+      filename = "img/civmen.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/civmen.png",
+      imagewidth = 648,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      properties = {
+        ["column_civ1"] = 0,
+        ["column_civ2"] = 3,
+        ["column_civ3"] = 6,
+        ["column_civ4"] = 9,
+        ["column_civ5"] = 12,
+        ["column_civ6"] = 15,
+        ["column_civ7"] = 18,
+        ["column_civ8"] = 21,
+        ["column_civ9"] = 24,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_down"] = 2,
+        ["row_ko"] = 4,
+        ["row_left"] = 3,
+        ["row_right"] = 1,
+        ["row_up"] = 0
+      },
+      terrains = {},
+      tilecount = 135,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
                 rotation = 0,
                 visible = true,
                 properties = {
@@ -2861,7 +3111,341 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmrkOwkAMRCN+gKPlaDlajhKogRqogRr4/4pJMZIVJaDNBEExT5omG2fBG8fF+NzKsjE0gabQDNpBe+gA9aEBNIRGhbUYc4Pm0AJaQivoCJ2gc8kecS3GPKEiF1y7VuwR1z5xxz2Pij3erRljjDHGGGOMMcYYY4wxxhjzK9atLNs04GHR51Ohz5f/pq3wPPp89B7rQp+P3mMd2ojrQN0E77GM6K0q3mP0VhWit5r/t14D50/fWIW+sQp941/DOlXzzDpV88w6VfPMOlXzzDptCua7zjcoxsb5h1RibJx/SCXGpsw/FImxyvzDN2Yn/P0ph71Hhb1H7cvsPWpfZu9R+nJE6csR9b1u+rzUuuB5qXXB8/qXuvhXXjNyL7E="
+      data = "eJzt2rkOwjAQBFArP8DRcrQcLUcJ1EANqYEa+P+KaUZaWQkoXiOCNE+aBmdJ5GCa3bIIYYJMkRkyR/bIATkiA2SIjJBxtGZrbsgCWSIrZI2ckDNSVtzDrtmaJxK74LNrzT3s2id3XPOouce7NRERERERERERERERERGRf9YrQuhn6IWyb+zFvrEX+8a/tsEzbAv/PrMf791n9uO9+8x+vHef2Y/Phfu9S/hOW2vnH5qytXb+oSlb22T+IWZrPfMP35id0P9PtQ5quxmeg3M9qWeCONeTeiaIcz2pZyKWeiZi3t917vflPRd8X95zwffVlnPRVi8gUCcN"
+    },
+    {
+      type = "objectgroup",
+      name = "catapult2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 75,
+          name = "catapult",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1472,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 1081,
+          visible = true,
+          properties = {
+            ["kopassengers"] = true,
+            ["pathid"] = 87,
+            ["pathmode"] = "relative",
+            ["pathspeed"] = 120,
+            ["script"] = "VehicleCatapult"
+          }
+        },
+        {
+          id = 79,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = 1440,
+          width = 288,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 80,
+          name = "catapult",
+          type = "",
+          shape = "rectangle",
+          x = -16,
+          y = 1456,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {
+            ["kopassengers"] = true,
+            ["pathid"] = 82,
+            ["pathmode"] = "relative",
+            ["pathspeed"] = 120,
+            ["script"] = "VehicleCatapult"
+          }
+        },
+        {
+          id = 81,
+          name = "catapult",
+          type = "",
+          shape = "rectangle",
+          x = 304,
+          y = 1456,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 1082,
+          visible = true,
+          properties = {
+            ["kopassengers"] = true,
+            ["pathid"] = 83,
+            ["pathmode"] = "relative",
+            ["pathspeed"] = 120,
+            ["script"] = "VehicleCatapult"
+          }
+        },
+        {
+          id = 82,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 16,
+          y = 1472,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 0 },
+            { x = 32, y = 48 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 83,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 304,
+          y = 1472,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 0 },
+            { x = -64, y = 48 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 84,
+          name = "operator",
+          type = "",
+          shape = "rectangle",
+          x = -32,
+          y = 1440,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1182,
+          visible = true,
+          properties = {
+            ["leaderid"] = 80,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 85,
+          name = "operator",
+          type = "",
+          shape = "rectangle",
+          x = 320,
+          y = 1440,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1182,
+          visible = true,
+          properties = {
+            ["leaderid"] = 81,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 87,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 160,
+          y = 1488,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 0 },
+            { x = -16, y = 48 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 88,
+          name = "operator",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1440,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1182,
+          visible = true,
+          properties = {
+            ["leaderid"] = 75,
+            ["script"] = "ShmupNPC"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "catapult1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 76,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = 1504,
+          width = 288,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 77,
+          name = "catapult",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 1536,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 1081,
+          visible = true,
+          properties = {
+            ["kopassengers"] = true,
+            ["pathid"] = 91,
+            ["pathmode"] = "relative",
+            ["pathspeed"] = 120,
+            ["script"] = "VehicleCatapult"
+          }
+        },
+        {
+          id = 78,
+          name = "catapult",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 1536,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 1081,
+          visible = true,
+          properties = {
+            ["kopassengers"] = true,
+            ["pathid"] = 92,
+            ["pathmode"] = "relative",
+            ["pathspeed"] = 120,
+            ["script"] = "VehicleCatapult"
+          }
+        },
+        {
+          id = 89,
+          name = "operator",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 1504,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1182,
+          visible = true,
+          properties = {
+            ["leaderid"] = 77,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 90,
+          name = "operator",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 1504,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1182,
+          visible = true,
+          properties = {
+            ["leaderid"] = 78,
+            ["script"] = "ShmupNPC"
+          }
+        },
+        {
+          id = 91,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 112,
+          y = 1568,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 0 },
+            { x = -16, y = 64 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 92,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 208,
+          y = 1568,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 0 },
+            { x = -16, y = 64 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        }
+      }
     },
     {
       type = "objectgroup",
@@ -2879,11 +3463,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 1440,
+          y = 1680,
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 941,
+          gid = 945,
           visible = true,
           properties = {}
         },
@@ -2893,11 +3477,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 48,
-          y = 1456,
+          y = 1696,
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 941,
+          gid = 945,
           visible = true,
           properties = {}
         },
@@ -2907,11 +3491,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 240,
-          y = 1440,
+          y = 1680,
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 941,
+          gid = 945,
           visible = true,
           properties = {}
         },
@@ -2921,7 +3505,7 @@ return {
           type = "",
           shape = "polyline",
           x = 48,
-          y = 1440,
+          y = 1680,
           width = 0,
           height = 0,
           rotation = 0,
@@ -2941,7 +3525,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1392,
+          y = 1632,
           width = 288,
           height = 80,
           rotation = 0,
@@ -2956,11 +3540,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 48,
-          y = 1440,
+          y = 1680,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 815,
+          gid = 819,
           visible = true,
           properties = {
             ["pathid"] = 54,
@@ -2976,11 +3560,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 1400,
+          y = 1640,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 815,
+          gid = 819,
           visible = true,
           properties = {
             ["pathid"] = 54,
@@ -2996,11 +3580,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 240,
-          y = 1416,
+          y = 1656,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 815,
+          gid = 819,
           visible = true,
           properties = {
             ["pathid"] = 54,
@@ -3015,7 +3599,7 @@ return {
     {
       type = "objectgroup",
       name = "archer1",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -3028,11 +3612,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 80,
-          y = 1556,
+          y = 1748,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 815,
+          gid = 819,
           visible = true,
           properties = {
             ["pathid"] = 52,
@@ -3048,11 +3632,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 216,
-          y = 1516,
+          y = 1708,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 815,
+          gid = 819,
           visible = true,
           properties = {
             ["pathid"] = 52,
@@ -3068,7 +3652,7 @@ return {
           type = "",
           shape = "polyline",
           x = 96,
-          y = 1552,
+          y = 1744,
           width = 0,
           height = 0,
           rotation = 0,
@@ -3087,7 +3671,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1504,
+          y = 1696,
           width = 288,
           height = 80,
           rotation = 0,
@@ -3102,11 +3686,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 80,
-          y = 1568,
+          y = 1760,
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 941,
+          gid = 945,
           visible = true,
           properties = {}
         },
@@ -3116,11 +3700,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 216,
-          y = 1552,
+          y = 1744,
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 941,
+          gid = 945,
           visible = true,
           properties = {}
         }
@@ -3142,18 +3726,19 @@ return {
           type = "",
           shape = "polyline",
           x = 144,
-          y = 1568,
+          y = 1696,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 96 },
-            { x = 0, y = 224 },
-            { x = 0, y = -16 },
-            { x = 0, y = 256 }
+            { x = 0, y = 112 },
+            { x = -80, y = 192 },
+            { x = 80, y = 336 },
+            { x = 0, y = 416 }
           },
           properties = {
+            ["beziercurve"] = true,
             ["script"] = "PathGraph"
           }
         },
@@ -3162,12 +3747,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 160,
-          y = 1680,
+          x = 144,
+          y = 1760,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -3180,12 +3765,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 128,
-          y = 1648,
+          x = 112,
+          y = 1776,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -3198,12 +3783,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 160,
-          y = 1632,
+          x = 144,
+          y = 1792,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -3216,12 +3801,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 128,
-          y = 1664,
+          x = 80,
+          y = 1728,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -3234,12 +3819,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 128,
-          y = 1680,
+          x = 96,
+          y = 1760,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -3252,12 +3837,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 160,
-          y = 1664,
+          x = 208,
+          y = 1728,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -3270,12 +3855,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 160,
-          y = 1648,
+          x = 176,
+          y = 1776,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -3288,12 +3873,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 128,
-          y = 1632,
+          x = 192,
+          y = 1760,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -3307,9 +3892,9 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1648,
+          y = 1792,
           width = 288,
-          height = 48,
+          height = 16,
           rotation = 0,
           visible = true,
           properties = {
@@ -3322,11 +3907,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 1616,
+          y = 1728,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 887,
+          gid = 891,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -3352,18 +3937,18 @@ return {
           type = "",
           shape = "polyline",
           x = 120,
-          y = 1760,
+          y = 1808,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -32, y = 0 },
-            { x = -32, y = 160 },
-            { x = -32, y = -128 },
-            { x = -32, y = 192 }
+            { x = -56, y = 32 },
+            { x = 40, y = 112 },
+            { x = -72, y = 416 }
           },
           properties = {
+            ["beziercurve"] = true,
             ["script"] = "PathGraph"
           }
         },
@@ -3372,12 +3957,12 @@ return {
           name = "leader",
           type = "",
           shape = "rectangle",
-          x = 88,
-          y = 1776,
+          x = 48,
+          y = 1824,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -3390,12 +3975,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 88,
-          y = 1792,
+          x = 64,
+          y = 1840,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -3408,12 +3993,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 104,
-          y = 1776,
+          x = 64,
+          y = 1824,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -3426,12 +4011,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 104,
-          y = 1792,
+          x = 48,
+          y = 1840,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -3444,12 +4029,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 184,
-          y = 1792,
+          x = 224,
+          y = 1840,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -3462,12 +4047,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 184,
-          y = 1776,
+          x = 224,
+          y = 1824,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -3480,12 +4065,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 200,
-          y = 1792,
+          x = 240,
+          y = 1840,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -3498,12 +4083,12 @@ return {
           name = "leader",
           type = "",
           shape = "rectangle",
-          x = 200,
-          y = 1776,
+          x = 240,
+          y = 1824,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -3516,19 +4101,19 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = 168,
-          y = 1760,
+          x = 192,
+          y = 1952,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 32, y = 0 },
-            { x = 32, y = 160 },
-            { x = 32, y = -128 },
-            { x = 32, y = 192 }
+            { x = 32, y = -112 },
+            { x = -64, y = -32 },
+            { x = 48, y = 272 }
           },
           properties = {
+            ["beziercurve"] = true,
             ["script"] = "PathGraph"
           }
         },
@@ -3538,9 +4123,9 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1760,
+          y = 1840,
           width = 288,
-          height = 48,
+          height = 16,
           rotation = 0,
           visible = true,
           properties = {
@@ -3571,10 +4156,8 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 0 },
-            { x = 0, y = 176 },
-            { x = 0, y = -120 },
-            { x = 0, y = 208 }
+            { x = 0, y = -16 },
+            { x = 0, y = 368 }
           },
           properties = {
             ["script"] = "PathGraph"
@@ -3590,7 +4173,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -3608,7 +4191,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -3626,7 +4209,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -3644,7 +4227,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 803,
+          gid = 807,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -3658,9 +4241,9 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1824,
+          y = 1856,
           width = 288,
-          height = 48,
+          height = 16,
           rotation = 0,
           visible = true,
           properties = {
@@ -3672,7 +4255,7 @@ return {
     {
       type = "objectgroup",
       name = "friends",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -3691,7 +4274,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 943,
+          gid = 947,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -3711,7 +4294,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 955,
+          gid = 959,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -3731,7 +4314,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 967,
+          gid = 971,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -3751,7 +4334,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 979,
+          gid = 983,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -3771,7 +4354,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 991,
+          gid = 995,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -3791,7 +4374,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1003,
+          gid = 1007,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -3811,7 +4394,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1015,
+          gid = 1019,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -3831,7 +4414,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1027,
+          gid = 1031,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -3851,7 +4434,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1039,
+          gid = 1043,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -3871,7 +4454,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1051,
+          gid = 1055,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -3891,7 +4474,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1063,
+          gid = 1067,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -3957,9 +4540,10 @@ return {
           width = 240,
           height = 320,
           rotation = 0,
-          visible = false,
+          visible = true,
           properties = {
             ["pathid"] = 2,
+            ["pathmode"] = "relative",
             ["pathspeed"] = 30
           }
         },

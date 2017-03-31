@@ -157,6 +157,7 @@ end
 
 function ShmupNPC:canBeCaptured()
 	return self.health < 1 and not self.captured
+		and not self.properties.leaderid
 end
 
 function ShmupNPC:getKOGid()
@@ -199,6 +200,8 @@ function ShmupNPC:knockout()
 			or ShmupNPC.KnockoutLaunchVelY
 		self.object.body:setLinearVelocity(vx, vy)
 	end
+
+	self.properties.leaderid = nil
 end
 
 function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
@@ -241,10 +244,10 @@ function ShmupNPC:dealDamage(damage)
 end
 
 function ShmupNPC:beginContact_PlayerTeam(myfixture, otherfixture, contact)
-	if self.health >= 1 then
-		self:suppress()
-	else
+	if self:canBeCaptured() then
 		self:capture(otherfixture:getBody():getUserData().id)
+	else
+		self:suppress()
 	end
 end
 
@@ -524,7 +527,6 @@ end
 function ShmupNPC:inheritPath(leaderid)
 	local leader = levity.map.objects[leaderid]
 	self.properties.pathid = leader.properties.pathid
-	--self.properties.pathtime = leader.properties.pathtime
 end
 
 function ShmupNPC.releaseCaptives(captivegids, x, y, layer)

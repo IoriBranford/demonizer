@@ -640,7 +640,7 @@ return {
       margin = 0,
       image = "img/humanshots.png",
       imagewidth = 128,
-      imageheight = 112,
+      imageheight = 128,
       tileoffset = {
         x = -24,
         y = 8
@@ -649,14 +649,15 @@ return {
         ["commoncollision"] = 0,
         ["row_arrow"] = 2,
         ["row_ballista"] = 4,
-        ["row_fire"] = 6,
+        ["row_catapult"] = 5,
+        ["row_fire"] = 7,
         ["row_magic"] = 3,
         ["row_pike"] = 0,
         ["row_sword"] = 1,
-        ["row_water"] = 5
+        ["row_water"] = 6
       },
       terrains = {},
-      tilecount = 28,
+      tilecount = 32,
       tiles = {
         {
           id = 0,
@@ -689,22 +690,35 @@ return {
           }
         },
         {
-          id = 24,
+          id = 20,
           animation = {
             {
-              tileid = 24,
+              tileid = 20,
               duration = 67
             },
             {
-              tileid = 25,
+              tileid = 21,
+              duration = 67
+            }
+          }
+        },
+        {
+          id = 28,
+          animation = {
+            {
+              tileid = 28,
               duration = 67
             },
             {
-              tileid = 26,
+              tileid = 29,
               duration = 67
             },
             {
-              tileid = 27,
+              tileid = 30,
+              duration = 67
+            },
+            {
+              tileid = 31,
               duration = 67
             }
           }
@@ -713,7 +727,7 @@ return {
     },
     {
       name = "sparks_med",
-      firstgid = 108,
+      firstgid = 112,
       filename = "img/sparks_med.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -781,7 +795,7 @@ return {
     },
     {
       name = "infmen",
-      firstgid = 124,
+      firstgid = 128,
       filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -920,7 +934,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 160,
+          gid = 164,
           visible = true,
           properties = {
             ["pathgraphid"] = "pathgraph",

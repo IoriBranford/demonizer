@@ -1425,7 +1425,7 @@ return {
       margin = 0,
       image = "img/humanshots.png",
       imagewidth = 128,
-      imageheight = 112,
+      imageheight = 128,
       tileoffset = {
         x = -24,
         y = 8
@@ -1434,14 +1434,15 @@ return {
         ["commoncollision"] = 0,
         ["row_arrow"] = 2,
         ["row_ballista"] = 4,
-        ["row_fire"] = 6,
+        ["row_catapult"] = 5,
+        ["row_fire"] = 7,
         ["row_magic"] = 3,
         ["row_pike"] = 0,
         ["row_sword"] = 1,
-        ["row_water"] = 5
+        ["row_water"] = 6
       },
       terrains = {},
-      tilecount = 28,
+      tilecount = 32,
       tiles = {
         {
           id = 0,
@@ -1474,22 +1475,35 @@ return {
           }
         },
         {
-          id = 24,
+          id = 20,
           animation = {
             {
-              tileid = 24,
+              tileid = 20,
               duration = 67
             },
             {
-              tileid = 25,
+              tileid = 21,
+              duration = 67
+            }
+          }
+        },
+        {
+          id = 28,
+          animation = {
+            {
+              tileid = 28,
               duration = 67
             },
             {
-              tileid = 26,
+              tileid = 29,
               duration = 67
             },
             {
-              tileid = 27,
+              tileid = 30,
+              duration = 67
+            },
+            {
+              tileid = 31,
               duration = 67
             }
           }
@@ -1498,7 +1512,7 @@ return {
     },
     {
       name = "electricity",
-      firstgid = 616,
+      firstgid = 620,
       filename = "img/electricity.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1534,7 +1548,7 @@ return {
     },
     {
       name = "demonizing",
-      firstgid = 648,
+      firstgid = 652,
       filename = "img/demonizing.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1624,7 +1638,7 @@ return {
     },
     {
       name = "demonwomen",
-      firstgid = 651,
+      firstgid = 655,
       filename = "img/demonwomen.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1705,7 +1719,7 @@ return {
     },
     {
       name = "lavapit",
-      firstgid = 690,
+      firstgid = 694,
       filename = "img/lavapit.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1923,7 +1937,7 @@ return {
     },
     {
       name = "cave_objects",
-      firstgid = 730,
+      firstgid = 734,
       filename = "img/cave_objects.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1943,7 +1957,7 @@ return {
     },
     {
       name = "flames",
-      firstgid = 779,
+      firstgid = 783,
       filename = "img/flames.tsx",
       tilewidth = 16,
       tileheight = 24,
@@ -2044,7 +2058,7 @@ return {
     },
     {
       name = "sparks_med",
-      firstgid = 791,
+      firstgid = 795,
       filename = "img/sparks_med.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2112,7 +2126,7 @@ return {
     },
     {
       name = "demonbomb",
-      firstgid = 807,
+      firstgid = 811,
       filename = "img/demonbomb.tsx",
       tilewidth = 128,
       tileheight = 128,
@@ -2197,7 +2211,7 @@ return {
     },
     {
       name = "ballista",
-      firstgid = 815,
+      firstgid = 819,
       filename = "img/ballista.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2279,7 +2293,7 @@ return {
     },
     {
       name = "civwomen",
-      firstgid = 839,
+      firstgid = 843,
       filename = "img/civwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -2364,7 +2378,7 @@ return {
     },
     {
       name = "cauldron",
-      firstgid = 959,
+      firstgid = 963,
       filename = "img/cauldron.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2444,7 +2458,7 @@ return {
     },
     {
       name = "demonshothit",
-      firstgid = 965,
+      firstgid = 969,
       filename = "img/demonshothit.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -2518,7 +2532,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztlTuOwzAMBQPf/zRUZ18uKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q1Wnhcb"
+      data = "eJztlTuOwzAMBQPf/zxUZ18tKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q3+0iKv"
     },
     {
       type = "tilelayer",
@@ -2592,7 +2606,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzrEJACAQBMHH/qvSTDNtyM9s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswtudzlp"
+      data = "eJztzrEJACAQBMHH/uvSTDNtx89s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswtK+D+l"
     },
     {
       type = "tilelayer",
@@ -2610,7 +2624,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztWmuL2zAQPPR7TTElmFKMCUe4330nanHbycxqtc6HUjQg4jw8nl1pH5bz9jYxMTExMTExMTExMTHxL+G9/Bk/yjWe5ev829fYzpHhqxx34Lmd436OCK/Vgq8bcCu+5fQLnoNclv834UK/2N8zje34V/F5IrYpXUfHP0xPe4+6DvM7T1/Ext3xd28+mY3sfMVnP2c22u+VrUzjz46NyBnlqVgdfyl+xmP5PD/Z79BHio/pQz4WNz0+FTtRropdcKm1rrA4/o7kGgtca2pe61D5sOUuL45VfL6fvO/AEbFP5RE8z/teXcOLj148efo8X0Tz44hWTzv7vOdrdk2lUfn9cQ6lr33/EZjXhpVowHhiv7kZTSwuvNjcCRfLB5jn6sA4snHYbFe5c4drWm3Yi/RywFqefdriEecnkp+O8jxnbM15dQG1eWszwtPA5qtxRXMv04ZxMMpVcRCeUfsa0M6MfZYLfT5S8yyO8rwusrrQX1kuVkuzXNibtpGdw6trtGIpPHYyXGxdXeVCbaNcmO+u+J3FoMrpUU2Y90btY/GXyX3sHnVL2LcQDjtGuNg9U2ZdLUQH6ovoUn01fhbh6tkWXQ9er8/4vP0Fr0djOZD1KQv5jeoDPVuRhx339LZ7Bpzz+lrrM/aPSqf3GfaY7FrMf0q/Ra+/UXoYl+VT6wSPPxwutFfZ3M6/E38h9vLsL29dK10Vao8EtUXiDHu53jz2YnYlWpjfvB4f/eblpJE6gHnJ8o7WE7VGs3X3aq1ErlvSNsuVyf0I1WNe6e2zNbenKdvLsZyQnT+WV0d9pfavX9X39tZCe7agNGF+UVx2niwOYpunC3skxYXzyPyFc4T2qZrDnjGgDfYaXo3dyvczGnxuYmsa3v+oHM/Ox2sxLao+qxyraryqh6oW1dH6mxobKocq/vb6KN+xtZW/932UzyLrF/f3vONITWz9XM9/I/m+1yNm8g7W/it1o4L1Oa/gulI7Ktj9ez0eeQ6rnnlGalE7F+Nf5R5vHlXPgOv10eGp8Hq/0RrL9mBx/qJc6GMWh9G18AhwjfakKh9k9mXVWsjUfu+ZZ+Y/BypPZ+JwLc9+v5ofWI7O2KnuqbLa2L1yVlsF2z9+VS7cLmhjz2OztrJnO1f0KW2Z2MJahDqj2rz+bjTud6IH4z66j6h6wmhNsppUXRr1PfvvTLbf8f43MBpLK+Gyr5keDGtUhodxRvdsJiYmJiYm/gd8AuVToWs="
+      data = "eJztWmuL2zAQPPSLTTElmFKMCUe4X30nanHbycxqtc6HUjQg4jw8nl1pH5bz9jYxMTExMTExMTExMTHxL+G9/Bk/yjWe5ev829fYzpHhqxx34Lmd436OCK/Vgq8bcCu+5fQLnoNclv834UK/2N8zje34V/F5IrYpXUfHP0xPe4+6DvM7T1/Ext3xd28+mY3sfMVnP2c22u+VrUzjz46NyBnlqVgdfyl+xmP5PD/Z79BHio/pQz4WNz0+FTtRropdcKm1rrA4/o7kGgtca2pe61D5sOUuL45VfL6fvO/AEbFP5RE8z/teXcOLj148efo8X0Tz44hWTzv7vOdrdk2lUfn9cQ6lr33/EZjXhpVowHhiv7kZTSwuvNjcCRfLB5jn6sA4snHYbFe5c4drWm3Yi/RywFqefdriEecnkp+O8jxnbM15dQG1eWszwtPA5qtxRXMv04ZxMMpVcRCeUfsa0M6MfZYLfT5S8yyO8rwusrrQX1kuVkuzXNibtpGdw6trtGIpPHYyXGxdXeVCbaNcmO+u+J3FoMrpUU2Y90btY/GXyX3sHnVL2LcQDjtGuNg9U2ZdLUQH6ovoUn01fhbh6tkWXQ9er8/4vP0Fr0djOZD1KQv5jeoDPVuRhx339LZ7Bpzz+lrrM/aPSqf3GfaY7FrMf0q/Ra+/UXoYl+VT6wSPPxwutFfZ3M6/E38h9vLsL29dK10Vao8EtUXiDHu53jz2YnYlWpjfvB4f/eblpJE6gHnJ8o7WE7VGs3X3aq1ErlvSNsuVyf0I1WNe6e2zNbenKdvLsZyQnT+WV0d9pfavX9X39tZCe7agNGF+UVx2niwOYpunC3skxYXzyPyFc4T2qZrDnjGgDfYaXo3dyvczGnxuYmsa3v+oHM/Ox2sxLao+qxyraryqh6oW1dH6mxobKocq/vb6KN+xtZW/932UzyLrF/f3vONITWz9XM9/I/m+1yNm8g7W/it1o4L1Oa/gulI7Ktj9ez0eeQ6rnnlGalE7F+Nf5R5vHlXPgOv10eGp8Hq/0RrL9mBx/qJc6GMWh9G18AhwjfakKh9k9mXVWsjUfu+ZZ+Y/BypPZ+JwLc9+v5ofWI7O2KnuqbLa2L1yVlsF2z9+VS7cLmhjz2OztrJnO1f0KW2Z2MJahDqj2rz+bjTud6IH4z66j6h6wmhNsppUXRr1PfvvTLbf8f43MBpLK+Gyr5keDGtUhodxRvdsJiYmJiYm/gd8AicCt/M="
     },
     {
       type = "tilelayer",
@@ -2685,7 +2699,7 @@ return {
           width = 16,
           height = 24,
           rotation = 0,
-          gid = 779,
+          gid = 783,
           visible = true,
           properties = {
             ["operatorid"] = 118,
@@ -2702,7 +2716,7 @@ return {
           width = 16,
           height = 24,
           rotation = 0,
-          gid = 779,
+          gid = 783,
           visible = true,
           properties = {
             ["operatorid"] = 118,
@@ -2849,7 +2863,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 959,
+          gid = 963,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -2866,7 +2880,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 959,
+          gid = 963,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -2883,7 +2897,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 959,
+          gid = 963,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -2900,7 +2914,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 959,
+          gid = 963,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -3375,7 +3389,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 818,
+          gid = 822,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3391,7 +3405,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 816,
+          gid = 820,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3434,7 +3448,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 816,
+          gid = 820,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3450,7 +3464,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 818,
+          gid = 822,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3493,7 +3507,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 816,
+          gid = 820,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3509,7 +3523,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 818,
+          gid = 822,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3552,7 +3566,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 818,
+          gid = 822,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3568,7 +3582,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 816,
+          gid = 820,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4366,7 +4380,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 817,
+          gid = 821,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4382,7 +4396,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 817,
+          gid = 821,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4398,7 +4412,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 817,
+          gid = 821,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4414,7 +4428,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 817,
+          gid = 821,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
