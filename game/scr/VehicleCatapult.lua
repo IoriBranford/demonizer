@@ -30,11 +30,11 @@ function VehicleCatapult:loopedAnimation()
 	params.y = cy
 	params.angle = self.angle - math.pi/8
 
-	for i = 1, 5 do
+	for i = 1, 3 do
 		params.speed = VehicleCatapult.BulletBaseSpeed
 			* (1 + math.cos(math.pi*i)/8)
 		ShmupBullet.create(params, levity.map.layers["npcshots"])
-		params.angle = params.angle + math.pi/16
+		params.angle = params.angle + math.pi/8
 	end
 
 	levity.bank:play("snd/catapult.wav")
@@ -49,7 +49,7 @@ function VehicleCatapult:beginMove(dt)
 		return
 	end
 
-	if self.oncamera then
+	if self.oncamera or self.properties.offscreenshot then
 		self.object.anitimescale = 1
 	else
 		self.object.anitimescale = 0

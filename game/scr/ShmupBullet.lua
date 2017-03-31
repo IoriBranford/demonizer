@@ -19,7 +19,8 @@ local function beginMove(self, dt)
 	end
 end
 
-local ShmupBullet = class(function(self, object)
+local ShmupBullet
+ShmupBullet = class(function(self, object)
 	self.object = object
 	self.object.body:setBullet(true)
 	self.object.body:setFixedRotation(true)
@@ -69,12 +70,17 @@ local ShmupBullet = class(function(self, object)
 				"beginMove", beginMove)
 	end
 
-	if properties.lifetime then
-		self.time = properties.lifetime
+	self.time = properties.lifetime
+	if self.time then
+		self.time = math.min(self.time, ShmupBullet.MaxTime)
+	else
+		self.time = ShmupBullet.MaxTime
 	end
 
-	self.oncamera = false
+	self.exitedcamera = false
 end)
+
+ShmupBullet.MaxTime = 10
 
 function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
 	if otherfixture:getCategory() == ShmupCollision.Category_PlayerTeam
@@ -104,21 +110,19 @@ function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
 		if not self.object.properties.persist then
 			levity.map:discardObject(self.object.id)
 		end
-	elseif otherfixture:getCategory() == ShmupCollision.Category_Camera then
-		self.oncamera = true
 	end
 end
 
 function ShmupBullet:endContact(yourfixture, otherfixture, contact)
 	if otherfixture:getCategory() == ShmupCollision.Category_Camera then
-		self.oncamera = false
+		self.exitedcamera = true
 	end
 end
 
 function ShmupBullet:endMove(dt)
-	if not self.oncamera then
+	if self.exitedcamera then
 		levity.map:discardObject(self.object.id)
-	elseif self.time then
+	else
 		self.time = self.time - dt
 		if self.time <= 0 then
 			levity.map:discardObject(self.object.id)
