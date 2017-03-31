@@ -365,24 +365,27 @@ function ShmupNPC:beginMove(dt)
 		playerdsq = math.hypotsq(playerdx, playerdy)
 	end
 
-	local capturepulldistsq
-	local uimap = levity.map.overlaymap
-	local scoreid = uimap.scripts:call("status", "getScoreId")
-
 	local canbecaptured = self:canBeCaptured()
 
-	if canbecaptured
-	and levity.map.scripts:call(playerid, "isFocused")
-	and uimap.scripts:call(scoreid, "isMaxMultiplier", playerid)
-	then
-		capturepulldistsq = ShmupNPC.EnhancedCapturePullDistSq
-	else
-		capturepulldistsq = ShmupNPC.CapturePullDistSq
-	end
+	if not self.pulledbyplayer and canbecaptured then
+		local capturepulldistsq
+		local uimap = levity.map.overlaymap
+		local scoreid = uimap.scripts:call("status", "getScoreId")
 
-	self.pulledbyplayer = self.pulledbyplayer or
-		(canbecaptured and playerdsq < capturepulldistsq
-		and not levity.map.scripts:call(playerid, "isKilled"))
+		if levity.map.scripts:call(playerid, "isFocused")
+		and uimap.scripts:call(scoreid, "isMaxMultiplier", playerid)
+		then
+			capturepulldistsq = ShmupNPC.EnhancedCapturePullDistSq
+		else
+			capturepulldistsq = ShmupNPC.CapturePullDistSq
+		end
+
+		if canbecaptured and playerdsq < capturepulldistsq
+		and not levity.map.scripts:call(playerid, "isKilled") then
+			self.object:setLayer(player.layer)
+			self.pulledbyplayer = true
+		end
+	end
 
 	local pathid = self.properties.pathid
 	local leaderid = self.properties.leaderid

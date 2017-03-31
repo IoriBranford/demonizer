@@ -8,7 +8,7 @@ return {
   height = 140,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 93,
+  nextobjectid = 98,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -3129,7 +3129,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 1392,
+          y = 1440,
           width = 72,
           height = 72,
           rotation = 0,
@@ -3138,7 +3138,6 @@ return {
           properties = {
             ["kopassengers"] = true,
             ["pathid"] = 87,
-            ["pathmode"] = "relative",
             ["pathspeed"] = 120,
             ["script"] = "VehicleCatapult"
           }
@@ -3149,7 +3148,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1360,
+          y = 1408,
           width = 288,
           height = 80,
           rotation = 0,
@@ -3163,8 +3162,8 @@ return {
           name = "catapult",
           type = "",
           shape = "rectangle",
-          x = -16,
-          y = 1376,
+          x = -32,
+          y = 1488,
           width = 72,
           height = 72,
           rotation = 0,
@@ -3173,7 +3172,6 @@ return {
           properties = {
             ["kopassengers"] = true,
             ["pathid"] = 82,
-            ["pathmode"] = "relative",
             ["pathspeed"] = 120,
             ["script"] = "VehicleCatapult"
           }
@@ -3183,8 +3181,8 @@ return {
           name = "catapult",
           type = "",
           shape = "rectangle",
-          x = 304,
-          y = 1376,
+          x = 320,
+          y = 1488,
           width = 72,
           height = 72,
           rotation = 0,
@@ -3193,7 +3191,6 @@ return {
           properties = {
             ["kopassengers"] = true,
             ["pathid"] = 83,
-            ["pathmode"] = "relative",
             ["pathspeed"] = 120,
             ["script"] = "VehicleCatapult"
           }
@@ -3204,13 +3201,13 @@ return {
           type = "",
           shape = "polyline",
           x = 16,
-          y = 1392,
+          y = 1520,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -16, y = 0 },
+            { x = -32, y = -16 },
             { x = 32, y = 48 }
           },
           properties = {
@@ -3223,13 +3220,13 @@ return {
           type = "",
           shape = "polyline",
           x = 304,
-          y = 1392,
+          y = 1520,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -16, y = 0 },
+            { x = 0, y = -16 },
             { x = -64, y = 48 }
           },
           properties = {
@@ -3241,8 +3238,8 @@ return {
           name = "operator",
           type = "",
           shape = "rectangle",
-          x = -32,
-          y = 1360,
+          x = -48,
+          y = 1472,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3258,8 +3255,8 @@ return {
           name = "operator",
           type = "",
           shape = "rectangle",
-          x = 320,
-          y = 1360,
+          x = 336,
+          y = 1472,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3276,7 +3273,7 @@ return {
           type = "",
           shape = "polyline",
           x = 160,
-          y = 1408,
+          y = 1456,
           width = 0,
           height = 0,
           rotation = 0,
@@ -3295,7 +3292,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 1360,
+          y = 1408,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3349,7 +3346,6 @@ return {
             ["kopassengers"] = true,
             ["offscreenshot"] = true,
             ["pathid"] = 91,
-            ["pathmode"] = "relative",
             ["pathspeed"] = 120,
             ["script"] = "VehicleCatapult"
           }
@@ -3370,7 +3366,6 @@ return {
             ["kopassengers"] = true,
             ["offscreenshot"] = true,
             ["pathid"] = 92,
-            ["pathmode"] = "relative",
             ["pathspeed"] = 120,
             ["script"] = "VehicleCatapult"
           }
@@ -3464,8 +3459,8 @@ return {
           name = "tree",
           type = "",
           shape = "rectangle",
-          x = 144,
-          y = 1680,
+          x = 128,
+          y = 1688,
           width = 64,
           height = 64,
           rotation = 0,
@@ -3478,8 +3473,8 @@ return {
           name = "tree",
           type = "",
           shape = "rectangle",
-          x = 48,
-          y = 1696,
+          x = 32,
+          y = 1688,
           width = 64,
           height = 64,
           rotation = 0,
@@ -3492,8 +3487,8 @@ return {
           name = "tree",
           type = "",
           shape = "rectangle",
-          x = 240,
-          y = 1680,
+          x = 224,
+          y = 1688,
           width = 64,
           height = 64,
           rotation = 0,
@@ -3552,7 +3547,6 @@ return {
             ["pathid"] = 54,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linear2way",
-            ["pathspeed"] = 120,
             ["script"] = "NPCArcher"
           }
         },
@@ -3572,7 +3566,6 @@ return {
             ["pathid"] = 54,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linear2way",
-            ["pathspeed"] = 120,
             ["script"] = "NPCArcher"
           }
         },
@@ -3592,16 +3585,57 @@ return {
             ["pathid"] = 54,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linear2way",
-            ["pathspeed"] = 120,
             ["script"] = "NPCArcher"
           }
+        },
+        {
+          id = 93,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 160,
+          y = 1680,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 945,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 94,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 1696,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 945,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 95,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 256,
+          y = 1680,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 945,
+          visible = true,
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
       name = "archer1",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -3624,7 +3658,6 @@ return {
             ["pathid"] = 52,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linear2way",
-            ["pathspeed"] = 120,
             ["script"] = "NPCArcher"
           }
         },
@@ -3644,7 +3677,6 @@ return {
             ["pathid"] = 52,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linear2way",
-            ["pathspeed"] = 120,
             ["script"] = "NPCArcher"
           }
         },
@@ -3687,8 +3719,8 @@ return {
           name = "tree",
           type = "",
           shape = "rectangle",
-          x = 80,
-          y = 1760,
+          x = 64,
+          y = 1776,
           width = 64,
           height = 64,
           rotation = 0,
@@ -3701,8 +3733,36 @@ return {
           name = "tree",
           type = "",
           shape = "rectangle",
-          x = 216,
+          x = 224,
           y = 1744,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 945,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 96,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 1760,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 945,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 97,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 1760,
           width = 64,
           height = 64,
           rotation = 0,
@@ -4257,7 +4317,7 @@ return {
     {
       type = "objectgroup",
       name = "friends",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -4272,7 +4332,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 192,
-          y = 1984,
+          y = 1872,
           width = 64,
           height = 64,
           rotation = 0,
@@ -4282,7 +4342,7 @@ return {
             ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linearDown",
-            ["pathspeed"] = 240,
+            ["pathspeed"] = 300,
             ["script"] = "ShmupFriend"
           }
         },
@@ -4292,7 +4352,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 128,
-          y = 1904,
+          y = 1792,
           width = 32,
           height = 32,
           rotation = 0,
@@ -4302,7 +4362,7 @@ return {
             ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linearDown",
-            ["pathspeed"] = 180,
+            ["pathspeed"] = 240,
             ["script"] = "ShmupFriend"
           }
         },
@@ -4312,7 +4372,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 176,
-          y = 1888,
+          y = 1776,
           width = 32,
           height = 32,
           rotation = 0,
@@ -4322,7 +4382,7 @@ return {
             ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linearDown",
-            ["pathspeed"] = 180,
+            ["pathspeed"] = 240,
             ["script"] = "ShmupFriend"
           }
         },
@@ -4332,7 +4392,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 224,
-          y = 1904,
+          y = 1792,
           width = 32,
           height = 32,
           rotation = 0,
@@ -4342,7 +4402,7 @@ return {
             ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linearDown",
-            ["pathspeed"] = 180,
+            ["pathspeed"] = 240,
             ["script"] = "ShmupFriend"
           }
         },
@@ -4352,7 +4412,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 240,
-          y = 1968,
+          y = 1856,
           width = 64,
           height = 64,
           rotation = 0,
@@ -4362,7 +4422,7 @@ return {
             ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linearDown",
-            ["pathspeed"] = 240,
+            ["pathspeed"] = 300,
             ["script"] = "ShmupFriend"
           }
         },
@@ -4372,7 +4432,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 64,
-          y = 1904,
+          y = 1792,
           width = 32,
           height = 32,
           rotation = 0,
@@ -4382,7 +4442,7 @@ return {
             ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linearDown",
-            ["pathspeed"] = 180,
+            ["pathspeed"] = 240,
             ["script"] = "ShmupFriend"
           }
         },
@@ -4392,7 +4452,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 112,
-          y = 1984,
+          y = 1872,
           width = 64,
           height = 64,
           rotation = 0,
@@ -4402,7 +4462,7 @@ return {
             ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linearDown",
-            ["pathspeed"] = 240,
+            ["pathspeed"] = 300,
             ["script"] = "ShmupFriend"
           }
         },
@@ -4412,7 +4472,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 64,
-          y = 1968,
+          y = 1856,
           width = 64,
           height = 64,
           rotation = 0,
@@ -4422,7 +4482,7 @@ return {
             ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linearDown",
-            ["pathspeed"] = 240,
+            ["pathspeed"] = 300,
             ["script"] = "ShmupFriend"
           }
         },
@@ -4432,11 +4492,31 @@ return {
           type = "",
           shape = "rectangle",
           x = 176,
-          y = 1968,
+          y = 1856,
           width = 64,
           height = 64,
           rotation = 0,
           gid = 1043,
+          visible = true,
+          properties = {
+            ["pathid"] = 74,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linearDown",
+            ["pathspeed"] = 300,
+            ["script"] = "ShmupFriend"
+          }
+        },
+        {
+          id = 71,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 1824,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1055,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -4447,32 +4527,12 @@ return {
           }
         },
         {
-          id = 71,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 112,
-          y = 1936,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1055,
-          visible = true,
-          properties = {
-            ["pathid"] = 74,
-            ["pathmode"] = "relative",
-            ["pathpicker"] = "linearDown",
-            ["pathspeed"] = 180,
-            ["script"] = "ShmupFriend"
-          }
-        },
-        {
           id = 72,
           name = "",
           type = "",
           shape = "rectangle",
           x = 176,
-          y = 1952,
+          y = 1840,
           width = 32,
           height = 32,
           rotation = 0,
@@ -4482,7 +4542,7 @@ return {
             ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathpicker"] = "linearDown",
-            ["pathspeed"] = 180,
+            ["pathspeed"] = 240,
             ["script"] = "ShmupFriend"
           }
         },
@@ -4492,7 +4552,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 2112,
+          y = 1888,
           width = 288,
           height = 16,
           rotation = 0,
@@ -4507,7 +4567,7 @@ return {
           type = "",
           shape = "polyline",
           x = 0,
-          y = 1920,
+          y = 1872,
           width = 0,
           height = 0,
           rotation = 0,
