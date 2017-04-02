@@ -50,7 +50,6 @@ end
 
 local CombatantMask = {
 	ShmupCollision.Category_CameraEdge,
-	ShmupCollision.Category_NPCTeam,
 	ShmupCollision.Category_NPCShot
 }
 
@@ -185,6 +184,7 @@ function ShmupNPC:knockout()
 
 	self:setInCover(false)
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
+		fixture:setSensor(true)
 		fixture:setMask(unpack(NonCombatantMask))
 	end
 
@@ -264,6 +264,13 @@ function ShmupNPC:beginContact(myfixture, otherfixture, contact)
 		self:setInCover(true)
 	elseif category == ShmupCollision.Category_Camera then
 		self.oncamera = true
+	end
+end
+
+function ShmupNPC:preSolve(myfixture, otherfixture, contact)
+	local category = otherfixture:getCategory()
+	if category == ShmupCollision.Category_PlayerTeam then
+		contact:setEnabled(false)
 	end
 end
 

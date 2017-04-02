@@ -10,11 +10,15 @@ NPCSwordsman = class(ShmupNPC, function(self, object)
 	ShmupNPC.init(self, object)
 	self.fireco = nil
 	self.health = 16
+	for _, fixture in ipairs(self.object.body:getFixtureList()) do
+		fixture:setSensor(false)
+	end
 end)
 
 NPCSwordsman.BulletInterval = 1
 NPCSwordsman.BulletParams = {
-	speed = 2.5*60,
+	speed = 240,
+	lifetime = .5,
 	category = ShmupCollision.Category_NPCShot
 }
 
@@ -69,8 +73,27 @@ function NPCSwordsman:beginMove(dt)
 		return
 	end
 
+	local x, y = self.object.body:getPosition()
+
+	local player = levity.map.scripts:call(levity.map.name, "getPlayer")
+	local playerx, playery
+	if player then
+		playerx, playery = player.body:getWorldCenter()
+	end
+
+	if not self.properties.pathid then
+		--local massdt = self.object.body:getMass()*dt*64
+
+		self.object.body:setLinearVelocity((playerx - x), (playery - y))
+	end
+
 	if self.oncamera then
-		self:updateFiring(dt)
+		local dist = math.hypot(playerx - x, playery - y)
+		if dist <= NPCSwordsman.BulletParams.speed
+			* NPCSwordsman.BulletParams.lifetime
+		then
+			self:updateFiring(dt)
+		end
 	end
 end
 

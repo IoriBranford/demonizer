@@ -394,6 +394,14 @@ function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 	end
 end
 
+function ShmupPlayer:preSolve(myfixture, otherfixture, contact)
+	local category = otherfixture:getCategory()
+	if category == ShmupCollision.Category_NPCTeam
+	or category == ShmupCollision.Category_NPCInCover then
+		contact:setEnabled(false)
+	end
+end
+
 function ShmupPlayer:deathCoroutine(dt)
 	self.deathtimer = 0
 	self.killed = true

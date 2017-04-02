@@ -159,4 +159,8 @@ function ShmupMap:playerDefeated()
 	self.properties.nextmap = "title.lua"
 end
 
+function ShmupMap:getPlayer()
+	return self.map.objects[self.properties.playerid]
+end
+
 return ShmupMap

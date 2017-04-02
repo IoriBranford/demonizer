@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="18" height="140" tilewidth="16" tileheight="16" nextobjectid="98">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="18" height="140" tilewidth="16" tileheight="16" nextobjectid="101">
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="mus/05 - Twilight Express.vgm"/>
@@ -50,6 +50,23 @@
    eJzt2rkOwjAQBFArP8DRcrQcLUcJ1EANqYEa+P+KaUZaWQkoXiOCNE+aBmdJ5GCa3bIIYYJMkRkyR/bIATkiA2SIjJBxtGZrbsgCWSIrZI2ckDNSVtzDrtmaJxK74LNrzT3s2id3XPOouce7NRERERERERERERERERGRf9YrQuhn6IWyb+zFvrEX+8a/tsEzbAv/PrMf791n9uO9+8x+vHef2Y/Phfu9S/hOW2vnH5qytXb+oSlb22T+IWZrPfMP35id0P9PtQ5quxmeg3M9qWeCONeTeiaIcz2pZyKWeiZi3t917vflPRd8X95zwffVlnPRVi8gUCcN
   </data>
  </layer>
+ <objectgroup name="swordsmen1">
+  <object id="98" name="swordsman" gid="810" x="208" y="1280" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCSwordsman"/>
+   </properties>
+  </object>
+  <object id="99" type="Trigger" x="0" y="1312" width="288" height="16">
+   <properties>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+  <object id="100" name="swordsman" gid="810" x="80" y="1280" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCSwordsman"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="catapult2">
   <object id="75" name="catapult" gid="1081" x="144" y="1440" width="72" height="72">
    <properties>
@@ -552,7 +569,7 @@
    <polyline points="0,0 0,832"/>
   </object>
  </objectgroup>
- <objectgroup name="camera" visible="0">
+ <objectgroup name="camera">
   <object id="1" name="camera" type="Camera" x="24" y="1920" width="240" height="320">
    <properties>
     <property name="pathid" type="int" value="2"/>

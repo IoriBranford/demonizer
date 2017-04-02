@@ -8,7 +8,7 @@ return {
   height = 140,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 98,
+  nextobjectid = 101,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -3115,6 +3115,65 @@ return {
     },
     {
       type = "objectgroup",
+      name = "swordsmen1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 98,
+          name = "swordsman",
+          type = "",
+          shape = "rectangle",
+          x = 208,
+          y = 1280,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 810,
+          visible = true,
+          properties = {
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 99,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = 1312,
+          width = 288,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 100,
+          name = "swordsman",
+          type = "",
+          shape = "rectangle",
+          x = 80,
+          y = 1280,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 810,
+          visible = true,
+          properties = {
+            ["script"] = "NPCSwordsman"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
       name = "catapult2",
       visible = true,
       opacity = 1,
@@ -4585,7 +4644,7 @@ return {
     {
       type = "objectgroup",
       name = "camera",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
