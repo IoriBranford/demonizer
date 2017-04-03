@@ -162,6 +162,12 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 	local sin = math.sin(angle)
 	local vx = speed * cos
 	local vy = speed * sin
+	local camvx, camvy = levity.map.scripts:call(
+			levity.map.properties.cameraid, "getVelocity")
+	if camvx and camvy then
+		vx = vx + camvx
+		vy = vy + camvy
+	end
 
 	local gid = params.gid
 	if not gid then
