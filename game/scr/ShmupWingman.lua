@@ -13,9 +13,7 @@ ShmupWingman = class(function(self, object)
 	self.object.body:setBullet(true)
 	self.firetimer = 0
 
-	local playerid = levity.map.properties.playerid
-	self.wingmanindex = levity.map.scripts:call(playerid,
-					"newWingmanIndex", self.object.id)
+	self.wingmanindex = nil
 
 	self:refreshFixtures()
 	self:setVulnerable(true)
@@ -33,8 +31,6 @@ ShmupWingman = class(function(self, object)
 	self.numcaptives = 0
 
 	ShmupNPC = ShmupNPC or require("ShmupNPC")
-
-	levity.map:broadcast("wingmanJoined", self.wingmanindex)
 
 	ShmupWingman.BulletParams.gid =
 		levity.map:getTileGid("demonshots", "wingman", 0)
@@ -275,6 +271,12 @@ function ShmupWingman:beginMove(dt)
 	local body = self.object.body
 
 	local playerid = levity.map.properties.playerid
+
+	if not self.wingmanindex then
+		self.wingmanindex = levity.map.scripts:call(playerid,
+					"newWingmanIndex", self.object.id)
+		levity.map:broadcast("wingmanJoined", self.wingmanindex)
+	end
 
 	local cx, cy = body:getWorldCenter()
 	local destx, desty = cx, cy
