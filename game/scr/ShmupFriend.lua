@@ -16,7 +16,7 @@ ShmupFriend = class(function(self, object)
 	self:setActive(levity.map.properties.delayinitobjects == true)
 	self:refreshFixtures({
 		ShmupCollision.Category_CameraEdge,
-		ShmupCollision.Category_PlayerTeam,
+		--ShmupCollision.Category_PlayerTeam,
 		ShmupCollision.Category_PlayerShot,
 		ShmupCollision.Category_PlayerBomb,
 		ShmupCollision.Category_NPCTeam,
@@ -58,7 +58,7 @@ levity.bank:load(Sounds)
 
 function ShmupFriend:refreshFixtures(mask)
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
-		fixture:setSensor(true)
+		--fixture:setSensor(true)
 		fixture:setCategory(ShmupCollision.Category_PlayerTeam)
 		fixture:setMask(unpack(mask))
 	end
