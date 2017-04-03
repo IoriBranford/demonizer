@@ -74,7 +74,11 @@ function ShmupCam:endContact_activategroup(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getUserData().object
 	local triggerlayer = triggerobject.layer
 	for _, object in pairs(triggerlayer.objects) do
-		levity.map:discardObject(object.id)
+		if levity.map.scripts:call(object.id, "staysAfterTriggerEnd") then
+			levity.map.scripts:call(object.id, "endTrigger")
+		else
+			levity.map:discardObject(object.id)
+		end
 	end
 	levity.map:discardObject(triggerobject.id)
 end

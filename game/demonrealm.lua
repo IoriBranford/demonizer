@@ -8,7 +8,7 @@ return {
   height = 140,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 101,
+  nextobjectid = 113,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -3115,6 +3115,188 @@ return {
     },
     {
       type = "objectgroup",
+      name = "swordsmen3",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 106,
+          name = "swordsman",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 1136,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 810,
+          visible = true,
+          properties = {
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 107,
+          name = "swordsman",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 1136,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 810,
+          visible = true,
+          properties = {
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 108,
+          name = "swordsman",
+          type = "",
+          shape = "rectangle",
+          x = 300,
+          y = 1488,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 810,
+          visible = true,
+          properties = {
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 109,
+          name = "swordsman",
+          type = "",
+          shape = "rectangle",
+          x = -12,
+          y = 1488,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 810,
+          visible = true,
+          properties = {
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 110,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = 1168,
+          width = 288,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 102,
+          name = "swordsman",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 1152,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 810,
+          visible = true,
+          properties = {
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 101,
+          name = "swordsman",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 1152,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 810,
+          visible = true,
+          properties = {
+            ["script"] = "NPCSwordsman"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "swordsmen2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 103,
+          name = "swordsman",
+          type = "",
+          shape = "rectangle",
+          x = -12,
+          y = 1376,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 810,
+          visible = true,
+          properties = {
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 104,
+          name = "swordsman",
+          type = "",
+          shape = "rectangle",
+          x = 300,
+          y = 1376,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 810,
+          visible = true,
+          properties = {
+            ["script"] = "NPCSwordsman"
+          }
+        },
+        {
+          id = 105,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = 1216,
+          width = 288,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["triggertype"] = "activategroup"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
       name = "swordsmen1",
       visible = true,
       opacity = 1,
@@ -3128,8 +3310,8 @@ return {
           name = "swordsman",
           type = "",
           shape = "rectangle",
-          x = 208,
-          y = 1280,
+          x = 176,
+          y = 1248,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3145,7 +3327,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1312,
+          y = 1264,
           width = 288,
           height = 16,
           rotation = 0,
@@ -3159,8 +3341,8 @@ return {
           name = "swordsman",
           type = "",
           shape = "rectangle",
-          x = 80,
-          y = 1280,
+          x = 112,
+          y = 1248,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3222,7 +3404,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -32,
-          y = 1488,
+          y = 1440,
           width = 72,
           height = 72,
           rotation = 0,
@@ -3241,7 +3423,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 320,
-          y = 1488,
+          y = 1440,
           width = 72,
           height = 72,
           rotation = 0,
@@ -3260,7 +3442,7 @@ return {
           type = "",
           shape = "polyline",
           x = 16,
-          y = 1520,
+          y = 1472,
           width = 0,
           height = 0,
           rotation = 0,
@@ -3279,7 +3461,7 @@ return {
           type = "",
           shape = "polyline",
           x = 304,
-          y = 1520,
+          y = 1472,
           width = 0,
           height = 0,
           rotation = 0,
@@ -3298,7 +3480,7 @@ return {
           type = "",
           shape = "rectangle",
           x = -48,
-          y = 1472,
+          y = 1424,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3315,7 +3497,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 336,
-          y = 1472,
+          y = 1424,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3476,7 +3658,7 @@ return {
           visible = true,
           polyline = {
             { x = -16, y = 0 },
-            { x = -16, y = 128 }
+            { x = -16, y = 112 }
           },
           properties = {
             ["script"] = "PathGraph"
@@ -3495,7 +3677,7 @@ return {
           visible = true,
           polyline = {
             { x = -16, y = 0 },
-            { x = -16, y = 128 }
+            { x = -16, y = 112 }
           },
           properties = {
             ["script"] = "PathGraph"
@@ -3615,7 +3797,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 1640,
+          y = 1648,
           width = 24,
           height = 32,
           rotation = 0,
