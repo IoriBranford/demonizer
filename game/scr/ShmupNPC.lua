@@ -94,7 +94,7 @@ local ShmupNPC = class(function(self, object)
 	self.pathwalker = nil
 
 	self.oncamera = false
-	self.incover = false
+	self.numcovers = 0
 
 	self.bleedouttimer = 0
 
@@ -151,7 +151,7 @@ function ShmupNPC:canBeLockTarget()
 	return self.oncamera
 		and self.object.visible
 		and self.health >= 1
-		and not self.incover
+		and self.numcovers < 1
 end
 
 function ShmupNPC:canBeCaptured()
@@ -205,7 +205,7 @@ function ShmupNPC:knockout()
 end
 
 function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
-	if self.incover then
+	if self.numcovers > 0 then
 		self:suppress()
 	else
 		local bulletproperties = otherfixture:getBody():getUserData().properties
@@ -261,7 +261,7 @@ function ShmupNPC:beginContact(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_PlayerBomb then
 		self:beginContact_PlayerBomb(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_NPCCover then
-		self:setInCover(true)
+		self:addCover()
 	elseif category == ShmupCollision.Category_Camera then
 		self.oncamera = true
 	end
@@ -280,13 +280,21 @@ function ShmupNPC:endContact(myfixture, otherfixture, contact)
 	if category == ShmupCollision.Category_Camera then
 		self.oncamera = false
 	elseif category == ShmupCollision.Category_NPCCover then
-		self:setInCover(false)
+		self:removeCover()
 	end
 end
 
-function ShmupNPC:setInCover(incover)
-	self.incover = incover
+function ShmupNPC:addCover()
+	self.numcovers = self.numcovers + 1
+	self:setInCover(self.numcovers > 0)
+end
 
+function ShmupNPC:removeCover()
+	self.numcovers = self.numcovers - 1
+	self:setInCover(self.numcovers > 0)
+end
+
+function ShmupNPC:setInCover(incover)
 	local category
 	if incover then
 		category = ShmupCollision.Category_NPCInCover
@@ -477,7 +485,7 @@ function ShmupNPC:beginDraw()
 		alpha = math.min(self.bleedouttimer * 0xff, 0xff)
 	end
 
-	if self.incover then
+	if self.numcovers > 0 then
 		alpha = alpha * .5
 	end
 

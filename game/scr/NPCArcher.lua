@@ -26,7 +26,7 @@ NPCArcher.BulletParams = {
 }
 
 function NPCArcher:updateFiring(dt)
-	if not self.incover and self.firetimer <= 0 then
+	if self.numcovers <= 0 and self.firetimer <= 0 then
 		local params = NPCArcher.BulletParams
 		local cx, cy = self.object.body:getWorldCenter()
 		local playerdx = 0
@@ -50,7 +50,7 @@ function NPCArcher:updateFiring(dt)
 		levity.bank:play("snd/bow.wav")
 	end
 	self.firetimer = self.firetimer - dt
-	if self.incover and self.firetimer < 0 then
+	if self.numcovers > 0 and self.firetimer < 0 then
 		self.firetimer = 0
 	end
 end
