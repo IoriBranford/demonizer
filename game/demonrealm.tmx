@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="18" height="140" tilewidth="16" tileheight="16" nextobjectid="153">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="18" height="140" tilewidth="16" tileheight="16" nextobjectid="169">
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="mus/05 - Twilight Express.vgm"/>
@@ -19,22 +19,23 @@
  <tileset firstgid="739" source="img/humanshots.tsx"/>
  <tileset firstgid="771" source="img/infmen.tsx"/>
  <tileset firstgid="861" source="img/infwomen.tsx"/>
- <tileset firstgid="936" source="img/demonshothit.tsx"/>
- <tileset firstgid="944" source="img/trees.tsx"/>
- <tileset firstgid="947" source="img/friend/black_harpy.tsx"/>
- <tileset firstgid="959" source="img/friend/devil_bug.tsx"/>
- <tileset firstgid="971" source="img/friend/ghost.tsx"/>
- <tileset firstgid="983" source="img/friend/goblin.tsx"/>
- <tileset firstgid="995" source="img/friend/harpy.tsx"/>
- <tileset firstgid="1007" source="img/friend/holstaurus.tsx"/>
- <tileset firstgid="1019" source="img/friend/honey_bee.tsx"/>
- <tileset firstgid="1031" source="img/friend/siren.tsx"/>
- <tileset firstgid="1043" source="img/friend/werebat.tsx"/>
- <tileset firstgid="1055" source="img/friend/weresheep.tsx"/>
- <tileset firstgid="1067" source="img/friend/youko.tsx"/>
- <tileset firstgid="1079" source="img/catapult.tsx"/>
- <tileset firstgid="1103" source="img/sparks_med.tsx"/>
- <tileset firstgid="1119" source="img/civmen.tsx"/>
+ <tileset firstgid="951" source="img/demonshothit.tsx"/>
+ <tileset firstgid="959" source="img/trees.tsx"/>
+ <tileset firstgid="962" source="img/friend/black_harpy.tsx"/>
+ <tileset firstgid="974" source="img/friend/devil_bug.tsx"/>
+ <tileset firstgid="986" source="img/friend/ghost.tsx"/>
+ <tileset firstgid="998" source="img/friend/goblin.tsx"/>
+ <tileset firstgid="1010" source="img/friend/harpy.tsx"/>
+ <tileset firstgid="1022" source="img/friend/holstaurus.tsx"/>
+ <tileset firstgid="1034" source="img/friend/honey_bee.tsx"/>
+ <tileset firstgid="1046" source="img/friend/siren.tsx"/>
+ <tileset firstgid="1058" source="img/friend/werebat.tsx"/>
+ <tileset firstgid="1070" source="img/friend/weresheep.tsx"/>
+ <tileset firstgid="1082" source="img/friend/youko.tsx"/>
+ <tileset firstgid="1094" source="img/catapult.tsx"/>
+ <tileset firstgid="1118" source="img/sparks_med.tsx"/>
+ <tileset firstgid="1134" source="img/civmen.tsx"/>
+ <tileset firstgid="1269" source="img/trees_tall.tsx"/>
  <layer name="Earth" width="18" height="140">
   <data encoding="base64" compression="zlib">
    eJyF1kGS40gMQ1F7o/D9r6hb2JueihlF/3oF1SwUliVlJgkCIM/H4/H553o9H4/349/r6//537Ov++P599l1Xd8dWfd1/+Lba+31fd99fXtmj+vdFc+1X+8/rOuz4/k97n5z3Xf/V2JrDu/k2H2b+/H8e/X/K//7bfHtup5zvRPrM/Fe332yj3itXMS69wuH1/MnJ/p7ndv9inefr3qay7XXyV4LG2O7rp5/XetZz2uu5efr+T2O8q7xNEdr2/ocz5+1M4fyuRxqvuXw57HrcT1b8V/vike5q+abd7nkOvXVehx8v+K+9pfb78f32OsRaqValfuv5/eYyjc5VN3LUTnuvuV+c9ELljeVj/Ksnib+1rcxLW+88yvPKIfq+cZ854XFy3qp0WKuxo+RV/PpGXKrXLCO9b6Ds64c5GUxWt6jX7vvSQzNqVh8OLOxGvPSX3W4+FmMT877rXcUY+tTzPTG8/ETU/v10vxdj6+H1qs/xKN+u+fCSO6pg5515/v119alcTgTVfNrzuneerO61SedsV7Pn/j12d1spbeV4/Xf1tJeL3f1b/G2j6xZx17a/lMu+9611aOc8vrND9WifUrtLu8pxuJQ75cza97SW6qJxc+lpXJdPhSrnqdHy4XyQX0WD/tV7/XihfGaLeWJOqw+lu91llrnNw79bfUfsXY2kAvOZeZT7bceS7vVQs9WX/q9sRSL4ux8URx637j6v2e1jmuO8Vf/WHy3LvKivW/NQs4X9pLV3/VHcXXWWTPaXY+2hnqEM4WcXb58jPX6R+O5m+ecgdSUOdtT7K3Gqdb1K/GW913fnuEMVE/o981BT6kurvovjyn/qw3r1to7Qywt6LvHWGd+5nynN7lzp/HzJr+lI/nwev6Mq7haj7s5Qe8qb+/mv/W+nJYfjeeuXvUkPU3Pk0OrDztz9JulyfeIzXlI/14zmrypLsXujk/OrPbBepI9onV3NnCv5cNipM90FrA3tTbVjb1wzV9ypxgtXXZdc10+IA/VV33vNz9Y3mMdV5+xp686nOzZOjQvOeCZ9qvVc/QgsdNbjevz+InPcZOzs2PnAutWnNRw82+ev2nqJP67HuYMYn/q1XzkeLlbXtpjxUV92cudxcRLn3iPGJY29X/50e/v5hv7rJrxnWfJuZMcygM9YOVaTuiT1ZWaaizW2x5Q/un/zcPZSLz0VjktRw4wbv3WDHXnr+X+6lHOIfbSnqOXlx/6hfjpF81PjauLvtMXxEgNyfG+W/OAc44+YS/R417Edud7S5/1E+tuH+qe5dTywNfY35wXh4th67q0KIeNZ+FXHempjaEx91e86h3FrOvbK62VXuc+xaq6Usf6oB77f3NPuaovNxa52LpWm/Jfbyk3xVZc9B3zPdnfHuCM0/Vrrlu42UdWX106Kc/6ezx3nZa36P2ti97ofNa6LN8wvsb1Zh/9w/qXP+W3fd++4zxkb26sy6fbF+68eNW13G+czkKrPsbh7OQ3arO562HFYWnEfPvd0rQ9rDUop1qDxvHbPLhisk/YE5a2Vs9Sr2pfLIuv/nnnw+LRtcYlvs45qxcWm/aL5TnV9Zv7u966fFduysnqtzmWx2qsZztr2d+7d/vG8k9nv/JRr1NrrcPyXXNaPnA3RzRuOaEXrj5cbolVOduziv3q9f5ffVkPaS+oZlvz+poeYZ88wGbhaVyLi/puMbRvlIPNoVz+uv4ADWCXVg==
@@ -42,14 +43,46 @@
  </layer>
  <layer name="Grass" width="18" height="140">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="Trees" width="18" height="140">
   <data encoding="base64" compression="zlib">
-   eJzt2rkOwjAQBFArP8DRcrQcLUcJ1EANqYEa+P+KaUZaWQkoXiOCNE+aBmdJ5GCa3bIIYYJMkRkyR/bIATkiA2SIjJBxtGZrbsgCWSIrZI2ckDNSVtzDrtmaJxK74LNrzT3s2id3XPOouce7NRERERERERERERERERGRf9YrQuhn6IWyb+zFvrEX+8a/tsEzbAv/PrMf791n9uO9+8x+vHef2Y/Phfu9S/hOW2vnH5qytXb+oSlb22T+IWZrPfMP35id0P9PtQ5quxmeg3M9qWeCONeTeiaIcz2pZyKWeiZi3t917vflPRd8X95zwffVlnPRVi8gUCcN
+   eJzt1KkOAkEQhOFJvwCH5bAclgUJaEADGtDA+yvadDLZgJkasSH/56uyqaFJCQAAAAAAAAAAAADwzwaW0tD0nol3TCv0LLxjWaFn7R2bCj2qrX/DzvSdD549mr7z2bMX03e+efZu+s5Pz74qvlPsvS/ozLOx96mgJ8/G3teCnjwbez8KevJs7P0u6FGyv/D/813Ps/0K3zHyjrFwE2Hm2blwE2Hl2Ua4ibbSm2hTf9e130u9i3gv9S7ivbpyF131AXnwGEs=
   </data>
  </layer>
+ <objectgroup name="boss_paths" visible="0">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="160" x="60" y="124">
+   <polygon points="-8,-8 44,-76 140,-72 168,12 76,36"/>
+  </object>
+  <object id="166" x="104" y="48">
+   <polyline points="0,0 124,88"/>
+  </object>
+  <object id="167" x="200" y="52">
+   <polyline points="0,0 -148,64"/>
+  </object>
+  <object id="168" x="228" y="136">
+   <polyline points="0,0 -176,-20"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="boss">
+  <object id="153" type="Trigger" x="0" y="0">
+   <properties>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+   <polyline points="0,0 288,0"/>
+  </object>
+  <object id="159" name="boss" gid="912" x="136" y="144" width="24" height="32">
+   <properties>
+    <property name="pathid" value="boss_paths"/>
+    <property name="pathpicker" value="random1way"/>
+    <property name="script" value="NPCPrincess"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="preboss">
   <properties>
    <property name="activatemusic" type="file" value="mus/03 - Mighty Gals 2.vgm"/>
@@ -62,15 +95,22 @@
    <polyline points="0,0 288,0"/>
   </object>
  </objectgroup>
+ <objectgroup name="bosscover">
+  <object id="154" name="talltree" gid="1270" x="60" y="144" width="48" height="80"/>
+  <object id="155" name="talltree" gid="1270" x="100" y="72" width="48" height="80"/>
+  <object id="156" name="talltree" gid="1270" x="184" y="80" width="48" height="80"/>
+  <object id="157" name="talltree" gid="1270" x="136" y="184" width="48" height="80"/>
+  <object id="158" name="talltree" gid="1270" x="228" y="152" width="48" height="80"/>
+ </objectgroup>
  <objectgroup name="archerscatapults">
   <object id="137" type="Trigger" x="0" y="304" width="288" height="160">
    <properties>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="95" name="tree" gid="945" x="264" y="424" width="64" height="64"/>
-  <object id="94" name="tree" gid="945" x="40" y="448" width="64" height="64"/>
-  <object id="93" name="tree" gid="945" x="160" y="428" width="64" height="64"/>
+  <object id="95" name="tree" gid="960" x="264" y="424" width="64" height="64"/>
+  <object id="94" name="tree" gid="960" x="40" y="448" width="64" height="64"/>
+  <object id="93" name="tree" gid="960" x="160" y="428" width="64" height="64"/>
   <object id="58" name="archer" gid="819" x="236" y="400" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="54"/>
@@ -101,42 +141,42 @@
    </properties>
    <polyline points="0,0 96,-16 192,-16"/>
   </object>
-  <object id="49" name="tree" gid="945" x="240" y="436" width="64" height="64"/>
-  <object id="45" name="tree" gid="945" x="20" y="432" width="64" height="64"/>
-  <object id="46" name="tree" gid="945" x="120" y="432" width="64" height="64"/>
-  <object id="84" name="operator" gid="1182" x="32" y="332" width="24" height="32">
+  <object id="49" name="tree" gid="960" x="240" y="436" width="64" height="64"/>
+  <object id="45" name="tree" gid="960" x="20" y="432" width="64" height="64"/>
+  <object id="46" name="tree" gid="960" x="120" y="432" width="64" height="64"/>
+  <object id="84" name="operator" gid="1197" x="32" y="332" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="80"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="80" name="catapult" gid="1080" x="48" y="352" width="72" height="72">
+  <object id="80" name="catapult" gid="1095" x="48" y="352" width="72" height="72">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
     <property name="offscreenshot" type="bool" value="true"/>
     <property name="script" value="VehicleCatapult"/>
    </properties>
   </object>
-  <object id="85" name="operator" gid="1182" x="256" y="332" width="24" height="32">
+  <object id="85" name="operator" gid="1197" x="256" y="332" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="81"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="81" name="catapult" gid="1082" x="240" y="352" width="72" height="72">
+  <object id="81" name="catapult" gid="1097" x="240" y="352" width="72" height="72">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
     <property name="offscreenshot" type="bool" value="true"/>
     <property name="script" value="VehicleCatapult"/>
    </properties>
   </object>
-  <object id="130" name="operator" gid="1182" x="144" y="320" width="24" height="32">
+  <object id="130" name="operator" gid="1197" x="144" y="320" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="128"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="128" name="catapult" gid="1081" x="144" y="352" width="72" height="72">
+  <object id="128" name="catapult" gid="1096" x="144" y="352" width="72" height="72">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
     <property name="offscreenshot" type="bool" value="true"/>
@@ -170,7 +210,7 @@
     <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
-  <object id="134" name="catapult" gid="1081" x="192" y="496" width="72" height="72">
+  <object id="134" name="catapult" gid="1096" x="192" y="496" width="72" height="72">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
     <property name="offscreenshot" type="bool" value="true"/>
@@ -179,7 +219,7 @@
     <property name="script" value="VehicleCatapult"/>
    </properties>
   </object>
-  <object id="136" name="catapult" gid="1081" x="96" y="496" width="72" height="72">
+  <object id="136" name="catapult" gid="1096" x="96" y="496" width="72" height="72">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
     <property name="offscreenshot" type="bool" value="true"/>
@@ -188,13 +228,13 @@
     <property name="script" value="VehicleCatapult"/>
    </properties>
   </object>
-  <object id="131" name="operator" gid="1182" x="192" y="464" width="24" height="32">
+  <object id="131" name="operator" gid="1197" x="192" y="464" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="134"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="132" name="operator" gid="1182" x="96" y="464" width="24" height="32">
+  <object id="132" name="operator" gid="1197" x="96" y="464" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="136"/>
     <property name="script" value="ShmupNPC"/>
@@ -340,7 +380,7 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="114" name="swordswoman" gid="894" x="144" y="1024" width="24" height="32">
+  <object id="114" name="swordswoman" gid="900" x="144" y="1024" width="24" height="32">
    <properties>
     <property name="script" value="NPCSwordsman"/>
    </properties>
@@ -403,7 +443,7 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="77" name="catapult" gid="1081" x="80" y="864" width="72" height="72">
+  <object id="77" name="catapult" gid="1096" x="80" y="864" width="72" height="72">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
     <property name="offscreenshot" type="bool" value="true"/>
@@ -412,7 +452,7 @@
     <property name="script" value="VehicleCatapult"/>
    </properties>
   </object>
-  <object id="78" name="catapult" gid="1081" x="208" y="864" width="72" height="72">
+  <object id="78" name="catapult" gid="1096" x="208" y="864" width="72" height="72">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
     <property name="offscreenshot" type="bool" value="true"/>
@@ -421,13 +461,13 @@
     <property name="script" value="VehicleCatapult"/>
    </properties>
   </object>
-  <object id="89" name="operator" gid="1182" x="80" y="832" width="24" height="32">
+  <object id="89" name="operator" gid="1197" x="80" y="832" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="77"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="90" name="operator" gid="1182" x="208" y="832" width="24" height="32">
+  <object id="90" name="operator" gid="1197" x="208" y="832" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="78"/>
     <property name="script" value="ShmupNPC"/>
@@ -447,7 +487,7 @@
   </object>
  </objectgroup>
  <objectgroup name="catapults1">
-  <object id="75" name="catapult" gid="1081" x="144" y="912" width="72" height="72">
+  <object id="75" name="catapult" gid="1096" x="144" y="912" width="72" height="72">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
     <property name="pathid" type="int" value="87"/>
@@ -466,7 +506,7 @@
    </properties>
    <polyline points="-16,0 -16,48"/>
   </object>
-  <object id="88" name="operator" gid="1182" x="144" y="880" width="24" height="32">
+  <object id="88" name="operator" gid="1197" x="144" y="880" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="75"/>
     <property name="script" value="ShmupNPC"/>
@@ -479,9 +519,9 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="143" name="tree" gid="945" x="144" y="1072" width="64" height="64"/>
-  <object id="144" name="tree" gid="945" x="64" y="1040" width="64" height="64"/>
-  <object id="145" name="tree" gid="945" x="224" y="1056" width="64" height="64"/>
+  <object id="143" name="tree" gid="960" x="144" y="1072" width="64" height="64"/>
+  <object id="144" name="tree" gid="960" x="64" y="1040" width="64" height="64"/>
+  <object id="145" name="tree" gid="960" x="224" y="1056" width="64" height="64"/>
   <object id="146" name="path" x="48" y="1024">
    <properties>
     <property name="script" value="PathGraph"/>
@@ -541,81 +581,81 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="47" name="tree" gid="945" x="64" y="1160" width="64" height="64"/>
-  <object id="48" name="tree" gid="945" x="224" y="1128" width="64" height="64"/>
-  <object id="96" name="tree" gid="945" x="112" y="1144" width="64" height="64"/>
-  <object id="97" name="tree" gid="945" x="192" y="1144" width="64" height="64"/>
+  <object id="47" name="tree" gid="960" x="64" y="1160" width="64" height="64"/>
+  <object id="48" name="tree" gid="960" x="224" y="1128" width="64" height="64"/>
+  <object id="96" name="tree" gid="960" x="112" y="1144" width="64" height="64"/>
+  <object id="97" name="tree" gid="960" x="192" y="1144" width="64" height="64"/>
  </objectgroup>
  <objectgroup name="pikemen3">
-  <object id="25" name="path" x="144" y="1080">
+  <object id="25" name="path" x="144" y="1088">
    <properties>
     <property name="beziercurve" type="bool" value="true"/>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,112 -80,192 80,336 0,416"/>
   </object>
-  <object id="26" name="pikeman" gid="807" x="144" y="1144" width="24" height="32">
+  <object id="26" name="pikeman" gid="807" x="144" y="1152" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="25"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="27" name="pikeman" gid="807" x="112" y="1160" width="24" height="32">
+  <object id="27" name="pikeman" gid="807" x="112" y="1168" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="25"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="28" name="pikeman" gid="807" x="144" y="1176" width="24" height="32">
+  <object id="28" name="pikeman" gid="807" x="144" y="1184" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="25"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="29" name="pikeman" gid="807" x="80" y="1112" width="24" height="32">
+  <object id="29" name="pikeman" gid="807" x="80" y="1120" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="25"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="30" name="pikeman" gid="807" x="96" y="1144" width="24" height="32">
+  <object id="30" name="pikeman" gid="807" x="96" y="1152" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="25"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="31" name="pikeman" gid="807" x="208" y="1112" width="24" height="32">
+  <object id="31" name="pikeman" gid="807" x="208" y="1120" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="25"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="32" name="pikeman" gid="807" x="176" y="1160" width="24" height="32">
+  <object id="32" name="pikeman" gid="807" x="176" y="1168" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="25"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="33" name="pikeman" gid="807" x="192" y="1144" width="24" height="32">
+  <object id="33" name="pikeman" gid="807" x="192" y="1152" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="25"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="42" name="trigger" type="Trigger" x="0" y="1176" width="288" height="16">
+  <object id="42" name="trigger" type="Trigger" x="0" y="1184" width="288" height="16">
    <properties>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="43" name="pikewoman" gid="891" x="144" y="1112" width="24" height="32">
+  <object id="43" name="pikewoman" gid="897" x="144" y="1120" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="25"/>
     <property name="pathmode" value="relative"/>
@@ -624,118 +664,118 @@
   </object>
  </objectgroup>
  <objectgroup name="pikemen2">
-  <object id="5" name="path" x="120" y="1192">
+  <object id="5" name="path" x="120" y="1184">
    <properties>
     <property name="beziercurve" type="bool" value="true"/>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="-56,32 40,112 -72,416"/>
   </object>
-  <object id="6" name="leader" gid="807" x="48" y="1208" width="24" height="32">
+  <object id="6" name="leader" gid="807" x="48" y="1200" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="10" name="pikeman" gid="807" x="64" y="1224" width="24" height="32">
+  <object id="10" name="pikeman" gid="807" x="64" y="1216" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="12" name="pikeman" gid="807" x="64" y="1208" width="24" height="32">
+  <object id="12" name="pikeman" gid="807" x="64" y="1200" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="13" name="pikeman" gid="807" x="48" y="1224" width="24" height="32">
+  <object id="13" name="pikeman" gid="807" x="48" y="1216" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="23" name="pikeman" gid="807" x="224" y="1224" width="24" height="32">
+  <object id="23" name="pikeman" gid="807" x="224" y="1216" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="15"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="22" name="pikeman" gid="807" x="224" y="1208" width="24" height="32">
+  <object id="22" name="pikeman" gid="807" x="224" y="1200" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="15"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="20" name="pikeman" gid="807" x="240" y="1224" width="24" height="32">
+  <object id="20" name="pikeman" gid="807" x="240" y="1216" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="15"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="16" name="leader" gid="807" x="240" y="1208" width="24" height="32">
+  <object id="16" name="leader" gid="807" x="240" y="1200" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="15"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="15" name="path" x="192" y="1336">
+  <object id="15" name="path" x="192" y="1328">
    <properties>
     <property name="beziercurve" type="bool" value="true"/>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="32,-112 -64,-32 48,272"/>
   </object>
-  <object id="41" name="trigger" type="Trigger" x="0" y="1224" width="288" height="16">
+  <object id="41" name="trigger" type="Trigger" x="0" y="1216" width="288" height="16">
    <properties>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="pikemen1">
-  <object id="35" name="path" x="144" y="1256">
+  <object id="35" name="path" x="144" y="1264">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,-16 0,368"/>
   </object>
-  <object id="36" name="leader" gid="807" x="120" y="1240" width="24" height="32">
+  <object id="36" name="leader" gid="807" x="120" y="1248" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="35"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="37" name="pikeman" gid="807" x="152" y="1240" width="24" height="32">
+  <object id="37" name="pikeman" gid="807" x="152" y="1248" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="35"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="38" name="pikeman" gid="807" x="136" y="1240" width="24" height="32">
+  <object id="38" name="pikeman" gid="807" x="136" y="1248" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="35"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="39" name="pikeman" gid="807" x="168" y="1240" width="24" height="32">
+  <object id="39" name="pikeman" gid="807" x="168" y="1248" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="35"/>
     <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="40" name="trigger" type="Trigger" x="0" y="1240" width="288" height="16">
+  <object id="40" name="trigger" type="Trigger" x="0" y="1248" width="288" height="16">
    <properties>
     <property name="triggertype" value="activategroup"/>
    </properties>
@@ -745,7 +785,7 @@
   <properties>
    <property name="activatesound" type="file" value="snd/scream.wav"/>
   </properties>
-  <object id="60" gid="947" x="192" y="1256" width="64" height="64">
+  <object id="60" gid="962" x="192" y="1264" width="64" height="64">
    <properties>
     <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
@@ -754,7 +794,7 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="61" gid="959" x="128" y="1176" width="32" height="32">
+  <object id="61" gid="974" x="128" y="1184" width="32" height="32">
    <properties>
     <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
@@ -763,7 +803,7 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="62" gid="971" x="176" y="1160" width="32" height="32">
+  <object id="62" gid="986" x="176" y="1168" width="32" height="32">
    <properties>
     <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
@@ -772,7 +812,7 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="63" gid="983" x="224" y="1176" width="32" height="32">
+  <object id="63" gid="998" x="224" y="1184" width="32" height="32">
    <properties>
     <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
@@ -781,7 +821,7 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="64" gid="995" x="240" y="1240" width="64" height="64">
+  <object id="64" gid="1010" x="240" y="1248" width="64" height="64">
    <properties>
     <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
@@ -790,7 +830,7 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="65" gid="1007" x="64" y="1176" width="32" height="32">
+  <object id="65" gid="1022" x="64" y="1184" width="32" height="32">
    <properties>
     <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
@@ -799,7 +839,7 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="66" gid="1019" x="112" y="1256" width="64" height="64">
+  <object id="66" gid="1034" x="112" y="1264" width="64" height="64">
    <properties>
     <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
@@ -808,7 +848,7 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="69" gid="1031" x="64" y="1240" width="64" height="64">
+  <object id="69" gid="1046" x="64" y="1248" width="64" height="64">
    <properties>
     <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
@@ -817,7 +857,7 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="70" gid="1043" x="176" y="1240" width="64" height="64">
+  <object id="70" gid="1058" x="176" y="1248" width="64" height="64">
    <properties>
     <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
@@ -826,7 +866,7 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="71" gid="1055" x="112" y="1208" width="32" height="32">
+  <object id="71" gid="1070" x="112" y="1216" width="32" height="32">
    <properties>
     <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
@@ -835,7 +875,7 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="72" gid="1067" x="176" y="1224" width="32" height="32">
+  <object id="72" gid="1082" x="176" y="1232" width="32" height="32">
    <properties>
     <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
@@ -844,12 +884,12 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="73" name="trigger" type="Trigger" x="0" y="1272" width="288" height="16">
+  <object id="73" name="trigger" type="Trigger" x="0" y="1280" width="288" height="16">
    <properties>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="74" name="path" x="0" y="1256">
+  <object id="74" name="path" x="0" y="1264">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
@@ -857,18 +897,17 @@
   </object>
  </objectgroup>
  <objectgroup name="camera">
-  <object id="1" name="camera" type="Camera" x="24" y="1304" width="240" height="320">
+  <object id="1" name="camera" type="Camera" x="24" y="1312" width="240" height="320">
    <properties>
     <property name="pathid" type="int" value="2"/>
-    <property name="pathmode" value="relative"/>
     <property name="pathspeed" type="float" value="30"/>
    </properties>
   </object>
-  <object id="2" name="path" x="24" y="1288">
+  <object id="2" name="path" x="24" y="1304">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
-   <polyline points="0,0 0,-1304"/>
+   <polyline points="0,8 0,-1304"/>
   </object>
  </objectgroup>
  <objectgroup name="sparks"/>

@@ -179,7 +179,7 @@ function ShmupCam:getVelocity()
 	return self.object.body:getLinearVelocity()
 end
 
-function ShmupCam:playerDefeated()
+function ShmupCam:playerLost()
 	self.properties.pathid = nil
 	self.pathwalker = nil
 end

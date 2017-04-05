@@ -299,4 +299,17 @@ function PathGraph.pickNextPath_linear2way(graphid, paths, prevx, prevy, userdat
 	return PathGraph.pickNextPath_linear1way(graphid, paths, prevx, prevy, userdata)
 end
 
+function PathGraph.pickNextPath_random1way(graphid, paths, prevx, prevy, userdata)
+	if #paths == 1 then
+		return paths[1]
+	end
+
+	local path
+	repeat
+		path = paths[love.math.random(1, #paths)]
+	until path.destx ~= prevx or path.desty ~= prevy
+
+	return path
+end
+
 return PathGraph

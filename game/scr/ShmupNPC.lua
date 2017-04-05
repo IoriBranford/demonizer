@@ -473,7 +473,7 @@ end
 function ShmupNPC:beginDraw()
 	local red, green, blue, alpha = 0xff,0xff,0xff,0xff
 
-	if self.bleedouttimer > 0 then
+	if self:canBeCaptured() and self.bleedouttimer > 0 then
 		local flashrate = 60 * math.sqrt(self.bleedouttimer)
 		local flash = 0x80 * (math.cos(flashrate*math.pi) + 3)
 
@@ -511,7 +511,7 @@ function ShmupNPC:playSound(sound)
 end
 
 function ShmupNPC:playerVictory()
-	levity.map:broadcast("playerVictorious")
+	levity.map:broadcast("playerWon")
 end
 
 function ShmupNPC:vehicleDestroyed(vehicleid)

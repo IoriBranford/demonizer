@@ -8,7 +8,7 @@ return {
   height = 140,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 153,
+  nextobjectid = 169,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -1809,7 +1809,7 @@ return {
       spacing = 0,
       margin = 0,
       image = "img/infwomen.png",
-      imagewidth = 360,
+      imagewidth = 432,
       imageheight = 160,
       tileoffset = {
         x = -12,
@@ -1820,6 +1820,7 @@ return {
         ["column_mage"] = 9,
         ["column_pikeman"] = 0,
         ["column_priest"] = 6,
+        ["column_princess"] = 15,
         ["column_swordsman"] = 3,
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
@@ -1830,7 +1831,7 @@ return {
         ["row_up"] = 0
       },
       terrains = {},
-      tilecount = 75,
+      tilecount = 90,
       tiles = {
         {
           id = 0,
@@ -1884,7 +1885,7 @@ return {
     },
     {
       name = "demonshothit",
-      firstgid = 936,
+      firstgid = 951,
       filename = "img/demonshothit.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1942,7 +1943,7 @@ return {
     },
     {
       name = "trees",
-      firstgid = 944,
+      firstgid = 959,
       filename = "img/trees.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1993,7 +1994,7 @@ return {
     },
     {
       name = "black_harpy",
-      firstgid = 947,
+      firstgid = 962,
       filename = "img/friend/black_harpy.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2069,7 +2070,7 @@ return {
     },
     {
       name = "devil_bug",
-      firstgid = 959,
+      firstgid = 974,
       filename = "img/friend/devil_bug.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2145,7 +2146,7 @@ return {
     },
     {
       name = "ghost",
-      firstgid = 971,
+      firstgid = 986,
       filename = "img/friend/ghost.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2221,7 +2222,7 @@ return {
     },
     {
       name = "goblin",
-      firstgid = 983,
+      firstgid = 998,
       filename = "img/friend/goblin.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2297,7 +2298,7 @@ return {
     },
     {
       name = "harpy",
-      firstgid = 995,
+      firstgid = 1010,
       filename = "img/friend/harpy.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2373,7 +2374,7 @@ return {
     },
     {
       name = "holstaurus",
-      firstgid = 1007,
+      firstgid = 1022,
       filename = "img/friend/holstaurus.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2449,7 +2450,7 @@ return {
     },
     {
       name = "honey_bee",
-      firstgid = 1019,
+      firstgid = 1034,
       filename = "img/friend/honey_bee.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2525,7 +2526,7 @@ return {
     },
     {
       name = "siren",
-      firstgid = 1031,
+      firstgid = 1046,
       filename = "img/friend/siren.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2601,7 +2602,7 @@ return {
     },
     {
       name = "werebat",
-      firstgid = 1043,
+      firstgid = 1058,
       filename = "img/friend/werebat.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2677,7 +2678,7 @@ return {
     },
     {
       name = "weresheep",
-      firstgid = 1055,
+      firstgid = 1070,
       filename = "img/friend/weresheep.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2753,7 +2754,7 @@ return {
     },
     {
       name = "youko",
-      firstgid = 1067,
+      firstgid = 1082,
       filename = "img/friend/youko.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2829,7 +2830,7 @@ return {
     },
     {
       name = "catapult",
-      firstgid = 1079,
+      firstgid = 1094,
       filename = "img/catapult.tsx",
       tilewidth = 72,
       tileheight = 72,
@@ -2911,7 +2912,7 @@ return {
     },
     {
       name = "sparks_med",
-      firstgid = 1103,
+      firstgid = 1118,
       filename = "img/sparks_med.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2979,7 +2980,7 @@ return {
     },
     {
       name = "civmen",
-      firstgid = 1119,
+      firstgid = 1134,
       filename = "img/civmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -3062,6 +3063,70 @@ return {
           }
         }
       }
+    },
+    {
+      name = "trees_tall",
+      firstgid = 1269,
+      filename = "img/trees_tall.tsx",
+      tilewidth = 48,
+      tileheight = 80,
+      spacing = 0,
+      margin = 0,
+      image = "img/trees_tall.png",
+      imagewidth = 144,
+      imageheight = 80,
+      tileoffset = {
+        x = -24,
+        y = 16
+      },
+      properties = {
+        ["commoncollision"] = 1
+      },
+      terrains = {},
+      tilecount = 3,
+      tiles = {
+        {
+          id = 1,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 2,
+                name = "",
+                type = "NPCCover",
+                shape = "ellipse",
+                x = -16,
+                y = 40,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 3,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 28,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -3095,7 +3160,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmstu2zAQRef36qwLr5Ou266trNNuJWsrW79aDcoD3jBSxGGCAgVEgHCix/VwXrwz9GRm3TKvyxyWOS5zWuYs127p7/sy+3StT8/wDpP7PDOm94f0fJfwr+nzlq6N6f4o711Ftqtcm+W9m/zveF+W+Uvmg3w/svSCyXd1aX1Tms/2erwkrF7kH9L3PYgMfcK5p3u/7e04Jwx0wXP6HXeR6+sKhsp0S/N55V6fMLZk0efRWfmc3ztt3DvGvxk/Pwnn8ZOwhg9ifV/mD8u5pQXLMb5ZjjdyQBm7e4NYcYzBcuxFcZCHvDQmvCjOxXKuQ5738sDW8DzTW84n/rmXB7ZwRsHw6fZ6sr82rLWb47A3kH87yzm4dn3YS7HYdyLrw17gdOlzCsji42LZ5mC9l/+3xtnyfoYvuizR2Din99mTWFtUnjU9+2fUD324jnwt2GkO4pAvsFeLvX24brAzfoc/R3RMjMIH4ENRe6mONY/BVSK5Ayx4Gbk16s8+fH3wJHCiutb4AiuaxzSnwjHxw1bdsKZo3mG4buCKs2VfbPEhjXU+o/sha4NPoquWmNc9Q3l2rTxuL98X2Jd131CuWyOH1hlaSzherc3Yu7ARdQQ5sdaHyF/sNeBEdUyO1xgHL+KHcHL4P7K1cil88SYzGmPlfortIzIpp5vsdU6kFqzRE+tRrkFtF8llyg3Ri/pjxGZny7lH696WGCWXss+38DrWhl5aMFQmYhNu2MrnZ8u9gGheBYO4gmuQX2uxqNGJA/SsvKzG9uRT4p0+B+uL+iH5EKyWOEUmjQlwa/0ZPet+fLM4Ryx7IcQrMRapCciH5Gjio5W3TIF3jnGMYxzjGB8f1Pplb4naYq3nxDtPMsnhuu8rv1zbN503Kl/UXgF1zKNljsGZhuIoD2Zv5ZyAd7TPiCylPPSV2MPov8P/BrkOj1vr8W3177l+kuucA5zs/+31q/+s+dHWO/gWE34DF1Fuu8VvqVvhQp3lHqfyEvC2aiN6ePgvXBE76jzZW5shn/KiCMdHH2Xtj3/sYWgfAP1Fa1Pl8moHOGsNVhmLcG/6tdTxezzzLO8iD2siP9ScPVAnIQ/xT21LvqnBIU9Rd8GhqZtqbH2xXI+S87T/U9uvK/UDl8fPa3uZ1DnIor2aaK8FLGoUrZmjZzJa31KjtPYyy7MGly8SFxfLdS32pzaN9rTwYWJLfTMSX6pbPb8Hc08m+jXaT6WfTozVrE3PqvT3AcR+bf+Qfp/6M++Sk2vsz3mD+o32IfHrGv3o7yrKszNk2sPRno/GhJ4TXStwWBt5j1xBno6coapMa7/9iJzpwpnU1uBG+8bEBWvBnyN9Ej3fUd/G7i39Q415fCKKo7FOL6mlD4nt8b/omRU46oPERcu5OTpBnrkRh/4sa2rpjXJGCB9s0Q049Pwi8VkOuCn50TGjZwXke903iI1I31fPqOHByqfgnXDxkptrjac9Uc3N5BL2Se5rb1DPhciJ2FzPivT3b8hNDBM/nUw46h9WjjJb"
+      data = "eJztmj1v2zAQhvn36syF56Rz29nqnHS15FWK/mpFgA/0lFBiHjt0MQEisUS9Ot73HTWnlIZtTtsct3nb5rzNVdeW8v/7Nq/l2rWs4Rkm91lzK8+PZf1Q8KfydynXbuX+Tc9Nom3StVXPLfoNHmtHrYHOpeCDybuGsr+5zEFr+T3rN7xhrlr/Xma9R941VpjvonsVxk3PjVp7LXMQvvngfbNu1HuQ8aT3wNtFa+EHvFlF31quoR9+H3L2e8Gehcu75vJ+8Fbh8d5R/OEZ+Ml+wDaPJt2HT/DV74Bnk9bYBpA79PEM9GEzq+6bpponyM60wTv2xT7g21Xr8vyyzbdtnqq/TxUWdCAr6B0Kxu90PF4L5qlgwjew2NdnGEeYptE6+rURg/F9m9/SLnP49CuI81rosUxvHTjQg15h61GcS9rtEXp6+HNOu66gSxFZGcf6mOfzNl+2+WObPwM4+Ev8r/1i6/6Ql7HwkZH9IS9wsM05QEsel/R3nEFmUV6f026f6GKmJfO6lcfgYJuOB1F6jvic/0b1MI/MI3wYPjSCk2WVdQ159cg7j8wb5Izeoc8RHmOj+Ff8bVRe5rH9GLlKxHeARYwkp4jqcx55f8RPcKK8tn2BFfVj9qnOU6J+1bxhT1G/w8i8Ib4TYzM9PTpU5xLYWY8OEZvhVY/NO2Y4z26lJ8srxwXisuPGHKCHWFHnRORrrTIjdiGjujZo1SH8F7EGnCiP8fG2cfAiekhu9pT2vIeYGtXDPNDFRTNqY3U8RfYRmpzTOZ9HD1v5xH6ca5AHR3yZc0PXWT2+45x23+O6t8dG8aU9OTiDvcGXHgzThG2SG0Z1ENlTQ2GnEX0GA7si18C/tmLl/bhGhc/Oy1pkjz/F3qkr2V9UD/GHYPXYKTTZJsBt1Wf47Hi8pHiOCJ9dV7oPEqkJ8If4aOyjN2+ZA888xmM8xmM8xr8Pav26t0RtcdRz4pkXTXy4477zy6O4mfNG54vuFVDHPKc9x6CvaxznwcTWHIOe9Iz7jNBS00NfiRiW+6Y5jpH/jbpOHnfU4yM2vn1w/aTr9GdPqT8X/N/D+nOkRx89g24xyW98JkNu+1F+S91KLkTPn3zrqt+f1Ub08NBfckXk6On+PzKDPudFkRwfftS1P/pxD8N9APgXrU2dy1sO5KwtWLUtknvTr6WOv5dnnvUs9LAnnw/dy8Opk+pzL2pb/E0LDn6KustnSq290Uva61F8nvs/rf26mj/k8uh5ay+TOgda3KuJ9lrAokZxzRw9k3F9S43S28uszxoyfRG7uKS9rkX+1KbRnhY6jG1ZNyP2Zd76/B7MezTRr3E/lX46NtayN59V+fsAbL+1f0i/r/62wD65Rf6cN1hv3IdEr1v44+8q6rMzaLqH456PbcLnRFMDDnvD7+Er8NORM1TTdPTtR+RMl5zJsgY32jfGLtgL+hzpk/h8x7qN3Hv6h7Z5dCKKY1unl9TTh0T2/o6lx7fW3+lE/BjDPV9/d9GDQ3+WPfX0RjkjJB/s4Q049Pwi9lkPclP8Y8aMnhXg7x03sI1I39dn1OTBzqfIO8nF69zcNZ57ovbN+BLiJPfdG/S5kL+Jqr8j8/dv9fc82M+gSY76By6+i2E="
     },
     {
       type = "tilelayer",
@@ -3111,7 +3176,141 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt2rkOwjAQBFArP8DRcrQcLUcJ1EANqYEa+P+KaUZaWQkoXiOCNE+aBmdJ5GCa3bIIYYJMkRkyR/bIATkiA2SIjJBxtGZrbsgCWSIrZI2ckDNSVtzDrtmaJxK74LNrzT3s2id3XPOouce7NRERERERERERERERERGRf9YrQuhn6IWyb+zFvrEX+8a/tsEzbAv/PrMf791n9uO9+8x+vHef2Y/Phfu9S/hOW2vnH5qytXb+oSlb22T+IWZrPfMP35id0P9PtQ5quxmeg3M9qWeCONeTeiaIcz2pZyKWeiZi3t917vflPRd8X95zwffVlnPRVi8gUCcN"
+      data = "eJzt1KkOAkEQhOFJvwCH5bAclgUJaEADGtDA+yvadDLZgJkasSH/56uyqaFJCQAAAAAAAAAAAADwzwaW0tD0nol3TCv0LLxjWaFn7R2bCj2qrX/DzvSdD549mr7z2bMX03e+efZu+s5Pz74qvlPsvS/ozLOx96mgJ8/G3teCnjwbez8KevJs7P0u6FGyv/D/813Ps/0K3zHyjrFwE2Hm2blwE2Hl2Ua4ibbSm2hTf9e130u9i3gv9S7ivbpyF131AXnwGEs="
+    },
+    {
+      type = "objectgroup",
+      name = "boss_paths",
+      visible = false,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 160,
+          name = "",
+          type = "",
+          shape = "polygon",
+          x = 60,
+          y = 124,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = -8, y = -8 },
+            { x = 44, y = -76 },
+            { x = 140, y = -72 },
+            { x = 168, y = 12 },
+            { x = 76, y = 36 }
+          },
+          properties = {}
+        },
+        {
+          id = 166,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 104,
+          y = 48,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 124, y = 88 }
+          },
+          properties = {}
+        },
+        {
+          id = 167,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 200,
+          y = 52,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -148, y = 64 }
+          },
+          properties = {}
+        },
+        {
+          id = 168,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 228,
+          y = 136,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -176, y = -20 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "boss",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 153,
+          name = "",
+          type = "Trigger",
+          shape = "polyline",
+          x = 0,
+          y = 0,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 159,
+          name = "boss",
+          type = "",
+          shape = "rectangle",
+          x = 136,
+          y = 144,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 912,
+          visible = true,
+          properties = {
+            ["pathid"] = "boss_paths",
+            ["pathpicker"] = "random1way",
+            ["script"] = "NPCPrincess"
+          }
+        }
+      }
     },
     {
       type = "objectgroup",
@@ -3144,6 +3343,88 @@ return {
           properties = {
             ["triggertype"] = "activategroup"
           }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "bosscover",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 154,
+          name = "talltree",
+          type = "",
+          shape = "rectangle",
+          x = 60,
+          y = 144,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 1270,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 155,
+          name = "talltree",
+          type = "",
+          shape = "rectangle",
+          x = 100,
+          y = 72,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 1270,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 156,
+          name = "talltree",
+          type = "",
+          shape = "rectangle",
+          x = 184,
+          y = 80,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 1270,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 157,
+          name = "talltree",
+          type = "",
+          shape = "rectangle",
+          x = 136,
+          y = 184,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 1270,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 158,
+          name = "talltree",
+          type = "",
+          shape = "rectangle",
+          x = 228,
+          y = 152,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 1270,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -3182,7 +3463,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 945,
+          gid = 960,
           visible = true,
           properties = {}
         },
@@ -3196,7 +3477,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 945,
+          gid = 960,
           visible = true,
           properties = {}
         },
@@ -3210,7 +3491,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 945,
+          gid = 960,
           visible = true,
           properties = {}
         },
@@ -3301,7 +3582,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 945,
+          gid = 960,
           visible = true,
           properties = {}
         },
@@ -3315,7 +3596,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 945,
+          gid = 960,
           visible = true,
           properties = {}
         },
@@ -3329,7 +3610,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 945,
+          gid = 960,
           visible = true,
           properties = {}
         },
@@ -3343,7 +3624,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1182,
+          gid = 1197,
           visible = true,
           properties = {
             ["leaderid"] = 80,
@@ -3360,7 +3641,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1080,
+          gid = 1095,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -3378,7 +3659,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1182,
+          gid = 1197,
           visible = true,
           properties = {
             ["leaderid"] = 81,
@@ -3395,7 +3676,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1082,
+          gid = 1097,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -3413,7 +3694,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1182,
+          gid = 1197,
           visible = true,
           properties = {
             ["leaderid"] = 128,
@@ -3430,7 +3711,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1081,
+          gid = 1096,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -3539,7 +3820,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1081,
+          gid = 1096,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -3559,7 +3840,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1081,
+          gid = 1096,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -3579,7 +3860,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1182,
+          gid = 1197,
           visible = true,
           properties = {
             ["leaderid"] = 134,
@@ -3596,7 +3877,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1182,
+          gid = 1197,
           visible = true,
           properties = {
             ["leaderid"] = 136,
@@ -4003,7 +4284,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 894,
+          gid = 900,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4223,7 +4504,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1081,
+          gid = 1096,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4243,7 +4524,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1081,
+          gid = 1096,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4263,7 +4544,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1182,
+          gid = 1197,
           visible = true,
           properties = {
             ["leaderid"] = 77,
@@ -4280,7 +4561,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1182,
+          gid = 1197,
           visible = true,
           properties = {
             ["leaderid"] = 78,
@@ -4347,7 +4628,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1081,
+          gid = 1096,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4400,7 +4681,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1182,
+          gid = 1197,
           visible = true,
           properties = {
             ["leaderid"] = 75,
@@ -4444,7 +4725,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 945,
+          gid = 960,
           visible = true,
           properties = {}
         },
@@ -4458,7 +4739,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 945,
+          gid = 960,
           visible = true,
           properties = {}
         },
@@ -4472,7 +4753,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 945,
+          gid = 960,
           visible = true,
           properties = {}
         },
@@ -4647,7 +4928,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 945,
+          gid = 960,
           visible = true,
           properties = {}
         },
@@ -4661,7 +4942,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 945,
+          gid = 960,
           visible = true,
           properties = {}
         },
@@ -4675,7 +4956,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 945,
+          gid = 960,
           visible = true,
           properties = {}
         },
@@ -4689,7 +4970,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 945,
+          gid = 960,
           visible = true,
           properties = {}
         }
@@ -4711,7 +4992,7 @@ return {
           type = "",
           shape = "polyline",
           x = 144,
-          y = 1080,
+          y = 1088,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4733,7 +5014,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 1144,
+          y = 1152,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4751,7 +5032,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 112,
-          y = 1160,
+          y = 1168,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4769,7 +5050,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 1176,
+          y = 1184,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4787,7 +5068,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 80,
-          y = 1112,
+          y = 1120,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4805,7 +5086,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 96,
-          y = 1144,
+          y = 1152,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4823,7 +5104,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 208,
-          y = 1112,
+          y = 1120,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4841,7 +5122,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 176,
-          y = 1160,
+          y = 1168,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4859,7 +5140,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 192,
-          y = 1144,
+          y = 1152,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4877,7 +5158,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1176,
+          y = 1184,
           width = 288,
           height = 16,
           rotation = 0,
@@ -4892,11 +5173,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 1112,
+          y = 1120,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 891,
+          gid = 897,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -4922,7 +5203,7 @@ return {
           type = "",
           shape = "polyline",
           x = 120,
-          y = 1192,
+          y = 1184,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4943,7 +5224,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 48,
-          y = 1208,
+          y = 1200,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4961,7 +5242,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 64,
-          y = 1224,
+          y = 1216,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4979,7 +5260,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 64,
-          y = 1208,
+          y = 1200,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4997,7 +5278,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 48,
-          y = 1224,
+          y = 1216,
           width = 24,
           height = 32,
           rotation = 0,
@@ -5015,7 +5296,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 224,
-          y = 1224,
+          y = 1216,
           width = 24,
           height = 32,
           rotation = 0,
@@ -5033,7 +5314,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 224,
-          y = 1208,
+          y = 1200,
           width = 24,
           height = 32,
           rotation = 0,
@@ -5051,7 +5332,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 240,
-          y = 1224,
+          y = 1216,
           width = 24,
           height = 32,
           rotation = 0,
@@ -5069,7 +5350,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 240,
-          y = 1208,
+          y = 1200,
           width = 24,
           height = 32,
           rotation = 0,
@@ -5087,7 +5368,7 @@ return {
           type = "",
           shape = "polyline",
           x = 192,
-          y = 1336,
+          y = 1328,
           width = 0,
           height = 0,
           rotation = 0,
@@ -5108,7 +5389,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1224,
+          y = 1216,
           width = 288,
           height = 16,
           rotation = 0,
@@ -5135,7 +5416,7 @@ return {
           type = "",
           shape = "polyline",
           x = 144,
-          y = 1256,
+          y = 1264,
           width = 0,
           height = 0,
           rotation = 0,
@@ -5154,7 +5435,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 120,
-          y = 1240,
+          y = 1248,
           width = 24,
           height = 32,
           rotation = 0,
@@ -5172,7 +5453,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 152,
-          y = 1240,
+          y = 1248,
           width = 24,
           height = 32,
           rotation = 0,
@@ -5190,7 +5471,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 136,
-          y = 1240,
+          y = 1248,
           width = 24,
           height = 32,
           rotation = 0,
@@ -5208,7 +5489,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 168,
-          y = 1240,
+          y = 1248,
           width = 24,
           height = 32,
           rotation = 0,
@@ -5226,7 +5507,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1240,
+          y = 1248,
           width = 288,
           height = 16,
           rotation = 0,
@@ -5255,11 +5536,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 192,
-          y = 1256,
+          y = 1264,
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 947,
+          gid = 962,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5275,11 +5556,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 128,
-          y = 1176,
+          y = 1184,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 959,
+          gid = 974,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5295,11 +5576,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 176,
-          y = 1160,
+          y = 1168,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 971,
+          gid = 986,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5315,11 +5596,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 224,
-          y = 1176,
+          y = 1184,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 983,
+          gid = 998,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5335,11 +5616,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 240,
-          y = 1240,
+          y = 1248,
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 995,
+          gid = 1010,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5355,11 +5636,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 64,
-          y = 1176,
+          y = 1184,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1007,
+          gid = 1022,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5375,11 +5656,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 112,
-          y = 1256,
+          y = 1264,
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1019,
+          gid = 1034,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5395,11 +5676,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 64,
-          y = 1240,
+          y = 1248,
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1031,
+          gid = 1046,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5415,11 +5696,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 176,
-          y = 1240,
+          y = 1248,
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1043,
+          gid = 1058,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5435,11 +5716,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 112,
-          y = 1208,
+          y = 1216,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1055,
+          gid = 1070,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5455,11 +5736,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 176,
-          y = 1224,
+          y = 1232,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1067,
+          gid = 1082,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5475,7 +5756,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1272,
+          y = 1280,
           width = 288,
           height = 16,
           rotation = 0,
@@ -5490,7 +5771,7 @@ return {
           type = "",
           shape = "polyline",
           x = 0,
-          y = 1256,
+          y = 1264,
           width = 0,
           height = 0,
           rotation = 0,
@@ -5521,14 +5802,13 @@ return {
           type = "Camera",
           shape = "rectangle",
           x = 24,
-          y = 1304,
+          y = 1312,
           width = 240,
           height = 320,
           rotation = 0,
           visible = true,
           properties = {
             ["pathid"] = 2,
-            ["pathmode"] = "relative",
             ["pathspeed"] = 30
           }
         },
@@ -5538,13 +5818,13 @@ return {
           type = "",
           shape = "polyline",
           x = 24,
-          y = 1288,
+          y = 1304,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 0 },
+            { x = 0, y = 8 },
             { x = 0, y = -1304 }
           },
           properties = {

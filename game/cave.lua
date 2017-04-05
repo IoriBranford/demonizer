@@ -1342,7 +1342,7 @@ return {
       spacing = 0,
       margin = 0,
       image = "img/infwomen.png",
-      imagewidth = 360,
+      imagewidth = 432,
       imageheight = 160,
       tileoffset = {
         x = -12,
@@ -1353,6 +1353,7 @@ return {
         ["column_mage"] = 9,
         ["column_pikeman"] = 0,
         ["column_priest"] = 6,
+        ["column_princess"] = 15,
         ["column_swordsman"] = 3,
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
@@ -1363,7 +1364,7 @@ return {
         ["row_up"] = 0
       },
       terrains = {},
-      tilecount = 75,
+      tilecount = 90,
       tiles = {
         {
           id = 0,
@@ -1417,7 +1418,7 @@ return {
     },
     {
       name = "humanshots",
-      firstgid = 588,
+      firstgid = 603,
       filename = "img/humanshots.tsx",
       tilewidth = 32,
       tileheight = 16,
@@ -1512,7 +1513,7 @@ return {
     },
     {
       name = "electricity",
-      firstgid = 620,
+      firstgid = 635,
       filename = "img/electricity.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1548,7 +1549,7 @@ return {
     },
     {
       name = "demonizing",
-      firstgid = 652,
+      firstgid = 667,
       filename = "img/demonizing.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1638,7 +1639,7 @@ return {
     },
     {
       name = "demonwomen",
-      firstgid = 655,
+      firstgid = 670,
       filename = "img/demonwomen.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1719,7 +1720,7 @@ return {
     },
     {
       name = "lavapit",
-      firstgid = 694,
+      firstgid = 709,
       filename = "img/lavapit.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1937,7 +1938,7 @@ return {
     },
     {
       name = "cave_objects",
-      firstgid = 734,
+      firstgid = 749,
       filename = "img/cave_objects.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1957,7 +1958,7 @@ return {
     },
     {
       name = "flames",
-      firstgid = 783,
+      firstgid = 798,
       filename = "img/flames.tsx",
       tilewidth = 16,
       tileheight = 24,
@@ -2058,7 +2059,7 @@ return {
     },
     {
       name = "sparks_med",
-      firstgid = 795,
+      firstgid = 810,
       filename = "img/sparks_med.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2126,7 +2127,7 @@ return {
     },
     {
       name = "demonbomb",
-      firstgid = 811,
+      firstgid = 826,
       filename = "img/demonbomb.tsx",
       tilewidth = 128,
       tileheight = 128,
@@ -2211,7 +2212,7 @@ return {
     },
     {
       name = "ballista",
-      firstgid = 819,
+      firstgid = 834,
       filename = "img/ballista.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2293,7 +2294,7 @@ return {
     },
     {
       name = "civwomen",
-      firstgid = 843,
+      firstgid = 858,
       filename = "img/civwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -2378,7 +2379,7 @@ return {
     },
     {
       name = "cauldron",
-      firstgid = 963,
+      firstgid = 978,
       filename = "img/cauldron.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2458,7 +2459,7 @@ return {
     },
     {
       name = "demonshothit",
-      firstgid = 969,
+      firstgid = 984,
       filename = "img/demonshothit.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -2532,7 +2533,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztlTuOwzAMBQPf/zxUZ18tKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q3+0iKv"
+      data = "eJztlTuOwzAMBQPf/1pUZ58pKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q11wk4a"
     },
     {
       type = "tilelayer",
@@ -2606,7 +2607,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzrEJACAQBMHH/uvSTDNtx89s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswtK+D+l"
+      data = "eJztzrEJACAQBMHH/tvTTDOtw89s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswsF2FcG"
     },
     {
       type = "tilelayer",
@@ -2624,7 +2625,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztWmuL2zAQPPSLTTElmFKMCUe4X30nanHbycxqtc6HUjQg4jw8nl1pH5bz9jYxMTExMTExMTExMTHxL+G9/Bk/yjWe5ev829fYzpHhqxx34Lmd436OCK/Vgq8bcCu+5fQLnoNclv834UK/2N8zje34V/F5IrYpXUfHP0xPe4+6DvM7T1/Ext3xd28+mY3sfMVnP2c22u+VrUzjz46NyBnlqVgdfyl+xmP5PD/Z79BHio/pQz4WNz0+FTtRropdcKm1rrA4/o7kGgtca2pe61D5sOUuL45VfL6fvO/AEbFP5RE8z/teXcOLj148efo8X0Tz44hWTzv7vOdrdk2lUfn9cQ6lr33/EZjXhpVowHhiv7kZTSwuvNjcCRfLB5jn6sA4snHYbFe5c4drWm3Yi/RywFqefdriEecnkp+O8jxnbM15dQG1eWszwtPA5qtxRXMv04ZxMMpVcRCeUfsa0M6MfZYLfT5S8yyO8rwusrrQX1kuVkuzXNibtpGdw6trtGIpPHYyXGxdXeVCbaNcmO+u+J3FoMrpUU2Y90btY/GXyX3sHnVL2LcQDjtGuNg9U2ZdLUQH6ovoUn01fhbh6tkWXQ9er8/4vP0Fr0djOZD1KQv5jeoDPVuRhx339LZ7Bpzz+lrrM/aPSqf3GfaY7FrMf0q/Ra+/UXoYl+VT6wSPPxwutFfZ3M6/E38h9vLsL29dK10Vao8EtUXiDHu53jz2YnYlWpjfvB4f/eblpJE6gHnJ8o7WE7VGs3X3aq1ErlvSNsuVyf0I1WNe6e2zNbenKdvLsZyQnT+WV0d9pfavX9X39tZCe7agNGF+UVx2niwOYpunC3skxYXzyPyFc4T2qZrDnjGgDfYaXo3dyvczGnxuYmsa3v+oHM/Ox2sxLao+qxyraryqh6oW1dH6mxobKocq/vb6KN+xtZW/932UzyLrF/f3vONITWz9XM9/I/m+1yNm8g7W/it1o4L1Oa/gulI7Ktj9ez0eeQ6rnnlGalE7F+Nf5R5vHlXPgOv10eGp8Hq/0RrL9mBx/qJc6GMWh9G18AhwjfakKh9k9mXVWsjUfu+ZZ+Y/BypPZ+JwLc9+v5ofWI7O2KnuqbLa2L1yVlsF2z9+VS7cLmhjz2OztrJnO1f0KW2Z2MJahDqj2rz+bjTud6IH4z66j6h6wmhNsppUXRr1PfvvTLbf8f43MBpLK+Gyr5keDGtUhodxRvdsJiYmJiYm/gd8AicCt/M="
+      data = "eJztWmuL2zAQPPTHTTElmFKMCUe4f3snanHbycxqtc6HUjQg4jw8nl1pH5bz9jYxMTExMTExMTExMTHxL+G9/Bk/yjWe5ev829fYzpHhqxx34Lmd436OCK/Vgq8bcCu+5fQLnoNclv834UK/2N8zje34V/F5IrYpXUfHP0xPe4+6DvM7T1/Ext3xd28+mY3sfMVnP2c22u+VrUzjz46NyBnlqVgdfyl+xmP5PD/Z79BHio/pQz4WNz0+FTtRropdcKm1rrA4/o7kGgtca2pe61D5sOUuL45VfL6fvO/AEbFP5RE8z/teXcOLj148efo8X0Tz44hWTzv7vOdrdk2lUfn9cQ6lr33/EZjXhpVowHhiv7kZTSwuvNjcCRfLB5jn6sA4snHYbFe5c4drWm3Yi/RywFqefdriEecnkp+O8jxnbM15dQG1eWszwtPA5qtxRXMv04ZxMMpVcRCeUfsa0M6MfZYLfT5S8yyO8rwusrrQX1kuVkuzXNibtpGdw6trtGIpPHYyXGxdXeVCbaNcmO+u+J3FoMrpUU2Y90btY/GXyX3sHnVL2LcQDjtGuNg9U2ZdLUQH6ovoUn01fhbh6tkWXQ9er8/4vP0Fr0djOZD1KQv5jeoDPVuRhx339LZ7Bpzz+lrrM/aPSqf3GfaY7FrMf0q/Ra+/UXoYl+VT6wSPPxwutFfZ3M6/E38h9vLsL29dK10Vao8EtUXiDHu53jz2YnYlWpjfvB4f/eblpJE6gHnJ8o7WE7VGs3X3aq1ErlvSNsuVyf0I1WNe6e2zNbenKdvLsZyQnT+WV0d9pfavX9X39tZCe7agNGF+UVx2niwOYpunC3skxYXzyPyFc4T2qZrDnjGgDfYaXo3dyvczGnxuYmsa3v+oHM/Ox2sxLao+qxyraryqh6oW1dH6mxobKocq/vb6KN+xtZW/932UzyLrF/f3vONITWz9XM9/I/m+1yNm8g7W/it1o4L1Oa/gulI7Ktj9ez0eeQ6rnnlGalE7F+Nf5R5vHlXPgOv10eGp8Hq/0RrL9mBx/qJc6GMWh9G18AhwjfakKh9k9mXVWsjUfu+ZZ+Y/BypPZ+JwLc9+v5ofWI7O2KnuqbLa2L1yVlsF2z9+VS7cLmhjz2OztrJnO1f0KW2Z2MJahDqj2rz+bjTud6IH4z66j6h6wmhNsppUXRr1PfvvTLbf8f43MBpLK+Gyr5keDGtUhodxRvdsJiYmJiYm/gd8Ah0pDIA="
     },
     {
       type = "tilelayer",
@@ -2699,7 +2700,7 @@ return {
           width = 16,
           height = 24,
           rotation = 0,
-          gid = 783,
+          gid = 798,
           visible = true,
           properties = {
             ["operatorid"] = 118,
@@ -2716,7 +2717,7 @@ return {
           width = 16,
           height = 24,
           rotation = 0,
-          gid = 783,
+          gid = 798,
           visible = true,
           properties = {
             ["operatorid"] = 118,
@@ -2863,7 +2864,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 963,
+          gid = 978,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -2880,7 +2881,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 963,
+          gid = 978,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -2897,7 +2898,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 963,
+          gid = 978,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -2914,7 +2915,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 963,
+          gid = 978,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -3389,7 +3390,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 822,
+          gid = 837,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3405,7 +3406,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 820,
+          gid = 835,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3448,7 +3449,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 820,
+          gid = 835,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3464,7 +3465,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 822,
+          gid = 837,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3507,7 +3508,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 820,
+          gid = 835,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3523,7 +3524,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 822,
+          gid = 837,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3566,7 +3567,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 822,
+          gid = 837,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3582,7 +3583,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 820,
+          gid = 835,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4380,7 +4381,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 821,
+          gid = 836,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4396,7 +4397,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 821,
+          gid = 836,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4412,7 +4413,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 821,
+          gid = 836,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4428,7 +4429,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 821,
+          gid = 836,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"

@@ -443,7 +443,7 @@ function ShmupWingman:endDraw()
 	love.graphics.setColor(0xff, 0xff, 0xff)
 end
 
-function ShmupWingman:playerVictorious()
+function ShmupWingman:playerWon()
 	self:setVulnerable(false)
 end
 

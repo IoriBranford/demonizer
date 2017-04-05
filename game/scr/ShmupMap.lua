@@ -146,13 +146,13 @@ function ShmupMap:keypressed_f12()
 	print("Screenshot folder is full")
 end
 
-function ShmupMap:playerVictorious()
+function ShmupMap:playerWon()
 	levity.bank:changeMusic("mus/07 - Great Job!.vgm", "emu")
 	self.resulttimer = 0
 	self.resulttime = ShmupMap.VictoryTime
 end
 
-function ShmupMap:playerDefeated()
+function ShmupMap:playerLost()
 	levity.bank:changeMusic("mus/33 - All Over Tonight.vgm", "emu")
 	self.resulttimer = 0
 	self.resulttime = ShmupMap.DefeatTime

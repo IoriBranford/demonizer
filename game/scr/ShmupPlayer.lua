@@ -440,7 +440,7 @@ function ShmupPlayer:deathCoroutine(dt)
 	if not uimap or uimap.scripts:call("status", "hasLives") then
 		self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
 	else
-		levity.map:broadcast("playerDefeated")
+		levity.map:broadcast("playerLost")
 		self.object.body:setLinearVelocity(0, 0)
 		while true do
 			coroutine.yield()
@@ -640,7 +640,7 @@ function ShmupPlayer:endDraw()
 	end
 end
 
-function ShmupPlayer:playerVictorious()
+function ShmupPlayer:playerWon()
 	self.coroutine = coroutine.create(ShmupPlayer.exitCoroutine)
 end
 
