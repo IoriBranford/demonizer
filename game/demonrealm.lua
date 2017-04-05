@@ -3163,9 +3163,9 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 352,
+          y = 304,
           width = 288,
-          height = 112,
+          height = 160,
           rotation = 0,
           visible = true,
           properties = {
@@ -3178,7 +3178,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 264,
-          y = 400,
+          y = 424,
           width = 64,
           height = 64,
           rotation = 0,
@@ -3192,7 +3192,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 40,
-          y = 424,
+          y = 448,
           width = 64,
           height = 64,
           rotation = 0,
@@ -3206,7 +3206,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 160,
-          y = 404,
+          y = 428,
           width = 64,
           height = 64,
           rotation = 0,
@@ -3220,7 +3220,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 236,
-          y = 376,
+          y = 400,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3239,7 +3239,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 140,
-          y = 368,
+          y = 392,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3258,7 +3258,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 44,
-          y = 400,
+          y = 424,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3277,7 +3277,7 @@ return {
           type = "",
           shape = "polyline",
           x = 44,
-          y = 400,
+          y = 424,
           width = 0,
           height = 0,
           rotation = 0,
@@ -3297,7 +3297,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 240,
-          y = 412,
+          y = 436,
           width = 64,
           height = 64,
           rotation = 0,
@@ -3311,7 +3311,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 20,
-          y = 408,
+          y = 432,
           width = 64,
           height = 64,
           rotation = 0,
@@ -3325,7 +3325,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 120,
-          y = 408,
+          y = 432,
           width = 64,
           height = 64,
           rotation = 0,
@@ -3338,8 +3338,8 @@ return {
           name = "operator",
           type = "",
           shape = "rectangle",
-          x = -16,
-          y = 416,
+          x = 32,
+          y = 332,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3355,8 +3355,8 @@ return {
           name = "catapult",
           type = "",
           shape = "rectangle",
-          x = 0,
-          y = 432,
+          x = 48,
+          y = 352,
           width = 72,
           height = 72,
           rotation = 0,
@@ -3365,28 +3365,7 @@ return {
           properties = {
             ["kopassengers"] = true,
             ["offscreenshot"] = true,
-            ["pathid"] = 82,
-            ["pathspeed"] = 120,
             ["script"] = "VehicleCatapult"
-          }
-        },
-        {
-          id = 82,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 48,
-          y = 464,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -32, y = -16 },
-            { x = 16, y = 32 }
-          },
-          properties = {
-            ["script"] = "PathGraph"
           }
         },
         {
@@ -3394,8 +3373,8 @@ return {
           name = "operator",
           type = "",
           shape = "rectangle",
-          x = 288,
-          y = 416,
+          x = 256,
+          y = 332,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3407,31 +3386,12 @@ return {
           }
         },
         {
-          id = 83,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 256,
-          y = 464,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = -16 },
-            { x = -48, y = 32 }
-          },
-          properties = {
-            ["script"] = "PathGraph"
-          }
-        },
-        {
           id = 81,
           name = "catapult",
           type = "",
           shape = "rectangle",
-          x = 272,
-          y = 432,
+          x = 240,
+          y = 352,
           width = 72,
           height = 72,
           rotation = 0,
@@ -3440,8 +3400,6 @@ return {
           properties = {
             ["kopassengers"] = true,
             ["offscreenshot"] = true,
-            ["pathid"] = 83,
-            ["pathspeed"] = 120,
             ["script"] = "VehicleCatapult"
           }
         },
@@ -3451,7 +3409,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 408,
+          y = 320,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3463,31 +3421,12 @@ return {
           }
         },
         {
-          id = 138,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 160,
-          y = 440,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -16, y = 0 },
-            { x = -16, y = 56 }
-          },
-          properties = {
-            ["script"] = "PathGraph"
-          }
-        },
-        {
           id = 128,
           name = "catapult",
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 440,
+          y = 352,
           width = 72,
           height = 72,
           rotation = 0,
@@ -3496,8 +3435,6 @@ return {
           properties = {
             ["kopassengers"] = true,
             ["offscreenshot"] = true,
-            ["pathid"] = 138,
-            ["pathspeed"] = 120,
             ["script"] = "VehicleCatapult"
           }
         }
@@ -5601,7 +5538,7 @@ return {
           type = "",
           shape = "polyline",
           x = 24,
-          y = 1304,
+          y = 1288,
           width = 0,
           height = 0,
           rotation = 0,

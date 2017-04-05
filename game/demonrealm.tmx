@@ -63,15 +63,15 @@
   </object>
  </objectgroup>
  <objectgroup name="archerscatapults">
-  <object id="137" type="Trigger" x="0" y="352" width="288" height="112">
+  <object id="137" type="Trigger" x="0" y="304" width="288" height="160">
    <properties>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="95" name="tree" gid="945" x="264" y="400" width="64" height="64"/>
-  <object id="94" name="tree" gid="945" x="40" y="424" width="64" height="64"/>
-  <object id="93" name="tree" gid="945" x="160" y="404" width="64" height="64"/>
-  <object id="58" name="archer" gid="819" x="236" y="376" width="24" height="32">
+  <object id="95" name="tree" gid="945" x="264" y="424" width="64" height="64"/>
+  <object id="94" name="tree" gid="945" x="40" y="448" width="64" height="64"/>
+  <object id="93" name="tree" gid="945" x="160" y="428" width="64" height="64"/>
+  <object id="58" name="archer" gid="819" x="236" y="400" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="54"/>
     <property name="pathmode" value="relative"/>
@@ -79,7 +79,7 @@
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="57" name="archer" gid="819" x="140" y="368" width="24" height="32">
+  <object id="57" name="archer" gid="819" x="140" y="392" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="54"/>
     <property name="pathmode" value="relative"/>
@@ -87,7 +87,7 @@
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="56" name="archer" gid="819" x="44" y="400" width="24" height="32">
+  <object id="56" name="archer" gid="819" x="44" y="424" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="54"/>
     <property name="pathmode" value="relative"/>
@@ -95,75 +95,51 @@
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="54" name="path" x="44" y="400">
+  <object id="54" name="path" x="44" y="424">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,0 96,-16 192,-16"/>
   </object>
-  <object id="49" name="tree" gid="945" x="240" y="412" width="64" height="64"/>
-  <object id="45" name="tree" gid="945" x="20" y="408" width="64" height="64"/>
-  <object id="46" name="tree" gid="945" x="120" y="408" width="64" height="64"/>
-  <object id="84" name="operator" gid="1182" x="-16" y="416" width="24" height="32">
+  <object id="49" name="tree" gid="945" x="240" y="436" width="64" height="64"/>
+  <object id="45" name="tree" gid="945" x="20" y="432" width="64" height="64"/>
+  <object id="46" name="tree" gid="945" x="120" y="432" width="64" height="64"/>
+  <object id="84" name="operator" gid="1182" x="32" y="332" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="80"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="80" name="catapult" gid="1080" x="0" y="432" width="72" height="72">
+  <object id="80" name="catapult" gid="1080" x="48" y="352" width="72" height="72">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
     <property name="offscreenshot" type="bool" value="true"/>
-    <property name="pathid" type="int" value="82"/>
-    <property name="pathspeed" type="float" value="120"/>
     <property name="script" value="VehicleCatapult"/>
    </properties>
   </object>
-  <object id="82" name="path" x="48" y="464">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
-   <polyline points="-32,-16 16,32"/>
-  </object>
-  <object id="85" name="operator" gid="1182" x="288" y="416" width="24" height="32">
+  <object id="85" name="operator" gid="1182" x="256" y="332" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="81"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="83" name="path" x="256" y="464">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
-   <polyline points="0,-16 -48,32"/>
-  </object>
-  <object id="81" name="catapult" gid="1082" x="272" y="432" width="72" height="72">
+  <object id="81" name="catapult" gid="1082" x="240" y="352" width="72" height="72">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
     <property name="offscreenshot" type="bool" value="true"/>
-    <property name="pathid" type="int" value="83"/>
-    <property name="pathspeed" type="float" value="120"/>
     <property name="script" value="VehicleCatapult"/>
    </properties>
   </object>
-  <object id="130" name="operator" gid="1182" x="144" y="408" width="24" height="32">
+  <object id="130" name="operator" gid="1182" x="144" y="320" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="128"/>
     <property name="script" value="ShmupNPC"/>
    </properties>
   </object>
-  <object id="138" name="path" x="160" y="440">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
-   <polyline points="-16,0 -16,56"/>
-  </object>
-  <object id="128" name="catapult" gid="1081" x="144" y="440" width="72" height="72">
+  <object id="128" name="catapult" gid="1081" x="144" y="352" width="72" height="72">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
     <property name="offscreenshot" type="bool" value="true"/>
-    <property name="pathid" type="int" value="138"/>
-    <property name="pathspeed" type="float" value="120"/>
     <property name="script" value="VehicleCatapult"/>
    </properties>
   </object>
@@ -888,7 +864,7 @@
     <property name="pathspeed" type="float" value="30"/>
    </properties>
   </object>
-  <object id="2" name="path" x="24" y="1304">
+  <object id="2" name="path" x="24" y="1288">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
