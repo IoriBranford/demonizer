@@ -16,7 +16,7 @@ NPCSwordsman = class(ShmupNPC, function(self, object)
 	self.fleeing = false
 end)
 
-NPCSwordsman.Speed = 360
+NPCSwordsman.Speed = 180
 NPCSwordsman.BulletInterval = .5
 NPCSwordsman.BulletParams = {
 	speed = 240,
