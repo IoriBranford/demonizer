@@ -1,1 +1,1 @@
-rules_waterelectricity.tmx
+rules/waterelectricity.tmx
