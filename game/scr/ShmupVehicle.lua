@@ -18,11 +18,9 @@ local ShmupVehicle = class(function(self, object)
 	self.health = 64
 
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
-		fixture:setSensor(true)
 		fixture:setCategory(ShmupCollision.Category_NPCTeam)
 		fixture:setMask(ShmupCollision.Category_CameraEdge,
 			ShmupCollision.Category_PlayerTeam,
-			ShmupCollision.Category_NPCTeam,
 			ShmupCollision.Category_NPCShot)
 	end
 
