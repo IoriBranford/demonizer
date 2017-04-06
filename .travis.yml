@@ -24,7 +24,7 @@ addons:
     - luajit
 before_install:
 - cd $GAME_DIR
-- find -name "*.lua" -execdir luajit -bl {} > /dev/null \;
+- find -name "*.lua" -exec luajit -bl {} > /dev/null \;
 - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh
   | sudo bash
 - sudo apt-get install -y git-lfs
