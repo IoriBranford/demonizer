@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="18" height="140" tilewidth="16" tileheight="16" nextobjectid="169">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="18" height="102" tilewidth="16" tileheight="16" nextobjectid="169">
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="mus/05 - Twilight Express.vgm"/>
+  <property name="nextmap" type="file" value="village.lua"/>
   <property name="overlaymap" type="file" value="gameui.lua"/>
   <property name="playerid" type="int" value="3"/>
   <property name="script" value="ShmupMap"/>
@@ -36,19 +37,14 @@
  <tileset firstgid="1118" source="img/sparks_med.tsx"/>
  <tileset firstgid="1134" source="img/civmen.tsx"/>
  <tileset firstgid="1269" source="img/trees_tall.tsx"/>
- <layer name="Earth" width="18" height="140">
+ <layer name="Earth" width="18" height="102">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
- <layer name="Grass" width="18" height="140">
+ <layer name="Grass" width="18" height="102">
   <data encoding="base64" compression="zlib">
-   eJztmj1v2zAQhvn36syF56Rz29nqnHS15FWK/mpFgA/0lFBiHjt0MQEisUS9Ot73HTWnlIZtTtsct3nb5rzNVdeW8v/7Nq/l2rWs4Rkm91lzK8+PZf1Q8KfydynXbuX+Tc9Nom3StVXPLfoNHmtHrYHOpeCDybuGsr+5zEFr+T3rN7xhrlr/Xma9R941VpjvonsVxk3PjVp7LXMQvvngfbNu1HuQ8aT3wNtFa+EHvFlF31quoR9+H3L2e8Gehcu75vJ+8Fbh8d5R/OEZ+Ml+wDaPJt2HT/DV74Bnk9bYBpA79PEM9GEzq+6bpponyM60wTv2xT7g21Xr8vyyzbdtnqq/TxUWdCAr6B0Kxu90PF4L5qlgwjew2NdnGEeYptE6+rURg/F9m9/SLnP49CuI81rosUxvHTjQg15h61GcS9rtEXp6+HNOu66gSxFZGcf6mOfzNl+2+WObPwM4+Ev8r/1i6/6Ql7HwkZH9IS9wsM05QEsel/R3nEFmUV6f026f6GKmJfO6lcfgYJuOB1F6jvic/0b1MI/MI3wYPjSCk2WVdQ159cg7j8wb5Izeoc8RHmOj+Ff8bVRe5rH9GLlKxHeARYwkp4jqcx55f8RPcKK8tn2BFfVj9qnOU6J+1bxhT1G/w8i8Ib4TYzM9PTpU5xLYWY8OEZvhVY/NO2Y4z26lJ8srxwXisuPGHKCHWFHnRORrrTIjdiGjujZo1SH8F7EGnCiP8fG2cfAiekhu9pT2vIeYGtXDPNDFRTNqY3U8RfYRmpzTOZ9HD1v5xH6ca5AHR3yZc0PXWT2+45x23+O6t8dG8aU9OTiDvcGXHgzThG2SG0Z1ENlTQ2GnEX0GA7si18C/tmLl/bhGhc/Oy1pkjz/F3qkr2V9UD/GHYPXYKTTZJsBt1Wf47Hi8pHiOCJ9dV7oPEqkJ8If4aOyjN2+ZA888xmM8xmM8xr8Pav26t0RtcdRz4pkXTXy4477zy6O4mfNG54vuFVDHPKc9x6CvaxznwcTWHIOe9Iz7jNBS00NfiRiW+6Y5jpH/jbpOHnfU4yM2vn1w/aTr9GdPqT8X/N/D+nOkRx89g24xyW98JkNu+1F+S91KLkTPn3zrqt+f1Ub08NBfckXk6On+PzKDPudFkRwfftS1P/pxD8N9APgXrU2dy1sO5KwtWLUtknvTr6WOv5dnnvUs9LAnnw/dy8Opk+pzL2pb/E0LDn6KustnSq290Uva61F8nvs/rf26mj/k8uh5ay+TOgda3KuJ9lrAokZxzRw9k3F9S43S28uszxoyfRG7uKS9rkX+1KbRnhY6jG1ZNyP2Zd76/B7MezTRr3E/lX46NtayN59V+fsAbL+1f0i/r/62wD65Rf6cN1hv3IdEr1v44+8q6rMzaLqH456PbcLnRFMDDnvD7+Er8NORM1TTdPTtR+RMl5zJsgY32jfGLtgL+hzpk/h8x7qN3Hv6h7Z5dCKKY1unl9TTh0T2/o6lx7fW3+lE/BjDPV9/d9GDQ3+WPfX0RjkjJB/s4Q049Pwi9lkPclP8Y8aMnhXg7x03sI1I39dn1OTBzqfIO8nF69zcNZ57ovbN+BLiJPfdG/S5kL+Jqr8j8/dv9fc82M+gSY76By6+i2E=
-  </data>
- </layer>
- <layer name="Trees" width="18" height="140">
-  <data encoding="base64" compression="zlib">
-   eJzt1KkOAkEQhOFJvwCH5bAclgUJaEADGtDA+yvadDLZgJkasSH/56uyqaFJCQAAAAAAAAAAAADwzwaW0tD0nol3TCv0LLxjWaFn7R2bCj2qrX/DzvSdD549mr7z2bMX03e+efZu+s5Pz74qvlPsvS/ozLOx96mgJ8/G3teCnjwbez8KevJs7P0u6FGyv/D/813Ps/0K3zHyjrFwE2Hm2blwE2Hl2Ua4ibbSm2hTf9e130u9i3gv9S7ivbpyF131AXnwGEs=
+   eJztmb1u2zAURvl6tecic9K57Rx3Trpa0ipZr1oS4IFOCDnVZYcuJnDhWCY/Xd7fj8ycUrpkGbMMWaYsc5ZVz5b69y3LtT671jmsQfidOVNdP9T5l4o/1s+lPpvq75PWjdJt1LNV6xZ9B4+5g+ag51LxweRdl7q/ucpFc/k+6zu2QVbNv1Vp98i7hgbzJr1XYUxaN2jutcpF+LaD9828Qe/Bx6Peg20XzcUe2GaVfmt9Rnz4ffjZ7wV7Fi7vmuv7wVuFx3sH2Yc12JP9gG0bjfodO2FXvwObjZrjHMDv6Mca9CNnVv1unVqb4Dvrhu3YF/vAblfNK/Ily3uWU/N5brDQA1+h76Vi/E77461iniomdgOLfX2GsYdpHR2jXw9iML5n+ZY2n2OnX0Gct6qPfTp14KAPcUWuR3Fe05aP6NNjn6e0xQqxFPGVcRyPRZ6zvGT5keVnAId6Sf11XTy6P/xlLGpkZH/4Cxxycw7oUsZr+thn8FnU1k9py09isehSbH3UxuCQm+4HUX327Fw+o3FYRrERNYwaGsEpviqxhr96/F1GsQ1+Ju6I54iNyVHqK/U26i/b2HUMrhKpHWDRI+EU0Xguo+yP/glO1NbOL7Cidcw11TwlWldtG/YUrTuMYhv6Oz226NMTQy2XIM96YojejK16ct49wzz7qD7FX6Uv0JfdN+aAPvSKlhPB1476jN6Fj9qzwdEYon7Ra8CJ2pga7xwHLxKHcLNz2ngPPTUah2UQi4skmmNtP8X3EZ3M6cznicOjdmI/5hrw4EgtMzf0Oaundjylrfb43NuTo9TSHg7OYG/YpQfDOpGbcMNoDOJ7zlDkaSSewSCv4BrU16NYZT8+o2Jn87Ijvqeeku+cK9lfNA6ph2D15Ck6OSfAPRrP2Nn9eElxjoidfa70PUjkTEA9pEaTH728ZQ6seYzHeIzHeIx/H5z127slzhZ7d06seZFQw933zS/3+mbhjeaLvivgHPOcNo7Bva5xzIPpraUHnbXG94zo0urDvRI9rNyblj4G/xv0HB63d8dHb3y/8/yk59zPnlI/F/zfw/GzF0f31hBbCPzG/5OB297jt5xb4ULc+cO3rvr+2dmIOzziF66IHy2+/8dn6GdeFOH42KM9+xMff8PwPQD2i55NzeXxwx9XhcK1
   </data>
  </layer>
  <objectgroup name="boss_paths" visible="0">
@@ -200,16 +196,6 @@
     <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
-  <object id="151" name="swordsman" gid="810" x="-32" y="736" width="24" height="32">
-   <properties>
-    <property name="script" value="NPCSwordsman"/>
-   </properties>
-  </object>
-  <object id="150" name="swordsman" gid="810" x="320" y="736" width="24" height="32">
-   <properties>
-    <property name="script" value="NPCSwordsman"/>
-   </properties>
-  </object>
   <object id="134" name="catapult" gid="1096" x="192" y="496" width="72" height="72">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
@@ -254,14 +240,6 @@
   </object>
  </objectgroup>
  <objectgroup name="pikemen4">
-  <object id="116" name="pikeman" gid="807" x="112" y="544" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="117"/>
-    <property name="pathmode" value="relative"/>
-    <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="120"/>
-   </properties>
-  </object>
   <object id="117" name="path" x="80" y="480">
    <properties>
     <property name="beziercurve" type="bool" value="true"/>
@@ -276,74 +254,44 @@
    </properties>
    <polyline points="0,112 80,192 -80,336 0,416"/>
   </object>
-  <object id="119" name="pikeman" gid="807" x="96" y="560" width="24" height="32">
+  <object id="119" name="pikeman" gid="807" x="128" y="544" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="117"/>
-    <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
     <property name="volleyleaderid" type="int" value="120"/>
    </properties>
   </object>
-  <object id="120" name="pikemanleader" gid="807" x="80" y="576" width="24" height="32">
+  <object id="120" name="pikemanleader" gid="807" x="96" y="576" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="117"/>
-    <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
     <property name="volleyleaderid" type="int" value="120"/>
    </properties>
   </object>
-  <object id="121" name="pikeman" gid="807" x="96" y="544" width="24" height="32">
+  <object id="122" name="pikeman" gid="807" x="112" y="560" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="117"/>
-    <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
     <property name="volleyleaderid" type="int" value="120"/>
    </properties>
   </object>
-  <object id="122" name="pikeman" gid="807" x="80" y="560" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="117"/>
-    <property name="pathmode" value="relative"/>
-    <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="120"/>
-   </properties>
-  </object>
-  <object id="123" name="pikeman" gid="807" x="192" y="560" width="24" height="32">
+  <object id="123" name="pikeman" gid="807" x="160" y="544" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="118"/>
-    <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
     <property name="volleyleaderid" type="int" value="125"/>
    </properties>
   </object>
-  <object id="124" name="pikeman" gid="807" x="176" y="544" width="24" height="32">
+  <object id="125" name="pikemanleader" gid="807" x="192" y="576" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="118"/>
-    <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
     <property name="volleyleaderid" type="int" value="125"/>
    </properties>
   </object>
-  <object id="125" name="pikemanleader" gid="807" x="208" y="576" width="24" height="32">
+  <object id="126" name="pikeman" gid="807" x="176" y="560" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="118"/>
-    <property name="pathmode" value="relative"/>
-    <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="125"/>
-   </properties>
-  </object>
-  <object id="126" name="pikeman" gid="807" x="208" y="560" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="118"/>
-    <property name="pathmode" value="relative"/>
-    <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="125"/>
-   </properties>
-  </object>
-  <object id="127" name="pikeman" gid="807" x="192" y="544" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="118"/>
-    <property name="pathmode" value="relative"/>
     <property name="script" value="NPCPikeman"/>
     <property name="volleyleaderid" type="int" value="125"/>
    </properties>
@@ -354,67 +302,40 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="swordsmen4">
-  <object id="107" name="swordsman" gid="810" x="300" y="720" width="24" height="32">
-   <properties>
-    <property name="script" value="NPCSwordsman"/>
-   </properties>
-  </object>
-  <object id="106" name="swordsman" gid="810" x="-12" y="720" width="24" height="32">
-   <properties>
-    <property name="script" value="NPCSwordsman"/>
-   </properties>
-  </object>
-  <object id="101" name="swordsman" gid="810" x="-12" y="848" width="24" height="32">
-   <properties>
-    <property name="script" value="NPCSwordsman"/>
-   </properties>
-  </object>
-  <object id="102" name="swordsman" gid="810" x="300" y="848" width="24" height="32">
-   <properties>
-    <property name="script" value="NPCSwordsman"/>
-   </properties>
-  </object>
-  <object id="113" type="Trigger" x="0" y="688" width="288" height="16">
-   <properties>
-    <property name="triggertype" value="activategroup"/>
-   </properties>
-  </object>
-  <object id="114" name="swordswoman" gid="900" x="144" y="1024" width="24" height="32">
-   <properties>
-    <property name="script" value="NPCSwordsman"/>
-   </properties>
-  </object>
- </objectgroup>
  <objectgroup name="swordsmen3">
-  <object id="108" name="swordsman" gid="810" x="300" y="1040" width="24" height="32">
+  <object id="108" name="swordsman" gid="810" x="300" y="736" width="24" height="32">
    <properties>
     <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
-  <object id="109" name="swordsman" gid="810" x="-12" y="1040" width="24" height="32">
+  <object id="109" name="swordsman" gid="810" x="-12" y="736" width="24" height="32">
    <properties>
     <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
-  <object id="110" type="Trigger" x="0" y="752" width="288" height="16">
+  <object id="110" type="Trigger" x="0" y="704" width="288" height="16">
    <properties>
     <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+  <object id="114" name="swordswoman" gid="900" x="144" y="1052" width="24" height="32">
+   <properties>
+    <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="swordsmen2">
-  <object id="103" name="swordsman" gid="810" x="-12" y="928" width="24" height="32">
+  <object id="103" name="swordsman" gid="810" x="-12" y="912" width="24" height="32">
    <properties>
     <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
-  <object id="104" name="swordsman" gid="810" x="300" y="928" width="24" height="32">
+  <object id="104" name="swordsman" gid="810" x="300" y="912" width="24" height="32">
    <properties>
     <property name="script" value="NPCSwordsman"/>
    </properties>
   </object>
-  <object id="105" type="Trigger" x="0" y="784" width="288" height="16">
+  <object id="105" type="Trigger" x="0" y="768" width="288" height="16">
    <properties>
     <property name="triggertype" value="activategroup"/>
    </properties>

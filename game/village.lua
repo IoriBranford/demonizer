@@ -1991,7 +1991,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 97,
+          gid = 103,
           visible = true,
           properties = {
             ["firepointid_bl"] = 333,
@@ -2228,7 +2228,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 91,
+          gid = 97,
           visible = true,
           properties = {
             ["pathid"] = 366,
@@ -2885,7 +2885,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 100,
+          gid = 106,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -3659,7 +3659,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 88,
+          gid = 94,
           visible = true,
           properties = {
             ["leaderid"] = 346,

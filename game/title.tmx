@@ -2,7 +2,7 @@
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="48" height="64" tilewidth="5" tileheight="5" nextobjectid="13">
  <properties>
   <property name="music" type="file" value="mus/02 - Burning Heart.vgm"/>
-  <property name="nextmap" type="file" value="village.lua"/>
+  <property name="nextmap" type="file" value="demonrealm.lua"/>
   <property name="script" value="TitleMap"/>
  </properties>
  <tileset firstgid="1" source="img/bg_swirl.tsx"/>
