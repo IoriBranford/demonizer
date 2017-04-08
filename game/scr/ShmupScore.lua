@@ -10,7 +10,7 @@ ShmupScore = class(function(self, object)
 	local nextmapdata = levity.nextmapdata or {}
 	local nextmapscore = nextmapdata.score or {}
 	self.points = nextmapscore.points or 0
-	self.extendpoints = nextmapscore.extendpoints or 2000000
+	self.extendpoints = nextmapscore.extendpoints or 1000000
 	self.multipliers = nextmapscore.multipliers or {
 		[self:idToIdx(levity.map.properties.playerid)] = 0
 	}
@@ -20,7 +20,7 @@ end)
 
 ShmupScore.MaxPoints = 999999999
 ShmupScore.MaxMultiplier = 20
-ShmupScore.ExtendInc = 3000000
+ShmupScore.ExtendInc = 1000000
 ShmupScore.BaseCapturePoints = 100
 
 local Sounds = {
@@ -60,28 +60,32 @@ end
 function ShmupScore:npcCaptured(npcid, captorid)
 	self:multiplierInc(self:idToIdx(captorid))
 
-	local points = self:getNextCapturePoints()
 	local npc = levity.map.objects[npcid]
-	local camera = levity.map.objects[levity.map.properties.cameraid]
-	local camvx, camvy = camera.body:getLinearVelocity()
-	local pointsobject = {
-		x = npc.body:getX()-32,
-		y = npc.body:getY()-8,
-		width = 64,
-		height = 16,
-		properties = {
-			vely = camvy - 30,
-			script = "Spark",
-			text = tostring(points),
-			textfont = "fnt/pressstart2p.fnt"
-		}
-	}
-	local sparks = levity.map.layers["sparks"]
-	if sparks then
-		sparks:addObject(pointsobject)
-	end
+	local points = npc.properties.capturepoints or self:getNextCapturePoints()
+	if points > 0 then
+		local camera = levity.map.objects[levity.map.properties.cameraid]
+		local camvx, camvy = camera.body:getLinearVelocity()
 
-	self:pointsScored(points)
+		local pointsobject = {
+			x = npc.body:getX()-32,
+			y = npc.body:getY()-8,
+			width = 64,
+			height = 16,
+			properties = {
+				vely = camvy - 30,
+				script = "Spark",
+				text = tostring(points),
+				textfont = "fnt/pressstart2p.fnt"
+			}
+		}
+
+		local sparks = levity.map.layers["sparks"]
+		if sparks then
+			sparks:addObject(pointsobject)
+		end
+
+		self:pointsScored(points)
+	end
 end
 
 function ShmupScore:npcDied(npcid)
