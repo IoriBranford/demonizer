@@ -151,7 +151,6 @@ function ShmupNPC:canBeLockTarget()
 	return self.oncamera
 		and self.object.visible
 		and self.health >= 1
-		and self.numcovers < 1
 end
 
 function ShmupNPC:canBeCaptured()
@@ -562,6 +561,7 @@ function ShmupNPC.releaseCaptives(captivegids, x, y, layer)
 				kolaunch = true,
 				kolaunchvelx = kolaunchvelx,
 				kolaunchvely = kolaunchvely,
+				capturepoints = 0
 			}
 		}
 		layer:addObject(captive)
