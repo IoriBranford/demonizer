@@ -8,7 +8,7 @@ return {
   height = 102,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 169,
+  nextobjectid = 187,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -498,8 +498,76 @@ return {
       }
     },
     {
-      name = "demonwomen",
+      name = "sparks_med",
       firstgid = 28,
+      filename = "img/sparks_med.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/sparks_med.png",
+      imagewidth = 1024,
+      imageheight = 64,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["row_explosion"] = "0"
+      },
+      terrains = {},
+      tilecount = 16,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 64
+            },
+            {
+              tileid = 1,
+              duration = 64
+            },
+            {
+              tileid = 2,
+              duration = 64
+            },
+            {
+              tileid = 3,
+              duration = 64
+            },
+            {
+              tileid = 4,
+              duration = 64
+            },
+            {
+              tileid = 5,
+              duration = 64
+            },
+            {
+              tileid = 6,
+              duration = 64
+            },
+            {
+              tileid = 7,
+              duration = 64
+            },
+            {
+              tileid = 8,
+              duration = 64
+            },
+            {
+              tileid = 9,
+              duration = 64
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "demonwomen",
+      firstgid = 44,
       filename = "img/demonwomen.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -579,8 +647,103 @@ return {
       }
     },
     {
+      name = "humanshots",
+      firstgid = 83,
+      filename = "img/humanshots.tsx",
+      tilewidth = 32,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      image = "img/humanshots.png",
+      imagewidth = 128,
+      imageheight = 128,
+      tileoffset = {
+        x = -24,
+        y = 8
+      },
+      properties = {
+        ["commoncollision"] = 0,
+        ["row_arrow"] = 2,
+        ["row_ballista"] = 4,
+        ["row_catapult"] = 5,
+        ["row_fire"] = 7,
+        ["row_magic"] = 3,
+        ["row_pike"] = 0,
+        ["row_sword"] = 1,
+        ["row_water"] = 6
+      },
+      terrains = {},
+      tilecount = 32,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -2,
+                y = 14,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 20,
+          animation = {
+            {
+              tileid = 20,
+              duration = 67
+            },
+            {
+              tileid = 21,
+              duration = 67
+            }
+          }
+        },
+        {
+          id = 28,
+          animation = {
+            {
+              tileid = 28,
+              duration = 67
+            },
+            {
+              tileid = 29,
+              duration = 67
+            },
+            {
+              tileid = 30,
+              duration = 67
+            },
+            {
+              tileid = 31,
+              duration = 67
+            }
+          }
+        }
+      }
+    },
+    {
       name = "basic_terrain",
-      firstgid = 67,
+      firstgid = 115,
       filename = "img/basic_terrain.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1605,7 +1768,7 @@ return {
     },
     {
       name = "forest",
-      firstgid = 451,
+      firstgid = 499,
       filename = "img/forest.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1624,33 +1787,25 @@ return {
       tiles = {}
     },
     {
-      name = "humanshots",
-      firstgid = 739,
-      filename = "img/humanshots.tsx",
-      tilewidth = 32,
-      tileheight = 16,
+      name = "trees",
+      firstgid = 787,
+      filename = "img/trees.tsx",
+      tilewidth = 64,
+      tileheight = 64,
       spacing = 0,
       margin = 0,
-      image = "img/humanshots.png",
-      imagewidth = 128,
-      imageheight = 128,
+      image = "img/trees.png",
+      imagewidth = 192,
+      imageheight = 64,
       tileoffset = {
-        x = -24,
-        y = 8
+        x = -32,
+        y = 16
       },
       properties = {
-        ["commoncollision"] = 0,
-        ["row_arrow"] = 2,
-        ["row_ballista"] = 4,
-        ["row_catapult"] = 5,
-        ["row_fire"] = 7,
-        ["row_magic"] = 3,
-        ["row_pike"] = 0,
-        ["row_sword"] = 1,
-        ["row_water"] = 6
+        ["commoncollision"] = 0
       },
       terrains = {},
-      tilecount = 32,
+      tilecount = 3,
       tiles = {
         {
           id = 0,
@@ -1667,52 +1822,80 @@ return {
               {
                 id = 1,
                 name = "",
-                type = "",
+                type = "NPCCover",
                 shape = "ellipse",
-                x = -2,
-                y = 14,
-                width = 4,
-                height = 4,
+                x = -20,
+                y = 24,
+                width = 40,
+                height = 40,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
+                properties = {}
               }
             }
           }
-        },
+        }
+      }
+    },
+    {
+      name = "trees_tall",
+      firstgid = 790,
+      filename = "img/trees_tall.tsx",
+      tilewidth = 48,
+      tileheight = 80,
+      spacing = 0,
+      margin = 0,
+      image = "img/trees_tall.png",
+      imagewidth = 144,
+      imageheight = 80,
+      tileoffset = {
+        x = -24,
+        y = 16
+      },
+      properties = {
+        ["commoncollision"] = 1
+      },
+      terrains = {},
+      tilecount = 3,
+      tiles = {
         {
-          id = 20,
-          animation = {
-            {
-              tileid = 20,
-              duration = 67
-            },
-            {
-              tileid = 21,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 28,
-          animation = {
-            {
-              tileid = 28,
-              duration = 67
-            },
-            {
-              tileid = 29,
-              duration = 67
-            },
-            {
-              tileid = 30,
-              duration = 67
-            },
-            {
-              tileid = 31,
-              duration = 67
+          id = 1,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 2,
+                name = "",
+                type = "NPCCover",
+                shape = "ellipse",
+                x = -16,
+                y = 40,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 3,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 28,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
             }
           }
         }
@@ -1720,7 +1903,7 @@ return {
     },
     {
       name = "infmen",
-      firstgid = 771,
+      firstgid = 793,
       filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1803,7 +1986,7 @@ return {
     },
     {
       name = "infwomen",
-      firstgid = 861,
+      firstgid = 883,
       filename = "img/infwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1885,1103 +2068,8 @@ return {
       }
     },
     {
-      name = "demonshothit",
-      firstgid = 951,
-      filename = "img/demonshothit.tsx",
-      tilewidth = 16,
-      tileheight = 16,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonshothit.png",
-      imagewidth = 64,
-      imageheight = 32,
-      tileoffset = {
-        x = -8,
-        y = 8
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 8,
-      tiles = {
-        {
-          id = 0,
-          animation = {
-            {
-              tileid = 0,
-              duration = 16
-            },
-            {
-              tileid = 1,
-              duration = 16
-            },
-            {
-              tileid = 2,
-              duration = 16
-            },
-            {
-              tileid = 3,
-              duration = 16
-            },
-            {
-              tileid = 4,
-              duration = 16
-            },
-            {
-              tileid = 5,
-              duration = 16
-            },
-            {
-              tileid = 6,
-              duration = 16
-            },
-            {
-              tileid = 7,
-              duration = 16
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "trees",
-      firstgid = 959,
-      filename = "img/trees.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/trees.png",
-      imagewidth = 192,
-      imageheight = 64,
-      tileoffset = {
-        x = -32,
-        y = 16
-      },
-      properties = {
-        ["commoncollision"] = 0
-      },
-      terrains = {},
-      tilecount = 3,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "NPCCover",
-                shape = "ellipse",
-                x = -20,
-                y = 24,
-                width = 40,
-                height = 40,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "black_harpy",
-      firstgid = 962,
-      filename = "img/friend/black_harpy.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/friend/black_harpy.png",
-      imagewidth = 192,
-      imageheight = 256,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
-      },
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -16,
-                y = 48,
-                width = 32,
-                height = 32,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "devil_bug",
-      firstgid = 974,
-      filename = "img/friend/devil_bug.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/friend/devil_bug.png",
-      imagewidth = 96,
-      imageheight = 128,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
-      },
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -12,
-                y = 20,
-                width = 24,
-                height = 24,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "ghost",
-      firstgid = 986,
-      filename = "img/friend/ghost.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/friend/ghost.png",
-      imagewidth = 96,
-      imageheight = 128,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
-      },
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -12,
-                y = 20,
-                width = 24,
-                height = 24,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "goblin",
-      firstgid = 998,
-      filename = "img/friend/goblin.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/friend/goblin.png",
-      imagewidth = 96,
-      imageheight = 128,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
-      },
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -12,
-                y = 20,
-                width = 24,
-                height = 24,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "harpy",
-      firstgid = 1010,
-      filename = "img/friend/harpy.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/friend/harpy.png",
-      imagewidth = 192,
-      imageheight = 256,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
-      },
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -16,
-                y = 48,
-                width = 32,
-                height = 32,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "holstaurus",
-      firstgid = 1022,
-      filename = "img/friend/holstaurus.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/friend/holstaurus.png",
-      imagewidth = 96,
-      imageheight = 128,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
-      },
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -12,
-                y = 20,
-                width = 24,
-                height = 24,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "honey_bee",
-      firstgid = 1034,
-      filename = "img/friend/honey_bee.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/friend/honey_bee.png",
-      imagewidth = 192,
-      imageheight = 256,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
-      },
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -16,
-                y = 48,
-                width = 32,
-                height = 32,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "siren",
-      firstgid = 1046,
-      filename = "img/friend/siren.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/friend/siren.png",
-      imagewidth = 192,
-      imageheight = 256,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
-      },
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -16,
-                y = 48,
-                width = 32,
-                height = 32,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "werebat",
-      firstgid = 1058,
-      filename = "img/friend/werebat.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/friend/werebat.png",
-      imagewidth = 192,
-      imageheight = 256,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
-      },
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -16,
-                y = 48,
-                width = 32,
-                height = 32,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "weresheep",
-      firstgid = 1070,
-      filename = "img/friend/weresheep.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/friend/weresheep.png",
-      imagewidth = 96,
-      imageheight = 128,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
-      },
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -12,
-                y = 20,
-                width = 24,
-                height = 24,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "youko",
-      firstgid = 1082,
-      filename = "img/friend/youko.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/friend/youko.png",
-      imagewidth = 96,
-      imageheight = 128,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
-      },
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -12,
-                y = 20,
-                width = 24,
-                height = 24,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "catapult",
-      firstgid = 1094,
-      filename = "img/catapult.tsx",
-      tilewidth = 72,
-      tileheight = 72,
-      spacing = 0,
-      margin = 0,
-      image = "img/catapult.png",
-      imagewidth = 576,
-      imageheight = 216,
-      tileoffset = {
-        x = -36,
-        y = 36
-      },
-      properties = {
-        ["column_angle0"] = 0,
-        ["column_angle135"] = 3,
-        ["column_angle180"] = 4,
-        ["column_angle225"] = 5,
-        ["column_angle270"] = 6,
-        ["column_angle315"] = 7,
-        ["column_angle45"] = 1,
-        ["column_angle90"] = 2,
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["row_empty"] = 2,
-        ["row_windup"] = 0
-      },
-      terrains = {},
-      tilecount = 24,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -18,
-                y = 54,
-                width = 36,
-                height = 36,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 16,
-              duration = 467
-            },
-            {
-              tileid = 0,
-              duration = 250
-            },
-            {
-              tileid = 8,
-              duration = 250
-            },
-            {
-              tileid = 0,
-              duration = 33
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "sparks_med",
-      firstgid = 1118,
-      filename = "img/sparks_med.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/sparks_med.png",
-      imagewidth = 1024,
-      imageheight = 64,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {
-        ["row_explosion"] = "0"
-      },
-      terrains = {},
-      tilecount = 16,
-      tiles = {
-        {
-          id = 0,
-          animation = {
-            {
-              tileid = 0,
-              duration = 64
-            },
-            {
-              tileid = 1,
-              duration = 64
-            },
-            {
-              tileid = 2,
-              duration = 64
-            },
-            {
-              tileid = 3,
-              duration = 64
-            },
-            {
-              tileid = 4,
-              duration = 64
-            },
-            {
-              tileid = 5,
-              duration = 64
-            },
-            {
-              tileid = 6,
-              duration = 64
-            },
-            {
-              tileid = 7,
-              duration = 64
-            },
-            {
-              tileid = 8,
-              duration = 64
-            },
-            {
-              tileid = 9,
-              duration = 64
-            }
-          }
-        }
-      }
-    },
-    {
       name = "civmen",
-      firstgid = 1134,
+      firstgid = 973,
       filename = "img/civmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -3066,28 +2154,39 @@ return {
       }
     },
     {
-      name = "trees_tall",
-      firstgid = 1269,
-      filename = "img/trees_tall.tsx",
-      tilewidth = 48,
-      tileheight = 80,
+      name = "catapult",
+      firstgid = 1108,
+      filename = "img/catapult.tsx",
+      tilewidth = 72,
+      tileheight = 72,
       spacing = 0,
       margin = 0,
-      image = "img/trees_tall.png",
-      imagewidth = 144,
-      imageheight = 80,
+      image = "img/catapult.png",
+      imagewidth = 576,
+      imageheight = 216,
       tileoffset = {
-        x = -24,
-        y = 16
+        x = -36,
+        y = 36
       },
       properties = {
-        ["commoncollision"] = 1
+        ["column_angle0"] = 0,
+        ["column_angle135"] = 3,
+        ["column_angle180"] = 4,
+        ["column_angle225"] = 5,
+        ["column_angle270"] = 6,
+        ["column_angle315"] = 7,
+        ["column_angle45"] = 1,
+        ["column_angle90"] = 2,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_empty"] = 2,
+        ["row_windup"] = 0
       },
       terrains = {},
-      tilecount = 3,
+      tilecount = 24,
       tiles = {
         {
-          id = 1,
+          id = 0,
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -3099,31 +2198,874 @@ return {
             properties = {},
             objects = {
               {
-                id = 2,
+                id = 1,
                 name = "",
-                type = "NPCCover",
+                type = "",
+                shape = "ellipse",
+                x = -18,
+                y = 54,
+                width = 36,
+                height = 36,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 16,
+              duration = 467
+            },
+            {
+              tileid = 0,
+              duration = 250
+            },
+            {
+              tileid = 8,
+              duration = 250
+            },
+            {
+              tileid = 0,
+              duration = 33
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "black_harpy",
+      firstgid = 1132,
+      filename = "img/friend/black_harpy.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/black_harpy.png",
+      imagewidth = 192,
+      imageheight = 256,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
                 shape = "ellipse",
                 x = -16,
-                y = 40,
+                y = 48,
                 width = 32,
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
-              },
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "devil_bug",
+      firstgid = 1144,
+      filename = "img/friend/devil_bug.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/devil_bug.png",
+      imagewidth = 96,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
               {
-                id = 3,
+                id = 1,
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 28,
-                width = 20,
-                height = 20,
+                x = -12,
+                y = 20,
+                width = 24,
+                height = 24,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "ghost",
+      firstgid = 1156,
+      filename = "img/friend/ghost.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/ghost.png",
+      imagewidth = 96,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -12,
+                y = 20,
+                width = 24,
+                height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "goblin",
+      firstgid = 1168,
+      filename = "img/friend/goblin.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/goblin.png",
+      imagewidth = 96,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -12,
+                y = 20,
+                width = 24,
+                height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "harpy",
+      firstgid = 1180,
+      filename = "img/friend/harpy.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/harpy.png",
+      imagewidth = 192,
+      imageheight = 256,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 48,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "holstaurus",
+      firstgid = 1192,
+      filename = "img/friend/holstaurus.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/holstaurus.png",
+      imagewidth = 96,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -12,
+                y = 20,
+                width = 24,
+                height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "honey_bee",
+      firstgid = 1204,
+      filename = "img/friend/honey_bee.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/honey_bee.png",
+      imagewidth = 192,
+      imageheight = 256,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 48,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "siren",
+      firstgid = 1216,
+      filename = "img/friend/siren.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/siren.png",
+      imagewidth = 192,
+      imageheight = 256,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 48,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "werebat",
+      firstgid = 1228,
+      filename = "img/friend/werebat.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/werebat.png",
+      imagewidth = 192,
+      imageheight = 256,
+      tileoffset = {
+        x = -32,
+        y = 32
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 48,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "weresheep",
+      firstgid = 1240,
+      filename = "img/friend/weresheep.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/weresheep.png",
+      imagewidth = 96,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -12,
+                y = 20,
+                width = 24,
+                height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "youko",
+      firstgid = 1252,
+      filename = "img/friend/youko.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/friend/youko.png",
+      imagewidth = 96,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["rowname0"] = "down",
+        ["rowname1"] = "left",
+        ["rowname2"] = "right",
+        ["rowname3"] = "up"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -12,
+                y = 20,
+                width = 24,
+                height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
             }
           }
         }
@@ -3145,7 +3087,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJx91kGSo0AMRFHYENz/itzC3sx0zFT072dVLwhjKKqkVGZKz3Ec77/XfR7H6/h3ff1//j/7ur/O72frWuuufPd1f7N2fbvW993X2id7rHcrnrVf799812fX+TPurln33f9ObM3hlRy7b3O/zu+r/+/879ri2+96znon1k/iXeve2Ue8plzEuvcTDvf5yYn+rnO7X/Hu86me5rL2ethrwsbY1tXz1zU963nNtfy8z59xlHeNpzla29bnOj9rZw7lcznUfMvh9zHXYz2b4l/vike5q+abd7nkd+qr9bhYP8W99pfbr+Nn7PUItVKtyv37/BlT+SaHqns5Ksfdt9xvLnrB5E3lozyrp4m/9W1Mkzfu/MozyqF6vjHvvLB4WS81WszV+DXk1Xx6htwqF6xjve/irJWDvCxGk/fo1+77EENzKhZvzmysxjzprzqc+FmMH877rXcUY+tTzPTG5/jE1H49aX7X4+uh9eo38ajf7jlhJPfUQc/a+X79tXVpHM5E1fw053RvvVnd6pPOWPf5iV+f7WYrva0cr/+2lvZ6uat/i7d9ZJp17KXtP+Wy7/22epRTXr/5oVq0T6ndyXuKsTjU++XMNG/pLdXExM9JS+W6fChWPU+Plgvlg/osHvar3uvFE8bTbClP1GH1MfleZ6np/Mahv039R6ydDeSCc5n5VPutx6TdaqFnqy/93liKRXF2vigOvW9c/d+zWsdpjvFX/5j4bl3kRXvfNAs5X9hLpv6uP4qrs840o+16tDXUI5wp5Ozky9fwvf7ReHbznDOQmjJne4q91TjVun4l3vK+37dnOAPVE7q+Oegp1cWq/+Qx5X+1Yd1ae2eISQv67jV8Z37mvNOb3Nlp/NnkN+lIPtznZ1zF1Xrs5gS9q7zdzX/T+3JafjSeXb3qSXqanieHpj7szNE1kyZfQ2zOQ/r3NKPJm+pS7HZ8cma1D9aT7BGtu7OBe00+LEb6TGcBe1NrU93YC6f5S+4Uo0mX/a65Tj4gD9VXfe83P5i8xzpOfcaePtXhYc/WoXnJAc+0X009Rw8SO73VuN7HJz7XJmdnx84F1q04qeHm3zx/09RD/Lse5gxif+rVfOR4uVte2mPFRX3Zy53FxEufeA0xTNrU/+VH1+/mG/usmvGdZ8m5hxzKAz1gyrWc0CerKzXVWKy3PaD80/+bh7OReOmtclqOXGDc+k0z1M5fy/2pRzmH2Et7jl5efugX4qdfND81ri76Tl8QIzUkx/tumgecc/QJe4kedxPbzvcmfdZPrPsf3TILvA=="
+      data = "eJx91lGOq0AMRNHHGthF+Ee9/5W9GWlaujkx+UAJ0LTd5aqyz+Pfv+vnWj/X6+/6vT//nv3+v/NsX6+829/d+Wav29/u9X23sqZxdz57v8Xe/W6xvnl3zZn3V/bdufUMr5yx+/bsd67er9x37SLGFGe/E+t9ppV1V/YRr+ksYt3/Ew7r+OREf3fc7le8+3yqp2fZe53sNWFjbq/j/Uzdf3rWeK/hefE6iXse7/n0jNa29WltvJ/0Uw4tYu541zHXYz+b8t/vike5q+Z77nLJ79RX63Gzfsp77y+39731mXypWpX763jPqXyTQ9W9HJXj7lvuv4Y44tX/5aM8q6eJv/VtTpM3PvmVMcqher45P3lh8bJearSYq/E+K9b62qSJcsE61vtuYt3He93k4cSb+ldrJM/1GT1av91rWl/9S/1VhxM/i/FJvG+9oxhbn2KmN57HJ6b260nzTz2+HlqvLs8m/XbPCSO5pw4a68n366+tS/NwJqrmpzmne+vN6lafdMYq3vbF1k/c9bZyvP7bWtrr5a7+Ld72kWnWsZe2/5TLvvfb6lFOeX3zQ7Von1K7k/cUY3FYxJIDE8/12WIvPyctlevyoVg1nh4tF8oH9Vk87Ff9rxdPGE+zpTxRhxfxzHHxvfGbh/429R+xdjaQC85lnqfabz0m7VYLja2+9HtzKRbF2fmiOPR/8+p9Y93s7Rzjr/4x8d26yIuT957b+cJeMvV3/VFcnXWmGe2pR1tDPcKZQs5OvnwP3+sfzedpnnMGUlOe2Z5ibzVPta5fibe87/ftGc5A9YSbWE+eUl3cxzsH7On1vc4K01zivPCkBX33Hr7zfJ75SW9y50njzbfnm3QkH9bxmVdxtR5Pc4LedbOH88rTfFhOy4/m81SvepKepufJoakPO3N0zaTJckGc7WuTfvSHYj/15W98cma1D9aT7BHXsJ9zRfmiD4uRPtNZwN7U2lQ39sJp/pI7xWjS5SLuviYfkIfqq773zQ8m77GOU5+xp091ONmzdei55IAx7VdTz9GDxE5vNa/r+MSnfNLDy6vOBdbtHt45gzivfNNU83lxNW9nEPtTr55Hjpe7iz2rJXFRX/ZyZzHx0ieqAX1gOkN5fz2sf5pv7LNqxnfGknP1/nLT/ex3k5frk9WVmmou1tseUP7p/z2Hs5F46a1yWo7cxG39phnqyV/X8YmtPVasep7G0cvLD/1C/PSLnk+Nq4u+0xfESA3J8b6b5gHnHH3CXqLHde0335v0WT+x7v8B0A07+w=="
     },
     {
       type = "tilelayer",
@@ -3161,7 +3103,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmb1u2zAURvl6tecic9K57Rx3Trpa0ipZr1oS4IFOCDnVZYcuJnDhWCY/Xd7fj8ycUrpkGbMMWaYsc5ZVz5b69y3LtT671jmsQfidOVNdP9T5l4o/1s+lPpvq75PWjdJt1LNV6xZ9B4+5g+ag51LxweRdl7q/ucpFc/k+6zu2QVbNv1Vp98i7hgbzJr1XYUxaN2jutcpF+LaD9828Qe/Bx6Peg20XzcUe2GaVfmt9Rnz4ffjZ7wV7Fi7vmuv7wVuFx3sH2Yc12JP9gG0bjfodO2FXvwObjZrjHMDv6Mca9CNnVv1unVqb4Dvrhu3YF/vAblfNK/Ily3uWU/N5brDQA1+h76Vi/E77461iniomdgOLfX2GsYdpHR2jXw9iML5n+ZY2n2OnX0Gct6qPfTp14KAPcUWuR3Fe05aP6NNjn6e0xQqxFPGVcRyPRZ6zvGT5keVnAId6Sf11XTy6P/xlLGpkZH/4Cxxycw7oUsZr+thn8FnU1k9py09isehSbH3UxuCQm+4HUX327Fw+o3FYRrERNYwaGsEpviqxhr96/F1GsQ1+Ju6I54iNyVHqK/U26i/b2HUMrhKpHWDRI+EU0Xguo+yP/glO1NbOL7Cidcw11TwlWldtG/YUrTuMYhv6Oz226NMTQy2XIM96YojejK16ct49wzz7qD7FX6Uv0JfdN+aAPvSKlhPB1476jN6Fj9qzwdEYon7Ra8CJ2pga7xwHLxKHcLNz2ngPPTUah2UQi4skmmNtP8X3EZ3M6cznicOjdmI/5hrw4EgtMzf0Oaundjylrfb43NuTo9TSHg7OYG/YpQfDOpGbcMNoDOJ7zlDkaSSewSCv4BrU16NYZT8+o2Jn87Ijvqeeku+cK9lfNA6ph2D15Ck6OSfAPRrP2Nn9eElxjoidfa70PUjkTEA9pEaTH728ZQ6seYzHeIzHeIx/H5z127slzhZ7d06seZFQw933zS/3+mbhjeaLvivgHPOcNo7Bva5xzIPpraUHnbXG94zo0urDvRI9rNyblj4G/xv0HB63d8dHb3y/8/yk59zPnlI/F/zfw/GzF0f31hBbCPzG/5OB297jt5xb4ULc+cO3rvr+2dmIOzziF66IHy2+/8dn6GdeFOH42KM9+xMff8PwPQD2i55NzeXxwx9XhcK1"
+      data = "eJylmb1u3DAQhPe149QH13FqO7Xs2k7Lk1rp7pUiAvuBcxvyTqQJEHZMcjTcf25WM3vf57zP8z6Xfa77/LXPP3Y7Xvf52/elfV7lzNM+f/rfz7Inr31UMGb/zubfXxwvj0/HmoXbHHAmX9v83CZ4s+z7FG6Lr4MDl8WxLo7xw888VWSg3MB5dtzN78z5v3Iuy/Mt4GWsL9kHNhh6nnHx9Yz3UuH36n/j3hHj1XmsfoeL31/1jVw+GmfffD2fPVvRIffnXLyfYqOrs/++CN7V8U6V78JxsmJf2OzqGMgoT+TIdze7tUlkfrZia+y5WvELuEz+d7iq3J59jXXldLVbnT7LvdewBifugW3zu+oFPX9ZXd98Z7Wiq6v/+2THB5zeBYt79eAoVrJiM6rvowOdonPkFO32KB90mn+2/O8IH3xhBAM+xKxRDB3ZZntlWxvZlmp5oXdkPvM3sTQXgVWLh0cx8H/i0Snse3P8GMPz0FwEltoQ5/O3iA8xL+ZBHtH4orl4suJzs+PH+AoO++D0Lnw0ZtTOMzQ2ImeNhT1jshLDiPE9OCpDaov8s9c/smzQc8ZYrOTTHtuZ5Cz3Iq72YKmMNY7FWqUHi7qMWmgkhpBfyYffiYfIuoWh+b3mw/jX8gCDuhL/iLKb7qwx8MFkxU+jPpFzK4cqF+5OrRX349M1PsTJxUqdfWnwh1ONDzaPbMDbGvtb+QIf5iw1ZC2W8d0WH7hQO97z5fzdmk9pTYK/tO6k9V+Nq+q0FVfBSHY/f9Xq3hoPOF/vYNWG8uDO6CLL8WjMoDakzkQf9+RYG9iwxne11x4+6BI8jYlH+cQ4yPuROngkpsIBfaVOnDywe3C4a28+BYc3a3xbHB1q8/EN0juIm5nPSC2WB3atNVKPPSsGMZxaI77VHg18g/oJOdfefY9wkhV/513J/Y7IXPsUSc4SP47KCD9FNuoT4MY+QO2O5FHuRNzZ5HdyHdxPAU/fSmp/+Cs2TRzFvk52+w4hJ1Hn8AY+W70PM1nRn+YDYnaM2604rjFm1P8Ui35T7JXU3htW2RP7I7qO7dCDegnrL1be0VmOyW57ZKwn+79G1XV0mfdFmWB79Nqow9hLT4jeD3YU5ar9N/w6WfFVcuFqt3bUqivgi19qLk3OhXu34jSciOmaw7grOPnnPV/FPrk/nMjRYD6yt1gbKRayf5R78FfeAslKDGSig3s4n84VeSPrZCX/gHckFxILuBP2o73Aozj6Rk7Co+fdpHywPe0FHM1f6Exr2cwJf+jJg5MVe1Q9ZZyeeoN3LnzUlnpxsGnt0/fGTXJP7LOO1FD6/x3EtJGaDj0l67PjiINvE5PSAI7aELIZ6a3CKdntO2+090MMBGuUD3Uv9tyrL3D0vZLnSC8S+eBXvGNHda/v85H+GD0HzVn0o1q9yxYG+Q9/1Vxb64lwXmsFcqHmYnx2lnXlx3n6JdgNsecfQ8HNag=="
     },
     {
       type = "objectgroup",
@@ -3287,7 +3229,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 912,
+          gid = 934,
           visible = true,
           properties = {
             ["pathid"] = "boss_paths",
@@ -3351,7 +3293,7 @@ return {
           width = 48,
           height = 80,
           rotation = 0,
-          gid = 1270,
+          gid = 791,
           visible = true,
           properties = {}
         },
@@ -3365,7 +3307,7 @@ return {
           width = 48,
           height = 80,
           rotation = 0,
-          gid = 1270,
+          gid = 791,
           visible = true,
           properties = {}
         },
@@ -3379,7 +3321,7 @@ return {
           width = 48,
           height = 80,
           rotation = 0,
-          gid = 1270,
+          gid = 791,
           visible = true,
           properties = {}
         },
@@ -3393,7 +3335,7 @@ return {
           width = 48,
           height = 80,
           rotation = 0,
-          gid = 1270,
+          gid = 791,
           visible = true,
           properties = {}
         },
@@ -3407,7 +3349,7 @@ return {
           width = 48,
           height = 80,
           rotation = 0,
-          gid = 1270,
+          gid = 791,
           visible = true,
           properties = {}
         }
@@ -3448,7 +3390,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 960,
+          gid = 788,
           visible = true,
           properties = {}
         },
@@ -3462,7 +3404,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 960,
+          gid = 788,
           visible = true,
           properties = {}
         },
@@ -3476,7 +3418,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 960,
+          gid = 788,
           visible = true,
           properties = {}
         },
@@ -3490,7 +3432,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 819,
+          gid = 841,
           visible = true,
           properties = {
             ["pathid"] = 54,
@@ -3509,7 +3451,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 819,
+          gid = 841,
           visible = true,
           properties = {
             ["pathid"] = 54,
@@ -3528,7 +3470,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 819,
+          gid = 841,
           visible = true,
           properties = {
             ["pathid"] = 54,
@@ -3567,7 +3509,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 960,
+          gid = 788,
           visible = true,
           properties = {}
         },
@@ -3581,7 +3523,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 960,
+          gid = 788,
           visible = true,
           properties = {}
         },
@@ -3595,7 +3537,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 960,
+          gid = 788,
           visible = true,
           properties = {}
         },
@@ -3609,7 +3551,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1197,
+          gid = 1036,
           visible = true,
           properties = {
             ["leaderid"] = 80,
@@ -3626,7 +3568,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1095,
+          gid = 1109,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -3644,7 +3586,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1197,
+          gid = 1036,
           visible = true,
           properties = {
             ["leaderid"] = 81,
@@ -3661,7 +3603,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1097,
+          gid = 1111,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -3679,7 +3621,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1197,
+          gid = 1036,
           visible = true,
           properties = {
             ["leaderid"] = 128,
@@ -3696,7 +3638,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1096,
+          gid = 1110,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -3722,9 +3664,9 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 512,
+          y = 448,
           width = 288,
-          height = 16,
+          height = 80,
           rotation = 0,
           visible = true,
           properties = {
@@ -3741,7 +3683,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 810,
+          gid = 832,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -3757,7 +3699,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 810,
+          gid = 832,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -3773,7 +3715,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1096,
+          gid = 1110,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -3793,7 +3735,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1096,
+          gid = 1110,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -3813,7 +3755,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1197,
+          gid = 1036,
           visible = true,
           properties = {
             ["leaderid"] = 134,
@@ -3830,7 +3772,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1197,
+          gid = 1036,
           visible = true,
           properties = {
             ["leaderid"] = 136,
@@ -3874,6 +3816,34 @@ return {
           properties = {
             ["script"] = "PathGraph"
           }
+        },
+        {
+          id = 169,
+          name = "talltree",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 512,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 791,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 170,
+          name = "talltree",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 504,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 791,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -3941,7 +3911,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 117,
@@ -3959,7 +3929,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 117,
@@ -3977,7 +3947,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 117,
@@ -3995,7 +3965,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 118,
@@ -4013,7 +3983,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 118,
@@ -4031,7 +4001,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 118,
@@ -4076,7 +4046,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 810,
+          gid = 832,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4092,7 +4062,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 810,
+          gid = 832,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4123,7 +4093,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 900,
+          gid = 922,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4151,7 +4121,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 810,
+          gid = 832,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4167,7 +4137,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 810,
+          gid = 832,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4210,7 +4180,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 810,
+          gid = 832,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4241,7 +4211,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 810,
+          gid = 832,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4284,7 +4254,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1096,
+          gid = 1110,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4304,7 +4274,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1096,
+          gid = 1110,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4324,7 +4294,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1197,
+          gid = 1036,
           visible = true,
           properties = {
             ["leaderid"] = 77,
@@ -4341,7 +4311,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1197,
+          gid = 1036,
           visible = true,
           properties = {
             ["leaderid"] = 78,
@@ -4408,7 +4378,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 1096,
+          gid = 1110,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4461,7 +4431,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1197,
+          gid = 1036,
           visible = true,
           properties = {
             ["leaderid"] = 75,
@@ -4505,7 +4475,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 960,
+          gid = 788,
           visible = true,
           properties = {}
         },
@@ -4519,7 +4489,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 960,
+          gid = 788,
           visible = true,
           properties = {}
         },
@@ -4533,7 +4503,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 960,
+          gid = 788,
           visible = true,
           properties = {}
         },
@@ -4567,7 +4537,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 819,
+          gid = 841,
           visible = true,
           properties = {
             ["pathid"] = 146,
@@ -4586,7 +4556,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 819,
+          gid = 841,
           visible = true,
           properties = {
             ["pathid"] = 146,
@@ -4605,7 +4575,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 819,
+          gid = 841,
           visible = true,
           properties = {
             ["pathid"] = 146,
@@ -4636,7 +4606,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 819,
+          gid = 841,
           visible = true,
           properties = {
             ["pathid"] = 52,
@@ -4655,7 +4625,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 819,
+          gid = 841,
           visible = true,
           properties = {
             ["pathid"] = 52,
@@ -4708,7 +4678,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 960,
+          gid = 788,
           visible = true,
           properties = {}
         },
@@ -4722,7 +4692,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 960,
+          gid = 788,
           visible = true,
           properties = {}
         },
@@ -4736,7 +4706,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 960,
+          gid = 788,
           visible = true,
           properties = {}
         },
@@ -4750,7 +4720,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 960,
+          gid = 788,
           visible = true,
           properties = {}
         }
@@ -4798,7 +4768,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -4816,7 +4786,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -4834,7 +4804,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -4852,7 +4822,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -4870,7 +4840,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -4888,7 +4858,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -4906,7 +4876,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -4924,7 +4894,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -4957,7 +4927,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 897,
+          gid = 919,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -5008,7 +4978,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -5026,7 +4996,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -5044,7 +5014,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -5062,7 +5032,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -5080,7 +5050,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -5098,7 +5068,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -5116,7 +5086,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -5134,7 +5104,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -5219,7 +5189,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -5237,7 +5207,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -5255,7 +5225,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -5273,7 +5243,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 807,
+          gid = 829,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -5320,7 +5290,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 962,
+          gid = 1132,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5340,7 +5310,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 974,
+          gid = 1144,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5360,7 +5330,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 986,
+          gid = 1156,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5380,7 +5350,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 998,
+          gid = 1168,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5400,7 +5370,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1010,
+          gid = 1180,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5420,7 +5390,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1022,
+          gid = 1192,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5440,7 +5410,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1034,
+          gid = 1204,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5460,7 +5430,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1046,
+          gid = 1216,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5480,7 +5450,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1058,
+          gid = 1228,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5500,7 +5470,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1070,
+          gid = 1240,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5520,7 +5490,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1082,
+          gid = 1252,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -5568,8 +5538,244 @@ return {
     },
     {
       type = "objectgroup",
-      name = "camera",
+      name = "trees1",
       visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 171,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 1616,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 788,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 172,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 256,
+          y = 1584,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 788,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 173,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 1504,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 788,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 174,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 1424,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 788,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 175,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 1376,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 788,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 176,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 1600,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 788,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 177,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 1328,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 788,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 178,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 1472,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 791,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 179,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 256,
+          y = 1456,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 791,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 180,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 1536,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 791,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 181,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 1632,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 791,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 182,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 1648,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 791,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 183,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 1664,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 791,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 184,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 1312,
+          width = 48,
+          height = 80,
+          rotation = 0,
+          gid = 791,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 185,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 1184,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 788,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 186,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 1184,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 788,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "camera",
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
