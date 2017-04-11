@@ -11,11 +11,12 @@ NPCPrincess = class(ShmupNPC, function(self, object)
 
 	ShmupNPC.init(self, object)
 	self.firetimer = NPCPrincess.BulletInterval
-	self.health = 256
+	self.health = 320
 	self.properties.pathspeed = self.properties.pathspeed
 					or NPCPrincess.Speed
 	self.properties.killpoints = 15000
 	self.coroutine = nil
+	self.fireco = nil
 end)
 
 NPCPrincess.Speed = 180
@@ -23,20 +24,92 @@ NPCPrincess.BulletInterval = .25
 NPCPrincess.LeaveCoverTime = 1
 NPCPrincess.PlayerShotSuppression = 1/8
 NPCPrincess.NPCSuppressionReaction = 1/16
-NPCPrincess.BulletParams = NPCArcher.BulletParams
-NPCPrincess.BulletSpreadHalfArc = math.pi/8
---{
---	speed = 240,
---	category = ShmupCollision.Category_NPCShot
---}
+NPCPrincess.BulletSpreadArc = math.pi/8
+NPCPrincess.BulletParams = {
+	speed = 240,
+	category = ShmupCollision.Category_NPCShot
+}
+NPCPrincess.ChargeShotWaitTime = 1.5
+NPCPrincess.ChargeShotInterval = 1/8
+NPCPrincess.ChargeShotSpreadArc = math.pi/16
+
+local Sounds = {
+	Bow = "snd/bow.wav",
+	Charge = "snd/charge.wav"
+}
+levity.bank:load(Sounds)
 
 function NPCPrincess:canBeCaptured()
 	return false
 end
 
-function NPCPrincess:updateFiring(dt)
-	if self.numcovers <= 0 and self.firetimer <= 0 then
-		local params = NPCPrincess.BulletParams
+function NPCPrincess:chargeShotCoroutine(dt)
+	levity.bank:play(Sounds.Charge)
+
+	local t = NPCPrincess.ChargeShotWaitTime
+	local readytofire = false
+	repeat
+		self, dt = coroutine.yield()
+		t = t - dt
+		readytofire = t <= 0
+	until readytofire
+
+	local params = NPCPrincess.BulletParams
+
+	params.accelx = 0
+	params.accely = 640
+
+	t = NPCPrincess.ChargeShotInterval
+	local mapcx = levity.map.width*levity.map.tilewidth/2
+	local numbullets = 15
+	while numbullets > 0 do
+		while t > 0 do
+			self, dt = coroutine.yield()
+			t = t - dt
+		end
+
+		local player = levity.map.objects
+					[levity.map.properties.playerid]
+		local playercx, playercy = player.body:getWorldCenter()
+		local cx, cy = self.object.body:getWorldCenter()
+
+		params.x, params.y = cx, cy
+
+		params.angle = -math.pi/2
+		params.angle = params.angle + (mapcx - cx)*math.pi/1024
+
+		params.angle = params.angle - NPCPrincess.ChargeShotSpreadArc*2
+		local firetimer
+		for i = 1, 5 do
+			firetimer = ShmupBullet.fireOverTime(params,
+				levity.map.layers["npcshots"], t,
+				NPCPrincess.ChargeShotInterval)
+
+			params.angle = params.angle
+					+ NPCPrincess.ChargeShotSpreadArc
+
+			numbullets = numbullets - 1
+		end
+		t = firetimer
+
+		levity.bank:play(Sounds.Bow)
+	end
+	params.accelx = nil
+	params.accely = nil
+
+	self.fireco = coroutine.create(NPCPrincess.normalFireCoroutine)
+end
+
+function NPCPrincess:normalFireCoroutine(dt)
+	local params = NPCPrincess.BulletParams
+	local t = NPCPrincess.BulletInterval
+	local numbullets = 30
+	while numbullets > 0 do
+		while t > 0 or self.numcovers > 0 do
+			self, dt = coroutine.yield()
+			t = math.max(0, t - dt)
+		end
+
 		local cx, cy = self.object.body:getWorldCenter()
 		local playerdx = 0
 		local playerdy = 1
@@ -52,25 +125,34 @@ function NPCPrincess:updateFiring(dt)
 		params.x = cx
 		params.y = cy
 		params.angle = math.atan2(playerdy, playerdx)
-			- NPCPrincess.BulletSpreadHalfArc
+				- NPCPrincess.BulletSpreadArc
 
 		local firetimer
 		for i = 1, 3 do
 			firetimer = ShmupBullet.fireOverTime(params,
-				levity.map.layers["npcshots"], self.firetimer,
+				levity.map.layers["npcshots"], t,
 				NPCPrincess.BulletInterval)
 
 			params.angle = params.angle
-				+ NPCPrincess.BulletSpreadHalfArc
-		end
-		self.firetimer = firetimer
+					+ NPCPrincess.BulletSpreadArc
 
-		levity.bank:play("snd/bow.wav")
+			numbullets = numbullets - 1
+		end
+		t = firetimer
+
+		levity.bank:play(Sounds.Bow)
 	end
-	self.firetimer = self.firetimer - dt
-	if self.numcovers > 0 and self.firetimer < 0 then
-		self.firetimer = 0
+
+	self.fireco = coroutine.create(NPCPrincess.chargeShotCoroutine)
+end
+
+function NPCPrincess:updateFiring(dt)
+	if not self.fireco or coroutine.status(self.fireco) == "dead" then
+		self.fireco = coroutine.create(NPCPrincess.normalFireCoroutine)
 	end
+
+	local ok, err = coroutine.resume(self.fireco, self, dt)
+	if not ok then print(err) end
 end
 
 function NPCPrincess:suppress()
@@ -146,7 +228,5 @@ function NPCPrincess:beginMove(dt)
 		self:updateFiring(dt)
 	end
 end
-
-levity.bank:load("snd/bow.wav")
 
 return NPCPrincess
