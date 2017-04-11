@@ -22,6 +22,7 @@ local ShmupTouchControls = class(function(self, layer)
 		end
 	end
 
+	self.numtouches = 0
 	--self.movetouch = nil
 	--self.focustouch = nil
 	--self.bombtouch = nil
