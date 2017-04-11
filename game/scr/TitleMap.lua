@@ -41,7 +41,9 @@ function TitleMap:joystickpressed(joystick, button)
 	if button == 1 then
 		local uimap = self.map.overlaymap or self.map
 		uimap.scripts:call("curtain", "beginClose")
-		levity.bank.currentmusic:fade()
+		if levity.bank.currentmusic then
+			levity.bank.currentmusic:fade()
+		end
 		self.map.scripts:scriptRemoveEventFunc(self, self.map.name, "joystickpressed")
 		self.map.scripts:scriptAddEventFunc(self, self.map.name, "endMove", endMove)
 	end
