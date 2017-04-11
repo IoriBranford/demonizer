@@ -44,6 +44,9 @@
   </object>
  </objectgroup>
  <objectgroup name="boss">
+  <properties>
+   <property name="activatemusic" type="file" value="mus/06 - Approaching.vgm"/>
+  </properties>
   <object id="261" gid="199" x="144" y="136" width="24" height="32">
    <properties>
     <property name="onDiscard" value="playerVictory"/>
@@ -59,8 +62,8 @@
  </objectgroup>
  <objectgroup name="preboss">
   <properties>
-   <property name="activatemusic" type="file" value="mus/06 - Approaching.vgm"/>
    <property name="activatesound" type="file" value="snd/alarm4.wav"/>
+   <property name="fademusic" type="bool" value="true"/>
   </properties>
   <object id="436" type="Trigger" x="0" y="120">
    <properties>

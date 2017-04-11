@@ -17,25 +17,25 @@
  <tileset firstgid="422" source="img/darkboat.tsx"/>
  <tileset firstgid="423" source="img/infmen.tsx"/>
  <tileset firstgid="513" source="img/infwomen.tsx"/>
- <tileset firstgid="588" source="img/humanshots.tsx"/>
- <tileset firstgid="616" source="img/electricity.tsx"/>
- <tileset firstgid="648" source="img/demonizing.tsx"/>
- <tileset firstgid="651" source="img/demonwomen.tsx"/>
- <tileset firstgid="690" source="img/lavapit.tsx"/>
- <tileset firstgid="730" source="img/cave_objects.tsx"/>
- <tileset firstgid="779" source="img/flames.tsx"/>
- <tileset firstgid="791" source="img/sparks_med.tsx"/>
- <tileset firstgid="807" source="img/demonbomb.tsx"/>
- <tileset firstgid="815" source="img/ballista.tsx"/>
- <tileset firstgid="839" source="img/civwomen.tsx"/>
- <tileset firstgid="959" source="img/cauldron.tsx"/>
- <tileset firstgid="965" source="img/demonshothit.tsx"/>
+ <tileset firstgid="603" source="img/humanshots.tsx"/>
+ <tileset firstgid="635" source="img/electricity.tsx"/>
+ <tileset firstgid="667" source="img/demonizing.tsx"/>
+ <tileset firstgid="670" source="img/demonwomen.tsx"/>
+ <tileset firstgid="709" source="img/lavapit.tsx"/>
+ <tileset firstgid="749" source="img/cave_objects.tsx"/>
+ <tileset firstgid="798" source="img/flames.tsx"/>
+ <tileset firstgid="810" source="img/sparks_med.tsx"/>
+ <tileset firstgid="826" source="img/demonbomb.tsx"/>
+ <tileset firstgid="834" source="img/ballista.tsx"/>
+ <tileset firstgid="858" source="img/civwomen.tsx"/>
+ <tileset firstgid="978" source="img/cauldron.tsx"/>
+ <tileset firstgid="984" source="img/demonshothit.tsx"/>
  <layer name="lava" width="19" height="200" offsetx="0" offsety="-240">
   <properties>
    <property name="script" value="LavaLayer"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztlTuOwzAMBQPf/zRUZ18uKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q1Wnhcb
+   eJztlTuOwzAMBQPf/1pUZ58pKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q11wk4a
   </data>
  </layer>
  <layer name="ground" width="19" height="200">
@@ -56,7 +56,7 @@
    <property name="script" value="LavaPitWall"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztzrEJACAQBMHH/qvSTDNtyM9s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswtudzlp
+   eJztzrEJACAQBMHH/tvTTDOtw89s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswsF2FcG
   </data>
  </layer>
  <layer name="electricity" width="19" height="200" visible="0">
@@ -64,7 +64,7 @@
    <property name="script" value="ElectricLayer"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   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
+   eJztWmuL2zAQPPTHTTElmFKMCUe4f3snanHbycxqtc6HUjQg4jw8nl1pH5bz9jYxMTExMTExMTExMTHxL+G9/Bk/yjWe5ev829fYzpHhqxx34Lmd436OCK/Vgq8bcCu+5fQLnoNclv834UK/2N8zje34V/F5IrYpXUfHP0xPe4+6DvM7T1/Ext3xd28+mY3sfMVnP2c22u+VrUzjz46NyBnlqVgdfyl+xmP5PD/Z79BHio/pQz4WNz0+FTtRropdcKm1rrA4/o7kGgtca2pe61D5sOUuL45VfL6fvO/AEbFP5RE8z/teXcOLj148efo8X0Tz44hWTzv7vOdrdk2lUfn9cQ6lr33/EZjXhpVowHhiv7kZTSwuvNjcCRfLB5jn6sA4snHYbFe5c4drWm3Yi/RywFqefdriEecnkp+O8jxnbM15dQG1eWszwtPA5qtxRXMv04ZxMMpVcRCeUfsa0M6MfZYLfT5S8yyO8rwusrrQX1kuVkuzXNibtpGdw6trtGIpPHYyXGxdXeVCbaNcmO+u+J3FoMrpUU2Y90btY/GXyX3sHnVL2LcQDjtGuNg9U2ZdLUQH6ovoUn01fhbh6tkWXQ9er8/4vP0Fr0djOZD1KQv5jeoDPVuRhx339LZ7Bpzz+lrrM/aPSqf3GfaY7FrMf0q/Ra+/UXoYl+VT6wSPPxwutFfZ3M6/E38h9vLsL29dK10Vao8EtUXiDHu53jz2YnYlWpjfvB4f/eblpJE6gHnJ8o7WE7VGs3X3aq1ErlvSNsuVyf0I1WNe6e2zNbenKdvLsZyQnT+WV0d9pfavX9X39tZCe7agNGF+UVx2niwOYpunC3skxYXzyPyFc4T2qZrDnjGgDfYaXo3dyvczGnxuYmsa3v+oHM/Ox2sxLao+qxyraryqh6oW1dH6mxobKocq/vb6KN+xtZW/932UzyLrF/f3vONITWz9XM9/I/m+1yNm8g7W/it1o4L1Oa/gulI7Ktj9ez0eeQ6rnnlGalE7F+Nf5R5vHlXPgOv10eGp8Hq/0RrL9mBx/qJc6GMWh9G18AhwjfakKh9k9mXVWsjUfu+ZZ+Y/BypPZ+JwLc9+v5ofWI7O2KnuqbLa2L1yVlsF2z9+VS7cLmhjz2OztrJnO1f0KW2Z2MJahDqj2rz+bjTud6IH4z66j6h6wmhNsppUXRr1PfvvTLbf8f43MBpLK+Gyr5keDGtUhodxRvdsJiYmJiYm/gd8Ah0pDIA=
   </data>
  </layer>
  <layer name="overground" width="19" height="200">
@@ -73,6 +73,9 @@
   </data>
  </layer>
  <objectgroup name="boss">
+  <properties>
+   <property name="activatemusic" type="file" value="mus/12 - Typhoone Vol 2.vgm"/>
+  </properties>
   <object id="117" type="Trigger" x="0" y="0">
    <properties>
     <property name="triggertype" value="activategroup"/>
@@ -86,13 +89,13 @@
     <property name="script" value="NPCFireMage"/>
    </properties>
   </object>
-  <object id="121" gid="779" x="80" y="304" width="16" height="24">
+  <object id="121" gid="798" x="80" y="304" width="16" height="24">
    <properties>
     <property name="operatorid" type="int" value="118"/>
     <property name="script" value="VehicleLavaSpray"/>
    </properties>
   </object>
-  <object id="122" gid="779" x="224" y="304" width="16" height="24">
+  <object id="122" gid="798" x="224" y="304" width="16" height="24">
    <properties>
     <property name="operatorid" type="int" value="118"/>
     <property name="script" value="VehicleLavaSpray"/>
@@ -115,8 +118,8 @@
  </objectgroup>
  <objectgroup name="preboss">
   <properties>
-   <property name="activatemusic" type="file" value="mus/12 - Typhoone Vol 2.vgm"/>
    <property name="activatesound" type="file" value="snd/alarm4.wav"/>
+   <property name="fademusic" type="bool" value="true"/>
   </properties>
   <object id="123" type="Trigger" x="0" y="128">
    <properties>
@@ -138,25 +141,25 @@
   </object>
  </objectgroup>
  <objectgroup name="midbosshostages">
-  <object id="186" gid="959" x="128" y="1024" width="32" height="32">
+  <object id="186" gid="978" x="128" y="1024" width="32" height="32">
    <properties>
     <property name="destroyedtile" value="destroyed"/>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="187" gid="959" x="176" y="1024" width="32" height="32">
+  <object id="187" gid="978" x="176" y="1024" width="32" height="32">
    <properties>
     <property name="destroyedtile" value="destroyed"/>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="189" gid="959" x="96" y="992" width="32" height="32">
+  <object id="189" gid="978" x="96" y="992" width="32" height="32">
    <properties>
     <property name="destroyedtile" value="destroyed"/>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="190" gid="959" x="208" y="992" width="32" height="32">
+  <object id="190" gid="978" x="208" y="992" width="32" height="32">
    <properties>
     <property name="destroyedtile" value="destroyed"/>
     <property name="script" value="ShmupVehicle"/>
@@ -306,12 +309,12 @@
   </object>
  </objectgroup>
  <objectgroup name="ballistae4">
-  <object id="143" gid="818" x="272" y="1888" width="64" height="64">
+  <object id="143" gid="837" x="272" y="1888" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="144" gid="816" x="80" y="1840" width="64" height="64">
+  <object id="144" gid="835" x="80" y="1840" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
@@ -323,12 +326,12 @@
   </object>
  </objectgroup>
  <objectgroup name="ballistae3">
-  <object id="148" gid="816" x="80" y="1920" width="64" height="64">
+  <object id="148" gid="835" x="80" y="1920" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="150" gid="818" x="224" y="1952" width="64" height="64">
+  <object id="150" gid="837" x="224" y="1952" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
@@ -340,12 +343,12 @@
   </object>
  </objectgroup>
  <objectgroup name="ballistae2">
-  <object id="155" gid="816" x="64" y="1984" width="64" height="64">
+  <object id="155" gid="835" x="64" y="1984" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="157" gid="818" x="208" y="2032" width="64" height="64">
+  <object id="157" gid="837" x="208" y="2032" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
@@ -357,12 +360,12 @@
   </object>
  </objectgroup>
  <objectgroup name="ballistae1">
-  <object id="161" gid="818" x="224" y="2112" width="64" height="64">
+  <object id="161" gid="837" x="224" y="2112" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="162" gid="816" x="32" y="2048" width="64" height="64">
+  <object id="162" gid="835" x="32" y="2048" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
@@ -654,22 +657,22 @@
   </object>
  </objectgroup>
  <objectgroup name="ballistae0">
-  <object id="176" gid="817" x="80" y="2944" width="64" height="64">
+  <object id="176" gid="836" x="80" y="2944" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="178" gid="817" x="128" y="2960" width="64" height="64">
+  <object id="178" gid="836" x="128" y="2960" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="179" gid="817" x="176" y="2960" width="64" height="64">
+  <object id="179" gid="836" x="176" y="2960" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="180" gid="817" x="224" y="2944" width="64" height="64">
+  <object id="180" gid="836" x="224" y="2944" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>

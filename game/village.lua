@@ -1319,7 +1319,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["activatemusic"] = "mus/06 - Approaching.vgm"
+      },
       objects = {
         {
           id = 261,
@@ -1368,8 +1370,8 @@ return {
       offsety = 0,
       draworder = "topdown",
       properties = {
-        ["activatemusic"] = "mus/06 - Approaching.vgm",
-        ["activatesound"] = "snd/alarm4.wav"
+        ["activatesound"] = "snd/alarm4.wav",
+        ["fademusic"] = true
       },
       objects = {
         {

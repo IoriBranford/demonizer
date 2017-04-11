@@ -52,9 +52,15 @@ function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
 		end
 	end
 
+	if triggerlayer.properties.fademusic then
+		if levity.bank.currentmusic then
+			levity.bank.currentmusic:fade()
+		end
+	end
+
 	local music = triggerlayer.properties.activatemusic
 	if music then
-		levity.bank:changeMusic(music, "emu", 4)
+		levity.bank:changeMusic(music, "emu")
 	end
 
 	local sound = triggerlayer.properties.activatesound

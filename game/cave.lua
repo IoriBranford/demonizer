@@ -2651,7 +2651,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["activatemusic"] = "mus/12 - Typhoone Vol 2.vgm"
+      },
       objects = {
         {
           id = 117,
@@ -2775,8 +2777,8 @@ return {
       offsety = 0,
       draworder = "topdown",
       properties = {
-        ["activatemusic"] = "mus/12 - Typhoone Vol 2.vgm",
-        ["activatesound"] = "snd/alarm4.wav"
+        ["activatesound"] = "snd/alarm4.wav",
+        ["fademusic"] = true
       },
       objects = {
         {
