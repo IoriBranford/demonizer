@@ -608,7 +608,7 @@ function ShmupPlayer:endMove(dt)
 	if scoreid and not self.poweredup and not self.killed then
 		self.poweredup = uimap.scripts:call(scoreid, "isMaxMultiplier",
 							self.object.id)
-		if self.powerup then
+		if self.poweredup then
 			levity.bank:play(Sounds.Maxed)
 			levity.bank:play(Sounds.Powerup)
 		end

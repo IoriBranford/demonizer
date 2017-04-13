@@ -40,6 +40,7 @@ end)
 local Sounds = {
 	Lock = "snd/targetlock.wav",
 	Cut = "snd/slash.wav",
+	Maxed = "snd/maxed.wav",
 	Powerup = "snd/powerup.wav",
 	--Ouch = "snd/ow.wav",
 	Death = "snd/shriek.wav"
@@ -397,7 +398,7 @@ function ShmupWingman:endMove(dt)
 	if scoreid and not self.poweredup then
 		self.poweredup = uimap.scripts:call(scoreid, "isMaxMultiplier",
 							self.object.id)
-		if self.powerup then
+		if self.poweredup then
 			levity.bank:play(Sounds.Maxed)
 			levity.bank:play(Sounds.Powerup)
 		end
