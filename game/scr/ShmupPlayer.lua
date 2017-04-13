@@ -58,13 +58,17 @@ ShmupPlayer = class(function(self, object)
 
 	local nextmapdata = levity.nextmapdata or {}
 	local nextmapplayer = nextmapdata.player or {}
+	self.poweredup = nextmapplayer.poweredup or false
 	self.numcaptives = nextmapplayer.numcaptives or 0
 	self.captivegids = levity.map:tileNamesToGids(nextmapplayer.captivenames) or {}
 
-	local wingmengids = levity.map:tileNamesToGids(nextmapplayer.wingmennames) or {}
+	local nextmapwingmen = nextmapplayer.wingmen or {}
 	local cx, cy = self.object.body:getWorldCenter()
-	for _, gid in ipairs(wingmengids) do
-		ShmupWingman.create(levity.map, gid, cx, cy, nil, nil)
+	for i, wingman in ipairs(nextmapwingmen) do
+		local id = ShmupWingman.create(levity.map, nil, cx, cy, nil, nil,
+					wingman)
+		self.numwingmen = self.numwingmen + 1
+		self.wingmenids[i] = id
 	end
 
 	local fixtures = self.object.body:getUserData().fixtures
@@ -173,6 +177,8 @@ local Sounds = {
 	Shot = "snd/playershot.wav",
 	Bomber = "snd/bomber.wav",
 	Bomb = "snd/bomb.wav",
+	Maxed = "snd/maxed.wav",
+	Powerup = "snd/powerup.wav",
 	Death = "snd/selfdestruct.wav",
 	Scream = "snd/shriek.wav",
 	Respawn = "snd/respawn.wav",
@@ -253,6 +259,10 @@ end
 
 function ShmupPlayer:isKilled()
 	return self.killed
+end
+
+function ShmupPlayer:isPoweredUp()
+	return self.poweredup
 end
 
 function ShmupPlayer:setFiring(button)
@@ -406,6 +416,7 @@ function ShmupPlayer:deathCoroutine(dt)
 	self.deathtimer = 0
 	self.killed = true
 	self.object.visible = false
+	self.poweredup = false
 
 	-- capturing not allowed while player killed
 	local fixtures = self.object.body:getUserData().fixtures
@@ -531,6 +542,8 @@ function ShmupPlayer:exitCoroutine(dt)
 end
 
 function ShmupPlayer:beginMove(dt)
+	self.shieldtimer = math.max(0, self.shieldtimer - dt)
+
 	if self.coroutine then
 		local ok, err = coroutine.resume(self.coroutine, self, dt)
 		if not ok then print(err) end
@@ -543,8 +556,6 @@ function ShmupPlayer:beginMove(dt)
 	local body = self.object.body
 	local cx, cy = body:getWorldCenter()
 	local vx1, vy1 = self.inputvx, self.inputvy
-
-	self.shieldtimer = math.max(0, self.shieldtimer - dt)
 
 	local cameraid = levity.map.properties.cameraid
 	local camera = nil
@@ -589,6 +600,20 @@ function ShmupPlayer:beginMove(dt)
 end
 
 function ShmupPlayer:endMove(dt)
+	local uimap = levity.map.overlaymap
+	local scoreid
+	if uimap then
+		scoreid = uimap.scripts:call("status", "getScoreId")
+	end
+	if scoreid and not self.poweredup and not self.killed then
+		self.poweredup = uimap.scripts:call(scoreid, "isMaxMultiplier",
+							self.object.id)
+		if self.powerup then
+			levity.bank:play(Sounds.Maxed)
+			levity.bank:play(Sounds.Powerup)
+		end
+	end
+
 	local cameraid = levity.map.properties.cameraid
 	local camera = nil
 	if cameraid then
@@ -628,6 +653,9 @@ function ShmupPlayer:beginDraw()
 	if scoreid then
 		self.properties.text = uimap.scripts:call(scoreid,
 					"getMultiplier", self.object.id)
+		if self.properties.text and self.poweredup then
+			self.properties.text = self.properties.text..'\nP'
+		end
 	else
 		self.properties.text = nil
 	end
@@ -645,14 +673,15 @@ function ShmupPlayer:playerWon()
 end
 
 function ShmupPlayer:nextMap(nextmapfile, nextmapdata)
-	local wingmengids = {}
-	for _, id in ipairs(self.wingmenids) do
-		wingmengids[#wingmengids + 1] = levity.map.objects[id].gid
+	local wingmen = {}
+	for i, id in ipairs(self.wingmenids) do
+		wingmen[i] = levity.map.scripts:call(id, "getNextMapData")
 	end
 
 	if nextmapdata then
 		nextmapdata.player = {
-			wingmennames = levity.map:tileGidsToNames(wingmengids),
+			poweredup = self.poweredup,
+			wingmen = wingmen,
 			captivenames = levity.map:tileGidsToNames(self.captivegids),
 			numcaptives = self.numcaptives
 		}

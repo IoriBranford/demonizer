@@ -387,7 +387,7 @@ function ShmupNPC:beginMove(dt)
 		local scoreid = uimap.scripts:call("status", "getScoreId")
 
 		if levity.map.scripts:call(playerid, "isFocused")
-		and uimap.scripts:call(scoreid, "isMaxMultiplier", playerid)
+		and levity.map.scripts:call(playerid, "isPoweredUp")
 		then
 			capturepulldistsq = ShmupNPC.EnhancedCapturePullDistSq
 		else

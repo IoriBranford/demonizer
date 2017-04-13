@@ -13,7 +13,7 @@ ShmupWingman = class(function(self, object)
 	self.object.body:setBullet(true)
 	self.firetimer = 0
 
-	self.wingmanindex = nil
+	self.wingmanindex = self.properties.index or nil
 
 	self:refreshFixtures()
 	self:setVulnerable(true)
@@ -25,7 +25,8 @@ ShmupWingman = class(function(self, object)
 
 	self.locktargetid = nil
 	self.targetcaptiveid = nil
-	self.health = 8
+	self.health = 5
+	self.poweredup = self.properties.poweredup or false
 
 	self.captivegids = {}
 	self.numcaptives = 0
@@ -39,6 +40,7 @@ end)
 local Sounds = {
 	Lock = "snd/targetlock.wav",
 	Cut = "snd/slash.wav",
+	Powerup = "snd/powerup.wav",
 	--Ouch = "snd/ow.wav",
 	Death = "snd/shriek.wav"
 }
@@ -53,7 +55,7 @@ ShmupWingman.BaseMask = {
 
 ShmupWingman.Speed = 320
 ShmupWingman.SpeedSq = ShmupWingman.Speed * ShmupWingman.Speed
-ShmupWingman.MaxHealth = 8
+ShmupWingman.MaxHealth = 5
 ShmupWingman.BulletParams = {
 	speed = ShmupPlayer.BulletParams.speed,
 	category = ShmupCollision.Category_PlayerShot,
@@ -66,6 +68,10 @@ ShmupWingman.ConvertDist = 16
 ShmupWingman.LockSearchWidth = 120
 ShmupWingman.LockSearchHeight = 160
 ShmupWingman.UnfocusedHealRate = 1
+
+function ShmupWingman:isPoweredUp()
+	return self.poweredup
+end
 
 function ShmupWingman:refreshFixtures()
 	for _, fixture in pairs(self.object.body:getFixtureList()) do
@@ -289,9 +295,7 @@ function ShmupWingman:beginMove(dt)
 	end
 	local focused = levity.map.scripts:call(playerid, "isFocused")
 	if focused then
-		if not self.properties.conversionid
-		and scoreid
-		and uimap.scripts:call(scoreid, "isMaxMultiplier", self.object.id) then
+		if not self.properties.conversionid and self.poweredup then
 			if not self.targetcaptiveid then
 				self.targetcaptiveid = self:findTarget("canBeCaptured")
 			end
@@ -385,6 +389,20 @@ function ShmupWingman:beginMove(dt)
 end
 
 function ShmupWingman:endMove(dt)
+	local uimap = levity.map.overlaymap
+	local scoreid
+	if uimap then
+		scoreid = uimap.scripts:call("status", "getScoreId")
+	end
+	if scoreid and not self.poweredup then
+		self.poweredup = uimap.scripts:call(scoreid, "isMaxMultiplier",
+							self.object.id)
+		if self.powerup then
+			levity.bank:play(Sounds.Maxed)
+			levity.bank:play(Sounds.Powerup)
+		end
+	end
+
 	if self.properties.conversionid then
 		local x, y = self.object.body:getPosition()
 		local conversion = levity.map.objects[self.properties.conversionid]
@@ -433,6 +451,9 @@ function ShmupWingman:beginDraw()
 	if scoreid then
 		self.properties.text = uimap.scripts:call(scoreid,
 					"getMultiplier", self.object.id)
+		if self.properties.text and self.poweredup then
+			self.properties.text = self.properties.text..'\nP'
+		end
 	else
 		self.properties.text = nil
 	end
@@ -447,7 +468,16 @@ function ShmupWingman:playerWon()
 	self:setVulnerable(false)
 end
 
-function ShmupWingman.create(map, gid, x, y, captorid, captiveid)
+function ShmupWingman:getNextMapData()
+	return {
+		tilename = levity.map:tileGidsToNames({self.object.gid}),
+		index = self.wingmanindex,
+		poweredup = self.poweredup
+	}
+end
+
+function ShmupWingman.create(map, gid, x, y, captorid, captiveid,
+				nextmapdata)
 	local playerid = map.properties.playerid
 	local player = map.objects[playerid]
 
@@ -468,14 +498,21 @@ function ShmupWingman.create(map, gid, x, y, captorid, captiveid)
 	local wingman = map.objects[captiveid]
 			or { id = map:newObjectId() }
 
-	wingman.gid = gid
-	wingman.x = x
-	wingman.y = y
 	wingman.properties = {
 		conversionid = conversionid,
 		script = "ShmupWingman",
-		captorid = captorid
+		captorid = captorid,
 	}
+
+	if nextmapdata then
+		gid = levity.map:tileNamesToGids(nextmapdata.tilename)[1]
+		wingman.properties.index = nextmapdata.index
+		wingman.properties.poweredup = nextmapdata.poweredup
+	end
+
+	wingman.gid = gid
+	wingman.x = x
+	wingman.y = y
 
 	player.layer:addObject(wingman)
 
