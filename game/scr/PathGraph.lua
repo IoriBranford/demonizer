@@ -3,7 +3,10 @@ local levity = require "levity"
 --- @table Path a possible move from a PathGraph node
 -- @field destx
 -- @field desty
+-- @field length
 -- @field cost
+-- @field curve if bezier path
+-- @field curvedir 1 = forward, -1 = reverse
 
 local PathGraph
 
@@ -15,13 +18,36 @@ local function addSegment(self, x1, y1, x2, y2, cost)
 	n2[#n2 + 1] = { destx = x1, desty = y1, length = length, cost = cost }
 end
 
+local function addCurve(self, curve, cost)
+	local points = curve:render()
+	local length = 0
+	for i = 1, #points - 3, 2 do
+		local lenx = points[i+2] - points[i+0]
+		local leny = points[i+3] - points[i+1]
+		length = length + math.sqrt(lenx*lenx + leny*leny)
+	end
+
+	local x1, y1 = curve:getControlPoint(1)
+	local x2, y2 = curve:getControlPoint(curve:getControlPointCount())
+
+	addSegment(self, x1, y1, x2, y2, cost)
+	local n1 = self:getPaths(x1, y1)
+	local n2 = self:getPaths(x2, y2)
+	n1[#n1].length = length
+	n2[#n2].length = length
+	n1[#n1].curve = curve
+	n2[#n2].curve = curve
+	n1[#n1].curvedir = 1
+	n2[#n2].curvedir = -1
+end
+
 local function addLineObject(self, object)
 	local line = object.polyline or object.polygon
 	if not line then
 		return
 	end
 
-	local drawpoints = {}
+	local drawpoints
 
 	local cost = object.properties.cost or 1
 	local beziercurve = object.properties.beziercurve or false
@@ -36,21 +62,15 @@ local function addLineObject(self, object)
 				curve:getControlPointCount() + 1)
 		end
 
-		curve = curve:render(2)
-		drawpoints = curve
-
-		for i = 1, #curve-3, 2 do
-			addSegment(self, curve[i], curve[i+1],
-					curve[i+2], curve[i+3], cost)
-		end
-
 		if object.shape == "polygon" then
-			addSegment(self, curve[#curve-1], curve[#curve],
-					curve[1], curve[2], cost)
-			drawpoints[#drawpoints + 1] = curve[1]
-			drawpoints[#drawpoints + 1] = curve[2]
+			curve:insertControlPoint(line[1].x, line[1].y,
+				curve:getControlPointCount() + 1)
 		end
+
+		addCurve(self, curve, cost)
+		drawpoints = curve:render()
 	else
+		drawpoints = {}
 		local p1 = line[1]
 		drawpoints[#drawpoints + 1] = p1.x
 		drawpoints[#drawpoints + 1] = p1.y
@@ -89,6 +109,7 @@ PathGraph = class(function(self, element)
 		self.object = element
 		addLineObject(self, self.object)
 	end
+	element.visible = false
 end)
 
 function PathGraph:getPaths(x, y, createnode)
@@ -183,6 +204,10 @@ Walker = class(function(self, graph, pickNextPath, x, y, mode, userdata)
 	if paths then
 		local path = pickNextPath(graph, paths, x, y, userdata)
 		if path then
+			if path.curve then
+				self.curveodo = 0 -- odometer
+			end
+			self.path = path
 			self.destx = path.destx
 			self.desty = path.desty
 		end
@@ -196,22 +221,48 @@ Walker = class(function(self, graph, pickNextPath, x, y, mode, userdata)
 	self.userdata = userdata
 end)
 
+local function getCurvePoint(curvepath, odo)
+	if not curvepath.curve then
+		return
+	end
+
+	local t = odo / curvepath.length
+	if curvepath.curvedir < 0 then
+		t = 1 - t
+	end
+	return curvepath.curve:evaluate(t)
+end
+
 function Walker:getVelocity(dt, speed, x, y)
 	if not self.destx or not self.desty then
 		return 0, 0
 	end
+
 	local vx, vy = 0, 0
+
 	local distx = self.destx + self.offx - x
 	local disty = self.desty + self.offy - y
-	local dist = math.hypot(distx, disty)
+	local exdist -- amount by which you would overshoot destination this frame
 
-	local exdist = speed*dt - dist
-	-- amount by which you would overshoot destination this frame
+	if self.path and self.path.curve then
+		self.curveodo = self.curveodo + speed*dt
+		exdist = self.curveodo - self.path.length
+		if exdist <= 0 then
+			local nextx, nexty =
+				getCurvePoint(self.path, self.curveodo)
 
-	if exdist < 0 then
-		local dirx, diry = distx / dist, disty / dist
+			distx = nextx + self.offx - x
+			disty = nexty + self.offy - y
+			vx, vy = distx / dt, disty / dt
+		end
+	else
+		local dist = math.hypot(distx, disty)
+		exdist = speed*dt - dist
+		if exdist < 0 then
+			local dirx, diry = distx / dist, disty / dist
 
-		vx, vy = dirx * speed, diry * speed
+			vx, vy = dirx * speed, diry * speed
+		end
 	end
 
 	while exdist >= 0 do
@@ -230,14 +281,24 @@ function Walker:getVelocity(dt, speed, x, y)
 			local nextdestdist = nextpath.length
 
 			if exdist < nextdestdist then
-				nextdirx = exdist * nextdirx / nextdestdist
-				nextdiry = exdist * nextdiry / nextdestdist
+				if nextpath.curve then
+					self.curveodo = exdist
+					local nextx, nexty =
+						getCurvePoint(nextpath, exdist)
+					nextdirx = nextx - self.destx
+					nextdiry = nexty - self.desty
+				else
+					nextdirx = exdist * nextdirx / nextdestdist
+					nextdiry = exdist * nextdiry / nextdestdist
+				end
 			end
 
 			distx = distx + nextdirx
 			disty = disty + nextdiry
+
 			self.prevx, self.prevy = self.destx, self.desty
 			self.destx, self.desty = nextdestx, nextdesty
+			self.path = nextpath
 
 			exdist = exdist - nextdestdist
 

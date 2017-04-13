@@ -14,14 +14,14 @@
  <tileset firstgid="38" source="img/demonwomen.tsx"/>
  <tileset firstgid="77" source="img/demonizing.tsx"/>
  <tileset firstgid="80" source="img/humanshots.tsx"/>
- <tileset firstgid="108" source="img/sparks_med.tsx"/>
- <tileset firstgid="124" source="img/infmen.tsx"/>
+ <tileset firstgid="112" source="img/sparks_med.tsx"/>
+ <tileset firstgid="128" source="img/infmen.tsx"/>
  <objectgroup name="camera" visible="0">
   <object id="39" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>
  <objectgroup name="sparks"/>
  <objectgroup name="enemy">
-  <object id="49" gid="160" x="120" y="16" width="24" height="32">
+  <object id="49" gid="164" x="120" y="16" width="24" height="32">
    <properties>
     <property name="pathgraphid" value="pathgraph"/>
     <property name="script" value="PathGraphTester"/>
