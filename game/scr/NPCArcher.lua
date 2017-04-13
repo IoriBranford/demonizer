@@ -13,6 +13,7 @@ NPCArcher = class(ShmupNPC, function(self, object)
 	ShmupNPC.init(self, object)
 	self.firetimer = BulletInterval
 	self.health = 8
+	self.properties.killpoints = 250
 	self.properties.pathspeed = self.properties.pathspeed or 180
 end)
 

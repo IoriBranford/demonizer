@@ -12,6 +12,7 @@ NPCPikeman = class(ShmupNPC, function(self, object)
 	self.firetimer = .5--love.math.random()
 	self.health = 8
 	self.properties.pathspeed = self.properties.pathspeed or 90
+	self.properties.killpoints = 150
 end)
 
 NPCPikeman.BulletInterval = 1

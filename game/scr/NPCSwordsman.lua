@@ -9,7 +9,8 @@ NPCSwordsman = class(ShmupNPC, function(self, object)
 		levity.map:getTileGid("humanshots", "sword", 0)
 	ShmupNPC.init(self, object)
 	self.fireco = nil
-	self.health = 16
+	self.health = 24
+	self.properties.killpoints = 500
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		fixture:setSensor(false)
 	end
