@@ -307,6 +307,22 @@ function ShmupNPC:setInCover(incover)
 	end
 end
 
+local Directions = {
+	"right", "down", "left", "up"
+}
+
+function ShmupNPC:faceAngle(angle)
+	local dir = Directions[1 + (math.floor(2*angle/math.pi + .5) % 4)]
+
+	if dir then
+		local gid = levity.map:getTileGid(self.object.tile.tileset,
+							dir, self.npctype)
+		if gid ~= self.object.gid then
+			self.object:setGid(gid, levity.map)
+		end
+	end
+end
+
 function ShmupNPC:capture(captorid)
 	if self.captured then
 		return

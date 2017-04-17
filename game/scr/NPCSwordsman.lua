@@ -82,6 +82,7 @@ function NPCSwordsman:beginMove(dt)
 	local destx, desty = x, y
 	if self.fleeing then
 		self.object.body:setLinearVelocity(0, NPCSwordsman.Speed)
+		self:faceAngle(math.pi/2)
 		if not self.oncamera then
 			levity.map:discardObject(self.object.id)
 		end
@@ -102,6 +103,8 @@ function NPCSwordsman:beginMove(dt)
 		distx = (destx - x)
 		disty = (desty - y)
 		local dist = math.hypot(distx, disty)
+
+		self:faceAngle(math.atan2(disty, distx))
 
 		local dirx, diry = distx/dist, disty/dist
 		destx = playercx - dirx*NPCSwordsman.FireDist*.375

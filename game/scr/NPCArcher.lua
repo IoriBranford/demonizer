@@ -27,20 +27,22 @@ NPCArcher.BulletParams = {
 }
 
 function NPCArcher:updateFiring(dt)
+	local params = NPCArcher.BulletParams
+	local cx, cy = self.object.body:getWorldCenter()
+	local playerdx = 0
+	local playerdy = 1
+
+	local playerid = levity.map.properties.playerid
+	if playerid then
+		local player = levity.map.objects[playerid]
+		local playercx, playercy = player.body:getWorldCenter()
+		playerdx = playercx - cx
+		playerdy = playercy - cy
+	end
+
+	self:faceAngle(math.atan2(playerdy, playerdx))
+
 	if self.numcovers <= 0 and self.firetimer <= 0 then
-		local params = NPCArcher.BulletParams
-		local cx, cy = self.object.body:getWorldCenter()
-		local playerdx = 0
-		local playerdy = 1
-
-		local playerid = levity.map.properties.playerid
-		if playerid then
-			local player = levity.map.objects[playerid]
-			local playercx, playercy = player.body:getWorldCenter()
-			playerdx = playercx - cx
-			playerdy = playercy - cy
-		end
-
 		params.x = cx
 		params.y = cy
 		params.angle = math.atan2(playerdy, playerdx)

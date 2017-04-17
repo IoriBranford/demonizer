@@ -80,13 +80,15 @@ function NPCPikeman:beginMove(dt)
 		return
 	end
 
+	local vx, vy = self.object.body:getLinearVelocity()
+	self:faceAngle(math.atan2(vy, vx))
+
 	local volleyleader = self.properties.volleyleaderid
 	if volleyleader then
 		volleyleader = levity.map.objects[volleyleader]
 	end
 
-	if (volleyleader and levity.map.scripts:call(volleyleader.id, "isOnCamera"))
-	or (not volleyleader and self.oncamera) then
+	if (volleyleader or self.oncamera) then
 		self:updateFiring(dt)
 	end
 end

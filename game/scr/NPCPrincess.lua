@@ -45,6 +45,7 @@ end
 
 function NPCPrincess:chargeShotCoroutine(dt)
 	levity.bank:play(Sounds.Charge)
+	self:faceAngle(math.pi/2)
 
 	local t = NPCPrincess.ChargeShotWaitTime
 	local readytofire = false
@@ -122,10 +123,12 @@ function NPCPrincess:normalFireCoroutine(dt)
 			playerdy = playercy - cy
 		end
 
+		local angle = math.atan2(playerdy, playerdx)
+		self:faceAngle(angle)
+
 		params.x = cx
 		params.y = cy
-		params.angle = math.atan2(playerdy, playerdx)
-				- NPCPrincess.BulletSpreadArc
+		params.angle = angle - NPCPrincess.BulletSpreadArc
 
 		local firetimer
 		for i = 1, 3 do
