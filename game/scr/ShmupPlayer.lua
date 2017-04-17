@@ -579,7 +579,7 @@ function ShmupPlayer:beginMove(dt)
 	body:setLinearVelocity(vx1, vy1)
 
 	if self:isFiring() then
-		if self.firetimer <= 0 then
+		if self.firetimer < dt then
 			local params = ShmupPlayer.BulletParams
 			params.x = cx - 8
 			params.y = cy - 8

@@ -51,7 +51,7 @@ function NPCPikeman:updateFiring(dt)
 		end
 	end
 
-	if self.firetimer <= 0 then
+	if self.firetimer < dt then
 		local params = NPCPikeman.BulletParams
 		params.x = cx
 		params.y = cy

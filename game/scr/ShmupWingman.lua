@@ -222,7 +222,7 @@ function ShmupWingman:updateConversion(dt)
 end
 
 function ShmupWingman:updateFiring(dt)
-	if self.firetimer <= 0 then
+	if self.firetimer < dt then
 		local angle = math.pi*1.5
 		local cx, cy = self.object.body:getWorldCenter()
 		local playerid = levity.map.properties.playerid

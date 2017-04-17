@@ -42,7 +42,7 @@ function NPCArcher:updateFiring(dt)
 
 	self:faceAngle(math.atan2(playerdy, playerdx))
 
-	if self.numcovers <= 0 and self.firetimer <= 0 then
+	if self.numcovers <= 0 and self.firetimer < dt then
 		params.x = cx
 		params.y = cy
 		params.angle = math.atan2(playerdy, playerdx)

@@ -64,10 +64,10 @@ function NPCPrincess:chargeShotCoroutine(dt)
 	local mapcx = levity.map.width*levity.map.tilewidth/2
 	local numbullets = 15
 	while numbullets > 0 do
-		while t > 0 do
+		repeat
+			t = math.max(0, t - dt)
 			self, dt = coroutine.yield()
-			t = t - dt
-		end
+		until t < dt
 
 		local player = levity.map.objects
 					[levity.map.properties.playerid]
@@ -106,10 +106,10 @@ function NPCPrincess:normalFireCoroutine(dt)
 	local t = NPCPrincess.BulletInterval
 	local numbullets = 30
 	while numbullets > 0 do
-		while t > 0 or self.numcovers > 0 do
-			self, dt = coroutine.yield()
+		repeat
 			t = math.max(0, t - dt)
-		end
+			self, dt = coroutine.yield()
+		until t < dt and self.numcovers <= 0
 
 		local cx, cy = self.object.body:getWorldCenter()
 		local playerdx = 0

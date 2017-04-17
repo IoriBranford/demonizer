@@ -175,7 +175,7 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 		gid = tileset.firstgid + tileid
 	end
 
-	while time <= 0 do
+	while time < interval do
 		local shot = {
 			x = x - vx * time,
 			y = y - vy * time,
@@ -196,7 +196,7 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 		}
 		layer:addObject(shot)
 
-		time = interval
+		time = time + interval
 	end
 
 	return time

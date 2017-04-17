@@ -124,7 +124,7 @@ end
 
 function ShmupFriend:updateFiring(dt)
 	local locktargetid = self:findTarget("canBeLockTarget")
-	if self.firetimer <= 0 and locktargetid then
+	if self.firetimer < dt and locktargetid then
 		local angle = math.pi*1.5
 		local cx, cy = self.object.body:getWorldCenter()
 
