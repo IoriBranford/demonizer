@@ -3,7 +3,7 @@ local ShmupCollision = require "ShmupCollision"
 local ShmupNPC = require("ShmupNPC")
 local ShmupBullet = require("ShmupBullet")
 
-local BulletInterval = 1.5
+local BulletInterval = 1
 
 local NPCArcher
 NPCArcher = class(ShmupNPC, function(self, object)
