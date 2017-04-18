@@ -444,7 +444,7 @@ function ShmupNPC:beginMove(dt)
 		body:setLinearVelocity(playerdx * pull, playerdy * pull)
 	elseif self.unconscious then
 		if self.properties.kolaunch then
-			body:applyForce(0, body:getMass() * ShmupNPC.KnockoutGravity)
+			body:applyForce(-vx0/64, body:getMass() * ShmupNPC.KnockoutGravity)
 		else
 			body:setLinearVelocity(0, 0)
 		end
