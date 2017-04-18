@@ -40,9 +40,15 @@ function NPCArcher:updateFiring(dt)
 		playerdy = playercy - cy
 	end
 
-	self:faceAngle(math.atan2(playerdy, playerdx))
+	local vx, vy = self.object.body:getLinearVelocity()
+	local dot = math.dot(vx, vy, playerdx, playerdy)
+	if dot > 0 then
+		self:faceAngle(math.atan2(playerdy, playerdx))
+	else
+		self:faceAngle(math.atan2(vy, vx))
+	end
 
-	if self.numcovers <= 0 and self.firetimer < dt then
+	if self.numcovers <= 0 and self.firetimer < dt and dot > 0 then
 		params.x = cx
 		params.y = cy
 		params.angle = math.atan2(playerdy, playerdx)
@@ -52,10 +58,7 @@ function NPCArcher:updateFiring(dt)
 
 		levity.bank:play("snd/bow.wav")
 	end
-	self.firetimer = self.firetimer - dt
-	if self.numcovers > 0 and self.firetimer < 0 then
-		self.firetimer = 0
-	end
+	self.firetimer = math.max(0, self.firetimer - dt)
 end
 
 function NPCArcher:suppress()
