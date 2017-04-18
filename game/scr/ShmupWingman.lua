@@ -315,22 +315,22 @@ function ShmupWingman:beginMove(dt)
 
 	if captive then
 		destx, desty = captive.body:getWorldCenter()
-		if captive.properties.script == "ShmupWingman" then
-			if not captive.properties.conversionid
-			or captive.properties.captorid ~= self.object.id then
-				self.targetcaptiveid = nil
-			else
-				destx, desty = self.object.body:getWorldCenter()
-
-				local camvx, camvy = levity.map.scripts:call(
-					levity.map.properties.cameraid,
-					"getVelocity")
-
-				if camvy then
-					desty = desty + camvy*dt
-				end
-			end
-		end
+		--if captive.properties.script == "ShmupWingman" then
+		--	if not captive.properties.conversionid
+		--	or captive.properties.captorid ~= self.object.id then
+		--		self.targetcaptiveid = nil
+		--	else
+		--		destx, desty = self.object.body:getWorldCenter()
+                --
+		--		local camvx, camvy = levity.map.scripts:call(
+		--			levity.map.properties.cameraid,
+		--			"getVelocity")
+                --
+		--		if camvy then
+		--			desty = desty + camvy*dt
+		--		end
+		--	end
+		--end
 	elseif self.properties.conversionid then
 		local captorid = self.properties.captorid
 		if captorid then
@@ -496,8 +496,8 @@ function ShmupWingman.create(map, gid, x, y, captorid, captiveid,
 		player.layer:addObject(conversion)
 	end
 
-	local wingman = map.objects[captiveid]
-			or { id = map:newObjectId() }
+	local wingman = --map.objects[captiveid] or
+			{ id = map:newObjectId() }
 
 	wingman.properties = {
 		conversionid = conversionid,

@@ -8,7 +8,7 @@ return {
   height = 100,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 191,
+  nextobjectid = 192,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -3218,6 +3218,7 @@ return {
             { x = 288, y = 0 }
           },
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         },
@@ -3270,6 +3271,7 @@ return {
             { x = 288, y = 0 }
           },
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         }
@@ -3354,6 +3356,22 @@ return {
           gid = 791,
           visible = true,
           properties = {}
+        },
+        {
+          id = 191,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = 176,
+          width = 288,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["objectsinitiallayer"] = "ground",
+            ["triggertype"] = "activategroup"
+          }
         }
       }
     },
@@ -3379,6 +3397,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         },
@@ -3637,6 +3656,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         },
@@ -3958,6 +3978,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         },
@@ -4141,6 +4162,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         },
@@ -4216,6 +4238,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         }
@@ -4259,6 +4282,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         },
@@ -4302,6 +4326,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         },
@@ -4460,6 +4485,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         },
@@ -4523,6 +4549,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         },
@@ -4708,6 +4735,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         },
@@ -4930,6 +4958,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         },
@@ -5056,6 +5085,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         }
@@ -5146,6 +5176,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         },
@@ -5282,6 +5313,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         }
@@ -5533,6 +5565,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         }
@@ -5782,6 +5815,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
         },

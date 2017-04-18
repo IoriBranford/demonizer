@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="18" height="100" tilewidth="16" tileheight="16" nextobjectid="191">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="18" height="100" tilewidth="16" tileheight="16" nextobjectid="192">
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="mus/05 - Twilight Express.vgm"/>
@@ -69,6 +69,7 @@
   </properties>
   <object id="153" type="Trigger" x="0" y="0">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>
@@ -88,6 +89,7 @@
   </properties>
   <object id="152" type="Trigger" x="0" y="120">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>
@@ -99,10 +101,17 @@
   <object id="156" name="talltree" gid="791" x="184" y="80" width="48" height="80"/>
   <object id="157" name="talltree" gid="791" x="136" y="184" width="48" height="80"/>
   <object id="158" name="talltree" gid="791" x="228" y="152" width="48" height="80"/>
+  <object id="191" type="Trigger" x="0" y="176" width="288" height="16">
+   <properties>
+    <property name="objectsinitiallayer" value="ground"/>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="archerscatapults">
   <object id="137" type="Trigger" x="0" y="352" width="288" height="128">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -172,6 +181,7 @@
  <objectgroup name="swordsmencatapults">
   <object id="140" type="Trigger" x="0" y="464" width="288" height="80">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -281,6 +291,7 @@
   </object>
   <object id="129" type="Trigger" x="0" y="608" width="288" height="16">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -343,6 +354,7 @@
   </object>
   <object id="110" type="Trigger" x="0" y="720" width="288" height="16">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -365,6 +377,7 @@
   </object>
   <object id="105" type="Trigger" x="0" y="784" width="288" height="16">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -377,6 +390,7 @@
   </object>
   <object id="99" type="Trigger" x="0" y="832" width="288" height="16">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -389,6 +403,7 @@
  <objectgroup name="catapults2">
   <object id="76" type="Trigger" x="0" y="912" width="288" height="16">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -446,6 +461,7 @@
   </object>
   <object id="79" type="Trigger" x="0" y="944" width="288" height="16">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -465,6 +481,7 @@
  <objectgroup name="archers2">
   <object id="55" type="Trigger" x="0" y="960" width="288" height="96">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -519,6 +536,7 @@
   </object>
   <object id="53" type="Trigger" x="0" y="1024" width="288" height="80">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -586,6 +604,7 @@
   </object>
   <object id="42" name="trigger" type="Trigger" x="0" y="1136" width="288" height="16">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -628,6 +647,7 @@
   </object>
   <object id="190" name="trigger" type="Trigger" x="0" y="1168" width="288" height="16">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -656,6 +676,7 @@
   </object>
   <object id="41" name="trigger" type="Trigger" x="0" y="1184" width="288" height="16">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -704,6 +725,7 @@
   </object>
   <object id="40" name="trigger" type="Trigger" x="0" y="1216" width="288" height="16">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -727,6 +749,7 @@
   <object id="186" gid="788" x="0" y="1152" width="64" height="64"/>
   <object id="187" name="trigger" type="Trigger" x="0" y="1104" width="288" height="192">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
@@ -836,6 +859,7 @@
   </object>
   <object id="73" name="trigger" type="Trigger" x="0" y="1248" width="288" height="16">
    <properties>
+    <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>

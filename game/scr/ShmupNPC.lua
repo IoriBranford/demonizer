@@ -344,8 +344,8 @@ function ShmupNPC:capture(captorid)
 	else
 		levity.bank:play(Sounds.MaleCapture)
 		levity.map:broadcast("npcCaptured", self.object.id, captorid)
-		self:discard()
 	end
+	self:discard()
 end
 
 function ShmupNPC:die()

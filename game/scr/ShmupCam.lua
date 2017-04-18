@@ -44,23 +44,15 @@ end)
 function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getUserData().object
 	local triggerlayer = triggerobject.layer
-	if levity.map.properties.delayinitobjects == true then
-		self.activatedgrouptriggerids[triggerobject.id] = triggerobject.id
-	else
-		for _, object in ipairs(triggerlayer.objects) do
-			levity.map.scripts:call(object.id, "activate")
-		end
-	end
-
-	if triggerlayer.properties.fademusic then
-		if levity.bank.currentmusic then
-			levity.bank.currentmusic:fade()
-		end
-	end
+	self.activatedgrouptriggerids[triggerobject.id] = triggerobject.id
 
 	local music = triggerlayer.properties.activatemusic
 	if music then
 		levity.bank:changeMusic(music, "emu")
+	elseif triggerlayer.properties.fademusic then
+		if levity.bank.currentmusic then
+			levity.bank.currentmusic:fade()
+		end
 	end
 
 	local sound = triggerlayer.properties.activatesound
@@ -77,13 +69,13 @@ function ShmupCam:beginContact_pausecamera(myfixture, otherfixture, contact)
 end
 
 function ShmupCam:endContact_activategroup(myfixture, otherfixture, contact)
-	local triggerobject = otherfixture:getUserData().object
-	local triggerlayer = triggerobject.layer
-	for _, object in pairs(triggerlayer.objects) do
-		if levity.map.scripts:call(object.id, "staysAfterTriggerEnd") then
-			levity.map.scripts:call(object.id, "endTrigger")
+	local triggerobject = otherfixture:getBody():getUserData().object
+	local activatedobjectids = triggerobject.properties.activatedobjectids
+	for _, id in ipairs(activatedobjectids) do
+		if levity.map.scripts:call(id, "staysAfterTriggerEnd") then
+			levity.map.scripts:call(id, "endTrigger")
 		else
-			levity.map:discardObject(object.id)
+			levity.map:discardObject(id)
 		end
 	end
 	levity.map:discardObject(triggerobject.id)
@@ -153,16 +145,41 @@ function ShmupCam:endMove(dt)
 	local cx, cy = self.object.body:getWorldCenter()
 	self.camera:set(cx, cy)
 
-	if levity.map.properties.delayinitobjects == true then
-		for k, id in pairs(self.activatedgrouptriggerids) do
-			local trigger = levity.map.objects[id]
-			for _, object in ipairs(trigger.layer.objects) do
-				if object.id ~= id then
-					trigger.layer:addObject(object)
+	for k, triggerid in pairs(self.activatedgrouptriggerids) do
+		local trigger = levity.map.objects[triggerid]
+
+		local initiallayer = trigger.properties.objectsinitiallayer
+		if initiallayer then
+			initiallayer = levity.map.layers[initiallayer]
+		end
+
+		local activatedobjectids = {}
+		for _, object in ipairs(trigger.layer.objects) do
+			if object.id ~= triggerid then
+				activatedobjectids[#activatedobjectids + 1] = object.id
+			end
+		end
+		trigger.properties.activatedobjectids = activatedobjectids
+
+		if levity.map.properties.delayinitobjects == true then
+			if not initiallayer then
+				initiallayer = trigger.layer
+			end
+			for _, id in ipairs(activatedobjectids) do
+				local object = levity.map.objects[id]
+				initiallayer:addObject(object)
+			end
+		else
+			for _, id in ipairs(activatedobjectids) do
+				local object = levity.map.objects[id]
+				levity.map.scripts:call(id, "activate")
+				if initiallayer then
+					object:setLayer(initiallayer)
 				end
 			end
-			self.activatedgrouptriggerids[k] = nil
 		end
+
+		self.activatedgrouptriggerids[k] = nil
 	end
 end
 
