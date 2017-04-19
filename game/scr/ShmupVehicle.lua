@@ -1,6 +1,7 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local PathGraph = require "PathGraph"
+local ShmupBullet = require "ShmupBullet"
 
 local Sounds = {
 	Hit = "snd/hit.wav",
@@ -39,6 +40,10 @@ local ShmupVehicle = class(function(self, object)
 --	end
 end)
 
+ShmupVehicle.HitSparkParams = {
+	lifetime = "animation"
+}
+
 function ShmupVehicle:activate()
 	self.ready = true
 end
@@ -75,15 +80,11 @@ end
 function ShmupVehicle:explode()
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		local l, t, r, b = fixture:getBoundingBox()
-		local explosion = {
-			gid = levity.map:getTileGid("sparks_med", "explosion", 0),
-			x = l + (r-l)*.5,
-			y = t + (b-t)*.5,
-			properties = {
-				script = "Spark"
-			}
-		}
-		self.object.layer:addObject(explosion)
+		local params = ShmupVehicle.HitSparkParams
+		params.gid = levity.map:getTileGid("sparks_huge", "explosion")
+		params.x = l + (r-l)*.5
+		params.y = t + (b-t)*.5
+		ShmupBullet.create(params, "sparks")
 	end
 
 	levity.bank:play(Sounds.KO)
@@ -124,6 +125,11 @@ function ShmupVehicle:beginContact_PlayerShot(myfixture, otherfixture, contact)
 		else
 			levity.bank:play(Sounds.Hit)
 		end
+
+		local params = ShmupVehicle.HitSparkParams
+		params.gid = levity.map:getTileGid("sparks_small", "enemydamage")
+		params.x, params.y = otherfixture:getBody():getWorldCenter()
+		ShmupBullet.create(params, "sparks")
 	end
 end
 

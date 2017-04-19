@@ -24,12 +24,13 @@
  <tileset firstgid="709" source="img/lavapit.tsx"/>
  <tileset firstgid="749" source="img/cave_objects.tsx"/>
  <tileset firstgid="798" source="img/flames.tsx"/>
- <tileset firstgid="810" source="img/sparks_med.tsx"/>
- <tileset firstgid="826" source="img/demonbomb.tsx"/>
- <tileset firstgid="834" source="img/ballista.tsx"/>
- <tileset firstgid="858" source="img/civwomen.tsx"/>
- <tileset firstgid="978" source="img/cauldron.tsx"/>
- <tileset firstgid="984" source="img/demonshothit.tsx"/>
+ <tileset firstgid="810" source="img/demonbomb.tsx"/>
+ <tileset firstgid="818" source="img/ballista.tsx"/>
+ <tileset firstgid="842" source="img/civwomen.tsx"/>
+ <tileset firstgid="962" source="img/cauldron.tsx"/>
+ <tileset firstgid="968" source="img/sparks_small.tsx"/>
+ <tileset firstgid="984" source="img/sparks_med.tsx"/>
+ <tileset firstgid="990" source="img/sparks_huge.tsx"/>
  <layer name="lava" width="19" height="200" offsetx="0" offsety="-240">
   <properties>
    <property name="script" value="LavaLayer"/>
@@ -141,25 +142,25 @@
   </object>
  </objectgroup>
  <objectgroup name="midbosshostages">
-  <object id="186" gid="978" x="128" y="1024" width="32" height="32">
+  <object id="186" gid="962" x="128" y="1024" width="32" height="32">
    <properties>
     <property name="destroyedtile" value="destroyed"/>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="187" gid="978" x="176" y="1024" width="32" height="32">
+  <object id="187" gid="962" x="176" y="1024" width="32" height="32">
    <properties>
     <property name="destroyedtile" value="destroyed"/>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="189" gid="978" x="96" y="992" width="32" height="32">
+  <object id="189" gid="962" x="96" y="992" width="32" height="32">
    <properties>
     <property name="destroyedtile" value="destroyed"/>
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="190" gid="978" x="208" y="992" width="32" height="32">
+  <object id="190" gid="962" x="208" y="992" width="32" height="32">
    <properties>
     <property name="destroyedtile" value="destroyed"/>
     <property name="script" value="ShmupVehicle"/>
@@ -309,12 +310,12 @@
   </object>
  </objectgroup>
  <objectgroup name="ballistae4">
-  <object id="143" gid="837" x="272" y="1888" width="64" height="64">
+  <object id="143" gid="821" x="272" y="1888" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="144" gid="835" x="80" y="1840" width="64" height="64">
+  <object id="144" gid="819" x="80" y="1840" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
@@ -326,12 +327,12 @@
   </object>
  </objectgroup>
  <objectgroup name="ballistae3">
-  <object id="148" gid="835" x="80" y="1920" width="64" height="64">
+  <object id="148" gid="819" x="80" y="1920" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="150" gid="837" x="224" y="1952" width="64" height="64">
+  <object id="150" gid="821" x="224" y="1952" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
@@ -343,12 +344,12 @@
   </object>
  </objectgroup>
  <objectgroup name="ballistae2">
-  <object id="155" gid="835" x="64" y="1984" width="64" height="64">
+  <object id="155" gid="819" x="64" y="1984" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="157" gid="837" x="208" y="2032" width="64" height="64">
+  <object id="157" gid="821" x="208" y="2032" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
@@ -360,12 +361,12 @@
   </object>
  </objectgroup>
  <objectgroup name="ballistae1">
-  <object id="161" gid="837" x="224" y="2112" width="64" height="64">
+  <object id="161" gid="821" x="224" y="2112" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="162" gid="835" x="32" y="2048" width="64" height="64">
+  <object id="162" gid="819" x="32" y="2048" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
@@ -657,22 +658,22 @@
   </object>
  </objectgroup>
  <objectgroup name="ballistae0">
-  <object id="176" gid="836" x="80" y="2944" width="64" height="64">
+  <object id="176" gid="820" x="80" y="2944" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="178" gid="836" x="128" y="2960" width="64" height="64">
+  <object id="178" gid="820" x="128" y="2960" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="179" gid="836" x="176" y="2960" width="64" height="64">
+  <object id="179" gid="820" x="176" y="2960" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>
   </object>
-  <object id="180" gid="836" x="224" y="2944" width="64" height="64">
+  <object id="180" gid="820" x="224" y="2944" width="64" height="64">
    <properties>
     <property name="script" value="VehicleBallista"/>
    </properties>

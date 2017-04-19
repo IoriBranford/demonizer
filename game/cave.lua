@@ -2058,76 +2058,8 @@ return {
       }
     },
     {
-      name = "sparks_med",
-      firstgid = 810,
-      filename = "img/sparks_med.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/sparks_med.png",
-      imagewidth = 1024,
-      imageheight = 64,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {
-        ["row_explosion"] = "0"
-      },
-      terrains = {},
-      tilecount = 16,
-      tiles = {
-        {
-          id = 0,
-          animation = {
-            {
-              tileid = 0,
-              duration = 64
-            },
-            {
-              tileid = 1,
-              duration = 64
-            },
-            {
-              tileid = 2,
-              duration = 64
-            },
-            {
-              tileid = 3,
-              duration = 64
-            },
-            {
-              tileid = 4,
-              duration = 64
-            },
-            {
-              tileid = 5,
-              duration = 64
-            },
-            {
-              tileid = 6,
-              duration = 64
-            },
-            {
-              tileid = 7,
-              duration = 64
-            },
-            {
-              tileid = 8,
-              duration = 64
-            },
-            {
-              tileid = 9,
-              duration = 64
-            }
-          }
-        }
-      }
-    },
-    {
       name = "demonbomb",
-      firstgid = 826,
+      firstgid = 810,
       filename = "img/demonbomb.tsx",
       tilewidth = 128,
       tileheight = 128,
@@ -2212,7 +2144,7 @@ return {
     },
     {
       name = "ballista",
-      firstgid = 834,
+      firstgid = 818,
       filename = "img/ballista.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2294,7 +2226,7 @@ return {
     },
     {
       name = "civwomen",
-      firstgid = 858,
+      firstgid = 842,
       filename = "img/civwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -2379,7 +2311,7 @@ return {
     },
     {
       name = "cauldron",
-      firstgid = 978,
+      firstgid = 962,
       filename = "img/cauldron.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2458,26 +2390,31 @@ return {
       }
     },
     {
-      name = "demonshothit",
-      firstgid = 984,
-      filename = "img/demonshothit.tsx",
+      name = "sparks_small",
+      firstgid = 968,
+      filename = "img/sparks_small.tsx",
       tilewidth = 16,
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      image = "img/demonshothit.png",
-      imagewidth = 64,
+      image = "img/sparks_small.png",
+      imagewidth = 128,
       imageheight = 32,
       tileoffset = {
         x = -8,
         y = 8
       },
-      properties = {},
+      properties = {
+        ["commonanimation"] = 0
+      },
       terrains = {},
-      tilecount = 8,
+      tilecount = 16,
       tiles = {
         {
           id = 0,
+          properties = {
+            ["name"] = "enemydamage"
+          },
           animation = {
             {
               tileid = 0,
@@ -2510,6 +2447,134 @@ return {
             {
               tileid = 7,
               duration = 16
+            }
+          }
+        },
+        {
+          id = 8,
+          properties = {
+            ["name"] = "enemyguard"
+          }
+        }
+      }
+    },
+    {
+      name = "sparks_med",
+      firstgid = 984,
+      filename = "img/sparks_med.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/sparks_med.png",
+      imagewidth = 192,
+      imageheight = 32,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 6,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["name"] = "explosion"
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 33
+            },
+            {
+              tileid = 1,
+              duration = 33
+            },
+            {
+              tileid = 2,
+              duration = 33
+            },
+            {
+              tileid = 3,
+              duration = 33
+            },
+            {
+              tileid = 4,
+              duration = 33
+            },
+            {
+              tileid = 5,
+              duration = 33
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "sparks_huge",
+      firstgid = 990,
+      filename = "img/sparks_huge.tsx",
+      tilewidth = 96,
+      tileheight = 96,
+      spacing = 0,
+      margin = 0,
+      image = "img/sparks_huge.png",
+      imagewidth = 480,
+      imageheight = 192,
+      tileoffset = {
+        x = -48,
+        y = 48
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 10,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["name"] = "explosion"
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 67
+            },
+            {
+              tileid = 1,
+              duration = 67
+            },
+            {
+              tileid = 2,
+              duration = 67
+            },
+            {
+              tileid = 3,
+              duration = 67
+            },
+            {
+              tileid = 4,
+              duration = 67
+            },
+            {
+              tileid = 5,
+              duration = 67
+            },
+            {
+              tileid = 6,
+              duration = 67
+            },
+            {
+              tileid = 7,
+              duration = 67
+            },
+            {
+              tileid = 8,
+              duration = 67
+            },
+            {
+              tileid = 9,
+              duration = 67
             }
           }
         }
@@ -2866,7 +2931,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 978,
+          gid = 962,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -2883,7 +2948,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 978,
+          gid = 962,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -2900,7 +2965,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 978,
+          gid = 962,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -2917,7 +2982,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 978,
+          gid = 962,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -3392,7 +3457,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 837,
+          gid = 821,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3408,7 +3473,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 835,
+          gid = 819,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3451,7 +3516,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 835,
+          gid = 819,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3467,7 +3532,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 837,
+          gid = 821,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3510,7 +3575,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 835,
+          gid = 819,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3526,7 +3591,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 837,
+          gid = 821,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3569,7 +3634,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 837,
+          gid = 821,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3585,7 +3650,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 835,
+          gid = 819,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4383,7 +4448,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 836,
+          gid = 820,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4399,7 +4464,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 836,
+          gid = 820,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4415,7 +4480,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 836,
+          gid = 820,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4431,7 +4496,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 836,
+          gid = 820,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"

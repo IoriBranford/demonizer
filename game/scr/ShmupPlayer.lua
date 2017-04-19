@@ -118,15 +118,13 @@ ShmupPlayer.BulletParams = {
 	speed = 16*60,
 	angle = -math.pi*0.5,
 	damage = 4,
-	category = ShmupCollision.Category_PlayerShot,
-	hitsparktileset = "demonshothit"
+	category = ShmupCollision.Category_PlayerShot
 }
 ShmupPlayer.BombShrapnelParams = {
 	speed = 16*60,
 	category = ShmupCollision.Category_PlayerBomb,
 	lifetime = .125,
-	persist = true,
-	hitsparktileset = "demonshothit"
+	persist = true
 }
 ShmupPlayer.BombMaxTime = 2
 ShmupPlayer.BombParams = {
@@ -136,7 +134,6 @@ ShmupPlayer.BombParams = {
 	damage = 8,
 	category = ShmupCollision.Category_PlayerBomb,
 	persist = true,
-	hitsparktileset = "demonshothit",
 	coroutine = function(self)
 		local params = ShmupPlayer.BombShrapnelParams
 		local angle = 0

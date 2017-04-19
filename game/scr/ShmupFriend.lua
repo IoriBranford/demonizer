@@ -38,8 +38,7 @@ ShmupFriend.LockSearchWidth = 120
 ShmupFriend.LockSearchHeight = 160
 ShmupFriend.BulletParams = {
 	speed = 8*60,
-	category = ShmupCollision.Category_PlayerShot,
-	hitsparktileset = "demonshothit"
+	category = ShmupCollision.Category_PlayerShot
 }
 ShmupFriend.BulletInterval = .0625
 ShmupFriend.ElectrocutionTime = 1

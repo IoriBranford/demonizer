@@ -10,11 +10,12 @@
  <tileset firstgid="4" source="../img/playerhitbox.tsx"/>
  <tileset firstgid="5" source="../img/demonshots.tsx"/>
  <tileset firstgid="9" source="../img/demonbomb.tsx"/>
- <tileset firstgid="17" source="../img/demonshothit.tsx"/>
- <tileset firstgid="25" source="../img/demonizing.tsx"/>
- <tileset firstgid="28" source="../img/demonwomen.tsx"/>
- <tileset firstgid="67" source="../img/sparks_med.tsx"/>
- <tileset firstgid="83" source="../img/humanshots.tsx"/>
+ <tileset firstgid="17" source="../img/demonizing.tsx"/>
+ <tileset firstgid="20" source="../img/demonwomen.tsx"/>
+ <tileset firstgid="59" source="../img/humanshots.tsx"/>
+ <tileset firstgid="91" source="../img/sparks_small.tsx"/>
+ <tileset firstgid="107" source="../img/sparks_med.tsx"/>
+ <tileset firstgid="113" source="../img/sparks_huge.tsx"/>
  <objectgroup name="camera">
   <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>

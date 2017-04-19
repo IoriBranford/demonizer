@@ -1,4 +1,5 @@
 local levity = require "levity"
+local ShmupBullet = require "ShmupBullet"
 local ShmupCollision = require "ShmupCollision"
 local ShmupWingman = require("ShmupWingman")
 local PathGraph = require "PathGraph"
@@ -123,6 +124,9 @@ ShmupNPC.EnhancedCapturePullDistSq = 120*120
 ShmupNPC.KnockoutLaunchVelY = -150
 ShmupNPC.KnockoutGravity = 200
 ShmupNPC.ReleaseLaunchVelY = -250
+ShmupNPC.HitSparkParams = {
+	lifetime = "animation"
+}
 
 function ShmupNPC:activate()
 	self.ready = true
@@ -211,6 +215,11 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 		local damage = bulletproperties.damage or 1
 
 		self:dealDamage(damage)
+
+		local params = ShmupNPC.HitSparkParams
+		params.gid = levity.map:getTileGid("sparks_small", "enemydamage")
+		params.x, params.y = otherfixture:getBody():getWorldCenter()
+		ShmupBullet.create(params, "sparks")
 	end
 end
 
@@ -232,6 +241,12 @@ function ShmupNPC:dealDamage(damage)
 		self.health = self.health - damage
 		if self.health < 1 then
 			self:knockout()
+
+			local params = ShmupNPC.HitSparkParams
+			params.gid = levity.map:getTileGid("sparks_med", "explosion")
+			params.x, params.y = self.object.body:getWorldCenter()
+			ShmupBullet.create(params, "sparks")
+
 			levity.bank:play(Sounds.KO)
 			levity.map:broadcast("npcKnockedOut", self.object.id)
 			levity.map:broadcast("pointsScored",

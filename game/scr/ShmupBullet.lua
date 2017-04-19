@@ -19,6 +19,10 @@ local function beginMove(self, dt)
 	end
 end
 
+local function loopedAnimation(self)
+	levity.map:discardObject(self.object.id)
+end
+
 local ShmupBullet
 ShmupBullet = class(function(self, object)
 	self.object = object
@@ -72,7 +76,13 @@ ShmupBullet = class(function(self, object)
 
 	self.time = properties.lifetime
 	if self.time then
-		self.time = math.min(self.time, ShmupBullet.MaxTime)
+		if self.time == "animation" then
+			levity.map.scripts:scriptAddEventFunc(self,
+					self.object.id,
+					"loopedAnimation", loopedAnimation)
+		else
+			self.time = math.min(self.time, ShmupBullet.MaxTime)
+		end
 	else
 		self.time = ShmupBullet.MaxTime
 	end
@@ -86,27 +96,6 @@ function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
 	if otherfixture:getCategory() == ShmupCollision.Category_PlayerTeam
 	or otherfixture:getCategory() == ShmupCollision.Category_PlayerBomb
 	or otherfixture:getCategory() == ShmupCollision.Category_NPCTeam then
-		local hstileset = self.object.properties.hitsparktileset
-		if hstileset then
-			--local x, y, x2, y2 = contact:getPositions()
-			--Why does this return nil?
-			--
-			--if x2 and y2 then
-			--	x = x + (x2 - x)*.5
-			--	y = y + (y2 - y)*.5
-			--end
-			local hstileid = self.object.properties.hitsparktileid or 0
-			local hitspark = {
-				gid = levity.map:getTileGid(hstileset, hstileid),
-				x = self.object.x,
-				y = self.object.y,
-				properties = {
-					script = "Spark"
-				}
-			}
-			self.object.layer:addObject(hitspark)
-		end
-
 		if not self.object.properties.persist then
 			levity.map:discardObject(self.object.id)
 		end
@@ -122,7 +111,7 @@ end
 function ShmupBullet:endMove(dt)
 	if self.exitedcamera then
 		levity.map:discardObject(self.object.id)
-	else
+	elseif type(self.time) == "number" then
 		self.time = self.time - dt
 		if self.time <= 0 then
 			levity.map:discardObject(self.object.id)
@@ -142,7 +131,6 @@ end
 -- @field accely in px/sec/sec
 -- @field lifetime in sec
 -- @field persist do not destroy on impact
--- @field hitsparktileset name or index
 -- @field coroutine
 
 function ShmupBullet.create(params, layer)
@@ -150,13 +138,15 @@ function ShmupBullet.create(params, layer)
 end
 
 function ShmupBullet.fireOverTime(params, layer, time, interval)
-	local x, y, speed, angle, tilesetid, tileid, category = 
-		params.x, params.y, params.speed, params.angle, params.tileset,
+	local x, y, tilesetid, tileid, category =
+		params.x, params.y, params.tileset,
 		params.tileid, params.category
 
 	local accelx, accely = params.accelx, params.accely
 	local damage = params.damage
 
+	local angle = params.angle or 0
+	local speed = params.speed or 0
 	local deg = math.deg(angle)
 	local cos = math.cos(angle)
 	local sin = math.sin(angle)
@@ -175,6 +165,10 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 		gid = tileset.firstgid + tileid
 	end
 
+	if type(layer) ~= "table" then
+		layer = levity.map.layers[layer]
+	end
+
 	while time < interval do
 		local shot = {
 			x = x - vx * time,
@@ -190,7 +184,6 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 				accely = accely,
 				lifetime = params.lifetime,
 				persist = params.persist,
-				hitsparktileset = params.hitsparktileset,
 				coroutine = params.coroutine
 			}
 		}
