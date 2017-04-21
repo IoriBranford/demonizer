@@ -334,10 +334,12 @@ function ShmupWingman:beginMove(dt)
 		local captorid = self.properties.captorid
 		if captorid then
 			local captor = levity.map.objects[captorid]
-			destx, desty = captor.body:getWorldCenter()
-			local conversionpct = self.converttimer
+			if captor then
+				destx, desty = captor.body:getWorldCenter()
+				local conversionpct = self.converttimer
 						/ ShmupWingman.ConvertTime
-			desty = desty - ShmupWingman.ConvertDist*(1+conversionpct)
+				desty = desty - ShmupWingman.ConvertDist*(1+conversionpct)
+			end
 		end
 	elseif ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
 		destx, desty = levity.map.scripts:call(playerid, "getWingmanPosition",
