@@ -36,7 +36,7 @@
  <tileset firstgid="1228" source="img/friend/youko.tsx"/>
  <tileset firstgid="1240" source="img/sparks_small.tsx"/>
  <tileset firstgid="1256" source="img/sparks_med.tsx"/>
- <tileset firstgid="1262" source="img/sparks_huge.tsx"/>
+ <tileset firstgid="1268" source="img/sparks_huge.tsx"/>
  <layer name="Earth" width="18" height="100">
   <data encoding="base64" compression="zlib">
    eJyF1kly3EAMRNHmFcg9o+5/RW1khV2h30+gvGA0mzVgykzg4/V6Xcfrtf4857/n6//H6++3r/c73/ZzZm2fu4/vM3vfPrv3d20d33tqd/uz71vc3XP9duN39+z33r/iW2M4j+8Ye29jv/P0/8r/7l3YmOzsNXO9Y1rZd+Ue8zXFYq77PuVhcdfF732817/1Xnyf6mks+67GXP9qU9/O4z2m3j99q71z+N58FcMra+a3eRET25a1M4biuRhqvMXwdcz12N8m//da81HsyvnGfeJPz8mv1uNm/+T3vl9sn8e779UIuVKuiv2FT8WbGCrvxagY995i/xzsmK++F4/ibB3v2Gw+rW99mrTxSa+0UQxV8/X5SQubL+slR5tzOd5vzbW6NnGiWLCO1b4bW/fxXjdxOOGm+tUaiXN1Ro1Wb/eehQ/ipfwrDyd8Nsfd29xNvaM5tj7NmdpYvJQLzhly/qnHV0O3f+rCxN/eOeVI7MmD2nrS/RO/GrMYVWP3uYln7RM9J2/VSWes5ntxR+tn3tcxx9g6ioXeP/FN/Tbf9pFp1rGXtv8Uy657tnwUUz6/6aFctE/J3Ul7TvyYOOx80JqL895TTkz4nLhUrIuH5qr21GixUDzIz+bDftV3tXjK8TRbihN5eGFPHxfntV8/innnncZvzyyuxIJzmfGU+63HxN1yobblV/9PHGgummfni+ah7/Wr/2vr5m7nGH/Vjwnv1kVctPdNs5Dzhb1k6u/qo3ntufKh+Xjq0dZQjXCmELOTLt/DefWj/jzNc85AcsqYe0e/laf1U66rV+Zb3Pd8e8Ya9lzD/sagppQXu/6TxhT/5YZ1a+2dISYulBPWZurfYl+fp/lo4pT8muKbeCQe1vHTr+bVerTuE3/q6//mv2m9mBYf9eepXtUkNU3NE0NTH3bm6J6Jk+fgm/OQ+i1PJ9yUl+buCU/OrPbBalLzfh7vdXc28K5Jh82ROtNZoHabf+cle2FtFlvFTnM08XJhdz+TDohD+VXd+00PJu2xjoszYqy1aB2qVfXRXiIGtGm/mnqOGmTu1Fb9am3L9SlmZ8fOBdbtHtacQZxXfuNU/Tl56rcziP2pT+MR48Xu4s5yybzIL3u5s5j5UifKAXVgiqG4vx72P803xXoxUp7LldoSc9X+YtP77Hfy7MSmeiCn6ov1Xlnrr2vG4WxkvtRWMS1Gih/xMs1QT/q6jp+5tceaq8ZTO+WLmqVemD/1ovHJcXnRNXXBHMkhMd61aR7Yd30CTaX0Vg==

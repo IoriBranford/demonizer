@@ -30,7 +30,7 @@
  <tileset firstgid="962" source="img/cauldron.tsx"/>
  <tileset firstgid="968" source="img/sparks_small.tsx"/>
  <tileset firstgid="984" source="img/sparks_med.tsx"/>
- <tileset firstgid="990" source="img/sparks_huge.tsx"/>
+ <tileset firstgid="996" source="img/sparks_huge.tsx"/>
  <layer name="lava" width="19" height="200" offsetx="0" offsety="-240">
   <properties>
    <property name="script" value="LavaLayer"/>

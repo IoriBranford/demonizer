@@ -3024,14 +3024,14 @@ return {
       margin = 0,
       image = "img/sparks_med.png",
       imagewidth = 192,
-      imageheight = 32,
+      imageheight = 64,
       tileoffset = {
         x = -16,
         y = 16
       },
       properties = {},
       terrains = {},
-      tilecount = 6,
+      tilecount = 12,
       tiles = {
         {
           id = 0,
@@ -3064,12 +3064,44 @@ return {
               duration = 67
             }
           }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "wingmanexplosion"
+          },
+          animation = {
+            {
+              tileid = 6,
+              duration = 67
+            },
+            {
+              tileid = 7,
+              duration = 67
+            },
+            {
+              tileid = 8,
+              duration = 67
+            },
+            {
+              tileid = 9,
+              duration = 67
+            },
+            {
+              tileid = 10,
+              duration = 67
+            },
+            {
+              tileid = 11,
+              duration = 67
+            }
+          }
         }
       }
     },
     {
       name = "sparks_huge",
-      firstgid = 1262,
+      firstgid = 1268,
       filename = "img/sparks_huge.tsx",
       tilewidth = 96,
       tileheight = 96,

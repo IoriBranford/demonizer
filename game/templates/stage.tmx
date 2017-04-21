@@ -15,7 +15,7 @@
  <tileset firstgid="59" source="../img/humanshots.tsx"/>
  <tileset firstgid="91" source="../img/sparks_small.tsx"/>
  <tileset firstgid="107" source="../img/sparks_med.tsx"/>
- <tileset firstgid="113" source="../img/sparks_huge.tsx"/>
+ <tileset firstgid="119" source="../img/sparks_huge.tsx"/>
  <objectgroup name="camera">
   <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>
