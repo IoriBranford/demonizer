@@ -68,6 +68,9 @@ ShmupWingman.ConvertDist = 16
 ShmupWingman.LockSearchWidth = 120
 ShmupWingman.LockSearchHeight = 160
 ShmupWingman.UnfocusedHealRate = 1
+ShmupWingman.HitSparkParams = {
+	lifetime = "animation"
+}
 
 function ShmupWingman:isPoweredUp()
 	return self.poweredup
@@ -111,6 +114,11 @@ function ShmupWingman:kill()
 
 	levity.bank:play(Sounds.Death)
 	levity.map:broadcast("wingmanKilled", self.object.id)
+
+	local params = ShmupWingman.HitSparkParams
+	params.gid = levity.map:getTileGid("sparks_med", "wingmanexplosion")
+	params.x, params.y = self.object.body:getWorldCenter()
+	ShmupBullet.create(params, "sparks")
 end
 
 function ShmupWingman:heal(healing)
@@ -360,10 +368,10 @@ function ShmupWingman:beginMove(dt)
 		--end
 	end
 
-	self:setVulnerable(not self.properties.conversionid
-		and self.targetcaptiveid
-		and not levity.map.scripts:call(self.targetcaptiveid, "is_a",
-						ShmupWingman))
+	--self:setVulnerable(not self.properties.conversionid
+	--	and self.targetcaptiveid
+	--	and not levity.map.scripts:call(self.targetcaptiveid, "is_a",
+	--					ShmupWingman))
 
 	local dx, dy = destx - cx, desty - cy
 	local distsq = math.hypotsq(dx, dy)
