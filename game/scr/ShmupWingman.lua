@@ -368,10 +368,10 @@ function ShmupWingman:beginMove(dt)
 		--end
 	end
 
-	--self:setVulnerable(not self.properties.conversionid
-	--	and self.targetcaptiveid
-	--	and not levity.map.scripts:call(self.targetcaptiveid, "is_a",
-	--					ShmupWingman))
+	self:setVulnerable(not self.properties.conversionid
+		and self.targetcaptiveid
+		and not levity.map.scripts:call(self.targetcaptiveid, "is_a",
+						ShmupWingman))
 
 	local dx, dy = destx - cx, desty - cy
 	local distsq = math.hypotsq(dx, dy)
