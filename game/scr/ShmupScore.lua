@@ -94,7 +94,8 @@ function ShmupScore:npcDied(npcid)
 end
 
 function ShmupScore:multiplierInc(idx)
-	if self.multipliers[idx] < ShmupScore.MaxMultiplier then
+	if self.multipliers[idx]
+	and self.multipliers[idx] < ShmupScore.MaxMultiplier then
 		self.multipliers[idx] = self.multipliers[idx] + 1
 		self.totalmultiplier = self.totalmultiplier + 1
 	else
@@ -109,6 +110,9 @@ end
 
 function ShmupScore:multiplierLost(idx)
 	local lostmult = self.multipliers[idx]
+	if not lostmult then
+		return
+	end
 	self.totalmultiplier = self.totalmultiplier - lostmult
 	if type(idx) == "number" then
 		local nummults = #self.multipliers

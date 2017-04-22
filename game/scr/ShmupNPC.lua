@@ -224,20 +224,18 @@ function ShmupNPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 end
 
 function ShmupNPC:beginContact_PlayerBomb(myfixture, otherfixture, contact)
-	if self.health >= 1 then
-		local bulletproperties = otherfixture:getBody():getUserData().properties
-		local damage = bulletproperties.damage or 1
+	local bulletproperties = otherfixture:getBody():getUserData().properties
+	local damage = bulletproperties.damage or 1
 
-		self:dealDamage(damage)
-	end
+	self:dealDamage(damage)
 
-	if self:canBeCaptured() then
+	if damage > 0 and self:canBeCaptured() then
 		self.pulledbyplayer = true
 	end
 end
 
 function ShmupNPC:dealDamage(damage)
-	if self.health >= 1 then
+	if self.health >= 1 and damage > 0 then
 		self.health = self.health - damage
 		if self.health < 1 then
 			self:knockout()

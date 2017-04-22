@@ -127,6 +127,14 @@ ShmupPlayer.BombShrapnelParams = {
 	persist = true
 }
 ShmupPlayer.BombMaxTime = 2
+ShmupPlayer.DeathExplosionParams = {
+	lifetime = "animation",
+	speed = 0,
+	angle = 0,
+	damage = 0,
+	category = ShmupCollision.Category_PlayerBomb,
+	persist = true
+}
 ShmupPlayer.BombParams = {
 	lifetime = 2,
 	speed = 0,
@@ -414,6 +422,11 @@ function ShmupPlayer:deathCoroutine(dt)
 	self.killed = true
 	self.object.visible = false
 	self.poweredup = false
+
+	local params = ShmupPlayer.DeathExplosionParams
+	params.gid = levity.map:getTileGid("sparks_huge", "playerexplosion")
+	params.x, params.y = self.object.body:getWorldCenter()
+	ShmupBullet.create(params, self.object.layer)
 
 	-- capturing not allowed while player killed
 	local fixtures = self.object.body:getUserData().fixtures

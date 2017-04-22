@@ -1284,14 +1284,14 @@ return {
       margin = 0,
       image = "img/sparks_huge.png",
       imagewidth = 480,
-      imageheight = 192,
+      imageheight = 384,
       tileoffset = {
         x = -48,
         y = 48
       },
       properties = {},
       terrains = {},
-      tilecount = 10,
+      tilecount = 20,
       tiles = {
         {
           id = 0,
@@ -1338,6 +1338,81 @@ return {
             {
               tileid = 9,
               duration = 67
+            }
+          }
+        },
+        {
+          id = 10,
+          properties = {
+            ["name"] = "playerexplosion"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -42,
+                y = 54,
+                width = 84,
+                height = 84,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 10,
+              duration = 83
+            },
+            {
+              tileid = 11,
+              duration = 83
+            },
+            {
+              tileid = 12,
+              duration = 83
+            },
+            {
+              tileid = 13,
+              duration = 83
+            },
+            {
+              tileid = 14,
+              duration = 83
+            },
+            {
+              tileid = 15,
+              duration = 83
+            },
+            {
+              tileid = 16,
+              duration = 83
+            },
+            {
+              tileid = 17,
+              duration = 83
+            },
+            {
+              tileid = 18,
+              duration = 83
+            },
+            {
+              tileid = 19,
+              duration = 83
             }
           }
         }
