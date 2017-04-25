@@ -8,7 +8,7 @@ return {
   height = 100,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 261,
+  nextobjectid = 283,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -1051,14 +1051,6 @@ return {
           terrain = { 6, 6, 6, 6 }
         },
         {
-          id = 102,
-          probability = 0.05
-        },
-        {
-          id = 103,
-          probability = 0.05
-        },
-        {
           id = 108,
           terrain = { 3, 3, 3, -1 }
         },
@@ -1356,8 +1348,7 @@ return {
         },
         {
           id = 185,
-          terrain = { 4, 4, 4, 4 },
-          probability = 0.05
+          terrain = { 4, 4, 4, 4 }
         },
         {
           id = 186,
@@ -1389,8 +1380,7 @@ return {
         },
         {
           id = 196,
-          terrain = { 4, 4, 4, 4 },
-          probability = 0.05
+          terrain = { 4, 4, 4, 4 }
         },
         {
           id = 197,
@@ -1407,14 +1397,6 @@ return {
         {
           id = 200,
           terrain = { 5, 5, 5, 5 }
-        },
-        {
-          id = 206,
-          probability = 0.05
-        },
-        {
-          id = 207,
-          probability = 0.05
         },
         {
           id = 216,
@@ -1814,8 +1796,54 @@ return {
       }
     },
     {
-      name = "infmen",
+      name = "fire",
       firstgid = 528,
+      filename = "img/fire.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/fire.png",
+      imagewidth = 320,
+      imageheight = 64,
+      tileoffset = {
+        x = -32,
+        y = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 5,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 67
+            },
+            {
+              tileid = 1,
+              duration = 67
+            },
+            {
+              tileid = 2,
+              duration = 67
+            },
+            {
+              tileid = 3,
+              duration = 67
+            },
+            {
+              tileid = 4,
+              duration = 67
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "infmen",
+      firstgid = 533,
       filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1898,7 +1926,7 @@ return {
     },
     {
       name = "infwomen",
-      firstgid = 618,
+      firstgid = 623,
       filename = "img/infwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1981,7 +2009,7 @@ return {
     },
     {
       name = "civmen",
-      firstgid = 708,
+      firstgid = 713,
       filename = "img/civmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -2067,7 +2095,7 @@ return {
     },
     {
       name = "catapult",
-      firstgid = 843,
+      firstgid = 848,
       filename = "img/catapult.tsx",
       tilewidth = 72,
       tileheight = 72,
@@ -2149,7 +2177,7 @@ return {
     },
     {
       name = "black_harpy",
-      firstgid = 867,
+      firstgid = 872,
       filename = "img/friend/black_harpy.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2225,7 +2253,7 @@ return {
     },
     {
       name = "devil_bug",
-      firstgid = 879,
+      firstgid = 884,
       filename = "img/friend/devil_bug.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2301,7 +2329,7 @@ return {
     },
     {
       name = "ghost",
-      firstgid = 891,
+      firstgid = 896,
       filename = "img/friend/ghost.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2377,7 +2405,7 @@ return {
     },
     {
       name = "goblin",
-      firstgid = 903,
+      firstgid = 908,
       filename = "img/friend/goblin.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2453,7 +2481,7 @@ return {
     },
     {
       name = "harpy",
-      firstgid = 915,
+      firstgid = 920,
       filename = "img/friend/harpy.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2529,7 +2557,7 @@ return {
     },
     {
       name = "holstaurus",
-      firstgid = 927,
+      firstgid = 932,
       filename = "img/friend/holstaurus.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2605,7 +2633,7 @@ return {
     },
     {
       name = "honey_bee",
-      firstgid = 939,
+      firstgid = 944,
       filename = "img/friend/honey_bee.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2681,7 +2709,7 @@ return {
     },
     {
       name = "siren",
-      firstgid = 951,
+      firstgid = 956,
       filename = "img/friend/siren.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2757,7 +2785,7 @@ return {
     },
     {
       name = "werebat",
-      firstgid = 963,
+      firstgid = 968,
       filename = "img/friend/werebat.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2833,7 +2861,7 @@ return {
     },
     {
       name = "weresheep",
-      firstgid = 975,
+      firstgid = 980,
       filename = "img/friend/weresheep.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2909,7 +2937,7 @@ return {
     },
     {
       name = "youko",
-      firstgid = 987,
+      firstgid = 992,
       filename = "img/friend/youko.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2985,7 +3013,7 @@ return {
     },
     {
       name = "sparks_small",
-      firstgid = 999,
+      firstgid = 1004,
       filename = "img/sparks_small.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -3054,7 +3082,7 @@ return {
     },
     {
       name = "sparks_med",
-      firstgid = 1015,
+      firstgid = 1020,
       filename = "img/sparks_med.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -3139,7 +3167,7 @@ return {
     },
     {
       name = "sparks_huge",
-      firstgid = 1027,
+      firstgid = 1032,
       filename = "img/sparks_huge.tsx",
       tilewidth = 96,
       tileheight = 96,
@@ -3345,7 +3373,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmEkOgCAMRev9jyl6DsPChJBQsQP8QN8e6PhbJSK6D5rKybzP2cad672jxdU40/smRxoc75YvGStbLOLied8ORMyCYD6c3n7NIs/Z4D13pHN8dWrftbHYOZarsltOkf3V6uTo/T7wI3IZWIKse9zeOoqy3zh7em3N93E9XO+s0v9NyN/eyBqG3A9BIGHFmi59kupJ1khknXxBmIMSrHQ+deRaE6M/NfDVSxo7rPoUtaYt6uEBBk0yNg=="
+      data = "eJztmF0OhDAIhNn7H9PunsP0wcSYMCJQna18z7al/MyoIiK/jzzKAs5HsaF11j00vsoa65mIdnO+tbt0smLJyMvI/d5A5awongfp7ZkXjfSG0b7j9fHZOd49mos353JWojVFmqM9g9ZkvEtEdDBCNPaoTt79fp/JVjOGO7DGwBBXecB/wlw3i4eMZj9bKB5rrH0/NK9Hr/D+b2L+9mbQKw3meSgKDzP29P5OXj3pGsmskxsMPughS+ebodaRHF3pgbNZisSRNaesPZ3RDyvlWTwS"
     },
     {
       type = "objectgroup",
@@ -3474,7 +3502,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 669,
+          gid = 674,
           visible = true,
           properties = {
             ["pathid"] = "boss_paths",
@@ -3637,7 +3665,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 846,
+          gid = 851,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -3656,7 +3684,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 771,
+          gid = 776,
           visible = true,
           properties = {
             ["leaderid"] = 208,
@@ -3673,7 +3701,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 844,
+          gid = 849,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -3692,7 +3720,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 771,
+          gid = 776,
           visible = true,
           properties = {
             ["leaderid"] = 210,
@@ -3777,7 +3805,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 205,
@@ -3794,7 +3822,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 205,
@@ -3811,7 +3839,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 206,
@@ -3828,7 +3856,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 206,
@@ -3845,7 +3873,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 205,
@@ -3862,7 +3890,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 206,
@@ -3879,7 +3907,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 205,
@@ -3896,7 +3924,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 206,
@@ -4007,7 +4035,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 771,
+          gid = 776,
           visible = true,
           properties = {
             ["leaderid"] = 80,
@@ -4024,7 +4052,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 844,
+          gid = 849,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4042,7 +4070,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 771,
+          gid = 776,
           visible = true,
           properties = {
             ["leaderid"] = 81,
@@ -4059,7 +4087,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 846,
+          gid = 851,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4077,7 +4105,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 576,
+          gid = 581,
           visible = true,
           properties = {
             ["pathid"] = 54,
@@ -4096,7 +4124,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 576,
+          gid = 581,
           visible = true,
           properties = {
             ["pathid"] = 54,
@@ -4115,7 +4143,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 576,
+          gid = 581,
           visible = true,
           properties = {
             ["pathid"] = 54,
@@ -4309,7 +4337,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 567,
+          gid = 572,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4325,7 +4353,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 567,
+          gid = 572,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4341,7 +4369,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 771,
+          gid = 776,
           visible = true,
           properties = {
             ["leaderid"] = 134,
@@ -4358,7 +4386,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 845,
+          gid = 850,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4378,7 +4406,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 771,
+          gid = 776,
           visible = true,
           properties = {
             ["leaderid"] = 136,
@@ -4414,7 +4442,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 845,
+          gid = 850,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4513,7 +4541,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 117,
@@ -4530,7 +4558,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 117,
@@ -4547,7 +4575,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 117,
@@ -4564,7 +4592,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 118,
@@ -4581,7 +4609,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 118,
@@ -4598,7 +4626,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 118,
@@ -4631,7 +4659,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 845,
+          gid = 850,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4651,7 +4679,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 771,
+          gid = 776,
           visible = true,
           properties = {
             ["leaderid"] = 128,
@@ -4687,7 +4715,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 118,
@@ -4704,7 +4732,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 117,
@@ -4721,7 +4749,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 117,
@@ -4738,7 +4766,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 118,
@@ -4767,7 +4795,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 567,
+          gid = 572,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4783,7 +4811,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 567,
+          gid = 572,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4815,7 +4843,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 657,
+          gid = 662,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4843,7 +4871,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 567,
+          gid = 572,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4859,7 +4887,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 567,
+          gid = 572,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4903,7 +4931,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 567,
+          gid = 572,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4935,7 +4963,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 567,
+          gid = 572,
           visible = true,
           properties = {
             ["script"] = "NPCSwordsman"
@@ -4979,7 +5007,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 845,
+          gid = 850,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4999,7 +5027,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 845,
+          gid = 850,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -5019,7 +5047,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 771,
+          gid = 776,
           visible = true,
           properties = {
             ["leaderid"] = 77,
@@ -5036,7 +5064,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 771,
+          gid = 776,
           visible = true,
           properties = {
             ["leaderid"] = 78,
@@ -5103,7 +5131,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 845,
+          gid = 850,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -5157,7 +5185,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 771,
+          gid = 776,
           visible = true,
           properties = {
             ["leaderid"] = 75,
@@ -5222,7 +5250,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 576,
+          gid = 581,
           visible = true,
           properties = {
             ["pathid"] = 146,
@@ -5241,7 +5269,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 576,
+          gid = 581,
           visible = true,
           properties = {
             ["pathid"] = 146,
@@ -5272,7 +5300,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 576,
+          gid = 581,
           visible = true,
           properties = {
             ["pathid"] = 52,
@@ -5291,7 +5319,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 576,
+          gid = 581,
           visible = true,
           properties = {
             ["pathid"] = 52,
@@ -5346,7 +5374,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 576,
+          gid = 581,
           visible = true,
           properties = {
             ["pathid"] = 52,
@@ -5500,7 +5528,7 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 48,
+          x = 56,
           y = 1040,
           width = 64,
           height = 64,
@@ -5514,7 +5542,7 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 32,
+          x = 40,
           y = 1088,
           width = 48,
           height = 80,
@@ -5556,7 +5584,7 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 16,
+          x = 0,
           y = 1024,
           width = 48,
           height = 80,
@@ -5774,6 +5802,146 @@ return {
           gid = 511,
           visible = true,
           properties = {}
+        },
+        {
+          id = 279,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 1008,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 278,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 264,
+          y = 1152,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 277,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 264,
+          y = 1024,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 276,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 40,
+          y = 1136,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 275,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 248,
+          y = 1064,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 274,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 280,
+          y = 992,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 273,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 8,
+          y = 976,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 272,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 1104,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 271,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 8,
+          y = 1152,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 270,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 1072,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -5823,7 +5991,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -5841,7 +6009,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -5859,7 +6027,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -5877,7 +6045,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -5895,7 +6063,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -5913,7 +6081,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -5947,7 +6115,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 654,
+          gid = 659,
           visible = true,
           properties = {
             ["pathid"] = 25,
@@ -5977,7 +6145,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -5994,7 +6162,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -6034,7 +6202,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 15,
@@ -6102,7 +6270,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -6119,7 +6287,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -6152,7 +6320,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -6200,7 +6368,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -6218,7 +6386,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -6236,7 +6404,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -6254,7 +6422,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -6309,8 +6477,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 248,
-          y = 1560,
+          x = 256,
+          y = 1592,
           width = 64,
           height = 64,
           rotation = 0,
@@ -6550,7 +6718,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 240,
-          y = 1600,
+          y = 1560,
           width = 48,
           height = 80,
           rotation = 0,
@@ -6823,6 +6991,174 @@ return {
           gid = 514,
           visible = true,
           properties = {}
+        },
+        {
+          id = 261,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 24,
+          y = 1320,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 262,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 8,
+          y = 1360,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 263,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 232,
+          y = 1376,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 264,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 1312,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 265,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 280,
+          y = 1416,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 266,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 40,
+          y = 1448,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 267,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 280,
+          y = 1552,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 268,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 256,
+          y = 1520,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 269,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 40,
+          y = 1568,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 280,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 1448,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 281,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 56,
+          y = 1504,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 282,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 56,
+          y = 1392,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 528,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -6848,7 +7184,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 867,
+          gid = 872,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -6868,7 +7204,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 879,
+          gid = 884,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -6888,7 +7224,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 891,
+          gid = 896,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -6908,7 +7244,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 903,
+          gid = 908,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -6928,7 +7264,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 915,
+          gid = 920,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -6948,7 +7284,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 927,
+          gid = 932,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -6968,7 +7304,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 939,
+          gid = 944,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -6988,7 +7324,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 951,
+          gid = 956,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -7008,7 +7344,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 963,
+          gid = 968,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -7028,7 +7364,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 975,
+          gid = 980,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -7048,7 +7384,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 987,
+          gid = 992,
           visible = true,
           properties = {
             ["pathid"] = 74,
