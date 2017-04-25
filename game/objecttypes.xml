@@ -2,6 +2,7 @@
 <objecttypes>
  <objecttype name="Trigger" color="#00ff00">
   <property name="collidable" type="bool" default="true"/>
+  <property name="objectsinitiallayer" type="string"/>
   <property name="sensor" type="bool" default="true"/>
   <property name="triggertype" type="string"/>
  </objecttype>
