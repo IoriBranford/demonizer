@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="16" height="16" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" source="../img/basic_terrain.tsx"/>
+ <tileset firstgid="385" source="../img/forest.tsx"/>
+ <layer name="regions_input" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyTYhgFo2AUjFQAAGwAABs=
+  </data>
+ </layer>
+ <layer name="regions_output" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYhgFo2AUjFQAAAwAAAM=
+  </data>
+ </layer>
+ <layer name="input_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyzYBgFo2AUjFQAAOQAADk=
+  </data>
+ </layer>
+ <layer name="output2_grassdeco" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzrZGQYBaNgFIxQAAAsHQCL
+  </data>
+ </layer>
+ <layer name="output4_grassdeco" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzrYmQYBaNgFIxQAAAwHQCM
+  </data>
+ </layer>
+ <layer name="output5_grassdeco" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzrZmQYBaNgFIxQAAA0HQCN
+  </data>
+ </layer>
+ <layer name="output3_grassdeco" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzrYWQYBaNgFIxQAAA4HQCO
+  </data>
+ </layer>
+ <layer name="output1_grassdeco" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjFQAAAQAAAE=
+  </data>
+ </layer>
+</map>

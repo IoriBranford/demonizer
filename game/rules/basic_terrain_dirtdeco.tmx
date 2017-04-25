@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="16" height="16" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" source="../img/basic_terrain.tsx"/>
+ <tileset firstgid="385" source="../img/forest.tsx"/>
+ <layer name="regions_input" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhYIDXA9o+CUTCSAQBfAAAb
+  </data>
+ </layer>
+ <layer name="regions_output" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhYwDTA9o+CUTCSAQALAAAD
+  </data>
+ </layer>
+ <layer name="input_dirt" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhYsGOA7R8Fo2AkAwCIHgC5
+  </data>
+ </layer>
+ <layer name="output1_dirtdeco" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhYcH6A7R8Fo2AkAwDYngDQ
+  </data>
+ </layer>
+ <layer name="output2_dirtdeco" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhYcGGA7R8Fo2AkAwDcHgDR
+  </data>
+ </layer>
+</map>
