@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="16" height="16" tilewidth="16" tileheight="16" nextobjectid="1">
+ <properties>
+  <property name="DeleteTiles" type="bool" value="false"/>
+ </properties>
+ <tileset firstgid="1" source="../img/basic_terrain.tsx"/>
+ <layer name="regions_input" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyTYhgFo2AUjFQAAGwAABs=
+  </data>
+ </layer>
+ <layer name="regions_output" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYhgFo2AUjFQAAAwAAAM=
+  </data>
+ </layer>
+ <layer name="input_dirt" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxbyDAKRsEoGKkAAIgeAKI=
+  </data>
+ </layer>
+ <layer name="input_dirt" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzbwTAKRsEoGKkAAOQeALk=
+  </data>
+ </layer>
+ <layer name="input_dirt" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzbyTAKRsEoGKkAAOgeALo=
+  </data>
+ </layer>
+ <layer name="input_dirt" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzbxTAKRsEoGKkAAOweALs=
+  </data>
+ </layer>
+ <layer name="input_dirt" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJw7wjAKRsEoGKkAABQtAMU=
+  </data>
+ </layer>
+ <layer name="input_dirt" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJw7yjAKRsEoGKkAABgtAMY=
+  </data>
+ </layer>
+ <layer name="input_dirt" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJw7xjAKRsEoGKkAABwtAMc=
+  </data>
+ </layer>
+ <layer name="input_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyzYBgFo2AUjFQAAOQAADk=
+  </data>
+ </layer>
+ <layer name="input_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyLYhgFo2AUjFQAAGwPAFs=
+  </data>
+ </layer>
+ <layer name="input_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzzYxgFo2AUjFQAADwPAE8=
+  </data>
+ </layer>
+ <layer name="input_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzzZxgFo2AUjFQAAEAPAFA=
+  </data>
+ </layer>
+ <layer name="input_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyLZhgFo2AUjFQAAHAPAFw=
+  </data>
+ </layer>
+ <layer name="input_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJwLYBgFo2AUjFQAAEQPAFE=
+  </data>
+ </layer>
+ <layer name="input_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJwLZBgFo2AUjFQAAEgPAFI=
+  </data>
+ </layer>
+ <layer name="input_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyLYRgFo2AUjFQAAHQPAF0=
+  </data>
+ </layer>
+ <layer name="input_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyLZRgFo2AUjFQAAHgPAF4=
+  </data>
+ </layer>
+ <layer name="output_dirt" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJy7wjAKRsEoGKkAAFQtANU=
+  </data>
+ </layer>
+</map>

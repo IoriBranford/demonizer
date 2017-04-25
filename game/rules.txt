@@ -1,3 +1,4 @@
 rules/basic_terrain_dirtdeco.tmx
 rules/basic_terrain_grassdeco.tmx
+rules/basic_terrain_markoccluded.tmx
 rules/waterelectricity.tmx

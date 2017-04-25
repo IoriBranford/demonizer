@@ -4,27 +4,72 @@
  <tileset firstgid="385" source="../img/forest.tsx"/>
  <layer name="regions_input" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBhYIDXA9o+CUTCSAQBfAAAb
+   eJyTYhgFo2AUjFQAAGwAABs=
   </data>
  </layer>
  <layer name="regions_output" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBhYwDTA9o+CUTCSAQALAAAD
+   eJxjYhgFo2AUjFQAAAwAAAM=
   </data>
  </layer>
- <layer name="input_dirt" width="16" height="16">
+ <layer name="input1_dirt" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBhYsGOA7R8Fo2AkAwCIHgC5
+   eJzbwTAKRsEoGKkAAOQeALk=
+  </data>
+ </layer>
+ <layer name="inputnot1_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyzYBgFo2AUjFQAAOQAADk=
+  </data>
+ </layer>
+ <layer name="inputnot1_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzzYxgFo2AUjFQAADwPAE8=
+  </data>
+ </layer>
+ <layer name="inputnot1_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzzZxgFo2AUjFQAAEAPAFA=
+  </data>
+ </layer>
+ <layer name="inputnot1_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJwLYBgFo2AUjFQAAEQPAFE=
+  </data>
+ </layer>
+ <layer name="inputnot1_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJwLZBgFo2AUjFQAAEgPAFI=
+  </data>
+ </layer>
+ <layer name="inputnot1_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyLYhgFo2AUjFQAAGwPAFs=
+  </data>
+ </layer>
+ <layer name="inputnot1_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyLZhgFo2AUjFQAAHAPAFw=
+  </data>
+ </layer>
+ <layer name="inputnot1_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyLYRgFo2AUjFQAAHQPAF0=
+  </data>
+ </layer>
+ <layer name="inputnot1_grass" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyLZRgFo2AUjFQAAHgPAF4=
   </data>
  </layer>
  <layer name="output1_dirtdeco" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBhYcH6A7R8Fo2AkAwDYngDQ
+   eJw7zzAKRsEoGKkAAEAtANA=
   </data>
  </layer>
  <layer name="output2_dirtdeco" width="16" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBhYcGGA7R8Fo2AkAwDcHgDR
+   eJy7wDAKRsEoGKkAAEQtANE=
   </data>
  </layer>
 </map>
