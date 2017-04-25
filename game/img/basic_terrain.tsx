@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="basic_terrain" tilewidth="16" tileheight="16" tilecount="528" columns="12">
- <image source="basic_terrain.png" width="192" height="704"/>
+<tileset name="basic_terrain" tilewidth="16" tileheight="16" tilecount="384" columns="12">
+ <image source="basic_terrain.png" width="192" height="512"/>
  <terraintypes>
   <terrain name="Grass Light" tile="49"/>
   <terrain name="Grass Dark" tile="55"/>
