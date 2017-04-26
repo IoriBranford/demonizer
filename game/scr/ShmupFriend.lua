@@ -8,8 +8,6 @@ local MaxHealth = 32
 
 local ShmupFriend
 ShmupFriend = class(function(self, object)
-	ShmupFriend.BulletParams.gid =
-		levity.map:getTileGid("demonshots", "wingman", 0)
 	self.object = object
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
@@ -37,6 +35,8 @@ end)
 ShmupFriend.LockSearchWidth = 120
 ShmupFriend.LockSearchHeight = 160
 ShmupFriend.BulletParams = {
+	tileset = "demonshots",
+	tileid = "wingman",
 	speed = 8*60,
 	category = ShmupCollision.Category_PlayerShot
 }
@@ -136,10 +136,9 @@ function ShmupFriend:updateFiring(dt)
 		angle = math.atan2(ty-cy, tx-cx)
 
 		local params = ShmupFriend.BulletParams
-		params.x = cx + 8*math.cos(angle)
-		params.y = cy + 8*math.sin(angle)
-		params.angle = angle
-		self.firetimer = ShmupBullet.fireOverTime(params,
+		local x = cx + 8*math.cos(angle)
+		local y = cy + 8*math.sin(angle)
+		self.firetimer = ShmupBullet.fireOverTime(params, x, y, angle,
 					self.object.layer, self.firetimer,
 					ShmupFriend.BulletInterval)
 	end

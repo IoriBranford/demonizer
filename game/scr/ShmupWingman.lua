@@ -32,9 +32,6 @@ ShmupWingman = class(function(self, object)
 	self.numcaptives = 0
 
 	ShmupNPC = ShmupNPC or require("ShmupNPC")
-
-	ShmupWingman.BulletParams.gid =
-		levity.map:getTileGid("demonshots", "wingman", 0)
 end)
 
 local Sounds = {
@@ -58,6 +55,8 @@ ShmupWingman.Speed = 320
 ShmupWingman.SpeedSq = ShmupWingman.Speed * ShmupWingman.Speed
 ShmupWingman.MaxHealth = 5
 ShmupWingman.BulletParams = {
+	tileset = "demonshots",
+	tileid = "wingman",
 	speed = ShmupPlayer.BulletParams.speed,
 	category = ShmupCollision.Category_PlayerShot
 }
@@ -68,7 +67,9 @@ ShmupWingman.ConvertDist = 16
 ShmupWingman.LockSearchWidth = 120
 ShmupWingman.LockSearchHeight = 160
 ShmupWingman.UnfocusedHealRate = 1
-ShmupWingman.HitSparkParams = {
+ShmupWingman.ExplosionParams = {
+	tileset = "sparks_med",
+	tileid = "wingmanexplosion",
 	lifetime = "animation"
 }
 
@@ -115,10 +116,9 @@ function ShmupWingman:kill()
 	levity.bank:play(Sounds.Death)
 	levity.map:broadcast("wingmanKilled", self.object.id)
 
-	local params = ShmupWingman.HitSparkParams
-	params.gid = levity.map:getTileGid("sparks_med", "wingmanexplosion")
-	params.x, params.y = self.object.body:getWorldCenter()
-	ShmupBullet.create(params, "sparks")
+	local params = ShmupWingman.ExplosionParams
+	local x, y = self.object.body:getWorldCenter()
+	ShmupBullet.create(params, x, y, 0, "sparks")
 end
 
 function ShmupWingman:heal(healing)
@@ -255,10 +255,9 @@ function ShmupWingman:updateFiring(dt)
 		end
 
 		local params = ShmupWingman.BulletParams
-		params.x = cx + 8*math.cos(angle)
-		params.y = cy + 8*math.sin(angle)
-		params.angle = angle
-		self.firetimer = ShmupBullet.fireOverTime(params,
+		local x = cx + 8*math.cos(angle)
+		local y = cy + 8*math.sin(angle)
+		self.firetimer = ShmupBullet.fireOverTime(params, x, y, angle,
 						self.object.layer, self.firetimer,
 						ShmupPlayer.BulletInterval)
 	end

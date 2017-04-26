@@ -100,27 +100,21 @@ ShmupPlayer = class(function(self, object)
 
 	self.soundsource = nil
 	self.soundfile = nil
-
-	ShmupPlayer.BulletParams.gid =
-		levity.map:getTileGid("demonshots", "player", 0)
-
-	ShmupPlayer.BombShrapnelParams.gid =
-		levity.map:getTileGid("demonshots", "bombshrapnel", 0)
-
-	ShmupPlayer.BombParams.gid =
-		levity.map:getTileGid("demonbomb", 0, 0)
 end)
 
 ShmupPlayer.Speed = 180
 ShmupPlayer.SpeedSq = ShmupPlayer.Speed * ShmupPlayer.Speed
 ShmupPlayer.BulletInterval = 1/10
 ShmupPlayer.BulletParams = {
+	tileset = "demonshots",
+	tileid = "player",
 	speed = 16*60,
-	angle = -math.pi*0.5,
 	damage = 4,
 	category = ShmupCollision.Category_PlayerShot
 }
 ShmupPlayer.BombShrapnelParams = {
+	tileset = "demonshots",
+	tileid = "bombshrapnel",
 	speed = 16*60,
 	category = ShmupCollision.Category_PlayerBomb,
 	lifetime = .125,
@@ -128,17 +122,19 @@ ShmupPlayer.BombShrapnelParams = {
 }
 ShmupPlayer.BombMaxTime = 2
 ShmupPlayer.DeathExplosionParams = {
+	tileset = "sparks_huge",
+	tileid = "playerexplosion",
 	lifetime = "animation",
 	speed = 0,
-	angle = 0,
 	damage = 0,
 	category = ShmupCollision.Category_PlayerBomb,
 	persist = true
 }
 ShmupPlayer.BombParams = {
+	tileset = "demonbomb",
+	tileid = 0,
 	lifetime = 2,
 	speed = 0,
-	angle = 0,
 	damage = 8,
 	category = ShmupCollision.Category_PlayerBomb,
 	persist = true,
@@ -146,11 +142,10 @@ ShmupPlayer.BombParams = {
 		local params = ShmupPlayer.BombShrapnelParams
 		local angle = 0
 		while true do
-			params.x, params.y = self.object.body:getWorldCenter()
-			params.angle = angle
+			local x, y = self.object.body:getWorldCenter()
 			for i = 1, 16 do
-				ShmupBullet.create(params, self.object.layer)
-				params.angle = params.angle + math.pi/8
+				ShmupBullet.create(params, x, y, angle, self.object.layer)
+				angle = angle + math.pi/8
 			end
 			angle = angle - math.pi/16
 
@@ -320,9 +315,9 @@ function ShmupPlayer:joystickchanged(button, pressed)
 
 		local uimap = levity.map.overlaymap
 		if not uimap or uimap.scripts:call("status", "hasBombs") then
-			params.x, params.y = self.object.body:getWorldCenter()
-			params.y = params.y - 128
-			ShmupBullet.create(params, self.object.layer)
+			local x, y = self.object.body:getWorldCenter()
+			y = y - 128
+			ShmupBullet.create(params, x, y, 0, self.object.layer)
 			levity.bank:play(Sounds.Bomb)
 			levity.bank:play(Sounds.Bomber)
 			levity.map:broadcast("playerBombed")
@@ -424,9 +419,8 @@ function ShmupPlayer:deathCoroutine(dt)
 	self.poweredup = false
 
 	local params = ShmupPlayer.DeathExplosionParams
-	params.gid = levity.map:getTileGid("sparks_huge", "playerexplosion")
-	params.x, params.y = self.object.body:getWorldCenter()
-	ShmupBullet.create(params, self.object.layer)
+	local x, y = self.object.body:getWorldCenter()
+	ShmupBullet.create(params, x, y, 0, self.object.layer)
 
 	-- capturing not allowed while player killed
 	local fixtures = self.object.body:getUserData().fixtures
@@ -591,14 +585,15 @@ function ShmupPlayer:beginMove(dt)
 	if self:isFiring() then
 		if self.firetimer < dt then
 			local params = ShmupPlayer.BulletParams
-			params.x = cx - 8
-			params.y = cy - 8
+			local x = cx - 8
+			local y = cy - 8
 			local firetimer = self.firetimer
 			for i = 1, 2 do
 				firetimer = ShmupBullet.fireOverTime(params,
+					x, y, -math.pi*0.5,
 					self.object.layer, self.firetimer,
 					ShmupPlayer.BulletInterval)
-				params.x = params.x + 16
+				x = x + 16
 			end
 			self.firetimer = firetimer
 

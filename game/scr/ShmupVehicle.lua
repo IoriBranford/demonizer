@@ -41,6 +41,14 @@ local ShmupVehicle = class(function(self, object)
 end)
 
 ShmupVehicle.HitSparkParams = {
+	tileset = "sparks_small",
+	tileid = "enemydamage",
+	lifetime = "animation"
+}
+
+ShmupVehicle.ExplosionParams = {
+	tileset = "sparks_huge",
+	tileid = "explosion",
 	lifetime = "animation"
 }
 
@@ -80,11 +88,10 @@ end
 function ShmupVehicle:explode()
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		local l, t, r, b = fixture:getBoundingBox()
-		local params = ShmupVehicle.HitSparkParams
-		params.gid = levity.map:getTileGid("sparks_huge", "explosion")
-		params.x = l + (r-l)*.5
-		params.y = t + (b-t)*.5
-		ShmupBullet.create(params, "sparks")
+		local params = ShmupVehicle.ExplosionParams
+		local x = l + (r-l)*.5
+		local y = t + (b-t)*.5
+		ShmupBullet.create(params, x, y, 0, "sparks")
 	end
 
 	levity.bank:play(Sounds.KO)
@@ -127,9 +134,8 @@ function ShmupVehicle:beginContact_PlayerShot(myfixture, otherfixture, contact)
 		end
 
 		local params = ShmupVehicle.HitSparkParams
-		params.gid = levity.map:getTileGid("sparks_small", "enemydamage")
-		params.x, params.y = otherfixture:getBody():getWorldCenter()
-		ShmupBullet.create(params, "sparks")
+		local x, y = otherfixture:getBody():getWorldCenter()
+		ShmupBullet.create(params, x, y, 0, "sparks")
 	end
 end
 

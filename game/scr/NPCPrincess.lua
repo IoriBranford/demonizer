@@ -6,9 +6,6 @@ local NPCArcher = require("NPCArcher")
 
 local NPCPrincess
 NPCPrincess = class(ShmupNPC, function(self, object)
-	NPCPrincess.BulletParams.gid =
-		levity.map:getTileGid("humanshots", "arrow", 0)
-
 	ShmupNPC.init(self, object)
 	self.firetimer = NPCPrincess.BulletInterval
 	self.health = 320
@@ -26,6 +23,8 @@ NPCPrincess.PlayerShotSuppression = 1/8
 NPCPrincess.NPCSuppressionReaction = 1/16
 NPCPrincess.BulletSpreadArc = math.pi/8
 NPCPrincess.BulletParams = {
+	tileset = "humanshots",
+	tileid = "arrow",
 	speed = 240,
 	category = ShmupCollision.Category_NPCShot
 }
@@ -74,20 +73,18 @@ function NPCPrincess:chargeShotCoroutine(dt)
 		local playercx, playercy = player.body:getWorldCenter()
 		local cx, cy = self.object.body:getWorldCenter()
 
-		params.x, params.y = cx, cy
+		local x, y = cx, cy
 
-		params.angle = -math.pi/2
-		params.angle = params.angle + (mapcx - cx)*math.pi/1024
+		local angle = -math.pi/2
+		angle = angle + (mapcx - cx)*math.pi/1024
 
-		params.angle = params.angle - NPCPrincess.ChargeShotSpreadArc*2
+		angle = angle - NPCPrincess.ChargeShotSpreadArc*2
 		local firetimer
 		for i = 1, 5 do
-			firetimer = ShmupBullet.fireOverTime(params,
-				levity.map.layers["npcshots"], t,
-				NPCPrincess.ChargeShotInterval)
+			firetimer = ShmupBullet.fireOverTime(params, x, y, angle,
+				"npcshots", t, NPCPrincess.ChargeShotInterval)
 
-			params.angle = params.angle
-					+ NPCPrincess.ChargeShotSpreadArc
+			angle = angle + NPCPrincess.ChargeShotSpreadArc
 
 			numbullets = numbullets - 1
 		end
@@ -126,18 +123,17 @@ function NPCPrincess:normalFireCoroutine(dt)
 		local angle = math.atan2(playerdy, playerdx)
 		self:faceAngle(angle)
 
-		params.x = cx
-		params.y = cy
-		params.angle = angle - NPCPrincess.BulletSpreadArc
+		local x = cx
+		local y = cy
+		local angle = angle - NPCPrincess.BulletSpreadArc
 
 		local firetimer
 		for i = 1, 3 do
 			firetimer = ShmupBullet.fireOverTime(params,
-				levity.map.layers["npcshots"], t,
+				x, y, angle, "npcshots", t,
 				NPCPrincess.BulletInterval)
 
-			params.angle = params.angle
-					+ NPCPrincess.BulletSpreadArc
+			angle = angle + NPCPrincess.BulletSpreadArc
 
 			numbullets = numbullets - 1
 		end

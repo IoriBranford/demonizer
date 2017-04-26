@@ -6,8 +6,6 @@ local ShmupBullet = require("ShmupBullet")
 
 local VehicleLavaSpray
 VehicleLavaSpray = class(ShmupVehicle, function(self, object)
-	VehicleLavaSpray.BulletParams.gid =
-		levity.map:getTileGid("humanshots", "fire", 0),
 	ShmupVehicle.init(self, object)
 	self.health = 128
 	self.coroutine = nil
@@ -21,6 +19,8 @@ VehicleLavaSpray = class(ShmupVehicle, function(self, object)
 end)
 
 VehicleLavaSpray.BulletParams = {
+	tileset = "humanshots",
+	tileid = "fire",
 	speed = 60,
 	accelx = 0,
 	accely = 4*60,
@@ -70,10 +70,8 @@ function VehicleLavaSpray:mainCoroutine()
 		levity.bank:play(Sounds.Spray)
 		for i = 1, 24 do
 			local angle = math.pi * (.5 + (love.math.random()/2) - (1/4))
-			params.x = x
-			params.y = y - i*8
-			params.angle = angle
-			ShmupBullet.create(params, levity.map.layers["npcshots"])
+			y = y - 8
+			ShmupBullet.create(params, x, y, angle, "npcshots")
 			coroutine.wait(1/32)
 		end
 	end

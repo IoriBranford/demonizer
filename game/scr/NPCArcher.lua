@@ -7,9 +7,6 @@ local BulletInterval = 1
 
 local NPCArcher
 NPCArcher = class(ShmupNPC, function(self, object)
-	NPCArcher.BulletParams.gid =
-		levity.map:getTileGid("humanshots", "arrow", 0)
-
 	ShmupNPC.init(self, object)
 	self.firetimer = BulletInterval
 	self.health = 8
@@ -22,6 +19,8 @@ NPCArcher.LeaveCoverTime = 1
 NPCArcher.PlayerShotSuppression = 1/8
 NPCArcher.NPCSuppressionReaction = 1/16
 NPCArcher.BulletParams = {
+	tileset = "humanshots",
+	tileid = "arrow",
 	speed = 240,
 	category = ShmupCollision.Category_NPCShot
 }
@@ -49,12 +48,11 @@ function NPCArcher:updateFiring(dt)
 	end
 
 	if self.numcovers <= 0 and self.firetimer < dt and dot > 0 then
-		params.x = cx
-		params.y = cy
-		params.angle = math.atan2(playerdy, playerdx)
-		self.firetimer = ShmupBullet.fireOverTime(params,
-			levity.map.layers["npcshots"], self.firetimer,
-			NPCArcher.BulletInterval)
+		local x = cx
+		local y = cy
+		local angle = math.atan2(playerdy, playerdx)
+		self.firetimer = ShmupBullet.fireOverTime(params, x, y, angle,
+			"npcshots", self.firetimer, NPCArcher.BulletInterval)
 
 		levity.bank:play("snd/bow.wav")
 	end

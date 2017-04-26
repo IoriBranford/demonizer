@@ -6,8 +6,6 @@ local ShmupBullet = require("ShmupBullet")
 
 local VehicleBallista
 VehicleBallista = class(ShmupVehicle, function(self, object)
-	VehicleBallista.BulletParams.gid =
-		levity.map:getTileGid("humanshots", "ballista", 0)
 	ShmupVehicle.init(self, object)
 	self.health = 64
 
@@ -17,6 +15,8 @@ VehicleBallista = class(ShmupVehicle, function(self, object)
 end)
 
 VehicleBallista.BulletParams = {
+	tileset = "humanshots",
+	tileid = "ballista",
 	speed = 8*60,
 	category = ShmupCollision.Category_NPCShot
 }
@@ -25,11 +25,11 @@ function VehicleBallista:loopedAnimation()
 	local cx, cy = self.object.body:getWorldCenter()
 
 	local params = VehicleBallista.BulletParams
-	params.x = cx
-	params.y = cy
-	params.angle = self.angle
+	local x = cx
+	local y = cy
+	local angle = self.angle
 
-	ShmupBullet.create(params, levity.map.layers["npcshots"])
+	ShmupBullet.create(params, x, y, angle, "npcshots")
 
 	levity.bank:play("snd/ballista.wav")
 end

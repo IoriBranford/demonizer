@@ -6,9 +6,6 @@ local ShmupBullet = require("ShmupBullet")
 
 local NPCFireMage
 NPCFireMage = class(ShmupNPC, function(self, object)
-	NPCFireMage.BulletParams.gid =
-		levity.map:getTileGid("humanshots", "fire", 0)
-
 	ShmupNPC.init(self, object)
 	self.health = 128
 
@@ -23,6 +20,8 @@ end)
 
 NPCFireMage.BulletInterval = 0.125
 NPCFireMage.BulletParams = {
+	tileset = "humanshots",
+	tileid = "fire",
 	category = ShmupCollision.Category_NPCShot
 }
 
@@ -47,15 +46,12 @@ function NPCFireMage:fireCoroutine()
 		local pldy = ply - y
 		local angle = math.atan2(pldy, pldx) - math.pi/6
 
-		params.x = x
-		params.y = y
 		params.accelx = 0
 		params.accely = 0
-		params.angle = angle
 		params.speed = 60
 
 		for i = 1, 4 do
-			ShmupBullet.create(params, levity.map.layers["npcshots"])
+			ShmupBullet.create(params, x, y, angle, "npcshots")
 			params.angle = params.angle + math.pi/3/3
 		end
 
@@ -75,10 +71,10 @@ function NPCFireMage:fireCoroutine()
 			pldy = ply - y
 			local vx = pldx/t - t*params.accelx*.5
 			local vy = pldy/t - t*params.accely*.5
-			params.angle = math.atan2(vy, vx)
+			angle = math.atan2(vy, vx)
 			params.speed = math.hypot(vx, vy)
 
-			ShmupBullet.create(params, levity.map.layers["npcshots"])
+			ShmupBullet.create(params, x, y, angle, "npcshots")
 			coroutine.wait(1/32)
 		end
 	end

@@ -223,17 +223,16 @@ return {
         y = 8
       },
       properties = {
-        ["commoncollision"] = 0,
-        ["row_bombpackage"] = 2,
-        ["row_bombshrapnel"] = 3,
-        ["row_player"] = 0,
-        ["row_wingman"] = 1
+        ["commoncollision"] = 0
       },
       terrains = {},
       tilecount = 4,
       tiles = {
         {
           id = 0,
+          properties = {
+            ["name"] = "player"
+          },
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -260,6 +259,24 @@ return {
                 }
               }
             }
+          }
+        },
+        {
+          id = 1,
+          properties = {
+            ["name"] = "wingman"
+          }
+        },
+        {
+          id = 2,
+          properties = {
+            ["name"] = "bombpackage"
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "bombshrapnel"
           }
         }
       }
@@ -536,21 +553,16 @@ return {
         y = 8
       },
       properties = {
-        ["commoncollision"] = 0,
-        ["row_arrow"] = 2,
-        ["row_ballista"] = 4,
-        ["row_catapult"] = 5,
-        ["row_fire"] = 7,
-        ["row_magic"] = 3,
-        ["row_pike"] = 0,
-        ["row_sword"] = 1,
-        ["row_water"] = 6
+        ["commoncollision"] = 0
       },
       terrains = {},
       tilecount = 32,
       tiles = {
         {
           id = 0,
+          properties = {
+            ["name"] = "pike"
+          },
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -580,7 +592,34 @@ return {
           }
         },
         {
+          id = 4,
+          properties = {
+            ["name"] = "sword"
+          }
+        },
+        {
+          id = 8,
+          properties = {
+            ["name"] = "arrow"
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "magic"
+          }
+        },
+        {
+          id = 16,
+          properties = {
+            ["name"] = "ballista"
+          }
+        },
+        {
           id = 20,
+          properties = {
+            ["name"] = "catapult"
+          },
           animation = {
             {
               tileid = 20,
@@ -593,7 +632,16 @@ return {
           }
         },
         {
+          id = 24,
+          properties = {
+            ["name"] = "water"
+          }
+        },
+        {
           id = 28,
+          properties = {
+            ["name"] = "fire"
+          },
           animation = {
             {
               tileid = 28,
@@ -7879,7 +7927,7 @@ return {
     {
       type = "objectgroup",
       name = "camera",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,

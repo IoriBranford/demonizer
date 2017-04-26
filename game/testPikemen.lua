@@ -221,17 +221,16 @@ return {
         y = 8
       },
       properties = {
-        ["commoncollision"] = 0,
-        ["row_bombpackage"] = 2,
-        ["row_bombshrapnel"] = 3,
-        ["row_player"] = 0,
-        ["row_wingman"] = 1
+        ["commoncollision"] = 0
       },
       terrains = {},
       tilecount = 4,
       tiles = {
         {
           id = 0,
+          properties = {
+            ["name"] = "player"
+          },
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -258,6 +257,24 @@ return {
                 }
               }
             }
+          }
+        },
+        {
+          id = 1,
+          properties = {
+            ["name"] = "wingman"
+          }
+        },
+        {
+          id = 2,
+          properties = {
+            ["name"] = "bombpackage"
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "bombshrapnel"
           }
         }
       }
@@ -522,65 +539,82 @@ return {
       name = "sparks_med",
       firstgid = 59,
       filename = "img/sparks_med.tsx",
-      tilewidth = 64,
-      tileheight = 64,
+      tilewidth = 32,
+      tileheight = 32,
       spacing = 0,
       margin = 0,
       image = "img/sparks_med.png",
-      imagewidth = 1024,
+      imagewidth = 192,
       imageheight = 64,
       tileoffset = {
-        x = -32,
-        y = 32
+        x = -16,
+        y = 16
       },
-      properties = {
-        ["row_explosion"] = "0"
-      },
+      properties = {},
       terrains = {},
-      tilecount = 16,
+      tilecount = 12,
       tiles = {
         {
           id = 0,
+          properties = {
+            ["name"] = "explosion"
+          },
           animation = {
             {
               tileid = 0,
-              duration = 64
+              duration = 67
             },
             {
               tileid = 1,
-              duration = 64
+              duration = 67
             },
             {
               tileid = 2,
-              duration = 64
+              duration = 67
             },
             {
               tileid = 3,
-              duration = 64
+              duration = 67
             },
             {
               tileid = 4,
-              duration = 64
+              duration = 67
             },
             {
               tileid = 5,
-              duration = 64
-            },
+              duration = 67
+            }
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "wingmanexplosion"
+          },
+          animation = {
             {
               tileid = 6,
-              duration = 64
+              duration = 67
             },
             {
               tileid = 7,
-              duration = 64
+              duration = 67
             },
             {
               tileid = 8,
-              duration = 64
+              duration = 67
             },
             {
               tileid = 9,
-              duration = 64
+              duration = 67
+            },
+            {
+              tileid = 10,
+              duration = 67
+            },
+            {
+              tileid = 11,
+              duration = 67
             }
           }
         }
@@ -588,7 +622,7 @@ return {
     },
     {
       name = "humanshots",
-      firstgid = 75,
+      firstgid = 71,
       filename = "img/humanshots.tsx",
       tilewidth = 32,
       tileheight = 16,
@@ -602,21 +636,16 @@ return {
         y = 8
       },
       properties = {
-        ["commoncollision"] = 0,
-        ["row_arrow"] = 2,
-        ["row_ballista"] = 4,
-        ["row_catapult"] = 5,
-        ["row_fire"] = 7,
-        ["row_magic"] = 3,
-        ["row_pike"] = 0,
-        ["row_sword"] = 1,
-        ["row_water"] = 6
+        ["commoncollision"] = 0
       },
       terrains = {},
       tilecount = 32,
       tiles = {
         {
           id = 0,
+          properties = {
+            ["name"] = "pike"
+          },
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -646,7 +675,34 @@ return {
           }
         },
         {
+          id = 4,
+          properties = {
+            ["name"] = "sword"
+          }
+        },
+        {
+          id = 8,
+          properties = {
+            ["name"] = "arrow"
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "magic"
+          }
+        },
+        {
+          id = 16,
+          properties = {
+            ["name"] = "ballista"
+          }
+        },
+        {
           id = 20,
+          properties = {
+            ["name"] = "catapult"
+          },
           animation = {
             {
               tileid = 20,
@@ -659,7 +715,16 @@ return {
           }
         },
         {
+          id = 24,
+          properties = {
+            ["name"] = "water"
+          }
+        },
+        {
           id = 28,
+          properties = {
+            ["name"] = "fire"
+          },
           animation = {
             {
               tileid = 28,
@@ -683,7 +748,7 @@ return {
     },
     {
       name = "infmen",
-      firstgid = 107,
+      firstgid = 103,
       filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -826,7 +891,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 143,
+          gid = 139,
           visible = true,
           properties = {
             ["pathid"] = 5,
@@ -865,7 +930,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 143,
+          gid = 139,
           visible = true,
           properties = {
             ["leaderid"] = 4,
@@ -882,7 +947,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 143,
+          gid = 139,
           visible = true,
           properties = {
             ["leaderid"] = 4,
@@ -899,7 +964,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 143,
+          gid = 139,
           visible = true,
           properties = {
             ["leaderid"] = 4,
@@ -916,7 +981,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 143,
+          gid = 139,
           visible = true,
           properties = {
             ["leaderid"] = 4,
@@ -933,7 +998,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 143,
+          gid = 139,
           visible = true,
           properties = {
             ["leaderid"] = 4,
@@ -950,7 +1015,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 143,
+          gid = 139,
           visible = true,
           properties = {
             ["leaderid"] = 4,
@@ -967,7 +1032,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 143,
+          gid = 139,
           visible = true,
           properties = {
             ["leaderid"] = 4,
@@ -984,7 +1049,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 143,
+          gid = 139,
           visible = true,
           properties = {
             ["leaderid"] = 4,
@@ -1001,7 +1066,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 143,
+          gid = 139,
           visible = true,
           properties = {
             ["leaderid"] = 4,

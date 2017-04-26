@@ -3,17 +3,12 @@
  <tileoffset x="-24" y="8"/>
  <properties>
   <property name="commoncollision" type="int" value="0"/>
-  <property name="row_arrow" type="int" value="2"/>
-  <property name="row_ballista" type="int" value="4"/>
-  <property name="row_catapult" type="int" value="5"/>
-  <property name="row_fire" type="int" value="7"/>
-  <property name="row_magic" type="int" value="3"/>
-  <property name="row_pike" type="int" value="0"/>
-  <property name="row_sword" type="int" value="1"/>
-  <property name="row_water" type="int" value="6"/>
  </properties>
  <image source="humanshots.png" width="128" height="128"/>
  <tile id="0">
+  <properties>
+   <property name="name" value="pike"/>
+  </properties>
   <objectgroup draworder="index">
    <object id="1" x="-2" y="14" width="4" height="4">
     <properties>
@@ -23,13 +18,44 @@
    </object>
   </objectgroup>
  </tile>
+ <tile id="4">
+  <properties>
+   <property name="name" value="sword"/>
+  </properties>
+ </tile>
+ <tile id="8">
+  <properties>
+   <property name="name" value="arrow"/>
+  </properties>
+ </tile>
+ <tile id="12">
+  <properties>
+   <property name="name" value="magic"/>
+  </properties>
+ </tile>
+ <tile id="16">
+  <properties>
+   <property name="name" value="ballista"/>
+  </properties>
+ </tile>
  <tile id="20">
+  <properties>
+   <property name="name" value="catapult"/>
+  </properties>
   <animation>
    <frame tileid="20" duration="67"/>
    <frame tileid="21" duration="67"/>
   </animation>
  </tile>
+ <tile id="24">
+  <properties>
+   <property name="name" value="water"/>
+  </properties>
+ </tile>
  <tile id="28">
+  <properties>
+   <property name="name" value="fire"/>
+  </properties>
   <animation>
    <frame tileid="28" duration="67"/>
    <frame tileid="29" duration="67"/>

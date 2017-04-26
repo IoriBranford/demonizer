@@ -6,8 +6,6 @@ local ShmupBullet = require("ShmupBullet")
 
 local VehicleFountain
 VehicleFountain = class(ShmupVehicle, function(self, object)
-	VehicleFountain.BulletParams.gid =
-		levity.map:getTileGid("humanshots", "water", 0)
 	ShmupVehicle.init(self, object)
 	self.health = 128
 	self.fireco = nil
@@ -20,6 +18,8 @@ VehicleFountain = class(ShmupVehicle, function(self, object)
 end)
 
 VehicleFountain.BulletParams = {
+	tileset = "humanshots",
+	tileid = "water",
 	speed = 2*60,
 	category = ShmupCollision.Category_NPCShot
 }
@@ -56,12 +56,9 @@ function VehicleFountain:fireCoroutine()
 			accely = 2*(pldisty/timetoplr - params.speed*math.sin(angle))/timetoplr
 		end
 
-		params.x = x
-		params.y = y
-		params.angle = angle
 		params.accelx = accelx
 		params.accely = accely
-		ShmupBullet.create(params, levity.map.layers["npcshots"])
+		ShmupBullet.create(params, x, y, angle, "npcshots")
 	end
 end
 

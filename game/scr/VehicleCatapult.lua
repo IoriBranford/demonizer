@@ -6,8 +6,6 @@ local ShmupBullet = require("ShmupBullet")
 
 local VehicleCatapult
 VehicleCatapult = class(ShmupVehicle, function(self, object)
-	VehicleCatapult.BulletParams.gid =
-		levity.map:getTileGid("humanshots", "catapult", 0)
 	ShmupVehicle.init(self, object)
 	self.health = 32
 
@@ -18,6 +16,8 @@ end)
 
 VehicleCatapult.BulletBaseSpeed = 150
 VehicleCatapult.BulletParams = {
+	tileset = "humanshots",
+	tileid = "catapult",
 	speed = VehicleCatapult.BulletBaseSpeed,
 	category = ShmupCollision.Category_NPCShot
 }
@@ -26,15 +26,15 @@ function VehicleCatapult:loopedAnimation()
 	local cx, cy = self.object.body:getWorldCenter()
 
 	local params = VehicleCatapult.BulletParams
-	params.x = cx
-	params.y = cy
-	params.angle = self.angle - math.pi/8
+	local x = cx
+	local y = cy
+	local angle = self.angle - math.pi/8
 
 	for i = 1, 3 do
 		params.speed = VehicleCatapult.BulletBaseSpeed
 			* (1 + math.cos(math.pi*i)/8)
-		ShmupBullet.create(params, levity.map.layers["npcshots"])
-		params.angle = params.angle + math.pi/8
+		ShmupBullet.create(params, x, y, angle, "npcshots")
+		angle = angle + math.pi/8
 	end
 
 	levity.bank:play("snd/catapult.wav")

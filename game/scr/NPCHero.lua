@@ -8,8 +8,6 @@ local ShmupBullet = require("ShmupBullet")
 
 local NPCHero
 NPCHero = class(ShmupNPC, function(self, object)
-	NPCHero.BulletParams.gid = 
-		levity.map:getTileGid("humanshots", "sword", 0)
 	ShmupNPC.init(self, object)
 	self.fireco = nil
 	self.health = 256
@@ -17,6 +15,8 @@ end)
 
 NPCHero.JumpGravity = 480
 NPCHero.BulletParams = {
+	tileset = "humanshots",
+	tileid = "sword",
 	speed = 180,
 	category = ShmupCollision.Category_NPCShot
 }
@@ -72,11 +72,10 @@ function NPCHero:fireCoroutine()
 				else
 					params = NPCSwordsman.BulletParams
 				end
-				params.x = cx
-				params.y = cy
-				params.angle = angle
+				local x = cx
+				local y = cy
 
-				ShmupBullet.create(params, levity.map.layers["npcshots"])
+				ShmupBullet.create(params, x, y, angle, "npcshots")
 				angle = angle + spread
 			end
 

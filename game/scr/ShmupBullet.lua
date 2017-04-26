@@ -120,12 +120,11 @@ function ShmupBullet:endMove(dt)
 end
 
 --- @table BulletParams
--- @field x
--- @field y
 -- @field damage
 -- @field speed in px/sec
--- @field angle in radians
--- @field gid
+-- @field tileset
+-- @field tileid
+-- @field gid as alternative to tileset and tileid
 -- @field category
 -- @field accelx in px/sec/sec
 -- @field accely in px/sec/sec
@@ -133,19 +132,19 @@ end
 -- @field persist do not destroy on impact
 -- @field coroutine
 
-function ShmupBullet.create(params, layer)
-	ShmupBullet.fireOverTime(params, layer, 0, 1)
+function ShmupBullet.create(params, x, y, angle, layer)
+	ShmupBullet.fireOverTime(params, x, y, angle, layer, 0, 1)
 end
 
-function ShmupBullet.fireOverTime(params, layer, time, interval)
-	local x, y, tilesetid, tileid, category =
-		params.x, params.y, params.tileset,
+function ShmupBullet.fireOverTime(params, x, y, angle, layer, time, interval)
+	local tilesetid, tileid, category =
+		params.tileset,
 		params.tileid, params.category
 
 	local accelx, accely = params.accelx, params.accely
 	local damage = params.damage
 
-	local angle = params.angle or 0
+	angle = angle or 0
 	local speed = params.speed or 0
 	local deg = math.deg(angle)
 	local cos = math.cos(angle)
@@ -159,11 +158,7 @@ function ShmupBullet.fireOverTime(params, layer, time, interval)
 		vy = vy + camvy
 	end
 
-	local gid = params.gid
-	if not gid then
-		local tileset = levity.map:getTileset(tilesetid)
-		gid = tileset.firstgid + tileid
-	end
+	local gid = params.gid or levity.map:getTileGid(tilesetid, tileid)
 
 	if type(layer) ~= "table" then
 		layer = levity.map.layers[layer]

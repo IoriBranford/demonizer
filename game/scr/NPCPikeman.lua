@@ -6,8 +6,6 @@ local ShmupBullet = require("ShmupBullet")
 --- Foot soldiers fighting in groups to overwhelm with numbers
 local NPCPikeman
 NPCPikeman = class(ShmupNPC, function(self, object)
-	NPCPikeman.BulletParams.gid =
-		levity.map:getTileGid("humanshots", "pike", 0)
 	ShmupNPC.init(self, object)
 	self.firetimer = .5--love.math.random()
 	self.health = 8
@@ -21,6 +19,8 @@ NPCPikeman.BulletMinDot = math.cos(math.pi/4)
 
 NPCPikeman.BulletInterval = 1
 NPCPikeman.BulletParams = {
+	tileset = "humanshots",
+	tileid = "pike",
 	speed = 120,
 	category = ShmupCollision.Category_NPCShot
 }
@@ -61,13 +61,12 @@ function NPCPikeman:updateFiring(dt)
 	if self.firetimer < dt
 	and dot >= NPCPikeman.BulletMinDot * math.hypot(playerdx, playerdy) then
 		local params = NPCPikeman.BulletParams
-		params.x = cx
-		params.y = cy
-		params.angle = math.atan2(playerdy, playerdx)
+		local x = cx
+		local y = cy
+		local angle = math.atan2(playerdy, playerdx)
 
-		self.firetimer = ShmupBullet.fireOverTime(params,
-				levity.map.layers["npcshots"], self.firetimer,
-				NPCPikeman.BulletInterval)
+		self.firetimer = ShmupBullet.fireOverTime(params, x, y, angle,
+			"npcshots", self.firetimer, NPCPikeman.BulletInterval)
 
 		levity.bank:play("snd/pike.wav")
 	end
