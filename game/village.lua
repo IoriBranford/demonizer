@@ -4167,6 +4167,158 @@ return {
     },
     {
       type = "objectgroup",
+      name = "unusedwaterpikes",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 426,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 360,
+          y = 1624,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 2147483886,
+          visible = true,
+          properties = {
+            ["kopassengers"] = true,
+            ["pathid"] = 106,
+            ["pathtime"] = 5,
+            ["script"] = "ShmupVehicle"
+          }
+        },
+        {
+          id = 421,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -72,
+          y = 1680,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 238,
+          visible = true,
+          properties = {
+            ["kopassengers"] = true,
+            ["pathid"] = 104,
+            ["pathtime"] = 5,
+            ["script"] = "ShmupVehicle"
+          }
+        },
+        {
+          id = 422,
+          name = "pike4",
+          type = "",
+          shape = "rectangle",
+          x = -72,
+          y = 1696,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 184,
+          visible = true,
+          properties = {
+            ["leaderid"] = 421,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 420,
+          name = "pike3",
+          type = "",
+          shape = "rectangle",
+          x = -56,
+          y = 1704,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 184,
+          visible = true,
+          properties = {
+            ["leaderid"] = 421,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 425,
+          name = "pike8",
+          type = "",
+          shape = "rectangle",
+          x = 376,
+          y = 1632,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 184,
+          visible = true,
+          properties = {
+            ["leaderid"] = 426,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 423,
+          name = "pike5",
+          type = "",
+          shape = "rectangle",
+          x = -88,
+          y = 1688,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 184,
+          visible = true,
+          properties = {
+            ["leaderid"] = 421,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 424,
+          name = "pike7",
+          type = "",
+          shape = "rectangle",
+          x = 360,
+          y = 1640,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 184,
+          visible = true,
+          properties = {
+            ["leaderid"] = 426,
+            ["script"] = "NPCPikeman"
+          }
+        },
+        {
+          id = 427,
+          name = "pike6",
+          type = "",
+          shape = "rectangle",
+          x = 344,
+          y = 1648,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 184,
+          visible = true,
+          properties = {
+            ["leaderid"] = 426,
+            ["script"] = "NPCPikeman"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
       name = "waterpikes3",
       visible = true,
       opacity = 1,
@@ -4438,146 +4590,6 @@ return {
             ["script"] = "NPCPikeman",
             ["volleyleaderid"] = 346
           }
-        },
-        {
-          id = 420,
-          name = "pike3",
-          type = "",
-          shape = "rectangle",
-          x = -56,
-          y = 1704,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 184,
-          visible = true,
-          properties = {
-            ["leaderid"] = 421,
-            ["script"] = "NPCPikeman"
-          }
-        },
-        {
-          id = 421,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -72,
-          y = 1680,
-          width = 128,
-          height = 64,
-          rotation = 0,
-          gid = 238,
-          visible = true,
-          properties = {
-            ["kopassengers"] = true,
-            ["pathid"] = 104,
-            ["pathtime"] = 5,
-            ["script"] = "ShmupVehicle"
-          }
-        },
-        {
-          id = 422,
-          name = "pike4",
-          type = "",
-          shape = "rectangle",
-          x = -72,
-          y = 1696,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 184,
-          visible = true,
-          properties = {
-            ["leaderid"] = 421,
-            ["script"] = "NPCPikeman"
-          }
-        },
-        {
-          id = 423,
-          name = "pike5",
-          type = "",
-          shape = "rectangle",
-          x = -88,
-          y = 1688,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 184,
-          visible = true,
-          properties = {
-            ["leaderid"] = 421,
-            ["script"] = "NPCPikeman"
-          }
-        },
-        {
-          id = 424,
-          name = "pike7",
-          type = "",
-          shape = "rectangle",
-          x = 360,
-          y = 1640,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 184,
-          visible = true,
-          properties = {
-            ["leaderid"] = 426,
-            ["script"] = "NPCPikeman"
-          }
-        },
-        {
-          id = 425,
-          name = "pike8",
-          type = "",
-          shape = "rectangle",
-          x = 376,
-          y = 1632,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 184,
-          visible = true,
-          properties = {
-            ["leaderid"] = 426,
-            ["script"] = "NPCPikeman"
-          }
-        },
-        {
-          id = 426,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 360,
-          y = 1624,
-          width = 128,
-          height = 64,
-          rotation = 0,
-          gid = 2147483886,
-          visible = true,
-          properties = {
-            ["kopassengers"] = true,
-            ["pathid"] = 106,
-            ["pathtime"] = 5,
-            ["script"] = "ShmupVehicle"
-          }
-        },
-        {
-          id = 427,
-          name = "pike6",
-          type = "",
-          shape = "rectangle",
-          x = 344,
-          y = 1648,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 184,
-          visible = true,
-          properties = {
-            ["leaderid"] = 426,
-            ["script"] = "NPCPikeman"
-          }
         }
       }
     },
@@ -4820,7 +4832,7 @@ return {
     {
       type = "objectgroup",
       name = "unusedcivilians",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
