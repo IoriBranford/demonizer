@@ -31,6 +31,12 @@ NPCPrincess.BulletParams = {
 NPCPrincess.ChargeShotWaitTime = 1.5
 NPCPrincess.ChargeShotInterval = 1/8
 NPCPrincess.ChargeShotSpreadArc = math.pi/16
+NPCPrincess.ChargeShotParams = {
+	tileset = "humanshots",
+	tileid = "firearrow",
+	speed = 240,
+	category = ShmupCollision.Category_NPCShot
+}
 
 local Sounds = {
 	Bow = "snd/bow.wav",
@@ -54,7 +60,7 @@ function NPCPrincess:chargeShotCoroutine(dt)
 		readytofire = t <= 0
 	until readytofire
 
-	local params = NPCPrincess.BulletParams
+	local params = NPCPrincess.ChargeShotParams
 
 	params.accelx = 0
 	params.accely = 640

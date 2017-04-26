@@ -28,6 +28,16 @@
    <property name="name" value="arrow"/>
   </properties>
  </tile>
+ <tile id="9">
+  <properties>
+   <property name="name" value="firearrow"/>
+  </properties>
+  <animation>
+   <frame tileid="9" duration="67"/>
+   <frame tileid="10" duration="67"/>
+   <frame tileid="11" duration="67"/>
+  </animation>
+ </tile>
  <tile id="12">
   <properties>
    <property name="name" value="magic"/>
@@ -45,6 +55,8 @@
   <animation>
    <frame tileid="20" duration="67"/>
    <frame tileid="21" duration="67"/>
+   <frame tileid="22" duration="67"/>
+   <frame tileid="23" duration="67"/>
   </animation>
  </tile>
  <tile id="24">

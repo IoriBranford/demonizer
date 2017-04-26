@@ -687,6 +687,26 @@ return {
           }
         },
         {
+          id = 9,
+          properties = {
+            ["name"] = "firearrow"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 67
+            },
+            {
+              tileid = 10,
+              duration = 67
+            },
+            {
+              tileid = 11,
+              duration = 67
+            }
+          }
+        },
+        {
           id = 12,
           properties = {
             ["name"] = "magic"
@@ -710,6 +730,14 @@ return {
             },
             {
               tileid = 21,
+              duration = 67
+            },
+            {
+              tileid = 22,
+              duration = 67
+            },
+            {
+              tileid = 23,
               duration = 67
             }
           }

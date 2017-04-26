@@ -604,6 +604,26 @@ return {
           }
         },
         {
+          id = 9,
+          properties = {
+            ["name"] = "firearrow"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 67
+            },
+            {
+              tileid = 10,
+              duration = 67
+            },
+            {
+              tileid = 11,
+              duration = 67
+            }
+          }
+        },
+        {
           id = 12,
           properties = {
             ["name"] = "magic"
@@ -627,6 +647,14 @@ return {
             },
             {
               tileid = 21,
+              duration = 67
+            },
+            {
+              tileid = 22,
+              duration = 67
+            },
+            {
+              tileid = 23,
               duration = 67
             }
           }
@@ -7927,7 +7955,7 @@ return {
     {
       type = "objectgroup",
       name = "camera",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
