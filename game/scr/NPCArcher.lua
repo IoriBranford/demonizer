@@ -41,13 +41,13 @@ function NPCArcher:updateFiring(dt)
 
 	local vx, vy = self.object.body:getLinearVelocity()
 	local dot = math.dot(vx, vy, playerdx, playerdy)
-	if dot > 0 then
+	if dot >= 0 then
 		self:faceAngle(math.atan2(playerdy, playerdx))
 	else
 		self:faceAngle(math.atan2(vy, vx))
 	end
 
-	if self.numcovers <= 0 and self.firetimer < dt and dot > 0 then
+	if self.numcovers <= 0 and self.firetimer < dt and dot >= 0 then
 		local x = cx
 		local y = cy
 		local angle = math.atan2(playerdy, playerdx)

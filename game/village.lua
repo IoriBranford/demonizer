@@ -8,10 +8,10 @@ return {
   height = 265,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 468,
+  nextobjectid = 496,
   properties = {
     ["cameraid"] = 7,
-    ["delayinitobjects"] = true,
+    ["delayinitobjects"] = false,
     ["music"] = "mus/09 - Blue Sky Laundry.vgm",
     ["overlaymap"] = "gameui.lua",
     ["playerid"] = 1,
@@ -1734,13 +1734,17 @@ return {
           type = "",
           shape = "rectangle",
           x = 184,
-          y = 336,
+          y = 352,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 196,
           visible = true,
           properties = {
+            ["pathid"] = 495,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 30,
             ["script"] = "NPCArcher"
           }
         },
@@ -1750,13 +1754,17 @@ return {
           type = "",
           shape = "rectangle",
           x = 128,
-          y = 352,
+          y = 368,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 196,
           visible = true,
           properties = {
+            ["pathid"] = 495,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 30,
             ["script"] = "NPCArcher"
           }
         },
@@ -1785,13 +1793,17 @@ return {
           type = "",
           shape = "rectangle",
           x = 232,
-          y = 336,
+          y = 352,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 196,
           visible = true,
           properties = {
+            ["pathid"] = 495,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 30,
             ["script"] = "NPCArcher"
           }
         },
@@ -1801,14 +1813,50 @@ return {
           type = "",
           shape = "rectangle",
           x = 80,
-          y = 352,
+          y = 368,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 196,
           visible = true,
           properties = {
+            ["pathid"] = 495,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 30,
             ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 493,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 72,
+          y = 368,
+          width = 64,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 495,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 136,
+          y = 376,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 16, y = -32 },
+            { x = 16, y = -48 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
           }
         }
       }
@@ -2107,10 +2155,10 @@ return {
         },
         {
           id = 435,
-          name = "",
+          name = "archer",
           type = "",
           shape = "rectangle",
-          x = 224,
+          x = 240,
           y = 592,
           width = 24,
           height = 32,
@@ -2118,15 +2166,18 @@ return {
           gid = 196,
           visible = true,
           properties = {
+            ["pathid"] = 486,
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 30,
             ["script"] = "NPCArcher"
           }
         },
         {
           id = 434,
-          name = "",
+          name = "archer",
           type = "",
           shape = "rectangle",
-          x = 64,
+          x = 48,
           y = 592,
           width = 24,
           height = 32,
@@ -2134,7 +2185,74 @@ return {
           gid = 196,
           visible = true,
           properties = {
+            ["pathid"] = 483,
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 30,
             ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 483,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 48,
+          y = 624,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = -32 },
+            { x = 32, y = -32 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 484,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 40,
+          y = 576,
+          width = 16,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 485,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 232,
+          y = 576,
+          width = 16,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 486,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 240,
+          y = 624,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = -32 },
+            { x = -32, y = -32 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
           }
         }
       }
@@ -2367,14 +2485,18 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 208,
-          y = 680,
+          x = 176,
+          y = 656,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 196,
           visible = true,
           properties = {
+            ["pathid"] = 492,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 30,
             ["script"] = "NPCArcher"
           }
         },
@@ -2383,14 +2505,18 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 176,
-          y = 736,
+          x = 208,
+          y = 712,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 196,
           visible = true,
           properties = {
+            ["pathid"] = 492,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 30,
             ["script"] = "NPCArcher"
           }
         },
@@ -2399,14 +2525,18 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 112,
-          y = 736,
+          x = 80,
+          y = 712,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 196,
           visible = true,
           properties = {
+            ["pathid"] = 491,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 30,
             ["script"] = "NPCArcher"
           }
         },
@@ -2415,14 +2545,18 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 80,
-          y = 680,
+          x = 112,
+          y = 656,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 196,
           visible = true,
           properties = {
+            ["pathid"] = 491,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 30,
             ["script"] = "NPCArcher"
           }
         },
@@ -2436,10 +2570,113 @@ return {
           width = 288,
           height = 128,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["triggertype"] = "activategroup"
           }
+        },
+        {
+          id = 487,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 96,
+          y = 640,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 488,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 160,
+          y = 640,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 489,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 64,
+          y = 696,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 490,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 192,
+          y = 696,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 491,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 80,
+          y = 720,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = -32 },
+            { x = 32, y = -32 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 492,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 176,
+          y = 720,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = -32 },
+            { x = 32, y = -32 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 494,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 176,
+          y = 352,
+          width = 64,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -2752,7 +2989,7 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = 208,
+          x = 184,
           y = 952,
           width = 0,
           height = 0,
@@ -2760,7 +2997,7 @@ return {
           visible = true,
           polyline = {
             { x = 0, y = -32 },
-            { x = 0, y = 8 }
+            { x = 24, y = -32 }
           },
           properties = {
             ["script"] = "PathGraph"
@@ -2771,7 +3008,7 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 208,
+          x = 184,
           y = 920,
           width = 24,
           height = 32,
@@ -2780,7 +3017,9 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 224,
-            ["pathtime"] = 0.25,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 15,
             ["script"] = "NPCArcher"
           }
         },
@@ -2804,15 +3043,15 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = 304,
-          y = 1000,
+          x = 296,
+          y = 1040,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = -208, y = -16 },
-            { x = -192, y = 8 }
+            { x = -176, y = -16 }
           },
           properties = {
             ["script"] = "PathGraph"
@@ -2823,8 +3062,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 96,
-          y = 984,
+          x = 88,
+          y = 1024,
           width = 24,
           height = 32,
           rotation = 0,
@@ -2832,9 +3071,37 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 223,
-            ["pathtime"] = 0.25,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 30,
             ["script"] = "NPCArcher"
           }
+        },
+        {
+          id = 478,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 80,
+          y = 1016,
+          width = 16,
+          height = 24,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 479,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 176,
+          y = 912,
+          width = 16,
+          height = 24,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -3130,8 +3397,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 192,
-          y = 1056,
+          x = 208,
+          y = 1040,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3139,6 +3406,10 @@ return {
           visible = true,
           properties = {
             ["kolaunch"] = true,
+            ["pathid"] = 482,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 15,
             ["script"] = "NPCArcher"
           }
         },
@@ -3213,6 +3484,38 @@ return {
             ["pathtime"] = 4,
             ["script"] = "NPCPikeman"
           }
+        },
+        {
+          id = 477,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 208,
+          y = 1032,
+          width = 8,
+          height = 24,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 482,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 208,
+          y = 1072,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = -32 },
+            { x = -16, y = -16 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
         }
       }
     },
@@ -3252,8 +3555,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 112,
-          y = 1120,
+          x = 88,
+          y = 1104,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3261,6 +3564,10 @@ return {
           visible = true,
           properties = {
             ["kolaunch"] = true,
+            ["pathid"] = 480,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 15,
             ["script"] = "NPCArcher"
           }
         },
@@ -3269,8 +3576,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 192,
-          y = 1120,
+          x = 208,
+          y = 1104,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3278,7 +3585,75 @@ return {
           visible = true,
           properties = {
             ["kolaunch"] = true,
+            ["pathid"] = 481,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 15,
             ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 475,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 80,
+          y = 1096,
+          width = 8,
+          height = 24,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 476,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 208,
+          y = 1096,
+          width = 8,
+          height = 24,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 480,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 88,
+          y = 1136,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = -32 },
+            { x = 16, y = -16 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 481,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 208,
+          y = 1136,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = -32 },
+            { x = -16, y = -16 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
           }
         }
       }
@@ -3419,7 +3794,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 80,
-          y = 1248,
+          y = 1264,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3427,6 +3802,10 @@ return {
           visible = true,
           properties = {
             ["kolaunch"] = true,
+            ["pathid"] = 472,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 15,
             ["script"] = "NPCArcher"
           }
         },
@@ -3436,7 +3815,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 48,
-          y = 1248,
+          y = 1264,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3444,6 +3823,10 @@ return {
           visible = true,
           properties = {
             ["kolaunch"] = true,
+            ["pathid"] = 472,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 15,
             ["script"] = "NPCArcher"
           }
         },
@@ -3465,6 +3848,19 @@ return {
           properties = {
             ["triggertype"] = "activategroup"
           }
+        },
+        {
+          id = 474,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 32,
+          y = 1256,
+          width = 64,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -3511,6 +3907,10 @@ return {
           visible = true,
           properties = {
             ["kolaunch"] = true,
+            ["pathid"] = 472,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 15,
             ["script"] = "NPCArcher"
           }
         },
@@ -3520,7 +3920,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 200,
-          y = 1280,
+          y = 1296,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3528,8 +3928,25 @@ return {
           visible = true,
           properties = {
             ["kolaunch"] = true,
+            ["pathid"] = 472,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 15,
             ["script"] = "NPCArcher"
           }
+        },
+        {
+          id = 473,
+          name = "cover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 192,
+          y = 1288,
+          width = 48,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -3568,7 +3985,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 208,
-          y = 1368,
+          y = 1360,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3576,6 +3993,10 @@ return {
           visible = true,
           properties = {
             ["kolaunch"] = true,
+            ["pathid"] = 472,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 15,
             ["script"] = "NPCArcher"
           }
         },
@@ -3585,7 +4006,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 96,
-          y = 1352,
+          y = 1360,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3593,6 +4014,10 @@ return {
           visible = true,
           properties = {
             ["kolaunch"] = true,
+            ["pathid"] = 472,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 15,
             ["script"] = "NPCArcher"
           }
         },
@@ -3602,7 +4027,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 128,
-          y = 1368,
+          y = 1376,
           width = 24,
           height = 32,
           rotation = 0,
@@ -3610,7 +4035,69 @@ return {
           visible = true,
           properties = {
             ["kolaunch"] = true,
+            ["pathid"] = 472,
+            ["pathmode"] = "relative",
+            ["pathpicker"] = "linear2way",
+            ["pathspeed"] = 15,
             ["script"] = "NPCArcher"
+          }
+        },
+        {
+          id = 468,
+          name = "bushcover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 80,
+          y = 1352,
+          width = 32,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 469,
+          name = "bushcover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 112,
+          y = 1368,
+          width = 32,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 470,
+          name = "cavecover",
+          type = "NPCCover",
+          shape = "rectangle",
+          x = 192,
+          y = 1352,
+          width = 32,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 472,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 184,
+          y = 1448,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -32, y = -72 },
+            { x = -32, y = -56 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
           }
         }
       }
@@ -3702,8 +4189,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 345,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 345
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3754,8 +4240,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 345,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 345
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3772,8 +4257,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 345,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 345
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3790,8 +4274,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 343,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 343
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3808,8 +4291,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 343,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 343
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3826,8 +4308,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 343,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 343
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -3972,8 +4453,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 421,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 421
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -4009,8 +4489,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 421,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 421
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -4027,8 +4506,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 421,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 421
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -4045,10 +4523,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 426,
-            ["pathid"] = 106,
-            ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 426
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -4065,10 +4540,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 426,
-            ["pathid"] = 106,
-            ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 426
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -4104,10 +4576,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 426,
-            ["pathid"] = 106,
-            ["pathtime"] = 3,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 426
+            ["script"] = "NPCPikeman"
           }
         }
       }
@@ -4136,8 +4605,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 325,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 325
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -4154,8 +4622,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 325,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 325
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -4193,8 +4660,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 325,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 325
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -4257,8 +4723,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 324,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 324
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -4311,8 +4776,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 324,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 324
+            ["script"] = "NPCPikeman"
           }
         },
         {
@@ -4329,8 +4793,7 @@ return {
           visible = true,
           properties = {
             ["leaderid"] = 324,
-            ["script"] = "NPCPikeman",
-            ["volleyleaderid"] = 324
+            ["script"] = "NPCPikeman"
           }
         },
         {

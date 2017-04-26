@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="468">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="36" height="265" tilewidth="8" tileheight="8" nextobjectid="496">
  <properties>
   <property name="cameraid" type="int" value="7"/>
-  <property name="delayinitobjects" type="bool" value="true"/>
+  <property name="delayinitobjects" type="bool" value="false"/>
   <property name="music" type="file" value="mus/09 - Blue Sky Laundry.vgm"/>
   <property name="overlaymap" type="file" value="gameui.lua"/>
   <property name="playerid" type="int" value="1"/>
@@ -96,13 +96,21 @@
   </object>
  </objectgroup>
  <objectgroup name="roofarchers2">
-  <object id="290" gid="196" x="184" y="336" width="24" height="32">
+  <object id="290" gid="196" x="184" y="352" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="495"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="30"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="294" gid="196" x="128" y="352" width="24" height="32">
+  <object id="294" gid="196" x="128" y="368" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="495"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="30"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
@@ -112,15 +120,30 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="302" gid="196" x="232" y="336" width="24" height="32">
+  <object id="302" gid="196" x="232" y="352" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="495"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="30"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="305" gid="196" x="80" y="352" width="24" height="32">
+  <object id="305" gid="196" x="80" y="368" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="495"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="30"/>
     <property name="script" value="NPCArcher"/>
    </properties>
+  </object>
+  <object id="493" name="cover" type="NPCCover" x="72" y="368" width="64" height="8"/>
+  <object id="495" name="path" x="136" y="376">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="16,-32 16,-48"/>
   </object>
  </objectgroup>
  <objectgroup name="knights3">
@@ -224,15 +247,35 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="435" gid="196" x="224" y="592" width="24" height="32">
+  <object id="435" name="archer" gid="196" x="240" y="592" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="486"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="30"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="434" gid="196" x="64" y="592" width="24" height="32">
+  <object id="434" name="archer" gid="196" x="48" y="592" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="483"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="30"/>
     <property name="script" value="NPCArcher"/>
    </properties>
+  </object>
+  <object id="483" name="path" x="48" y="624">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,-32 32,-32"/>
+  </object>
+  <object id="484" name="cover" type="NPCCover" x="40" y="576" width="16" height="32"/>
+  <object id="485" name="cover" type="NPCCover" x="232" y="576" width="16" height="32"/>
+  <object id="486" name="path" x="240" y="624">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,-32 -32,-32"/>
   </object>
  </objectgroup>
  <objectgroup name="unusedmagefirepoints" visible="0">
@@ -330,31 +373,64 @@
   </object>
  </objectgroup>
  <objectgroup name="fountainarchers">
-  <object id="415" gid="196" x="208" y="680" width="24" height="32">
+  <object id="415" gid="196" x="176" y="656" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="492"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="30"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="413" gid="196" x="176" y="736" width="24" height="32">
+  <object id="413" gid="196" x="208" y="712" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="492"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="30"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="412" gid="196" x="112" y="736" width="24" height="32">
+  <object id="412" gid="196" x="80" y="712" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="491"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="30"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="414" gid="196" x="80" y="680" width="24" height="32">
+  <object id="414" gid="196" x="112" y="656" width="24" height="32">
    <properties>
+    <property name="pathid" type="int" value="491"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="30"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="416" type="Trigger" x="0" y="624" width="288" height="128">
+  <object id="416" type="Trigger" x="0" y="624" width="288" height="128" visible="0">
    <properties>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
+  <object id="487" name="cover" type="NPCCover" x="96" y="640" width="32" height="32"/>
+  <object id="488" name="cover" type="NPCCover" x="160" y="640" width="32" height="32"/>
+  <object id="489" name="cover" type="NPCCover" x="64" y="696" width="32" height="32"/>
+  <object id="490" name="cover" type="NPCCover" x="192" y="696" width="32" height="32"/>
+  <object id="491" name="path" x="80" y="720">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,-32 32,-32"/>
+  </object>
+  <object id="492" name="path" x="176" y="720">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,-32 32,-32"/>
+  </object>
+  <object id="494" name="cover" type="NPCCover" x="176" y="352" width="64" height="8"/>
  </objectgroup>
  <objectgroup name="knightsballistae">
   <object id="213" type="Trigger" x="0" y="824" width="288" height="48">
@@ -464,16 +540,18 @@
   </object>
  </objectgroup>
  <objectgroup name="roofarchers1">
-  <object id="224" name="path" x="208" y="952">
+  <object id="224" name="path" x="184" y="952">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
-   <polyline points="0,-32 0,8"/>
+   <polyline points="0,-32 24,-32"/>
   </object>
-  <object id="227" gid="196" x="208" y="920" width="24" height="32">
+  <object id="227" gid="196" x="184" y="920" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="224"/>
-    <property name="pathtime" type="float" value="0.25"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="15"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
@@ -482,19 +560,23 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="223" name="path" x="304" y="1000">
+  <object id="223" name="path" x="296" y="1040">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
-   <polyline points="-208,-16 -192,8"/>
+   <polyline points="-208,-16 -176,-16"/>
   </object>
-  <object id="225" gid="196" x="96" y="984" width="24" height="32">
+  <object id="225" gid="196" x="88" y="1024" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="223"/>
-    <property name="pathtime" type="float" value="0.25"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="30"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
+  <object id="478" name="cover" type="NPCCover" x="80" y="1016" width="16" height="24"/>
+  <object id="479" name="cover" type="NPCCover" x="176" y="912" width="16" height="24"/>
  </objectgroup>
  <objectgroup name="pikes3">
   <object id="211" name="path" x="320" y="928">
@@ -594,9 +676,13 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="240" gid="106" x="192" y="1056" width="24" height="32">
+  <object id="240" gid="106" x="208" y="1040" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
+    <property name="pathid" type="int" value="482"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="15"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
@@ -628,6 +714,13 @@
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
+  <object id="477" name="cover" type="NPCCover" x="208" y="1032" width="8" height="24"/>
+  <object id="482" name="path" x="208" y="1072">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,-32 -16,-16"/>
+  </object>
  </objectgroup>
  <objectgroup name="windowarchers">
   <object id="241" name="trigger" x="0" y="1104">
@@ -638,17 +731,39 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="237" gid="196" x="112" y="1120" width="24" height="32">
+  <object id="237" gid="196" x="88" y="1104" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
+    <property name="pathid" type="int" value="480"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="15"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="238" gid="196" x="192" y="1120" width="24" height="32">
+  <object id="238" gid="196" x="208" y="1104" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
+    <property name="pathid" type="int" value="481"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="15"/>
     <property name="script" value="NPCArcher"/>
    </properties>
+  </object>
+  <object id="475" name="cover" type="NPCCover" x="80" y="1096" width="8" height="24"/>
+  <object id="476" name="cover" type="NPCCover" x="208" y="1096" width="8" height="24"/>
+  <object id="480" name="path" x="88" y="1136">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,-32 16,-16"/>
+  </object>
+  <object id="481" name="path" x="208" y="1136">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,-32 -16,-16"/>
   </object>
  </objectgroup>
  <objectgroup name="pikes">
@@ -693,15 +808,23 @@
   </object>
  </objectgroup>
  <objectgroup name="busharchers3">
-  <object id="250" gid="196" x="80" y="1248" width="24" height="32">
+  <object id="250" gid="196" x="80" y="1264" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
+    <property name="pathid" type="int" value="472"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="15"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="251" gid="196" x="48" y="1248" width="24" height="32">
+  <object id="251" gid="196" x="48" y="1264" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
+    <property name="pathid" type="int" value="472"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="15"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
@@ -711,6 +834,7 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
+  <object id="474" name="cover" type="NPCCover" x="32" y="1256" width="64" height="8"/>
  </objectgroup>
  <objectgroup name="busharchers2">
   <object id="244" type="Trigger" x="0" y="1264">
@@ -722,15 +846,24 @@
   <object id="248" gid="196" x="232" y="1296" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
+    <property name="pathid" type="int" value="472"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="15"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="252" gid="196" x="200" y="1280" width="24" height="32">
+  <object id="252" gid="196" x="200" y="1296" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
+    <property name="pathid" type="int" value="472"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="15"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
+  <object id="473" name="cover" type="NPCCover" x="192" y="1288" width="48" height="8"/>
  </objectgroup>
  <objectgroup name="busharchers">
   <object id="243" type="Trigger" x="0" y="1336">
@@ -739,23 +872,44 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="245" gid="196" x="208" y="1368" width="24" height="32">
+  <object id="245" gid="196" x="208" y="1360" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
+    <property name="pathid" type="int" value="472"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="15"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="246" gid="196" x="96" y="1352" width="24" height="32">
+  <object id="246" gid="196" x="96" y="1360" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
+    <property name="pathid" type="int" value="472"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="15"/>
     <property name="script" value="NPCArcher"/>
    </properties>
   </object>
-  <object id="247" gid="196" x="128" y="1368" width="24" height="32">
+  <object id="247" gid="196" x="128" y="1376" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
+    <property name="pathid" type="int" value="472"/>
+    <property name="pathmode" value="relative"/>
+    <property name="pathpicker" value="linear2way"/>
+    <property name="pathspeed" type="float" value="15"/>
     <property name="script" value="NPCArcher"/>
    </properties>
+  </object>
+  <object id="468" name="bushcover" type="NPCCover" x="80" y="1352" width="32" height="8"/>
+  <object id="469" name="bushcover" type="NPCCover" x="112" y="1368" width="32" height="8"/>
+  <object id="470" name="cavecover" type="NPCCover" x="192" y="1352" width="32" height="8"/>
+  <object id="472" name="path" x="184" y="1448">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="-32,-72 -32,-56"/>
   </object>
  </objectgroup>
  <objectgroup name="waterarchers">
@@ -781,7 +935,6 @@
    <properties>
     <property name="leaderid" type="int" value="345"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="345"/>
    </properties>
   </object>
   <object id="178" name="path3" x="-24" y="1632">
@@ -799,35 +952,30 @@
    <properties>
     <property name="leaderid" type="int" value="345"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="345"/>
    </properties>
   </object>
   <object id="181" name="pike4" gid="184" x="-56" y="1576" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="345"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="345"/>
    </properties>
   </object>
   <object id="172" name="pike6" gid="184" x="328" y="1584" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="343"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="343"/>
    </properties>
   </object>
   <object id="173" name="pike7" gid="184" x="344" y="1576" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="343"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="343"/>
    </properties>
   </object>
   <object id="175" name="pike8" gid="184" x="360" y="1568" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="343"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="343"/>
    </properties>
   </object>
   <object id="174" name="path4" x="304" y="1648">
@@ -883,7 +1031,6 @@
    <properties>
     <property name="leaderid" type="int" value="421"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="421"/>
    </properties>
   </object>
   <object id="421" gid="238" x="-72" y="1680" width="128" height="64">
@@ -898,32 +1045,24 @@
    <properties>
     <property name="leaderid" type="int" value="421"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="421"/>
    </properties>
   </object>
   <object id="423" name="pike5" gid="184" x="-88" y="1688" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="421"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="421"/>
    </properties>
   </object>
   <object id="424" name="pike7" gid="184" x="360" y="1640" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="426"/>
-    <property name="pathid" type="int" value="106"/>
-    <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="426"/>
    </properties>
   </object>
   <object id="425" name="pike8" gid="184" x="376" y="1632" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="426"/>
-    <property name="pathid" type="int" value="106"/>
-    <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="426"/>
    </properties>
   </object>
   <object id="426" gid="2147483886" x="360" y="1624" width="128" height="64">
@@ -937,10 +1076,7 @@
   <object id="427" name="pike6" gid="184" x="344" y="1648" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="426"/>
-    <property name="pathid" type="int" value="106"/>
-    <property name="pathtime" type="float" value="3"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="426"/>
    </properties>
   </object>
  </objectgroup>
@@ -949,14 +1085,12 @@
    <properties>
     <property name="leaderid" type="int" value="325"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="325"/>
    </properties>
   </object>
   <object id="68" name="pike7" gid="184" x="360" y="1640" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="325"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="325"/>
    </properties>
   </object>
   <object id="106" name="path4" x="304" y="1728">
@@ -969,7 +1103,6 @@
    <properties>
     <property name="leaderid" type="int" value="325"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="325"/>
    </properties>
   </object>
   <object id="115" type="Trigger" x="0" y="1632" width="288" height="8">
@@ -991,7 +1124,6 @@
    <properties>
     <property name="leaderid" type="int" value="324"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="324"/>
    </properties>
   </object>
   <object id="104" name="path3" x="-24" y="1736">
@@ -1009,14 +1141,12 @@
    <properties>
     <property name="leaderid" type="int" value="324"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="324"/>
    </properties>
   </object>
   <object id="112" name="pike4" gid="184" x="-72" y="1696" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="324"/>
     <property name="script" value="NPCPikeman"/>
-    <property name="volleyleaderid" type="int" value="324"/>
    </properties>
   </object>
   <object id="324" gid="238" x="-72" y="1680" width="128" height="64">
