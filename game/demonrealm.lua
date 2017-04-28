@@ -8,7 +8,7 @@ return {
   height = 100,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 314,
+  nextobjectid = 316,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -3449,7 +3449,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmF0OhDAIhNn7H9PunsP0wcSYMCJQna18z7al/MyoIiK/jzzKAs5HsaF11j00vsoa65mIdnO+tbt0smLJyMvI/d5A5awongfp7ZkXjfSG0b7j9fHZOd49mos353JWojVFmqM9g9ZkvEtEdDBCNPaoTt79fp/JVjOGO7DGwBBXecB/wlw3i4eMZj9bKB5rrH0/NK9Hr/D+b2L+9mbQKw3meSgKDzP29P5OXj3pGsmskxsMPughS+ebodaRHF3pgbNZisSRNaesPZ3RDyvlWTwS"
+      data = "eJztmFsOxCAIRe3+N2mizjoaE82YpiAiKs54PptCL8ijrTHGfC6zFIc8H9OG2VF9QATAhvpMDD8531AsESktEnkZ6e8f2DFnEvW3en4d2sFm0u5gsdVqdeRuePMdr0n0T/TD3ePP+2bvx9E8Y+fmO9tR7W1HHiU0S+2jnevBpnrGzsIRejD3F3QfZZ7apCMkP5gNdHY+2YXrGxt0PrU5aJOO3POcnVDGk3PEqTuX9LhCExdf5Hk3smYNPadVgwZd5513TzSfm4Z5VfYWpoeqFdtPkeeu4P5v0vztrWFeQWjuh8OBwy/WdBkTd55w381no2EPcpCa855w1j05aqmBWi/16JDq05U1jf1XaK2HN1833Itm7A=="
     },
     {
       type = "objectgroup",
@@ -3920,8 +3920,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 144,
-          y = 112,
+          x = 128,
+          y = 208,
           width = 32,
           height = 32,
           rotation = 0,
@@ -3996,6 +3996,34 @@ return {
           height = 64,
           rotation = 0,
           gid = 528,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 314,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 80,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 508,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 315,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 88,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 514,
           visible = true,
           properties = {}
         }
