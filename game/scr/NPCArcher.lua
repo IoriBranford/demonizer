@@ -12,10 +12,11 @@ NPCArcher = class(ShmupNPC, function(self, object)
 	self.health = 8
 	self.properties.killpoints = 250
 	self.properties.pathspeed = self.properties.pathspeed or 180
+	self.originalspeed = self.properties.pathspeed
 end)
 
 NPCArcher.BulletInterval = BulletInterval
-NPCArcher.LeaveCoverTime = 1
+NPCArcher.LeaveCoverTime = .25
 NPCArcher.PlayerShotSuppression = 1/8
 NPCArcher.NPCSuppressionReaction = 1/16
 NPCArcher.BulletParams = {
@@ -82,6 +83,13 @@ function NPCArcher:beginMove(dt)
 	end
 	if self.health < 1 then
 		return
+	end
+
+	if self.firetimer > NPCArcher.LeaveCoverTime
+	and self.numcovers > 0 then
+		self.properties.pathspeed = 0
+	else
+		self.properties.pathspeed = self.originalspeed
 	end
 
 	if self.oncamera then
