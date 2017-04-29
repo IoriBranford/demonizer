@@ -13,6 +13,7 @@ env:
   - LUAJIT=luajit-2.0.0-beta9
   - GAME_DIR=$TRAVIS_BUILD_DIR/game
   - GAME_ASSET=game.love
+  - GAME_ASSET_RELEASE=demonizer-data.love
   - ANDROID_NDK_HOME=$HOME/android-ndk
   - PATH=$ANDROID_NDK_HOME:$PATH
   - LOVE_ANDROID_DIR=$TRAVIS_BUILD_DIR/love-android-sdl2
@@ -31,27 +32,28 @@ install:
 - git lfs pull
 - git clone https://github.com/urho3d/android-ndk.git $ANDROID_NDK_HOME
 before_script:
-- ./make-game.sh
-- ARCH_BITS=64 ./make-windows.sh
-- ARCH_BITS=32 ./make-windows.sh
 - cd $TRAVIS_BUILD_DIR
+- ./make-game.sh
 - cp -r $TRAVIS_BUILD_DIR/love-android/* $LOVE_ANDROID_DIR
 - mkdir $LOVE_ANDROID_ASSETS_DIR
-- cp $GAME_DIR/$GAME_ASSET $LOVE_ANDROID_ASSETS_DIR
-- mv $GAME_DIR/$GAME_ASSET demonizer-data.love
-- cd $LOVE_ANDROID_DIR
-- ndk-build
+- cp $GAME_ASSET $LOVE_ANDROID_ASSETS_DIR
 script:
-- ant debug
+- cd $TRAVIS_BUILD_DIR
+- ARCH_BITS=64 ./make-windows.sh
+- ARCH_BITS=32 ./make-windows.sh
+- cd $LOVE_ANDROID_DIR && ndk-build && ant debug
+after_success:
+- cd $TRAVIS_BUILD_DIR
+- mv $GAME_ASSET $GAME_ASSET_RELEASE
 deploy:
   provider: releases
   api_key:
     secure: W8gvoZ3A6rL/XTHtaQoLrLmphXTPItFr7n9+nz7L/lyzo+dDtkfstyA4iZ6inTUke+L2cPIB+MDTSDhRUI/ltlQDZEX7karSs4oWaBnKDPFgB53/7/K8+6BRYoGtmbNkP68ar9WGvx5ebDMbFaed7DVN63OD+bD4F+ayAwitE8fiK7CEB2b/I/eYR5qekISWKzDeFt21RYjVX+6H6n5MUP/o5ZCQHcK1nNV4ukAzACceveCxYQfU2LULGxsvw7aIKOJub3id7y/vBBXwXTe3u19Db9GOFtEXMtXP2fp/Mx9PlvfSmXydohnWh9lXzmBBX5cPdhYQfDHmrpRune5HD+EsqkvY0oZ2/Zk8/bPWzuJAVKIla60W5m4Vm2AFUkbi68I+jT0FL7Qc23nVO7MD2ChTBiUR4Ed71sYe2rme/PO6Kw9AhuvsqZtsuAs2sYjruGeSW0J9JNOCicdrke95udtV3odLNTojogzRfETKkHDqgtN4O/bDyW9FkdxJXcm8jcXHcJyMtOS2Rpnv0bDSQMaWxvyUJO/XzKHcNNgD4MbRPYMIIFLG2bJx1Suk9Kq0GJ0joAE6hH6juuQ6bWa1iwZGFzqMrQhaaKo2XhvXtKZKVegaRWTvl8Jb2j4kx5MjEhrxP47p+iu5TRyWrGMjUAE0KSM+37n7oSdkt++k4hY=
   file:
-  - "demonizer-win64.zip"
-  - "demonizer-win32.zip"
-  - "demonizer-data.love"
-  - "$LOVE_ANDROID_DIR/bin/demonizer-android-debug.apk"
+  - $TRAVIS_BUILD_DIR/demonizer-win64.zip
+  - $TRAVIS_BUILD_DIR/demonizer-win32.zip
+  - $TRAVIS_BUILD_DIR/$GAME_ASSET_RELEASE
+  - $LOVE_ANDROID_DIR/bin/demonizer-android-debug.apk
   skip_cleanup: true
   overwrite: true
   on:
