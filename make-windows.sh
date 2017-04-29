@@ -5,9 +5,12 @@ PROJECT=${PWD##*/}
 GAME_ASSET=${GAME_ASSET:=game.love}
 ARCH_BITS=${ARCH_BITS:=64}
 
-if [ ${ARCH_BITS} = 64 ]
-then ARCH=x86_64
-else ARCH=i686
+if [ ${ARCH_BITS} = 64 ]; then
+	ARCH=x86_64
+	EH_SYSTEM=seh
+else
+	ARCH=i686
+	EH_SYSTEM=dw2
 fi
 
 PROJECT_DIR=${PROJECT}-win${ARCH_BITS}
@@ -38,7 +41,7 @@ getMSYS2dll () {
 }
 
 getMSYS2dll gcc-libs-6.3.0-2
-mv mingw${ARCH_BITS}/bin/libgcc_s_seh-1.dll ${PROJECT_DIR}
+mv mingw${ARCH_BITS}/bin/libgcc_s_${EH_SYSTEM}-1.dll ${PROJECT_DIR}
 mv mingw${ARCH_BITS}/bin/libstdc++-6.dll ${PROJECT_DIR}
 
 getMSYS2dll libwinpthread-git-5.0.0.4816.8692be6a-1
