@@ -18,13 +18,6 @@ LOVE_DIR=love-${LOVE_VERSION}-win${ARCH_BITS}
 LOVE_ZIP=${LOVE_DIR}.zip
 LOVE_URL=https://bitbucket.org/rude/love/downloads/${LOVE_ZIP}
 
-LIBGME_TAR=mingw-w64-${ARCH}-libgme-0.6.0-1-any.pkg.tar
-LIBGME_TAR_XZ=${LIBGME_TAR}.xz
-LIBGME_URL=https://downloads.sourceforge.net/project/msys2/REPOS/MINGW/${ARCH}/${LIBGME_TAR_XZ}
-LIBWINPTHREAD_TAR=mingw-w64-${ARCH}-libwinpthread-git-5.0.0.4816.8692be6a-1-any.pkg.tar
-LIBWINPTHREAD_TAR_XZ=${LIBWINPTHREAD_TAR}.xz
-LIBWINPTHREAD_URL=https://downloads.sourceforge.net/project/msys2/REPOS/MINGW/${ARCH}/${LIBWINPTHREAD_TAR_XZ}
-
 if [ ! -f ${GAME_ASSET} ]
 then ./make-game.sh
 fi
@@ -37,14 +30,23 @@ cat ${PROJECT_DIR}/lovec.exe ${GAME_ASSET} > ${PROJECT_DIR}/${PROJECT}_c.exe
 rm ${PROJECT_DIR}/love*.exe
 mv ${PROJECT_DIR}/readme.txt ${PROJECT_DIR}/readme-love.txt
 
-cp README.md ${PROJECT_DIR}
+getMSYS2dll () {
+	PKG_TAR_XZ=mingw-w64-$ARCH-$1-any.pkg.tar.xz
+	PKG_URL=https://downloads.sourceforge.net/project/msys2/REPOS/MINGW/$ARCH/${PKG_TAR_XZ}
+	wget -N ${PKG_URL}
+	tar -Jxf ${PKG_TAR_XZ} mingw${ARCH_BITS}/bin
+}
 
-wget -N ${LIBGME_URL}
-wget -N ${LIBWINPTHREAD_URL}
-unxz -f ${LIBGME_TAR_XZ}
-unxz -f ${LIBWINPTHREAD_TAR_XZ}
-tar -xf ${LIBGME_TAR} mingw${ARCH_BITS}/bin
-tar -xf ${LIBWINPTHREAD_TAR} mingw${ARCH_BITS}/bin
-mv mingw${ARCH_BITS}/bin/*.dll ${PROJECT_DIR}
+getMSYS2dll gcc-libs-6.3.0-2
+mv mingw${ARCH_BITS}/bin/libgcc_s_seh-1.dll ${PROJECT_DIR}
+mv mingw${ARCH_BITS}/bin/libstdc++-6.dll ${PROJECT_DIR}
+
+getMSYS2dll libwinpthread-git-5.0.0.4816.8692be6a-1
+mv mingw${ARCH_BITS}/bin/libwinpthread-1.dll ${PROJECT_DIR}
+
+getMSYS2dll libgme-0.6.0-1
+mv mingw${ARCH_BITS}/bin/libgme.dll ${PROJECT_DIR}
+
+cp README.md ${PROJECT_DIR}
 
 zip -r ${PROJECT_ZIP} ${PROJECT_DIR}
