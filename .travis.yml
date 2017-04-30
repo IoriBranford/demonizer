@@ -19,6 +19,7 @@ env:
   - LOVE_ANDROID_DIR=$TRAVIS_BUILD_DIR/love-android-sdl2
   - LOVE_ANDROID_ASSETS_DIR=$LOVE_ANDROID_DIR/assets
   - secure: YOVYGIj4HbjRUHwlmSe6XHznHzVapV5664y14QquaGd3AQmKzS1r6LNmKAVue8NbgYJAeJsob+ACtNrwaZQ3Gx0zZcJyfSSfpmsGG7cIzLNsBsx1wWIjpXDOnJgpZAq567ghYyLj/7wAbzP1uz5MKhuHPBHLT6YBOsOx7WgXzBzsLy9YaLXfFIG33wUTfHVPs/wuAaXURbgzpgek2uxHJJnHF8MgEpyrKPIoJAoCHWpXCynG/O7w8lT2l8+NxJJYNaPhSM8sIxttIPdB2oJbzBWR7pTCLd5c91V9jslOmDwPBAXzVJdAecrfG8LXotOfck6nj6lEOTDdicEa8ARPhZdMx64/6SVq7Nn6eOTLQ3ABCy0GOfz868qdHcEUrkchqVAgYCGuCDw/1uCJ0OyNdMUFQQTqu1GGu9fJOTCiYUjVIq9OD1vKgRzXM9zDZA40lgA29XFULe83YqQXcHQstW+gm2O+yxyhV083c+3VPZKz1GA6amWKiPBSEvlaowpppeduGgjtD7ORzfDgEE/Dck5gGcDrlHsEbRucTr0Xxea3io3r4xwLHXG6Z/Bm9eht/6TmRM3je5CroW8cL/900JvE/CQdJk0G3vcw5aeovkDgYNozK95CW80XwMGRw5eNqwJwIiyZlcmlbmvDBDIZcCwyvEMfm1Sz92FHZRrs+O0=
+  - secure: 042C7ZEaytACMdFMdtiNsbkk74A6l1kvrGbR21Y5rPKom6qekjbDlhHcTFX2FL5Nsne+rVxxYSkKdEDLRMiK5sKsODBeQqwFS1a5kSlYZhP9esfJKbq8zuKTXbP9IHCPACo8CZfoJlrIQQSDuw+78kb4zQy+mTbaw3GzjNG1COu/k3aYVfFto1V2m5xr2vobfyNYoQoOtKmZVw/+CnjZCc3HKqvYMx02WMMaEoosrWm22ppuOg8M8k43itYfnk/JBfb1yfOcsdcUWzJotkgEfxthjICdDMtI0Qbkv9w40fSAHHPa6uEFtJDVzwopr/SnnLozTnfjCsAhlT+8N7DGnirh4uZIGc6QVKC6ledVJhJHDOK4CR/ytslXMS/HvpxjH3twJ8CjVcrsZyYJo21zJpXpzFQcDRQPEemFpe9HUePaJe4PU8Jjblbh/82QjuwkLknTjOVe0lYUf7tDBIXNahMloaCT5BQVWL7zynGsuQ8RwL4g1VydddmYn2gO8fFntP7yRVV1WRiq16pyksOaUXLkxtM2RP1OHR2XPL3D7eOzFF6FL1SZfviEZw3NX0Wxj4LOX0MWxi5A6P8/Pd9HBIJSBKCvLYjO/8m0cPz2LiHXDV3XHBprJ0wRWEHgeI5zh4ly16nhCkTyW2rw7wFwtC4BOrfZo2g5DUAnwcabAvY=
 git:
   depth: 1
 before_install:
@@ -41,7 +42,7 @@ script:
 - cd $TRAVIS_BUILD_DIR
 - ARCH_BITS=64 ./make-windows.sh
 - ARCH_BITS=32 ./make-windows.sh
-- cd $LOVE_ANDROID_DIR && ndk-build && ant debug
+- cd $LOVE_ANDROID_DIR && ndk-build -j2 && ant release
 after_success:
 - cd $TRAVIS_BUILD_DIR
 - mv $GAME_ASSET $GAME_ASSET_RELEASE
@@ -53,7 +54,7 @@ deploy:
   - $TRAVIS_BUILD_DIR/demonizer-win64.zip
   - $TRAVIS_BUILD_DIR/demonizer-win32.zip
   - $TRAVIS_BUILD_DIR/$GAME_ASSET_RELEASE
-  - $LOVE_ANDROID_DIR/bin/demonizer-android-debug.apk
+  - $LOVE_ANDROID_DIR/bin/demonizer-android-release.apk
   skip_cleanup: true
   overwrite: true
   on:
