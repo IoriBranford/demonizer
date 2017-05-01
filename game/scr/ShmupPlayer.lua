@@ -413,14 +413,14 @@ function ShmupPlayer:preSolve(myfixture, otherfixture, contact)
 end
 
 function ShmupPlayer:deathCoroutine(dt)
+	local params = ShmupPlayer.DeathExplosionParams
+	local x, y = self.object.body:getWorldCenter()
+	ShmupBullet.create(params, x, y, 0, self.object.layer)
+
 	self.deathtimer = 0
 	self.killed = true
 	self.object.visible = false
 	self.poweredup = false
-
-	local params = ShmupPlayer.DeathExplosionParams
-	local x, y = self.object.body:getWorldCenter()
-	ShmupBullet.create(params, x, y, 0, self.object.layer)
 
 	-- capturing not allowed while player killed
 	local fixtures = self.object.body:getUserData().fixtures

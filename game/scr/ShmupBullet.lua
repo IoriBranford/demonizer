@@ -137,6 +137,10 @@ function ShmupBullet.create(params, x, y, angle, layer)
 end
 
 function ShmupBullet.fireOverTime(params, x, y, angle, layer, time, interval)
+	if levity.map.scripts:call(levity.map.properties.playerid, "isKilled") then
+		return interval
+	end
+
 	local tilesetid, tileid, category =
 		params.tileset,
 		params.tileid, params.category
