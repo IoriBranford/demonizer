@@ -92,7 +92,9 @@ function NPCArcher:beginMove(dt)
 		self.properties.pathspeed = self.originalspeed
 	end
 
-	if self.oncamera then
+	if self.oncamera
+	and self.object.y - levity.map.camera.y < levity.map.camera.h*.75
+	then
 		self:updateFiring(dt)
 	end
 end
