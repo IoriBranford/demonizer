@@ -29,7 +29,6 @@ wget -N ${LOVE_URL}
 unzip ${LOVE_ZIP} -d .
 mv ${LOVE_DIR} ${PROJECT_DIR}
 cat ${PROJECT_DIR}/love.exe ${GAME_ASSET} > ${PROJECT_DIR}/${PROJECT}.exe
-cat ${PROJECT_DIR}/lovec.exe ${GAME_ASSET} > ${PROJECT_DIR}/${PROJECT}_c.exe
 rm ${PROJECT_DIR}/love*.exe
 mv ${PROJECT_DIR}/readme.txt ${PROJECT_DIR}/readme-love.txt
 
