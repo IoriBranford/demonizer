@@ -15,7 +15,7 @@
  <objectgroup draworder="index" name="Object Layer 1">
   <object id="1" name="copyright" x="0" y="300" width="240" height="20">
    <properties>
-    <property name="text" value="© 2016 IoriBranford"/>
+    <property name="text" value="© 2017 IoriBranford"/>
     <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
   </object>
@@ -30,7 +30,7 @@ C key: BOMB</property>
     <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
   </object>
-  <object id="3" name="hiscore" x="0" y="5" width="240" height="10">
+  <object id="3" name="hiscore" x="0" y="5" width="240" height="10" visible="0">
    <properties>
     <property name="text" value="HI SCORE 0"/>
     <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>

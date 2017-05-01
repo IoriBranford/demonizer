@@ -95,7 +95,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["text"] = "© 2016 IoriBranford",
+            ["text"] = "© 2017 IoriBranford",
             ["textfont"] = "fnt/pressstart2p.fnt"
           }
         },
@@ -126,7 +126,7 @@ return {
           width = 240,
           height = 10,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["text"] = "HI SCORE 0",
             ["textfont"] = "fnt/pressstart2p.fnt"
