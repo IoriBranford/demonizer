@@ -475,7 +475,7 @@ return {
           width = 208,
           height = 16,
           rotation = 0,
-          visible = false,
+          visible = true,
           properties = {
             ["text"] = "Paused",
             ["textalign"] = "center",

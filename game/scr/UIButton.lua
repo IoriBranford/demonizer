@@ -34,8 +34,11 @@ function UIButton:touchpressed(touch, x, y, dx, dy, pressure)
 		if math.rectsisect(x, y, 0, 0, self.object.x, self.object.y,
 			self.object.width, self.object.height)
 		then
-			levity.bank:play(Sounds.Press)
-			self.pressed = true
+			self:press()
+			levity.map.overlaymap.scripts:call(self.object.layer.name,
+				"setCursorButton", self.object.id)
+		else
+			self:unpress()
 		end
 	end
 end
@@ -55,11 +58,24 @@ function UIButton:touchreleased(touch, x, y, dx, dy, pressure)
 		if math.rectsisect(x, y, 0, 0, self.object.x, self.object.y,
 			self.object.width, self.object.height)
 		then
-			self.pressed = false
-			if self.buttonReleased then
-				self:buttonReleased()
-			end
+			self:activate()
 		end
+	end
+end
+
+function UIButton:press()
+	levity.bank:play(Sounds.Press)
+	self.pressed = true
+end
+
+function UIButton:unpress()
+	self.pressed = false
+end
+
+function UIButton:activate()
+	self.pressed = false
+	if self.buttonReleased then
+		self:buttonReleased()
 	end
 end
 

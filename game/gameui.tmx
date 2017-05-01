@@ -79,7 +79,7 @@
     <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
   </object>
-  <object id="20" name="pause" x="16" y="32" width="208" height="16" visible="0">
+  <object id="20" name="pause" x="16" y="32" width="208" height="16">
    <properties>
     <property name="text" value="Paused"/>
     <property name="textalign" value="center"/>
