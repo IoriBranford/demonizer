@@ -221,7 +221,7 @@ Walker = class(function(self, graph, pickNextPath, x, y, mode, userdata)
 	self.userdata = userdata
 end)
 
-local function getCurvePoint(curvepath, odo)
+function PathGraph.getCurvePoint(curvepath, odo)
 	if not curvepath.curve then
 		return
 	end
@@ -248,8 +248,8 @@ function Walker:getVelocity(dt, speed, x, y)
 		self.curveodo = self.curveodo + speed*dt
 		exdist = self.curveodo - self.path.length
 		if exdist <= 0 then
-			local nextx, nexty =
-				getCurvePoint(self.path, self.curveodo)
+			local nextx, nexty = PathGraph.getCurvePoint(self.path,
+						self.curveodo)
 
 			distx = nextx + self.offx - x
 			disty = nexty + self.offy - y
@@ -284,7 +284,9 @@ function Walker:getVelocity(dt, speed, x, y)
 				if nextpath.curve then
 					self.curveodo = exdist
 					local nextx, nexty =
-						getCurvePoint(nextpath, exdist)
+						PathGraph.getCurvePoint(
+							nextpath, exdist)
+
 					nextdirx = nextx - self.destx
 					nextdiry = nexty - self.desty
 				else

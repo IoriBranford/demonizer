@@ -43,6 +43,10 @@ Mover = class(function(self, object)
 	self.prevy = y
 end)
 
+function Mover:setOffsetX(ox)
+	self.offx = ox
+end
+
 function Mover:beginMove(dt)
 	if not self.destx or not self.desty then
 		--self.object.body:setLinearVelocity(0, 0)

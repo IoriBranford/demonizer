@@ -1,11 +1,13 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
-local PathGraph = require "PathGraph"
+local Mover = require "Mover"
 
 local ShmupCam = class(function(self, object)
 	self.object = object
-	self.x0 = self.object.x
 	self.properties = self.object.properties
+
+	self.originalspeed = self.properties.pathspeed or 60
+	self.x0 = self.object.x
 	self.object.visible = false
 	self.object.body:setFixedRotation(true)
 
@@ -35,8 +37,7 @@ local ShmupCam = class(function(self, object)
 	local mapwidth = (levity.map.width * levity.map.tilewidth)
 	self.mapwidthratio = 1 - (self.object.width / mapwidth)
 
-	self.pathwalker = nil
-	self.pathpaused = false
+	self.mover = nil
 
 	self.activatedgrouptriggerids = {}
 end)
@@ -115,6 +116,8 @@ function ShmupCam:endContact(myfixture, otherfixture, contact)
 	end
 end
 
+ShmupCam.pathfind = Mover.pathfind_linear1way
+
 function ShmupCam:beginMove(dt)
 	local body = self.object.body
 	local mass = 0x40000000 -- don't let others push it around
@@ -122,23 +125,19 @@ function ShmupCam:beginMove(dt)
 	local vx0, vy0 = body:getLinearVelocity()
 	local vx1, vy1 = 0, 0
 
-	local pathid = self.properties.pathid
-	if pathid and not self.pathwalker then
-		local x, y = body:getPosition()
-		local path = levity.map.objects[pathid]
-		path.layer:addObject(path)
-		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
-						PathGraph.pickNextPath_linear1way,
-						x, y, "relative", self)
+	if not self.mover and self.properties.pathid then
+		self.mover = levity.map.scripts:newScript(self.object.id, "Mover",
+							self.object)
 	end
 
-	if self.pathwalker and not self.pathpaused then
-		vx1, vy1 = self.pathwalker:getVelocity(dt,
-			self.properties.pathspeed or 60, self.x0, body:getY())
-		vx1 = vx0
+	if self.mover then
+		self.mover:setOffsetX(body:getX() - self.x0)
+		if self.pathpaused then
+			self.properties.pathspeed = 0
+		else
+			self.properties.pathspeed = self.originalspeed
+		end
 	end
-
-	body:setLinearVelocity(vx1, vy1)
 end
 
 function ShmupCam:endMove(dt)
@@ -184,7 +183,8 @@ function ShmupCam:endMove(dt)
 end
 
 function ShmupCam:swayWithPlayer(playerx)
-	self.object.body:setX(playerx * self.mapwidthratio)
+	local x = (playerx * self.mapwidthratio)
+	self.object.body:setX(x)
 	local cx, cy = self.object.body:getWorldCenter()
 	self.camera:set(cx, cy)
 end
@@ -203,8 +203,10 @@ function ShmupCam:getVelocity()
 end
 
 function ShmupCam:playerLost()
-	self.properties.pathid = nil
-	self.pathwalker = nil
+	if self.mover then
+		levity.map.scripts:destroyScript(self.mover, self.object.id)
+		self.mover = nil
+	end
 end
 
 return ShmupCam
