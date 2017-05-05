@@ -132,10 +132,6 @@ function ShmupWingman:npcCaptured(npcid)
 	end
 end
 
-function ShmupWingman:wingmanReserved(wingmanid, wingmangid)
-	self:wingmanKilled(wingmanid)
-end
-
 function ShmupWingman:getConvertTimer()
 	return self.converttimer
 end
