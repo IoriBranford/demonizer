@@ -210,7 +210,7 @@ function NPCPrincess:defeatCoroutine(dt)
 	self.object.body:setLinearVelocity(vx, vy)
 	repeat coroutine.yield() until self.object.body:getY() <= 0
 
-	levity.map.scripts:broadcast("playerWon")
+	levity.map:broadcast("playerWon")
 	levity.map:discardObject(self.object.id)
 end
 
