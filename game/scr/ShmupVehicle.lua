@@ -1,6 +1,6 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
-local PathGraph = require "PathGraph"
+local Mover = require "Mover"
 local ShmupBullet = require "ShmupBullet"
 
 local Sounds = {
@@ -25,10 +25,9 @@ local ShmupVehicle = class(function(self, object)
 			ShmupCollision.Category_NPCShot)
 	end
 
-	self.pathwalker = nil
-
 	self.oncamera = false
 
+	self.mover = nil
 --	TODO strtocall module
 --	local onActivate = self.properties.onActivate
 --	if onActivate then
@@ -177,35 +176,12 @@ function ShmupVehicle:beginMove(dt)
 		return
 	end
 
-	local body = self.object.body
-	local vx0, vy0 = body:getLinearVelocity()
-	local vx1, vy1 = 0, 0
-
-	if not self.pathwalker then
-		local pathid = self.properties.pathid
-		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
-					PathGraph.pickNextPath_linear1way,
-					body:getX(), body:getY(),
-					self.properties.pathmode, self)
-
-		local pathtime = self.properties.pathtime
-		if pathtime then
-			local pathlength = levity.map.scripts:call(
-					pathid, "findTripLength",
-					PathGraph.pickNextPath_linear1way,
-					body:getX(), body:getY())
-
-			self.properties.pathspeed = pathlength / pathtime
-		end
+	if not self.mover and self.properties.pathid then
+		self.mover = levity.map.scripts:newScript(self.object.id, "Mover",
+							self.object)
 	end
-
-	if self.pathwalker then
-		vx1, vy1 = self.pathwalker:getVelocity(dt,
-				self.properties.pathspeed or 60,
-				body:getX(), body:getY())
-	end
-
-	body:setLinearVelocity(vx1, vy1)
 end
+
+ShmupVehicle.pathfind = Mover.pathfind_linear1way
 
 return ShmupVehicle
