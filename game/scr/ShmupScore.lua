@@ -1,5 +1,5 @@
 local levity = require "levity"
-local ShmupPlayer = require("ShmupPlayer")
+local PlayerTeam = require("PlayerTeam")
 local Spark = require("Spark")
 
 local ShmupScore
@@ -12,7 +12,7 @@ ShmupScore = class(function(self, object)
 	self.points = nextmapscore.points or 0
 	self.extendpoints = nextmapscore.extendpoints or 1000000
 	self.multipliers = nextmapscore.multipliers or {
-		[self:idToIdx(levity.map.properties.playerid)] = 0
+		[PlayerTeam.PlayerIndex] = 0
 	}
 
 	self.totalmultiplier = nextmapscore.totalmultiplier or 0
@@ -28,13 +28,6 @@ local Sounds = {
 }
 levity.bank:load(Sounds)
 
-function ShmupScore:idToIdx(id)
-	if id == levity.map.properties.playerid then
-		return "player"
-	end
-	return levity.map.scripts:call(id, "getWingmanIndex")
-end
-
 function ShmupScore:pointsScored(points)
 	self.points = math.min(self.points + points, ShmupScore.MaxPoints)
 	if self.points >= self.extendpoints then
@@ -48,15 +41,20 @@ function ShmupScore:getNextCapturePoints()
 	return ShmupScore.BaseCapturePoints * self.totalmultiplier
 end
 
-function ShmupScore:wingmanJoined(newwingmanidx)
-	if not self.multipliers[newwingmanidx]
-	and ShmupPlayer.isActiveWingmanIndex(newwingmanidx) then
-		self.multipliers[newwingmanidx] = 0
+function ShmupScore:wingmanJoined(newwingmanid)
+	if levity.map.scripts:call("playerteam", "isWingmanActive", newwingmanid)
+	then
+		local i = levity.map.scripts:call("playerteam", "getMemberIndex",
+							newwingmanid)
+		if not self.multipliers[i] then
+			self.multipliers[i] = 0
+		end
 	end
 end
 
 function ShmupScore:npcCaptured(npcid, captorid)
-	self:multiplierInc(self:idToIdx(captorid))
+	self:multiplierInc(
+		levity.map.scripts:call("playerteam", "getMemberIndex", captorid))
 
 	local npc = levity.map.objects[npcid]
 	local points = npc.properties.capturepoints or self:getNextCapturePoints()
@@ -115,24 +113,19 @@ function ShmupScore:multiplierLost(idx)
 	end
 	self.totalmultiplier = self.totalmultiplier - lostmult
 	if type(idx) == "number" then
-		local nummults = #self.multipliers
-		for i = idx, nummults do
-			self.multipliers[i] = self.multipliers[i+1]
-		end
-		self.multipliers[nummults] = nil
+		table.remove(self.multipliers, idx)
+	elseif idx == PlayerTeam.PlayerIndex then
+		self.multipliers[idx] = 0
 	end
 end
 
-function ShmupScore:playerKilled()
-	self:multiplierLost("player")
-end
-
 function ShmupScore:playerRespawned()
-	self.multipliers["player"] = 0
+	self:multiplierLost(PlayerTeam.PlayerIndex)
 end
 
 function ShmupScore:wingmanKilled(id)
-	self:multiplierLost(self:idToIdx(id))
+	self:multiplierLost(
+		levity.map.scripts:call("playerteam", "getMemberIndex", id))
 end
 
 function ShmupScore:friendKilled(id)
@@ -143,7 +136,8 @@ function ShmupScore:friendKilled(id)
 end
 
 function ShmupScore:getMultiplier(id)
-	return self.multipliers[self:idToIdx(id)]
+	return self.multipliers[
+		levity.map.scripts:call("playerteam", "getMemberIndex", id)]
 end
 
 function ShmupScore:getTotalMultiplier()
@@ -151,7 +145,7 @@ function ShmupScore:getTotalMultiplier()
 end
 
 function ShmupScore:isMaxMultiplier(id)
-	return self.multipliers[self:idToIdx(id)] == ShmupScore.MaxMultiplier
+	return self:getMultiplier(id) == ShmupScore.MaxMultiplier
 end
 
 function ShmupScore:beginDraw()

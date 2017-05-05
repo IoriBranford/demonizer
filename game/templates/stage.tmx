@@ -20,7 +20,10 @@
   <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>
  <objectgroup name="sparks"/>
- <objectgroup name="player">
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
   <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
    <properties>
     <property name="script" value="ShmupPlayer"/>

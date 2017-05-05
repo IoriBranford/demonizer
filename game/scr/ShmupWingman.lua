@@ -13,8 +13,6 @@ ShmupWingman = class(function(self, object)
 	self.object.body:setBullet(true)
 	self.firetimer = 0
 
-	self.wingmanindex = self.properties.index or nil
-
 	self:refreshFixtures()
 	self:setVulnerable(true)
 	self:setCaptureEnabled(self.properties.conversionid == nil)
@@ -28,8 +26,7 @@ ShmupWingman = class(function(self, object)
 	self.health = 5
 	self.poweredup = self.properties.poweredup or false
 
-	self.captivegids = {}
-	self.numcaptives = 0
+	levity.map:broadcast("wingmanJoined", self.object.id)
 
 	ShmupNPC = ShmupNPC or require("ShmupNPC")
 end)
@@ -73,6 +70,10 @@ ShmupWingman.ExplosionParams = {
 	lifetime = "animation"
 }
 
+function ShmupWingman:isConverting()
+	return self.properties.conversionid ~= nil
+end
+
 function ShmupWingman:isPoweredUp()
 	return self.poweredup
 end
@@ -100,14 +101,6 @@ function ShmupWingman:setCaptureEnabled(enabled)
 end
 
 function ShmupWingman:kill()
-	local cx, cy = self.object.body:getWorldCenter()
-	ShmupNPC.releaseCaptives(self.captivegids, cx, cy, self.object.layer)
-
-	for i = #self.captivegids, 1, -1 do
-		self.captivegids[i] = nil
-	end
-	self.numcaptives = 0
-
 	levity.map:discardObject(self.object.id)
 	if self.properties.conversionid then
 		levity.map:discardObject(self.properties.conversionid)
@@ -143,20 +136,6 @@ function ShmupWingman:wingmanReserved(wingmanid, wingmangid)
 	self:wingmanKilled(wingmanid)
 end
 
-function ShmupWingman:wingmanKilled(wingmanid)
-	local wingmanindex = levity.map.scripts:call(wingmanid, "getWingmanIndex")
-	if self.wingmanindex > wingmanindex then
-		self.wingmanindex = self.wingmanindex - 1
-		if ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
-			self:setCaptureEnabled(true)
-		end
-	end
-end
-
-function ShmupWingman:getWingmanIndex()
-	return self.wingmanindex
-end
-
 function ShmupWingman:getConvertTimer()
 	return self.converttimer
 end
@@ -169,19 +148,7 @@ function ShmupWingman:beginContact(myfixture, otherfixture, contact)
 	local otherproperties = otherdata.properties
 	local category = otherfixture:getCategory()
 
-	if category == ShmupCollision.Category_NPCTeam then
-		local captiveid = otherfixture:getBody():getUserData().id
-		if levity.map.scripts:call(captiveid, "canBeCaptured") then
-			if levity.map.scripts:call(captiveid, "isFemale") then
-				self.targetcaptiveid = captiveid
-			else
-				local captivegid = levity.map.scripts:call(captiveid, "getKOGid")
-				local i = (self.numcaptives % ShmupPlayer.CaptivesReleasedOnKill) + 1
-				self.captivegids[i] = captivegid
-				self.numcaptives = self.numcaptives + 1
-			end
-		end
-	elseif category == ShmupCollision.Category_NPCShot then
+	if category == ShmupCollision.Category_NPCShot then
 		if self.health >= 1 then
 			local damage = otherproperties.damage or 1
 			self.health = self.health - damage
@@ -207,12 +174,6 @@ function ShmupWingman:playerKilled()
 	self:setCaptureEnabled(false)
 end
 
-function ShmupWingman:playerRespawned()
-	if ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
-		self:setCaptureEnabled(true)
-	end
-end
-
 function ShmupWingman:updateConversion(dt)
 	self.converttimer = self.converttimer + dt
 	if self.converttimer >= ShmupWingman.ConvertTime then
@@ -224,7 +185,7 @@ function ShmupWingman:updateConversion(dt)
 		local gid = levity.map:getTileGid("demonwomen", self.npctype, 0)
 		self.object:setGid(gid, levity.map)
 		self:refreshFixtures()
-		self:setCaptureEnabled(ShmupPlayer.isActiveWingmanIndex(self.wingmanindex))
+		self:setCaptureEnabled(levity.map.scripts:call("playerteam", "isWingmanActive", self.object.id))
 	end
 end
 
@@ -285,12 +246,6 @@ function ShmupWingman:beginMove(dt)
 
 	local playerid = levity.map.properties.playerid
 
-	if not self.wingmanindex then
-		self.wingmanindex = levity.map.scripts:call(playerid,
-					"newWingmanIndex", self.object.id)
-		levity.map:broadcast("wingmanJoined", self.wingmanindex)
-	end
-
 	local cx, cy = body:getWorldCenter()
 	local destx, desty = cx, cy
 	local captive
@@ -302,7 +257,7 @@ function ShmupWingman:beginMove(dt)
 	end
 	local focused = levity.map.scripts:call(playerid, "isFocused")
 	if focused then
-		if not self.properties.conversionid and self.poweredup then
+		if not self:isConverting() and self.poweredup then
 			if not self.targetcaptiveid then
 				self.targetcaptiveid = self:findTarget("canBeCaptured")
 			end
@@ -337,7 +292,7 @@ function ShmupWingman:beginMove(dt)
 		--		end
 		--	end
 		--end
-	elseif self.properties.conversionid then
+	elseif self:isConverting() then
 		local captorid = self.properties.captorid
 		if captorid then
 			local captor = levity.map.objects[captorid]
@@ -348,27 +303,13 @@ function ShmupWingman:beginMove(dt)
 				desty = desty - ShmupWingman.ConvertDist*(1+conversionpct)
 			end
 		end
-	elseif ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
-		destx, desty = levity.map.scripts:call(playerid, "getWingmanPosition",
-						self.wingmanindex)
-		self.targetcaptiveid = nil
-
-		--if self.properties.conversionid then
-		--	desty = desty + ShmupWingman.ConvertShake--*self.converttimer
-		--		*math.sin(self.converttimer * 60)
-		--end
 	else
-		destx, desty = self.object.body:getWorldCenter()
-		--if self.properties.conversionid then
-		--	desty = desty + ShmupWingman.ConvertShake--*self.converttimer
-		--		*math.sin(self.converttimer * 60)
-		--else
-			desty = desty + ShmupWingman.Speed
-		--end
+		destx, desty = levity.map.scripts:call("playerteam",
+				"getWingmanPosition", self.object.id)
+		self.targetcaptiveid = nil
 	end
 
-	self:setVulnerable(not self.properties.conversionid
-		and self.targetcaptiveid
+	self:setVulnerable(not self:isConverting() and self.targetcaptiveid
 		and not levity.map.scripts:call(self.targetcaptiveid, "is_a",
 						ShmupWingman))
 
@@ -386,7 +327,7 @@ function ShmupWingman:beginMove(dt)
 
 	body:setLinearVelocity(vx1, vy1)
 
-	if self.properties.conversionid then
+	if self:isConverting() then
 		self:updateConversion(dt)
 	elseif self.oncamera then
 		if levity.map.scripts:call(playerid, "isFiring") then
@@ -412,7 +353,7 @@ function ShmupWingman:endMove(dt)
 		end
 	end
 
-	if self.properties.conversionid then
+	if self:isConverting() then
 		local x, y = self.object.body:getPosition()
 		local conversion = levity.map.objects[self.properties.conversionid]
 		if conversion then
@@ -420,7 +361,7 @@ function ShmupWingman:endMove(dt)
 				ShmupWingman.ConversionOffset)
 		end
 	elseif not self.oncamera then
-		if not ShmupPlayer.isActiveWingmanIndex(self.wingmanindex) then
+		if not levity.map.scripts:call("playerteam", "isWingmanActive", self.object.id) then
 			levity.map:broadcast("wingmanReserved",
 						self.object.id, self.object.gid)
 			levity.map:discardObject(self.object.id)
@@ -432,7 +373,7 @@ function ShmupWingman:endMove(dt)
 end
 
 function ShmupWingman:beginDraw()
-	if self.properties.conversionid then
+	if self:isConverting() then
 		local flashrate = 30 * self.converttimer
 		local flash = 0x80 * (math.cos(flashrate*math.pi) + 3)
 
@@ -480,7 +421,6 @@ end
 function ShmupWingman:getNextMapData()
 	return {
 		tilename = levity.map:tileGidsToNames({self.object.gid}),
-		index = self.wingmanindex,
 		poweredup = self.poweredup
 	}
 end
@@ -515,7 +455,6 @@ function ShmupWingman.create(map, gid, x, y, captorid, captiveid,
 
 	if nextmapdata then
 		gid = levity.map:tileNamesToGids(nextmapdata.tilename)[1]
-		wingman.properties.index = nextmapdata.index
 		wingman.properties.poweredup = nextmapdata.poweredup
 	end
 

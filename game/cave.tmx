@@ -685,7 +685,10 @@
   </object>
  </objectgroup>
  <objectgroup name="sparks"/>
- <objectgroup name="player">
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
   <object id="2" gid="1" x="152" y="3232" width="64" height="64">
    <properties>
     <property name="script" value="ShmupPlayer"/>

@@ -1264,12 +1264,14 @@
   </object>
  </objectgroup>
  <objectgroup draworder="index" name="sparks"/>
- <objectgroup name="player">
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
   <object id="1" name="player" gid="1" x="144" y="2152" width="64" height="64">
    <properties>
     <property name="script" value="ShmupPlayer"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup draworder="index" name="npcshots"/>
 </map>

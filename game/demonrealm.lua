@@ -7983,7 +7983,7 @@ return {
     {
       type = "objectgroup",
       name = "camera",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -8040,17 +8040,19 @@ return {
     },
     {
       type = "objectgroup",
-      name = "player",
+      name = "playerteam",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PlayerTeam"
+      },
       objects = {
         {
           id = 3,
-          name = "",
+          name = "player",
           type = "",
           shape = "rectangle",
           x = 144,

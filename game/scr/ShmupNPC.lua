@@ -134,6 +134,7 @@ ShmupNPC.DefeatSparkParams = {
 	tileid = "explosion",
 	lifetime = "animation"
 }
+ShmupNPC.MaxReleasedCaptives = 10
 
 function ShmupNPC:activate()
 	self.ready = true
@@ -420,8 +421,6 @@ function ShmupNPC:beginMove(dt)
 
 	if not self.pulledbyplayer and canbecaptured then
 		local capturepulldistsq
-		local uimap = levity.map.overlaymap
-		local scoreid = uimap.scripts:call("status", "getScoreId")
 
 		if levity.map.scripts:call(playerid, "isFocused")
 		and levity.map.scripts:call(playerid, "isPoweredUp")
@@ -583,8 +582,12 @@ function ShmupNPC:inheritPath(leaderid)
 	self.properties.pathid = leader.properties.pathid
 end
 
-function ShmupNPC.releaseCaptives(captivegids, x, y, layer)
-	for i = 1, #captivegids do
+function ShmupNPC.releaseCaptives(captivegids, maxcaptives, x, y, layer)
+	local i0 = 1 + #captivegids
+		- math.min(#captivegids,
+			math.min(maxcaptives, ShmupNPC.MaxReleasedCaptives))
+
+	for i = #captivegids, i0, -1 do
 		local kolaunchvelx = love.math.random(-16, 16)
 		local kolaunchvely = love.math.random(ShmupNPC.ReleaseLaunchVelY,
 						ShmupNPC.ReleaseLaunchVelY - 64)
@@ -602,6 +605,7 @@ function ShmupNPC.releaseCaptives(captivegids, x, y, layer)
 			}
 		}
 		layer:addObject(captive)
+		captivegids[i] = nil
 	end
 end
 

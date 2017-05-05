@@ -5,7 +5,6 @@ local ShmupStatus = require("ShmupStatus")
 
 -- delayed requires to avoid circular dependency
 local ShmupNPC
-local ShmupWingman
 
 local OS = love.system.getOS()
 local IsMobile = OS == "Android" or OS == "iOS"
@@ -28,7 +27,6 @@ local NonPlayMask = {
 local ShmupPlayer
 ShmupPlayer = class(function(self, object)
 	ShmupNPC = ShmupNPC or require("ShmupNPC")
-	ShmupWingman = ShmupWingman or require("ShmupWingman")
 
 	self.object = object
 	self.properties = self.object.properties
@@ -53,23 +51,9 @@ ShmupPlayer = class(function(self, object)
 	self.exiting = false
 	self.exittimer = 0
 
-	self.numwingmen = 0
-	self.wingmenids = {}
-
 	local nextmapdata = levity.nextmapdata or {}
 	local nextmapplayer = nextmapdata.player or {}
 	self.poweredup = nextmapplayer.poweredup or false
-	self.numcaptives = nextmapplayer.numcaptives or 0
-	self.captivegids = levity.map:tileNamesToGids(nextmapplayer.captivenames) or {}
-
-	local nextmapwingmen = nextmapplayer.wingmen or {}
-	local cx, cy = self.object.body:getWorldCenter()
-	for i, wingman in ipairs(nextmapwingmen) do
-		local id = ShmupWingman.create(levity.map, nil, cx, cy, nil, nil,
-					wingman)
-		self.numwingmen = self.numwingmen + 1
-		self.wingmenids[i] = id
-	end
 
 	local fixtures = self.object.body:getUserData().fixtures
 	local bodyfixture = fixtures["body"]
@@ -77,25 +61,6 @@ ShmupPlayer = class(function(self, object)
 		bodyfixture:setFriction(0)
 		bodyfixture:setCategory(ShmupCollision.Category_PlayerTeam)
 		bodyfixture:setMask(unpack(NonPlayMask))
-	end
-
-	self.wingmanpositions = {}
-	self.focuswingmanpositions = {}
-	local tile = levity.map.tiles[self.object.gid]
-	local tileobjects = tile.objectGroup.objects
-	local tileheight = levity.map:getTileset(tile.tileset).tileheight
-	-- bottom left origin
-	-- TODO in levity transform all tile objects so scripts don't have to
-	for _, object in pairs(tileobjects) do
-		local i = tonumber(object.name:match("focuswingman(%x)"))
-		if i then
-			self.focuswingmanpositions[i] = {object.x, object.y - tileheight}
-		else
-			i = tonumber(object.name:match("wingman(%x)"))
-			if i then
-				self.wingmanpositions[i] = {object.x, object.y - tileheight}
-			end
-		end
 	end
 
 	self.soundsource = nil
@@ -157,21 +122,14 @@ ShmupPlayer.BombParams = {
 		end
 	end
 }
-ShmupPlayer.MaxWingmen = 4
 ShmupPlayer.DeathTime = 1
 ShmupPlayer.RespawnShieldTime = 3
 ShmupPlayer.DeathSnapToCameraVelocity = 1/16
-ShmupPlayer.WingmanFleeDistance = 400
-ShmupPlayer.CaptivesReleasedOnKill = 10
 ShmupPlayer.Button_Fire = 1
 ShmupPlayer.Button_Focus = 2
 ShmupPlayer.Button_Bomb = 3
 ShmupPlayer.ExitWaitTime = 8
 ShmupPlayer.ExitSpeed = ShmupPlayer.Speed * 2
-
-function ShmupPlayer.isActiveWingmanIndex(i)
-	return 0 < i and i <= ShmupPlayer.MaxWingmen
-end
 
 local Sounds = {
 	Shot = "snd/playershot.wav",
@@ -194,59 +152,6 @@ function ShmupPlayer:playSound(soundfile)
 		self.soundsource:rewind()
 		self.soundsource:play()
 	end
-end
-
-function ShmupPlayer:rankFactor()
-	return self.numwingmen / ShmupPlayer.MaxWingmen
-end
-
-function ShmupPlayer:roomForWingmen()
-	return self.numwingmen < ShmupPlayer.MaxWingmen
-end
-
-function ShmupPlayer:newWingmanIndex(wingmanid)
-	local newindex = self.numwingmen + 1
-	self.numwingmen = newindex
-	self.wingmenids[#self.wingmenids + 1] = wingmanid
-	return newindex
-end
-
-function ShmupPlayer:wingmanReserved(wingmanid, wingmangid)
-	self.numwingmen = self.numwingmen - 1
-	local wingmanindex = levity.map.scripts:call(wingmanid, "getWingmanIndex")
-	table.remove(self.wingmenids, wingmanindex)
-end
-
-function ShmupPlayer:wingmanKilled(wingmanid)
-	self.numwingmen = self.numwingmen - 1
-	local wingmanindex = levity.map.scripts:call(wingmanid, "getWingmanIndex")
-	table.remove(self.wingmenids, wingmanindex)
-end
-
-function ShmupPlayer:getWingmanPosition(i)
-	local wmx, wmy = self.object.body:getWorldCenter()
-	local offset
-
-	if self:isFocused() then
-		offset = self.focuswingmanpositions[i]
-	else
-		offset = self.wingmanpositions[i]
-	end
-
-	if offset then
-		wmx = wmx + offset[1]
-		wmy = wmy + offset[2]
-
-		if self.killed then
-			local angle = math.pi * .5
-			angle = angle + math.atan2(-offset[1], -offset[2]) * .25
-
-			local distance = ShmupPlayer.WingmanFleeDistance
-			wmx = wmx + distance * math.cos(angle)
-			wmy = wmy + distance * math.sin(angle)
-		end
-	end
-	return wmx, wmy
 end
 
 function ShmupPlayer:isFiring()
@@ -387,16 +292,7 @@ end
 
 function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 	local category = otherfixture:getCategory()
-	if category == ShmupCollision.Category_NPCTeam then
-		local captiveid = otherfixture:getBody():getUserData().id
-		if not levity.map.scripts:call(captiveid, "isFemale")
-		and levity.map.scripts:call(captiveid, "canBeCaptured") then
-			local captivegid = levity.map.scripts:call(captiveid, "getKOGid")
-			local i = (self.numcaptives % ShmupPlayer.CaptivesReleasedOnKill) + 1
-			self.captivegids[i] = captivegid
-			self.numcaptives = self.numcaptives + 1
-		end
-	elseif category == ShmupCollision.Category_NPCShot then
+	if category == ShmupCollision.Category_NPCShot then
 		if not self.killed and self.shieldtimer == 0 then
 			self.coroutine = coroutine.create(
 				ShmupPlayer.deathCoroutine)
@@ -431,14 +327,6 @@ function ShmupPlayer:deathCoroutine(dt)
 
 	self:playSound(Sounds.Death)
 	self:playSound(Sounds.Scream)
-
-	local cx, cy = self.object.body:getWorldCenter()
-	ShmupNPC.releaseCaptives(self.captivegids, cx, cy, self.object.layer)
-
-	for i = #self.captivegids, 1, -1 do
-		self.captivegids[i] = nil
-	end
-	self.numcaptives = 0
 
 	local t = 0
 	while t < ShmupPlayer.DeathTime do
@@ -678,17 +566,9 @@ function ShmupPlayer:playerWon()
 end
 
 function ShmupPlayer:nextMap(nextmapfile, nextmapdata)
-	local wingmen = {}
-	for i, id in ipairs(self.wingmenids) do
-		wingmen[i] = levity.map.scripts:call(id, "getNextMapData")
-	end
-
 	if nextmapdata then
 		nextmapdata.player = {
-			poweredup = self.poweredup,
-			wingmen = wingmen,
-			captivenames = levity.map:tileGidsToNames(self.captivegids),
-			numcaptives = self.numcaptives
+			poweredup = self.poweredup
 		}
 	end
 end
