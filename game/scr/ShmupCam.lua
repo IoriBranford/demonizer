@@ -122,8 +122,6 @@ function ShmupCam:beginMove(dt)
 	local body = self.object.body
 	local mass = 0x40000000 -- don't let others push it around
 	body:setMass(mass)
-	local vx0, vy0 = body:getLinearVelocity()
-	local vx1, vy1 = 0, 0
 
 	if not self.mover and self.properties.pathid then
 		self.mover = levity.map.scripts:newScript(self.object.id, "Mover",
