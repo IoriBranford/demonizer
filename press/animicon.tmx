@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="48" height="36" tilewidth="5" tileheight="5" nextobjectid="15">
+ <tileset firstgid="1" source="../game/img/demonizing.tsx"/>
+ <tileset firstgid="4" source="../game/img/bg_swirl.tsx"/>
+ <tileset firstgid="104" source="img/humansdown.tsx"/>
+ <tileset firstgid="152" source="img/imp2.tsx"/>
+ <tileset firstgid="155" source="../game/img/title.tsx"/>
+ <layer name="Tile Layer 1" width="48" height="36">
+  <data encoding="base64" compression="zlib">
+   eJzt1TVyHFAUAMENVszMZIuZyWJmZpZF97+B+ggKn6p+0Nnkk81kMjnkkkc+BRRSRDElZIN2pZRRTgWVVFFNDbXUBe7qaaCRJpppoZU22ukI3P3hL5100U0PvfTRz0DgbpAhhhlhlDHGmWCSqcDdNDPMMsc8/1hgkSWWA3crrLLGOhtsssU2O+wG7vbY54BDjjjmhFPOOA/cXXDJFdfccMsd9zzwGLh74pkXXvnPG+988MlX4C7qV9N/03/Tf9N/03/Tf9N/43ZRv5r+m/6b/pv+m/6b/pv+G7eL+tWfdlG/mv77O/77DQLoUZA=
+  </data>
+ </layer>
+ <objectgroup draworder="index" name="Object Layer 1">
+  <object id="12" name="dem" gid="155" x="110" y="105" width="128" height="32"/>
+  <object id="13" name="oni" gid="156" x="140" y="105" width="128" height="32"/>
+  <object id="14" name="zer" gid="157" x="170" y="105" width="128" height="32"/>
+  <object id="10" gid="152" x="35" y="80" width="64" height="64"/>
+  <object id="2" name="demonization" gid="1" x="35" y="90" width="64" height="64"/>
+  <object id="1" name="pike" gid="106" x="35" y="89" width="24" height="32"/>
+ </objectgroup>
+</map>
