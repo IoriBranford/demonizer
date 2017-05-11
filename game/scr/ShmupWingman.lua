@@ -388,22 +388,6 @@ function ShmupWingman:beginDraw()
 			love.graphics.setColor(0xff, wound, wound)
 		end
 	end
-
-	local uimap = levity.map.overlaymap
-	local scoreid
-	if uimap then
-		scoreid = uimap.scripts:call("status", "getScoreId")
-	end
-	if scoreid then
-		self.properties.text = uimap.scripts:call(scoreid,
-					"getMultiplier", self.object.id)
-		if self.properties.text and self.poweredup then
-			self.properties.text = self.properties.text..'\nP'
-		end
-	else
-		self.properties.text = nil
-	end
-	self.properties.textfont = "fnt/pressstart2p.fnt"
 end
 
 function ShmupWingman:endDraw()

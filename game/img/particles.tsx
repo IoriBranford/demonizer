@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="particles" tilewidth="4" tileheight="4" tilecount="8" columns="4">
- <tileoffset x="-2" y="2"/>
+<tileset name="particles" tilewidth="4" tileheight="4" tilecount="16" columns="4">
  <properties>
   <property name="commonanimation" type="int" value="0"/>
  </properties>
- <image source="particles.png" width="16" height="8"/>
+ <image source="particles.png" width="16" height="16"/>
  <tile id="0">
   <properties>
    <property name="name" value="damage"/>
@@ -19,6 +18,11 @@
  <tile id="4">
   <properties>
    <property name="name" value="guard"/>
+  </properties>
+ </tile>
+ <tile id="8">
+  <properties>
+   <property name="name" value="powerdot"/>
   </properties>
  </tile>
 </tileset>

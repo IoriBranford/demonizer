@@ -1,6 +1,7 @@
 local levity = require "levity"
 local ShmupWingman = require "ShmupWingman"
 local ShmupNPC = require "ShmupNPC"
+local PlayerPower = require "PlayerPower"
 
 --- Manager of player and wingmen
 -- - Formation positions
@@ -11,6 +12,10 @@ PlayerTeam = class(function(self, layer)
 	self.layer = layer
 	self.playerid = levity.map.properties.playerid
 	self.wingmanids = {}
+	self.powergaugeids = {
+		[PlayerTeam.PlayerIndex] =
+			PlayerPower.create(self.playerid, self.layer)
+	}
 
 	local player = levity.map.objects[self.playerid]
 
@@ -53,12 +58,16 @@ function PlayerTeam:roomForWingmen()
 	return #self.wingmanids < PlayerTeam.MaxWingmen
 end
 
-function PlayerTeam:wingmanJoined(wingmanid)
-	self.wingmanids[#self.wingmanids + 1] = wingmanid
-end
-
 local function isActiveWingmanIndex(i)
 	return 0 < i and i <= PlayerTeam.MaxWingmen
+end
+
+function PlayerTeam:wingmanJoined(wingmanid)
+	local i = #self.wingmanids + 1
+	self.wingmanids[i] = wingmanid
+	if isActiveWingmanIndex(i) then
+		self.powergaugeids[i] = PlayerPower.create(wingmanid, self.layer)
+	end
 end
 
 function PlayerTeam:isWingmanActive(wingmanid)
@@ -121,6 +130,16 @@ function PlayerTeam:getWingmanPosition(wingmanid)
 	return wmx, wmy
 end
 
+function PlayerTeam:endMove(dt)
+	local focused = levity.map.scripts:call(self.playerid, "isFocused")
+	for _, id in pairs(self.powergaugeids) do
+		local gauge = levity.map.objects[id]
+		if gauge then
+			gauge.visible = focused
+		end
+	end
+end
+
 function PlayerTeam:wingmanReserved(wingmanid)
 	self:forgetWingman()
 end
@@ -152,12 +171,17 @@ function PlayerTeam:forgetWingman(wingmanid)
 	local i = self:getMemberIndex(wingmanid)
 	if i then
 		table.remove(self.wingmanids, i)
+		if isActiveWingmanIndex(i) then
+			levity.map:discardObject(self.powergaugeids[i])
+			table.remove(self.powergaugeids, i)
+		end
 
 		if i <= PlayerTeam.MaxWingmen
 		and #self.wingmanids >= PlayerTeam.MaxWingmen then
-			levity.map.scripts:call(
-				self.wingmanids[PlayerTeam.MaxWingmen],
-				"setCaptureEnabled", true)
+			i = PlayerTeam.MaxWingmen
+			local id = self.wingmanids[i]
+			levity.map.scripts:call(id, "setCaptureEnabled", true)
+			self.powergaugeids[i] = PlayerPower.create(id, self.layer)
 		end
 	end
 end

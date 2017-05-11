@@ -1180,16 +1180,16 @@ return {
       name = "playerhitbox",
       firstgid = 7334,
       filename = "img/playerhitbox.tsx",
-      tilewidth = 32,
-      tileheight = 32,
+      tilewidth = 8,
+      tileheight = 8,
       spacing = 0,
       margin = 0,
       image = "img/playerhitbox.png",
-      imagewidth = 32,
-      imageheight = 32,
+      imagewidth = 8,
+      imageheight = 8,
       tileoffset = {
-        x = -16,
-        y = 16
+        x = -4,
+        y = 4
       },
       properties = {},
       terrains = {},
@@ -1490,6 +1490,372 @@ return {
               tileid = 19,
               duration = 83
             }
+          }
+        }
+      }
+    },
+    {
+      name = "particles",
+      firstgid = 7383,
+      filename = "img/particles.tsx",
+      tilewidth = 4,
+      tileheight = 4,
+      spacing = 0,
+      margin = 0,
+      image = "img/particles.png",
+      imagewidth = 16,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      properties = {
+        ["commonanimation"] = 0
+      },
+      terrains = {},
+      tilecount = 16,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["name"] = "damage"
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 100
+            },
+            {
+              tileid = 1,
+              duration = 100
+            },
+            {
+              tileid = 2,
+              duration = 100
+            },
+            {
+              tileid = 3,
+              duration = 100
+            }
+          }
+        },
+        {
+          id = 4,
+          properties = {
+            ["name"] = "guard"
+          }
+        },
+        {
+          id = 8,
+          properties = {
+            ["name"] = "powerdot"
+          }
+        }
+      }
+    },
+    {
+      name = "powergauge",
+      firstgid = 7399,
+      filename = "img/powergauge.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/powergauge.png",
+      imagewidth = 64,
+      imageheight = 32,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      properties = {
+        ["commoncollision"] = 0
+      },
+      terrains = {},
+      tilecount = 2,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["name"] = "notfull"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "power1",
+                type = "",
+                shape = "ellipse",
+                x = 1,
+                y = 16,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 2,
+                name = "power2",
+                type = "",
+                shape = "ellipse",
+                x = 5,
+                y = 18,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 3,
+                name = "power3",
+                type = "",
+                shape = "ellipse",
+                x = 8,
+                y = 21,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 4,
+                name = "power4",
+                type = "",
+                shape = "ellipse",
+                x = 11,
+                y = 24,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 5,
+                name = "power5",
+                type = "",
+                shape = "ellipse",
+                x = 13,
+                y = 28,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 6,
+                name = "power6",
+                type = "",
+                shape = "ellipse",
+                x = 13,
+                y = 33,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 7,
+                name = "power7",
+                type = "",
+                shape = "ellipse",
+                x = 11,
+                y = 37,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 8,
+                name = "power8",
+                type = "",
+                shape = "ellipse",
+                x = 8,
+                y = 40,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 9,
+                name = "power9",
+                type = "",
+                shape = "ellipse",
+                x = 5,
+                y = 43,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 10,
+                name = "power10",
+                type = "",
+                shape = "ellipse",
+                x = 1,
+                y = 45,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 11,
+                name = "power18",
+                type = "",
+                shape = "ellipse",
+                x = -11,
+                y = 21,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 12,
+                name = "power14",
+                type = "",
+                shape = "ellipse",
+                x = -14,
+                y = 37,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 13,
+                name = "power15",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 33,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 14,
+                name = "power16",
+                type = "",
+                shape = "ellipse",
+                x = -16,
+                y = 28,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 15,
+                name = "power12",
+                type = "",
+                shape = "ellipse",
+                x = -8,
+                y = 43,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 16,
+                name = "power11",
+                type = "",
+                shape = "ellipse",
+                x = -4,
+                y = 45,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 17,
+                name = "power13",
+                type = "",
+                shape = "ellipse",
+                x = -11,
+                y = 40,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 18,
+                name = "power17",
+                type = "",
+                shape = "ellipse",
+                x = -14,
+                y = 24,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 19,
+                name = "power19",
+                type = "",
+                shape = "ellipse",
+                x = -8,
+                y = 18,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 20,
+                name = "power20",
+                type = "",
+                shape = "ellipse",
+                x = -4,
+                y = 16,
+                width = 4,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 1,
+          properties = {
+            ["name"] = "full"
           }
         }
       }
