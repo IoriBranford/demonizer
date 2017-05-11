@@ -117,6 +117,8 @@ function ShmupVehicle:explode()
 	else
 		self:remove()
 	end
+
+	self.properties.pathspeed = 0
 end
 
 function ShmupVehicle:beginContact_PlayerShot(myfixture, otherfixture, contact)
