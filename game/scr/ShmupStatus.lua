@@ -93,6 +93,7 @@ end
 function ShmupStatus:playerRespawned()
 	self.numlives = self.numlives - 1
 	self:updateLives()
+	self:addBombPieces(ShmupStatus.PiecesPerBomb/2)
 end
 
 function ShmupStatus:hasBombs()
@@ -164,8 +165,8 @@ function ShmupStatus:beginMove(dt)
 			y = math.max(y, b)
 		end
 
-		local wingmanid = ShmupWingman.create(levity.map,
-						wingmangid, x, y, nil, nil)
+		local wingmanid = ShmupWingman.create(levity.map, wingmangid,
+							x, y, nil, nil)
 
 		self.reservegids[#self.reservegids] = nil
 		self:updateReserves()
