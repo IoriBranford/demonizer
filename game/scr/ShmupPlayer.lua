@@ -283,8 +283,8 @@ end
 
 function ShmupPlayer:mousemoved(x, y, dx, dy)
 	if not levity.map.paused then
-		self.inputvx = self.inputvx + (dx / levity.map.camera.scale)
-		self.inputvy = self.inputvy + (dy / levity.map.camera.scale)
+		self.inputvx = self.inputvx + (dx / levity.camera.scale)
+		self.inputvy = self.inputvy + (dy / levity.camera.scale)
 		self.didmousemove = true
 	end
 end

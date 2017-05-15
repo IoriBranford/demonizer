@@ -93,7 +93,7 @@ function NPCArcher:beginMove(dt)
 	end
 
 	if self.oncamera
-	and self.object.y - levity.map.camera.y < levity.map.camera.h*.75
+	and self.object.y - levity.camera.y < levity.camera.h*.75
 	then
 		self:updateFiring(dt)
 	end

@@ -115,8 +115,8 @@ function ShmupTouchControls:touchreleased(touch, x, y, dx, dy)
 end
 
 function ShmupTouchControls:beginDraw()
-	self.layer.offsetx = levity.map.camera.x
-	self.layer.offsety = levity.map.camera.y
+	self.layer.offsetx = levity.camera.x
+	self.layer.offsety = levity.camera.y
 end
 
 return ShmupTouchControls

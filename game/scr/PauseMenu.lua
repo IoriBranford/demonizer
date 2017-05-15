@@ -121,12 +121,12 @@ function PauseMenu:activateCursorButton()
 end
 
 function PauseMenu:beginDraw()
-	self.layer.offsetx = levity.map.camera.x
-	self.layer.offsety = levity.map.camera.y
+	self.layer.offsetx = levity.camera.x
+	self.layer.offsety = levity.camera.y
 	love.graphics.setColor(0,0,0, 0xc0)
 	love.graphics.rectangle("fill",
-		levity.map.camera.x, levity.map.camera.y,
-		levity.map.camera.w, levity.map.camera.h)
+		levity.camera.x, levity.camera.y,
+		levity.camera.w, levity.camera.h)
 	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
 end
 
@@ -135,8 +135,8 @@ function PauseMenu:endDraw()
 --		local x, y = love.mouse.getPosition()
 --		x, y = levity:screenToCamera(x, y)
 --		love.graphics.circle("line",
---			levity.map.camera.x + x,
---			levity.map.camera.y + y, 2)
+--			levity.camera.x + x,
+--			levity.camera.y + y, 2)
 --	end
 end
 

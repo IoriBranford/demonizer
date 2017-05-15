@@ -176,8 +176,8 @@ function ShmupStatus:beginMove(dt)
 end
 
 function ShmupStatus:beginDraw()
-	self.layer.offsetx = levity.map.camera.x
-	self.layer.offsety = levity.map.camera.y
+	self.layer.offsetx = levity.camera.x
+	self.layer.offsety = levity.camera.y
 end
 
 function ShmupStatus:nextMap(nextmapfile, nextmapdata)

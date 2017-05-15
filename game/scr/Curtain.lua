@@ -22,8 +22,7 @@ end
 
 local function beginDraw(self)
 	love.graphics.setColor(0, 0, 0, 0xff)
-	local map = levity.map
-	local camera = map.camera
+	local camera = levity.camera
 	local width = (camera.w - self.openwidth)*.5
 	love.graphics.rectangle("fill", camera.x, camera.y, width, camera.h)
 	love.graphics.rectangle("fill", camera.x + (camera.w + self.openwidth)*.5,
@@ -32,8 +31,7 @@ local function beginDraw(self)
 end
 
 function Curtain:finishedOpening()
-	local map = levity.map
-	return self.openwidth >= map.camera.w
+	return self.openwidth >= levity.camera.w
 end
 
 function Curtain:finishedClosing()
@@ -50,8 +48,7 @@ function Curtain:beginOpen()
 end
 
 function Curtain:beginClose()
-	local map = levity.map
-	self.openwidth = map.camera.w
+	self.openwidth = levity.camera.w
 	self.direction = -1
 	levity.scripts:scriptAddEventFunc(self, self.layer.name, "beginMove",
 							beginMove)
