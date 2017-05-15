@@ -233,8 +233,7 @@ function ShmupWingman:findTarget(canbetargetfunc)
 	local y0 = dy + cy - ShmupWingman.LockSearchHeight
 	local y1 = dy + cy + ShmupWingman.LockSearchHeight
 
-	return Targeting.queryRectangle(levity.map,
-					canbetargetfunc, x0, y0, x1, y1)
+	return Targeting.queryRectangle(canbetargetfunc, x0, y0, x1, y1)
 end
 
 function ShmupWingman:beginMove(dt)

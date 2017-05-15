@@ -153,8 +153,7 @@ function ShmupFriend:findTarget(canbetargetfunc)
 	local y0 = cy - ShmupFriend.LockSearchHeight
 	local y1 = cy + ShmupFriend.LockSearchHeight
 
-	return Targeting.queryRectangle(levity.map,
-					canbetargetfunc, x0, y0, x1, y1)
+	return Targeting.queryRectangle(canbetargetfunc, x0, y0, x1, y1)
 end
 
 function ShmupFriend:beginMove(dt)
