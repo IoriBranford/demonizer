@@ -84,7 +84,7 @@ function NPCSwordsman:beginMove(dt)
 		self.object.body:setLinearVelocity(0, NPCSwordsman.Speed)
 		self:faceAngle(math.pi/2)
 		if not self.oncamera then
-			levity.map:discardObject(self.object.id)
+			levity:discardObject(self.object.id)
 		end
 		return
 	end

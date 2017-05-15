@@ -211,7 +211,7 @@ function NPCPrincess:defeatCoroutine(dt)
 	repeat coroutine.yield() until self.object.body:getY() <= 0
 
 	levity.scripts:broadcast("playerWon")
-	levity.map:discardObject(self.object.id)
+	levity:discardObject(self.object.id)
 end
 
 function NPCPrincess:beginMove(dt)

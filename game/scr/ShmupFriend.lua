@@ -83,7 +83,7 @@ function ShmupFriend:setActive(active)
 end
 
 function ShmupFriend:kill()
-	levity.map:discardObject(self.object.id)
+	levity:discardObject(self.object.id)
 	levity.bank:play(Sounds.Death)
 	levity.scripts:broadcast("friendKilled", self.object.id)
 end

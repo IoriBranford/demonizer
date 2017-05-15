@@ -101,9 +101,9 @@ function ShmupWingman:setCaptureEnabled(enabled)
 end
 
 function ShmupWingman:kill()
-	levity.map:discardObject(self.object.id)
+	levity:discardObject(self.object.id)
 	if self.properties.conversionid then
-		levity.map:discardObject(self.properties.conversionid)
+		levity:discardObject(self.properties.conversionid)
 	end
 
 	levity.bank:play(Sounds.Death)
@@ -173,7 +173,7 @@ end
 function ShmupWingman:updateConversion(dt)
 	self.converttimer = self.converttimer + dt
 	if self.converttimer >= ShmupWingman.ConvertTime then
-		levity.map:discardObject(self.properties.conversionid)
+		levity:discardObject(self.properties.conversionid)
 		self.properties.conversionid = nil
 		self.properties.captorid = nil
 		self.converttimer = nil
@@ -351,9 +351,9 @@ function ShmupWingman:endMove(dt)
 		if not levity.scripts:call("playerteam", "isWingmanActive", self.object.id) then
 			levity.scripts:broadcast("wingmanReserved",
 						self.object.id, self.object.gid)
-			levity.map:discardObject(self.object.id)
+			levity:discardObject(self.object.id)
 			if self.properties.conversionid then
-				levity.map:discardObject(self.properties.conversionid)
+				levity:discardObject(self.properties.conversionid)
 			end
 		end
 	end

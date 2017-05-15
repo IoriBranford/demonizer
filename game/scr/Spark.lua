@@ -1,7 +1,7 @@
 local levity = require "levity"
 
 local function loopedAnimation(self)
-	levity.map:discardObject(self.object.id)
+	levity:discardObject(self.object.id)
 end
 
 local function beginMove(self, dt)
@@ -35,7 +35,7 @@ end)
 function Spark:endMove(dt)
 	self.time = self.time - dt
 	if self.time <= 0 then
-		levity.map:discardObject(self.object.id)
+		levity:discardObject(self.object.id)
 	end
 end
 

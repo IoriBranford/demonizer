@@ -175,7 +175,7 @@ function PlayerTeam:forgetWingman(wingmanid)
 	if i then
 		table.remove(self.wingmanids, i)
 		if isActiveWingmanIndex(i) then
-			levity.map:discardObject(self.powergaugeids[i])
+			levity:discardObject(self.powergaugeids[i])
 			table.remove(self.powergaugeids, i)
 		end
 

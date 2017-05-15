@@ -160,7 +160,7 @@ function ShmupVehicle:endContact(myfixture, otherfixture, contact)
 end
 
 function ShmupVehicle:remove()
-	levity.map:discardObject(self.object.id)
+	levity:discardObject(self.object.id)
 --	if self.onRemove then
 --		self.onRemove()
 --	end

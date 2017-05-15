@@ -381,7 +381,7 @@ function ShmupNPC:die()
 end
 
 function ShmupNPC:discard()
-	levity.map:discardObject(self.object.id)
+	levity:discardObject(self.object.id)
 	if self.onDiscard then
 		self.onDiscard()
 	end

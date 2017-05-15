@@ -20,7 +20,7 @@ local function beginMove(self, dt)
 end
 
 local function loopedAnimation(self)
-	levity.map:discardObject(self.object.id)
+	levity:discardObject(self.object.id)
 end
 
 local ShmupBullet
@@ -97,7 +97,7 @@ function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
 	or otherfixture:getCategory() == ShmupCollision.Category_PlayerBomb
 	or otherfixture:getCategory() == ShmupCollision.Category_NPCTeam then
 		if not self.object.properties.persist then
-			levity.map:discardObject(self.object.id)
+			levity:discardObject(self.object.id)
 		end
 	end
 end
@@ -110,11 +110,11 @@ end
 
 function ShmupBullet:endMove(dt)
 	if self.exitedcamera then
-		levity.map:discardObject(self.object.id)
+		levity:discardObject(self.object.id)
 	elseif type(self.time) == "number" then
 		self.time = self.time - dt
 		if self.time <= 0 then
-			levity.map:discardObject(self.object.id)
+			levity:discardObject(self.object.id)
 		end
 	end
 end
