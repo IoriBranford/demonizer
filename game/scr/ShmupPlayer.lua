@@ -218,8 +218,7 @@ function ShmupPlayer:joystickchanged(button, pressed)
 	and not self.killed and not levity.map.paused then
 		local params = ShmupPlayer.BombParams
 
-		local uimap = levity.map.overlaymap
-		if not uimap or uimap.scripts:call("status", "hasBombs") then
+		if levity.map.scripts:call("status", "hasBombs") ~= false then
 			local x, y = self.object.body:getWorldCenter()
 			y = y - 128
 			ShmupBullet.create(params, x, y, 0, self.object.layer)
@@ -339,8 +338,7 @@ function ShmupPlayer:deathCoroutine(dt)
 		self, dt = coroutine.yield()
 	end
 
-	local uimap = levity.map.overlaymap
-	if not uimap or uimap.scripts:call("status", "hasLives") then
+	if levity.map.scripts:call("status", "hasLives") ~= false then
 		self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
 	else
 		levity.map:broadcast("playerLost")
@@ -493,13 +491,9 @@ function ShmupPlayer:beginMove(dt)
 end
 
 function ShmupPlayer:endMove(dt)
-	local uimap = levity.map.overlaymap
-	local scoreid
-	if uimap then
-		scoreid = uimap.scripts:call("status", "getScoreId")
-	end
+	local scoreid = levity.map.scripts:call("status", "getScoreId")
 	if scoreid and not self.poweredup and not self.killed then
-		self.poweredup = uimap.scripts:call(scoreid, "isMaxMultiplier",
+		self.poweredup = levity.map.scripts:call(scoreid, "isMaxMultiplier",
 							self.object.id)
 		if self.poweredup then
 			levity.bank:play(Sounds.Maxed)

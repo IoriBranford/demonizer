@@ -64,9 +64,8 @@ function PlayerPower:endMove(dt)
 	end
 	self.object:setGid(levity.map:getTileGid("powergauge", tile), levity.map)
 
-	local uimap = levity.map.overlaymap
-	local scoreid = uimap.scripts:call("status", "getScoreId")
-	local mult = uimap.scripts:call(scoreid, "getMultiplier", teammemberid)
+	local scoreid = levity.map.scripts:call("status", "getScoreId")
+	local mult = levity.map.scripts:call(scoreid, "getMultiplier", teammemberid)
 		or 0
 	for i = 1, mult do
 		self:setDotVisible(i, true)

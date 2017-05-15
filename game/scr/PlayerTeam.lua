@@ -67,6 +67,10 @@ function PlayerTeam:wingmanJoined(wingmanid)
 	self.wingmanids[i] = wingmanid
 	if isActiveWingmanIndex(i) then
 		self.powergaugeids[i] = PlayerPower.create(wingmanid, self.layer)
+		local scoreid = levity.map.scripts:call("status", "getScoreId")
+		if scoreid then
+			levity.map.scripts:call(scoreid, "initMultiplier", i)
+		end
 	end
 end
 
@@ -148,11 +152,10 @@ function PlayerTeam:releaseCaptives(memberid)
 	local body = levity.map.objects[memberid].body
 	local cx, cy = body:getWorldCenter()
 	local maxcaptives = ShmupNPC.MaxReleasedCaptives
-	local uimap = levity.map.overlaymap
-	local scoreid = uimap.scripts:call("status", "getScoreId")
+	local scoreid = levity.map.scripts:call("status", "getScoreId")
 	if scoreid then
 		maxcaptives =
-			uimap.scripts:call(scoreid, "getMultiplier", memberid)
+			levity.map.scripts:call(scoreid, "getMultiplier", memberid)
 			or maxcaptives
 	end
 	ShmupNPC.releaseCaptives(self.captivegids, maxcaptives, cx, cy, self.layer)

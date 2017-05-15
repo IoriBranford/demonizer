@@ -37,7 +37,7 @@ function UIGauge:setFill(fill)
 	self.x = self.object.x + self.fillrect.x
 	self.y = self.object.y + self.fillrect.y
 	if self.object.tile then
-		local tileset = levity.map.overlaymap:getTileset(self.object.tile.tileset)
+		local tileset = levity.map:getTileset(self.object.tile.tileset)
 		self.y = self.y - tileset.tileheight
 	end
 	self.w = self.fillrect.width

@@ -28,8 +28,8 @@ local ShmupCam = class(function(self, object)
 	self.camera = levity.map.camera
 	local cx, cy = self.object.body:getWorldCenter()
 	self.camera:set(cx, cy, self.object.width, self.object.height)
-	if levity.map.overlaymap then
-		levity.map.overlaymap.camera:set(
+	if levity.map then
+		levity.map.camera:set(
 				self.object.width/2, self.object.height/2,
 				self.object.width, self.object.height)
 	end

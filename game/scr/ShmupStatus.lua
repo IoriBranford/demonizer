@@ -131,7 +131,7 @@ function ShmupStatus:updateBombs()
 
 		if bomb.visible then
 			local fill = math.min(1, numbombpieces / ShmupStatus.PiecesPerBomb)
-			levity.map.overlaymap.scripts:call(bomb.id, "setFill", fill)
+			levity.map.scripts:call(bomb.id, "setFill", fill)
 		end
 
 		numbombpieces = numbombpieces - ShmupStatus.PiecesPerBomb
@@ -146,7 +146,7 @@ function ShmupStatus:beginMove(dt)
 	if levity.map.paused then
 		return
 	end
-	local totalmultiplier = levity.map.overlaymap.scripts:call(self.elements.score.id,
+	local totalmultiplier = levity.map.scripts:call(self.elements.score.id,
 							"getTotalMultiplier")
 
 	self:addBombPieces(totalmultiplier*ShmupStatus.PiecesPerCaptivePerSec*dt)
@@ -173,10 +173,10 @@ function ShmupStatus:beginMove(dt)
 	end
 end
 
---function ShmupStatus:beginDraw()
---	self.layer.offsetx = levity.map.camera.x
---	self.layer.offsety = levity.map.camera.y
---end
+function ShmupStatus:beginDraw()
+	self.layer.offsetx = levity.map.camera.x
+	self.layer.offsety = levity.map.camera.y
+end
 
 function ShmupStatus:nextMap(nextmapfile, nextmapdata)
 	if nextmapdata then

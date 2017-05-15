@@ -41,14 +41,9 @@ function ShmupScore:getNextCapturePoints()
 	return ShmupScore.BaseCapturePoints * self.totalmultiplier
 end
 
-function ShmupScore:wingmanJoined(newwingmanid)
-	if levity.map.scripts:call("playerteam", "isWingmanActive", newwingmanid)
-	then
-		local i = levity.map.scripts:call("playerteam", "getMemberIndex",
-							newwingmanid)
-		if not self.multipliers[i] then
-			self.multipliers[i] = 0
-		end
+function ShmupScore:initMultiplier(memberi)
+	if not self.multipliers[memberi] then
+		self.multipliers[memberi] = 0
 	end
 end
 

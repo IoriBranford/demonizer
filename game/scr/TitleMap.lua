@@ -31,16 +31,14 @@ function TitleMap:keypressed_escape()
 end
 
 local function endMove(self, dt)
-	local uimap = self.map.overlaymap or self.map
-	if uimap.scripts:call("curtain", "finishedClosing") then
+	if levity.map.scripts:call("curtain", "finishedClosing") then
 		levity:setNextMap(self.properties.nextmap)
 	end
 end
 
 function TitleMap:joystickpressed(joystick, button)
 	if button == 1 then
-		local uimap = self.map.overlaymap or self.map
-		uimap.scripts:call("curtain", "beginClose")
+		levity.map.scripts:call("curtain", "beginClose")
 		if levity.bank.currentmusic then
 			levity.bank.currentmusic:fade()
 		end

@@ -246,11 +246,7 @@ function ShmupWingman:beginMove(dt)
 	local destx, desty = cx, cy
 	local captive
 
-	local uimap = levity.map.overlaymap
-	local scoreid
-	if uimap then
-		scoreid = uimap.scripts:call("status", "getScoreId")
-	end
+	local scoreid = levity.map.scripts:call("status", "getScoreId")
 	local focused = levity.map.scripts:call(playerid, "isFocused")
 	if focused then
 		if not self:isConverting() and self.poweredup then
@@ -335,13 +331,9 @@ function ShmupWingman:beginMove(dt)
 end
 
 function ShmupWingman:endMove(dt)
-	local uimap = levity.map.overlaymap
-	local scoreid
-	if uimap then
-		scoreid = uimap.scripts:call("status", "getScoreId")
-	end
+	local scoreid = levity.map.scripts:call("status", "getScoreId")
 	if scoreid and not self.poweredup then
-		self.poweredup = uimap.scripts:call(scoreid, "isMaxMultiplier",
+		self.poweredup = levity.map.scripts:call(scoreid, "isMaxMultiplier",
 							self.object.id)
 		if self.poweredup then
 			levity.bank:play(Sounds.Maxed)

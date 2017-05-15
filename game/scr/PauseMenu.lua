@@ -12,7 +12,7 @@ local PauseMenu = class(function(self, layer)
 	--end
 	self.buttonids = {}
 	for _, object in ipairs(layer.objects) do
-		if levity.map.overlaymap.scripts:call(object.id, "is_a", UIButton)
+		if levity.map.scripts:call(object.id, "is_a", UIButton)
 		then
 			self.buttonids[#self.buttonids+1] = object.id
 		end
@@ -38,7 +38,7 @@ function PauseMenu:keypressed_escape()
 	else
 		self.cursorpos = nil
 		for _, buttonid in ipairs(self.buttonids) do
-			levity.map.overlaymap.scripts:call(buttonid, "unpress")
+			levity.map.scripts:call(buttonid, "unpress")
 		end
 	end
 end
@@ -103,7 +103,7 @@ function PauseMenu:moveCursor(dir, limit)
 	if not self.cursorpos then
 		self.cursorpos = limit
 	else
-		levity.map.overlaymap.scripts:call(self.buttonids[self.cursorpos],
+		levity.map.scripts:call(self.buttonids[self.cursorpos],
 			"unpress")
 
 		self.cursorpos = self.cursorpos + dir
@@ -113,20 +113,20 @@ function PauseMenu:moveCursor(dir, limit)
 		self.cursorpos = self.cursorpos - #self.buttonids*dir
 	end
 
-	levity.map.overlaymap.scripts:call(self.buttonids[self.cursorpos], "press")
+	levity.map.scripts:call(self.buttonids[self.cursorpos], "press")
 end
 
 function PauseMenu:activateCursorButton()
-	levity.map.overlaymap.scripts:call(self.buttonids[self.cursorpos], "activate")
+	levity.map.scripts:call(self.buttonids[self.cursorpos], "activate")
 end
 
 function PauseMenu:beginDraw()
-	self.layer.offsetx = levity.map.overlaymap.camera.x
-	self.layer.offsety = levity.map.overlaymap.camera.y
+	self.layer.offsetx = levity.map.camera.x
+	self.layer.offsety = levity.map.camera.y
 	love.graphics.setColor(0,0,0, 0xc0)
 	love.graphics.rectangle("fill",
-		levity.map.overlaymap.camera.x, levity.map.overlaymap.camera.y,
-		levity.map.overlaymap.camera.w, levity.map.overlaymap.camera.h)
+		levity.map.camera.x, levity.map.camera.y,
+		levity.map.camera.w, levity.map.camera.h)
 	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
 end
 
