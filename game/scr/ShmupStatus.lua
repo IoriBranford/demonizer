@@ -4,7 +4,8 @@ local ShmupWingman -- delayed require to avoid circular dependency
 
 local MaxBombs = 3
 
-local ShmupStatus = class(function(self, layer)
+local ShmupStatus
+ShmupStatus = class(function(self, layer)
 	self.layer = layer
 	self.properties = self.layer.properties
 
@@ -25,7 +26,8 @@ local ShmupStatus = class(function(self, layer)
 	local nextmapdata = levity.nextmapdata or {}
 	local nextmapstatus = nextmapdata.status or {}
 	self.numlives = nextmapstatus.numlives or 2
-	self.numbombpieces = nextmapstatus.numbombpieces or 0
+	self.numbombpieces = nextmapstatus.numbombpieces
+				or ShmupStatus.PiecesPerBomb
 	self.reservegids = levity.map:tileNamesToGids(nextmapstatus.reservenames) or {}
 	nextmapdata.status = nil
 
