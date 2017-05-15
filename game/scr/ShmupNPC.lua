@@ -117,7 +117,7 @@ local ShmupNPC = class(function(self, object)
 	end
 end)
 
-ShmupNPC.BleedOutTime = 8
+ShmupNPC.BleedOutTime = 30
 ShmupNPC.CapturePullSpeed = 4*60
 ShmupNPC.CapturePullDistSq = 30*30
 ShmupNPC.EnhancedCapturePullDistSq = 120*120
