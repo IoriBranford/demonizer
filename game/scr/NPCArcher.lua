@@ -63,7 +63,7 @@ end
 function NPCArcher:suppress()
 	self.firetimer = math.min(BulletInterval,
 		self.firetimer + NPCArcher.PlayerShotSuppression)
-	levity.map:broadcast("npcSuppressed", self.object.id)
+	levity.scripts:broadcast("npcSuppressed", self.object.id)
 end
 
 function NPCArcher:npcSuppressed(npcid)

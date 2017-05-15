@@ -31,19 +31,19 @@ function TitleMap:keypressed_escape()
 end
 
 local function endMove(self, dt)
-	if levity.map.scripts:call("curtain", "finishedClosing") then
+	if levity.scripts:call("curtain", "finishedClosing") then
 		levity:setNextMap(self.properties.nextmap)
 	end
 end
 
 function TitleMap:joystickpressed(joystick, button)
 	if button == 1 then
-		levity.map.scripts:call("curtain", "beginClose")
+		levity.scripts:call("curtain", "beginClose")
 		if levity.bank.currentmusic then
 			levity.bank.currentmusic:fade()
 		end
-		self.map.scripts:scriptRemoveEventFunc(self, self.map.name, "joystickpressed")
-		self.map.scripts:scriptAddEventFunc(self, self.map.name, "endMove", endMove)
+		levity.scripts:scriptRemoveEventFunc(self, self.map.name, "joystickpressed")
+		levity.scripts:scriptAddEventFunc(self, self.map.name, "endMove", endMove)
 	end
 end
 

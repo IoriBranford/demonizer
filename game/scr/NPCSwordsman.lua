@@ -93,7 +93,7 @@ function NPCSwordsman:beginMove(dt)
 	local distx, disty = 0, 0
 	local vx, vy = 0, 0
 
-	local player = levity.map.scripts:call(levity.map.name, "getPlayer")
+	local player = levity.scripts:call(levity.map.name, "getPlayer")
 	if player then
 		local playercx, playercy = player.body:getWorldCenter()
 		targetx, targety = playercx, playercy

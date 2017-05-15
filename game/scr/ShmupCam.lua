@@ -73,8 +73,8 @@ function ShmupCam:endContact_activategroup(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getBody():getUserData().object
 	local activatedobjectids = triggerobject.properties.activatedobjectids
 	for _, id in ipairs(activatedobjectids) do
-		if levity.map.scripts:call(id, "staysAfterTriggerEnd") then
-			levity.map.scripts:call(id, "endTrigger")
+		if levity.scripts:call(id, "staysAfterTriggerEnd") then
+			levity.scripts:call(id, "endTrigger")
 		else
 			levity.map:discardObject(id)
 		end
@@ -124,7 +124,7 @@ function ShmupCam:beginMove(dt)
 	body:setMass(mass)
 
 	if not self.mover and self.properties.pathid then
-		self.mover = levity.map.scripts:newScript(self.object.id, "Mover",
+		self.mover = levity.scripts:newScript(self.object.id, "Mover",
 							self.object)
 	end
 
@@ -169,7 +169,7 @@ function ShmupCam:endMove(dt)
 		else
 			for _, id in ipairs(activatedobjectids) do
 				local object = levity.map.objects[id]
-				levity.map.scripts:call(id, "activate")
+				levity.scripts:call(id, "activate")
 				if initiallayer then
 					object:setLayer(initiallayer)
 				end
@@ -202,7 +202,7 @@ end
 
 function ShmupCam:playerLost()
 	if self.mover then
-		levity.map.scripts:destroyScript(self.mover, self.object.id)
+		levity.scripts:destroyScript(self.mover, self.object.id)
 		self.mover = nil
 	end
 end

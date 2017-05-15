@@ -13,10 +13,9 @@ local function beginMove(self, dt)
 	self.openwidth = self.openwidth + self.direction*Curtain.Speed*dt
 
 	if self:finishedOpening() or self:finishedClosing() then
-		local map = levity.map
-		map.scripts:scriptRemoveEventFunc(self, self.layer.name,
+		levity.scripts:scriptRemoveEventFunc(self, self.layer.name,
 							"beginMove")
-		map.scripts:scriptRemoveEventFunc(self, self.layer.name,
+		levity.scripts:scriptRemoveEventFunc(self, self.layer.name,
 							"beginDraw")
 	end
 end
@@ -42,12 +41,11 @@ function Curtain:finishedClosing()
 end
 
 function Curtain:beginOpen()
-	local map = levity.map
 	self.openwidth = 0
 	self.direction = 1
-	map.scripts:scriptAddEventFunc(self, self.layer.name, "beginMove",
+	levity.scripts:scriptAddEventFunc(self, self.layer.name, "beginMove",
 							beginMove)
-	map.scripts:scriptAddEventFunc(self, self.layer.name, "beginDraw",
+	levity.scripts:scriptAddEventFunc(self, self.layer.name, "beginDraw",
 							beginDraw)
 end
 
@@ -55,9 +53,9 @@ function Curtain:beginClose()
 	local map = levity.map
 	self.openwidth = map.camera.w
 	self.direction = -1
-	map.scripts:scriptAddEventFunc(self, self.layer.name, "beginMove",
+	levity.scripts:scriptAddEventFunc(self, self.layer.name, "beginMove",
 							beginMove)
-	map.scripts:scriptAddEventFunc(self, self.layer.name, "beginDraw",
+	levity.scripts:scriptAddEventFunc(self, self.layer.name, "beginDraw",
 							beginDraw)
 end
 

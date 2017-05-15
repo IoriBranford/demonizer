@@ -26,7 +26,7 @@ ShmupWingman = class(function(self, object)
 	self.health = 5
 	self.poweredup = self.properties.poweredup or false
 
-	levity.map:broadcast("wingmanJoined", self.object.id)
+	levity.scripts:broadcast("wingmanJoined", self.object.id)
 
 	ShmupNPC = ShmupNPC or require("ShmupNPC")
 end)
@@ -107,7 +107,7 @@ function ShmupWingman:kill()
 	end
 
 	levity.bank:play(Sounds.Death)
-	levity.map:broadcast("wingmanKilled", self.object.id)
+	levity.scripts:broadcast("wingmanKilled", self.object.id)
 
 	local params = ShmupWingman.ExplosionParams
 	local x, y = self.object.body:getWorldCenter()
@@ -181,7 +181,7 @@ function ShmupWingman:updateConversion(dt)
 		local gid = levity.map:getTileGid("demonwomen", self.npctype, 0)
 		self.object:setGid(gid, levity.map)
 		self:refreshFixtures()
-		self:setCaptureEnabled(levity.map.scripts:call("playerteam", "isWingmanActive", self.object.id))
+		self:setCaptureEnabled(levity.scripts:call("playerteam", "isWingmanActive", self.object.id))
 	end
 end
 
@@ -192,7 +192,7 @@ function ShmupWingman:updateFiring(dt)
 		local playerid = levity.map.properties.playerid
 
 		local locktargetid
-		if levity.map.scripts:call(playerid, "isFocused") then
+		if levity.scripts:call(playerid, "isFocused") then
 			locktargetid = self:findTarget("canBeLockTarget")
 		end
 
@@ -245,8 +245,8 @@ function ShmupWingman:beginMove(dt)
 	local destx, desty = cx, cy
 	local captive
 
-	local scoreid = levity.map.scripts:call("status", "getScoreId")
-	local focused = levity.map.scripts:call(playerid, "isFocused")
+	local scoreid = levity.scripts:call("status", "getScoreId")
+	local focused = levity.scripts:call(playerid, "isFocused")
 	if focused then
 		if not self:isConverting() and self.poweredup then
 			if not self.targetcaptiveid then
@@ -256,7 +256,7 @@ function ShmupWingman:beginMove(dt)
 	else
 		self:heal(ShmupWingman.UnfocusedHealRate * dt)
 
-		if levity.map.scripts:call(self.targetcaptiveid, "isFemale") == false then
+		if levity.scripts:call(self.targetcaptiveid, "isFemale") == false then
 			self.targetcaptiveid = nil
 		end
 	end
@@ -274,7 +274,7 @@ function ShmupWingman:beginMove(dt)
 		--	else
 		--		destx, desty = self.object.body:getWorldCenter()
                 --
-		--		local camvx, camvy = levity.map.scripts:call(
+		--		local camvx, camvy = levity.scripts:call(
 		--			levity.map.properties.cameraid,
 		--			"getVelocity")
                 --
@@ -295,13 +295,13 @@ function ShmupWingman:beginMove(dt)
 			end
 		end
 	else
-		destx, desty = levity.map.scripts:call("playerteam",
+		destx, desty = levity.scripts:call("playerteam",
 				"getWingmanPosition", self.object.id)
 		self.targetcaptiveid = nil
 	end
 
 	self:setVulnerable(not self:isConverting() and self.targetcaptiveid
-		and not levity.map.scripts:call(self.targetcaptiveid, "is_a",
+		and not levity.scripts:call(self.targetcaptiveid, "is_a",
 						ShmupWingman))
 
 	local dx, dy = destx - cx, desty - cy
@@ -321,7 +321,7 @@ function ShmupWingman:beginMove(dt)
 	if self:isConverting() then
 		self:updateConversion(dt)
 	elseif self.oncamera then
-		if levity.map.scripts:call(playerid, "isFiring") then
+		if levity.scripts:call(playerid, "isFiring") then
 			self:updateFiring(dt)
 		else
 			self.firetimer = 0
@@ -330,9 +330,9 @@ function ShmupWingman:beginMove(dt)
 end
 
 function ShmupWingman:endMove(dt)
-	local scoreid = levity.map.scripts:call("status", "getScoreId")
+	local scoreid = levity.scripts:call("status", "getScoreId")
 	if scoreid and not self.poweredup then
-		self.poweredup = levity.map.scripts:call(scoreid, "isMaxMultiplier",
+		self.poweredup = levity.scripts:call(scoreid, "isMaxMultiplier",
 							self.object.id)
 		if self.poweredup then
 			levity.bank:play(Sounds.Maxed)
@@ -348,8 +348,8 @@ function ShmupWingman:endMove(dt)
 				ShmupWingman.ConversionOffset)
 		end
 	elseif not self.oncamera then
-		if not levity.map.scripts:call("playerteam", "isWingmanActive", self.object.id) then
-			levity.map:broadcast("wingmanReserved",
+		if not levity.scripts:call("playerteam", "isWingmanActive", self.object.id) then
+			levity.scripts:broadcast("wingmanReserved",
 						self.object.id, self.object.gid)
 			levity.map:discardObject(self.object.id)
 			if self.properties.conversionid then
@@ -369,7 +369,7 @@ function ShmupWingman:beginDraw()
 		love.graphics.setColor(0xff, 0xff, 0xff, 0xc0)
 	else
 		local playerid = levity.map.properties.playerid
-		local focused = levity.map.scripts:call(playerid, "isFocused")
+		local focused = levity.scripts:call(playerid, "isFocused")
 		local healthpercent = self.health / ShmupWingman.MaxHealth
 
 		local wound = 0xff * healthpercent

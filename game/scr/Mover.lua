@@ -8,7 +8,7 @@ Mover = class(function(self, object)
 	local x, y = self.object.body:getPosition()
 
 	if self.properties.pathmode == "relative" then
-		local nearestx, nearesty = levity.map.scripts:call(
+		local nearestx, nearesty = levity.scripts:call(
 			self.properties.pathid, "findNearestPoint", x, y)
 		self.offx = x - nearestx
 		self.offy = y - nearesty
@@ -20,10 +20,10 @@ Mover = class(function(self, object)
 	x = x - self.offx
 	y = y - self.offy
 
-	local paths = levity.map.scripts:call(self.properties.pathid,
+	local paths = levity.scripts:call(self.properties.pathid,
 						"getPaths", x, y)
 	if paths then
-		local path = levity.map.scripts:call(self.object.id,
+		local path = levity.scripts:call(self.object.id,
 						"pathfind", paths, x, y)
 
 		if path then
@@ -35,7 +35,7 @@ Mover = class(function(self, object)
 			self.desty = path.desty
 		end
 	else
-		self.destx, self.desty = levity.map.scripts:call(
+		self.destx, self.desty = levity.scripts:call(
 				self.properties.pathid, "findNearestPoint", x, y)
 	end
 
@@ -84,11 +84,11 @@ function Mover:beginMove(dt)
 	end
 
 	while exdist >= 0 do
-		local paths = levity.map.scripts:call(self.properties.pathid,
+		local paths = levity.scripts:call(self.properties.pathid,
 					"getPaths", self.destx, self.desty)
 		local nextpath
 		if paths then
-			nextpath = levity.map.scripts:call(self.object.id,
+			nextpath = levity.scripts:call(self.object.id,
 				"pathfind", paths, self.prevx, self.prevy)
 
 		end

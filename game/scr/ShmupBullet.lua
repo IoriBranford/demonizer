@@ -62,14 +62,14 @@ ShmupBullet = class(function(self, object)
 	properties.vely = nil
 
 	if properties.coroutine then
-		levity.map.scripts:scriptAddEventFunc(self,
+		levity.scripts:scriptAddEventFunc(self,
 				self.object.id,
 				"beginMove", beginMove)
 		self.coroutine = coroutine.create(properties.coroutine)
 	end
 
 	if properties.accelx and properties.accely then
-		levity.map.scripts:scriptAddEventFunc(self,
+		levity.scripts:scriptAddEventFunc(self,
 				self.object.id,
 				"beginMove", beginMove)
 	end
@@ -77,7 +77,7 @@ ShmupBullet = class(function(self, object)
 	self.time = properties.lifetime
 	if self.time then
 		if self.time == "animation" then
-			levity.map.scripts:scriptAddEventFunc(self,
+			levity.scripts:scriptAddEventFunc(self,
 					self.object.id,
 					"loopedAnimation", loopedAnimation)
 		else
@@ -137,7 +137,7 @@ function ShmupBullet.create(params, x, y, angle, layer)
 end
 
 function ShmupBullet.fireOverTime(params, x, y, angle, layer, time, interval)
-	if levity.map.scripts:call(levity.map.properties.playerid, "isKilled") then
+	if levity.scripts:call(levity.map.properties.playerid, "isKilled") then
 		return interval
 	end
 
@@ -155,7 +155,7 @@ function ShmupBullet.fireOverTime(params, x, y, angle, layer, time, interval)
 	local sin = math.sin(angle)
 	local vx = speed * cos
 	local vy = speed * sin
-	local camvx, camvy = levity.map.scripts:call(
+	local camvx, camvy = levity.scripts:call(
 			levity.map.properties.cameraid, "getVelocity")
 	if camvx and camvy then
 		vx = vx + camvx

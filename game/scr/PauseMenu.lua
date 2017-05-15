@@ -12,7 +12,7 @@ local PauseMenu = class(function(self, layer)
 	--end
 	self.buttonids = {}
 	for _, object in ipairs(layer.objects) do
-		if levity.map.scripts:call(object.id, "is_a", UIButton)
+		if levity.scripts:call(object.id, "is_a", UIButton)
 		then
 			self.buttonids[#self.buttonids+1] = object.id
 		end
@@ -38,7 +38,7 @@ function PauseMenu:keypressed_escape()
 	else
 		self.cursorpos = nil
 		for _, buttonid in ipairs(self.buttonids) do
-			levity.map.scripts:call(buttonid, "unpress")
+			levity.scripts:call(buttonid, "unpress")
 		end
 	end
 end
@@ -103,7 +103,7 @@ function PauseMenu:moveCursor(dir, limit)
 	if not self.cursorpos then
 		self.cursorpos = limit
 	else
-		levity.map.scripts:call(self.buttonids[self.cursorpos],
+		levity.scripts:call(self.buttonids[self.cursorpos],
 			"unpress")
 
 		self.cursorpos = self.cursorpos + dir
@@ -113,11 +113,11 @@ function PauseMenu:moveCursor(dir, limit)
 		self.cursorpos = self.cursorpos - #self.buttonids*dir
 	end
 
-	levity.map.scripts:call(self.buttonids[self.cursorpos], "press")
+	levity.scripts:call(self.buttonids[self.cursorpos], "press")
 end
 
 function PauseMenu:activateCursorButton()
-	levity.map.scripts:call(self.buttonids[self.cursorpos], "activate")
+	levity.scripts:call(self.buttonids[self.cursorpos], "activate")
 end
 
 function PauseMenu:beginDraw()

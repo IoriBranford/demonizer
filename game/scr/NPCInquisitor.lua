@@ -7,7 +7,7 @@ end)
 
 function NPCInquisitor:knockout()
 	ShmupNPC.knockout(self)
-	levity.map.scripts:call("electricity", "setActive", false)
+	levity.scripts:call("electricity", "setActive", false)
 end
 
 function NPCInquisitor:beginMove(dt)
@@ -24,7 +24,7 @@ function NPCInquisitor:beginMove(dt)
 
 	local vx, vy = self.object.body:getLinearVelocity()
 	if vx == 0 and vy == 0 then
-		levity.map.scripts:call("electricity", "setActive", true)
+		levity.scripts:call("electricity", "setActive", true)
 	end
 end
 

@@ -35,7 +35,7 @@ function UIButton:touchpressed(touch, x, y, dx, dy, pressure)
 			self.object.width, self.object.height)
 		then
 			self:press()
-			levity.map.scripts:call(self.object.layer.name,
+			levity.scripts:call(self.object.layer.name,
 				"setCursorButton", self.object.id)
 		else
 			self:unpress()

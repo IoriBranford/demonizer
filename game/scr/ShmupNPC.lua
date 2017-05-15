@@ -156,7 +156,7 @@ function ShmupNPC:setActive(active)
 end
 
 function ShmupNPC:suppress()
-	levity.map:broadcast("npcSuppressed", self.object.id)
+	levity.scripts:broadcast("npcSuppressed", self.object.id)
 end
 
 function ShmupNPC:canBeLockTarget()
@@ -252,8 +252,8 @@ function ShmupNPC:dealDamage(damage)
 			ShmupBullet.create(params, x, y, 0, "sparks")
 
 			levity.bank:play(Sounds.KO)
-			levity.map:broadcast("npcKnockedOut", self.object.id)
-			levity.map:broadcast("pointsScored",
+			levity.scripts:broadcast("npcKnockedOut", self.object.id)
+			levity.scripts:broadcast("pointsScored",
 						self.properties.killpoints or 100)
 		else
 			levity.bank:play(Sounds.Hit)
@@ -365,7 +365,7 @@ function ShmupNPC:capture(captorid)
 		levity.bank:play(Sounds.FemaleCapture)
 	else
 		levity.bank:play(Sounds.MaleCapture)
-		levity.map:broadcast("npcCaptured", self.object.id, captorid)
+		levity.scripts:broadcast("npcCaptured", self.object.id, captorid)
 	end
 	self:discard()
 end
@@ -376,7 +376,7 @@ function ShmupNPC:die()
 	else
 		levity.bank:play(Sounds.MaleDeath)
 	end
-	levity.map:broadcast("npcDied", self.object.id)
+	levity.scripts:broadcast("npcDied", self.object.id)
 	self:discard()
 end
 
@@ -422,8 +422,8 @@ function ShmupNPC:beginMove(dt)
 	if not self.pulledbyplayer and canbecaptured then
 		local capturepulldistsq
 
-		if levity.map.scripts:call(playerid, "isFocused")
-		and levity.map.scripts:call(playerid, "isPoweredUp")
+		if levity.scripts:call(playerid, "isFocused")
+		and levity.scripts:call(playerid, "isPoweredUp")
 		then
 			capturepulldistsq = ShmupNPC.EnhancedCapturePullDistSq
 		else
@@ -431,7 +431,7 @@ function ShmupNPC:beginMove(dt)
 		end
 
 		if canbecaptured and playerdsq < capturepulldistsq
-		and not levity.map.scripts:call(playerid, "isKilled") then
+		and not levity.scripts:call(playerid, "isKilled") then
 			self.object:setLayer(player.layer)
 			self.pulledbyplayer = true
 		end
@@ -443,13 +443,13 @@ function ShmupNPC:beginMove(dt)
 	if pathid and not self.pathwalker then
 		local pickNextPath = self.properties.pathpicker or "linear1way"
 		pickNextPath = PathGraph["pickNextPath_"..pickNextPath]
-		self.pathwalker = levity.map.scripts:call(pathid, "newWalker",
+		self.pathwalker = levity.scripts:call(pathid, "newWalker",
 					pickNextPath, body:getX(), body:getY(),
 					self.properties.pathmode, self)
 
 		local pathtime = self.properties.pathtime
 		if not self.properties.pathspeed and pathtime then
-			local pathlength = levity.map.scripts:call(
+			local pathlength = levity.scripts:call(
 					pathid, "findTripLength",
 					PathGraph.pickNextPath_linear1way,
 					body:getX(), body:getY())
@@ -534,7 +534,7 @@ end
 function ShmupNPC:unpauseCamera()
 	local cameraid = levity.map.properties.cameraid
 	if cameraid then
-		levity.map.scripts:call(cameraid, "pausePath", false)
+		levity.scripts:call(cameraid, "pausePath", false)
 	end
 end
 
@@ -546,14 +546,14 @@ function ShmupNPC:playSound(sound)
 end
 
 function ShmupNPC:playerVictory()
-	levity.map:broadcast("playerWon")
+	levity.scripts:broadcast("playerWon")
 end
 
 function ShmupNPC:vehicleDestroyed(vehicleid)
 	if self.properties.leaderid == vehicleid then
-		if levity.map.scripts:call(vehicleid, "knocksOutPassengers") then
+		if levity.scripts:call(vehicleid, "knocksOutPassengers") then
 			self:knockout()
-			levity.map:broadcast("npcKnockedOut", self.object.id)
+			levity.scripts:broadcast("npcKnockedOut", self.object.id)
 		else
 			self:inheritPath(vehicleid)
 		end

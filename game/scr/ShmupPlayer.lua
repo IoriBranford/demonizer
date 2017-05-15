@@ -218,13 +218,13 @@ function ShmupPlayer:joystickchanged(button, pressed)
 	and not self.killed and not levity.map.paused then
 		local params = ShmupPlayer.BombParams
 
-		if levity.map.scripts:call("status", "hasBombs") ~= false then
+		if levity.scripts:call("status", "hasBombs") ~= false then
 			local x, y = self.object.body:getWorldCenter()
 			y = y - 128
 			ShmupBullet.create(params, x, y, 0, self.object.layer)
 			levity.bank:play(Sounds.Bomb)
 			levity.bank:play(Sounds.Bomber)
-			levity.map:broadcast("playerBombed")
+			levity.scripts:broadcast("playerBombed")
 		end
 	end
 end
@@ -322,7 +322,7 @@ function ShmupPlayer:deathCoroutine(dt)
 	local bodyfixture = fixtures["body"]
 	bodyfixture:setMask(unpack(NonPlayMask))
 
-	levity.map:broadcast("playerKilled")
+	levity.scripts:broadcast("playerKilled")
 
 	self:playSound(Sounds.Death)
 	self:playSound(Sounds.Scream)
@@ -338,10 +338,10 @@ function ShmupPlayer:deathCoroutine(dt)
 		self, dt = coroutine.yield()
 	end
 
-	if levity.map.scripts:call("status", "hasLives") ~= false then
+	if levity.scripts:call("status", "hasLives") ~= false then
 		self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
 	else
-		levity.map:broadcast("playerLost")
+		levity.scripts:broadcast("playerLost")
 		self.object.body:setLinearVelocity(0, 0)
 		while true do
 			coroutine.yield()
@@ -401,7 +401,7 @@ function ShmupPlayer:spawnCoroutine(dt)
 
 	if self.killed then
 		self.killed = false
-		levity.map:broadcast("playerRespawned")
+		levity.scripts:broadcast("playerRespawned")
 		self:playSound(Sounds.Respawn)
 		self.object.visible = true
 	end
@@ -461,7 +461,7 @@ function ShmupPlayer:beginMove(dt)
 		self.didmousemove = false
 	end
 
-	local camvx, camvy = levity.map.scripts:call(cameraid, "getVelocity")
+	local camvx, camvy = levity.scripts:call(cameraid, "getVelocity")
 	if camvy then
 		vy1 = vy1 + camvy
 	end
@@ -491,9 +491,9 @@ function ShmupPlayer:beginMove(dt)
 end
 
 function ShmupPlayer:endMove(dt)
-	local scoreid = levity.map.scripts:call("status", "getScoreId")
+	local scoreid = levity.scripts:call("status", "getScoreId")
 	if scoreid and not self.poweredup and not self.killed then
-		self.poweredup = levity.map.scripts:call(scoreid, "isMaxMultiplier",
+		self.poweredup = levity.scripts:call(scoreid, "isMaxMultiplier",
 							self.object.id)
 		if self.poweredup then
 			levity.bank:play(Sounds.Maxed)
@@ -508,7 +508,7 @@ function ShmupPlayer:endMove(dt)
 	end
 	if camera then
 		local cx, cy = self.object.body:getWorldCenter()
-		levity.map.scripts:call(cameraid, "swayWithPlayer", cx)
+		levity.scripts:call(cameraid, "swayWithPlayer", cx)
 	end
 
 	if not self.hitbox then

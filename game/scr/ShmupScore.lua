@@ -31,7 +31,7 @@ levity.bank:load(Sounds)
 function ShmupScore:pointsScored(points)
 	self.points = math.min(self.points + points, ShmupScore.MaxPoints)
 	if self.points >= self.extendpoints then
-		levity.map:broadcast("extendEarned")
+		levity.scripts:broadcast("extendEarned")
 		self.extendpoints = self.extendpoints + ShmupScore.ExtendInc
 		levity.bank:play(Sounds.Extend)
 	end
@@ -49,7 +49,7 @@ end
 
 function ShmupScore:npcCaptured(npcid, captorid)
 	self:multiplierInc(
-		levity.map.scripts:call("playerteam", "getMemberIndex", captorid))
+		levity.scripts:call("playerteam", "getMemberIndex", captorid))
 
 	local npc = levity.map.objects[npcid]
 	local points = npc.properties.capturepoints or self:getNextCapturePoints()
@@ -120,7 +120,7 @@ end
 
 function ShmupScore:wingmanKilled(id)
 	self:multiplierLost(
-		levity.map.scripts:call("playerteam", "getMemberIndex", id))
+		levity.scripts:call("playerteam", "getMemberIndex", id))
 end
 
 function ShmupScore:friendKilled(id)
@@ -132,7 +132,7 @@ end
 
 function ShmupScore:getMultiplier(id)
 	return self.multipliers[
-		levity.map.scripts:call("playerteam", "getMemberIndex", id)]
+		levity.scripts:call("playerteam", "getMemberIndex", id)]
 end
 
 function ShmupScore:getTotalMultiplier()

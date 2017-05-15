@@ -57,15 +57,15 @@ function PlayerPower:endMove(dt)
 	self.object.body:setPosition(x, y + 1/64)
 
 	local tile
-	if levity.map.scripts:call(teammemberid, "isPoweredUp") then
+	if levity.scripts:call(teammemberid, "isPoweredUp") then
 		tile = "full"
 	else
 		tile = "notfull"
 	end
 	self.object:setGid(levity.map:getTileGid("powergauge", tile), levity.map)
 
-	local scoreid = levity.map.scripts:call("status", "getScoreId")
-	local mult = levity.map.scripts:call(scoreid, "getMultiplier", teammemberid)
+	local scoreid = levity.scripts:call("status", "getScoreId")
+	local mult = levity.scripts:call(scoreid, "getMultiplier", teammemberid)
 		or 0
 	for i = 1, mult do
 		self:setDotVisible(i, true)

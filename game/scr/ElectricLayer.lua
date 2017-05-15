@@ -33,7 +33,7 @@ function ElectricLayer:beginMove(dt)
 
 	if math.floor(self.timer * BuzzRate) < math.floor(newtimer * BuzzRate) then
 		levity.bank:play(Sounds.Buzz)
-		levity.map:broadcast("electrocuted")
+		levity.scripts:broadcast("electrocuted")
 	end
 
 	self.timer = newtimer

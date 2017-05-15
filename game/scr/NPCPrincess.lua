@@ -163,7 +163,7 @@ end
 function NPCPrincess:suppress()
 	self.firetimer = math.min(NPCPrincess.BulletInterval,
 		self.firetimer + NPCPrincess.PlayerShotSuppression)
-	levity.map:broadcast("npcSuppressed", self.object.id)
+	levity.scripts:broadcast("npcSuppressed", self.object.id)
 end
 
 function NPCPrincess:npcSuppressed(npcid)
@@ -210,7 +210,7 @@ function NPCPrincess:defeatCoroutine(dt)
 	self.object.body:setLinearVelocity(vx, vy)
 	repeat coroutine.yield() until self.object.body:getY() <= 0
 
-	levity.map:broadcast("playerWon")
+	levity.scripts:broadcast("playerWon")
 	levity.map:discardObject(self.object.id)
 end
 

@@ -133,7 +133,7 @@ function ShmupStatus:updateBombs()
 
 		if bomb.visible then
 			local fill = math.min(1, numbombpieces / ShmupStatus.PiecesPerBomb)
-			levity.map.scripts:call(bomb.id, "setFill", fill)
+			levity.scripts:call(bomb.id, "setFill", fill)
 		end
 
 		numbombpieces = numbombpieces - ShmupStatus.PiecesPerBomb
@@ -148,7 +148,7 @@ function ShmupStatus:beginMove(dt)
 	if levity.map.paused then
 		return
 	end
-	local totalmultiplier = levity.map.scripts:call(self.elements.score.id,
+	local totalmultiplier = levity.scripts:call(self.elements.score.id,
 							"getTotalMultiplier")
 
 	self:addBombPieces(totalmultiplier*ShmupStatus.PiecesPerCaptivePerSec*dt)
@@ -157,7 +157,7 @@ function ShmupStatus:beginMove(dt)
 	local playerid = levity.map.properties.playerid
 
 	if self:hasReserves()
-	and levity.map.scripts:call(playerid, "roomForWingmen") then
+	and levity.scripts:call(playerid, "roomForWingmen") then
 		local wingmangid = self.reservegids[#self.reservegids]
 
 		local camera = levity.map.objects[levity.map.properties.cameraid]

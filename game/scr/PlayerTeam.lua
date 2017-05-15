@@ -67,9 +67,9 @@ function PlayerTeam:wingmanJoined(wingmanid)
 	self.wingmanids[i] = wingmanid
 	if isActiveWingmanIndex(i) then
 		self.powergaugeids[i] = PlayerPower.create(wingmanid, self.layer)
-		local scoreid = levity.map.scripts:call("status", "getScoreId")
+		local scoreid = levity.scripts:call("status", "getScoreId")
 		if scoreid then
-			levity.map.scripts:call(scoreid, "initMultiplier", i)
+			levity.scripts:call(scoreid, "initMultiplier", i)
 		end
 	end
 end
@@ -112,7 +112,7 @@ function PlayerTeam:getWingmanPosition(wingmanid)
 	local wmx, wmy = player.body:getWorldCenter()
 	local offset
 
-	if levity.map.scripts:call(self.playerid, "isFocused") then
+	if levity.scripts:call(self.playerid, "isFocused") then
 		offset = self.focuswingmanpositions[i]
 	else
 		offset = self.wingmanpositions[i]
@@ -122,7 +122,7 @@ function PlayerTeam:getWingmanPosition(wingmanid)
 		wmx = wmx + offset[1]
 		wmy = wmy + offset[2]
 
-		if levity.map.scripts:call(self.playerid, "isKilled") then
+		if levity.scripts:call(self.playerid, "isKilled") then
 			local angle = math.pi * .5
 			angle = angle + math.atan2(-offset[1], -offset[2]) * .25
 
@@ -135,7 +135,7 @@ function PlayerTeam:getWingmanPosition(wingmanid)
 end
 
 function PlayerTeam:endMove(dt)
-	local focused = levity.map.scripts:call(self.playerid, "isFocused")
+	local focused = levity.scripts:call(self.playerid, "isFocused")
 	for _, id in pairs(self.powergaugeids) do
 		local gauge = levity.map.objects[id]
 		if gauge then
@@ -152,10 +152,10 @@ function PlayerTeam:releaseCaptives(memberid)
 	local body = levity.map.objects[memberid].body
 	local cx, cy = body:getWorldCenter()
 	local maxcaptives = ShmupNPC.MaxReleasedCaptives
-	local scoreid = levity.map.scripts:call("status", "getScoreId")
+	local scoreid = levity.scripts:call("status", "getScoreId")
 	if scoreid then
 		maxcaptives =
-			levity.map.scripts:call(scoreid, "getMultiplier", memberid)
+			levity.scripts:call(scoreid, "getMultiplier", memberid)
 			or maxcaptives
 	end
 	ShmupNPC.releaseCaptives(self.captivegids, maxcaptives, cx, cy, self.layer)
@@ -183,7 +183,7 @@ function PlayerTeam:forgetWingman(wingmanid)
 		and #self.wingmanids >= PlayerTeam.MaxWingmen then
 			i = PlayerTeam.MaxWingmen
 			local id = self.wingmanids[i]
-			levity.map.scripts:call(id, "setCaptureEnabled", true)
+			levity.scripts:call(id, "setCaptureEnabled", true)
 			self.powergaugeids[i] = PlayerPower.create(id, self.layer)
 		end
 	end
@@ -196,15 +196,15 @@ end
 function PlayerTeam:refreshCaptureEnabled()
 	for i = 1, #self.wingmanids do
 		local id = self.wingmanids[i]
-		local converting = levity.map.scripts:call(id, "isConverting")
-		levity.map.scripts:send(id, "setCaptureEnabled",
+		local converting = levity.scripts:call(id, "isConverting")
+		levity.scripts:send(id, "setCaptureEnabled",
 				not converting and isActiveWingmanIndex(i))
 	end
 end
 
 function PlayerTeam:npcCaptured(npcid)
-	if not levity.map.scripts:call(npcid, "isFemale") then
-		local gid = levity.map.scripts:call(npcid, "getKOGid")
+	if not levity.scripts:call(npcid, "isFemale") then
+		local gid = levity.scripts:call(npcid, "getKOGid")
 		self.captivegids[#self.captivegids+1] = gid
 	end
 end
@@ -212,7 +212,7 @@ end
 function PlayerTeam:nextMap(nextmapfile, nextmapdata)
 	local wingmen = {}
 	for i, id in ipairs(self.wingmanids) do
-		wingmen[i] = levity.map.scripts:call(id, "getNextMapData")
+		wingmen[i] = levity.scripts:call(id, "getNextMapData")
 	end
 
 	if nextmapdata then
