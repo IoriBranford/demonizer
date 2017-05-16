@@ -42,7 +42,7 @@ script:
 - cd $TRAVIS_BUILD_DIR
 - ARCH_BITS=64 ./make-windows.sh
 - ARCH_BITS=32 ./make-windows.sh
-- cd $LOVE_ANDROID_DIR && ndk-build -j2 && ant release
+- cd $LOVE_ANDROID_DIR && ndk-build -j2 NDK_DEBUG=0 && ant release
 after_success:
 - cd $TRAVIS_BUILD_DIR
 - mv $GAME_ASSET $GAME_ASSET_RELEASE
