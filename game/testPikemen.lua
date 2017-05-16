@@ -11,7 +11,7 @@ return {
   nextobjectid = 21,
   properties = {
     ["cameraid"] = 2,
-    ["overlaymap"] = "gameui.lua",
+    ["overlaymap"] = "gameplay.lua",
     ["playerid"] = 1,
     ["script"] = "ShmupMap"
   },

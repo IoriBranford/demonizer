@@ -3,6 +3,17 @@
  <tileset firstgid="1" source="img/bombgauge.tsx"/>
  <tileset firstgid="17" source="img/hud_icons.tsx"/>
  <tileset firstgid="21" source="img/touchmarkers.tsx"/>
+ <tileset firstgid="23" source="img/particles.tsx"/>
+ <tileset firstgid="39" source="img/playerhitbox.tsx"/>
+ <tileset firstgid="40" source="img/powergauge.tsx"/>
+ <tileset firstgid="42" source="img/sparks_huge.tsx"/>
+ <tileset firstgid="62" source="img/sparks_med.tsx"/>
+ <tileset firstgid="74" source="img/sparks_small.tsx"/>
+ <tileset firstgid="90" source="img/demonizing.tsx"/>
+ <tileset firstgid="93" source="img/demonwomen.tsx"/>
+ <tileset firstgid="132" source="img/demonbomb.tsx"/>
+ <tileset firstgid="140" source="img/demonshots.tsx"/>
+ <tileset firstgid="144" source="img/humanshots.tsx"/>
  <objectgroup draworder="index" name="status">
   <properties>
    <property name="scoreid" type="int" value="16"/>

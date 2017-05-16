@@ -13,7 +13,7 @@ return {
     ["cameraid"] = 7,
     ["delayinitobjects"] = false,
     ["music"] = "mus/09 - Blue Sky Laundry.vgm",
-    ["overlaymap"] = "gameui.lua",
+    ["overlaymap"] = "gameplay.lua",
     ["playerid"] = 1,
     ["script"] = "ShmupMap"
   },
@@ -188,338 +188,8 @@ return {
       }
     },
     {
-      name = "demonizing",
-      firstgid = 4,
-      filename = "img/demonizing.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonizing.png",
-      imagewidth = 192,
-      imageheight = 64,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 3,
-      tiles = {
-        {
-          id = 0,
-          animation = {
-            {
-              tileid = 0,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 0,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 0,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 0,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 2,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 2,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 2,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 2,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "demonwomen",
-      firstgid = 7,
-      filename = "img/demonwomen.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonwomen.png",
-      imagewidth = 192,
-      imageheight = 832,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["row_archer"] = 12,
-        ["row_civ1"] = 0,
-        ["row_civ2"] = 1,
-        ["row_civ3"] = 2,
-        ["row_civ4"] = 3,
-        ["row_civ5"] = 4,
-        ["row_civ6"] = 5,
-        ["row_civ7"] = 6,
-        ["row_civ8"] = 7,
-        ["row_mage"] = 11,
-        ["row_pikeman"] = 8,
-        ["row_priest"] = 10,
-        ["row_swordsman"] = 9
-      },
-      terrains = {},
-      tilecount = 39,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -8,
-                y = 56,
-                width = 16,
-                height = 16,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "demonshots",
-      firstgid = 46,
-      filename = "img/demonshots.tsx",
-      tilewidth = 32,
-      tileheight = 16,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonshots.png",
-      imagewidth = 32,
-      imageheight = 64,
-      tileoffset = {
-        x = -16,
-        y = 8
-      },
-      properties = {
-        ["commoncollision"] = 0
-      },
-      terrains = {},
-      tilecount = 4,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "player"
-          },
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -8,
-                y = 8,
-                width = 16,
-                height = 16,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          }
-        },
-        {
-          id = 1,
-          properties = {
-            ["name"] = "wingman"
-          }
-        },
-        {
-          id = 2,
-          properties = {
-            ["name"] = "bombpackage"
-          }
-        },
-        {
-          id = 3,
-          properties = {
-            ["name"] = "bombshrapnel"
-          }
-        }
-      }
-    },
-    {
-      name = "demonbomb",
-      firstgid = 50,
-      filename = "img/demonbomb.tsx",
-      tilewidth = 128,
-      tileheight = 128,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonbomb.png",
-      imagewidth = 512,
-      imageheight = 256,
-      tileoffset = {
-        x = -64,
-        y = 128
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 8,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -64,
-                y = 128,
-                width = 128,
-                height = 128,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 50
-            },
-            {
-              tileid = 1,
-              duration = 50
-            },
-            {
-              tileid = 2,
-              duration = 50
-            },
-            {
-              tileid = 3,
-              duration = 50
-            },
-            {
-              tileid = 4,
-              duration = 50
-            },
-            {
-              tileid = 5,
-              duration = 50
-            },
-            {
-              tileid = 6,
-              duration = 50
-            },
-            {
-              tileid = 7,
-              duration = 50
-            }
-          }
-        }
-      }
-    },
-    {
       name = "infwomen",
-      firstgid = 58,
+      firstgid = 4,
       filename = "img/infwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -602,7 +272,7 @@ return {
     },
     {
       name = "infmen",
-      firstgid = 148,
+      firstgid = 94,
       filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -685,7 +355,7 @@ return {
     },
     {
       name = "boat",
-      firstgid = 238,
+      firstgid = 184,
       filename = "img/boat.tsx",
       tilewidth = 128,
       tileheight = 64,
@@ -751,7 +421,7 @@ return {
     },
     {
       name = "ballista",
-      firstgid = 239,
+      firstgid = 185,
       filename = "img/ballista.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -832,162 +502,8 @@ return {
       }
     },
     {
-      name = "humanshots",
-      firstgid = 263,
-      filename = "img/humanshots.tsx",
-      tilewidth = 32,
-      tileheight = 16,
-      spacing = 0,
-      margin = 0,
-      image = "img/humanshots.png",
-      imagewidth = 128,
-      imageheight = 128,
-      tileoffset = {
-        x = -24,
-        y = 8
-      },
-      properties = {
-        ["commoncollision"] = 0
-      },
-      terrains = {},
-      tilecount = 32,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "pike"
-          },
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -2,
-                y = 14,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          }
-        },
-        {
-          id = 4,
-          properties = {
-            ["name"] = "sword"
-          }
-        },
-        {
-          id = 8,
-          properties = {
-            ["name"] = "arrow"
-          }
-        },
-        {
-          id = 9,
-          properties = {
-            ["name"] = "firearrow"
-          },
-          animation = {
-            {
-              tileid = 9,
-              duration = 67
-            },
-            {
-              tileid = 10,
-              duration = 67
-            },
-            {
-              tileid = 11,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 12,
-          properties = {
-            ["name"] = "magic"
-          }
-        },
-        {
-          id = 16,
-          properties = {
-            ["name"] = "ballista"
-          }
-        },
-        {
-          id = 20,
-          properties = {
-            ["name"] = "catapult"
-          },
-          animation = {
-            {
-              tileid = 20,
-              duration = 67
-            },
-            {
-              tileid = 21,
-              duration = 67
-            },
-            {
-              tileid = 22,
-              duration = 67
-            },
-            {
-              tileid = 23,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 24,
-          properties = {
-            ["name"] = "water"
-          }
-        },
-        {
-          id = 28,
-          properties = {
-            ["name"] = "fire"
-          },
-          animation = {
-            {
-              tileid = 28,
-              duration = 67
-            },
-            {
-              tileid = 29,
-              duration = 67
-            },
-            {
-              tileid = 30,
-              duration = 67
-            },
-            {
-              tileid = 31,
-              duration = 67
-            }
-          }
-        }
-      }
-    },
-    {
       name = "civwomen",
-      firstgid = 295,
+      firstgid = 209,
       filename = "img/civwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1072,7 +588,7 @@ return {
     },
     {
       name = "civmen",
-      firstgid = 415,
+      firstgid = 329,
       filename = "img/civmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1158,7 +674,7 @@ return {
     },
     {
       name = "test_bank.png",
-      firstgid = 550,
+      firstgid = 464,
       filename = "img/test_bank.png.tsx",
       tilewidth = 8,
       tileheight = 8,
@@ -1175,690 +691,6 @@ return {
       terrains = {},
       tilecount = 6784,
       tiles = {}
-    },
-    {
-      name = "playerhitbox",
-      firstgid = 7334,
-      filename = "img/playerhitbox.tsx",
-      tilewidth = 8,
-      tileheight = 8,
-      spacing = 0,
-      margin = 0,
-      image = "img/playerhitbox.png",
-      imagewidth = 8,
-      imageheight = 8,
-      tileoffset = {
-        x = -4,
-        y = 4
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 1,
-      tiles = {}
-    },
-    {
-      name = "sparks_small",
-      firstgid = 7335,
-      filename = "img/sparks_small.tsx",
-      tilewidth = 16,
-      tileheight = 16,
-      spacing = 0,
-      margin = 0,
-      image = "img/sparks_small.png",
-      imagewidth = 128,
-      imageheight = 32,
-      tileoffset = {
-        x = -8,
-        y = 8
-      },
-      properties = {
-        ["commonanimation"] = 0
-      },
-      terrains = {},
-      tilecount = 16,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "enemydamage"
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 16
-            },
-            {
-              tileid = 1,
-              duration = 16
-            },
-            {
-              tileid = 2,
-              duration = 16
-            },
-            {
-              tileid = 3,
-              duration = 16
-            },
-            {
-              tileid = 4,
-              duration = 16
-            },
-            {
-              tileid = 5,
-              duration = 16
-            },
-            {
-              tileid = 6,
-              duration = 16
-            },
-            {
-              tileid = 7,
-              duration = 16
-            }
-          }
-        },
-        {
-          id = 8,
-          properties = {
-            ["name"] = "enemyguard"
-          }
-        }
-      }
-    },
-    {
-      name = "sparks_med",
-      firstgid = 7351,
-      filename = "img/sparks_med.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/sparks_med.png",
-      imagewidth = 192,
-      imageheight = 64,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "explosion"
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 67
-            },
-            {
-              tileid = 1,
-              duration = 67
-            },
-            {
-              tileid = 2,
-              duration = 67
-            },
-            {
-              tileid = 3,
-              duration = 67
-            },
-            {
-              tileid = 4,
-              duration = 67
-            },
-            {
-              tileid = 5,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 6,
-          properties = {
-            ["name"] = "wingmanexplosion"
-          },
-          animation = {
-            {
-              tileid = 6,
-              duration = 67
-            },
-            {
-              tileid = 7,
-              duration = 67
-            },
-            {
-              tileid = 8,
-              duration = 67
-            },
-            {
-              tileid = 9,
-              duration = 67
-            },
-            {
-              tileid = 10,
-              duration = 67
-            },
-            {
-              tileid = 11,
-              duration = 67
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "sparks_huge",
-      firstgid = 7363,
-      filename = "img/sparks_huge.tsx",
-      tilewidth = 96,
-      tileheight = 96,
-      spacing = 0,
-      margin = 0,
-      image = "img/sparks_huge.png",
-      imagewidth = 480,
-      imageheight = 384,
-      tileoffset = {
-        x = -48,
-        y = 48
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 20,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "explosion"
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 67
-            },
-            {
-              tileid = 1,
-              duration = 67
-            },
-            {
-              tileid = 2,
-              duration = 67
-            },
-            {
-              tileid = 3,
-              duration = 67
-            },
-            {
-              tileid = 4,
-              duration = 67
-            },
-            {
-              tileid = 5,
-              duration = 67
-            },
-            {
-              tileid = 6,
-              duration = 67
-            },
-            {
-              tileid = 7,
-              duration = 67
-            },
-            {
-              tileid = 8,
-              duration = 67
-            },
-            {
-              tileid = 9,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 10,
-          properties = {
-            ["name"] = "playerexplosion"
-          },
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -42,
-                y = 54,
-                width = 84,
-                height = 84,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 10,
-              duration = 83
-            },
-            {
-              tileid = 11,
-              duration = 83
-            },
-            {
-              tileid = 12,
-              duration = 83
-            },
-            {
-              tileid = 13,
-              duration = 83
-            },
-            {
-              tileid = 14,
-              duration = 83
-            },
-            {
-              tileid = 15,
-              duration = 83
-            },
-            {
-              tileid = 16,
-              duration = 83
-            },
-            {
-              tileid = 17,
-              duration = 83
-            },
-            {
-              tileid = 18,
-              duration = 83
-            },
-            {
-              tileid = 19,
-              duration = 83
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "particles",
-      firstgid = 7383,
-      filename = "img/particles.tsx",
-      tilewidth = 4,
-      tileheight = 4,
-      spacing = 0,
-      margin = 0,
-      image = "img/particles.png",
-      imagewidth = 16,
-      imageheight = 16,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      properties = {
-        ["commonanimation"] = 0
-      },
-      terrains = {},
-      tilecount = 16,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "damage"
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 100
-            },
-            {
-              tileid = 1,
-              duration = 100
-            },
-            {
-              tileid = 2,
-              duration = 100
-            },
-            {
-              tileid = 3,
-              duration = 100
-            }
-          }
-        },
-        {
-          id = 4,
-          properties = {
-            ["name"] = "guard"
-          }
-        },
-        {
-          id = 8,
-          properties = {
-            ["name"] = "powerdot"
-          }
-        }
-      }
-    },
-    {
-      name = "powergauge",
-      firstgid = 7399,
-      filename = "img/powergauge.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/powergauge.png",
-      imagewidth = 64,
-      imageheight = 32,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      properties = {
-        ["commoncollision"] = 0
-      },
-      terrains = {},
-      tilecount = 2,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "notfull"
-          },
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "power1",
-                type = "",
-                shape = "ellipse",
-                x = 1,
-                y = 16,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 2,
-                name = "power2",
-                type = "",
-                shape = "ellipse",
-                x = 5,
-                y = 18,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 3,
-                name = "power3",
-                type = "",
-                shape = "ellipse",
-                x = 8,
-                y = 21,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 4,
-                name = "power4",
-                type = "",
-                shape = "ellipse",
-                x = 11,
-                y = 24,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 5,
-                name = "power5",
-                type = "",
-                shape = "ellipse",
-                x = 13,
-                y = 28,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 6,
-                name = "power6",
-                type = "",
-                shape = "ellipse",
-                x = 13,
-                y = 33,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 7,
-                name = "power7",
-                type = "",
-                shape = "ellipse",
-                x = 11,
-                y = 37,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 8,
-                name = "power8",
-                type = "",
-                shape = "ellipse",
-                x = 8,
-                y = 40,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 9,
-                name = "power9",
-                type = "",
-                shape = "ellipse",
-                x = 5,
-                y = 43,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 10,
-                name = "power10",
-                type = "",
-                shape = "ellipse",
-                x = 1,
-                y = 45,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 11,
-                name = "power18",
-                type = "",
-                shape = "ellipse",
-                x = -11,
-                y = 21,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 12,
-                name = "power14",
-                type = "",
-                shape = "ellipse",
-                x = -14,
-                y = 37,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 13,
-                name = "power15",
-                type = "",
-                shape = "ellipse",
-                x = -16,
-                y = 33,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 14,
-                name = "power16",
-                type = "",
-                shape = "ellipse",
-                x = -16,
-                y = 28,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 15,
-                name = "power12",
-                type = "",
-                shape = "ellipse",
-                x = -8,
-                y = 43,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 16,
-                name = "power11",
-                type = "",
-                shape = "ellipse",
-                x = -4,
-                y = 45,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 17,
-                name = "power13",
-                type = "",
-                shape = "ellipse",
-                x = -11,
-                y = 40,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 18,
-                name = "power17",
-                type = "",
-                shape = "ellipse",
-                x = -14,
-                y = 24,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 19,
-                name = "power19",
-                type = "",
-                shape = "ellipse",
-                x = -8,
-                y = 18,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 20,
-                name = "power20",
-                type = "",
-                shape = "ellipse",
-                x = -4,
-                y = 16,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              }
-            }
-          }
-        },
-        {
-          id = 1,
-          properties = {
-            ["name"] = "full"
-          }
-        }
-      }
     }
   },
   layers = {
@@ -1876,7 +708,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "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"
+      data = "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"
     },
     {
       type = "objectgroup",
@@ -1947,7 +779,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 199,
+          gid = 145,
           visible = true,
           properties = {
             ["onDiscard"] = "playerVictory",
@@ -2029,7 +861,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 241,
+          gid = 187,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -2045,7 +877,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 242,
+          gid = 188,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -2061,7 +893,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 241,
+          gid = 187,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -2104,7 +936,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["pathid"] = 495,
@@ -2124,7 +956,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["pathid"] = 495,
@@ -2163,7 +995,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["pathid"] = 495,
@@ -2183,7 +1015,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["pathid"] = 495,
@@ -2262,7 +1094,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 187,
+          gid = 133,
           visible = true,
           properties = {
             ["pathid"] = 288,
@@ -2299,7 +1131,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 187,
+          gid = 133,
           visible = true,
           properties = {
             ["pathid"] = 281,
@@ -2348,7 +1180,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -2366,7 +1198,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -2384,7 +1216,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -2424,7 +1256,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -2457,7 +1289,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -2475,7 +1307,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -2493,7 +1325,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -2511,7 +1343,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 397,
@@ -2529,7 +1361,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["pathid"] = 486,
@@ -2548,7 +1380,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["pathid"] = 483,
@@ -2725,7 +1557,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 103,
+          gid = 49,
           visible = true,
           properties = {
             ["firepointid_bl"] = 333,
@@ -2856,7 +1688,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["pathid"] = 492,
@@ -2876,7 +1708,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["pathid"] = 492,
@@ -2896,7 +1728,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["pathid"] = 491,
@@ -2916,7 +1748,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["pathid"] = 491,
@@ -3081,7 +1913,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 97,
+          gid = 43,
           visible = true,
           properties = {
             ["pathid"] = 366,
@@ -3099,7 +1931,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 240,
+          gid = 186,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3115,7 +1947,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 242,
+          gid = 188,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -3196,7 +2028,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 219,
@@ -3215,7 +2047,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 219,
@@ -3234,7 +2066,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 219,
@@ -3253,7 +2085,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 219,
@@ -3272,7 +2104,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 219,
@@ -3291,7 +2123,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 219,
@@ -3310,7 +2142,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 219,
@@ -3329,7 +2161,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 219,
@@ -3379,7 +2211,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["pathid"] = 224,
@@ -3433,7 +2265,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["pathid"] = 223,
@@ -3510,7 +2342,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 211,
@@ -3529,7 +2361,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 273,
@@ -3548,7 +2380,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 211,
@@ -3586,7 +2418,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 273,
@@ -3632,7 +2464,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 271,
@@ -3650,7 +2482,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 271,
@@ -3668,7 +2500,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 271,
@@ -3708,7 +2540,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 271,
@@ -3768,7 +2600,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 106,
+          gid = 52,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -3789,7 +2621,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -3807,7 +2639,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -3825,7 +2657,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -3843,7 +2675,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -3926,7 +2758,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -3947,7 +2779,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -4044,7 +2876,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -4098,7 +2930,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -4116,7 +2948,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -4134,7 +2966,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["pathid"] = 195,
@@ -4164,7 +2996,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -4185,7 +3017,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -4269,7 +3101,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -4290,7 +3122,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -4355,7 +3187,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -4376,7 +3208,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -4397,7 +3229,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -4507,7 +3339,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -4523,7 +3355,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 196,
+          gid = 142,
           visible = true,
           properties = {
             ["script"] = "NPCArcher"
@@ -4551,7 +3383,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 2147483886,
+          gid = 2147483832,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4570,7 +3402,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 238,
+          gid = 184,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4589,7 +3421,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 421,
@@ -4606,7 +3438,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 421,
@@ -4623,7 +3455,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 426,
@@ -4640,7 +3472,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 421,
@@ -4657,7 +3489,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 426,
@@ -4674,7 +3506,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 426,
@@ -4703,7 +3535,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 345,
@@ -4754,7 +3586,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 345,
@@ -4771,7 +3603,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 345,
@@ -4788,7 +3620,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 343,
@@ -4805,7 +3637,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 343,
@@ -4822,7 +3654,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 343,
@@ -4858,7 +3690,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 2147483886,
+          gid = 2147483832,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4877,7 +3709,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 238,
+          gid = 184,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4896,7 +3728,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 94,
+          gid = 40,
           visible = true,
           properties = {
             ["leaderid"] = 346,
@@ -4914,7 +3746,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 346,
@@ -4932,7 +3764,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 238,
+          gid = 184,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -4949,7 +3781,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 346,
@@ -4979,7 +3811,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 325,
@@ -4996,7 +3828,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 325,
@@ -5034,7 +3866,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 325,
@@ -5066,7 +3898,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 2147483886,
+          gid = 2147483832,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -5097,7 +3929,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 324,
@@ -5150,7 +3982,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 324,
@@ -5167,7 +3999,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 184,
+          gid = 130,
           visible = true,
           properties = {
             ["leaderid"] = 324,
@@ -5184,7 +4016,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 238,
+          gid = 184,
           visible = true,
           properties = {
             ["kopassengers"] = true,
@@ -5245,7 +4077,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 343,
+          gid = 257,
           visible = true,
           properties = {
             ["pathid"] = 86,
@@ -5282,7 +4114,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 478,
+          gid = 392,
           visible = true,
           properties = {
             ["pathid"] = 419,
@@ -5300,7 +4132,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 490,
+          gid = 404,
           visible = true,
           properties = {
             ["pathid"] = 419,
@@ -5318,7 +4150,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 493,
+          gid = 407,
           visible = true,
           properties = {
             ["pathid"] = 86,
@@ -5336,7 +4168,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 487,
+          gid = 401,
           visible = true,
           properties = {
             ["pathid"] = 419,
@@ -5373,7 +4205,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 475,
+          gid = 389,
           visible = true,
           properties = {
             ["pathid"] = 85,
@@ -5391,7 +4223,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 484,
+          gid = 398,
           visible = true,
           properties = {
             ["pathid"] = 418,
@@ -5409,7 +4241,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 481,
+          gid = 395,
           visible = true,
           properties = {
             ["pathid"] = 85,
@@ -5427,7 +4259,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 469,
+          gid = 383,
           visible = true,
           properties = {
             ["pathid"] = 418,
@@ -5445,7 +4277,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 386,
           visible = true,
           properties = {
             ["pathid"] = 418,

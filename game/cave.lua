@@ -11,9 +11,9 @@ return {
   nextobjectid = 194,
   properties = {
     ["cameraid"] = 1,
-    ["delayinitobjects"] = true,
+    ["delayinitobjects"] = false,
     ["music"] = "mus/20 - My Kingdom.vgm",
-    ["overlaymap"] = "gameui.lua",
+    ["overlaymap"] = "gameplay.lua",
     ["playerid"] = 2,
     ["script"] = "ShmupMap"
   },
@@ -188,102 +188,8 @@ return {
       }
     },
     {
-      name = "demonshots",
-      firstgid = 4,
-      filename = "img/demonshots.tsx",
-      tilewidth = 32,
-      tileheight = 16,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonshots.png",
-      imagewidth = 32,
-      imageheight = 64,
-      tileoffset = {
-        x = -16,
-        y = 8
-      },
-      properties = {
-        ["commoncollision"] = 0
-      },
-      terrains = {},
-      tilecount = 4,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "player"
-          },
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -8,
-                y = 8,
-                width = 16,
-                height = 16,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          }
-        },
-        {
-          id = 1,
-          properties = {
-            ["name"] = "wingman"
-          }
-        },
-        {
-          id = 2,
-          properties = {
-            ["name"] = "bombpackage"
-          }
-        },
-        {
-          id = 3,
-          properties = {
-            ["name"] = "bombshrapnel"
-          }
-        }
-      }
-    },
-    {
-      name = "playerhitbox",
-      firstgid = 8,
-      filename = "img/playerhitbox.tsx",
-      tilewidth = 8,
-      tileheight = 8,
-      spacing = 0,
-      margin = 0,
-      image = "img/playerhitbox.png",
-      imagewidth = 8,
-      imageheight = 8,
-      tileoffset = {
-        x = -4,
-        y = 4
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 1,
-      tiles = {}
-    },
-    {
       name = "map_cave",
-      firstgid = 9,
+      firstgid = 4,
       filename = "img/map_cave.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1076,7 +982,7 @@ return {
     },
     {
       name = "cage",
-      firstgid = 409,
+      firstgid = 404,
       filename = "img/cage.tsx",
       tilewidth = 32,
       tileheight = 64,
@@ -1127,7 +1033,7 @@ return {
     },
     {
       name = "mermaid",
-      firstgid = 410,
+      firstgid = 405,
       filename = "img/friend/mermaid.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1203,7 +1109,7 @@ return {
     },
     {
       name = "darkboat",
-      firstgid = 422,
+      firstgid = 417,
       filename = "img/darkboat.tsx",
       tilewidth = 128,
       tileheight = 64,
@@ -1269,7 +1175,7 @@ return {
     },
     {
       name = "infmen",
-      firstgid = 423,
+      firstgid = 418,
       filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1352,7 +1258,7 @@ return {
     },
     {
       name = "infwomen",
-      firstgid = 513,
+      firstgid = 508,
       filename = "img/infwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1434,162 +1340,8 @@ return {
       }
     },
     {
-      name = "humanshots",
-      firstgid = 603,
-      filename = "img/humanshots.tsx",
-      tilewidth = 32,
-      tileheight = 16,
-      spacing = 0,
-      margin = 0,
-      image = "img/humanshots.png",
-      imagewidth = 128,
-      imageheight = 128,
-      tileoffset = {
-        x = -24,
-        y = 8
-      },
-      properties = {
-        ["commoncollision"] = 0
-      },
-      terrains = {},
-      tilecount = 32,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "pike"
-          },
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -2,
-                y = 14,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          }
-        },
-        {
-          id = 4,
-          properties = {
-            ["name"] = "sword"
-          }
-        },
-        {
-          id = 8,
-          properties = {
-            ["name"] = "arrow"
-          }
-        },
-        {
-          id = 9,
-          properties = {
-            ["name"] = "firearrow"
-          },
-          animation = {
-            {
-              tileid = 9,
-              duration = 67
-            },
-            {
-              tileid = 10,
-              duration = 67
-            },
-            {
-              tileid = 11,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 12,
-          properties = {
-            ["name"] = "magic"
-          }
-        },
-        {
-          id = 16,
-          properties = {
-            ["name"] = "ballista"
-          }
-        },
-        {
-          id = 20,
-          properties = {
-            ["name"] = "catapult"
-          },
-          animation = {
-            {
-              tileid = 20,
-              duration = 67
-            },
-            {
-              tileid = 21,
-              duration = 67
-            },
-            {
-              tileid = 22,
-              duration = 67
-            },
-            {
-              tileid = 23,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 24,
-          properties = {
-            ["name"] = "water"
-          }
-        },
-        {
-          id = 28,
-          properties = {
-            ["name"] = "fire"
-          },
-          animation = {
-            {
-              tileid = 28,
-              duration = 67
-            },
-            {
-              tileid = 29,
-              duration = 67
-            },
-            {
-              tileid = 30,
-              duration = 67
-            },
-            {
-              tileid = 31,
-              duration = 67
-            }
-          }
-        }
-      }
-    },
-    {
       name = "electricity",
-      firstgid = 635,
+      firstgid = 598,
       filename = "img/electricity.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1624,179 +1376,8 @@ return {
       }
     },
     {
-      name = "demonizing",
-      firstgid = 667,
-      filename = "img/demonizing.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonizing.png",
-      imagewidth = 192,
-      imageheight = 64,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 3,
-      tiles = {
-        {
-          id = 0,
-          animation = {
-            {
-              tileid = 0,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 0,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 0,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 0,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 2,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 2,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 2,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 2,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "demonwomen",
-      firstgid = 670,
-      filename = "img/demonwomen.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonwomen.png",
-      imagewidth = 192,
-      imageheight = 832,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["row_archer"] = 12,
-        ["row_civ1"] = 0,
-        ["row_civ2"] = 1,
-        ["row_civ3"] = 2,
-        ["row_civ4"] = 3,
-        ["row_civ5"] = 4,
-        ["row_civ6"] = 5,
-        ["row_civ7"] = 6,
-        ["row_civ8"] = 7,
-        ["row_mage"] = 11,
-        ["row_pikeman"] = 8,
-        ["row_priest"] = 10,
-        ["row_swordsman"] = 9
-      },
-      terrains = {},
-      tilecount = 39,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -8,
-                y = 56,
-                width = 16,
-                height = 16,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
       name = "lavapit",
-      firstgid = 709,
+      firstgid = 630,
       filename = "img/lavapit.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -2014,7 +1595,7 @@ return {
     },
     {
       name = "cave_objects",
-      firstgid = 749,
+      firstgid = 670,
       filename = "img/cave_objects.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -2034,7 +1615,7 @@ return {
     },
     {
       name = "flames",
-      firstgid = 798,
+      firstgid = 719,
       filename = "img/flames.tsx",
       tilewidth = 16,
       tileheight = 24,
@@ -2134,93 +1715,8 @@ return {
       }
     },
     {
-      name = "demonbomb",
-      firstgid = 810,
-      filename = "img/demonbomb.tsx",
-      tilewidth = 128,
-      tileheight = 128,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonbomb.png",
-      imagewidth = 512,
-      imageheight = 256,
-      tileoffset = {
-        x = -64,
-        y = 128
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 8,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -64,
-                y = 128,
-                width = 128,
-                height = 128,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 50
-            },
-            {
-              tileid = 1,
-              duration = 50
-            },
-            {
-              tileid = 2,
-              duration = 50
-            },
-            {
-              tileid = 3,
-              duration = 50
-            },
-            {
-              tileid = 4,
-              duration = 50
-            },
-            {
-              tileid = 5,
-              duration = 50
-            },
-            {
-              tileid = 6,
-              duration = 50
-            },
-            {
-              tileid = 7,
-              duration = 50
-            }
-          }
-        }
-      }
-    },
-    {
       name = "ballista",
-      firstgid = 818,
+      firstgid = 731,
       filename = "img/ballista.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2302,7 +1798,7 @@ return {
     },
     {
       name = "civwomen",
-      firstgid = 842,
+      firstgid = 755,
       filename = "img/civwomen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -2387,7 +1883,7 @@ return {
     },
     {
       name = "cauldron",
-      firstgid = 962,
+      firstgid = 875,
       filename = "img/cauldron.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2464,670 +1960,6 @@ return {
           }
         }
       }
-    },
-    {
-      name = "sparks_small",
-      firstgid = 968,
-      filename = "img/sparks_small.tsx",
-      tilewidth = 16,
-      tileheight = 16,
-      spacing = 0,
-      margin = 0,
-      image = "img/sparks_small.png",
-      imagewidth = 128,
-      imageheight = 32,
-      tileoffset = {
-        x = -8,
-        y = 8
-      },
-      properties = {
-        ["commonanimation"] = 0
-      },
-      terrains = {},
-      tilecount = 16,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "enemydamage"
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 16
-            },
-            {
-              tileid = 1,
-              duration = 16
-            },
-            {
-              tileid = 2,
-              duration = 16
-            },
-            {
-              tileid = 3,
-              duration = 16
-            },
-            {
-              tileid = 4,
-              duration = 16
-            },
-            {
-              tileid = 5,
-              duration = 16
-            },
-            {
-              tileid = 6,
-              duration = 16
-            },
-            {
-              tileid = 7,
-              duration = 16
-            }
-          }
-        },
-        {
-          id = 8,
-          properties = {
-            ["name"] = "enemyguard"
-          }
-        }
-      }
-    },
-    {
-      name = "sparks_med",
-      firstgid = 984,
-      filename = "img/sparks_med.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/sparks_med.png",
-      imagewidth = 192,
-      imageheight = 64,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "explosion"
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 67
-            },
-            {
-              tileid = 1,
-              duration = 67
-            },
-            {
-              tileid = 2,
-              duration = 67
-            },
-            {
-              tileid = 3,
-              duration = 67
-            },
-            {
-              tileid = 4,
-              duration = 67
-            },
-            {
-              tileid = 5,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 6,
-          properties = {
-            ["name"] = "wingmanexplosion"
-          },
-          animation = {
-            {
-              tileid = 6,
-              duration = 67
-            },
-            {
-              tileid = 7,
-              duration = 67
-            },
-            {
-              tileid = 8,
-              duration = 67
-            },
-            {
-              tileid = 9,
-              duration = 67
-            },
-            {
-              tileid = 10,
-              duration = 67
-            },
-            {
-              tileid = 11,
-              duration = 67
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "sparks_huge",
-      firstgid = 996,
-      filename = "img/sparks_huge.tsx",
-      tilewidth = 96,
-      tileheight = 96,
-      spacing = 0,
-      margin = 0,
-      image = "img/sparks_huge.png",
-      imagewidth = 480,
-      imageheight = 384,
-      tileoffset = {
-        x = -48,
-        y = 48
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 20,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "explosion"
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 67
-            },
-            {
-              tileid = 1,
-              duration = 67
-            },
-            {
-              tileid = 2,
-              duration = 67
-            },
-            {
-              tileid = 3,
-              duration = 67
-            },
-            {
-              tileid = 4,
-              duration = 67
-            },
-            {
-              tileid = 5,
-              duration = 67
-            },
-            {
-              tileid = 6,
-              duration = 67
-            },
-            {
-              tileid = 7,
-              duration = 67
-            },
-            {
-              tileid = 8,
-              duration = 67
-            },
-            {
-              tileid = 9,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 10,
-          properties = {
-            ["name"] = "playerexplosion"
-          },
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -42,
-                y = 54,
-                width = 84,
-                height = 84,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 10,
-              duration = 83
-            },
-            {
-              tileid = 11,
-              duration = 83
-            },
-            {
-              tileid = 12,
-              duration = 83
-            },
-            {
-              tileid = 13,
-              duration = 83
-            },
-            {
-              tileid = 14,
-              duration = 83
-            },
-            {
-              tileid = 15,
-              duration = 83
-            },
-            {
-              tileid = 16,
-              duration = 83
-            },
-            {
-              tileid = 17,
-              duration = 83
-            },
-            {
-              tileid = 18,
-              duration = 83
-            },
-            {
-              tileid = 19,
-              duration = 83
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "particles",
-      firstgid = 1016,
-      filename = "img/particles.tsx",
-      tilewidth = 4,
-      tileheight = 4,
-      spacing = 0,
-      margin = 0,
-      image = "img/particles.png",
-      imagewidth = 16,
-      imageheight = 16,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      properties = {
-        ["commonanimation"] = 0
-      },
-      terrains = {},
-      tilecount = 16,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "damage"
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 100
-            },
-            {
-              tileid = 1,
-              duration = 100
-            },
-            {
-              tileid = 2,
-              duration = 100
-            },
-            {
-              tileid = 3,
-              duration = 100
-            }
-          }
-        },
-        {
-          id = 4,
-          properties = {
-            ["name"] = "guard"
-          }
-        },
-        {
-          id = 8,
-          properties = {
-            ["name"] = "powerdot"
-          }
-        }
-      }
-    },
-    {
-      name = "powergauge",
-      firstgid = 1032,
-      filename = "img/powergauge.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/powergauge.png",
-      imagewidth = 64,
-      imageheight = 32,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      properties = {
-        ["commoncollision"] = 0
-      },
-      terrains = {},
-      tilecount = 2,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "notfull"
-          },
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "power1",
-                type = "",
-                shape = "ellipse",
-                x = 1,
-                y = 16,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 2,
-                name = "power2",
-                type = "",
-                shape = "ellipse",
-                x = 5,
-                y = 18,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 3,
-                name = "power3",
-                type = "",
-                shape = "ellipse",
-                x = 8,
-                y = 21,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 4,
-                name = "power4",
-                type = "",
-                shape = "ellipse",
-                x = 11,
-                y = 24,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 5,
-                name = "power5",
-                type = "",
-                shape = "ellipse",
-                x = 13,
-                y = 28,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 6,
-                name = "power6",
-                type = "",
-                shape = "ellipse",
-                x = 13,
-                y = 33,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 7,
-                name = "power7",
-                type = "",
-                shape = "ellipse",
-                x = 11,
-                y = 37,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 8,
-                name = "power8",
-                type = "",
-                shape = "ellipse",
-                x = 8,
-                y = 40,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 9,
-                name = "power9",
-                type = "",
-                shape = "ellipse",
-                x = 5,
-                y = 43,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 10,
-                name = "power10",
-                type = "",
-                shape = "ellipse",
-                x = 1,
-                y = 45,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 11,
-                name = "power18",
-                type = "",
-                shape = "ellipse",
-                x = -11,
-                y = 21,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 12,
-                name = "power14",
-                type = "",
-                shape = "ellipse",
-                x = -14,
-                y = 37,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 13,
-                name = "power15",
-                type = "",
-                shape = "ellipse",
-                x = -16,
-                y = 33,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 14,
-                name = "power16",
-                type = "",
-                shape = "ellipse",
-                x = -16,
-                y = 28,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 15,
-                name = "power12",
-                type = "",
-                shape = "ellipse",
-                x = -8,
-                y = 43,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 16,
-                name = "power11",
-                type = "",
-                shape = "ellipse",
-                x = -4,
-                y = 45,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 17,
-                name = "power13",
-                type = "",
-                shape = "ellipse",
-                x = -11,
-                y = 40,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 18,
-                name = "power17",
-                type = "",
-                shape = "ellipse",
-                x = -14,
-                y = 24,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 19,
-                name = "power19",
-                type = "",
-                shape = "ellipse",
-                x = -8,
-                y = 18,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 20,
-                name = "power20",
-                type = "",
-                shape = "ellipse",
-                x = -4,
-                y = 16,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              }
-            }
-          }
-        },
-        {
-          id = 1,
-          properties = {
-            ["name"] = "full"
-          }
-        }
-      }
     }
   },
   layers = {
@@ -3147,7 +1979,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztlTuOwzAMBQPf/1pUZ58pKdbAy+TJ5VYzgGBDpmiK3zler/NvXZ81n7Vib/C8Yk2sE/sLunL/lltx9l4pf0J2xf6TzXxf5UzaeuukfWlD26fdlEsf5Pc8Mzh3xh7vnf5K3U/yCzqpP+UW5G49U86v49u/+Y25kzFN3/F/c3zfiXK0MeMzWHk32jJxpuUF867lI/Mv97JmWl6ujZ7U1f6RuZi6mAfNd5TJe+/8mbqyNjJnMyat5vlkP2h3yjhmfrV4My70Y8rRvowF7Wi+zDodnGfe8n709y7mzOP0C/OZ+61X7/yb+c3abX6lPcyBObov2YPZU9jTea/mc8b6wvfWk+nj9p02ZR9kDbV+yBrhDBr8+6m+26zguV0/Yo5QV/sfZekn1gRnDe+ecW3+Z6zSv7ST86zNpTb32E9arjL/WK+0l/1o56d8Zz5yFmXdtf5Bv7SZ0e7c5lib9bu62PVFznjaTZuYa6xh5nHLl+v49dFTX2EfaXa23tz6PGu+zVDqSh+2GZ33ZT8REREREREREREREREREREREREREREREZH/5Q11wk4a"
+      data = "eJztlcuugzAMBSs+2tnBr7eLi3Q6PWF5VzNSBAqOcfyc4/U6/9b1WfNZK/YGzyvWxDqxv6Ar92+5FWfvlfInZFfsP9nM91XOpK23TtqXNrR92k259EF+zzODc2fs8d7pr9T9JL+gk/pTbkHu1jPl/Dq+/ZvfmDsZ0/Qd/zfH950oRxszPoOVd6MtE2daXjDvWj4y/3Iva6bl5droSV3tH5mLqYt50HxHmbz3zp+pK2sjczZj0mqeT/aDdqeMY+ZXizfjQj+mHO3LWNCO5sus08F55i3vR3/vYs48Tr8wn7nfevXOv5nfrN3mV9rDHJij+5I9mD2FPZ33aj5nrC98bz2ZPm7faVP2QdZQ64esEc6gwb+f6rvNCp7b9SPmCHW1/1GWfmJNcNbw7hnX5n/GKv1LOznP2lxqc4/9pOUq84/1SnvZj3Z+ynfmI2dR1l3rH/RLmxntzm2OtVm/q4tdX+SMp920ibnGGmYet3y5jl8fPfUV9pFmZ+vNrc+z5tsMpa70YZvReV/2ExERERERERERERERERERERERERERERER+V/eevxpYA=="
     },
     {
       type = "tilelayer",
@@ -3163,7 +1995,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmk+y00YQxpslcAKbEwAnIDlBuATkBM9Z2vWqQpZWuSqwlMsutJVukOQGvgQE2JAsMHAAonmvf57PQhrJfzapsqu6ZFsz3/T0zHR/3ZLZ5XP5XD6Xz+Vz+Rz2+bOWv2r59wT5w3E2tfxzAmbA+VjLtJaF4ynmIfLRMca1VCKTWta1rPz+1NuE33kt17XMa1n673DdepvMMdbepnT9AsbMr3P5Tnv0WPj9zL/P/PdC7q297dJ1qfy6cH2YR+ZzGXu/F7W89v9L15nxZy7oW/n12tut/f7Wx3hVy6+CufS+uV8ZG90y71v6/4X3feFYrwTztdhpIn3BHvsVjN8aGE08nfdGdJ24zYoejDZM8JYih+I08VinY3GQK9HtlxNwwGI/nQNr5jY/B9bK7XUOrLBHp2fEOpe9wvy2Z9QrPxHrWS2/u60C1stafk60f+7S1ubKcYJeM7+26fbMMaa+5s0x0Wnhttq02AyM0C5z3fHvL0XHK7+38HahzUTGZKxmPMgtxgTah3alY60s+s9S7uNzl97ukctP/h9+tLToV9Uvb3xc9tzY/3tay48uDx1vbtF3ZrYfg4hh+H0wgi6PBQs81ZMzjY7Mkxj1tAWjTdATXTaONU7okpKR6JK5jYbq0oY18XXenICjWBu324MjccCCo6zPgEV8zM+AtRX7n4rFHs9OwLpbyxO73U/sq2OwwJlZ5H9Bvx9quX8ETrA53An+uTkQbyQY+JLSIresDsAbWeTEnGP8XPgP7j0Ej72+tnh2gn4rizH32v/rWwv2wcZ1wk5Ti34rjDHkbOJr2J/4xqntc82h+wOf+JNjoAv6HOq7FFPlWJ9zkf+P3HNpO1t35X5XGxXyyrazGs5T2Kvkgl3nmTHhKm1xJmCRB8FNmm1op5xnJePe9StnkxxwKlg6/+A7yQ/JuRk3YDyWMTPHUd/AOCuxwdSif2uziZ7Jx6Iz41SOpTk7dYo+f/JQMIkLxCly8qXPc5lYL123JxZ9Nrk9vFZz+use3eAG195Xaxr4b+JOX+wKWPBvdCEebOWerm2bbsyPmgC2Ui5LjCYWdsUZ+Aq1Dnj7QnCmFuspW+vmbsTPtcW9xN4Ei9jKeeribiOxN3kS+Q0ceSrYxLEuLHKKscV4TpzSeM9+7Yql7PVM+mwtxuStj8UenvSsIe3AJIZ+uf2vCILtu87RSGwJJ2M/Baxvjlf/LtaWzgfgU3PXifxt4XP5UMun23GKpevWdX5GFrlrfjuXvRrem1re3Y53g5XipfjPgEP7yvt8jTg3WFVifth9EtveyNZx7tyJ96hBpnTibAWMoBs1zs9uK85fSifdo147LNj36PTB4r5N5TvMbxrbF4yPTm8s+sU+nYgLm2j7mz3xvpa3bvch3BNb4UsqtxVxbu44GvNSWMyP88q51v01hA+DtRQc9ip+ZmjOiy/FfztmkcsaPLD92JnCIk8gJq9st892Omm87xLiPTxfbX1MPg8ePmZyJI7OFT/YhnNIbtnkKc37IT4P4Y9DhDN/aP7bhVWeCa8S/1gdiAfPvC9YueMdqh9rwToQS3LBTPnXlI7w+7HYbojvaNt7XyzGN54nlUesQ8D6Jnj6vCz4liF42D/48A+CV9k+1+irB2kcWDkWsRu7rSzWOLqwwJlb5M7EkHf+m+dvXedXceDMM7+iE/6Nmm9KJ/XZcPGJ6LSwWMsjt2nDUg5G7IBHvrMYa+HX1MbbsPBhuUX+G+bxVex9LWu47rCV2hs85QHUA4lVrEmXTuQl2Fz5hD6nhDv28cKpxeeon93mb+We1tlT6wfXhde/F5tPRLdxAkvXD/48t8jz+Z8cpMvmqhM1u4nblnUkxyDm9e1PcgDiI/YP4z+y6Aup8ac4GBxpI7jaB47WV0sES3O55tjo2ueXNefIO9aI/HYIN1xZzF/b2q9sWD29WTtUHHjXEL7aJ/CuLp5xrAzhhn3971k8G332SmEQP5px/BAhbyOfPIZ7qT7kH9QTDuFz2IS6jz+/LPBd6NiHqT6a2EOuRV2De/CArthPzYT5UAMiThJ3yWk4t23rSv5BDCNerQWf2MF7Pql4RlzwGknBewelY+FXZxZ9ZRuW5h+lcD/sBffa+Hd8ZMonet5dwHXJseibygGa65gLVw7x0Wslg86O7s2lYNid2zj7yYY/gxrZfl1CYzU8qRwwL7CUZ5P7N7GGnmHOShfW0vrPoZ6bXOYXOMTfguW5cpGyv/ORwmvYO51Cf/3usTvJ5bFV6UL/b2J/xcLvtOGx15mj1lza5kjtr2uuxMag13vH6NKL/ZfyNZXYTddRanG72iN+J3Wm8XPoBg7nkVphXy6q8ywt8kH1E+RC5KKTjnVAN9Y0XOGG1LU1t8p9HVK+EBvjK7Ko786G4IX/up4roJvm+zrH5rniXciu/QFemy9sYhE7UmdB9RMdv8PKLL7703dO4dBw6uae03iZwkI35feKQ6xN8fyWc7/LI986TiY4qx6dmr6bnIz6BLkEsalPJ+Uo1EpnFp8beq15sE7USYnV7FvmPeQ9HHRSHbARawoP6MPC5mOLdUh4CByA+6l9ik48s6Ju03y3l3nOrZ3XgQNXoubL2pGnTS3moxP7nivCATYyLpJZfH+N2sTYIm8Ckxwzs/jsjHfsyNP5vbHIg8kJea5G/4WMW3qtTddMnyuBwxqDoTakDd/pVzX6U7+pGv1y6ceazRs4S+lPe7UlfZeN3zPb16tsjJ+L76YulMlYpfhO+uNn3H/t7lX+fAbbUqPI3cbY2msqN2NSz9HcJVxfiLx2bN6blPXfxZvc43LQuWj013dHebfa53Kjg+cBhdpi6Hvg4BETMvmObYbg6DuwiqEcoet92D7dlO/CcQ7RSXXTtTvlHWneP0Yn5nssVi4YyxOx2BOl4KWwut53vrLIKYnBVQLrWcKW6FW6buSVqfZ9WCqpOQ7BUs6Wd2DxrnTXO+KsI1jk+21YvJcdxtb3tZu2VyzdE7z//dx1cj+68wGqY1Ov5p5gLPZd8C3/ARoiNYI="
+      data = "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"
     },
     {
       type = "objectgroup",
@@ -3221,7 +2053,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzrEJACAQBMHH/tvTTDOtw89s4BNhBo5Lt7eIkesFP3Or6Ct6dOnSpUvX+507RQ8AAAAAAAAAAAAAAADwswsF2FcG"
+      data = "eJztzrEJACAQBMHH4jXTTNv1Mxv4RJiB49LtLWLkesHP3Cr6ih5dunTp0vV+507RAwAAAAAAAAAAAAAAAPzsAoMG29Y="
     },
     {
       type = "tilelayer",
@@ -3239,7 +2071,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJztWmuL2zAQPPTHTTElmFKMCUe4f3snanHbycxqtc6HUjQg4jw8nl1pH5bz9jYxMTExMTExMTExMTHxL+G9/Bk/yjWe5ev829fYzpHhqxx34Lmd436OCK/Vgq8bcCu+5fQLnoNclv834UK/2N8zje34V/F5IrYpXUfHP0xPe4+6DvM7T1/Ext3xd28+mY3sfMVnP2c22u+VrUzjz46NyBnlqVgdfyl+xmP5PD/Z79BHio/pQz4WNz0+FTtRropdcKm1rrA4/o7kGgtca2pe61D5sOUuL45VfL6fvO/AEbFP5RE8z/teXcOLj148efo8X0Tz44hWTzv7vOdrdk2lUfn9cQ6lr33/EZjXhpVowHhiv7kZTSwuvNjcCRfLB5jn6sA4snHYbFe5c4drWm3Yi/RywFqefdriEecnkp+O8jxnbM15dQG1eWszwtPA5qtxRXMv04ZxMMpVcRCeUfsa0M6MfZYLfT5S8yyO8rwusrrQX1kuVkuzXNibtpGdw6trtGIpPHYyXGxdXeVCbaNcmO+u+J3FoMrpUU2Y90btY/GXyX3sHnVL2LcQDjtGuNg9U2ZdLUQH6ovoUn01fhbh6tkWXQ9er8/4vP0Fr0djOZD1KQv5jeoDPVuRhx339LZ7Bpzz+lrrM/aPSqf3GfaY7FrMf0q/Ra+/UXoYl+VT6wSPPxwutFfZ3M6/E38h9vLsL29dK10Vao8EtUXiDHu53jz2YnYlWpjfvB4f/eblpJE6gHnJ8o7WE7VGs3X3aq1ErlvSNsuVyf0I1WNe6e2zNbenKdvLsZyQnT+WV0d9pfavX9X39tZCe7agNGF+UVx2niwOYpunC3skxYXzyPyFc4T2qZrDnjGgDfYaXo3dyvczGnxuYmsa3v+oHM/Ox2sxLao+qxyraryqh6oW1dH6mxobKocq/vb6KN+xtZW/932UzyLrF/f3vONITWz9XM9/I/m+1yNm8g7W/it1o4L1Oa/gulI7Ktj9ez0eeQ6rnnlGalE7F+Nf5R5vHlXPgOv10eGp8Hq/0RrL9mBx/qJc6GMWh9G18AhwjfakKh9k9mXVWsjUfu+ZZ+Y/BypPZ+JwLc9+v5ofWI7O2KnuqbLa2L1yVlsF2z9+VS7cLmhjz2OztrJnO1f0KW2Z2MJahDqj2rz+bjTud6IH4z66j6h6wmhNsppUXRr1PfvvTLbf8f43MBpLK+Gyr5keDGtUhodxRvdsJiYmJiYm/gd8Ah0pDIA="
+      data = "eJztWmuL2zAQPPQzTTElmFKMCUe4/8+dqMVtJzOr1TofStGAiPPweHalfVjO29vExMTExMTExMTExMTEv4T38mf8KNd4lq/zb19jO0eGr3Lcged2jvs5IrxWC75uwK34ltMveA5yWf7fhAv9Yn/PNLbjX8XnidimdB0d/zA97T3qOszvPH0RG3fH3735ZDay8xWf/ZzZaL9XtjKNPzs2ImeUp2J1/KX4GY/l8/xkv0MfKT6mD/lY3PT4VOxEuSp2waXWusLi+DuSayxwral5rUPlw5a7vDhW8fl+8r4DR8Q+lUfwPO97dQ0vPnrx5OnzfBHNjyNaPe3s856v2TWVRuX3xzmUvvb9R2BeG1aiAeOJ/eZmNLG48GJzJ1wsH2CeqwPjyMZhs13lzh2uabVhL9LLAWt59mmLR5yfSH46yvOcsTXn1QXU5q3NCE8Dm6/GFc29TBvGwShXxUF4Ru1rQDsz9lku9PlIzbM4yvO6yOpCf2W5WC3NcmFv2kZ2Dq+u0Yql8NjJcLF1dZULtY1yYb674ncWgyqnRzVh3hu1j8VfJvexe9QtYd9COOwY4WL3TJl1tRAdqC+iS/XV+FmEq2dbdD14vT7j8/YXvB6N5UDWpyzkN6oP9GxFHnbc09vuGXDO62utz9g/Kp3eZ9hjsmsx/yn9Fr3+RulhXJZPrRM8/nC40F5lczv/TvyF2Muzv7x1rXRVqD0S1BaJM+zlevPYi9mVaGF+83p89JuXk0bqAOYlyztaT9Qazdbdq7USuW5J2yxXJvcjVI95pbfP1tyepmwvx3JCdv5YXh31ldq/flXf21sL7dmC0oT5RXHZebI4iG2eLuyRFBfOI/MXzhHap2oOe8aANthreDV2K9/PaPC5ia1peP+jcjw7H6/FtKj6rHKsqvGqHqpaVEfrb2psqByq+Nvro3zH1lb+3vdRPousX9zf844jNbH1cz3/jeT7Xo+YyTtY+6/UjQrW57yC60rtqGD37/V45DmseuYZqUXtXIx/lXu8eVQ9A67XR4enwuv9Rmss24PF+YtyoY9ZHEbXwiPANdqTqnyQ2ZdVayFT+71nnpn/HKg8nYnDtTz7/Wp+YDk6Y6e6p8pqY/fKWW0VbP/4Vblwu6CNPY/N2sqe7VzRp7RlYgtrEeqMavP6u9G434kejPvoPqLqCaM1yWpSdWnU9+y/M9l+x/vfwGgsrYTLvmZ6MKxRGR7GGd2zmZiYmJiY+B/wCb30PAc="
     },
     {
       type = "tilelayer",
@@ -3255,7 +2087,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt2DdLBUEUQOF9P8uAWcGAWcGAWcGAWXtjb/y9nmJvs7CzAS3U88FhimWmG967k2WSJEmSJEmSJOkndHWyrJt6qDex9tNAJ33WON8naJKmEusMzVactcL3VVqj9cS6SVsVZx3y/YiO6SSxntF5xVmSJH2XQX5zhmiYRmiUxlr+Ds2xb54WaJGWaLnlWdvs26Fd2qN9Omh51gX7LumKrumGbluedce+e3qgR3qi55ZnvbDvld7onT7o0/8AkvSvxWzcl8/AxbXOTBxiNp7OZ+DiWmcmDjEbb+QzcHGtMxOHmI1P8xm4uDoT668rewNrcr9D2RtYk/sdyt7AmtzvUPYG5v2WJEmSJOl3+wIusTcz"
+      data = "eJzt2DdLBUEUQOF9/8mAWcGAWcGAWcGAWXtjb/zHnmJvs7CzAS3U88FhimWmG967k2WSJEmSJEmSJOkndHWyrJt6qDex9tNAJ33WON8naJKmEusMzVactcL3VVqj9cS6SVsVZx3y/YiO6SSxntF5xVmSJH2XQX5zhmiYRmiUxlr+Ds2xb54WaJGWaLnlWdvs26Fd2qN9Omh51gX7LumKrumGbluedce+e3qgR3qi55ZnvbDvld7onT7o0/8AkvSvxWzcl8/AxbXOTBxiNp7OZ+DiWmcmDjEbb+QzcHGtMxOHmI1P8xm4uDoT668rewNrcr9D2RtYk/sdyt7AmtzvUPYG5v2WJEmSJOl3+wKkMDQn"
     },
     {
       type = "objectgroup",
@@ -3298,7 +2130,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 468,
+          gid = 463,
           visible = true,
           properties = {
             ["kolaunch"] = true,
@@ -3316,7 +2148,7 @@ return {
           width = 16,
           height = 24,
           rotation = 0,
-          gid = 798,
+          gid = 719,
           visible = true,
           properties = {
             ["operatorid"] = 118,
@@ -3333,7 +2165,7 @@ return {
           width = 16,
           height = 24,
           rotation = 0,
-          gid = 798,
+          gid = 719,
           visible = true,
           properties = {
             ["operatorid"] = 118,
@@ -3436,7 +2268,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 2147484070,
+          gid = 2147484065,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -3452,7 +2284,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 422,
+          gid = 417,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -3480,7 +2312,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 962,
+          gid = 875,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -3497,7 +2329,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 962,
+          gid = 875,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -3514,7 +2346,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 962,
+          gid = 875,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -3531,7 +2363,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 962,
+          gid = 875,
           visible = true,
           properties = {
             ["destroyedtile"] = "destroyed",
@@ -3584,7 +2416,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 422,
+          gid = 417,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -3600,7 +2432,7 @@ return {
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 2147484070,
+          gid = 2147484065,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -3628,7 +2460,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 483,
+          gid = 478,
           visible = true,
           properties = {
             ["pathid"] = 115,
@@ -3684,7 +2516,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 447,
+          gid = 442,
           visible = true,
           properties = {
             ["pathid"] = 114,
@@ -3729,7 +2561,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 416,
+          gid = 411,
           visible = true,
           properties = {
             ["cageid"] = 48,
@@ -3748,7 +2580,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 409,
+          gid = 404,
           visible = true,
           properties = {
             ["pathid"] = 113,
@@ -3781,7 +2613,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 549,
+          gid = 544,
           visible = true,
           properties = {
             ["pathid"] = 116,
@@ -3849,7 +2681,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 416,
+          gid = 411,
           visible = true,
           properties = {
             ["cageid"] = 42,
@@ -3868,7 +2700,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 409,
+          gid = 404,
           visible = true,
           properties = {
             ["pathid"] = 112,
@@ -3901,7 +2733,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 465,
+          gid = 460,
           visible = true,
           properties = {
             ["pathid"] = 109,
@@ -3938,7 +2770,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 465,
+          gid = 460,
           visible = true,
           properties = {
             ["pathid"] = 111,
@@ -4006,7 +2838,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 821,
+          gid = 734,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4022,7 +2854,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 819,
+          gid = 732,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4065,7 +2897,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 819,
+          gid = 732,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4081,7 +2913,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 821,
+          gid = 734,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4124,7 +2956,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 819,
+          gid = 732,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4140,7 +2972,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 821,
+          gid = 734,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4183,7 +3015,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 821,
+          gid = 734,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4199,7 +3031,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 819,
+          gid = 732,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -4242,7 +3074,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 416,
+          gid = 411,
           visible = true,
           properties = {
             ["cageid"] = 36,
@@ -4261,7 +3093,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 409,
+          gid = 404,
           visible = true,
           properties = {
             ["pathid"] = 132,
@@ -4296,7 +3128,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 447,
+          gid = 442,
           visible = true,
           properties = {
             ["pathid"] = 133,
@@ -4314,7 +3146,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 483,
+          gid = 478,
           visible = true,
           properties = {
             ["pathid"] = 134,
@@ -4455,7 +3287,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 416,
+          gid = 411,
           visible = true,
           properties = {
             ["cageid"] = 33,
@@ -4474,7 +3306,7 @@ return {
           width = 32,
           height = 64,
           rotation = 0,
-          gid = 409,
+          gid = 404,
           visible = true,
           properties = {
             ["script"] = "ShmupVehicle"
@@ -4505,7 +3337,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 534,
+          gid = 529,
           visible = true,
           properties = {
             ["pathid"] = 106,
@@ -4554,7 +3386,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4573,7 +3405,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4592,7 +3424,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4611,7 +3443,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4630,7 +3462,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4649,7 +3481,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4668,7 +3500,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4687,7 +3519,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4706,7 +3538,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4725,7 +3557,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4744,7 +3576,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4763,7 +3595,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4782,7 +3614,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4801,7 +3633,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4820,7 +3652,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4839,7 +3671,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4858,7 +3690,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 93,
@@ -4877,7 +3709,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 459,
+          gid = 454,
           visible = true,
           properties = {
             ["leaderid"] = 94,
@@ -4949,7 +3781,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 462,
+          gid = 457,
           visible = true,
           properties = {
             ["pathid"] = 90,
@@ -4967,7 +3799,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 462,
+          gid = 457,
           visible = true,
           properties = {
             ["pathid"] = 89,
@@ -4997,7 +3829,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 820,
+          gid = 733,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -5013,7 +3845,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 820,
+          gid = 733,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -5029,7 +3861,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 820,
+          gid = 733,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -5045,7 +3877,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 820,
+          gid = 733,
           visible = true,
           properties = {
             ["script"] = "VehicleBallista"
@@ -5134,7 +3966,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzqsNgDAYhdF/GDYAj+E1APvPQpsgKqCCViDOSa79ciMAAAAAAAAAAAAAAAAAAP7l6NRZ08ZOrSFtifZv+dOZNkf7t+nu5LV8Kz+19J46X3q1TtnbK83c2F46F0ESDPw="
+      data = "eJztzqsNgDAYhdFuwgbgMbwGYP9taBNEBVTwVyDOSa79clMCAAAAAAAAAAAAAAAAAPiXo1NnzRs7tYa8JcW/rXln3pzi36a7Uxb5Vn+K9J46X3qtTt3bG83S2F46F3ybDAI="
     },
     {
       type = "objectgroup",
