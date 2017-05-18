@@ -7,14 +7,7 @@
   <property name="script" value="ShmupMap"/>
  </properties>
  <tileset firstgid="1" source="img/imp.tsx"/>
- <tileset firstgid="4" source="img/playerhitbox.tsx"/>
- <tileset firstgid="5" source="img/demonshots.tsx"/>
- <tileset firstgid="9" source="img/demonbomb.tsx"/>
- <tileset firstgid="17" source="img/demonizing.tsx"/>
- <tileset firstgid="20" source="img/demonwomen.tsx"/>
- <tileset firstgid="59" source="img/sparks_med.tsx"/>
- <tileset firstgid="75" source="img/humanshots.tsx"/>
- <tileset firstgid="103" source="img/infmen.tsx"/>
+ <tileset firstgid="4" source="img/infmen.tsx"/>
  <objectgroup name="camera" visible="0">
   <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>
@@ -24,71 +17,71 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="4" name="leader" gid="139" x="-32" y="-48" width="24" height="32">
+  <object id="4" name="leader" type="Pikeman" gid="40" x="120" y="16" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="5"/>
-    <property name="pathtime" type="float" value="4"/>
-    <property name="script" value="NPCPikeman"/>
+    <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="5" name="path" x="-32" y="-48">
+  <object id="5" name="path" x="-32" y="128">
    <properties>
+    <property name="beziercurve" type="bool" value="true"/>
     <property name="script" value="PathGraph"/>
    </properties>
-   <polyline points="0,0 120,128 184,128 304,0"/>
+   <polyline points="152,-80 152,0 72,0 72,80 232,80 232,160 72,160 72,280"/>
   </object>
-  <object id="6" gid="139" x="-32" y="-16" width="24" height="32">
+  <object id="6" type="Pikeman" gid="40" x="120" y="48" width="24" height="32">
    <properties>
-    <property name="leaderid" type="int" value="4"/>
-    <property name="script" value="NPCPikeman"/>
+    <property name="pathid" type="int" value="5"/>
+    <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="8" gid="139" x="-16" y="-16" width="24" height="32">
+  <object id="8" type="Pikeman" gid="40" x="136" y="48" width="24" height="32">
    <properties>
-    <property name="leaderid" type="int" value="4"/>
-    <property name="script" value="NPCPikeman"/>
+    <property name="pathid" type="int" value="5"/>
+    <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="9" gid="139" x="-8" y="-32" width="24" height="32">
+  <object id="9" type="Pikeman" gid="40" x="144" y="32" width="24" height="32">
    <properties>
-    <property name="leaderid" type="int" value="4"/>
-    <property name="script" value="NPCPikeman"/>
+    <property name="pathid" type="int" value="5"/>
+    <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="10" gid="139" x="-48" y="-16" width="24" height="32">
+  <object id="10" type="Pikeman" gid="40" x="104" y="48" width="24" height="32">
    <properties>
-    <property name="leaderid" type="int" value="4"/>
-    <property name="script" value="NPCPikeman"/>
+    <property name="pathid" type="int" value="5"/>
+    <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="11" gid="139" x="-56" y="-32" width="24" height="32">
+  <object id="11" type="Pikeman" gid="40" x="96" y="32" width="24" height="32">
    <properties>
-    <property name="leaderid" type="int" value="4"/>
-    <property name="script" value="NPCPikeman"/>
+    <property name="pathid" type="int" value="5"/>
+    <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="12" gid="139" x="-24" y="-32" width="24" height="32">
+  <object id="12" type="Pikeman" gid="40" x="128" y="32" width="24" height="32">
    <properties>
-    <property name="leaderid" type="int" value="4"/>
-    <property name="script" value="NPCPikeman"/>
+    <property name="pathid" type="int" value="5"/>
+    <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="17" gid="139" x="-40" y="-32" width="24" height="32">
+  <object id="17" type="Pikeman" gid="40" x="112" y="32" width="24" height="32">
    <properties>
-    <property name="leaderid" type="int" value="4"/>
-    <property name="script" value="NPCPikeman"/>
+    <property name="pathid" type="int" value="5"/>
+    <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="18" gid="139" x="-48" y="-48" width="24" height="32">
+  <object id="18" type="Pikeman" gid="40" x="104" y="16" width="24" height="32">
    <properties>
-    <property name="leaderid" type="int" value="4"/>
-    <property name="script" value="NPCPikeman"/>
+    <property name="pathid" type="int" value="5"/>
+    <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="19" gid="139" x="-16" y="-48" width="24" height="32">
+  <object id="19" type="Pikeman" gid="40" x="136" y="16" width="24" height="32">
    <properties>
-    <property name="leaderid" type="int" value="4"/>
-    <property name="script" value="NPCPikeman"/>
+    <property name="pathid" type="int" value="5"/>
+    <property name="pathmode" value="relative"/>
    </properties>
   </object>
  </objectgroup>

@@ -186,597 +186,8 @@ return {
       }
     },
     {
-      name = "playerhitbox",
-      firstgid = 4,
-      filename = "img/playerhitbox.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/playerhitbox.png",
-      imagewidth = 32,
-      imageheight = 32,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 1,
-      tiles = {}
-    },
-    {
-      name = "demonshots",
-      firstgid = 5,
-      filename = "img/demonshots.tsx",
-      tilewidth = 32,
-      tileheight = 16,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonshots.png",
-      imagewidth = 32,
-      imageheight = 64,
-      tileoffset = {
-        x = -16,
-        y = 8
-      },
-      properties = {
-        ["commoncollision"] = 0
-      },
-      terrains = {},
-      tilecount = 4,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "player"
-          },
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -8,
-                y = 8,
-                width = 16,
-                height = 16,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          }
-        },
-        {
-          id = 1,
-          properties = {
-            ["name"] = "wingman"
-          }
-        },
-        {
-          id = 2,
-          properties = {
-            ["name"] = "bombpackage"
-          }
-        },
-        {
-          id = 3,
-          properties = {
-            ["name"] = "bombshrapnel"
-          }
-        }
-      }
-    },
-    {
-      name = "demonbomb",
-      firstgid = 9,
-      filename = "img/demonbomb.tsx",
-      tilewidth = 128,
-      tileheight = 128,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonbomb.png",
-      imagewidth = 512,
-      imageheight = 256,
-      tileoffset = {
-        x = -64,
-        y = 128
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 8,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -64,
-                y = 128,
-                width = 128,
-                height = 128,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 50
-            },
-            {
-              tileid = 1,
-              duration = 50
-            },
-            {
-              tileid = 2,
-              duration = 50
-            },
-            {
-              tileid = 3,
-              duration = 50
-            },
-            {
-              tileid = 4,
-              duration = 50
-            },
-            {
-              tileid = 5,
-              duration = 50
-            },
-            {
-              tileid = 6,
-              duration = 50
-            },
-            {
-              tileid = 7,
-              duration = 50
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "demonizing",
-      firstgid = 17,
-      filename = "img/demonizing.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonizing.png",
-      imagewidth = 192,
-      imageheight = 64,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 3,
-      tiles = {
-        {
-          id = 0,
-          animation = {
-            {
-              tileid = 0,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 0,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 0,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 0,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 2,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 2,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 2,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            },
-            {
-              tileid = 2,
-              duration = 62
-            },
-            {
-              tileid = 1,
-              duration = 62
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "demonwomen",
-      firstgid = 20,
-      filename = "img/demonwomen.tsx",
-      tilewidth = 64,
-      tileheight = 64,
-      spacing = 0,
-      margin = 0,
-      image = "img/demonwomen.png",
-      imagewidth = 192,
-      imageheight = 832,
-      tileoffset = {
-        x = -32,
-        y = 32
-      },
-      properties = {
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["row_archer"] = 12,
-        ["row_civ1"] = 0,
-        ["row_civ2"] = 1,
-        ["row_civ3"] = 2,
-        ["row_civ4"] = 3,
-        ["row_civ5"] = 4,
-        ["row_civ6"] = 5,
-        ["row_civ7"] = 6,
-        ["row_civ8"] = 7,
-        ["row_mage"] = 11,
-        ["row_pikeman"] = 8,
-        ["row_priest"] = 10,
-        ["row_swordsman"] = 9
-      },
-      terrains = {},
-      tilecount = 39,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -8,
-                y = 56,
-                width = 16,
-                height = 16,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "sparks_med",
-      firstgid = 59,
-      filename = "img/sparks_med.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/sparks_med.png",
-      imagewidth = 192,
-      imageheight = 64,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 12,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "explosion"
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 67
-            },
-            {
-              tileid = 1,
-              duration = 67
-            },
-            {
-              tileid = 2,
-              duration = 67
-            },
-            {
-              tileid = 3,
-              duration = 67
-            },
-            {
-              tileid = 4,
-              duration = 67
-            },
-            {
-              tileid = 5,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 6,
-          properties = {
-            ["name"] = "wingmanexplosion"
-          },
-          animation = {
-            {
-              tileid = 6,
-              duration = 67
-            },
-            {
-              tileid = 7,
-              duration = 67
-            },
-            {
-              tileid = 8,
-              duration = 67
-            },
-            {
-              tileid = 9,
-              duration = 67
-            },
-            {
-              tileid = 10,
-              duration = 67
-            },
-            {
-              tileid = 11,
-              duration = 67
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "humanshots",
-      firstgid = 71,
-      filename = "img/humanshots.tsx",
-      tilewidth = 32,
-      tileheight = 16,
-      spacing = 0,
-      margin = 0,
-      image = "img/humanshots.png",
-      imagewidth = 128,
-      imageheight = 128,
-      tileoffset = {
-        x = -24,
-        y = 8
-      },
-      properties = {
-        ["commoncollision"] = 0
-      },
-      terrains = {},
-      tilecount = 32,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "pike"
-          },
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -2,
-                y = 14,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          }
-        },
-        {
-          id = 4,
-          properties = {
-            ["name"] = "sword"
-          }
-        },
-        {
-          id = 8,
-          properties = {
-            ["name"] = "arrow"
-          }
-        },
-        {
-          id = 9,
-          properties = {
-            ["name"] = "firearrow"
-          },
-          animation = {
-            {
-              tileid = 9,
-              duration = 67
-            },
-            {
-              tileid = 10,
-              duration = 67
-            },
-            {
-              tileid = 11,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 12,
-          properties = {
-            ["name"] = "magic"
-          }
-        },
-        {
-          id = 16,
-          properties = {
-            ["name"] = "ballista"
-          }
-        },
-        {
-          id = 20,
-          properties = {
-            ["name"] = "catapult"
-          },
-          animation = {
-            {
-              tileid = 20,
-              duration = 67
-            },
-            {
-              tileid = 21,
-              duration = 67
-            },
-            {
-              tileid = 22,
-              duration = 67
-            },
-            {
-              tileid = 23,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 24,
-          properties = {
-            ["name"] = "water"
-          }
-        },
-        {
-          id = 28,
-          properties = {
-            ["name"] = "fire"
-          },
-          animation = {
-            {
-              tileid = 28,
-              duration = 67
-            },
-            {
-              tileid = 29,
-              duration = 67
-            },
-            {
-              tileid = 30,
-              duration = 67
-            },
-            {
-              tileid = 31,
-              duration = 67
-            }
-          }
-        }
-      }
-    },
-    {
       name = "infmen",
-      firstgid = 103,
+      firstgid = 4,
       filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -912,19 +323,18 @@ return {
         {
           id = 4,
           name = "leader",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
-          x = -32,
-          y = -48,
+          x = 120,
+          y = 16,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 139,
+          gid = 40,
           visible = true,
           properties = {
             ["pathid"] = 5,
-            ["pathtime"] = 4,
-            ["script"] = "NPCPikeman"
+            ["pathmode"] = "relative"
           }
         },
         {
@@ -933,172 +343,177 @@ return {
           type = "",
           shape = "polyline",
           x = -32,
-          y = -48,
+          y = 128,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 0 },
-            { x = 120, y = 128 },
-            { x = 184, y = 128 },
-            { x = 304, y = 0 }
+            { x = 152, y = -80 },
+            { x = 152, y = 0 },
+            { x = 72, y = 0 },
+            { x = 72, y = 80 },
+            { x = 232, y = 80 },
+            { x = 232, y = 160 },
+            { x = 72, y = 160 },
+            { x = 72, y = 280 }
           },
           properties = {
+            ["beziercurve"] = true,
             ["script"] = "PathGraph"
           }
         },
         {
           id = 6,
           name = "",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
-          x = -32,
-          y = -16,
+          x = 120,
+          y = 48,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 139,
+          gid = 40,
           visible = true,
           properties = {
-            ["leaderid"] = 4,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 5,
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 8,
           name = "",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
-          x = -16,
-          y = -16,
+          x = 136,
+          y = 48,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 139,
+          gid = 40,
           visible = true,
           properties = {
-            ["leaderid"] = 4,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 5,
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 9,
           name = "",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
-          x = -8,
-          y = -32,
+          x = 144,
+          y = 32,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 139,
+          gid = 40,
           visible = true,
           properties = {
-            ["leaderid"] = 4,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 5,
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 10,
           name = "",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
-          x = -48,
-          y = -16,
+          x = 104,
+          y = 48,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 139,
+          gid = 40,
           visible = true,
           properties = {
-            ["leaderid"] = 4,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 5,
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 11,
           name = "",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
-          x = -56,
-          y = -32,
+          x = 96,
+          y = 32,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 139,
+          gid = 40,
           visible = true,
           properties = {
-            ["leaderid"] = 4,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 5,
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 12,
           name = "",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
-          x = -24,
-          y = -32,
+          x = 128,
+          y = 32,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 139,
+          gid = 40,
           visible = true,
           properties = {
-            ["leaderid"] = 4,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 5,
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 17,
           name = "",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
-          x = -40,
-          y = -32,
+          x = 112,
+          y = 32,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 139,
+          gid = 40,
           visible = true,
           properties = {
-            ["leaderid"] = 4,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 5,
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 18,
           name = "",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
-          x = -48,
-          y = -48,
+          x = 104,
+          y = 16,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 139,
+          gid = 40,
           visible = true,
           properties = {
-            ["leaderid"] = 4,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 5,
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 19,
           name = "",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
-          x = -16,
-          y = -48,
+          x = 136,
+          y = 16,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 139,
+          gid = 40,
           visible = true,
           properties = {
-            ["leaderid"] = 4,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 5,
+            ["pathmode"] = "relative"
           }
         }
       }

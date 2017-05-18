@@ -189,6 +189,10 @@ function ShmupBullet.fireOverTime(params, x, y, angle, layer, time, interval)
 		layer:addObject(shot)
 
 		time = time + interval
+
+		if params.sound then
+			levity.bank:play(params.sound)
+		end
 	end
 
 	return time

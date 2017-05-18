@@ -8,13 +8,29 @@
  </objecttype>
  <objecttype name="Camera" color="#0000ff">
   <property name="collidable" type="bool" default="true"/>
+  <property name="pathmode" type="string" default="relative"/>
   <property name="script" type="string" default="ShmupCam"/>
   <property name="sensor" type="bool" default="true"/>
-  <property name="pathmode" type="string" default="relative"/>
  </objecttype>
  <objecttype name="NPCCover" color="#a0a0a4">
   <property name="category" type="string" default="NPCCover"/>
   <property name="collidable" type="bool" default="true"/>
   <property name="sensor" type="bool" default="true"/>
+ </objecttype>
+ <objecttype name="BulletPike" color="#00aaff">
+  <property name="category" type="string" default="NPCShot"/>
+  <property name="sound" type="file" default="snd/pike.wav"/>
+  <property name="speed" type="float" default="120"/>
+  <property name="tileid" type="string" default="pike"/>
+  <property name="tileset" type="string" default="humanshots"/>
+ </objecttype>
+ <objecttype name="Pikeman" color="#ff0000">
+  <property name="bullettype" type="string" default="BulletPike"/>
+  <property name="firearc" type="float" default="90"/>
+  <property name="firetime" type="float" default="1"/>
+  <property name="pathid" type="int" default="0"/>
+  <property name="pathmode" type="string" default="absolute"/>
+  <property name="pathspeed" type="string" default="60"/>
+  <property name="script" type="string" default="Human"/>
  </objecttype>
 </objecttypes>

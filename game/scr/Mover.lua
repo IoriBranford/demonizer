@@ -43,6 +43,18 @@ Mover = class(function(self, object)
 	self.prevy = y
 end)
 
+local function getCurvePoint(curvepath, odo)
+	if not curvepath.curve then
+		return
+	end
+
+	local t = odo / curvepath.length
+	if curvepath.curvedir < 0 then
+		t = 1 - t
+	end
+	return curvepath.curve:evaluate(t)
+end
+
 function Mover:setOffsetX(ox)
 	self.offx = ox
 end
@@ -66,12 +78,15 @@ function Mover:beginMove(dt)
 		self.curveodo = self.curveodo + speed*dt
 		exdist = self.curveodo - self.path.length
 		if exdist <= 0 then
-			local nextx, nexty =
-				PathGraph.getCurvePoint(self.path, self.curveodo)
+			local nextx, nexty = getCurvePoint(self.path, self.curveodo)
 
 			distx = nextx + self.offx - x
 			disty = nexty + self.offy - y
 			vx, vy = distx / dt, disty / dt
+			if vx ~= 0 or vy ~= 0 then
+				levity.scripts:send(self.object.id, "faceAngle",
+							math.atan2(vy, vx))
+			end
 		end
 	else
 		local dist = math.hypot(distx, disty)
@@ -80,6 +95,10 @@ function Mover:beginMove(dt)
 			local dirx, diry = distx / dist, disty / dist
 
 			vx, vy = dirx * speed, diry * speed
+			if vx ~= 0 or vy ~= 0 then
+				levity.scripts:send(self.object.id, "faceAngle",
+							math.atan2(vy, vx))
+			end
 		end
 	end
 
