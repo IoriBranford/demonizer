@@ -12,7 +12,7 @@ Shooter = class(function(self, object)
 	local arc = self.properties.firearc or 90
 	self.mindot = math.cos(math.rad(arc) * .5)
 
-	local bullet = levity.map.objecttypes[self.properties.bullettype]
+	local bullet = levity.map.objecttypes[self.properties.firebullet]
 	if bullet then
 		if type(bullet.category) ~= "number" then
 			bullet.category = ShmupCollision["Category_"..bullet.category]
@@ -26,7 +26,7 @@ end)
 function Shooter:beginMove(dt)
 	local oncamera = levity.scripts:call(self.object.id, "isOnCamera")
 	local faceangle = levity.scripts:call(self.object.id, "getFaceAngle")
-	local bullet = levity.map.objecttypes[self.properties.bullettype]
+	local bullet = levity.map.objecttypes[self.properties.firebullet]
 
 	if oncamera == false or not faceangle or not bullet then
 		self.timer = self.properties.firetime

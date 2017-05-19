@@ -8,7 +8,7 @@ return {
   height = 40,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 21,
+  nextobjectid = 25,
   properties = {
     ["cameraid"] = 2,
     ["overlaymap"] = "gameplay.lua",
@@ -267,6 +267,140 @@ return {
           }
         }
       }
+    },
+    {
+      name = "infwomen",
+      firstgid = 94,
+      filename = "img/infwomen.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/infwomen.png",
+      imagewidth = 432,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      properties = {
+        ["column_archer"] = 12,
+        ["column_mage"] = 9,
+        ["column_pikeman"] = 0,
+        ["column_priest"] = 6,
+        ["column_princess"] = 15,
+        ["column_swordsman"] = 3,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["row_down"] = 2,
+        ["row_ko"] = 4,
+        ["row_left"] = 3,
+        ["row_right"] = 1,
+        ["row_up"] = 0
+      },
+      terrains = {},
+      tilecount = 90,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "trees",
+      firstgid = 184,
+      filename = "img/trees.tsx",
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/trees.png",
+      imagewidth = 192,
+      imageheight = 64,
+      tileoffset = {
+        x = -32,
+        y = 16
+      },
+      properties = {
+        ["commoncollision"] = 0
+      },
+      terrains = {},
+      tilecount = 3,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "NPCCover",
+                shape = "ellipse",
+                x = -20,
+                y = 24,
+                width = 40,
+                height = 40,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -322,7 +456,7 @@ return {
         },
         {
           id = 4,
-          name = "leader",
+          name = "",
           type = "Pikeman",
           shape = "rectangle",
           x = 120,
@@ -359,7 +493,7 @@ return {
             { x = 72, y = 280 }
           },
           properties = {
-            ["beziercurve"] = true,
+            ["beziercurve"] = false,
             ["script"] = "PathGraph"
           }
         },
@@ -515,6 +649,52 @@ return {
             ["pathid"] = 5,
             ["pathmode"] = "relative"
           }
+        },
+        {
+          id = 21,
+          name = "",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 120,
+          y = 0,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 130,
+          visible = true,
+          properties = {
+            ["pathid"] = 5,
+            ["pathmode"] = "relative",
+            ["sex"] = "female"
+          }
+        },
+        {
+          id = 22,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 120,
+          y = 144,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 184,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 23,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 120,
+          y = 224,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 184,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -531,13 +711,15 @@ return {
     },
     {
       type = "objectgroup",
-      name = "player",
+      name = "playerteam",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PlayerTeam"
+      },
       objects = {
         {
           id = 1,

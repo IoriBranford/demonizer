@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="30" height="40" tilewidth="8" tileheight="8" nextobjectid="21">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="30" height="40" tilewidth="8" tileheight="8" nextobjectid="25">
  <properties>
   <property name="cameraid" type="int" value="2"/>
   <property name="overlaymap" type="file" value="gameplay.lua"/>
@@ -8,6 +8,8 @@
  </properties>
  <tileset firstgid="1" source="img/imp.tsx"/>
  <tileset firstgid="4" source="img/infmen.tsx"/>
+ <tileset firstgid="94" source="img/infwomen.tsx"/>
+ <tileset firstgid="184" source="img/trees.tsx"/>
  <objectgroup name="camera" visible="0">
   <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>
@@ -17,7 +19,7 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="4" name="leader" type="Pikeman" gid="40" x="120" y="16" width="24" height="32">
+  <object id="4" type="Pikeman" gid="40" x="120" y="16" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
@@ -25,7 +27,7 @@
   </object>
   <object id="5" name="path" x="-32" y="128">
    <properties>
-    <property name="beziercurve" type="bool" value="true"/>
+    <property name="beziercurve" type="bool" value="false"/>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="152,-80 152,0 72,0 72,80 232,80 232,160 72,160 72,280"/>
@@ -84,9 +86,21 @@
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
+  <object id="21" type="Pikeman" gid="130" x="120" y="0" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="5"/>
+    <property name="pathmode" value="relative"/>
+    <property name="sex" value="female"/>
+   </properties>
+  </object>
+  <object id="22" gid="184" x="120" y="144" width="64" height="64"/>
+  <object id="23" gid="184" x="120" y="224" width="64" height="64"/>
  </objectgroup>
  <objectgroup name="sparks"/>
- <objectgroup name="player">
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
   <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
    <properties>
     <property name="script" value="ShmupPlayer"/>

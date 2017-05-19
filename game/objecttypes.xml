@@ -25,12 +25,15 @@
   <property name="tileset" type="string" default="humanshots"/>
  </objecttype>
  <objecttype name="Pikeman" color="#ff0000">
-  <property name="bullettype" type="string" default="BulletPike"/>
   <property name="firearc" type="float" default="90"/>
+  <property name="firebullet" type="string" default="BulletPike"/>
   <property name="firetime" type="float" default="1"/>
+  <property name="health" type="int" default="8"/>
+  <property name="pathfinder" type="string" default="linear1way"/>
   <property name="pathid" type="int" default="0"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="60"/>
   <property name="script" type="string" default="Human"/>
+  <property name="sex" type="string" default="male"/>
  </objecttype>
 </objecttypes>

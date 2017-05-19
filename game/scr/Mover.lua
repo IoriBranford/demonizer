@@ -7,6 +7,13 @@ Mover = class(function(self, object)
 
 	local x, y = self.object.body:getPosition()
 
+	local pathfinder = self.properties.pathfinder
+	if pathfinder then
+		pathfinder = Mover["pathfind_"..pathfinder]
+		levity.scripts:scriptAddEventFunc(self, self.object.id,
+			"pathfind", pathfinder)
+	end
+
 	if self.properties.pathmode == "relative" then
 		local nearestx, nearesty = levity.scripts:call(
 			self.properties.pathid, "findNearestPoint", x, y)
@@ -23,8 +30,7 @@ Mover = class(function(self, object)
 	local paths = levity.scripts:call(self.properties.pathid,
 						"getPaths", x, y)
 	if paths then
-		local path = levity.scripts:call(self.object.id,
-						"pathfind", paths, x, y)
+		local path = pathfinder(self, paths, x, y)
 
 		if path then
 			if path.curve then
