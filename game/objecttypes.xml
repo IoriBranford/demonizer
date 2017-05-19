@@ -8,6 +8,7 @@
  </objecttype>
  <objecttype name="Camera" color="#0000ff">
   <property name="collidable" type="bool" default="true"/>
+  <property name="pathfinder" type="string" default="linear1way"/>
   <property name="pathmode" type="string" default="relative"/>
   <property name="script" type="string" default="ShmupCam"/>
   <property name="sensor" type="bool" default="true"/>

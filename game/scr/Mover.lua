@@ -7,12 +7,10 @@ Mover = class(function(self, object)
 
 	local x, y = self.object.body:getPosition()
 
-	local pathfinder = self.properties.pathfinder
-	if pathfinder then
-		pathfinder = Mover["pathfind_"..pathfinder]
-		levity.scripts:scriptAddEventFunc(self, self.object.id,
-			"pathfind", pathfinder)
-	end
+	local pathfinder = self.properties.pathfinder or "linear1way"
+	pathfinder = Mover["pathfind_"..pathfinder]
+	levity.scripts:scriptAddEventFunc(self, self.object.id,
+		"pathfind", pathfinder)
 
 	if self.properties.pathmode == "relative" then
 		local nearestx, nearesty = levity.scripts:call(
