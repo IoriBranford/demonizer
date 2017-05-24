@@ -25,7 +25,6 @@ Human = class(function(self, object)
 		mask = Human.CombatantMask
 		self.health = levity.scripts:newScript(self.id, "Health", self.object)
 		self.cover = levity.scripts:newScript(self.id, "TakingCover", self.object)
-		self.hitparticles = levity.scripts:newScript(self.id, "HitParticles", self.object, levity.map:getTileGid("particles", "damage"), 32)
 	else
 		mask = Human.NonCombatantMask
 	end
@@ -153,15 +152,18 @@ function Human:beginContact_PlayerShot(myfixture, otherfixture, contact)
 		levity.scripts:send(self.id, "suppress")
 	else
 		local bulletproperties = otherfixture:getBody():getUserData().properties
-		local params = Human.HitSparkParams
-		local x, y = otherfixture:getBody():getWorldCenter()
-		ShmupBullet.create(params, x, y, 0, "sparks")
-		self.health:addDamage(bulletproperties.damage or 1, x, y)
+		self.health:addDamage(bulletproperties.damage or 1,
+			otherfixture:getBody():getWorldCenter())
+	end
+end
 
-		if self.hitparticles then
-			local myx, myy = self.body:getWorldCenter()
-			self.hitparticles:emit(4, math.atan2(y - myy, x - myx))
-		end
+function Human:beginContact_PlayerBomb(myfixture, otherfixture, contact)
+	local bulletproperties = otherfixture:getBody():getUserData().properties
+	local damage = bulletproperties.damage or 1
+	if self.health then
+		self.health:addDamage(damage, otherfixture:getBody():getWorldCenter())
+	elseif damage > 0 and self:canBeCaptured() then
+		self:pullToPlayer()
 	end
 end
 
@@ -199,7 +201,7 @@ function Human:beginContact(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_PlayerShot then
 		self:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_PlayerBomb then
-		--self:beginContact_PlayerBomb(myfixture, otherfixture, contact)
+		self:beginContact_PlayerBomb(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_Camera then
 		self.oncamera = true
 	end
@@ -242,10 +244,7 @@ function Human:koLaunch()
 		local vx = self.properties.kolaunchvelx or 0
 		local vy = self.properties.kolaunchvely or Human.KOLaunchVelY
 		self.body:setLinearVelocity(vx, vy)
-
-		local playerid = levity.map.properties.playerid
-		local player = levity.map.objects[playerid]
-		self.object:setLayer(player.layer)
+		self.object:setLayer(levity.map.layers["playerteam"])
 	else
 		self.body:setLinearVelocity(0, 0)
 	end
@@ -279,8 +278,7 @@ function Human:beginMove_unconscious(dt)
 
 		if playerdsq < capturepulldistsq
 		and not levity.scripts:call(playerid, "isKilled") then
-			self.object:setLayer(player.layer)
-			self.pulledbyplayer = true
+			self:pullToPlayer()
 		end
 	end
 
@@ -292,6 +290,11 @@ function Human:beginMove_unconscious(dt)
 		local vx, vy = self.body:getLinearVelocity()
 		self.body:applyForce(-vx/64, self.body:getMass()*Human.KOGravity)
 	end
+end
+
+function Human:pullToPlayer()
+	self.object:setLayer(levity.map.layers["playerteam"])
+	self.pulledbyplayer = true
 end
 
 function Human:playerKilled()

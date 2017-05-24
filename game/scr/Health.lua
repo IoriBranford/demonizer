@@ -4,9 +4,12 @@ local ShmupBullet = require "ShmupBullet"
 local Health
 Health = class(function(self, object)
 	self.id = object.id
+	self.body = object.body
 	self.health = object.properties.health or 8
 	self.movedamage = 0
 	self.dps = 0
+	self.hitparticles = levity.scripts:newScript(self.id, "HitParticles",
+		object, levity.map:getTileGid("particles", "damage"), 32)
 end)
 
 Health.HitSparkParams = {
@@ -31,8 +34,11 @@ end
 function Health:addDamage(damage, sparkx, sparky)
 	self.movedamage = self.movedamage + damage
 	if sparkx and sparky then
-		ShmupBullet.create(
-			Health.HitSparkParams, sparkx, sparky, 0, "sparks")
+		ShmupBullet.create(Health.HitSparkParams, sparkx, sparky, 0, "sparks")
+
+		local myx, myy = self.body:getWorldCenter()
+		self.hitparticles:emit(4, math.atan2(sparky - myy, sparkx - myx))
+
 		levity.bank:play(Sounds.Hit)
 	end
 end
