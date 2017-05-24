@@ -1,6 +1,6 @@
 local levity = require "levity"
 local ShmupWingman = require "ShmupWingman"
-local ShmupNPC = require "ShmupNPC"
+local Human = require "Human"
 local PlayerPower = require "PlayerPower"
 
 --- Manager of player and wingmen
@@ -151,14 +151,14 @@ end
 function PlayerTeam:releaseCaptives(memberid)
 	local body = levity.map.objects[memberid].body
 	local cx, cy = body:getWorldCenter()
-	local maxcaptives = ShmupNPC.MaxReleasedCaptives
+	local maxcaptives = Human.MaxReleasedCaptives
 	local scoreid = levity.scripts:call("status", "getScoreId")
 	if scoreid then
 		maxcaptives =
 			levity.scripts:call(scoreid, "getMultiplier", memberid)
 			or maxcaptives
 	end
-	ShmupNPC.releaseCaptives(self.captivegids, maxcaptives, cx, cy, self.layer)
+	Human.releaseCaptives(self.captivegids, maxcaptives, cx, cy, self.layer)
 end
 
 function PlayerTeam:playerKilled()
@@ -203,10 +203,14 @@ function PlayerTeam:refreshCaptureEnabled()
 end
 
 function PlayerTeam:npcCaptured(npcid)
-	if not levity.scripts:call(npcid, "isFemale") then
-		local gid = levity.scripts:call(npcid, "getKOGid")
-		self.captivegids[#self.captivegids+1] = gid
+	local human = levity.map.objects[npcid]
+	if not human.properties.convertible then
+		self.captivegids[#self.captivegids+1] = human.gid
 	end
+	--if not levity.scripts:call(npcid, "isFemale") then
+	--	local gid = levity.scripts:call(npcid, "getKOGid")
+	--	self.captivegids[#self.captivegids+1] = gid
+	--end
 end
 
 function PlayerTeam:nextMap(nextmapfile, nextmapdata)

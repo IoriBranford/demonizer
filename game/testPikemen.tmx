@@ -21,6 +21,7 @@
   </object>
   <object id="4" type="Pikeman" gid="40" x="120" y="16" width="24" height="32">
    <properties>
+    <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
    </properties>
@@ -34,63 +35,73 @@
   </object>
   <object id="6" type="Pikeman" gid="40" x="120" y="48" width="24" height="32">
    <properties>
+    <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
   <object id="8" type="Pikeman" gid="40" x="136" y="48" width="24" height="32">
    <properties>
+    <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
   <object id="9" type="Pikeman" gid="40" x="144" y="32" width="24" height="32">
    <properties>
+    <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
   <object id="10" type="Pikeman" gid="40" x="104" y="48" width="24" height="32">
    <properties>
+    <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
   <object id="11" type="Pikeman" gid="40" x="96" y="32" width="24" height="32">
    <properties>
+    <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
   <object id="12" type="Pikeman" gid="40" x="128" y="32" width="24" height="32">
    <properties>
+    <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
   <object id="17" type="Pikeman" gid="40" x="112" y="32" width="24" height="32">
    <properties>
+    <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
   <object id="18" type="Pikeman" gid="40" x="104" y="16" width="24" height="32">
    <properties>
+    <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
   <object id="19" type="Pikeman" gid="40" x="136" y="16" width="24" height="32">
    <properties>
+    <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
   <object id="21" type="Pikeman" gid="130" x="120" y="0" width="24" height="32">
    <properties>
+    <property name="convertible" type="bool" value="true"/>
+    <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
-    <property name="sex" value="female"/>
    </properties>
   </object>
   <object id="22" gid="184" x="120" y="144" width="64" height="64"/>

@@ -467,6 +467,7 @@ return {
           gid = 40,
           visible = true,
           properties = {
+            ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative"
           }
@@ -510,6 +511,7 @@ return {
           gid = 40,
           visible = true,
           properties = {
+            ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative"
           }
@@ -527,6 +529,7 @@ return {
           gid = 40,
           visible = true,
           properties = {
+            ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative"
           }
@@ -544,6 +547,7 @@ return {
           gid = 40,
           visible = true,
           properties = {
+            ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative"
           }
@@ -561,6 +565,7 @@ return {
           gid = 40,
           visible = true,
           properties = {
+            ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative"
           }
@@ -578,6 +583,7 @@ return {
           gid = 40,
           visible = true,
           properties = {
+            ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative"
           }
@@ -595,6 +601,7 @@ return {
           gid = 40,
           visible = true,
           properties = {
+            ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative"
           }
@@ -612,6 +619,7 @@ return {
           gid = 40,
           visible = true,
           properties = {
+            ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative"
           }
@@ -629,6 +637,7 @@ return {
           gid = 40,
           visible = true,
           properties = {
+            ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative"
           }
@@ -646,6 +655,7 @@ return {
           gid = 40,
           visible = true,
           properties = {
+            ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative"
           }
@@ -663,9 +673,10 @@ return {
           gid = 130,
           visible = true,
           properties = {
+            ["convertible"] = true,
+            ["kolaunch"] = true,
             ["pathid"] = 5,
-            ["pathmode"] = "relative",
-            ["sex"] = "female"
+            ["pathmode"] = "relative"
           }
         },
         {
