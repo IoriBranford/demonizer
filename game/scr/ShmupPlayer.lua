@@ -81,7 +81,7 @@ ShmupPlayer.BombShrapnelParams = {
 	tileset = "demonshots",
 	tileid = "bombshrapnel",
 	speed = 16*60,
-	category = ShmupCollision.Category_PlayerBomb,
+	category = ShmupCollision.Category_PlayerShot,
 	lifetime = .125,
 	persist = true
 }

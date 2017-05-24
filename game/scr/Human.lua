@@ -161,8 +161,9 @@ function Human:beginContact_PlayerBomb(myfixture, otherfixture, contact)
 	local bulletproperties = otherfixture:getBody():getUserData().properties
 	local damage = bulletproperties.damage or 1
 	if self.health then
-		self.health:addDamage(damage, otherfixture:getBody():getWorldCenter())
-	elseif damage > 0 and self:canBeCaptured() then
+		self.health:addDPS(damage)
+	end
+	if damage > 0 and self:canBeCaptured() then
 		self:pullToPlayer()
 	end
 end
@@ -207,13 +208,35 @@ function Human:beginContact(myfixture, otherfixture, contact)
 	end
 end
 
+function Human:endContact_PlayerBomb(myfixture, otherfixture, contact)
+	local userdata = otherfixture:getBody():getUserData()
+	-- TODO fix no userdata for player death explosion
+	if userdata then
+		local bulletproperties = userdata.properties
+		local damage = bulletproperties.damage or 1
+		if self.health then
+			self.health:addDPS(-damage)
+		end
+	end
+end
+
+function Human:endContact(myfixture, otherfixture, contact)
+	local category = otherfixture:getCategory()
+
+	if category == ShmupCollision.Category_PlayerBomb then
+		self:endContact_PlayerBomb(myfixture, otherfixture, contact)
+	elseif category == ShmupCollision.Category_Camera then
+		self.oncamera = false
+	end
+end
+
 function Human:getKOGid()
 	return levity.map:getTileGid(self.object.tile.tileset, "ko",
 					self.object.type:lower())
 end
 
 function Human:defeat()
-	self.object:setGid(self:getKOGid(), levity.map)
+	self.object:setGid(self:getKOGid(), levity.map, true, "dynamic", true)
 
 	local params = Human.DefeatSparkParams
 	local x, y = self.body:getWorldCenter()

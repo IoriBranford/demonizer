@@ -27,26 +27,34 @@ function Health:beginMove(dt)
 	self.movedamage = 0
 end
 
+function Health:createHitFX(sparkx, sparky)
+	local angle
+	if sparkx and sparky then
+		ShmupBullet.create(Health.HitSparkParams, sparkx, sparky, 0, "sparks")
+		local myx, myy = self.body:getWorldCenter()
+		angle = math.atan2(sparky - myy, sparkx - myx)
+	else
+		angle = 2*math.pi*love.math.random()
+	end
+
+	self.hitparticles:emit(4, angle)
+
+	levity.bank:play(Sounds.Hit)
+end
+
 function Health:addDPS(dps)
 	self.dps = self.dps + dps
 end
 
 function Health:addDamage(damage, sparkx, sparky)
 	self.movedamage = self.movedamage + damage
-	if sparkx and sparky then
-		ShmupBullet.create(Health.HitSparkParams, sparkx, sparky, 0, "sparks")
-
-		local myx, myy = self.body:getWorldCenter()
-		self.hitparticles:emit(4, math.atan2(sparky - myy, sparkx - myx))
-
-		levity.bank:play(Sounds.Hit)
-	end
+	self:createHitFX(sparkx, sparky)
 end
 
 function Health:endMove(dt)
 	local health = self.health - self.movedamage - (self.dps * dt)
 	if self.dps > 0 then
-		levity.bank:play(Sounds.Hit)
+		self:createHitFX()
 	end
 	if self.health >= 1 and health < 1 then
 		levity.scripts:send(self.id, "defeat")
