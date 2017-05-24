@@ -1,3 +1,8 @@
+--- @table Shooter properties
+--@field firearc May fire only within this arc
+--@field firebullet Name of bullet type
+--@field firetime Seconds between shots
+
 local levity = require "levity"
 local ShmupBullet = require "ShmupBullet"
 local ShmupCollision = require "ShmupCollision"
@@ -27,8 +32,9 @@ function Shooter:beginMove(dt)
 	local oncamera = levity.scripts:call(self.object.id, "isOnCamera")
 	local faceangle = levity.scripts:call(self.object.id, "getFaceAngle")
 	local bullet = levity.map.objecttypes[self.properties.firebullet]
+	local hascover = levity.scripts:call(self.object.id, "hasCover")
 
-	if oncamera == false or not faceangle or not bullet then
+	if oncamera == false or not faceangle or not bullet or hascover then
 		self.timer = self.properties.firetime
 		return
 	end
