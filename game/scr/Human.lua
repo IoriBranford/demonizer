@@ -25,6 +25,7 @@ Human = class(function(self, object)
 		mask = Human.CombatantMask
 		self.health = levity.scripts:newScript(self.id, "Health", self.object)
 		self.cover = levity.scripts:newScript(self.id, "TakingCover", self.object)
+		self.hitparticles = levity.scripts:newScript(self.id, "HitParticles", self.object, levity.map:getTileGid("particles", "damage"), 32)
 	else
 		mask = Human.NonCombatantMask
 	end
@@ -156,6 +157,11 @@ function Human:beginContact_PlayerShot(myfixture, otherfixture, contact)
 		local x, y = otherfixture:getBody():getWorldCenter()
 		ShmupBullet.create(params, x, y, 0, "sparks")
 		self.health:addDamage(bulletproperties.damage or 1, x, y)
+
+		if self.hitparticles then
+			local myx, myy = self.body:getWorldCenter()
+			self.hitparticles:emit(4, math.atan2(y - myy, x - myx))
+		end
 	end
 end
 
