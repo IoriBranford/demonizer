@@ -14,6 +14,7 @@
  <tileset firstgid="132" source="img/demonbomb.tsx"/>
  <tileset firstgid="140" source="img/demonshots.tsx"/>
  <tileset firstgid="144" source="img/humanshots.tsx"/>
+ <objectgroup name="npcshots"/>
  <objectgroup draworder="index" name="status">
   <properties>
    <property name="scoreid" type="int" value="16"/>
