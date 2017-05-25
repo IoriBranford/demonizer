@@ -162,6 +162,7 @@ function ShmupCam:endMove(dt)
 			if not initiallayer then
 				initiallayer = trigger.layer
 			end
+			initiallayer.visible = true
 			for _, id in ipairs(activatedobjectids) do
 				local object = levity.map.objects[id]
 				initiallayer:addObject(object)

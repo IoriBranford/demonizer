@@ -90,6 +90,7 @@ local ShmupMap = class(function(self, map)
 					if object.type == "Trigger" then
 						Object.init(object, layer, map)
 						istrigger = true
+						layer.visible = false
 					end
 				end
 
