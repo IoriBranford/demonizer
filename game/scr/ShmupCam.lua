@@ -201,10 +201,7 @@ function ShmupCam:getVelocity()
 end
 
 function ShmupCam:playerLost()
-	if self.mover then
-		levity.scripts:destroyScript(self.mover, self.object.id)
-		self.mover = nil
-	end
+	self.pathpaused = true
 end
 
 return ShmupCam
