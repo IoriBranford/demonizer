@@ -29,12 +29,16 @@ Shooter = class(function(self, object)
 end)
 
 function Shooter:beginMove(dt)
+	local hascover = levity.scripts:call(self.object.id, "hasCover")
+	if hascover then
+		return
+	end
+
 	local oncamera = levity.scripts:call(self.object.id, "isOnCamera")
 	local faceangle = levity.scripts:call(self.object.id, "getFaceAngle")
 	local bullet = levity.map.objecttypes[self.properties.firebullet]
-	local hascover = levity.scripts:call(self.object.id, "hasCover")
 
-	if oncamera == false or not faceangle or not bullet or hascover then
+	if oncamera == false or not faceangle or not bullet then
 		self.timer = self.properties.firetime
 		return
 	end
