@@ -59,9 +59,9 @@ local ShmupMap = class(function(self, map)
 				and not object.properties.text then
 					object.visible = false
 				end
-				if object.body then
-					setFilterFromProperties(object.body)
-				end
+				--if object.body then
+				--	setFilterFromProperties(object.body)
+				--end
 			end
 		end
 	end
