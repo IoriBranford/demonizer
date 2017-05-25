@@ -39,4 +39,25 @@
   <property name="score" type="int" default="150"/>
   <property name="script" type="string" default="Human"/>
  </objecttype>
+ <objecttype name="BulletArrow" color="#00aaff">
+  <property name="category" type="string" default="NPCShot"/>
+  <property name="sound" type="file" default="snd/bow.wav"/>
+  <property name="speed" type="float" default="240"/>
+  <property name="tileid" type="string" default="arrow"/>
+  <property name="tileset" type="string" default="humanshots"/>
+ </objecttype>
+ <objecttype name="Archer" color="#ff0000">
+  <property name="convertible" type="bool" default="false"/>
+  <property name="firearc" type="float" default="120"/>
+  <property name="firebullet" type="string" default="BulletArrow"/>
+  <property name="firetime" type="float" default="1"/>
+  <property name="health" type="int" default="8"/>
+  <property name="kolaunch" type="bool" default="false"/>
+  <property name="pathfinder" type="string" default="linear2way"/>
+  <property name="pathid" type="int" default="0"/>
+  <property name="pathmode" type="string" default="absolute"/>
+  <property name="pathspeed" type="string" default="120"/>
+  <property name="score" type="int" default="250"/>
+  <property name="script" type="string" default="Human"/>
+ </objecttype>
 </objecttypes>
