@@ -87,7 +87,7 @@ local ShmupMap = class(function(self, map)
 			if layer.type == "dynamiclayer" then
 				local istrigger = nil
 				for _, object in ipairs(layer.objects) do
-					if object.properties.triggertype then
+					if object.type == "Trigger" then
 						Object.init(object, layer, map)
 						istrigger = true
 					end

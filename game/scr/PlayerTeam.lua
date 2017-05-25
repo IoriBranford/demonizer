@@ -41,9 +41,8 @@ PlayerTeam = class(function(self, layer)
 	local nextmapdata = levity.nextmapdata or {}
 	local nextmapplayerteam = nextmapdata.playerteam or {}
 	local nextmapwingmen = nextmapplayerteam.wingmen or {}
-	local cx, cy = player.body:getWorldCenter()
 	for i, wingman in ipairs(nextmapwingmen) do
-		ShmupWingman.create(levity.map, nil, cx, cy, nil, nil, wingman)
+		ShmupWingman.create(levity.map, nil, player.x, player.y, nil, nil, wingman)
 	end
 
 	local nextmapcaptivenames = nextmapplayerteam.captivenames

@@ -9,18 +9,9 @@ ShmupStatus = class(function(self, layer)
 	self.layer = layer
 	self.properties = self.layer.properties
 
-	--if levity.map.properties.delayinitobjects == true then
-	--	for _, object in pairs(self.layer.objects) do
-	--		Object.init(object, self.layer)
-	--	end
-	--end
-
 	self.elements = {}
 	for _, object in pairs(self.layer.objects) do
 		self.elements[object.name] = object
-		for _, fixture in pairs(object.body:getFixtureList()) do
-			fixture:setFilterData(0,0,0)
-		end
 	end
 
 	local nextmapdata = levity.nextmapdata or {}
@@ -117,7 +108,10 @@ end
 
 function ShmupStatus:updateLives()
 	for i = 1, ShmupStatus.MaxLives do
-		self.elements["life"..i].visible = (i <= self.numlives)
+		local life = self.elements["life"..i]
+		if life then
+			life.visible = (i <= self.numlives)
+		end
 	end
 end
 

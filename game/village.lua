@@ -11,7 +11,7 @@ return {
   nextobjectid = 496,
   properties = {
     ["cameraid"] = 7,
-    ["delayinitobjects"] = false,
+    ["delayinitobjects"] = true,
     ["music"] = "mus/09 - Blue Sky Laundry.vgm",
     ["overlaymap"] = "gameplay.lua",
     ["playerid"] = 1,
@@ -1575,7 +1575,7 @@ return {
         {
           id = 264,
           name = "trigger",
-          type = "",
+          type = "Trigger",
           shape = "polyline",
           x = 0,
           y = 536,
@@ -1588,8 +1588,6 @@ return {
             { x = 288, y = 0 }
           },
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         },
