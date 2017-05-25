@@ -8,7 +8,7 @@ return {
   height = 40,
   tilewidth = 8,
   tileheight = 8,
-  nextobjectid = 25,
+  nextobjectid = 26,
   properties = {
     ["cameraid"] = 2,
     ["overlaymap"] = "gameplay.lua",
@@ -188,7 +188,6 @@ return {
     {
       name = "infmen",
       firstgid = 4,
-      filename = "img/infmen.tsx",
       tilewidth = 24,
       tileheight = 32,
       spacing = 0,
@@ -396,6 +395,87 @@ return {
                 rotation = 0,
                 visible = true,
                 properties = {}
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "boat",
+      firstgid = 187,
+      filename = "img/boat.tsx",
+      tilewidth = 128,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      image = "img/boat.png",
+      imagewidth = 128,
+      imageheight = 64,
+      tileoffset = {
+        x = -64,
+        y = 64
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 6,
+                name = "",
+                type = "",
+                shape = "rectangle",
+                x = -60,
+                y = 64,
+                width = 48,
+                height = 48,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              },
+              {
+                id = 8,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 12,
+                y = 64,
+                width = 48,
+                height = 48,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              },
+              {
+                id = 10,
+                name = "",
+                type = "",
+                shape = "rectangle",
+                x = -12,
+                y = 64,
+                width = 48,
+                height = 48,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -706,6 +786,23 @@ return {
           gid = 184,
           visible = true,
           properties = {}
+        },
+        {
+          id = 25,
+          name = "",
+          type = "Boat",
+          shape = "rectangle",
+          x = 216,
+          y = 0,
+          width = 128,
+          height = 64,
+          rotation = 0,
+          gid = 187,
+          visible = true,
+          properties = {
+            ["pathid"] = 5,
+            ["pathmode"] = "relative"
+          }
         }
       }
     },

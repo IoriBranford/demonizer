@@ -9,13 +9,13 @@ HitParticles = class(function(self, object, gid, maxparticles)
 	self.particles:setSpread(math.pi/8)
 end)
 
-function HitParticles:emit(numparticles, direction)
+function HitParticles:emit(numparticles, x, y, direction)
+	self.particles:setPosition(x, y)
 	self.particles:setDirection(direction)
 	self.particles:emit(numparticles)
 end
 
 function HitParticles:endMove(dt)
-	self.particles:setPosition(self.body:getPosition())
 	self.particles:update(dt)
 end
 

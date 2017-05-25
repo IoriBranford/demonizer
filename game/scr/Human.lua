@@ -152,8 +152,14 @@ function Human:beginContact_PlayerShot(myfixture, otherfixture, contact)
 		levity.scripts:send(self.id, "suppress")
 	else
 		local bulletproperties = otherfixture:getBody():getUserData().properties
-		self.health:addDamage(bulletproperties.damage or 1,
-			otherfixture:getBody():getWorldCenter())
+		self.health:addDamage(bulletproperties.damage or 1)
+
+		local hx, hy = contact:getPositions()
+		if hx and hy then
+			self.health:createContactHitFX(contact)
+		else
+			self.health:createHitFX(otherfixture:getBody():getWorldCenter())
+		end
 	end
 end
 
@@ -206,6 +212,10 @@ function Human:beginContact(myfixture, otherfixture, contact)
 	elseif category == ShmupCollision.Category_Camera then
 		self.oncamera = true
 	end
+end
+
+function Human:preSolve(myfixture, otherfixture, contact)
+	contact:setEnabled(false)
 end
 
 function Human:endContact_PlayerBomb(myfixture, otherfixture, contact)

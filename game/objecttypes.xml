@@ -60,4 +60,13 @@
   <property name="score" type="int" default="250"/>
   <property name="script" type="string" default="Human"/>
  </objecttype>
+ <objecttype name="Boat" color="#ff0000">
+  <property name="health" type="int" default="64"/>
+  <property name="pathfinder" type="string" default="linear1way"/>
+  <property name="pathid" type="int" default="0"/>
+  <property name="pathmode" type="string" default="absolute"/>
+  <property name="pathspeed" type="string" default="60"/>
+  <property name="score" type="int" default="500"/>
+  <property name="script" type="string" default="Vehicle"/>
+ </objecttype>
 </objecttypes>
