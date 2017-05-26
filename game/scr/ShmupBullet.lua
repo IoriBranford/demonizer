@@ -102,6 +102,10 @@ function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
 	end
 end
 
+function ShmupBullet:preSolve(yourfixture, otherfixture, contact)
+	contact:setEnabled(false)
+end
+
 function ShmupBullet:endContact(yourfixture, otherfixture, contact)
 	if otherfixture:getCategory() == ShmupCollision.Category_Camera then
 		self.exitedcamera = true
@@ -137,8 +141,11 @@ function ShmupBullet.create(params, x, y, angle, layer)
 end
 
 function ShmupBullet.fireOverTime(params, x, y, angle, layer, time, interval)
-	if levity.scripts:call(levity.map.properties.playerid, "isKilled") then
-		return interval
+	if params.category ~= ShmupCollision.Category_PlayerShot
+	and params.category ~= ShmupCollision.Category_PlayerBomb then
+		if levity.scripts:call(levity.map.properties.playerid, "isKilled") then
+			return interval
+		end
 	end
 
 	local tilesetid, tileid, category =
