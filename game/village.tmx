@@ -710,10 +710,8 @@
   </object>
  </objectgroup>
  <objectgroup name="windowarchers">
-  <object id="241" name="trigger" x="0" y="1104">
+  <object id="241" name="trigger" type="Trigger" x="0" y="1104">
    <properties>
-    <property name="collidable" type="bool" value="true"/>
-    <property name="sensor" type="bool" value="true"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
    <polyline points="0,0 288,0"/>

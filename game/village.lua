@@ -2741,7 +2741,7 @@ return {
         {
           id = 241,
           name = "trigger",
-          type = "",
+          type = "Trigger",
           shape = "polyline",
           x = 0,
           y = 1104,
@@ -2754,8 +2754,6 @@ return {
             { x = 288, y = 0 }
           },
           properties = {
-            ["collidable"] = true,
-            ["sensor"] = true,
             ["triggertype"] = "activategroup"
           }
         },
