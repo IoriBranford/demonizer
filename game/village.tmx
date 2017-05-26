@@ -916,7 +916,10 @@
   </object>
  </objectgroup>
  <objectgroup name="unusedwaterpikes">
-  <object id="426" gid="2147483832" x="360" y="1624" width="128" height="64">
+  <properties>
+   <property name="static" type="bool" value="true"/>
+  </properties>
+  <object id="426" gid="2147483832" x="528" y="1656" width="128" height="64">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
     <property name="pathid" type="int" value="106"/>
@@ -924,7 +927,7 @@
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="421" gid="184" x="-72" y="1680" width="128" height="64">
+  <object id="421" gid="184" x="-216" y="1712" width="128" height="64">
    <properties>
     <property name="kopassengers" type="bool" value="true"/>
     <property name="pathid" type="int" value="104"/>
@@ -932,37 +935,37 @@
     <property name="script" value="ShmupVehicle"/>
    </properties>
   </object>
-  <object id="422" name="pike4" gid="130" x="-72" y="1696" width="24" height="32">
+  <object id="422" name="pike4" gid="130" x="-216" y="1728" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="421"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="420" name="pike3" gid="130" x="-56" y="1704" width="24" height="32">
+  <object id="420" name="pike3" gid="130" x="-200" y="1736" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="421"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="425" name="pike8" gid="130" x="376" y="1632" width="24" height="32">
+  <object id="425" name="pike8" gid="130" x="544" y="1664" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="426"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="423" name="pike5" gid="130" x="-88" y="1688" width="24" height="32">
+  <object id="423" name="pike5" gid="130" x="-232" y="1720" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="421"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="424" name="pike7" gid="130" x="360" y="1640" width="24" height="32">
+  <object id="424" name="pike7" gid="130" x="528" y="1672" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="426"/>
     <property name="script" value="NPCPikeman"/>
    </properties>
   </object>
-  <object id="427" name="pike6" gid="130" x="344" y="1648" width="24" height="32">
+  <object id="427" name="pike6" gid="130" x="512" y="1680" width="24" height="32">
    <properties>
     <property name="leaderid" type="int" value="426"/>
     <property name="script" value="NPCPikeman"/>
