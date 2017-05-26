@@ -37,7 +37,10 @@ local ShmupCam = class(function(self, object)
 	local mapwidth = (levity.map.width * levity.map.tilewidth)
 	self.mapwidthratio = 1 - (self.object.width / mapwidth)
 
-	self.mover = nil
+	if self.properties.pathid then
+		self.mover = levity.scripts:newScript(self.object.id, "Mover",
+							self.object)
+	end
 
 	self.activatedgrouptriggerids = {}
 end)
@@ -122,11 +125,6 @@ function ShmupCam:beginMove(dt)
 	local body = self.object.body
 	local mass = 0x40000000 -- don't let others push it around
 	body:setMass(mass)
-
-	if not self.mover and self.properties.pathid then
-		self.mover = levity.scripts:newScript(self.object.id, "Mover",
-							self.object)
-	end
 
 	if self.mover then
 		self.mover:setOffsetX(body:getX() - self.x0)

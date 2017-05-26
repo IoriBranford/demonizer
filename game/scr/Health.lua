@@ -56,7 +56,6 @@ end
 
 function Health:addDamage(damage, sparkx, sparky, angle)
 	self.movedamage = self.movedamage + damage
---	self:createHitFX(sparkx, sparky, angle)
 end
 
 function Health:endMove(dt)

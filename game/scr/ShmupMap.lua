@@ -99,6 +99,9 @@ local ShmupMap = class(function(self, map)
 					for _, object in ipairs(layer.objects) do
 						Object.init(object, layer, map)
 					end
+					for _, object in ipairs(layer.objects) do
+						levity.scripts:send(object.id, "start")
+					end
 				end
 			end
 		end

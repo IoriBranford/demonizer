@@ -36,6 +36,7 @@
   <property name="pathid" type="int" default="0"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="60"/>
+  <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="150"/>
   <property name="script" type="string" default="Human"/>
  </objecttype>

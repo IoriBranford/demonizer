@@ -3,14 +3,19 @@ local levity = require "levity"
 local Mover
 Mover = class(function(self, object)
 	self.object = object
+	self.id = object.id
+	self.body = object.body
 	self.properties = object.properties
 
-	local x, y = self.object.body:getPosition()
+	self.riderids = nil
+end)
+
+function Mover:start()
+	local x, y = self.body:getPosition()
 
 	local pathfinder = self.properties.pathfinder or "linear1way"
 	pathfinder = Mover["pathfind_"..pathfinder]
-	levity.scripts:scriptAddEventFunc(self, self.object.id,
-		"pathfind", pathfinder)
+	levity.scripts:scriptAddEventFunc(self, self.id, "pathfind", pathfinder)
 
 	if self.properties.pathmode == "relative" then
 		local nearestx, nearesty = levity.scripts:call(
@@ -45,7 +50,7 @@ Mover = class(function(self, object)
 
 	self.prevx = x
 	self.prevy = y
-end)
+end
 
 local function getCurvePoint(curvepath, odo)
 	if not curvepath.curve then
@@ -65,12 +70,12 @@ end
 
 function Mover:beginMove(dt)
 	if not self.destx or not self.desty then
-		--self.object.body:setLinearVelocity(0, 0)
+		--self.body:setLinearVelocity(0, 0)
 		return
 	end
 
 	local speed = self.properties.pathspeed or 60
-	local x, y = self.object.body:getPosition()
+	local x, y = self.body:getPosition()
 
 	local vx, vy = 0, 0
 
@@ -88,7 +93,7 @@ function Mover:beginMove(dt)
 			disty = nexty + self.offy - y
 			vx, vy = distx / dt, disty / dt
 			if vx ~= 0 or vy ~= 0 then
-				levity.scripts:send(self.object.id, "faceAngle",
+				levity.scripts:send(self.id, "faceAngle",
 							math.atan2(vy, vx))
 			end
 		end
@@ -100,7 +105,7 @@ function Mover:beginMove(dt)
 
 			vx, vy = dirx * speed, diry * speed
 			if vx ~= 0 or vy ~= 0 then
-				levity.scripts:send(self.object.id, "faceAngle",
+				levity.scripts:send(self.id, "faceAngle",
 							math.atan2(vy, vx))
 			end
 		end
@@ -111,7 +116,7 @@ function Mover:beginMove(dt)
 					"getPaths", self.destx, self.desty)
 		local nextpath
 		if paths then
-			nextpath = levity.scripts:call(self.object.id,
+			nextpath = levity.scripts:call(self.id,
 				"pathfind", paths, self.prevx, self.prevy)
 
 		end
@@ -155,7 +160,37 @@ function Mover:beginMove(dt)
 		end
 	end
 
-	self.object.body:setLinearVelocity(vx, vy)
+	self.body:setLinearVelocity(vx, vy)
+
+	if self.riderids then
+		for _, riderid in pairs(self.riderids) do
+			local rider = levity.map.objects[riderid]
+			if rider and rider.body then
+				rider.body:setLinearVelocity(vx, vy)
+			end
+		end
+	end
+end
+
+function Mover:addRider(riderid)
+	if not self.riderids then
+		self.riderids = {}
+	end
+	self.riderids[riderid] = riderid
+end
+
+function Mover:isRider(riderid)
+	return self.riderids and self.riderids[riderid]
+end
+
+function Mover:removeRider(riderid)
+	if self.riderids then
+		self.riderids[riderid] = nil
+	end
+end
+
+function Mover:releaseRiders()
+	self.riderids = nil
 end
 
 function Mover.pathfind_linear1way(self, paths, prevx, prevy)

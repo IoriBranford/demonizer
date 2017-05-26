@@ -27,7 +27,10 @@ local ShmupVehicle = class(function(self, object)
 
 	self.oncamera = false
 
-	self.mover = nil
+	if self.properties.pathid then
+		self.mover = levity.scripts:newScript(self.object.id, "Mover",
+							self.object)
+	end
 --	TODO strtocall module
 --	local onActivate = self.properties.onActivate
 --	if onActivate then
@@ -176,11 +179,6 @@ function ShmupVehicle:beginMove(dt)
 
 	if not self.object.body:isActive() then
 		return
-	end
-
-	if not self.mover and self.properties.pathid then
-		self.mover = levity.scripts:newScript(self.object.id, "Mover",
-							self.object)
 	end
 end
 

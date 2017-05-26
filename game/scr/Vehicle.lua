@@ -25,6 +25,19 @@ Vehicle = class(function(self, object)
 
 	self.body:setFixedRotation(true)
 	self.faceangle = 0
+
+	local pathid = self.properties.pathid
+	local pathfinder = self.properties.pathfinder
+
+	if pathid and pathid > 0 and pathfinder then
+		self.mover = levity.scripts:newScript(self.id, "Mover",
+							self.object)
+	end
+
+	if self.properties.firebullet then
+		self.shooter = levity.scripts:newScript(self.id, "Shooter",
+							self.object)
+	end
 end)
 
 Vehicle.HitSparkParams = {
@@ -75,30 +88,6 @@ function Vehicle:faceAngle(angle)
 --	end
 
 	self.faceangle = angle--i*math.pi/2
-end
-
-function Vehicle:beginMove(dt)
-	local pathid = self.properties.pathid
-	local pathfinder = self.properties.pathfinder
---	local vx, vy = self.body:getLinearVelocity()
---	if not pathid or (vx == 0 and vy == 0) then
---		local playerid = levity.map.properties.playerid
---		local player = levity.map.objects[playerid]
---		local playercx, playercy = player.body:getWorldCenter()
---		local cx, cy = self.body:getWorldCenter()
---		local playerdx, playerdy = playercx - cx, playercy - cy
---		self:faceAngle(math.atan2(playerdy, playerdx))
---	end
-
-	if not self.mover and pathid and pathfinder then
-		self.mover = levity.scripts:newScript(self.id, "Mover",
-							self.object)
-	end
-
-	if not self.shooter and self.properties.firebullet then
-		self.shooter = levity.scripts:newScript(self.id, "Shooter",
-							self.object)
-	end
 end
 
 function Vehicle:beginContact_PlayerShot(myfixture, otherfixture, contact)
@@ -192,6 +181,8 @@ function Vehicle:defeat()
 
 	self.properties.pathid = nil
 	self.properties.firebullet = nil
+
+	levity.scripts:broadcast("vehicleDestroyed", self.id)
 
 	self.mover = levity.scripts:destroyScript(self.mover, self.id)
 	self.shooter = levity.scripts:destroyScript(self.shooter, self.id)

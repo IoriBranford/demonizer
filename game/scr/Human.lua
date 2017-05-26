@@ -1,4 +1,5 @@
 --- @table Human properties
+--@field rideid Vehicle to ride on
 --@field health 0 = civilian
 --@field score awarded on defeat
 --@field kolaunch Thrown up in the air on defeat
@@ -37,6 +38,26 @@ Human = class(function(self, object)
 
 	self.body:setFixedRotation(true)
 	self.faceangle = 0
+
+	local rideid = self.properties.rideid
+	if rideid == 0 then
+		rideid = nil
+	end
+	local pathid = self.properties.pathid
+	if pathid == 0 then
+		pathid = nil
+	end
+	local pathfinder = self.properties.pathfinder
+
+	if not rideid and pathid and pathfinder then
+		self.mover = levity.scripts:newScript(self.id, "Mover",
+							self.object)
+	end
+
+	if self.properties.firebullet then
+		self.shooter = levity.scripts:newScript(self.id, "Shooter",
+							self.object)
+	end
 
 	self.pulledbyplayer = false
 	self.captured = false
@@ -87,6 +108,13 @@ local Sounds = {
 }
 levity.bank:load(Sounds)
 
+function Human:start()
+	local rideid = self.properties.rideid
+	if rideid and rideid > 0 then
+		levity.scripts:send(rideid, "addRider", self.id)
+	end
+end
+
 function Human:canBeCaptured()
 	return not self.health and not self.captured
 end
@@ -124,26 +152,13 @@ function Human:beginMove(dt)
 		return
 	end
 
-	local pathid = self.properties.pathid
-	local pathfinder = self.properties.pathfinder
-	local vx, vy = self.body:getLinearVelocity()
-	if not pathid or (vx == 0 and vy == 0) then
+	if not self.mover then
 		local playerid = levity.map.properties.playerid
 		local player = levity.map.objects[playerid]
 		local playercx, playercy = player.body:getWorldCenter()
 		local cx, cy = self.body:getWorldCenter()
 		local playerdx, playerdy = playercx - cx, playercy - cy
 		self:faceAngle(math.atan2(playerdy, playerdx))
-	end
-
-	if not self.mover and pathid and pathfinder then
-		self.mover = levity.scripts:newScript(self.id, "Mover",
-							self.object)
-	end
-
-	if not self.shooter and self.properties.firebullet then
-		self.shooter = levity.scripts:newScript(self.id, "Shooter",
-							self.object)
 	end
 end
 
@@ -194,7 +209,7 @@ function Human:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 			levity.scripts:broadcast("npcCaptured", self.id, captorid)
 		end
 
-		levity:discardObject(self.id)
+		self:discard()
 	else
 		levity.scripts:send(self.id, "suppress")
 	end
@@ -243,6 +258,15 @@ end
 function Human:getKOGid()
 	return levity.map:getTileGid(self.object.tile.tileset, "ko",
 					self.object.type:lower())
+end
+
+function Human:vehicleDestroyed(vehicleid)
+	if self.properties.rideid == vehicleid then
+		if self.properties.ridedestroyedko then
+			self:defeat()
+		end
+		self.properties.rideid = nil
+	end
 end
 
 function Human:defeat()
@@ -364,7 +388,7 @@ function Human:die()
 		levity.bank:play(Sounds.MaleDeath)
 	end
 	levity.scripts:broadcast("npcDied", self.id)
-	levity:discardObject(self.id)
+	self:discard()
 end
 
 function Human:beginDraw()
@@ -389,6 +413,14 @@ end
 
 function Human:endDraw()
 	love.graphics.setColor(0xff, 0xff, 0xff)
+end
+
+function Human:discard()
+	local rideid = self.properties.rideid
+	if rideid and rideid > 0 then
+		levity.scripts:send(rideid, "removeRider", self.id)
+	end
+	levity:discardObject(self.id)
 end
 
 function Human.releaseCaptives(captivegids, maxcaptives, x, y, layer)
