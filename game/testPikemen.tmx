@@ -4,7 +4,6 @@
   <property name="cameraid" type="int" value="2"/>
   <property name="overlaymap" type="file" value="gameplay.lua"/>
   <property name="playerid" type="int" value="1"/>
-  <property name="script" value="ShmupMap"/>
  </properties>
  <tileset firstgid="1" source="img/imp.tsx"/>
  <tileset firstgid="4" name="infmen" tilewidth="24" tileheight="32" tilecount="90" columns="18">
@@ -54,94 +53,116 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="4" type="Pikeman" gid="40" x="120" y="16" width="24" height="32">
+  <object id="4" type="Pikeman" gid="40" x="112" y="8" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
+    <property name="ridedestroyedko" type="bool" value="true"/>
+    <property name="rideid" type="int" value="25"/>
    </properties>
   </object>
-  <object id="5" name="path" x="-32" y="128">
+  <object id="5" name="path" x="-32" y="128" visible="0">
    <properties>
     <property name="beziercurve" type="bool" value="false"/>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="152,-80 152,0 72,0 72,80 232,80 232,160 72,160 72,280"/>
   </object>
-  <object id="6" type="Pikeman" gid="40" x="120" y="48" width="24" height="32">
+  <object id="6" type="Pikeman" gid="40" x="112" y="40" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
+    <property name="ridedestroyedko" type="bool" value="true"/>
+    <property name="rideid" type="int" value="25"/>
    </properties>
   </object>
-  <object id="8" type="Pikeman" gid="40" x="136" y="48" width="24" height="32">
+  <object id="8" type="Pikeman" gid="40" x="128" y="40" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
+    <property name="ridedestroyedko" type="bool" value="true"/>
+    <property name="rideid" type="int" value="25"/>
    </properties>
   </object>
-  <object id="9" type="Pikeman" gid="40" x="144" y="32" width="24" height="32">
+  <object id="9" type="Pikeman" gid="40" x="136" y="24" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
+    <property name="ridedestroyedko" type="bool" value="true"/>
+    <property name="rideid" type="int" value="25"/>
    </properties>
   </object>
-  <object id="10" type="Pikeman" gid="40" x="104" y="48" width="24" height="32">
+  <object id="10" type="Pikeman" gid="40" x="96" y="40" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
+    <property name="ridedestroyedko" type="bool" value="true"/>
+    <property name="rideid" type="int" value="25"/>
    </properties>
   </object>
-  <object id="11" type="Pikeman" gid="40" x="96" y="32" width="24" height="32">
+  <object id="11" type="Pikeman" gid="40" x="88" y="24" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
+    <property name="ridedestroyedko" type="bool" value="true"/>
+    <property name="rideid" type="int" value="25"/>
    </properties>
   </object>
-  <object id="12" type="Pikeman" gid="40" x="128" y="32" width="24" height="32">
+  <object id="12" type="Pikeman" gid="40" x="120" y="24" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
+    <property name="ridedestroyedko" type="bool" value="true"/>
+    <property name="rideid" type="int" value="25"/>
    </properties>
   </object>
-  <object id="17" type="Pikeman" gid="40" x="112" y="32" width="24" height="32">
+  <object id="17" type="Pikeman" gid="40" x="104" y="24" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
+    <property name="ridedestroyedko" type="bool" value="true"/>
+    <property name="rideid" type="int" value="25"/>
    </properties>
   </object>
-  <object id="18" type="Pikeman" gid="40" x="104" y="16" width="24" height="32">
+  <object id="18" type="Pikeman" gid="40" x="96" y="8" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
+    <property name="ridedestroyedko" type="bool" value="true"/>
+    <property name="rideid" type="int" value="25"/>
    </properties>
   </object>
-  <object id="19" type="Pikeman" gid="40" x="136" y="16" width="24" height="32">
+  <object id="19" type="Pikeman" gid="40" x="128" y="8" width="24" height="32">
    <properties>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
+    <property name="ridedestroyedko" type="bool" value="true"/>
+    <property name="rideid" type="int" value="25"/>
    </properties>
   </object>
-  <object id="21" type="Pikeman" gid="130" x="120" y="0" width="24" height="32">
+  <object id="21" type="Pikeman" gid="130" x="152" y="24" width="24" height="32">
    <properties>
     <property name="convertible" type="bool" value="true"/>
     <property name="kolaunch" type="bool" value="true"/>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>
+    <property name="ridedestroyedko" type="bool" value="true"/>
+    <property name="rideid" type="int" value="25"/>
    </properties>
   </object>
   <object id="22" gid="184" x="120" y="144" width="64" height="64"/>
   <object id="23" gid="184" x="120" y="224" width="64" height="64"/>
-  <object id="25" type="Boat" gid="187" x="216" y="0" width="128" height="64">
+  <object id="25" type="Boat" gid="187" x="120" y="0" width="128" height="64">
    <properties>
     <property name="pathid" type="int" value="5"/>
     <property name="pathmode" value="relative"/>

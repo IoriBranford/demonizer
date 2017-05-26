@@ -9,7 +9,10 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextobjectid = 24,
-  properties = {},
+  properties = {
+    ["delayinitobjects"] = true,
+    ["script"] = "ShmupMap"
+  },
   tilesets = {
     {
       name = "bombgauge",

@@ -12,8 +12,7 @@ return {
   properties = {
     ["cameraid"] = 2,
     ["overlaymap"] = "gameplay.lua",
-    ["playerid"] = 1,
-    ["script"] = "ShmupMap"
+    ["playerid"] = 1
   },
   tilesets = {
     {
@@ -539,8 +538,8 @@ return {
           name = "",
           type = "Pikeman",
           shape = "rectangle",
-          x = 120,
-          y = 16,
+          x = 112,
+          y = 8,
           width = 24,
           height = 32,
           rotation = 0,
@@ -549,7 +548,9 @@ return {
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
-            ["pathmode"] = "relative"
+            ["pathmode"] = "relative",
+            ["ridedestroyedko"] = true,
+            ["rideid"] = 25
           }
         },
         {
@@ -562,7 +563,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          visible = true,
+          visible = false,
           polyline = {
             { x = 152, y = -80 },
             { x = 152, y = 0 },
@@ -583,8 +584,8 @@ return {
           name = "",
           type = "Pikeman",
           shape = "rectangle",
-          x = 120,
-          y = 48,
+          x = 112,
+          y = 40,
           width = 24,
           height = 32,
           rotation = 0,
@@ -593,7 +594,9 @@ return {
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
-            ["pathmode"] = "relative"
+            ["pathmode"] = "relative",
+            ["ridedestroyedko"] = true,
+            ["rideid"] = 25
           }
         },
         {
@@ -601,8 +604,8 @@ return {
           name = "",
           type = "Pikeman",
           shape = "rectangle",
-          x = 136,
-          y = 48,
+          x = 128,
+          y = 40,
           width = 24,
           height = 32,
           rotation = 0,
@@ -611,7 +614,9 @@ return {
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
-            ["pathmode"] = "relative"
+            ["pathmode"] = "relative",
+            ["ridedestroyedko"] = true,
+            ["rideid"] = 25
           }
         },
         {
@@ -619,8 +624,8 @@ return {
           name = "",
           type = "Pikeman",
           shape = "rectangle",
-          x = 144,
-          y = 32,
+          x = 136,
+          y = 24,
           width = 24,
           height = 32,
           rotation = 0,
@@ -629,7 +634,9 @@ return {
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
-            ["pathmode"] = "relative"
+            ["pathmode"] = "relative",
+            ["ridedestroyedko"] = true,
+            ["rideid"] = 25
           }
         },
         {
@@ -637,8 +644,8 @@ return {
           name = "",
           type = "Pikeman",
           shape = "rectangle",
-          x = 104,
-          y = 48,
+          x = 96,
+          y = 40,
           width = 24,
           height = 32,
           rotation = 0,
@@ -647,7 +654,9 @@ return {
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
-            ["pathmode"] = "relative"
+            ["pathmode"] = "relative",
+            ["ridedestroyedko"] = true,
+            ["rideid"] = 25
           }
         },
         {
@@ -655,8 +664,8 @@ return {
           name = "",
           type = "Pikeman",
           shape = "rectangle",
-          x = 96,
-          y = 32,
+          x = 88,
+          y = 24,
           width = 24,
           height = 32,
           rotation = 0,
@@ -665,7 +674,9 @@ return {
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
-            ["pathmode"] = "relative"
+            ["pathmode"] = "relative",
+            ["ridedestroyedko"] = true,
+            ["rideid"] = 25
           }
         },
         {
@@ -673,8 +684,8 @@ return {
           name = "",
           type = "Pikeman",
           shape = "rectangle",
-          x = 128,
-          y = 32,
+          x = 120,
+          y = 24,
           width = 24,
           height = 32,
           rotation = 0,
@@ -683,7 +694,9 @@ return {
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
-            ["pathmode"] = "relative"
+            ["pathmode"] = "relative",
+            ["ridedestroyedko"] = true,
+            ["rideid"] = 25
           }
         },
         {
@@ -691,8 +704,8 @@ return {
           name = "",
           type = "Pikeman",
           shape = "rectangle",
-          x = 112,
-          y = 32,
+          x = 104,
+          y = 24,
           width = 24,
           height = 32,
           rotation = 0,
@@ -701,7 +714,9 @@ return {
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
-            ["pathmode"] = "relative"
+            ["pathmode"] = "relative",
+            ["ridedestroyedko"] = true,
+            ["rideid"] = 25
           }
         },
         {
@@ -709,8 +724,8 @@ return {
           name = "",
           type = "Pikeman",
           shape = "rectangle",
-          x = 104,
-          y = 16,
+          x = 96,
+          y = 8,
           width = 24,
           height = 32,
           rotation = 0,
@@ -719,7 +734,9 @@ return {
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
-            ["pathmode"] = "relative"
+            ["pathmode"] = "relative",
+            ["ridedestroyedko"] = true,
+            ["rideid"] = 25
           }
         },
         {
@@ -727,8 +744,8 @@ return {
           name = "",
           type = "Pikeman",
           shape = "rectangle",
-          x = 136,
-          y = 16,
+          x = 128,
+          y = 8,
           width = 24,
           height = 32,
           rotation = 0,
@@ -737,7 +754,9 @@ return {
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
-            ["pathmode"] = "relative"
+            ["pathmode"] = "relative",
+            ["ridedestroyedko"] = true,
+            ["rideid"] = 25
           }
         },
         {
@@ -745,8 +764,8 @@ return {
           name = "",
           type = "Pikeman",
           shape = "rectangle",
-          x = 120,
-          y = 0,
+          x = 152,
+          y = 24,
           width = 24,
           height = 32,
           rotation = 0,
@@ -756,7 +775,9 @@ return {
             ["convertible"] = true,
             ["kolaunch"] = true,
             ["pathid"] = 5,
-            ["pathmode"] = "relative"
+            ["pathmode"] = "relative",
+            ["ridedestroyedko"] = true,
+            ["rideid"] = 25
           }
         },
         {
@@ -792,7 +813,7 @@ return {
           name = "",
           type = "Boat",
           shape = "rectangle",
-          x = 216,
+          x = 120,
           y = 0,
           width = 128,
           height = 64,

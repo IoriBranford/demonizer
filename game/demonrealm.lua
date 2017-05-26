@@ -11,12 +11,10 @@ return {
   nextobjectid = 316,
   properties = {
     ["cameraid"] = 1,
-    ["delayinitobjects"] = true,
     ["music"] = "mus/05 - Twilight Express.vgm",
     ["nextmap"] = "village.lua",
     ["overlaymap"] = "gameplay.lua",
-    ["playerid"] = 3,
-    ["script"] = "ShmupMap"
+    ["playerid"] = 3
   },
   tilesets = {
     {

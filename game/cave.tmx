@@ -2,11 +2,9 @@
 <map version="1.0" orientation="orthogonal" renderorder="right-up" width="19" height="200" tilewidth="16" tileheight="16" nextobjectid="194">
  <properties>
   <property name="cameraid" type="int" value="1"/>
-  <property name="delayinitobjects" type="bool" value="false"/>
   <property name="music" type="file" value="mus/20 - My Kingdom.vgm"/>
   <property name="overlaymap" type="file" value="gameplay.lua"/>
   <property name="playerid" type="int" value="2"/>
-  <property name="script" value="ShmupMap"/>
  </properties>
  <tileset firstgid="1" source="img/imp.tsx"/>
  <tileset firstgid="4" source="img/map_cave.tsx"/>

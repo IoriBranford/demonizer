@@ -11,11 +11,9 @@ return {
   nextobjectid = 194,
   properties = {
     ["cameraid"] = 1,
-    ["delayinitobjects"] = false,
     ["music"] = "mus/20 - My Kingdom.vgm",
     ["overlaymap"] = "gameplay.lua",
-    ["playerid"] = 2,
-    ["script"] = "ShmupMap"
+    ["playerid"] = 2
   },
   tilesets = {
     {

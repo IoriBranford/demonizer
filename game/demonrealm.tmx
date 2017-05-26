@@ -2,12 +2,10 @@
 <map version="1.0" orientation="orthogonal" renderorder="right-up" width="18" height="100" tilewidth="16" tileheight="16" nextobjectid="316">
  <properties>
   <property name="cameraid" type="int" value="1"/>
-  <property name="delayinitobjects" type="bool" value="true"/>
   <property name="music" type="file" value="mus/05 - Twilight Express.vgm"/>
   <property name="nextmap" type="file" value="village.lua"/>
   <property name="overlaymap" type="file" value="gameplay.lua"/>
   <property name="playerid" type="int" value="3"/>
-  <property name="script" value="ShmupMap"/>
  </properties>
  <tileset firstgid="1" source="img/imp.tsx"/>
  <tileset firstgid="4" source="img/basic_terrain.tsx"/>

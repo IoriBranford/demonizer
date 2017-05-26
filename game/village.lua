@@ -11,11 +11,9 @@ return {
   nextobjectid = 496,
   properties = {
     ["cameraid"] = 7,
-    ["delayinitobjects"] = true,
     ["music"] = "mus/09 - Blue Sky Laundry.vgm",
     ["overlaymap"] = "gameplay.lua",
-    ["playerid"] = 1,
-    ["script"] = "ShmupMap"
+    ["playerid"] = 1
   },
   tilesets = {
     {
@@ -389,9 +387,9 @@ return {
                 name = "",
                 type = "",
                 shape = "rectangle",
-                x = -64,
+                x = -60,
                 y = 64,
-                width = 112,
+                width = 48,
                 height = 48,
                 rotation = 0,
                 visible = true,
@@ -404,7 +402,22 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = 16,
+                x = 12,
+                y = 64,
+                width = 48,
+                height = 48,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              },
+              {
+                id = 10,
+                name = "",
+                type = "",
+                shape = "rectangle",
+                x = -12,
                 y = 64,
                 width = 48,
                 height = 48,
