@@ -36,6 +36,7 @@
   <property name="pathid" type="int" default="0"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="60"/>
+  <property name="ridedestroyedko" type="bool" default="true"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="150"/>
   <property name="script" type="string" default="Human"/>
@@ -58,6 +59,8 @@
   <property name="pathid" type="int" default="0"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="120"/>
+  <property name="ridedestroyedko" type="bool" default="true"/>
+  <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="250"/>
   <property name="script" type="string" default="Human"/>
  </objecttype>
@@ -69,5 +72,11 @@
   <property name="pathspeed" type="string" default="60"/>
   <property name="score" type="int" default="500"/>
   <property name="script" type="string" default="Vehicle"/>
+ </objecttype>
+ <objecttype name="UIButton" color="#ffffff">
+  <property name="script" type="string" default="UIButton"/>
+  <property name="text" type="string" default="Button"/>
+  <property name="textalign" type="string" default="center"/>
+  <property name="textfont" type="file" default="fnt/pressstart2p.fnt"/>
  </objecttype>
 </objecttypes>

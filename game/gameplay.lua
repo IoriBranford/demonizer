@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "0.18.2",
+  tiledversion = "1.0.0",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 15,
@@ -28,6 +28,11 @@ return {
       tileoffset = {
         x = 0,
         y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 32
       },
       properties = {
         ["commoncollision"] = 0,
@@ -122,6 +127,11 @@ return {
         x = 0,
         y = 0
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
       properties = {},
       terrains = {},
       tilecount = 4,
@@ -142,6 +152,11 @@ return {
         x = -32,
         y = 32
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
+      },
       properties = {},
       terrains = {},
       tilecount = 2,
@@ -161,6 +176,11 @@ return {
       tileoffset = {
         x = 0,
         y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 4,
+        height = 4
       },
       properties = {
         ["commonanimation"] = 0
@@ -221,6 +241,11 @@ return {
         x = -4,
         y = 4
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 8,
+        height = 8
+      },
       properties = {},
       terrains = {},
       tilecount = 1,
@@ -240,6 +265,11 @@ return {
       tileoffset = {
         x = -16,
         y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
       },
       properties = {
         ["commoncollision"] = 0
@@ -548,6 +578,11 @@ return {
         x = -48,
         y = 48
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 96,
+        height = 96
+      },
       properties = {},
       terrains = {},
       tilecount = 20,
@@ -692,6 +727,11 @@ return {
         x = -16,
         y = 16
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
       properties = {},
       terrains = {},
       tilecount = 12,
@@ -777,6 +817,11 @@ return {
         x = -8,
         y = 8
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
       properties = {
         ["commonanimation"] = 0
       },
@@ -845,6 +890,11 @@ return {
       tileoffset = {
         x = -32,
         y = 32
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
       },
       properties = {},
       terrains = {},
@@ -936,6 +986,11 @@ return {
         x = -32,
         y = 32
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
+      },
       properties = {
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
@@ -1016,6 +1071,11 @@ return {
       tileoffset = {
         x = -64,
         y = 128
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 128,
+        height = 128
       },
       properties = {},
       terrains = {},
@@ -1102,6 +1162,11 @@ return {
         x = -16,
         y = 8
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 16
+      },
       properties = {
         ["commoncollision"] = 0
       },
@@ -1175,6 +1240,11 @@ return {
       tileoffset = {
         x = -24,
         y = 8
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 16
       },
       properties = {
         ["commoncollision"] = 0
@@ -1596,7 +1666,7 @@ return {
         {
           id = 17,
           name = "title",
-          type = "",
+          type = "UIButton",
           shape = "rectangle",
           x = 48,
           y = 208,
@@ -1606,15 +1676,13 @@ return {
           visible = true,
           properties = {
             ["script"] = "ButtonTitle",
-            ["text"] = "TITLE",
-            ["textalign"] = "center",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["text"] = "TITLE"
           }
         },
         {
           id = 18,
           name = "restart",
-          type = "",
+          type = "UIButton",
           shape = "rectangle",
           x = 48,
           y = 160,
@@ -1624,15 +1692,13 @@ return {
           visible = true,
           properties = {
             ["script"] = "ButtonRestart",
-            ["text"] = "RESTART",
-            ["textalign"] = "center",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["text"] = "RESTART"
           }
         },
         {
           id = 19,
           name = "resume",
-          type = "",
+          type = "UIButton",
           shape = "rectangle",
           x = 48,
           y = 112,
@@ -1642,9 +1708,7 @@ return {
           visible = true,
           properties = {
             ["script"] = "ButtonResume",
-            ["text"] = "RESUME",
-            ["textalign"] = "center",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["text"] = "RESUME"
           }
         },
         {

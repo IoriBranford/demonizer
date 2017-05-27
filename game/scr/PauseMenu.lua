@@ -12,8 +12,7 @@ local PauseMenu = class(function(self, layer)
 	--end
 	self.buttonids = {}
 	for _, object in ipairs(layer.objects) do
-		if levity.scripts:call(object.id, "is_a", UIButton)
-		then
+		if object.type == "UIButton" then
 			self.buttonids[#self.buttonids+1] = object.id
 		end
 	end
