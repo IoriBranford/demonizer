@@ -2,6 +2,8 @@
 --@field firearc May fire only within this arc
 --@field firebullet Name of bullet type
 --@field firetime Seconds between shots
+--@field firefan Number of bullets to fire in a fan
+--@field firefanslice Arc between two bullets in the fan
 
 local levity = require "levity"
 local ShmupBullet = require "ShmupBullet"
@@ -30,9 +32,6 @@ end)
 
 function Shooter:beginMove(dt)
 	local hascover = levity.scripts:call(self.object.id, "hasCover")
-	if hascover then
-		return
-	end
 
 	local oncamera = levity.scripts:call(self.object.id, "isOnCamera")
 	local faceangle = levity.scripts:call(self.object.id, "getFaceAngle")
@@ -51,11 +50,21 @@ function Shooter:beginMove(dt)
 
 	local dot = math.dot(dx, dy, math.cos(faceangle), math.sin(faceangle))
 
-	if dot >= self.mindot * math.hypot(dx, dy) then
+	if not hascover and dot >= self.mindot * math.hypot(dx, dy) then
 		if self.timer < dt then
-			self.timer = ShmupBullet.fireOverTime(bullet, cx, cy,
-				math.atan2(dy, dx), "npcshots", self.timer,
-				self.properties.firetime)
+			local fansize = math.max(1,self.properties.firefan or 1)
+			local fanslice = math.rad(self.properties.firefanslice or 0)
+			local angle = math.atan2(dy, dx)
+			angle = angle - fanslice*(fansize-1)/2
+
+			local timer
+			for i = 1, fansize do
+				timer = ShmupBullet.fireOverTime(bullet, cx, cy,
+					angle, "npcshots", self.timer,
+					self.properties.firetime)
+				angle = angle + fanslice
+			end
+			self.timer = timer
 		end
 	end
 	self.timer = math.max(0, self.timer - dt)
