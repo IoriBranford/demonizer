@@ -1,11 +1,17 @@
---- @table Human properties
+--- Human character
+--@module Human
+
+--- Human properties
 --@field rideid Vehicle to ride on
+--@field rideshield Does vehicle block player team's weapons and capture?
+--@field ridedestroyedko Knock out if vehicle destroyed?
 --@field health 0 = civilian
 --@field score awarded on defeat
---@field kolaunch Thrown up in the air on defeat
+--@field kolaunch Thrown up in the air on defeat?
 --@field kolaunchvelx
 --@field kolaunchvely
---@field convertible to wingman
+--@field convertible Becomes wingman on capture?
+--@table Properties
 
 local levity = require "levity"
 local Mover = require "Mover"
@@ -116,7 +122,13 @@ function Human:start()
 end
 
 function Human:canBeCaptured()
-	return not self.health and not self.captured
+	local rideid = self.properties.rideid or 0
+	return not self.health and not self.captured and
+		not (rideid > 0 and self.properties.rideshield)
+end
+
+function Human:isOnCamera()
+	return self.oncamera
 end
 
 function Human:canBeLockTarget()
@@ -152,7 +164,8 @@ function Human:beginMove(dt)
 		return
 	end
 
-	if not self.mover then
+	local vx, vy = self.body:getLinearVelocity()
+	if self.shooter and (not self.mover or (vx == 0 and vy == 0)) then
 		local playerid = levity.map.properties.playerid
 		local player = levity.map.objects[playerid]
 		local playercx, playercy = player.body:getWorldCenter()

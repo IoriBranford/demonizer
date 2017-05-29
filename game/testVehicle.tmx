@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0.0" orientation="orthogonal" renderorder="right-up" width="30" height="40" tilewidth="8" tileheight="8" nextobjectid="7">
+ <properties>
+  <property name="cameraid" type="int" value="2"/>
+  <property name="overlaymap" type="file" value="gameplay.lua"/>
+  <property name="playerid" type="int" value="1"/>
+ </properties>
+ <tileset firstgid="1" source="img/imp.tsx"/>
+ <tileset firstgid="4" source="img/catapult.tsx"/>
+ <tileset firstgid="28" source="img/civmen.tsx"/>
+ <objectgroup name="camera">
+  <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
+ </objectgroup>
+ <objectgroup name="catapult">
+  <object id="3" type="Catapult" gid="6" x="48" y="-24" width="72" height="72">
+   <properties>
+    <property name="pathid" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="4" type="CatapultOperator" gid="91" x="48" y="-56" width="24" height="32">
+   <properties>
+    <property name="rideid" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="5" name="path" x="64" y="8">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="-16,16 -16,128"/>
+  </object>
+  <object id="6" type="Trigger" x="224" y="8" width="8" height="8">
+   <properties>
+    <property name="triggertype" value="activategroup"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="sparks"/>
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
+  <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -2,10 +2,10 @@
 <tileset name="civmen" tilewidth="24" tileheight="32" tilecount="135" columns="27">
  <tileoffset x="-12" y="16"/>
  <properties>
+  <property name="column_catapultoperator" type="int" value="9"/>
   <property name="column_civ1" type="int" value="0"/>
   <property name="column_civ2" type="int" value="3"/>
   <property name="column_civ3" type="int" value="6"/>
-  <property name="column_civ4" type="int" value="9"/>
   <property name="column_civ5" type="int" value="12"/>
   <property name="column_civ6" type="int" value="15"/>
   <property name="column_civ7" type="int" value="18"/>

@@ -63,6 +63,10 @@ local Sounds = {
 }
 levity.bank:load(Sounds)
 
+function Vehicle:isOnCamera()
+	return self.oncamera
+end
+
 function Vehicle:canBeLockTarget()
 	return self.object.visible and self.health
 end
