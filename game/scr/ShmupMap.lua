@@ -94,8 +94,7 @@ local ShmupMap = class(function(self, map)
 					end
 				end
 
-				if not istrigger
-				and layer.properties.static ~= true then
+				if not istrigger then
 					for _, object in ipairs(layer.objects) do
 						Object.init(object, layer, map)
 					end
