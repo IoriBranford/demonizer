@@ -204,7 +204,8 @@ end
 function PlayerTeam:npcCaptured(npcid)
 	local human = levity.map.objects[npcid]
 	if not human.properties.convertible then
-		self.captivegids[#self.captivegids+1] = human.gid
+		self.captivegids[#self.captivegids+1] =
+			levity.scripts:call(npcid, "getKOGid") or human.gid
 	end
 	--if not levity.scripts:call(npcid, "isFemale") then
 	--	local gid = levity.scripts:call(npcid, "getKOGid")

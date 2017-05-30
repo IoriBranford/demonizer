@@ -7,7 +7,7 @@
  </properties>
  <tileset firstgid="1" source="img/imp.tsx"/>
  <tileset firstgid="4" source="img/catapult.tsx"/>
- <tileset firstgid="28" source="img/civmen.tsx"/>
+ <tileset firstgid="28" source="img/human/enemy/catapultoperator-m.tsx"/>
  <objectgroup name="camera">
   <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>
@@ -17,7 +17,7 @@
     <property name="pathid" type="int" value="5"/>
    </properties>
   </object>
-  <object id="4" type="CatapultOperator" gid="91" x="48" y="-56" width="24" height="32">
+  <object id="4" type="CatapultOperator" gid="34" x="48" y="-56" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="3"/>
    </properties>

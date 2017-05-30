@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "0.18.2",
+  tiledversion = "1.0.0",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 18,
@@ -31,6 +31,11 @@ return {
       tileoffset = {
         x = -32,
         y = 32
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
       },
       properties = {},
       terrains = {},
@@ -200,6 +205,11 @@ return {
       tileoffset = {
         x = 0,
         y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
       },
       properties = {},
       terrains = {
@@ -1226,6 +1236,11 @@ return {
         x = 0,
         y = 0
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
       properties = {},
       terrains = {},
       tilecount = 32,
@@ -1246,6 +1261,11 @@ return {
         x = -16,
         y = 16
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
       properties = {},
       terrains = {},
       tilecount = 15,
@@ -1265,6 +1285,11 @@ return {
       tileoffset = {
         x = -32,
         y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
       },
       properties = {
         ["commoncollision"] = 0
@@ -1316,6 +1341,11 @@ return {
       tileoffset = {
         x = -24,
         y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 48,
+        height = 80
       },
       properties = {
         ["commoncollision"] = 1
@@ -1381,6 +1411,11 @@ return {
         x = -32,
         y = 16
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
+      },
       properties = {},
       terrains = {},
       tilecount = 5,
@@ -1426,6 +1461,11 @@ return {
       tileoffset = {
         x = -12,
         y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
       },
       properties = {
         ["column_archer"] = 12,
@@ -1510,6 +1550,11 @@ return {
         x = -12,
         y = 16
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
+      },
       properties = {
         ["column_archer"] = 12,
         ["column_mage"] = 9,
@@ -1593,11 +1638,16 @@ return {
         x = -12,
         y = 16
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
+      },
       properties = {
+        ["column_catapultoperator"] = 9,
         ["column_civ1"] = 0,
         ["column_civ2"] = 3,
         ["column_civ3"] = 6,
-        ["column_civ4"] = 9,
         ["column_civ5"] = 12,
         ["column_civ6"] = 15,
         ["column_civ7"] = 18,
@@ -1678,6 +1728,11 @@ return {
       tileoffset = {
         x = -36,
         y = 36
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 72,
+        height = 72
       },
       properties = {
         ["column_angle0"] = 0,
@@ -1761,6 +1816,11 @@ return {
         x = -32,
         y = 32
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
+      },
       properties = {
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
@@ -1836,6 +1896,11 @@ return {
       tileoffset = {
         x = -16,
         y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
       },
       properties = {
         ["commonanimation"] = 0,
@@ -1913,6 +1978,11 @@ return {
         x = -16,
         y = 16
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
       properties = {
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
@@ -1988,6 +2058,11 @@ return {
       tileoffset = {
         x = -16,
         y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
       },
       properties = {
         ["commonanimation"] = 0,
@@ -2065,6 +2140,11 @@ return {
         x = -32,
         y = 32
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
+      },
       properties = {
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
@@ -2140,6 +2220,11 @@ return {
       tileoffset = {
         x = -16,
         y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
       },
       properties = {
         ["commonanimation"] = 0,
@@ -2217,6 +2302,11 @@ return {
         x = -32,
         y = 32
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
+      },
       properties = {
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
@@ -2292,6 +2382,11 @@ return {
       tileoffset = {
         x = -32,
         y = 32
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
       },
       properties = {
         ["commonanimation"] = 0,
@@ -2369,6 +2464,11 @@ return {
         x = -32,
         y = 32
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
+      },
       properties = {
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
@@ -2445,6 +2545,11 @@ return {
         x = -16,
         y = 16
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
       properties = {
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
@@ -2520,6 +2625,11 @@ return {
       tileoffset = {
         x = -16,
         y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
       },
       properties = {
         ["commonanimation"] = 0,

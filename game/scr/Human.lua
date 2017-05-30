@@ -148,8 +148,7 @@ function Human:faceAngle(angle)
 
 	local dir = Directions[i]
 	if dir then
-		local gid = levity.map:getTileGid(self.object.tile.tileset, dir,
-							self.object.type:lower())
+		local gid = levity.map:getTileGid(self.object.tile.tileset, dir)
 		if gid ~= self.object.gid then
 			self.object:setGid(gid, levity.map)
 		end
@@ -210,8 +209,7 @@ function Human:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 		if self.properties.convertible then
 			local cx, cy = self.body:getWorldCenter()
 			local gid = levity.map:getTileGid(
-						self.object.tile.tileset,
-						"up", self.object.type:lower())
+						self.object.tile.tileset, "up")
 			local newwingmanid = ShmupWingman.create(levity.map, gid,
 						cx, cy, captorid, self.id)
 
@@ -269,8 +267,7 @@ function Human:endContact(myfixture, otherfixture, contact)
 end
 
 function Human:getKOGid()
-	return levity.map:getTileGid(self.object.tile.tileset, "ko",
-					self.object.type:lower())
+	return levity.map:getTileGid(self.object.tile.tileset, "ko")
 end
 
 function Human:vehicleDestroyed(vehicleid)

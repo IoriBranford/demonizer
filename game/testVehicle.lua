@@ -277,15 +277,15 @@ return {
       }
     },
     {
-      name = "civmen",
+      name = "catapultoperator-m",
       firstgid = 28,
-      filename = "img/civmen.tsx",
+      filename = "img/human/enemy/catapultoperator-m.tsx",
       tilewidth = 24,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "img/civmen.png",
-      imagewidth = 648,
+      image = "img/human/enemy/catapultoperator-m.png",
+      imagewidth = 72,
       imageheight = 160,
       tileoffset = {
         x = -12,
@@ -297,28 +297,16 @@ return {
         height = 32
       },
       properties = {
-        ["column_catapultoperator"] = 9,
-        ["column_civ1"] = 0,
-        ["column_civ2"] = 3,
-        ["column_civ3"] = 6,
-        ["column_civ5"] = 12,
-        ["column_civ6"] = 15,
-        ["column_civ7"] = 18,
-        ["column_civ8"] = 21,
-        ["column_civ9"] = 24,
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["row_down"] = 2,
-        ["row_ko"] = 4,
-        ["row_left"] = 3,
-        ["row_right"] = 1,
-        ["row_up"] = 0
+        ["commoncollision"] = 0
       },
       terrains = {},
-      tilecount = 135,
+      tilecount = 15,
       tiles = {
         {
           id = 0,
+          properties = {
+            ["name"] = "up"
+          },
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -361,6 +349,102 @@ return {
             },
             {
               tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "right"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            },
+            {
+              tileid = 5,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "down"
+          },
+          animation = {
+            {
+              tileid = 6,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            },
+            {
+              tileid = 8,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 9,
+          properties = {
+            ["name"] = "left"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            },
+            {
+              tileid = 11,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "ko"
+          },
+          animation = {
+            {
+              tileid = 12,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            },
+            {
+              tileid = 14,
+              duration = 125
+            },
+            {
+              tileid = 13,
               duration = 125
             }
           }
@@ -430,7 +514,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 91,
+          gid = 34,
           visible = true,
           properties = {
             ["rideid"] = 3

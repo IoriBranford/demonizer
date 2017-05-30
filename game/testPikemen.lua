@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "0.18.2",
+  tiledversion = "1.0.0",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 30,
@@ -29,6 +29,11 @@ return {
       tileoffset = {
         x = -32,
         y = 32
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
       },
       properties = {},
       terrains = {},
@@ -185,173 +190,8 @@ return {
       }
     },
     {
-      name = "infmen",
-      firstgid = 4,
-      tilewidth = 24,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/infmen.png",
-      imagewidth = 432,
-      imageheight = 160,
-      tileoffset = {
-        x = -12,
-        y = 16
-      },
-      properties = {
-        ["column_archer"] = 12,
-        ["column_hero"] = 15,
-        ["column_mage"] = 9,
-        ["column_pikeman"] = 0,
-        ["column_priest"] = 6,
-        ["column_swordsman"] = 3,
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["row_down"] = 2,
-        ["row_ko"] = 4,
-        ["row_left"] = 3,
-        ["row_right"] = 1,
-        ["row_up"] = 0
-      },
-      terrains = {},
-      tilecount = 90,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -10,
-                y = 24,
-                width = 20,
-                height = 20,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "infwomen",
-      firstgid = 94,
-      filename = "img/infwomen.tsx",
-      tilewidth = 24,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/infwomen.png",
-      imagewidth = 432,
-      imageheight = 160,
-      tileoffset = {
-        x = -12,
-        y = 16
-      },
-      properties = {
-        ["column_archer"] = 12,
-        ["column_mage"] = 9,
-        ["column_pikeman"] = 0,
-        ["column_priest"] = 6,
-        ["column_princess"] = 15,
-        ["column_swordsman"] = 3,
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["row_down"] = 2,
-        ["row_ko"] = 4,
-        ["row_left"] = 3,
-        ["row_right"] = 1,
-        ["row_up"] = 0
-      },
-      terrains = {},
-      tilecount = 90,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -10,
-                y = 24,
-                width = 20,
-                height = 20,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
       name = "trees",
-      firstgid = 184,
+      firstgid = 4,
       filename = "img/trees.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -363,6 +203,11 @@ return {
       tileoffset = {
         x = -32,
         y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
       },
       properties = {
         ["commoncollision"] = 0
@@ -402,7 +247,7 @@ return {
     },
     {
       name = "boat",
-      firstgid = 187,
+      firstgid = 7,
       filename = "img/boat.tsx",
       tilewidth = 128,
       tileheight = 64,
@@ -414,6 +259,11 @@ return {
       tileoffset = {
         x = -64,
         y = 64
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 128,
+        height = 64
       },
       properties = {},
       terrains = {},
@@ -476,6 +326,356 @@ return {
                   ["collidable"] = true
                 }
               }
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "pikeman-f",
+      firstgid = 8,
+      filename = "img/human/enemy/pikeman-f.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/human/enemy/pikeman-f.png",
+      imagewidth = 72,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
+      },
+      properties = {
+        ["commoncollision"] = 0
+      },
+      terrains = {},
+      tilecount = 15,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["name"] = "up"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "right"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            },
+            {
+              tileid = 5,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "down"
+          },
+          animation = {
+            {
+              tileid = 6,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            },
+            {
+              tileid = 8,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 9,
+          properties = {
+            ["name"] = "left"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            },
+            {
+              tileid = 11,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "ko"
+          },
+          animation = {
+            {
+              tileid = 12,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            },
+            {
+              tileid = 14,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "pikeman-m",
+      firstgid = 23,
+      filename = "img/human/enemy/pikeman-m.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/human/enemy/pikeman-m.png",
+      imagewidth = 72,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
+      },
+      properties = {
+        ["commoncollision"] = 0
+      },
+      terrains = {},
+      tilecount = 15,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["name"] = "up"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "right"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            },
+            {
+              tileid = 5,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "down"
+          },
+          animation = {
+            {
+              tileid = 6,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            },
+            {
+              tileid = 8,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 9,
+          properties = {
+            ["name"] = "left"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            },
+            {
+              tileid = 11,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "ko"
+          },
+          animation = {
+            {
+              tileid = 12,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            },
+            {
+              tileid = 14,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
             }
           }
         }
@@ -543,14 +743,13 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 40,
+          gid = 29,
           visible = true,
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative",
-            ["ridedestroyedko"] = true,
-            ["rideid"] = 25
+            ["ridedestroyedko"] = true
           }
         },
         {
@@ -589,14 +788,13 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 40,
+          gid = 29,
           visible = true,
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative",
-            ["ridedestroyedko"] = true,
-            ["rideid"] = 25
+            ["ridedestroyedko"] = true
           }
         },
         {
@@ -609,14 +807,13 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 40,
+          gid = 29,
           visible = true,
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative",
-            ["ridedestroyedko"] = true,
-            ["rideid"] = 25
+            ["ridedestroyedko"] = true
           }
         },
         {
@@ -629,14 +826,13 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 40,
+          gid = 29,
           visible = true,
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative",
-            ["ridedestroyedko"] = true,
-            ["rideid"] = 25
+            ["ridedestroyedko"] = true
           }
         },
         {
@@ -649,14 +845,13 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 40,
+          gid = 29,
           visible = true,
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative",
-            ["ridedestroyedko"] = true,
-            ["rideid"] = 25
+            ["ridedestroyedko"] = true
           }
         },
         {
@@ -669,14 +864,13 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 40,
+          gid = 29,
           visible = true,
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative",
-            ["ridedestroyedko"] = true,
-            ["rideid"] = 25
+            ["ridedestroyedko"] = true
           }
         },
         {
@@ -689,14 +883,13 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 40,
+          gid = 29,
           visible = true,
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative",
-            ["ridedestroyedko"] = true,
-            ["rideid"] = 25
+            ["ridedestroyedko"] = true
           }
         },
         {
@@ -709,14 +902,13 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 40,
+          gid = 29,
           visible = true,
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative",
-            ["ridedestroyedko"] = true,
-            ["rideid"] = 25
+            ["ridedestroyedko"] = true
           }
         },
         {
@@ -729,14 +921,13 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 40,
+          gid = 29,
           visible = true,
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative",
-            ["ridedestroyedko"] = true,
-            ["rideid"] = 25
+            ["ridedestroyedko"] = true
           }
         },
         {
@@ -749,14 +940,13 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 40,
+          gid = 29,
           visible = true,
           properties = {
             ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative",
-            ["ridedestroyedko"] = true,
-            ["rideid"] = 25
+            ["ridedestroyedko"] = true
           }
         },
         {
@@ -769,15 +959,14 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 130,
+          gid = 14,
           visible = true,
           properties = {
             ["convertible"] = true,
             ["kolaunch"] = true,
             ["pathid"] = 5,
             ["pathmode"] = "relative",
-            ["ridedestroyedko"] = true,
-            ["rideid"] = 25
+            ["ridedestroyedko"] = true
           }
         },
         {
@@ -790,7 +979,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 184,
+          gid = 4,
           visible = true,
           properties = {}
         },
@@ -804,7 +993,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 184,
+          gid = 4,
           visible = true,
           properties = {}
         },
@@ -814,14 +1003,13 @@ return {
           type = "Boat",
           shape = "rectangle",
           x = 120,
-          y = 0,
+          y = -72,
           width = 128,
           height = 64,
           rotation = 0,
-          gid = 187,
+          gid = 7,
           visible = true,
           properties = {
-            ["pathid"] = 5,
             ["pathmode"] = "relative"
           }
         }

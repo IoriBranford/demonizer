@@ -19,6 +19,16 @@ ShmupWingman = class(function(self, object)
 
 	self.converttimer = 0
 	self.npctype = levity.map:getTileColumnName(self.object.gid)
+
+	-- TEMP until transition to new human tileset scheme complete
+	if type(self.npctype) == "number" then
+		self.npctype = levity.map.tilesets[levity.map.tiles[self.object.gid].tileset].name
+		local i, j = self.npctype:find("-f")
+		if i then
+			self.npctype = self.npctype:sub(1, i-1)
+		end
+	end
+
 	self.oncamera = false
 
 	self.locktargetid = nil
