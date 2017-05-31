@@ -4,8 +4,6 @@ local ShmupBullet = require("ShmupBullet")
 local ShmupStatus = require("ShmupStatus")
 
 -- delayed requires to avoid circular dependency
-local ShmupNPC
-
 local OS = love.system.getOS()
 local IsMobile = OS == "Android" or OS == "iOS"
 
@@ -26,8 +24,6 @@ local NonPlayMask = {
 
 local ShmupPlayer
 ShmupPlayer = class(function(self, object)
-	ShmupNPC = ShmupNPC or require("ShmupNPC")
-
 	self.object = object
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)

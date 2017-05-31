@@ -3,7 +3,6 @@ local ShmupCollision = require "ShmupCollision"
 local Targeting = require "Targeting"
 local ShmupPlayer = require("ShmupPlayer")
 local ShmupBullet = require("ShmupBullet")
-local ShmupNPC -- delayed require to avoid circular dependency
 
 local ShmupWingman
 ShmupWingman = class(function(self, object)
@@ -37,8 +36,6 @@ ShmupWingman = class(function(self, object)
 	self.poweredup = self.properties.poweredup or false
 
 	levity.scripts:broadcast("wingmanJoined", self.object.id)
-
-	ShmupNPC = ShmupNPC or require("ShmupNPC")
 end)
 
 local Sounds = {

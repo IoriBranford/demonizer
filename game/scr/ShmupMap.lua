@@ -3,7 +3,6 @@ local Object = require "levity.object"
 local Layer = require "levity.layer"
 
 local ShmupCollision = require "ShmupCollision"
-local ShmupNPC = require("ShmupNPC")
 
 local InitialRank = .25
 
