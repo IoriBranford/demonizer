@@ -1,9 +1,10 @@
 local levity = require "levity"
 
-local UIButton = class(function(self, object)
+local UIButton = class()
+function UIButton:_init(object)
 	self.object = object
 	self.pressed = false
-end)
+end
 
 local Sounds = {
 	Press = "snd/ting.wav"

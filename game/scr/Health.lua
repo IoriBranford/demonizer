@@ -1,8 +1,8 @@
 local levity = require "levity"
 local ShmupBullet = require "ShmupBullet"
 
-local Health
-Health = class(function(self, object)
+local Health = class()
+function Health:_init(object)
 	self.id = object.id
 	self.body = object.body
 	self.health = object.properties.health or 8
@@ -10,7 +10,7 @@ Health = class(function(self, object)
 	self.dps = 0
 	self.hitparticles = levity.scripts:newScript(self.id, "HitParticles",
 		object, levity.map:getTileGid("particles", "damage"), 32)
-end)
+end
 
 Health.HitSparkParams = {
 	tileset = "sparks_small",

@@ -1,13 +1,13 @@
 local levity = require "levity"
 
-local HitParticles
-HitParticles = class(function(self, object, gid, maxparticles)
+local HitParticles = class()
+function HitParticles:_init(object, gid, maxparticles)
 	self.body = object.body
 	self.particles = levity.map:newParticleSystem(gid, maxparticles)
 	self.particles:setParticleLifetime(.25)
 	self.particles:setSpeed(180, 360)
 	self.particles:setSpread(math.pi/8)
-end)
+end
 
 function HitParticles:emit(numparticles, x, y, direction)
 	self.particles:setPosition(x, y)

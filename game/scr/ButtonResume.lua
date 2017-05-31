@@ -1,7 +1,7 @@
 local levity = require "levity"
 local UIButton = require("UIButton")
 
-local ButtonResume = class(UIButton, UIButton.init)
+local ButtonResume = class(UIButton, UIButton._init)
 
 function ButtonResume:buttonReleased()
 	levity.map.paused = false

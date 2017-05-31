@@ -92,7 +92,8 @@ local function addLineObject(self, object)
 	object.properties.drawpoints = drawpoints
 end
 
-PathGraph = class(function(self, element)
+PathGraph = class()
+function PathGraph:_init(element)
 	self.nodegrid = {} -- lists of possible paths from each grid cell
 	-- in the form:
 	-- {
@@ -110,7 +111,7 @@ PathGraph = class(function(self, element)
 		addLineObject(self, self.object)
 	end
 	element.visible = false
-end)
+end
 
 function PathGraph:getPaths(x, y, createnode)
 	local c, r = x, y--levity.map:convertPixelToTile(x, y)
@@ -185,7 +186,8 @@ end
 
 local Walker
 
-Walker = class(function(self, graph, pickNextPath, x, y, mode, userdata)
+Walker = class()
+function Walker:_init(graph, pickNextPath, x, y, mode, userdata)
 	self.graph = graph
 
 	if mode == "relative" then
@@ -219,7 +221,7 @@ Walker = class(function(self, graph, pickNextPath, x, y, mode, userdata)
 
 	self.pickNextPath = pickNextPath
 	self.userdata = userdata
-end)
+end
 
 function PathGraph.getCurvePoint(curvepath, odo)
 	if not curvepath.curve then

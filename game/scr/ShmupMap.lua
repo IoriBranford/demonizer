@@ -38,7 +38,8 @@ local function setFilterFromProperties(body)
 	end
 end
 
-local ShmupMap = class(function(self, map)
+local ShmupMap = class()
+function ShmupMap:_init(map)
 	self.map = map
 	self.properties = self.map.properties
 
@@ -104,7 +105,7 @@ local ShmupMap = class(function(self, map)
 			end
 		end
 	end
-end)
+end
 
 ShmupMap.VictoryTime = 10
 ShmupMap.DefeatTime = 16

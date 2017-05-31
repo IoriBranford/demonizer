@@ -20,8 +20,8 @@ local ShmupBullet = require "ShmupBullet"
 local ShmupWingman = require "ShmupWingman"
 --TODO "NPC" --> "Enemy"
 
-local Human
-Human = class(function(self, object)
+local Human = class()
+function Human:_init(object)
 	self.object = object
 	self.id = object.id
 	self.body = object.body
@@ -71,7 +71,7 @@ Human = class(function(self, object)
 	if self.properties.ko then
 		self:koLaunch()
 	end
-end)
+end
 
 Human.HitSparkParams = {
 	tileset = "sparks_small",

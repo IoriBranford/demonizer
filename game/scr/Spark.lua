@@ -8,7 +8,8 @@ local function beginMove(self, dt)
 	self.object.body:applyForce(self.ax, self.ay)
 end
 
-local Spark = class(function(self, object)
+local Spark = class()
+function Spark:_init(object)
 	self.object = object
 	local properties = self.object.properties
 
@@ -30,7 +31,7 @@ local Spark = class(function(self, object)
 	local vy = properties.vely or 0
 	local body = self.object.body
 	body:setLinearVelocity(vx, vy)
-end)
+end
 
 function Spark:endMove(dt)
 	self.time = self.time - dt

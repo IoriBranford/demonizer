@@ -1,6 +1,7 @@
 local levity = require "levity"
 
-local UIGauge = class(function(self, object)
+local UIGauge = class()
+function UIGauge:_init(object)
 	self.object = object
 	self.fillrect = self.object
 
@@ -29,7 +30,7 @@ local UIGauge = class(function(self, object)
 	self.b = tonumber("0x"..b)
 
 	self:setFill(0)
-end)
+end
 
 function UIGauge:setFill(fill)
 	self.fill = fill

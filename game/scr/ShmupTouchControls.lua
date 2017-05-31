@@ -2,7 +2,8 @@ local levity = require "levity"
 local Object = require "levity.object"
 local ShmupPlayer = require("ShmupPlayer")
 
-local ShmupTouchControls = class(function(self, layer)
+local ShmupTouchControls = class()
+function ShmupTouchControls:_init(layer)
 	self.layer = layer
 	self.playerid = levity.map.properties.playerid
 
@@ -26,7 +27,7 @@ local ShmupTouchControls = class(function(self, layer)
 	--self.movetouch = nil
 	--self.focustouch = nil
 	--self.bombtouch = nil
-end)
+end
 
 --function ShmupTouchControls:updateMarker(marker, x, y, dx, dy)
 --	x, y = levity:screenToCamera(x, y)

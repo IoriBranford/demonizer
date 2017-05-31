@@ -22,8 +22,8 @@ local NonPlayMask = {
 	ShmupCollision.Category_NPCShot
 }
 
-local ShmupPlayer
-ShmupPlayer = class(function(self, object)
+local ShmupPlayer = class()
+function ShmupPlayer:_init(object)
 	self.object = object
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
@@ -61,7 +61,7 @@ ShmupPlayer = class(function(self, object)
 
 	self.soundsource = nil
 	self.soundfile = nil
-end)
+end
 
 ShmupPlayer.Speed = 180
 ShmupPlayer.SpeedSq = ShmupPlayer.Speed * ShmupPlayer.Speed

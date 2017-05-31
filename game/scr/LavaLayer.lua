@@ -4,7 +4,8 @@ local Tileset = "lavapit"
 local NumRows = 2
 local FirstGid
 
-local LavaLayer = class(function(self, layer)
+local LavaLayer = class()
+function LavaLayer:_init(layer)
 	FirstGid = levity.map:getTileGid(Tileset, "lava", 0)
 	self.layer = layer
 	assert(self.layer.type == "tilelayer")
@@ -14,7 +15,7 @@ local LavaLayer = class(function(self, layer)
 	-- let y = a + b*sin(t)/t
 	self.a = self.layer.offsety * .5
 	self.b = self.layer.offsety * .5
-end)
+end
 
 function LavaLayer:keypressed_space()
 	self:ascentStarted()

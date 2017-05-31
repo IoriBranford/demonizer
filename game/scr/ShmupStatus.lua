@@ -4,8 +4,8 @@ local ShmupWingman -- delayed require to avoid circular dependency
 
 local MaxBombs = 3
 
-local ShmupStatus
-ShmupStatus = class(function(self, layer)
+local ShmupStatus = class()
+function ShmupStatus:_init(layer)
 	self.layer = layer
 	self.properties = self.layer.properties
 
@@ -26,7 +26,7 @@ ShmupStatus = class(function(self, layer)
 	self:updateBombs()
 
 	ShmupWingman = ShmupWingman or require("ShmupWingman")
-end)
+end
 
 ShmupStatus.MaxLives = 9
 ShmupStatus.MaxBombs = MaxBombs

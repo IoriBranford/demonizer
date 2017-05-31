@@ -1,11 +1,11 @@
 local levity = require "levity"
 
-local PathGraphTester
-PathGraphTester = class(function(self, object)
+local PathGraphTester = class()
+function PathGraphTester:_init(object)
 	self.object = object
 	self.walker = nil
 	self.speed = 60
-end)
+end
 
 function PathGraphTester.pickNextPath(graphid, paths, prevx, prevy, self)
 	if #paths == 1 then

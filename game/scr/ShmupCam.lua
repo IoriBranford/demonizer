@@ -2,7 +2,8 @@ local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local Mover = require "Mover"
 
-local ShmupCam = class(function(self, object)
+local ShmupCam = class()
+function ShmupCam:_init(object)
 	self.object = object
 	self.properties = self.object.properties
 
@@ -43,7 +44,7 @@ local ShmupCam = class(function(self, object)
 	end
 
 	self.activatedgrouptriggerids = {}
-end)
+end
 
 function ShmupCam:beginContact_activategroup(myfixture, otherfixture, contact)
 	local triggerobject = otherfixture:getUserData().object

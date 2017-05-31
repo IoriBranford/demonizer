@@ -2,8 +2,8 @@ local levity = require "levity"
 local PlayerTeam = require("PlayerTeam")
 local Spark = require("Spark")
 
-local ShmupScore
-ShmupScore = class(function(self, object)
+local ShmupScore = class()
+function ShmupScore:_init(object)
 	self.object = object
 	self.properties = self.object.properties
 
@@ -16,7 +16,7 @@ ShmupScore = class(function(self, object)
 	}
 
 	self.totalmultiplier = nextmapscore.totalmultiplier or 0
-end)
+end
 
 ShmupScore.MaxPoints = 999999999
 ShmupScore.MaxMultiplier = 20

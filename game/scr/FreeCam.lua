@@ -1,7 +1,8 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 
-local FreeCam = class(function(self, object)
+local FreeCam = class()
+function FreeCam:_init(object)
 	self.object = object
 	self.object.visible = false
 	self.vx = 0
@@ -13,7 +14,7 @@ local FreeCam = class(function(self, object)
 
 	local cx, cy = self.object.body:getWorldCenter()
 	levity.camera:set(cx, cy, self.object.width, self.object.height)
-end)
+end
 
 local keyforce = 60
 

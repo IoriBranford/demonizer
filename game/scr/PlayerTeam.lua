@@ -7,8 +7,8 @@ local PlayerPower = require "PlayerPower"
 -- - Formation positions
 -- - Active wingmen and reserve wingmen
 -- - Captured humans to release on team member's death
-local PlayerTeam
-PlayerTeam = class(function(self, layer)
+local PlayerTeam = class()
+function PlayerTeam:_init(layer)
 	self.layer = layer
 	self.playerid = levity.map.properties.playerid
 	self.wingmanids = {}
@@ -47,7 +47,7 @@ PlayerTeam = class(function(self, layer)
 
 	local nextmapcaptivenames = nextmapplayerteam.captivenames
 	self.captivegids = levity.map:tileNamesToGids(nextmapcaptivenames) or {}
-end)
+end
 
 PlayerTeam.PlayerIndex = "player"
 PlayerTeam.MaxWingmen = 4

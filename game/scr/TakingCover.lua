@@ -2,12 +2,12 @@ local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 --TODO "NPC" --> "Enemy"
 
-local TakingCover
-TakingCover = class(function(self, object)
+local TakingCover = class()
+function TakingCover:_init(object)
 	self.object = object
 	self.numcover = 0
 	self.deltacover = 0
-end)
+end
 
 function TakingCover:hasCover()
 	return self.numcover > 0

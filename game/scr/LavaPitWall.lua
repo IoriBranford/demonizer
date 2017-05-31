@@ -4,7 +4,8 @@ local Tileset = "lavapit"
 local NumRows = 3
 local FirstGid
 
-local LavaPitWall = class(function(self, layer)
+local LavaPitWall = class()
+function LavaPitWall:_init(layer)
 	FirstGid = levity.map:getTileGid(Tileset, "pitwall", 0)
 	self.layer = layer
 	assert(self.layer.type == "tilelayer")
@@ -14,7 +15,7 @@ local LavaPitWall = class(function(self, layer)
 	-- let y = a + b*sin(t)/t
 	self.a = self.layer.offsety * .25
 	self.b = self.layer.offsety * .75
-end)
+end
 
 -- TEST
 function LavaPitWall:keypressed_space()

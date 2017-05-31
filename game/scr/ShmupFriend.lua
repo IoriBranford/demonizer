@@ -6,8 +6,8 @@ local PathGraph = require "PathGraph"
 
 local MaxHealth = 32
 
-local ShmupFriend
-ShmupFriend = class(function(self, object)
+local ShmupFriend = class()
+function ShmupFriend:_init(object)
 	self.object = object
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
@@ -30,7 +30,7 @@ ShmupFriend = class(function(self, object)
 	self.health = MaxHealth
 	self.electrocutiontimer = 0
 	self.catchupwithcam = false
-end)
+end
 
 ShmupFriend.LockSearchWidth = 120
 ShmupFriend.LockSearchHeight = 160

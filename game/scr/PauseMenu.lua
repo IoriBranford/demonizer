@@ -2,7 +2,8 @@ local levity = require "levity"
 local Object = require "levity.object"
 local UIButton = require "UIButton"
 
-local PauseMenu = class(function(self, layer)
+local PauseMenu = class()
+function PauseMenu:_init(layer)
 	self.layer = layer
 	self.layer.visible = false
 	--if levity.map.properties.delayinitobjects == true then
@@ -18,7 +19,7 @@ local PauseMenu = class(function(self, layer)
 	end
 	self.cursorpos = nil
 	self.joyaxisy = 0
-end)
+end
 
 local Sounds = {
 	Pause = "snd/pause.wav"

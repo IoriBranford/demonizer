@@ -1,10 +1,11 @@
 local levity = require "levity"
 
-local ElectricLayer = class(function(self, layer)
+local ElectricLayer = class()
+function ElectricLayer:_init(layer)
 	self.layer = layer
 	assert(self.layer.type == "tilelayer")
 	self:setActive(false)
-end)
+end
 
 local ElectricTileset = "electricity"
 local BuzzRate = 6

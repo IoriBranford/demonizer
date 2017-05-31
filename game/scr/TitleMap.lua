@@ -1,6 +1,7 @@
 local levity = require "levity"
 
-local TitleMap = class(function(self, map)
+local TitleMap = class()
+function TitleMap:_init(map)
 	self.map = map
 	self.properties = self.map.properties
 
@@ -12,7 +13,7 @@ local TitleMap = class(function(self, map)
 
 	love.mouse.setVisible(true)
 	love.mouse.setRelativeMode(false)
-end)
+end
 
 function TitleMap:touchpressed(touch, x, y, dx, dy)
 	self:joystickpressed(nil, 1)

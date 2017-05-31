@@ -1,15 +1,15 @@
 local levity = require "levity"
 local PathGraph = require "PathGraph"
 
-local Mover
-Mover = class(function(self, object)
+local Mover = class()
+function Mover:_init(object)
 	self.object = object
 	self.id = object.id
 	self.body = object.body
 	self.properties = object.properties
 
 	self.riderids = nil
-end)
+end
 
 function Mover:start()
 	local x, y = self.body:getPosition()

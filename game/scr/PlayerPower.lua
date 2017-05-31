@@ -1,7 +1,7 @@
 local levity = require "levity"
 
-local PlayerPower
-PlayerPower = class(function(self, object)
+local PlayerPower = class()
+function PlayerPower:_init(object)
 	self.object = object
 
 	if not PlayerPower.DotPositions then
@@ -30,7 +30,7 @@ PlayerPower = class(function(self, object)
 		assert(si == i)
 		self:setDotVisible(i, false)
 	end
-end)
+end
 
 PlayerPower.DotPositions = nil
 

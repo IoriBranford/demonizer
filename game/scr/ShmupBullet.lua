@@ -23,8 +23,8 @@ local function loopedAnimation(self)
 	levity:discardObject(self.object.id)
 end
 
-local ShmupBullet
-ShmupBullet = class(function(self, object)
+local ShmupBullet = class()
+function ShmupBullet:_init(object)
 	self.object = object
 	self.object.body:setBullet(true)
 	self.object.body:setFixedRotation(true)
@@ -88,7 +88,7 @@ ShmupBullet = class(function(self, object)
 	end
 
 	self.exitedcamera = false
-end)
+end
 
 ShmupBullet.MaxTime = 10
 

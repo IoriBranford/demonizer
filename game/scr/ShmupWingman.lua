@@ -4,8 +4,8 @@ local Targeting = require "Targeting"
 local ShmupPlayer = require("ShmupPlayer")
 local ShmupBullet = require("ShmupBullet")
 
-local ShmupWingman
-ShmupWingman = class(function(self, object)
+local ShmupWingman = class()
+function ShmupWingman:_init(object)
 	self.object = object
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
@@ -36,7 +36,7 @@ ShmupWingman = class(function(self, object)
 	self.poweredup = self.properties.poweredup or false
 
 	levity.scripts:broadcast("wingmanJoined", self.object.id)
-end)
+end
 
 local Sounds = {
 	Lock = "snd/targetlock.wav",

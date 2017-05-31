@@ -1,10 +1,10 @@
 local levity = require "levity"
 
-local Curtain
-Curtain = class(function(self, layer)
+local Curtain = class()
+function Curtain:_init(layer)
 	self.layer = layer
 	self:beginOpen()
-end)
+end
 
 Curtain.Speed = 1024
 Curtain.CloseTimeout = 2

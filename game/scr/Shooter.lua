@@ -18,8 +18,8 @@ local levity = require "levity"
 local ShmupBullet = require "ShmupBullet"
 local ShmupCollision = require "ShmupCollision"
 
-local Shooter
-Shooter = class(function(self, object)
+local Shooter = class()
+function Shooter:_init(object)
 	self.object = object
 	self.properties = object.properties
 
@@ -45,7 +45,7 @@ Shooter = class(function(self, object)
 			levity.bank:load(bullet.sound)
 		end
 	end
-end)
+end
 
 function Shooter:fire()
 	local bullet = levity.map.objecttypes[self.properties.firebullet]

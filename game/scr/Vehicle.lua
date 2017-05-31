@@ -7,8 +7,8 @@ local ShmupCollision = require "ShmupCollision"
 local ShmupBullet = require "ShmupBullet"
 --TODO "NPC" --> "Enemy"
 
-local Vehicle
-Vehicle = class(function(self, object)
+local Vehicle = class()
+function Vehicle:_init(object)
 	self.object = object
 	self.id = object.id
 	self.body = object.body
@@ -38,7 +38,7 @@ Vehicle = class(function(self, object)
 		self.shooter = levity.scripts:newScript(self.id, "Shooter",
 							self.object)
 	end
-end)
+end
 
 Vehicle.HitSparkParams = {
 	tileset = "sparks_small",
