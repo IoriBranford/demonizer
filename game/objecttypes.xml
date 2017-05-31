@@ -152,6 +152,6 @@
   <property name="ridedestroyedko" type="bool" default="false"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="15000"/>
-  <property name="script" type="string" default="Human"/>
+  <property name="script" type="string" default="HumanPrincess"/>
  </objecttype>
 </objecttypes>
