@@ -1013,6 +1013,9 @@ return {
       tiles = {
         {
           id = 0,
+          properties = {
+            ["name"] = "townfolk-adult-f-001"
+          },
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -1053,6 +1056,78 @@ return {
               tileid = 2,
               duration = 125
             }
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "townfolk-adult-f-002"
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "townfolk-adult-f-003"
+          }
+        },
+        {
+          id = 9,
+          properties = {
+            ["name"] = "townfolk-adult-f-004"
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "townfolk-adult-f-005"
+          }
+        },
+        {
+          id = 15,
+          properties = {
+            ["name"] = "townfolk-adult-f-006"
+          }
+        },
+        {
+          id = 18,
+          properties = {
+            ["name"] = "noble-f-01"
+          }
+        },
+        {
+          id = 21,
+          properties = {
+            ["name"] = "noble-f-03"
+          }
+        },
+        {
+          id = 24,
+          properties = {
+            ["name"] = "pikeman-f"
+          }
+        },
+        {
+          id = 27,
+          properties = {
+            ["name"] = "swordsman-f"
+          }
+        },
+        {
+          id = 30,
+          properties = {
+            ["name"] = "priest-f"
+          }
+        },
+        {
+          id = 33,
+          properties = {
+            ["name"] = "mage-f"
+          }
+        },
+        {
+          id = 36,
+          properties = {
+            ["name"] = "archer-f"
           }
         }
       }

@@ -24,7 +24,7 @@ Vehicle = class(function(self, object)
 	end
 
 	self.body:setFixedRotation(true)
-	self.faceangle = 0
+	self.faceangle = math.pi/2
 
 	local pathid = self.properties.pathid
 	local pathfinder = self.properties.pathfinder

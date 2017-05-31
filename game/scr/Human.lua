@@ -43,7 +43,7 @@ Human = class(function(self, object)
 	end
 
 	self.body:setFixedRotation(true)
-	self.faceangle = 0
+	self.faceangle = math.pi/2
 
 	local rideid = self.properties.rideid
 	if rideid == 0 then

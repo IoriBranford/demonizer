@@ -1,4 +1,5 @@
 local levity = require "levity"
+local PathGraph = require "PathGraph"
 
 local Mover
 Mover = class(function(self, object)
@@ -12,14 +13,18 @@ end)
 
 function Mover:start()
 	local x, y = self.body:getPosition()
+	if self.properties.pathid == "player" then
+		self.properties.pathid = levity.map.properties.playerid
+	end
 
-	local pathfinder = self.properties.pathfinder or "linear1way"
-	pathfinder = Mover["pathfind_"..pathfinder]
-	levity.scripts:scriptAddEventFunc(self, self.id, "pathfind", pathfinder)
+	local pathid = self.properties.pathid
+	local pathobj = levity.map.objects[pathid]
 
 	if self.properties.pathmode == "relative" then
 		local nearestx, nearesty = levity.scripts:call(
 			self.properties.pathid, "findNearestPoint", x, y)
+		nearestx = nearestx or pathobj.x
+		nearesty = nearesty or pathobj.y
 		self.offx = x - nearestx
 		self.offy = y - nearesty
 	else
@@ -32,7 +37,15 @@ function Mover:start()
 
 	local paths = levity.scripts:call(self.properties.pathid,
 						"getPaths", x, y)
-	if paths then
+
+	local pathfinder = self.properties.pathfinder or "linear1way"
+	pathfinder = pathfinder and Mover["pathfind_"..pathfinder]
+	if pathfinder then
+		levity.scripts:scriptAddEventFunc(self, self.id, "pathfind",
+							pathfinder)
+	end
+
+	if paths and pathfinder then
 		local path = pathfinder(self, paths, x, y)
 
 		if path then
@@ -47,6 +60,9 @@ function Mover:start()
 		self.destx, self.desty = levity.scripts:call(
 				self.properties.pathid, "findNearestPoint", x, y)
 	end
+
+	self.destx = self.destx or pathobj.x
+	self.desty = self.desty or pathobj.y
 
 	self.prevx = x
 	self.prevy = y
@@ -92,10 +108,6 @@ function Mover:beginMove(dt)
 			distx = nextx + self.offx - x
 			disty = nexty + self.offy - y
 			vx, vy = distx / dt, disty / dt
-			if vx ~= 0 or vy ~= 0 then
-				levity.scripts:send(self.id, "faceAngle",
-							math.atan2(vy, vx))
-			end
 		end
 	else
 		local dist = math.hypot(distx, disty)
@@ -104,10 +116,6 @@ function Mover:beginMove(dt)
 			local dirx, diry = distx / dist, disty / dist
 
 			vx, vy = dirx * speed, diry * speed
-			if vx ~= 0 or vy ~= 0 then
-				levity.scripts:send(self.id, "faceAngle",
-							math.atan2(vy, vx))
-			end
 		end
 	end
 
@@ -118,7 +126,6 @@ function Mover:beginMove(dt)
 		if paths then
 			nextpath = levity.scripts:call(self.id,
 				"pathfind", paths, self.prevx, self.prevy)
-
 		end
 
 		if nextpath then
@@ -161,6 +168,10 @@ function Mover:beginMove(dt)
 	end
 
 	self.body:setLinearVelocity(vx, vy)
+
+	if not self.properties.pathstrafe and (vx ~= 0 or vy ~= 0) then
+		levity.scripts:send(self.id, "faceAngle", math.atan2(vy, vx))
+	end
 
 	if self.riderids then
 		for _, riderid in pairs(self.riderids) do

@@ -12,7 +12,6 @@ return {
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
-    ["nextmap"] = "village.lua",
     ["overlaymap"] = "gameplay.lua",
     ["playerid"] = 3
   },
@@ -1448,275 +1447,8 @@ return {
       }
     },
     {
-      name = "infmen",
-      firstgid = 446,
-      filename = "img/infmen.tsx",
-      tilewidth = 24,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/infmen.png",
-      imagewidth = 432,
-      imageheight = 160,
-      tileoffset = {
-        x = -12,
-        y = 16
-      },
-      grid = {
-        orientation = "orthogonal",
-        width = 24,
-        height = 32
-      },
-      properties = {
-        ["column_archer"] = 12,
-        ["column_hero"] = 15,
-        ["column_mage"] = 9,
-        ["column_pikeman"] = 0,
-        ["column_priest"] = 6,
-        ["column_swordsman"] = 3,
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["row_down"] = 2,
-        ["row_ko"] = 4,
-        ["row_left"] = 3,
-        ["row_right"] = 1,
-        ["row_up"] = 0
-      },
-      terrains = {},
-      tilecount = 90,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -10,
-                y = 24,
-                width = 20,
-                height = 20,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "infwomen",
-      firstgid = 536,
-      filename = "img/infwomen.tsx",
-      tilewidth = 24,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/infwomen.png",
-      imagewidth = 432,
-      imageheight = 160,
-      tileoffset = {
-        x = -12,
-        y = 16
-      },
-      grid = {
-        orientation = "orthogonal",
-        width = 24,
-        height = 32
-      },
-      properties = {
-        ["column_archer"] = 12,
-        ["column_mage"] = 9,
-        ["column_pikeman"] = 0,
-        ["column_priest"] = 6,
-        ["column_princess"] = 15,
-        ["column_swordsman"] = 3,
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["row_down"] = 2,
-        ["row_ko"] = 4,
-        ["row_left"] = 3,
-        ["row_right"] = 1,
-        ["row_up"] = 0
-      },
-      terrains = {},
-      tilecount = 90,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -10,
-                y = 24,
-                width = 20,
-                height = 20,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
-      name = "civmen",
-      firstgid = 626,
-      filename = "img/civmen.tsx",
-      tilewidth = 24,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "img/civmen.png",
-      imagewidth = 648,
-      imageheight = 160,
-      tileoffset = {
-        x = -12,
-        y = 16
-      },
-      grid = {
-        orientation = "orthogonal",
-        width = 24,
-        height = 32
-      },
-      properties = {
-        ["column_catapultoperator"] = 9,
-        ["column_civ1"] = 0,
-        ["column_civ2"] = 3,
-        ["column_civ3"] = 6,
-        ["column_civ5"] = 12,
-        ["column_civ6"] = 15,
-        ["column_civ7"] = 18,
-        ["column_civ8"] = 21,
-        ["column_civ9"] = 24,
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["row_down"] = 2,
-        ["row_ko"] = 4,
-        ["row_left"] = 3,
-        ["row_right"] = 1,
-        ["row_up"] = 0
-      },
-      terrains = {},
-      tilecount = 135,
-      tiles = {
-        {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = -10,
-                y = 24,
-                width = 20,
-                height = 20,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          },
-          animation = {
-            {
-              tileid = 0,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 1,
-              duration = 125
-            }
-          }
-        }
-      }
-    },
-    {
       name = "catapult",
-      firstgid = 761,
+      firstgid = 446,
       filename = "img/catapult.tsx",
       tilewidth = 72,
       tileheight = 72,
@@ -1803,7 +1535,7 @@ return {
     },
     {
       name = "black_harpy",
-      firstgid = 785,
+      firstgid = 470,
       filename = "img/friend/black_harpy.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1884,7 +1616,7 @@ return {
     },
     {
       name = "devil_bug",
-      firstgid = 797,
+      firstgid = 482,
       filename = "img/friend/devil_bug.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -1965,7 +1697,7 @@ return {
     },
     {
       name = "ghost",
-      firstgid = 809,
+      firstgid = 494,
       filename = "img/friend/ghost.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2046,7 +1778,7 @@ return {
     },
     {
       name = "goblin",
-      firstgid = 821,
+      firstgid = 506,
       filename = "img/friend/goblin.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2127,7 +1859,7 @@ return {
     },
     {
       name = "harpy",
-      firstgid = 833,
+      firstgid = 518,
       filename = "img/friend/harpy.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2208,7 +1940,7 @@ return {
     },
     {
       name = "holstaurus",
-      firstgid = 845,
+      firstgid = 530,
       filename = "img/friend/holstaurus.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2289,7 +2021,7 @@ return {
     },
     {
       name = "honey_bee",
-      firstgid = 857,
+      firstgid = 542,
       filename = "img/friend/honey_bee.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2370,7 +2102,7 @@ return {
     },
     {
       name = "siren",
-      firstgid = 869,
+      firstgid = 554,
       filename = "img/friend/siren.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2451,7 +2183,7 @@ return {
     },
     {
       name = "werebat",
-      firstgid = 881,
+      firstgid = 566,
       filename = "img/friend/werebat.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2532,7 +2264,7 @@ return {
     },
     {
       name = "weresheep",
-      firstgid = 893,
+      firstgid = 578,
       filename = "img/friend/weresheep.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2613,7 +2345,7 @@ return {
     },
     {
       name = "youko",
-      firstgid = 905,
+      firstgid = 590,
       filename = "img/friend/youko.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2686,6 +2418,1231 @@ return {
             },
             {
               tileid = 1,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "archer-m",
+      firstgid = 602,
+      filename = "img/human/enemy/archer-m.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/human/enemy/archer-m.png",
+      imagewidth = 72,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
+      },
+      properties = {
+        ["commoncollision"] = 0
+      },
+      terrains = {},
+      tilecount = 15,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["name"] = "up"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "right"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            },
+            {
+              tileid = 5,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "down"
+          },
+          animation = {
+            {
+              tileid = 6,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            },
+            {
+              tileid = 8,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 9,
+          properties = {
+            ["name"] = "left"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            },
+            {
+              tileid = 11,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "ko"
+          },
+          animation = {
+            {
+              tileid = 12,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            },
+            {
+              tileid = 14,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "catapultoperator-m",
+      firstgid = 617,
+      filename = "img/human/enemy/catapultoperator-m.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/human/enemy/catapultoperator-m.png",
+      imagewidth = 72,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
+      },
+      properties = {
+        ["commoncollision"] = 0
+      },
+      terrains = {},
+      tilecount = 15,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["name"] = "up"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "right"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            },
+            {
+              tileid = 5,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "down"
+          },
+          animation = {
+            {
+              tileid = 6,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            },
+            {
+              tileid = 8,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 9,
+          properties = {
+            ["name"] = "left"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            },
+            {
+              tileid = 11,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "ko"
+          },
+          animation = {
+            {
+              tileid = 12,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            },
+            {
+              tileid = 14,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "pikeman-f",
+      firstgid = 632,
+      filename = "img/human/enemy/pikeman-f.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/human/enemy/pikeman-f.png",
+      imagewidth = 72,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
+      },
+      properties = {
+        ["commoncollision"] = 0
+      },
+      terrains = {},
+      tilecount = 15,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["name"] = "up"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "right"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            },
+            {
+              tileid = 5,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "down"
+          },
+          animation = {
+            {
+              tileid = 6,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            },
+            {
+              tileid = 8,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 9,
+          properties = {
+            ["name"] = "left"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            },
+            {
+              tileid = 11,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "ko"
+          },
+          animation = {
+            {
+              tileid = 12,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            },
+            {
+              tileid = 14,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "pikeman-m",
+      firstgid = 647,
+      filename = "img/human/enemy/pikeman-m.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/human/enemy/pikeman-m.png",
+      imagewidth = 72,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
+      },
+      properties = {
+        ["commoncollision"] = 0
+      },
+      terrains = {},
+      tilecount = 15,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["name"] = "up"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "right"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            },
+            {
+              tileid = 5,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "down"
+          },
+          animation = {
+            {
+              tileid = 6,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            },
+            {
+              tileid = 8,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 9,
+          properties = {
+            ["name"] = "left"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            },
+            {
+              tileid = 11,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "ko"
+          },
+          animation = {
+            {
+              tileid = 12,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            },
+            {
+              tileid = 14,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "princess",
+      firstgid = 662,
+      filename = "img/human/enemy/princess.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/human/enemy/princess.png",
+      imagewidth = 72,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
+      },
+      properties = {
+        ["commoncollision"] = 0
+      },
+      terrains = {},
+      tilecount = 15,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["name"] = "up"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "right"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            },
+            {
+              tileid = 5,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "down"
+          },
+          animation = {
+            {
+              tileid = 6,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            },
+            {
+              tileid = 8,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 9,
+          properties = {
+            ["name"] = "left"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            },
+            {
+              tileid = 11,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "ko"
+          },
+          animation = {
+            {
+              tileid = 12,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            },
+            {
+              tileid = 14,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "swordsman-f",
+      firstgid = 677,
+      filename = "img/human/enemy/swordsman-f.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/human/enemy/swordsman-f.png",
+      imagewidth = 72,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
+      },
+      properties = {
+        ["commoncollision"] = 0
+      },
+      terrains = {},
+      tilecount = 15,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["name"] = "up"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "right"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            },
+            {
+              tileid = 5,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "down"
+          },
+          animation = {
+            {
+              tileid = 6,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            },
+            {
+              tileid = 8,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 9,
+          properties = {
+            ["name"] = "left"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            },
+            {
+              tileid = 11,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "ko"
+          },
+          animation = {
+            {
+              tileid = 12,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            },
+            {
+              tileid = 14,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "swordsman-m",
+      firstgid = 692,
+      filename = "img/human/enemy/swordsman-m.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/human/enemy/swordsman-m.png",
+      imagewidth = 72,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
+      },
+      properties = {
+        ["commoncollision"] = 0
+      },
+      terrains = {},
+      tilecount = 15,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["name"] = "up"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "right"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            },
+            {
+              tileid = 5,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "down"
+          },
+          animation = {
+            {
+              tileid = 6,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            },
+            {
+              tileid = 8,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 9,
+          properties = {
+            ["name"] = "left"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            },
+            {
+              tileid = 11,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "ko"
+          },
+          animation = {
+            {
+              tileid = 12,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            },
+            {
+              tileid = 14,
+              duration = 125
+            },
+            {
+              tileid = 13,
               duration = 125
             }
           }
@@ -2878,19 +3835,17 @@ return {
         {
           id = 159,
           name = "boss",
-          type = "",
+          type = "Princess",
           shape = "rectangle",
-          x = 136,
-          y = 144,
+          x = 144,
+          y = -16,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 587,
+          gid = 668,
           visible = true,
           properties = {
-            ["pathid"] = "boss_paths",
-            ["pathpicker"] = "random1way",
-            ["script"] = "NPCPrincess"
+            ["pathid"] = "boss_paths"
           }
         }
       }
@@ -3349,73 +4304,67 @@ return {
         {
           id = 208,
           name = "catapult",
-          type = "",
+          type = "Catapult",
           shape = "rectangle",
           x = 324,
           y = 176,
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 764,
+          gid = 449,
           visible = true,
           properties = {
-            ["kopassengers"] = true,
             ["offscreenshot"] = false,
-            ["pathid"] = 213,
-            ["script"] = "VehicleCatapult"
+            ["pathid"] = 213
           }
         },
         {
           id = 209,
           name = "operator",
-          type = "",
+          type = "CatapultOperator",
           shape = "rectangle",
           x = 340,
           y = 156,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 689,
+          gid = 623,
           visible = true,
           properties = {
-            ["leaderid"] = 208,
-            ["script"] = "ShmupNPC"
+            ["rideid"] = 208
           }
         },
         {
           id = 210,
           name = "catapult",
-          type = "",
+          type = "Catapult",
           shape = "rectangle",
           x = -36,
           y = 176,
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 762,
+          gid = 447,
           visible = true,
           properties = {
-            ["kopassengers"] = true,
             ["offscreenshot"] = false,
-            ["pathid"] = 212,
-            ["script"] = "VehicleCatapult"
+            ["pathid"] = 212
           }
         },
         {
           id = 211,
           name = "operator",
-          type = "",
+          type = "CatapultOperator",
           shape = "rectangle",
           x = -52,
           y = 156,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 689,
+          gid = 623,
           visible = true,
           properties = {
-            ["leaderid"] = 210,
-            ["script"] = "ShmupNPC"
+            ["rideid"] = 210
           }
         },
         {
@@ -3489,137 +4438,129 @@ return {
         {
           id = 195,
           name = "pikemanleader",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 304,
           y = 304,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 205,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 205
           }
         },
         {
           id = 196,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 368,
           y = 304,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 205,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 205
           }
         },
         {
           id = 197,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = -80,
           y = 304,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 206,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 206
           }
         },
         {
           id = 198,
           name = "pikemanleader",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = -16,
           y = 304,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 206,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 206
           }
         },
         {
           id = 200,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 400,
           y = 304,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 205,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 205
           }
         },
         {
           id = 201,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = -112,
           y = 304,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 206,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 206
           }
         },
         {
           id = 202,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 336,
           y = 304,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 205,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 205
           }
         },
         {
           id = 203,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = -48,
           y = 304,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 206,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 206
           }
         },
         {
@@ -3719,128 +4660,117 @@ return {
         {
           id = 84,
           name = "operator",
-          type = "",
+          type = "CatapultOperator",
           shape = "rectangle",
           x = 48,
           y = 400,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 689,
+          gid = 623,
           visible = true,
           properties = {
-            ["leaderid"] = 80,
-            ["script"] = "ShmupNPC"
+            ["rideid"] = 80
           }
         },
         {
           id = 80,
           name = "catapult",
-          type = "",
+          type = "Catapult",
           shape = "rectangle",
           x = 64,
           y = 420,
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 762,
+          gid = 447,
           visible = true,
           properties = {
-            ["kopassengers"] = true,
-            ["offscreenshot"] = true,
-            ["script"] = "VehicleCatapult"
+            ["offscreenshot"] = true
           }
         },
         {
           id = 85,
           name = "operator",
-          type = "",
+          type = "CatapultOperator",
           shape = "rectangle",
           x = 240,
           y = 400,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 689,
+          gid = 623,
           visible = true,
           properties = {
-            ["leaderid"] = 81,
-            ["script"] = "ShmupNPC"
+            ["rideid"] = 81
           }
         },
         {
           id = 81,
           name = "catapult",
-          type = "",
+          type = "Catapult",
           shape = "rectangle",
           x = 224,
           y = 420,
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 764,
+          gid = 449,
           visible = true,
           properties = {
-            ["kopassengers"] = true,
-            ["offscreenshot"] = true,
-            ["script"] = "VehicleCatapult"
+            ["offscreenshot"] = true
           }
         },
         {
           id = 57,
           name = "archer",
-          type = "",
+          type = "Archer",
           shape = "rectangle",
           x = 144,
           y = 512,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 494,
+          gid = 608,
           visible = true,
           properties = {
             ["pathid"] = 54,
             ["pathmode"] = "relative",
-            ["pathpicker"] = "linear2way",
-            ["script"] = "NPCArcher"
+            ["pathpicker"] = "linear2way"
           }
         },
         {
           id = 58,
           name = "archer",
-          type = "",
+          type = "Archer",
           shape = "rectangle",
           x = 256,
           y = 416,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 494,
+          gid = 608,
           visible = true,
           properties = {
             ["pathid"] = 54,
-            ["pathmode"] = "relative",
-            ["pathpicker"] = "linear2way",
-            ["script"] = "NPCArcher"
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 56,
           name = "archer",
-          type = "",
+          type = "Archer",
           shape = "rectangle",
           x = 44,
           y = 440,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 494,
+          gid = 608,
           visible = true,
           properties = {
             ["pathid"] = 54,
-            ["pathmode"] = "relative",
-            ["pathpicker"] = "linear2way",
-            ["script"] = "NPCArcher"
+            ["pathmode"] = "relative"
           }
         },
         {
@@ -4175,87 +5105,78 @@ return {
         {
           id = 141,
           name = "swordsman",
-          type = "",
+          type = "Swordsman",
           shape = "rectangle",
           x = -16,
           y = 576,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 485,
+          gid = 698,
           visible = true,
-          properties = {
-            ["script"] = "NPCSwordsman"
-          }
+          properties = {}
         },
         {
           id = 142,
           name = "swordsman",
-          type = "",
+          type = "Swordsman",
           shape = "rectangle",
           x = 304,
           y = 576,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 485,
+          gid = 698,
           visible = true,
-          properties = {
-            ["script"] = "NPCSwordsman"
-          }
+          properties = {}
         },
         {
           id = 131,
           name = "operator",
-          type = "",
+          type = "CatapultOperator",
           shape = "rectangle",
           x = 224,
           y = 496,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 689,
+          gid = 623,
           visible = true,
           properties = {
-            ["leaderid"] = 134,
-            ["script"] = "ShmupNPC"
+            ["rideid"] = 134
           }
         },
         {
           id = 134,
           name = "catapult",
-          type = "",
+          type = "Catapult",
           shape = "rectangle",
           x = 224,
           y = 528,
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 763,
+          gid = 448,
           visible = true,
           properties = {
-            ["kopassengers"] = true,
             ["offscreenshot"] = true,
-            ["pathid"] = 133,
-            ["pathspeed"] = 60,
-            ["script"] = "VehicleCatapult"
+            ["pathid"] = 133
           }
         },
         {
           id = 132,
           name = "operator",
-          type = "",
+          type = "CatapultOperator",
           shape = "rectangle",
           x = 64,
           y = 496,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 689,
+          gid = 623,
           visible = true,
           properties = {
-            ["leaderid"] = 136,
-            ["script"] = "ShmupNPC"
+            ["rideid"] = 136
           }
         },
         {
@@ -4280,21 +5201,18 @@ return {
         {
           id = 136,
           name = "catapult",
-          type = "",
+          type = "Catapult",
           shape = "rectangle",
           x = 64,
           y = 528,
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 763,
+          gid = 448,
           visible = true,
           properties = {
-            ["kopassengers"] = true,
             ["offscreenshot"] = true,
-            ["pathid"] = 135,
-            ["pathspeed"] = 60,
-            ["script"] = "VehicleCatapult"
+            ["pathid"] = 135
           }
         },
         {
@@ -4379,103 +5297,97 @@ return {
         {
           id = 119,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 96,
           y = 480,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 117,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 117
           }
         },
         {
           id = 120,
           name = "pikemanleader",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 96,
           y = 608,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 117,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 117
           }
         },
         {
           id = 122,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 96,
           y = 544,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 117,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 117
           }
         },
         {
           id = 123,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 192,
           y = 544,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 118,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 118
           }
         },
         {
           id = 125,
           name = "pikemanleader",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 192,
           y = 608,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 118,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 118
           }
         },
         {
           id = 126,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 192,
           y = 480,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 118,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 118
           }
         },
         {
@@ -4497,38 +5409,34 @@ return {
         {
           id = 128,
           name = "catapult",
-          type = "",
+          type = "Catapult",
           shape = "rectangle",
           x = 144,
           y = 600,
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 763,
+          gid = 448,
           visible = true,
           properties = {
-            ["kopassengers"] = true,
             ["offscreenshot"] = true,
-            ["pathid"] = 188,
-            ["pathspeed"] = 60,
-            ["script"] = "VehicleCatapult"
+            ["pathid"] = 188
           }
         },
         {
           id = 130,
           name = "operator",
-          type = "",
+          type = "CatapultOperator",
           shape = "rectangle",
           x = 144,
           y = 568,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 689,
+          gid = 623,
           visible = true,
           properties = {
-            ["leaderid"] = 128,
-            ["script"] = "ShmupNPC"
+            ["rideid"] = 128
           }
         },
         {
@@ -4553,69 +5461,65 @@ return {
         {
           id = 23,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 192,
           y = 512,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 118,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 118
           }
         },
         {
           id = 13,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 96,
           y = 512,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 117,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 117
           }
         },
         {
           id = 10,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 96,
           y = 576,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 117,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 117
           }
         },
         {
           id = 20,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 192,
           y = 576,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 118,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 118
           }
         }
       }
@@ -4633,34 +5537,30 @@ return {
         {
           id = 108,
           name = "swordsman",
-          type = "",
+          type = "Swordsman",
           shape = "rectangle",
           x = 300,
           y = 752,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 485,
+          gid = 698,
           visible = true,
-          properties = {
-            ["script"] = "NPCSwordsman"
-          }
+          properties = {}
         },
         {
           id = 109,
           name = "swordsman",
-          type = "",
+          type = "Swordsman",
           shape = "rectangle",
           x = -12,
           y = 752,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 485,
+          gid = 698,
           visible = true,
-          properties = {
-            ["script"] = "NPCSwordsman"
-          }
+          properties = {}
         },
         {
           id = 110,
@@ -4681,17 +5581,17 @@ return {
         {
           id = 114,
           name = "swordswoman",
-          type = "",
+          type = "Swordsman",
           shape = "rectangle",
           x = 144,
           y = 1020,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 575,
+          gid = 683,
           visible = true,
           properties = {
-            ["script"] = "NPCSwordsman"
+            ["convertible"] = true
           }
         }
       }
@@ -4709,34 +5609,30 @@ return {
         {
           id = 103,
           name = "swordsman",
-          type = "",
+          type = "Swordsman",
           shape = "rectangle",
           x = -12,
           y = 928,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 485,
+          gid = 698,
           visible = true,
-          properties = {
-            ["script"] = "NPCSwordsman"
-          }
+          properties = {}
         },
         {
           id = 104,
           name = "swordsman",
-          type = "",
+          type = "Swordsman",
           shape = "rectangle",
           x = 300,
           y = 928,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 485,
+          gid = 698,
           visible = true,
-          properties = {
-            ["script"] = "NPCSwordsman"
-          }
+          properties = {}
         },
         {
           id = 105,
@@ -4769,18 +5665,16 @@ return {
         {
           id = 98,
           name = "swordsman",
-          type = "",
+          type = "Swordsman",
           shape = "rectangle",
           x = 176,
           y = 816,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 485,
+          gid = 698,
           visible = true,
-          properties = {
-            ["script"] = "NPCSwordsman"
-          }
+          properties = {}
         },
         {
           id = 99,
@@ -4801,18 +5695,16 @@ return {
         {
           id = 100,
           name = "swordsman",
-          type = "",
+          type = "Swordsman",
           shape = "rectangle",
           x = 112,
           y = 816,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 485,
+          gid = 698,
           visible = true,
-          properties = {
-            ["script"] = "NPCSwordsman"
-          }
+          properties = {}
         }
       }
     },
@@ -4845,75 +5737,69 @@ return {
         {
           id = 77,
           name = "catapult",
-          type = "",
+          type = "Catapult",
           shape = "rectangle",
           x = 80,
           y = 896,
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 763,
+          gid = 448,
           visible = true,
           properties = {
-            ["kopassengers"] = true,
             ["offscreenshot"] = true,
             ["pathid"] = 91,
-            ["pathspeed"] = 120,
-            ["script"] = "VehicleCatapult"
+            ["pathspeed"] = 120
           }
         },
         {
           id = 78,
           name = "catapult",
-          type = "",
+          type = "Catapult",
           shape = "rectangle",
           x = 208,
           y = 896,
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 763,
+          gid = 448,
           visible = true,
           properties = {
-            ["kopassengers"] = true,
             ["offscreenshot"] = true,
             ["pathid"] = 92,
-            ["pathspeed"] = 120,
-            ["script"] = "VehicleCatapult"
+            ["pathspeed"] = 120
           }
         },
         {
           id = 89,
           name = "operator",
-          type = "",
+          type = "CatapultOperator",
           shape = "rectangle",
           x = 80,
           y = 864,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 689,
+          gid = 623,
           visible = true,
           properties = {
-            ["leaderid"] = 77,
-            ["script"] = "ShmupNPC"
+            ["rideid"] = 77
           }
         },
         {
           id = 90,
           name = "operator",
-          type = "",
+          type = "CatapultOperator",
           shape = "rectangle",
           x = 208,
           y = 864,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 689,
+          gid = 623,
           visible = true,
           properties = {
-            ["leaderid"] = 78,
-            ["script"] = "ShmupNPC"
+            ["rideid"] = 78
           }
         },
         {
@@ -4969,20 +5855,18 @@ return {
         {
           id = 75,
           name = "catapult",
-          type = "",
+          type = "Catapult",
           shape = "rectangle",
           x = 144,
           y = 928,
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 763,
+          gid = 448,
           visible = true,
           properties = {
-            ["kopassengers"] = true,
             ["pathid"] = 87,
-            ["pathspeed"] = 90,
-            ["script"] = "VehicleCatapult"
+            ["pathspeed"] = 90
           }
         },
         {
@@ -5023,18 +5907,17 @@ return {
         {
           id = 88,
           name = "operator",
-          type = "",
+          type = "CatapultOperator",
           shape = "rectangle",
           x = 144,
           y = 896,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 689,
+          gid = 623,
           visible = true,
           properties = {
-            ["leaderid"] = 75,
-            ["script"] = "ShmupNPC"
+            ["rideid"] = 75
           }
         }
       }
@@ -5059,7 +5942,7 @@ return {
           width = 288,
           height = 96,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
@@ -5088,39 +5971,35 @@ return {
         {
           id = 147,
           name = "archer",
-          type = "",
+          type = "Archer",
           shape = "rectangle",
           x = 64,
           y = 992,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 494,
+          gid = 608,
           visible = true,
           properties = {
             ["pathid"] = 146,
-            ["pathmode"] = "relative",
-            ["pathpicker"] = "linear2way",
-            ["script"] = "NPCArcher"
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 149,
           name = "archer",
-          type = "",
+          type = "Archer",
           shape = "rectangle",
           x = 224,
           y = 1008,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 494,
+          gid = 608,
           visible = true,
           properties = {
             ["pathid"] = 146,
-            ["pathmode"] = "relative",
-            ["pathpicker"] = "linear2way",
-            ["script"] = "NPCArcher"
+            ["pathmode"] = "relative"
           }
         }
       }
@@ -5138,39 +6017,35 @@ return {
         {
           id = 50,
           name = "archer",
-          type = "",
+          type = "Archer",
           shape = "rectangle",
           x = 48,
           y = 1104,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 494,
+          gid = 608,
           visible = true,
           properties = {
             ["pathid"] = 52,
-            ["pathmode"] = "relative",
-            ["pathpicker"] = "linear2way",
-            ["script"] = "NPCArcher"
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 51,
           name = "archer",
-          type = "",
+          type = "Archer",
           shape = "rectangle",
           x = 248,
           y = 1096,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 494,
+          gid = 608,
           visible = true,
           properties = {
             ["pathid"] = 52,
-            ["pathmode"] = "relative",
-            ["pathpicker"] = "linear2way",
-            ["script"] = "NPCArcher"
+            ["pathmode"] = "relative"
           }
         },
         {
@@ -5203,7 +6078,7 @@ return {
           width = 288,
           height = 80,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
@@ -5212,20 +6087,18 @@ return {
         {
           id = 148,
           name = "archer",
-          type = "",
+          type = "Archer",
           shape = "rectangle",
           x = 148,
           y = 1072,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 494,
+          gid = 608,
           visible = true,
           properties = {
             ["pathid"] = 52,
-            ["pathmode"] = "relative",
-            ["pathpicker"] = "linear2way",
-            ["script"] = "NPCArcher"
+            ["pathmode"] = "relative"
           }
         }
       }
@@ -5810,7 +6683,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          visible = true,
+          visible = false,
           polyline = {
             { x = 0, y = 112 },
             { x = -48, y = 112 },
@@ -5829,109 +6702,103 @@ return {
         {
           id = 26,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 160,
           y = 1152,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
             ["pathid"] = 25,
-            ["pathmode"] = "relative",
-            ["script"] = "NPCPikeman"
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 27,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 96,
           y = 1136,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
             ["pathid"] = 25,
-            ["pathmode"] = "relative",
-            ["script"] = "NPCPikeman"
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 28,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 128,
           y = 1152,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
             ["pathid"] = 25,
-            ["pathmode"] = "relative",
-            ["script"] = "NPCPikeman"
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 29,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 80,
           y = 1120,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
             ["pathid"] = 25,
-            ["pathmode"] = "relative",
-            ["script"] = "NPCPikeman"
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 31,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 208,
           y = 1120,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
             ["pathid"] = 25,
-            ["pathmode"] = "relative",
-            ["script"] = "NPCPikeman"
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 32,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 192,
           y = 1136,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
             ["pathid"] = 25,
-            ["pathmode"] = "relative",
-            ["script"] = "NPCPikeman"
+            ["pathmode"] = "relative"
           }
         },
         {
@@ -5944,7 +6811,7 @@ return {
           width = 288,
           height = 16,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
@@ -5953,19 +6820,19 @@ return {
         {
           id = 189,
           name = "pikewoman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 144,
           y = 1120,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 572,
+          gid = 638,
           visible = true,
           properties = {
+            ["convertible"] = true,
             ["pathid"] = 25,
-            ["pathmode"] = "relative",
-            ["script"] = "NPCPikeman"
+            ["pathmode"] = "relative"
           }
         }
       }
@@ -5983,35 +6850,33 @@ return {
         {
           id = 33,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 384,
           y = 1216,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 15,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 15
           }
         },
         {
           id = 22,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 288,
           y = 1216,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 15,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 15
           }
         },
         {
@@ -6024,7 +6889,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          visible = true,
+          visible = false,
           polyline = {
             { x = 32, y = -112 },
             { x = -80, y = -112 },
@@ -6040,18 +6905,17 @@ return {
         {
           id = 16,
           name = "leader",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 336,
           y = 1216,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 15,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 15
           }
         },
         {
@@ -6064,7 +6928,7 @@ return {
           width = 288,
           height = 16,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
@@ -6092,7 +6956,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          visible = true,
+          visible = false,
           polyline = {
             { x = -56, y = 32 },
             { x = 56, y = 32 },
@@ -6108,35 +6972,33 @@ return {
         {
           id = 6,
           name = "leader",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = -48,
           y = 1232,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 5,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 5
           }
         },
         {
           id = 12,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 0,
           y = 1232,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 5,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 5
           }
         },
         {
@@ -6149,7 +7011,7 @@ return {
           width = 288,
           height = 16,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
@@ -6158,18 +7020,17 @@ return {
         {
           id = 30,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = -96,
           y = 1232,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 5,
-            ["script"] = "NPCPikeman"
+            ["pathid"] = 5
           }
         }
       }
@@ -6194,7 +7055,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
-          visible = true,
+          visible = false,
           polyline = {
             { x = 0, y = -16 },
             { x = 0, y = 368 }
@@ -6206,73 +7067,69 @@ return {
         {
           id = 36,
           name = "leader",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 96,
           y = 1216,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
             ["pathid"] = 35,
-            ["pathmode"] = "relative",
-            ["script"] = "NPCPikeman"
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 37,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 160,
           y = 1216,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
             ["pathid"] = 35,
-            ["pathmode"] = "relative",
-            ["script"] = "NPCPikeman"
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 38,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 128,
           y = 1216,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
             ["pathid"] = 35,
-            ["pathmode"] = "relative",
-            ["script"] = "NPCPikeman"
+            ["pathmode"] = "relative"
           }
         },
         {
           id = 39,
           name = "pikeman",
-          type = "",
+          type = "Pikeman",
           shape = "rectangle",
           x = 192,
           y = 1216,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 482,
+          gid = 653,
           visible = true,
           properties = {
             ["pathid"] = 35,
-            ["pathmode"] = "relative",
-            ["script"] = "NPCPikeman"
+            ["pathmode"] = "relative"
           }
         },
         {
@@ -6285,7 +7142,7 @@ return {
           width = 288,
           height = 16,
           rotation = 0,
-          visible = true,
+          visible = false,
           properties = {
             ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
@@ -7029,7 +7886,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 785,
+          gid = 470,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -7049,7 +7906,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 797,
+          gid = 482,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -7069,7 +7926,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 809,
+          gid = 494,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -7089,7 +7946,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 821,
+          gid = 506,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -7109,7 +7966,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 833,
+          gid = 518,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -7129,7 +7986,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 845,
+          gid = 530,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -7149,7 +8006,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 857,
+          gid = 542,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -7169,7 +8026,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 869,
+          gid = 554,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -7189,7 +8046,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 881,
+          gid = 566,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -7209,7 +8066,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 893,
+          gid = 578,
           visible = true,
           properties = {
             ["pathid"] = 74,
@@ -7229,7 +8086,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 905,
+          gid = 590,
           visible = true,
           properties = {
             ["pathid"] = 74,

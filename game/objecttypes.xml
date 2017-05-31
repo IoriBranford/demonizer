@@ -90,6 +90,7 @@
   <property name="script" type="string" default="Human"/>
  </objecttype>
  <objecttype name="Catapult" color="#ff0000">
+  <property name="firearc" type="float" default="45"/>
   <property name="firebullet" type="string" default="BulletCatapult"/>
   <property name="firefan" type="int" default="3"/>
   <property name="firefanslice" type="float" default="15"/>
@@ -108,5 +109,49 @@
   <property name="speed" type="float" default="120"/>
   <property name="tileid" type="string" default="catapult"/>
   <property name="tileset" type="string" default="humanshots"/>
+ </objecttype>
+ <objecttype name="BulletSword" color="#00aaff">
+  <property name="category" type="string" default="NPCShot"/>
+  <property name="lifetime" type="float" default="0.25"/>
+  <property name="sound" type="file" default="snd/sword.wav"/>
+  <property name="speed" type="float" default="240"/>
+  <property name="tileid" type="string" default="sword"/>
+  <property name="tileset" type="string" default="humanshots"/>
+ </objecttype>
+ <objecttype name="Swordsman" color="#ff0000">
+  <property name="convertible" type="bool" default="false"/>
+  <property name="firearc" type="float" default="30"/>
+  <property name="firebullet" type="string" default="BulletSword"/>
+  <property name="firetargetid" type="string" default="player"/>
+  <property name="firetime" type="float" default="0.5"/>
+  <property name="health" type="int" default="24"/>
+  <property name="kolaunch" type="bool" default="false"/>
+  <property name="pathfinder" type="string" default="linear1way"/>
+  <property name="pathid" type="string" default="player"/>
+  <property name="pathmode" type="string" default="absolute"/>
+  <property name="pathspeed" type="string" default="150"/>
+  <property name="ridedestroyedko" type="bool" default="true"/>
+  <property name="rideid" type="int" default="0"/>
+  <property name="score" type="int" default="500"/>
+  <property name="script" type="string" default="Human"/>
+ </objecttype>
+ <objecttype name="Princess" color="#ff0000">
+  <property name="convertible" type="bool" default="false"/>
+  <property name="firearc" type="float" default="270"/>
+  <property name="firebullet" type="string" default="BulletArrow"/>
+  <property name="firefan" type="int" default="3"/>
+  <property name="firefanslice" type="float" default="10"/>
+  <property name="firetargetid" type="string" default="player"/>
+  <property name="firetime" type="float" default="0.5"/>
+  <property name="health" type="int" default="320"/>
+  <property name="kolaunch" type="bool" default="false"/>
+  <property name="pathfinder" type="string" default="random1way"/>
+  <property name="pathid" type="string" default="player"/>
+  <property name="pathmode" type="string" default="absolute"/>
+  <property name="pathspeed" type="string" default="150"/>
+  <property name="ridedestroyedko" type="bool" default="false"/>
+  <property name="rideid" type="int" default="0"/>
+  <property name="score" type="int" default="15000"/>
+  <property name="script" type="string" default="Human"/>
  </objecttype>
 </objecttypes>
