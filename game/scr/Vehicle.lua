@@ -134,13 +134,10 @@ end
 
 function Vehicle:endContact_PlayerBomb(myfixture, otherfixture, contact)
 	local userdata = otherfixture:getBody():getUserData()
-	-- TODO fix no userdata for player death explosion
-	if userdata then
-		local bulletproperties = userdata.properties
-		local damage = bulletproperties.damage or 1
-		if self.health then
-			self.health:addDPS(-damage)
-		end
+	local bulletproperties = userdata.properties
+	local damage = bulletproperties.damage or 1
+	if self.health then
+		self.health:addDPS(-damage)
 	end
 end
 
