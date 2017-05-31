@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "0.18.2",
+  tiledversion = "1.0.0",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 30,
@@ -30,6 +30,11 @@ return {
         x = 0,
         y = 0
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
       properties = {},
       terrains = {},
       tilecount = 4,
@@ -49,6 +54,11 @@ return {
       tileoffset = {
         x = 0,
         y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 32
       },
       properties = {
         ["commoncollision"] = 0,
@@ -143,6 +153,11 @@ return {
         x = -32,
         y = 32
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
+      },
       properties = {},
       terrains = {},
       tilecount = 2,
@@ -162,6 +177,11 @@ return {
       tileoffset = {
         x = -32,
         y = 32
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
       },
       properties = {},
       terrains = {},
@@ -332,6 +352,11 @@ return {
         x = -64,
         y = 128
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 128,
+        height = 128
+      },
       properties = {},
       terrains = {},
       tilecount = 8,
@@ -417,6 +442,11 @@ return {
         x = -16,
         y = 8
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 16
+      },
       properties = {
         ["commoncollision"] = 0
       },
@@ -491,6 +521,11 @@ return {
         x = -32,
         y = 32
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
+      },
       properties = {
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
@@ -513,6 +548,9 @@ return {
       tiles = {
         {
           id = 0,
+          properties = {
+            ["name"] = "townfolk-adult-f-001"
+          },
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -554,6 +592,78 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "townfolk-adult-f-002"
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "townfolk-adult-f-003"
+          }
+        },
+        {
+          id = 9,
+          properties = {
+            ["name"] = "townfolk-adult-f-004"
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "townfolk-adult-f-005"
+          }
+        },
+        {
+          id = 15,
+          properties = {
+            ["name"] = "townfolk-adult-f-006"
+          }
+        },
+        {
+          id = 18,
+          properties = {
+            ["name"] = "noble-f-01"
+          }
+        },
+        {
+          id = 21,
+          properties = {
+            ["name"] = "noble-f-03"
+          }
+        },
+        {
+          id = 24,
+          properties = {
+            ["name"] = "pikeman-f"
+          }
+        },
+        {
+          id = 27,
+          properties = {
+            ["name"] = "swordsman-f"
+          }
+        },
+        {
+          id = 30,
+          properties = {
+            ["name"] = "priest-f"
+          }
+        },
+        {
+          id = 33,
+          properties = {
+            ["name"] = "mage-f"
+          }
+        },
+        {
+          id = 36,
+          properties = {
+            ["name"] = "archer-f"
+          }
         }
       }
     },
@@ -571,6 +681,11 @@ return {
       tileoffset = {
         x = -32,
         y = 32
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
       },
       properties = {},
       terrains = {},
@@ -661,6 +776,11 @@ return {
       tileoffset = {
         x = -24,
         y = 8
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 16
       },
       properties = {
         ["commoncollision"] = 0
@@ -816,6 +936,11 @@ return {
         x = -16,
         y = 16
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
       properties = {},
       terrains = {},
       tilecount = 12,
@@ -887,40 +1012,36 @@ return {
       }
     },
     {
-      name = "infmen",
+      name = "pikeman-m",
       firstgid = 124,
-      filename = "img/infmen.tsx",
+      filename = "img/human/enemy/pikeman-m.tsx",
       tilewidth = 24,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "img/infmen.png",
-      imagewidth = 432,
+      image = "img/human/enemy/pikeman-m.png",
+      imagewidth = 72,
       imageheight = 160,
       tileoffset = {
         x = -12,
         y = 16
       },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
+      },
       properties = {
-        ["column_archer"] = 12,
-        ["column_hero"] = 15,
-        ["column_mage"] = 9,
-        ["column_pikeman"] = 0,
-        ["column_priest"] = 6,
-        ["column_swordsman"] = 3,
-        ["commonanimation"] = 0,
-        ["commoncollision"] = 0,
-        ["row_down"] = 2,
-        ["row_ko"] = 4,
-        ["row_left"] = 3,
-        ["row_right"] = 1,
-        ["row_up"] = 0
+        ["commoncollision"] = 0
       },
       terrains = {},
-      tilecount = 90,
+      tilecount = 15,
       tiles = {
         {
           id = 0,
+          properties = {
+            ["name"] = "up"
+          },
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -963,6 +1084,102 @@ return {
             },
             {
               tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["name"] = "right"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            },
+            {
+              tileid = 5,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["name"] = "down"
+          },
+          animation = {
+            {
+              tileid = 6,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            },
+            {
+              tileid = 8,
+              duration = 125
+            },
+            {
+              tileid = 7,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 9,
+          properties = {
+            ["name"] = "left"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            },
+            {
+              tileid = 11,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "ko"
+          },
+          animation = {
+            {
+              tileid = 12,
+              duration = 125
+            },
+            {
+              tileid = 13,
+              duration = 125
+            },
+            {
+              tileid = 14,
+              duration = 125
+            },
+            {
+              tileid = 13,
               duration = 125
             }
           }
@@ -1027,7 +1244,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 160,
+          gid = 130,
           visible = true,
           properties = {
             ["pathgraphid"] = "pathgraph",

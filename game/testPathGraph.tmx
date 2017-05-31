@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="30" height="40" tilewidth="8" tileheight="8" nextobjectid="54">
+<map version="1.0.0" orientation="orthogonal" renderorder="right-up" width="30" height="40" tilewidth="8" tileheight="8" nextobjectid="54">
  <properties>
   <property name="cameraid" type="int" value="39"/>
   <property name="playerid" type="int" value="40"/>
@@ -15,13 +15,13 @@
  <tileset firstgid="77" source="img/demonizing.tsx"/>
  <tileset firstgid="80" source="img/humanshots.tsx"/>
  <tileset firstgid="112" source="img/sparks_med.tsx"/>
- <tileset firstgid="128" source="img/infmen.tsx"/>
+ <tileset firstgid="124" source="img/human/enemy/pikeman-m.tsx"/>
  <objectgroup name="camera" visible="0">
   <object id="39" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>
  <objectgroup name="sparks"/>
  <objectgroup name="enemy">
-  <object id="49" gid="164" x="120" y="16" width="24" height="32">
+  <object id="49" gid="130" x="120" y="16" width="24" height="32">
    <properties>
     <property name="pathgraphid" value="pathgraph"/>
     <property name="script" value="PathGraphTester"/>
