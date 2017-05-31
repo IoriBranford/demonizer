@@ -39,14 +39,13 @@ getMSYS2dll () {
 	tar -Jxf ${PKG_TAR_XZ} mingw${ARCH_BITS}/bin
 }
 
-getMSYS2dll gcc-libs-6.3.0-2
+getMSYS2dll gcc-libs-6.3.0-3
 mv mingw${ARCH_BITS}/bin/libgcc_s_${EH_SYSTEM}-1.dll ${PROJECT_DIR}
 mv mingw${ARCH_BITS}/bin/libstdc++-6.dll ${PROJECT_DIR}
-
-getMSYS2dll libwinpthread-git-5.0.0.4816.8692be6a-1
+getMSYS2dll libwinpthread-git-5.0.0.4833.f057c525-1
 mv mingw${ARCH_BITS}/bin/libwinpthread-1.dll ${PROJECT_DIR}
 
-getMSYS2dll libgme-0.6.0-1
+getMSYS2dll libgme-0.6.1-1
 mv mingw${ARCH_BITS}/bin/libgme.dll ${PROJECT_DIR}
 
 cp README.md ${PROJECT_DIR}
