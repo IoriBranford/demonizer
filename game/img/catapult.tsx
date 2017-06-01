@@ -12,6 +12,15 @@
   <property name="column_angle90" type="int" value="2"/>
   <property name="commonanimation" type="int" value="0"/>
   <property name="commoncollision" type="int" value="0"/>
+  <property name="diraxis" value="horizontal"/>
+  <property name="dirline0" type="int" value="0"/>
+  <property name="dirline1" type="int" value="1"/>
+  <property name="dirline2" type="int" value="2"/>
+  <property name="dirline3" type="int" value="3"/>
+  <property name="dirline4" type="int" value="4"/>
+  <property name="dirline5" type="int" value="5"/>
+  <property name="dirline6" type="int" value="6"/>
+  <property name="dirline7" type="int" value="7"/>
   <property name="row_empty" type="int" value="2"/>
   <property name="row_windup" type="int" value="0"/>
  </properties>
