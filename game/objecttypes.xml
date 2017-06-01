@@ -95,7 +95,7 @@
   <property name="firefan" type="int" default="3"/>
   <property name="firefanslice" type="float" default="15"/>
   <property name="firetime" type="string" default="animation"/>
-  <property name="health" type="int" default="64"/>
+  <property name="health" type="int" default="32"/>
   <property name="pathfinder" type="string" default="linear1way"/>
   <property name="pathid" type="int" default="0"/>
   <property name="pathmode" type="string" default="absolute"/>
