@@ -21,8 +21,8 @@ function Mover:start()
 	local pathobj = levity.map.objects[pathid]
 
 	if self.properties.pathmode == "relative" then
-		local nearestx, nearesty = levity.scripts:call(
-			self.properties.pathid, "findNearestPoint", x, y)
+		local nearestx, nearesty = levity.scripts:call(pathid,
+			"findNearestPoint", x, y)
 		nearestx = nearestx or pathobj.x
 		nearesty = nearesty or pathobj.y
 		self.offx = x - nearestx
@@ -35,8 +35,7 @@ function Mover:start()
 	x = x - self.offx
 	y = y - self.offy
 
-	local paths = levity.scripts:call(self.properties.pathid,
-						"getPaths", x, y)
+	local paths = levity.scripts:call(pathid, "getPaths", x, y)
 
 	local pathfinder = self.properties.pathfinder or "linear1way"
 	pathfinder = pathfinder and Mover["pathfind_"..pathfinder]
@@ -57,12 +56,12 @@ function Mover:start()
 			self.desty = path.desty
 		end
 	else
-		self.destx, self.desty = levity.scripts:call(
-				self.properties.pathid, "findNearestPoint", x, y)
+		self.destx, self.desty = levity.scripts:call(pathid,
+			"findNearestPoint", x, y)
 	end
 
-	self.destx = self.destx or pathobj.x
-	self.desty = self.desty or pathobj.y
+	self.destx = self.destx or pathobj.body:getX()
+	self.desty = self.desty or pathobj.body:getY()
 
 	self.prevx = x
 	self.prevy = y
@@ -90,6 +89,14 @@ function Mover:beginMove(dt)
 		return
 	end
 
+	local pathid = self.properties.pathid
+	if not levity.scripts:call(pathid, "is_a", PathGraph) then
+		local pathobj = levity.map.objects[pathid]
+		if pathobj then
+			self.destx, self.desty = pathobj.body:getPosition()
+		end
+	end
+
 	local speed = self.properties.pathspeed or 60
 	local x, y = self.body:getPosition()
 
@@ -110,6 +117,7 @@ function Mover:beginMove(dt)
 			vx, vy = distx / dt, disty / dt
 		end
 	else
+
 		local dist = math.hypot(distx, disty)
 		exdist = speed*dt - dist
 		if exdist < 0 then
@@ -120,8 +128,8 @@ function Mover:beginMove(dt)
 	end
 
 	while exdist >= 0 do
-		local paths = levity.scripts:call(self.properties.pathid,
-					"getPaths", self.destx, self.desty)
+		local paths = levity.scripts:call(pathid, "getPaths",
+						self.destx, self.desty)
 		local nextpath
 		if paths then
 			nextpath = levity.scripts:call(self.id,
