@@ -106,6 +106,7 @@ Human.NonCombatantMask = {
 
 local Sounds = {
 	KO = "snd/knockout.wav",
+	Explode = "snd/boom1.wav",
 	FemaleCapture = "snd/item1.wav",
 	MaleCapture = "snd/item2.wav",
 	Convert = "snd/warp.wav",
@@ -263,6 +264,7 @@ function Human:defeat()
 	ShmupBullet.create(params, x, y, 0, "sparks")
 
 	levity.bank:play(Sounds.KO)
+	levity.bank:play(Sounds.Explode)
 	levity.scripts:broadcast("npcKnockedOut", self.object.id)
 	levity.scripts:broadcast("pointsScored", self.properties.score or 100)
 
