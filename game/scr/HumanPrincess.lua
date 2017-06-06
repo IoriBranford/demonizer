@@ -29,16 +29,14 @@ function Princess:defeatCoroutine(dt)
 	until t >= 3
 	self.body:setLinearVelocity(0, 0)
 
-	local gid = levity.map:getTileGid(self.object.tile.tileset, "down")
-	self.object:setGid(gid, levity.map, false)
+	self.facing:faceAngle(math.pi*0.5)
 	t = 0
 	repeat
 		t = t + dt
 		self, dt = coroutine.yield()
 	until t >= 1
 
-	gid = levity.map:getTileGid(self.object.tile.tileset, "up")
-	self.object:setGid(gid, levity.map)
+	self.facing:faceAngle(math.pi*1.5)
 
 	local vx = (levity.map.tilewidth*levity.map.width/2 - self.body:getX())
 	local vy = -self.body:getY()

@@ -141,7 +141,7 @@
     <property name="pathid" type="int" value="213"/>
    </properties>
   </object>
-  <object id="209" name="operator" type="CatapultOperator" gid="623" x="340" y="156" width="24" height="32">
+  <object id="209" name="operator" type="CatapultOperator" gid="620" x="340" y="156" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="208"/>
    </properties>
@@ -152,7 +152,7 @@
     <property name="pathid" type="int" value="212"/>
    </properties>
   </object>
-  <object id="211" name="operator" type="CatapultOperator" gid="623" x="-52" y="156" width="24" height="32">
+  <object id="211" name="operator" type="CatapultOperator" gid="620" x="-52" y="156" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="210"/>
    </properties>
@@ -246,7 +246,7 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="84" name="operator" type="CatapultOperator" gid="623" x="48" y="400" width="24" height="32">
+  <object id="84" name="operator" type="CatapultOperator" gid="620" x="48" y="400" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="80"/>
    </properties>
@@ -256,7 +256,7 @@
     <property name="offscreenshot" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="85" name="operator" type="CatapultOperator" gid="623" x="240" y="400" width="24" height="32">
+  <object id="85" name="operator" type="CatapultOperator" gid="620" x="240" y="400" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="81"/>
    </properties>
@@ -327,7 +327,7 @@
   </object>
   <object id="141" name="swordsman" type="Swordsman" gid="698" x="-16" y="576" width="24" height="32"/>
   <object id="142" name="swordsman" type="Swordsman" gid="698" x="304" y="576" width="24" height="32"/>
-  <object id="131" name="operator" type="CatapultOperator" gid="623" x="224" y="496" width="24" height="32">
+  <object id="131" name="operator" type="CatapultOperator" gid="620" x="224" y="496" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="134"/>
    </properties>
@@ -338,7 +338,7 @@
     <property name="pathid" type="int" value="133"/>
    </properties>
   </object>
-  <object id="132" name="operator" type="CatapultOperator" gid="623" x="64" y="496" width="24" height="32">
+  <object id="132" name="operator" type="CatapultOperator" gid="620" x="64" y="496" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="136"/>
    </properties>
@@ -419,7 +419,7 @@
     <property name="pathid" type="int" value="188"/>
    </properties>
   </object>
-  <object id="130" name="operator" type="CatapultOperator" gid="623" x="144" y="568" width="24" height="32">
+  <object id="130" name="operator" type="CatapultOperator" gid="620" x="144" y="568" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="128"/>
    </properties>
@@ -507,12 +507,12 @@
     <property name="pathspeed" type="float" value="120"/>
    </properties>
   </object>
-  <object id="89" name="operator" type="CatapultOperator" gid="623" x="80" y="864" width="24" height="32">
+  <object id="89" name="operator" type="CatapultOperator" gid="620" x="80" y="864" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="77"/>
    </properties>
   </object>
-  <object id="90" name="operator" type="CatapultOperator" gid="623" x="208" y="864" width="24" height="32">
+  <object id="90" name="operator" type="CatapultOperator" gid="620" x="208" y="864" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="78"/>
    </properties>
@@ -549,7 +549,7 @@
    </properties>
    <polyline points="-16,0 -16,48"/>
   </object>
-  <object id="88" name="operator" type="CatapultOperator" gid="623" x="144" y="896" width="24" height="32">
+  <object id="88" name="operator" type="CatapultOperator" gid="620" x="144" y="896" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="75"/>
    </properties>

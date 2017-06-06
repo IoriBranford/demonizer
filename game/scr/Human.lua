@@ -43,7 +43,7 @@ function Human:_init(object)
 	end
 
 	self.body:setFixedRotation(true)
-	self.faceangle = math.pi/2
+	self.facing = levity.scripts:newScript(self.id, "Facing", self.object)
 
 	local rideid = self.properties.rideid
 	if rideid == 0 then
@@ -135,28 +135,6 @@ function Human:canBeLockTarget()
 	return self.object.visible and self.health
 end
 
-function Human:getFaceAngle()
-	return self.faceangle
-end
-
-local Directions = {
-	[0] = "right", [1] = "down", [2] = "left", [3] = "up"
-}
-
-function Human:faceAngle(angle)
-	local i = math.floor(2*angle/math.pi + .5) % 4
-
-	local dir = Directions[i]
-	if dir then
-		local gid = levity.map:getTileGid(self.object.tile.tileset, dir)
-		if gid ~= self.object.gid then
-			self.object:setGid(gid, levity.map)
-		end
-	end
-
-	self.faceangle = i*math.pi/2
-end
-
 function Human:beginMove(dt)
 	if self:canBeCaptured() then
 		self:beginMove_unconscious(dt)
@@ -170,7 +148,7 @@ function Human:beginMove(dt)
 		local playercx, playercy = player.body:getWorldCenter()
 		local cx, cy = self.body:getWorldCenter()
 		local playerdx, playerdy = playercx - cx, playercy - cy
-		self:faceAngle(math.atan2(playerdy, playerdx))
+		self.facing:faceAngle(math.atan2(playerdy, playerdx))
 	end
 end
 
@@ -209,7 +187,8 @@ function Human:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 		if self.properties.convertible then
 			local cx, cy = self.body:getWorldCenter()
 			local gid = levity.map:getTileGid(
-						self.object.tile.tileset, "up")
+						self.object.tile.tileset,
+						"convert")
 			local newwingmanid = ShmupWingman.create(levity.map, gid,
 						cx, cy, captorid, self.id)
 
