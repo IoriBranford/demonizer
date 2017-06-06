@@ -24,7 +24,10 @@ function Vehicle:_init(object)
 	end
 
 	self.body:setFixedRotation(true)
-	self.faceangle = math.pi/2
+	local faceangle = self.object.tile.properties.faceangle
+	if faceangle then
+		self:faceAngle(math.rad(faceangle))
+	end
 
 	local pathid = self.properties.pathid
 	local pathfinder = self.properties.pathfinder
@@ -75,23 +78,28 @@ function Vehicle:getFaceAngle()
 	return self.faceangle
 end
 
-local Directions = {
-	[0] = "right", [1] = "down", [2] = "left", [3] = "up"
+local faceAngle_tile = {
+	direction = nil
 }
 
 function Vehicle:faceAngle(angle)
---	local i = math.floor(2*angle/math.pi + .5) % 4
---
---	local dir = Directions[i]
---	if dir then
---		local gid = levity.map:getTileGid(self.object.tile.tileset, dir,
---							self.object.type:lower())
---		if gid ~= self.object.gid then
---			self.object:setGid(gid, levity.map)
---		end
---	end
+	local tsproperties = levity.map.tilesets[self.object.tile.tileset].properties
+	local numdirections = tsproperties.numdirections
+	if not numdirections then
+		self.faceangle = angle
+		return
+	end
 
-	self.faceangle = angle--i*math.pi/2
+	local directionarc = 2*math.pi/numdirections
+	local i = math.floor(angle/directionarc + .5) % numdirections
+	faceAngle_tile.direction = i
+
+	local gid = levity.map:getTileGid(self.object.tile.tileset, faceAngle_tile)
+	if gid ~= self.object.gid then
+		self.object:setGid(gid, levity.map)
+	end
+
+	self.faceangle = i*directionarc
 end
 
 function Vehicle:beginContact_PlayerShot(myfixture, otherfixture, contact)

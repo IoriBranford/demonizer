@@ -1467,16 +1467,11 @@ return {
         height = 72
       },
       properties = {
-        ["column_angle0"] = 0,
-        ["column_angle135"] = 3,
-        ["column_angle180"] = 4,
-        ["column_angle225"] = 5,
-        ["column_angle270"] = 6,
-        ["column_angle315"] = 7,
-        ["column_angle45"] = 1,
-        ["column_angle90"] = 2,
+        ["colstype"] = "direction",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
+        ["direction_east"] = 0,
+        ["numdirections"] = 8,
         ["row_empty"] = 2,
         ["row_windup"] = 0
       },
@@ -1485,6 +1480,9 @@ return {
       tiles = {
         {
           id = 0,
+          properties = {
+            ["faceangle"] = 0
+          },
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -1529,6 +1527,48 @@ return {
               tileid = 0,
               duration = 33
             }
+          }
+        },
+        {
+          id = 1,
+          properties = {
+            ["faceangle"] = 45
+          }
+        },
+        {
+          id = 2,
+          properties = {
+            ["faceangle"] = 90
+          }
+        },
+        {
+          id = 3,
+          properties = {
+            ["faceangle"] = 135
+          }
+        },
+        {
+          id = 4,
+          properties = {
+            ["faceangle"] = 180
+          }
+        },
+        {
+          id = 5,
+          properties = {
+            ["faceangle"] = 225
+          }
+        },
+        {
+          id = 6,
+          properties = {
+            ["faceangle"] = 270
+          }
+        },
+        {
+          id = 7,
+          properties = {
+            ["faceangle"] = 315
           }
         }
       }

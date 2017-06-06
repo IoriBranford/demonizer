@@ -2,30 +2,19 @@
 <tileset name="catapult" tilewidth="72" tileheight="72" tilecount="24" columns="8">
  <tileoffset x="-36" y="36"/>
  <properties>
-  <property name="column_angle0" type="int" value="0"/>
-  <property name="column_angle135" type="int" value="3"/>
-  <property name="column_angle180" type="int" value="4"/>
-  <property name="column_angle225" type="int" value="5"/>
-  <property name="column_angle270" type="int" value="6"/>
-  <property name="column_angle315" type="int" value="7"/>
-  <property name="column_angle45" type="int" value="1"/>
-  <property name="column_angle90" type="int" value="2"/>
+  <property name="colstype" value="direction"/>
   <property name="commonanimation" type="int" value="0"/>
   <property name="commoncollision" type="int" value="0"/>
-  <property name="diraxis" value="horizontal"/>
-  <property name="dirline0" type="int" value="0"/>
-  <property name="dirline1" type="int" value="1"/>
-  <property name="dirline2" type="int" value="2"/>
-  <property name="dirline3" type="int" value="3"/>
-  <property name="dirline4" type="int" value="4"/>
-  <property name="dirline5" type="int" value="5"/>
-  <property name="dirline6" type="int" value="6"/>
-  <property name="dirline7" type="int" value="7"/>
+  <property name="direction_east" type="int" value="0"/>
+  <property name="numdirections" type="int" value="8"/>
   <property name="row_empty" type="int" value="2"/>
   <property name="row_windup" type="int" value="0"/>
  </properties>
  <image source="catapult.png" width="576" height="216"/>
  <tile id="0">
+  <properties>
+   <property name="faceangle" type="float" value="0"/>
+  </properties>
   <objectgroup draworder="index">
    <object id="1" x="-18" y="54" width="36" height="36">
     <properties>
@@ -40,5 +29,40 @@
    <frame tileid="8" duration="250"/>
    <frame tileid="0" duration="33"/>
   </animation>
+ </tile>
+ <tile id="1">
+  <properties>
+   <property name="faceangle" type="float" value="45"/>
+  </properties>
+ </tile>
+ <tile id="2">
+  <properties>
+   <property name="faceangle" type="float" value="90"/>
+  </properties>
+ </tile>
+ <tile id="3">
+  <properties>
+   <property name="faceangle" type="float" value="135"/>
+  </properties>
+ </tile>
+ <tile id="4">
+  <properties>
+   <property name="faceangle" type="float" value="180"/>
+  </properties>
+ </tile>
+ <tile id="5">
+  <properties>
+   <property name="faceangle" type="float" value="225"/>
+  </properties>
+ </tile>
+ <tile id="6">
+  <properties>
+   <property name="faceangle" type="float" value="270"/>
+  </properties>
+ </tile>
+ <tile id="7">
+  <properties>
+   <property name="faceangle" type="float" value="315"/>
+  </properties>
  </tile>
 </tileset>
