@@ -105,6 +105,15 @@ function ShmupMap:_init(map)
 			end
 		end
 	end
+
+	for t, properties in pairs(self.map.objecttypes) do
+		local category = properties.category
+		if category and type(category) == "string" then
+			properties.category =
+				ShmupCollision["Category_"..category]
+				or category
+		end
+	end
 end
 
 ShmupMap.VictoryTime = 10

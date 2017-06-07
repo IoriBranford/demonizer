@@ -1,7 +1,27 @@
 local levity = require "levity"
+local pl = require'pl.import_into'()
 local Human = require "Human"
 
 local Princess = class(Human)
+
+Princess.NormalAttack = {
+	firebullet = "BulletArrow",
+	firefan = 3,
+	firefanslice = 15,
+	firetime = 0.5
+}
+
+Princess.ChargeAttack = {
+	firebullet = "BulletFireArrow",
+	firefan = 5,
+	firefanslice = 15,
+	firetime = 0.125
+}
+
+Princess.NormalAttackTime = Princess.NormalAttack.firetime * 10.5
+Princess.ChargeAttackWaitTime = 1.5
+Princess.ChargeAttackTime = Princess.ChargeAttack.firetime * 2.5
+
 function Princess:_init(object)
 	self:super(object)
 
@@ -11,10 +31,49 @@ function Princess:_init(object)
 	self.properties = object.properties
 
 	self.coroutine = levity.scripts:newScript(self.id, "Coroutine", object)
+	self.coroutine:startCoroutine(self.fightCoroutine, self)
 end
+
+local Sounds = {
+	Charge = "snd/charge.wav",
+	ChargeShot = "snd/powershot.wav"
+}
+levity.bank:load(Sounds)
 
 function Princess:canBeCaptured()
 	return false
+end
+
+function Princess:isInCover()
+	return self.cover and self.cover:hasCover()
+end
+
+function Princess:isOutOfCover()
+	return not self:isInCover()
+end
+
+function Princess:fightCoroutine(dt)
+	pl.tablex.update(self.properties, Princess.NormalAttack)
+	self.coroutine:waitTime(Princess.NormalAttackTime)
+
+	self.properties.firebullet = ""
+	self.coroutine:waitCond(Princess.isInCover)
+
+	self.properties.pathspeed = 0
+	levity.bank:play(Sounds.Charge)
+	self.coroutine:waitTime(Princess.ChargeAttackWaitTime)
+
+	self.properties.pathspeed = nil
+	self.properties.pathspeed = self.properties.pathspeed/2
+	self.properties.firearc = 360
+	self.coroutine:waitCond(Princess.isOutOfCover)
+
+	pl.tablex.update(self.properties, Princess.ChargeAttack)
+	self.coroutine:waitTime(Princess.ChargeAttackTime)
+
+	self.properties.pathspeed = nil
+	self.properties.firearc = nil
+	self.coroutine:startCoroutine(self.fightCoroutine, self)
 end
 
 function Princess:defeatCoroutine(dt)

@@ -33,9 +33,6 @@ function Shooter:_init(object)
 
 	self.timer = self.properties.firetime or 2
 
-	local arc = self.properties.firearc or 90
-	self.mindot = math.cos(math.rad(arc) * .5)
-
 	local bullet = levity.map.objecttypes[self.properties.firebullet]
 	if bullet then
 		if type(bullet.category) ~= "number" then
@@ -72,7 +69,10 @@ function Shooter:fire()
 		local dx, dy = tx - cx, ty - cy
 		fireangle = math.atan2(dy, dx)
 
-		facingtarget = self.mindot * math.hypot(dx, dy)
+		local arc = self.properties.firearc or 90
+		local mindot = math.cos(math.rad(arc) * .5)
+
+		facingtarget = mindot * math.hypot(dx, dy)
 			<= math.dot(dx, dy, math.cos(faceangle), math.sin(faceangle))
 	else
 		fireangle = faceangle

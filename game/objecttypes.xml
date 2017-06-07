@@ -135,6 +135,15 @@
   <property name="score" type="int" default="500"/>
   <property name="script" type="string" default="Human"/>
  </objecttype>
+ <objecttype name="BulletFireArrow" color="#00aaff">
+  <property name="category" type="string" default="NPCShot"/>
+  <property name="sound" type="file" default="snd/powershot.wav"/>
+  <property name="speed" type="float" default="180"/>
+  <property name="accelx" type="float" default="0"/>
+  <property name="accely" type="float" default="640"/>
+  <property name="tileid" type="string" default="firearrow"/>
+  <property name="tileset" type="string" default="humanshots"/>
+ </objecttype>
  <objecttype name="Princess" color="#ff0000">
   <property name="convertible" type="bool" default="false"/>
   <property name="firearc" type="float" default="270"/>
