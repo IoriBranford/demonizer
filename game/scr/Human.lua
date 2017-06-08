@@ -160,7 +160,7 @@ function Human:endMove(dt)
 		if y > cambottom or x < mapleft or x > mapright then
 			self:die()
 		end
-	else
+	elseif self.health then
 		local playerid = levity.map.properties.playerid
 		local player = levity.map.objects[playerid]
 		local playercx, playercy = player.body:getWorldCenter()

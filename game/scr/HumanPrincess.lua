@@ -8,14 +8,20 @@ Princess.NormalAttack = {
 	firebullet = "BulletArrow",
 	firefan = 3,
 	firefanslice = 15,
-	firetime = 0.5
+	firetime = 0.5,
+	firearc = 45,
+	strafearc = 135,
+	pathspeed = 150
 }
 
 Princess.ChargeAttack = {
 	firebullet = "BulletFireArrow",
 	firefan = 5,
 	firefanslice = 15,
-	firetime = 0.125
+	firetime = 0.125,
+	firearc = 180,
+	strafearc = 180,
+	pathspeed = 75
 }
 
 Princess.NormalAttackTime = Princess.NormalAttack.firetime * 10.5
@@ -63,55 +69,44 @@ function Princess:fightCoroutine(dt)
 	levity.bank:play(Sounds.Charge)
 	self.coroutine:waitTime(Princess.ChargeAttackWaitTime)
 
-	self.properties.pathspeed = nil
-	self.properties.pathspeed = self.properties.pathspeed/2
-	self.properties.firearc = 360
-	self.coroutine:waitCond(Princess.isOutOfCover)
-
 	pl.tablex.update(self.properties, Princess.ChargeAttack)
+	self.coroutine:waitCond(Princess.isOutOfCover)
 	self.coroutine:waitTime(Princess.ChargeAttackTime)
 
-	self.properties.pathspeed = nil
-	self.properties.firearc = nil
 	self.coroutine:startCoroutine(self.fightCoroutine, self)
 end
 
+function Princess:defeat()
+	Human.defeat(self)
+	self.coroutine:startCoroutine(self.defeatCoroutine, self)
+end
+
+function Princess:hasFled()
+	return self.body:getY() < 0
+end
+
 function Princess:defeatCoroutine(dt)
-	self.object:setGid(self.object.gid, levity.map, false)
-	local t = 0
-	repeat
-		t = t + dt
-		self.body:setLinearVelocity(
-			-60*math.sin(math.max(0, t-2) * 30 * math.pi),
-			0)
-		self, dt = coroutine.yield()
-	until t >= 3
-	self.body:setLinearVelocity(0, 0)
+	pl.tablex.update(self.properties, Princess.NormalAttack)
+	self.object:setGid(self:getKOGid(), levity.map, false)
+	self.coroutine:waitTime(2)
+
+	self.object:setGid(self.object.gid, levity.map, true)
+	self.coroutine:waitTime(1)
 
 	self.facing:faceAngle(math.pi*0.5)
-	t = 0
-	repeat
-		t = t + dt
-		self, dt = coroutine.yield()
-	until t >= 1
+	self.coroutine:waitTime(1)
 
 	self.facing:faceAngle(math.pi*1.5)
-
 	local vx = (levity.map.tilewidth*levity.map.width/2 - self.body:getX())
 	local vy = -self.body:getY()
 	local dist = math.hypot(vx, vy)
 	vx = vx * 1.5 * self.properties.pathspeed / dist
 	vy = vy * 1.5 * self.properties.pathspeed / dist
 	self.body:setLinearVelocity(vx, vy)
-	repeat self, dt = coroutine.yield() until self.body:getY() <= 0
+	self.coroutine:waitCond(Princess.hasFled)
 
 	levity.scripts:broadcast("playerWon")
 	levity:discardObject(self.object.id)
-end
-
-function Princess:defeat()
-	Human.defeat(self)
-	self.coroutine:startCoroutine(self.defeatCoroutine, self)
 end
 
 return Princess

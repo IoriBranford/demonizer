@@ -132,7 +132,7 @@
   <property name="pathfinder" type="string" default="linear1way"/>
   <property name="pathid" type="string" default="player"/>
   <property name="pathmode" type="string" default="absolute"/>
-  <property name="pathspeed" type="string" default="120"/>
+  <property name="pathspeed" type="string" default="90"/>
   <property name="ridedestroyedko" type="bool" default="true"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="500"/>
@@ -140,7 +140,7 @@
  </objecttype>
  <objecttype name="BulletFireArrow" color="#00aaff">
   <property name="accelx" type="float" default="0"/>
-  <property name="accely" type="float" default="640"/>
+  <property name="accely" type="float" default="360"/>
   <property name="category" type="string" default="NPCShot"/>
   <property name="sound" type="file" default="snd/powershot.wav"/>
   <property name="speed" type="float" default="180"/>
@@ -161,7 +161,7 @@
   <property name="pathid" type="string" default="player"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="150"/>
-  <property name="strafearc" type="float" default="185"/>
+  <property name="strafearc" type="float" default="135"/>
   <property name="ridedestroyedko" type="bool" default="false"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="15000"/>
