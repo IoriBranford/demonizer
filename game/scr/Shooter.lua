@@ -69,8 +69,8 @@ function Shooter:fire()
 		local dx, dy = tx - cx, ty - cy
 		fireangle = math.atan2(dy, dx)
 
-		local arc = self.properties.firearc or 90
-		local mindot = math.cos(math.rad(arc) * .5)
+		local arc = math.rad(self.properties.firearc or 90)
+		local mindot = math.cos(arc)
 
 		facingtarget = mindot * math.hypot(dx, dy)
 			<= math.dot(dx, dy, math.cos(faceangle), math.sin(faceangle))

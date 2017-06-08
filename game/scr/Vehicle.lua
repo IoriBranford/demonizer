@@ -75,6 +75,13 @@ function Vehicle:canBeLockTarget()
 	return self.object.visible and self.health
 end
 
+function Vehicle:endMove(dt)
+	local vx, vy = self.body:getLinearVelocity()
+	if vx ~= 0 or vy ~= 0 then
+		self.facing:faceAngle(math.atan2(vy, vx))
+	end
+end
+
 function Vehicle:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	if self.health then
 		local bulletproperties = otherfixture:getBody():getUserData().properties

@@ -2,6 +2,7 @@
 --@module Human
 
 --- Human properties
+--@field strafearc Can face target if angle to target is this close to movement angle
 --@field rideid Vehicle to ride on
 --@field rideshield Does vehicle block player team's weapons and capture?
 --@field ridedestroyedko Knock out if vehicle destroyed?
@@ -141,15 +142,43 @@ function Human:beginMove(dt)
 		self:beginMove_unconscious(dt)
 		return
 	end
+end
 
-	local vx, vy = self.body:getLinearVelocity()
-	if self.shooter and (not self.mover or (vx == 0 and vy == 0)) then
+function Human:endMove(dt)
+	if self:canBeCaptured() then
+		local x, y = self.body:getWorldCenter()
+		local mapleft = 0
+		local mapright = levity.map.width * levity.map.tilewidth
+
+		local camera = levity.map.objects[levity.map.properties.cameraid]
+		local cambottom = 0
+		for _, fixture in ipairs(camera.body:getFixtureList()) do
+			local _, _, _, b = fixture:getBoundingBox()
+			cambottom = math.max(cambottom, b)
+		end
+
+		if y > cambottom or x < mapleft or x > mapright then
+			self:die()
+		end
+	else
 		local playerid = levity.map.properties.playerid
 		local player = levity.map.objects[playerid]
 		local playercx, playercy = player.body:getWorldCenter()
 		local cx, cy = self.body:getWorldCenter()
 		local playerdx, playerdy = playercx - cx, playercy - cy
-		self.facing:faceAngle(math.atan2(playerdy, playerdx))
+
+		local vx, vy = self.body:getLinearVelocity()
+		local arc = math.rad(self.properties.strafearc or 0)
+		local dot = math.dot(playerdx, playerdy, vx, vy)
+		local mindot = math.cos(arc)
+				* math.hypot(playerdx, playerdy)
+				* math.hypot(vx, vy)
+
+		if not self.mover or (vx == 0 and vy == 0) or dot >= mindot then
+			self.facing:faceAngle(math.atan2(playerdy, playerdx))
+		else
+			self.facing:faceAngle(math.atan2(vy, vx))
+		end
 	end
 end
 
@@ -347,25 +376,6 @@ function Human:playerKilled()
 		self.properties.kolaunch = true
 		self.pulledbyplayer = false
 		self.body:setLinearVelocity(0, Human.KOLaunchVelY)
-	end
-end
-
-function Human:endMove(dt)
-	if self:canBeCaptured() then
-		local x, y = self.body:getWorldCenter()
-		local mapleft = 0
-		local mapright = levity.map.width * levity.map.tilewidth
-
-		local camera = levity.map.objects[levity.map.properties.cameraid]
-		local cambottom = 0
-		for _, fixture in ipairs(camera.body:getFixtureList()) do
-			local _, _, _, b = fixture:getBoundingBox()
-			cambottom = math.max(cambottom, b)
-		end
-
-		if y > cambottom or x < mapleft or x > mapright then
-			self:die()
-		end
 	end
 end
 

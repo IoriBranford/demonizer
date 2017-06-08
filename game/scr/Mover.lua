@@ -177,10 +177,6 @@ function Mover:beginMove(dt)
 
 	self.body:setLinearVelocity(vx, vy)
 
-	if not self.properties.pathstrafe and (vx ~= 0 or vy ~= 0) then
-		levity.scripts:send(self.id, "faceAngle", math.atan2(vy, vx))
-	end
-
 	if self.riderids then
 		for _, riderid in pairs(self.riderids) do
 			local rider = levity.map.objects[riderid]

@@ -27,7 +27,7 @@
  </objecttype>
  <objecttype name="Pikeman" color="#ff0000">
   <property name="convertible" type="bool" default="false"/>
-  <property name="firearc" type="float" default="90"/>
+  <property name="firearc" type="float" default="15"/>
   <property name="firebullet" type="string" default="BulletPike"/>
   <property name="firetargetid" type="string" default="player"/>
   <property name="firetime" type="float" default="1"/>
@@ -37,6 +37,7 @@
   <property name="pathid" type="int" default="0"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="60"/>
+  <property name="strafearc" type="float" default="0"/>
   <property name="ridedestroyedko" type="bool" default="true"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="150"/>
@@ -51,7 +52,7 @@
  </objecttype>
  <objecttype name="Archer" color="#ff0000">
   <property name="convertible" type="bool" default="false"/>
-  <property name="firearc" type="float" default="120"/>
+  <property name="firearc" type="float" default="45"/>
   <property name="firebullet" type="string" default="BulletArrow"/>
   <property name="firetargetid" type="string" default="player"/>
   <property name="firetime" type="float" default="1"/>
@@ -61,6 +62,7 @@
   <property name="pathid" type="int" default="0"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="120"/>
+  <property name="strafearc" type="float" default="90"/>
   <property name="ridedestroyedko" type="bool" default="true"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="250"/>
@@ -90,7 +92,7 @@
   <property name="script" type="string" default="Human"/>
  </objecttype>
  <objecttype name="Catapult" color="#ff0000">
-  <property name="firearc" type="float" default="45"/>
+  <property name="firearc" type="float" default="15"/>
   <property name="firebullet" type="string" default="BulletCatapult"/>
   <property name="firefan" type="int" default="3"/>
   <property name="firefanslice" type="float" default="15"/>
@@ -100,6 +102,7 @@
   <property name="pathid" type="int" default="0"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="60"/>
+  <property name="strafearc" type="float" default="0"/>
   <property name="score" type="int" default="1000"/>
   <property name="script" type="string" default="Vehicle"/>
  </objecttype>
@@ -120,7 +123,7 @@
  </objecttype>
  <objecttype name="Swordsman" color="#ff0000">
   <property name="convertible" type="bool" default="false"/>
-  <property name="firearc" type="float" default="30"/>
+  <property name="firearc" type="float" default="15"/>
   <property name="firebullet" type="string" default="BulletSword"/>
   <property name="firetargetid" type="string" default="player"/>
   <property name="firetime" type="float" default="0.5"/>
@@ -129,24 +132,24 @@
   <property name="pathfinder" type="string" default="linear1way"/>
   <property name="pathid" type="string" default="player"/>
   <property name="pathmode" type="string" default="absolute"/>
-  <property name="pathspeed" type="string" default="150"/>
+  <property name="pathspeed" type="string" default="120"/>
   <property name="ridedestroyedko" type="bool" default="true"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="500"/>
   <property name="script" type="string" default="Human"/>
  </objecttype>
  <objecttype name="BulletFireArrow" color="#00aaff">
+  <property name="accelx" type="float" default="0"/>
+  <property name="accely" type="float" default="640"/>
   <property name="category" type="string" default="NPCShot"/>
   <property name="sound" type="file" default="snd/powershot.wav"/>
   <property name="speed" type="float" default="180"/>
-  <property name="accelx" type="float" default="0"/>
-  <property name="accely" type="float" default="640"/>
   <property name="tileid" type="string" default="firearrow"/>
   <property name="tileset" type="string" default="humanshots"/>
  </objecttype>
  <objecttype name="Princess" color="#ff0000">
   <property name="convertible" type="bool" default="false"/>
-  <property name="firearc" type="float" default="270"/>
+  <property name="firearc" type="float" default="45"/>
   <property name="firebullet" type="string" default="BulletArrow"/>
   <property name="firefan" type="int" default="3"/>
   <property name="firefanslice" type="float" default="10"/>
@@ -158,6 +161,7 @@
   <property name="pathid" type="string" default="player"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="150"/>
+  <property name="strafearc" type="float" default="185"/>
   <property name="ridedestroyedko" type="bool" default="false"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="15000"/>
