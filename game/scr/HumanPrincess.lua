@@ -1,28 +1,10 @@
 local levity = require "levity"
-local pl = require'pl.import_into'()
 local Human = require "Human"
 
 local Princess = class(Human)
 
-Princess.NormalAttack = {
-	firebullet = "BulletArrow",
-	firefan = 3,
-	firefanslice = 15,
-	firetime = 0.5,
-	firearc = 45,
-	strafearc = 135,
-	pathspeed = 150
-}
-
-Princess.ChargeAttack = {
-	firebullet = "BulletFireArrow",
-	firefan = 5,
-	firefanslice = 15,
-	firetime = 0.125,
-	firearc = 180,
-	strafearc = 180,
-	pathspeed = 75
-}
+Princess.NormalAttack = levity.map.objecttypes.PrincessNormalAttack
+Princess.ChargeAttack = levity.map.objecttypes.PrincessChargeAttack
 
 Princess.NormalAttackTime = Princess.NormalAttack.firetime * 10.5
 Princess.ChargeAttackWaitTime = 1.5
@@ -59,17 +41,17 @@ function Princess:isOutOfCover()
 end
 
 function Princess:fightCoroutine(dt)
-	pl.tablex.update(self.properties, Princess.NormalAttack)
+	self.object.type = "PrincessNormalAttack"
 	self.coroutine:waitTime(Princess.NormalAttackTime)
 
-	self.properties.firebullet = ""
+	self.object.type = "PrincessWaitForCharge"
 	self.coroutine:waitCond(Princess.isInCover)
 
-	self.properties.pathspeed = 0
+	self.object.type = "PrincessCharge"
 	levity.bank:play(Sounds.Charge)
 	self.coroutine:waitTime(Princess.ChargeAttackWaitTime)
 
-	pl.tablex.update(self.properties, Princess.ChargeAttack)
+	self.object.type = "PrincessChargeAttack"
 	self.coroutine:waitCond(Princess.isOutOfCover)
 	self.coroutine:waitTime(Princess.ChargeAttackTime)
 
@@ -86,7 +68,7 @@ function Princess:hasFled()
 end
 
 function Princess:defeatCoroutine(dt)
-	pl.tablex.update(self.properties, Princess.NormalAttack)
+	self.object.type = "PrincessNormalAttack"
 	self.object:setGid(self:getKOGid(), levity.map, false)
 	self.coroutine:waitTime(2)
 

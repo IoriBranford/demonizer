@@ -23,15 +23,7 @@ function Shooter:_init(object)
 	self.object = object
 	self.properties = object.properties
 
-	local targetid = self.properties.firetargetid
-
-	if targetid == "player" then
-		self.properties.firetargetid = levity.map.properties.playerid
-	else
-		self.properties.firetargetid = tonumber(targetid)
-	end
-
-	self.timer = self.properties.firetime or 2
+	self.timer = 0
 
 	local bullet = levity.map.objecttypes[self.properties.firebullet]
 	if bullet then
@@ -54,26 +46,48 @@ function Shooter:fire()
 
 	local oncamera = levity.scripts:call(self.object.id, "isOnCamera")
 	if not oncamera then
-		self.timer = self.properties.firetime
+		self.timer = 0
 		return
 	end
 
 	local cx, cy = self.object.body:getWorldCenter()
 	local fireangle
 	local targetid = self.properties.firetargetid
+	if targetid == "player" then
+		targetid = levity.map.properties.playerid
+	else
+		targetid = tonumber(targetid)
+	end
 	local facingtarget = true
 
 	if targetid and targetid > 0 then
 		local target = levity.map.objects[targetid]
 		local tx, ty = target.body:getWorldCenter()
 		local dx, dy = tx - cx, ty - cy
-		fireangle = math.atan2(dy, dx)
+		local dist = math.hypot(dx, dy)
 
 		local arc = math.rad(self.properties.firearc or 90)
 		local mindot = math.cos(arc)
 
-		facingtarget = mindot * math.hypot(dx, dy)
+		facingtarget = mindot * dist
 			<= math.dot(dx, dy, math.cos(faceangle), math.sin(faceangle))
+
+		fireangle = math.atan2(dy, dx)
+		--if facingtarget then
+		--	local ax, ay = bullet.accelx, bullet.accely
+		--	if ax and ay then
+		--		local speed = bullet.speed
+		--		local t = dist/speed
+		--		local vx0 = (dx/t) - (t*ax*.5)
+		--		local vy0 = (dy/t) - (t*ay*.5)
+		--		vx0 = vx0/speed
+		--		vy0 = vy0/speed
+		--		fireangle = math.atan2(vy0, vx0)
+		--		print(vx0, vy0, math.hypot(vx0, vy0))
+		--	else
+		--		fireangle = math.atan2(dy, dx)
+		--	end
+		--end
 	else
 		fireangle = faceangle
 	end
@@ -83,15 +97,16 @@ function Shooter:fire()
 		local fanslice = math.rad(self.properties.firefanslice or 0)
 		fireangle = fireangle - fanslice*(fansize-1)/2
 
-		if type(self.timer) == "number" then
+		if type(self.properties.firetime) == "number" then
 			local timer
 			for i = 1, fansize do
 				timer = ShmupBullet.fireOverTime(bullet, cx, cy,
-					fireangle, "npcshots", self.timer,
+					fireangle, "npcshots",
+					self.properties.firetime - self.timer,
 					self.properties.firetime)
 				fireangle = fireangle + fanslice
 			end
-			self.timer = timer
+			self.timer = timer - self.properties.firetime
 		else
 			for i = 1, fansize do
 				ShmupBullet.create(bullet, cx, cy, fireangle, "npcshots")
@@ -108,11 +123,14 @@ function Shooter:loopedAnimation()
 end
 
 function Shooter:endMove(dt)
-	if type(self.timer) == "number" then
-		if self.timer <= dt then
+	local firetime = self.properties.firetime
+	if type(firetime) == "number" then
+		if firetime - self.timer <= dt then
 			self:fire()
 		end
-		self.timer = math.max(0, self.timer - dt)
+		self.timer = math.min(firetime, self.timer + dt)
+	else
+		self.timer = 0
 	end
 end
 

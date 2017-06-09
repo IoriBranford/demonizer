@@ -12,6 +12,7 @@
 --@field kolaunchvelx
 --@field kolaunchvely
 --@field convertible Becomes wingman on capture?
+--@field faceangle Manually set facing angle (E=0, S=90, W=180, N=270)
 --@table Properties
 
 local levity = require "levity"
@@ -61,10 +62,7 @@ function Human:_init(object)
 							self.object)
 	end
 
-	if self.properties.firebullet then
-		self.shooter = levity.scripts:newScript(self.id, "Shooter",
-							self.object)
-	end
+	self.shooter = levity.scripts:newScript(self.id, "Shooter", self.object)
 
 	self.pulledbyplayer = false
 	self.captured = false
@@ -161,24 +159,32 @@ function Human:endMove(dt)
 			self:die()
 		end
 	elseif self.health then
-		local playerid = levity.map.properties.playerid
-		local player = levity.map.objects[playerid]
-		local playercx, playercy = player.body:getWorldCenter()
-		local cx, cy = self.body:getWorldCenter()
-		local playerdx, playerdy = playercx - cx, playercy - cy
-
-		local vx, vy = self.body:getLinearVelocity()
-		local arc = math.rad(self.properties.strafearc or 0)
-		local dot = math.dot(playerdx, playerdy, vx, vy)
-		local mindot = math.cos(arc)
-				* math.hypot(playerdx, playerdy)
-				* math.hypot(vx, vy)
-
-		if not self.mover or (vx == 0 and vy == 0) or dot >= mindot then
-			self.facing:faceAngle(math.atan2(playerdy, playerdx))
+		local faceangle = self.properties.faceangle
+		if faceangle then
+			faceangle = math.rad(faceangle)
 		else
-			self.facing:faceAngle(math.atan2(vy, vx))
+			local playerid = levity.map.properties.playerid
+			local player = levity.map.objects[playerid]
+			local playercx, playercy = player.body:getWorldCenter()
+			local cx, cy = self.body:getWorldCenter()
+			local playerdx, playerdy = playercx - cx, playercy - cy
+
+			local vx, vy = self.body:getLinearVelocity()
+			local arc = math.rad(self.properties.strafearc or 0)
+			local dot = math.dot(playerdx, playerdy, vx, vy)
+			local mindot = math.cos(arc)
+					* math.hypot(playerdx, playerdy)
+					* math.hypot(vx, vy)
+
+			if not self.mover
+			or (vx == 0 and vy == 0)
+			or dot >= mindot then
+				faceangle = math.atan2(playerdy, playerdx)
+			else
+				faceangle = math.atan2(vy, vx)
+			end
 		end
+		self.facing:faceAngle(faceangle)
 	end
 end
 
