@@ -223,6 +223,12 @@ return {
           properties = {
             ["name"] = "powerdot"
           }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "charge"
+          }
         }
       }
     },

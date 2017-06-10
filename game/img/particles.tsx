@@ -25,4 +25,9 @@
    <property name="name" value="powerdot"/>
   </properties>
  </tile>
+ <tile id="12">
+  <properties>
+   <property name="name" value="charge"/>
+  </properties>
+ </tile>
 </tileset>
