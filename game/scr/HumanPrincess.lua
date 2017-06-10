@@ -20,6 +20,10 @@ function Princess:_init(object)
 
 	self.coroutine = levity.scripts:newScript(self.id, "Coroutine", object)
 	self.coroutine:startCoroutine(self.fightCoroutine, self)
+	self.chargeparticles = levity.scripts:newScript(self.id,
+				"ChargeParticles", object,
+				levity.map:getTileGid("particles", "charge"),
+				32)
 end
 
 local Sounds = {
@@ -49,10 +53,12 @@ function Princess:fightCoroutine(dt)
 
 	self.object.type = "PrincessCharge"
 	levity.bank:play(Sounds.Charge)
+	self.chargeparticles:startEmit()
 	self.coroutine:waitTime(Princess.ChargeAttackWaitTime)
 
 	self.object.type = "PrincessChargeAttack"
 	self.coroutine:waitCond(Princess.isOutOfCover)
+	self.chargeparticles:stopEmit()
 	self.coroutine:waitTime(Princess.ChargeAttackTime)
 
 	self.coroutine:startCoroutine(self.fightCoroutine, self)
@@ -68,6 +74,7 @@ function Princess:hasFled()
 end
 
 function Princess:defeatCoroutine(dt)
+	self.chargeparticles:stopEmit()
 	self.object.type = "PrincessNormalAttack"
 	self.object:setGid(self:getKOGid(), levity.map, false)
 	self.coroutine:waitTime(2)

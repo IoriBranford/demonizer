@@ -4,13 +4,13 @@ local ChargeParticles = class()
 function ChargeParticles:_init(object, gid, maxparticles)
 	self.body = object.body
 	self.particles = levity.map:newParticleSystem(gid, maxparticles)
-	self.particles:setParticleLifetime(.5)
-	self.particles:setSpeed(120)
-	self.particles:setSpread(math.pi*2)
+	self.particles:stop()
+	self.particles:setParticleLifetime(.25)
+	self.particles:setEmissionRate(30)
+	self.particles:setSpeed(240)
 end
 
-function ChargeParticles:startEmit(time)
-	self.particles:setEmitterLifetime(time)
+function ChargeParticles:startEmit()
 	self.particles:start()
 end
 
