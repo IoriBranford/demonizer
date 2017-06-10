@@ -304,6 +304,8 @@ function ShmupWingman:beginMove(dt)
 	else
 		destx, desty = levity.scripts:call("playerteam",
 				"getWingmanPosition", self.object.id)
+		destx = destx or cx
+		desty = desty or cy
 		self.targetcaptiveid = nil
 	end
 

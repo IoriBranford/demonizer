@@ -144,7 +144,7 @@ function PlayerTeam:endMove(dt)
 end
 
 function PlayerTeam:wingmanReserved(wingmanid)
-	self:forgetWingman()
+	self:forgetWingman(wingmanid)
 end
 
 function PlayerTeam:releaseCaptives(memberid)
@@ -166,7 +166,7 @@ end
 
 function PlayerTeam:wingmanKilled(wingmanid)
 	self:releaseCaptives(wingmanid)
-	self:forgetWingman()
+	self:forgetWingman(wingmanid)
 end
 
 function PlayerTeam:forgetWingman(wingmanid)
