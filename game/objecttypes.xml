@@ -185,7 +185,7 @@
   <property name="firearc" type="float" default="45"/>
   <property name="firebullet" type="string" default="BulletFireArrow"/>
   <property name="firefan" type="int" default="5"/>
-  <property name="firefanslice" type="float" default="5"/>
+  <property name="firefanslice" type="float" default="10"/>
   <property name="firetime" type="float" default="0.1"/>
   <property name="pathspeed" type="string" default="75"/>
   <property name="strafearc" type="float" default="180"/>
