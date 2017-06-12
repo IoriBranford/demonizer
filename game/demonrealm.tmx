@@ -53,23 +53,6 @@
   </data>
  </layer>
  <objectgroup name="unused" visible="0">
-  <object id="130" name="operator" type="CatapultOperator" gid="620" x="144" y="568" width="24" height="32">
-   <properties>
-    <property name="rideid" type="int" value="128"/>
-   </properties>
-  </object>
-  <object id="128" name="catapult" type="Catapult" gid="448" x="144" y="600" width="72" height="72">
-   <properties>
-    <property name="offscreenshot" type="bool" value="true"/>
-    <property name="pathid" type="int" value="188"/>
-   </properties>
-  </object>
-  <object id="188" name="path" x="160" y="576">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
-   <polyline points="-16,16 -16,128"/>
-  </object>
   <object id="131" name="operator" type="CatapultOperator" gid="620" x="224" y="496" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="134"/>
@@ -139,6 +122,22 @@
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
+  <object id="39" name="pikeman" type="Pikeman" gid="653" x="192" y="1216" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="35"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="13" name="pikeman" type="Pikeman" gid="653" x="96" y="512" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="117"/>
+   </properties>
+  </object>
+  <object id="23" name="pikeman" type="Pikeman" gid="653" x="192" y="512" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="118"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="boss_paths">
   <properties>
@@ -193,7 +192,7 @@
   <object id="156" name="talltree" gid="439" x="184" y="80" width="48" height="80"/>
   <object id="157" name="talltree" gid="439" x="136" y="184" width="48" height="80"/>
   <object id="158" name="talltree" gid="439" x="228" y="152" width="48" height="80"/>
-  <object id="191" type="Trigger" x="0" y="176" width="288" height="16">
+  <object id="191" type="Trigger" x="0" y="208" width="288" height="16">
    <properties>
     <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
@@ -223,48 +222,48 @@
   <object id="315" gid="427" x="192" y="88" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="catapults3">
-  <object id="208" name="catapult" type="Catapult" gid="449" x="256" y="224" width="72" height="72">
+  <object id="208" name="catapult" type="Catapult" gid="449" x="256" y="240" width="72" height="72">
    <properties>
     <property name="offscreenshot" type="bool" value="false"/>
     <property name="pathid" type="int" value="213"/>
    </properties>
   </object>
-  <object id="209" name="operator" type="CatapultOperator" gid="620" x="272" y="204" width="24" height="32">
+  <object id="209" name="operator" type="CatapultOperator" gid="620" x="272" y="220" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="208"/>
    </properties>
   </object>
-  <object id="210" name="catapult" type="Catapult" gid="447" x="32" y="224" width="72" height="72">
+  <object id="210" name="catapult" type="Catapult" gid="447" x="32" y="240" width="72" height="72">
    <properties>
     <property name="offscreenshot" type="bool" value="false"/>
     <property name="pathid" type="int" value="212"/>
    </properties>
   </object>
-  <object id="211" name="operator" type="CatapultOperator" gid="620" x="16" y="204" width="24" height="32">
+  <object id="211" name="operator" type="CatapultOperator" gid="620" x="16" y="220" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="210"/>
    </properties>
   </object>
-  <object id="212" name="path" x="-16" y="112">
+  <object id="212" name="path" x="-16" y="128">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="48,112 112,176 112,368"/>
   </object>
-  <object id="213" name="path" x="336" y="112">
+  <object id="213" name="path" x="336" y="128">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="-80,112 -144,176 -144,368"/>
   </object>
-  <object id="214" type="Trigger" x="0" y="288" width="288" height="16">
+  <object id="214" type="Trigger" x="0" y="256" width="288" height="16">
    <properties>
     <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="pikemen4">
+ <objectgroup name="pikemen5">
   <object id="195" name="pikemanleader" type="Pikeman" gid="653" x="152" y="288" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="205"/>
@@ -406,75 +405,82 @@
   <object id="305" gid="421" x="136" y="432" width="32" height="32"/>
   <object id="307" gid="430" x="144" y="408" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="swordsmen4">
-  <object id="140" type="Trigger" x="0" y="544" width="288" height="32">
+ <objectgroup name="pikemen4">
+  <object id="117" name="path" x="72" y="448">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,96 24,96 24,176 -24,176 -24,352 24,352"/>
+  </object>
+  <object id="118" name="path" x="216" y="448">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,96 -24,96 -24,176 24,176 24,352 -24,352"/>
+  </object>
+  <object id="120" name="pikemanleader" type="Pikeman" gid="653" x="72" y="544" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="117"/>
+   </properties>
+  </object>
+  <object id="122" name="pikeman" type="Pikeman" gid="653" x="72" y="480" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="117"/>
+   </properties>
+  </object>
+  <object id="123" name="pikeman" type="Pikeman" gid="653" x="216" y="480" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="118"/>
+   </properties>
+  </object>
+  <object id="125" name="pikemanleader" type="Pikeman" gid="653" x="216" y="544" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="118"/>
+   </properties>
+  </object>
+  <object id="129" type="Trigger" x="0" y="592" width="288" height="16">
    <properties>
     <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="141" name="swordsman" type="Swordsman" gid="698" x="-16" y="576" width="24" height="32"/>
-  <object id="142" name="swordsman" type="Swordsman" gid="698" x="304" y="576" width="24" height="32"/>
+  <object id="10" name="pikeman" type="Pikeman" gid="653" x="72" y="512" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="117"/>
+   </properties>
+  </object>
+  <object id="20" name="pikeman" type="Pikeman" gid="653" x="216" y="512" width="24" height="32">
+   <properties>
+    <property name="pathid" type="int" value="118"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="pikemen3.5">
-  <object id="117" name="path" x="96" y="496">
-   <properties>
-    <property name="beziercurve" type="bool" value="true"/>
-    <property name="script" value="PathGraph"/>
-   </properties>
-   <polyline points="0,112 -64,112 -64,272 48,272 48,400 -16,400"/>
-  </object>
-  <object id="118" name="path" x="192" y="496">
-   <properties>
-    <property name="beziercurve" type="bool" value="true"/>
-    <property name="script" value="PathGraph"/>
-   </properties>
-   <polyline points="0,112 64,112 64,272 -48,272 -48,400 16,400"/>
-  </object>
-  <object id="120" name="pikemanleader" type="Pikeman" gid="653" x="96" y="608" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="117"/>
-   </properties>
-  </object>
-  <object id="122" name="pikeman" type="Pikeman" gid="653" x="96" y="544" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="117"/>
-   </properties>
-  </object>
-  <object id="123" name="pikeman" type="Pikeman" gid="653" x="192" y="544" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="118"/>
-   </properties>
-  </object>
-  <object id="125" name="pikemanleader" type="Pikeman" gid="653" x="192" y="608" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="118"/>
-   </properties>
-  </object>
-  <object id="129" type="Trigger" x="0" y="656" width="288" height="16">
+ <objectgroup name="swordsmencatapult">
+  <object id="140" type="Trigger" x="0" y="656" width="288" height="16">
    <properties>
     <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="23" name="pikeman" type="Pikeman" gid="653" x="192" y="512" width="24" height="32">
+  <object id="141" name="swordsman" type="Swordsman" gid="698" x="-16" y="744" width="24" height="32"/>
+  <object id="142" name="swordsman" type="Swordsman" gid="698" x="304" y="744" width="24" height="32"/>
+  <object id="188" name="path" x="160" y="584">
    <properties>
-    <property name="pathid" type="int" value="118"/>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="-16,16 -16,128"/>
+  </object>
+  <object id="128" name="catapult" type="Catapult" gid="448" x="144" y="608" width="72" height="72">
+   <properties>
+    <property name="offscreenshot" type="bool" value="true"/>
+    <property name="pathid" type="int" value="188"/>
    </properties>
   </object>
-  <object id="13" name="pikeman" type="Pikeman" gid="653" x="96" y="512" width="24" height="32">
+  <object id="130" name="operator" type="CatapultOperator" gid="620" x="144" y="576" width="24" height="32">
    <properties>
-    <property name="pathid" type="int" value="117"/>
-   </properties>
-  </object>
-  <object id="10" name="pikeman" type="Pikeman" gid="653" x="96" y="576" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="117"/>
-   </properties>
-  </object>
-  <object id="20" name="pikeman" type="Pikeman" gid="653" x="192" y="576" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="118"/>
+    <property name="rideid" type="int" value="128"/>
    </properties>
   </object>
  </objectgroup>
@@ -495,7 +501,7 @@
  <objectgroup name="swordsmen2">
   <object id="103" name="swordsman" type="Swordsman" gid="698" x="-12" y="928" width="24" height="32"/>
   <object id="104" name="swordsman" type="Swordsman" gid="698" x="300" y="928" width="24" height="32"/>
-  <object id="105" type="Trigger" x="0" y="784" width="288" height="16">
+  <object id="105" type="Trigger" x="0" y="752" width="288" height="16">
    <properties>
     <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
@@ -503,52 +509,52 @@
   </object>
  </objectgroup>
  <objectgroup name="swordsmen1">
-  <object id="99" type="Trigger" x="0" y="848" width="288" height="16">
+  <object id="99" type="Trigger" x="0" y="784" width="288" height="16">
    <properties>
     <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="100" name="swordsman" type="Swordsman" gid="698" x="144" y="816" width="24" height="32"/>
+  <object id="100" name="swordsman" type="Swordsman" gid="698" x="144" y="784" width="24" height="32"/>
  </objectgroup>
  <objectgroup name="catapults2">
-  <object id="76" type="Trigger" x="0" y="912" width="288" height="16">
+  <object id="76" type="Trigger" x="0" y="880" width="288" height="16">
    <properties>
     <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="77" name="catapult" type="Catapult" gid="448" x="80" y="896" width="72" height="72">
+  <object id="77" name="catapult" type="Catapult" gid="448" x="96" y="864" width="72" height="72">
    <properties>
     <property name="offscreenshot" type="bool" value="true"/>
     <property name="pathid" type="int" value="91"/>
     <property name="pathspeed" type="float" value="120"/>
    </properties>
   </object>
-  <object id="78" name="catapult" type="Catapult" gid="448" x="208" y="896" width="72" height="72">
+  <object id="78" name="catapult" type="Catapult" gid="448" x="192" y="864" width="72" height="72">
    <properties>
     <property name="offscreenshot" type="bool" value="true"/>
     <property name="pathid" type="int" value="92"/>
     <property name="pathspeed" type="float" value="120"/>
    </properties>
   </object>
-  <object id="89" name="operator" type="CatapultOperator" gid="620" x="80" y="864" width="24" height="32">
+  <object id="89" name="operator" type="CatapultOperator" gid="620" x="96" y="832" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="77"/>
    </properties>
   </object>
-  <object id="90" name="operator" type="CatapultOperator" gid="620" x="208" y="864" width="24" height="32">
+  <object id="90" name="operator" type="CatapultOperator" gid="620" x="192" y="832" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="78"/>
    </properties>
   </object>
-  <object id="91" name="path" x="96" y="880">
+  <object id="91" name="path" x="112" y="848">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="-16,16 -16,80"/>
   </object>
-  <object id="92" name="path" x="224" y="880">
+  <object id="92" name="path" x="208" y="848">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
@@ -668,7 +674,7 @@
   <object id="270" name="fire" gid="441" x="16" y="1072" width="64" height="64"/>
  </objectgroup>
  <objectgroup name="pikemen3">
-  <object id="25" name="path" x="144" y="1056" visible="0">
+  <object id="25" name="path" x="144" y="1056">
    <properties>
     <property name="beziercurve" type="bool" value="true"/>
     <property name="script" value="PathGraph"/>
@@ -699,7 +705,7 @@
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="42" name="trigger" type="Trigger" x="0" y="1152" width="288" height="16" visible="0">
+  <object id="42" name="trigger" type="Trigger" x="0" y="1152" width="288" height="16">
    <properties>
     <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
@@ -736,19 +742,19 @@
     <property name="pathid" type="int" value="15"/>
    </properties>
   </object>
-  <object id="15" name="path" x="256" y="1328" visible="0">
+  <object id="15" name="path" x="256" y="1328">
    <properties>
     <property name="beziercurve" type="bool" value="true"/>
     <property name="script" value="PathGraph"/>
    </properties>
-   <polyline points="32,-112 -80,-112 -80,16 -176,16 -176,304"/>
+   <polyline points="32,-112 -80,-112 -80,256"/>
   </object>
   <object id="16" name="leader" type="Pikeman" gid="653" x="336" y="1216" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="15"/>
    </properties>
   </object>
-  <object id="190" name="trigger" type="Trigger" x="0" y="1184" width="288" height="16" visible="0">
+  <object id="190" name="trigger" type="Trigger" x="0" y="1184" width="288" height="16">
    <properties>
     <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
@@ -756,67 +762,61 @@
   </object>
  </objectgroup>
  <objectgroup name="pikemen2a">
-  <object id="5" name="path" x="56" y="1200" visible="0">
+  <object id="5" name="path" x="56" y="1184">
    <properties>
     <property name="beziercurve" type="bool" value="true"/>
     <property name="script" value="PathGraph"/>
    </properties>
-   <polyline points="-56,32 56,32 56,160 152,160 152,448"/>
+   <polyline points="-56,32 56,32 56,400"/>
   </object>
-  <object id="6" name="leader" type="Pikeman" gid="653" x="-48" y="1232" width="24" height="32">
+  <object id="6" name="leader" type="Pikeman" gid="653" x="-48" y="1216" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="5"/>
    </properties>
   </object>
-  <object id="12" name="pikeman" type="Pikeman" gid="653" x="0" y="1232" width="24" height="32">
+  <object id="12" name="pikeman" type="Pikeman" gid="653" x="0" y="1216" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="5"/>
    </properties>
   </object>
-  <object id="41" name="trigger" type="Trigger" x="0" y="1200" width="288" height="16" visible="0">
+  <object id="41" name="trigger" type="Trigger" x="0" y="1184" width="288" height="16">
    <properties>
     <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
    </properties>
   </object>
-  <object id="30" name="pikeman" type="Pikeman" gid="653" x="-96" y="1232" width="24" height="32">
+  <object id="30" name="pikeman" type="Pikeman" gid="653" x="-96" y="1216" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="5"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="pikemen1">
-  <object id="35" name="path" x="144" y="1232" visible="0">
+  <object id="35" name="path" x="144" y="1232">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="0,-16 0,368"/>
   </object>
-  <object id="36" name="leader" type="Pikeman" gid="653" x="96" y="1216" width="24" height="32">
+  <object id="36" name="leader" type="Pikeman" gid="653" x="112" y="1216" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="35"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="37" name="pikeman" type="Pikeman" gid="653" x="160" y="1216" width="24" height="32">
+  <object id="37" name="pikeman" type="Pikeman" gid="653" x="176" y="1216" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="35"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="38" name="pikeman" type="Pikeman" gid="653" x="128" y="1216" width="24" height="32">
+  <object id="38" name="pikeman" type="Pikeman" gid="653" x="144" y="1216" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="35"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="39" name="pikeman" type="Pikeman" gid="653" x="192" y="1216" width="24" height="32">
-   <properties>
-    <property name="pathid" type="int" value="35"/>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="40" name="trigger" type="Trigger" x="0" y="1216" width="288" height="16" visible="0">
+  <object id="40" name="trigger" type="Trigger" x="0" y="1216" width="288" height="16">
    <properties>
     <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>
@@ -983,7 +983,7 @@
     <property name="script" value="ShmupFriend"/>
    </properties>
   </object>
-  <object id="73" name="trigger" type="Trigger" x="0" y="1248" width="288" height="16">
+  <object id="73" name="trigger" type="Trigger" x="0" y="1264" width="288" height="16">
    <properties>
     <property name="objectsinitiallayer" value="ground"/>
     <property name="triggertype" value="activategroup"/>

@@ -21,7 +21,7 @@
  <objecttype name="BulletPike" color="#00aaff">
   <property name="category" type="string" default="NPCShot"/>
   <property name="sound" type="file" default="snd/pike.wav"/>
-  <property name="speed" type="float" default="120"/>
+  <property name="speed" type="float" default="150"/>
   <property name="tileid" type="string" default="pike"/>
   <property name="tileset" type="string" default="humanshots"/>
  </objecttype>
@@ -36,7 +36,7 @@
   <property name="pathfinder" type="string" default="linear1way"/>
   <property name="pathid" type="int" default="0"/>
   <property name="pathmode" type="string" default="absolute"/>
-  <property name="pathspeed" type="string" default="60"/>
+  <property name="pathspeed" type="string" default="90"/>
   <property name="ridedestroyedko" type="bool" default="true"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="150"/>
@@ -46,7 +46,7 @@
  <objecttype name="BulletArrow" color="#00aaff">
   <property name="category" type="string" default="NPCShot"/>
   <property name="sound" type="file" default="snd/bow.wav"/>
-  <property name="speed" type="float" default="180"/>
+  <property name="speed" type="float" default="240"/>
   <property name="tileid" type="string" default="arrow"/>
   <property name="tileset" type="string" default="humanshots"/>
  </objecttype>
@@ -101,7 +101,7 @@
   <property name="pathfinder" type="string" default="linear1way"/>
   <property name="pathid" type="int" default="0"/>
   <property name="pathmode" type="string" default="absolute"/>
-  <property name="pathspeed" type="string" default="60"/>
+  <property name="pathspeed" type="string" default="90"/>
   <property name="score" type="int" default="1000"/>
   <property name="script" type="string" default="Vehicle"/>
   <property name="strafearc" type="float" default="0"/>
@@ -109,7 +109,7 @@
  <objecttype name="BulletCatapult" color="#00aaff">
   <property name="category" type="string" default="NPCShot"/>
   <property name="sound" type="file" default="snd/catapult.wav"/>
-  <property name="speed" type="float" default="120"/>
+  <property name="speed" type="float" default="150"/>
   <property name="tileid" type="string" default="catapult"/>
   <property name="tileset" type="string" default="humanshots"/>
  </objecttype>
@@ -132,7 +132,7 @@
   <property name="pathfinder" type="string" default="linear1way"/>
   <property name="pathid" type="string" default="player"/>
   <property name="pathmode" type="string" default="absolute"/>
-  <property name="pathspeed" type="string" default="90"/>
+  <property name="pathspeed" type="string" default="120"/>
   <property name="ridedestroyedko" type="bool" default="true"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="500"/>
@@ -140,10 +140,10 @@
  </objecttype>
  <objecttype name="BulletFireArrow" color="#00aaff">
   <property name="accelx" type="float" default="0"/>
-  <property name="accely" type="float" default="360"/>
+  <property name="accely" type="float" default="480"/>
   <property name="category" type="string" default="NPCShot"/>
   <property name="sound" type="file" default="snd/powershot.wav"/>
-  <property name="speed" type="float" default="180"/>
+  <property name="speed" type="float" default="240"/>
   <property name="tileid" type="string" default="firearrow"/>
   <property name="tileset" type="string" default="humanshots"/>
  </objecttype>
