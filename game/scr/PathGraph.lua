@@ -1,12 +1,13 @@
 local levity = require "levity"
 
---- @table Path a possible move from a PathGraph node
+--- A possible move from a PathGraph node
 -- @field destx
 -- @field desty
 -- @field length
 -- @field cost
 -- @field curve if bezier path
 -- @field curvedir 1 = forward, -1 = reverse
+-- @table Path
 
 local PathGraph
 

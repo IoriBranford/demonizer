@@ -24,6 +24,7 @@ function ChargeParticles:endMove(dt)
 end
 
 function ChargeParticles:endDraw()
+	love.graphics.setColor(0xff, 0xff, 0xff)
 	love.graphics.draw(self.particles)
 end
 

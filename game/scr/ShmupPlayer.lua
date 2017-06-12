@@ -211,7 +211,7 @@ function ShmupPlayer:joystickchanged(button, pressed)
 		self.inputvx = self.inputvx * focusspeedfactor
 		self.inputvy = self.inputvy * focusspeedfactor
 	elseif button == ShmupPlayer.Button_Bomb and pressed
-	and not self.killed and not levity.map.paused then
+	and not self.coroutine and not levity.map.paused then
 		local params = ShmupPlayer.BombParams
 
 		if levity.scripts:call("status", "hasBombs") ~= false then
