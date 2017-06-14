@@ -15,3 +15,6 @@
 	url = https://bitbucket.org/MartinFelis/love-android-sdl2.git
 	branch = master
 	ignore = dirty
+[submodule "wiki"]
+	path = docs/wiki
+	url = https://github.com/IoriBranford/demonizer.wiki.git
