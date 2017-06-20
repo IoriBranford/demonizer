@@ -42,6 +42,7 @@ function Vehicle:_init(object)
 		self.shooter = levity.scripts:newScript(self.id, "Shooter",
 							self.object)
 	end
+	self.targeted = levity.scripts:newScript(self.id, "Targeted", self.object)
 end
 
 Vehicle.HitSparkParams = {
@@ -175,6 +176,7 @@ function Vehicle:defeat()
 
 	self.mover = levity.scripts:destroyScript(self.mover, self.id)
 	self.shooter = levity.scripts:destroyScript(self.shooter, self.id)
+	self.targeted = levity.scripts:destroyScript(self.targeted, self.id)
 	self.health = levity.scripts:destroyScript(self.health, self.id)
 end
 

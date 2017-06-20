@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.0.0",
+  tiledversion = "1.0.1",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 15,
@@ -175,7 +175,7 @@ return {
       imageheight = 16,
       tileoffset = {
         x = 0,
-        y = 0
+        y = 4
       },
       grid = {
         orientation = "orthogonal",
@@ -1465,6 +1465,31 @@ return {
           }
         }
       }
+    },
+    {
+      name = "crosshair",
+      firstgid = 176,
+      filename = "img/crosshair.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      image = "img/crosshair.png",
+      imagewidth = 32,
+      imageheight = 32,
+      tileoffset = {
+        x = -8,
+        y = 8
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 4,
+      tiles = {}
     }
   },
   layers = {

@@ -206,12 +206,20 @@ function ShmupWingman:updateFiring(dt)
 		if locktargetid then
 			if self.locktargetid ~= locktargetid then
 				levity.bank:play(Sounds.Lock)
+				levity.scripts:send(locktargetid, "setTargeted", true)
+				if self.locktargetid then
+					levity.scripts:send(self.locktargetid, "setTargeted", false)
+				end
 			end
 			self.locktargetid = locktargetid
 			local targetbody = levity.map.objects[locktargetid].body
 			local tx, ty = targetbody:getWorldCenter()
 			angle = math.atan2(ty-cy, tx-cx)
 		else
+			if self.locktargetid then
+				levity.scripts:send(self.locktargetid, "setTargeted", false)
+				self.locktargetid = nil
+			end
 			local player = levity.map.objects[playerid]
 			local playercx, playercy = player.body:getWorldCenter()
 			angle = angle +
