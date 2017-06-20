@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.1" orientation="orthogonal" renderorder="right-up" width="18" height="120" tilewidth="16" tileheight="16" nextobjectid="4">
+ <properties>
+  <property name="cameraid" type="int" value="2"/>
+  <property name="music" type="file" value="mus/09 - Blue Sky Laundry.vgm"/>
+  <property name="overlaymap" type="file" value="gameplay.lua"/>
+  <property name="playerid" type="int" value="1"/>
+ </properties>
+ <tileset firstgid="1" source="img/imp.tsx"/>
+ <tileset firstgid="4" source="img/basic_terrain.tsx"/>
+ <layer name="dirt" width="18" height="120">
+  <data encoding="base64" compression="zlib">
+   eJyVldlt40AQBZV/FpMFA2Bg9ocWIMpV3dyPAWV52Me7dD6fz/U99+8538/ne248z+P+wfPGvX/vXfj+Rq8bdZ/z2PPI5/P5O8fzHda84h3udKTGhf/Z4T3iNPUnVgd1DSvDid8TN3LEPuSNu9Ssxmv1qjrPw32nftPedc/2oo7Yd+KcMxv+5Iv80kucgTtRr8XFpNHnnfIleeI986xxOXFu/eiP6lnvm+94jBtqf5qfnPO94sKyc6tnvFHLtj8zxLRSs1XGlLamLK2MefP9hl15u/Rp2XKhtml18ptpa5uP90wvU32ra1qbsqT+tvvU1jTH5El7x/K2OKqc3bxhWqqepmlq3nKivGDZyFrGCd/dcr80Xppnf/ab7ths5tuqyVzadGV4ERfTmOFm+pl0QW3xM5+1Z2UoexqutnNpx+ah1yvDyvvUlmFvs5KbKfvLOxOu5pktp6acNF1OnE/aMm4N4+prOixcLL9sb87OLCh/GM9T3pq+bVbiVllGfvm/STsTnxMGrLnxak/m7i3HssJqU4M2qx3LpsK/vLL9zpDr7fvSTHnD9rOcNP1b/k0ZySy0GUpv7FX81u9F8Wx+tzyprLdZqsaWQf+TO5zJsnnKGOJac1se2d6GDeeh1grH0m35p3RqGjJvla+KK6vNuSpfmB01G7khhpbBhvOb+5ZV/E1gPatD/5g+zPOsUTox728+IgblIWbVxg13rvkqoy0z6655yXDYvEeOuO+bzDGdT161z6V/1qt8Ls1XbjAnzdf1bunGahtultGFd9Up/ZVGTR+cvXCy3pU79I3lqfF+Pn8xNI6KV+JieW0Y0CeWY5zX8CnN2Jk8XjUr9ysHLO/MV9abp7CmbiddcufCqOaZ8thw23KkNG55MmWd+Z47WCbU3m8z0PZ/y4VxQ5wrk+gNe3/TMXU3+XHSu2Fa+b/1pMYsqwujSUfcx54bvqYL8m/3jZfyYWVneWbSYWVu6ZM+qlypbDO9mCbe5LfpoHh9q8M3mG2ZavlgWrcMnPKH39Nz1f+NXqbsY78txwvP0n5l4+SnZ60fzwj2Og==
+  </data>
+ </layer>
+ <layer name="grass" width="18" height="120">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20MH6AAAAAAAAAAAHgaIcAAAQ==
+  </data>
+ </layer>
+ <objectgroup name="camera">
+  <object id="2" name="camera" type="Camera" x="24" y="1600" width="240" height="320">
+   <properties>
+    <property name="pathid" type="int" value="3"/>
+    <property name="pathspeed" type="float" value="30"/>
+   </properties>
+  </object>
+  <object id="3" name="path" x="24" y="1600">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,0 0,-1600"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="sparks"/>
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
+  <object id="1" name="player" gid="1" x="144" y="1952" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
