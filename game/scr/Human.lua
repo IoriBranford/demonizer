@@ -63,7 +63,6 @@ function Human:_init(object)
 	end
 
 	self.shooter = levity.scripts:newScript(self.id, "Shooter", self.object)
-	self.targeted = levity.scripts:newScript(self.id, "Targeted", self.object)
 	self.pulledbyplayer = false
 	self.captured = false
 
@@ -315,7 +314,6 @@ function Human:defeat()
 
 	self.mover = levity.scripts:destroyScript(self.mover, self.id)
 	self.shooter = levity.scripts:destroyScript(self.shooter, self.id)
-	self.targeted = levity.scripts:destroyScript(self.targeted, self.id)
 	self.health = levity.scripts:destroyScript(self.health, self.id)
 	self.cover = levity.scripts:destroyScript(self.cover, self.id)
 end

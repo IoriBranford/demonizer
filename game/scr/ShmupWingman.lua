@@ -30,7 +30,7 @@ function ShmupWingman:_init(object)
 
 	self.oncamera = false
 
-	self.locktargetid = nil
+	self.targetlock = levity.scripts:newScript(object.id, "TargetLock", object) 
 	self.targetcaptiveid = nil
 	self.health = 5
 	self.poweredup = self.properties.poweredup or false
@@ -39,7 +39,6 @@ function ShmupWingman:_init(object)
 end
 
 local Sounds = {
-	Lock = "snd/targetlock.wav",
 	Cut = "snd/slash.wav",
 	Maxed = "snd/maxed.wav",
 	Powerup = "snd/powerup.wav",
@@ -203,23 +202,13 @@ function ShmupWingman:updateFiring(dt)
 			locktargetid = self:findTarget("canBeLockTarget")
 		end
 
+		self.targetlock:setLockTargetId(locktargetid)
+
 		if locktargetid then
-			if self.locktargetid ~= locktargetid then
-				levity.bank:play(Sounds.Lock)
-				levity.scripts:send(locktargetid, "setTargeted", true)
-				if self.locktargetid then
-					levity.scripts:send(self.locktargetid, "setTargeted", false)
-				end
-			end
-			self.locktargetid = locktargetid
 			local targetbody = levity.map.objects[locktargetid].body
 			local tx, ty = targetbody:getWorldCenter()
 			angle = math.atan2(ty-cy, tx-cx)
 		else
-			if self.locktargetid then
-				levity.scripts:send(self.locktargetid, "setTargeted", false)
-				self.locktargetid = nil
-			end
 			local player = levity.map.objects[playerid]
 			local playercx, playercy = player.body:getWorldCenter()
 			angle = angle +
