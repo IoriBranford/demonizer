@@ -266,6 +266,11 @@ return {
           name = "Weeds",
           tile = 326,
           properties = {}
+        },
+        {
+          name = "Soil",
+          tile = 329,
+          properties = {}
         }
       },
       tilecount = 384,
@@ -1167,12 +1172,28 @@ return {
           terrain = { -1, 10, 10, 10 }
         },
         {
+          id = 293,
+          terrain = { 11, 11, 11, 0 }
+        },
+        {
+          id = 294,
+          terrain = { 11, 11, 0, 11 }
+        },
+        {
           id = 300,
           terrain = { 10, 10, 10, -1 }
         },
         {
           id = 301,
           terrain = { 10, 10, -1, 10 }
+        },
+        {
+          id = 305,
+          terrain = { 11, 0, 11, 11 }
+        },
+        {
+          id = 306,
+          terrain = { 0, 11, 11, 11 }
         },
         {
           id = 313,
@@ -1187,6 +1208,18 @@ return {
           terrain = { -1, -1, 10, -1 }
         },
         {
+          id = 316,
+          terrain = { 0, 0, 0, 11 }
+        },
+        {
+          id = 317,
+          terrain = { 0, 0, 11, 11 }
+        },
+        {
+          id = 318,
+          terrain = { 0, 0, 11, 0 }
+        },
+        {
           id = 325,
           terrain = { -1, 10, -1, 10 }
         },
@@ -1197,6 +1230,18 @@ return {
         {
           id = 327,
           terrain = { 10, -1, 10, -1 }
+        },
+        {
+          id = 328,
+          terrain = { 0, 11, 0, 11 }
+        },
+        {
+          id = 329,
+          terrain = { 11, 11, 11, 11 }
+        },
+        {
+          id = 330,
+          terrain = { 11, 0, 11, 0 }
         },
         {
           id = 337,
@@ -1211,6 +1256,18 @@ return {
           terrain = { 10, -1, -1, -1 }
         },
         {
+          id = 340,
+          terrain = { 0, 11, 0, 0 }
+        },
+        {
+          id = 341,
+          terrain = { 11, 11, 0, 0 }
+        },
+        {
+          id = 342,
+          terrain = { 11, 0, 0, 0 }
+        },
+        {
           id = 372,
           terrain = { 10, 10, 10, 10 }
         },
@@ -1219,6 +1276,56 @@ return {
           terrain = { 10, 10, 10, 10 }
         }
       }
+    },
+    {
+      name = "village",
+      firstgid = 388,
+      filename = "img/village.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      image = "img/village.png",
+      imagewidth = 272,
+      imageheight = 160,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 170,
+      tiles = {}
+    },
+    {
+      name = "forest",
+      firstgid = 558,
+      filename = "img/forest.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      image = "img/forest.png",
+      imagewidth = 128,
+      imageheight = 64,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 32,
+      tiles = {}
     }
   },
   layers = {
@@ -1236,7 +1343,23 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJyVldlt40AQBZV/FpMFA2Bg9ocWIMpV3dyPAWV52Me7dD6fz/U99+8538/ne248z+P+wfPGvX/vXfj+Rq8bdZ/z2PPI5/P5O8fzHda84h3udKTGhf/Z4T3iNPUnVgd1DSvDid8TN3LEPuSNu9Ssxmv1qjrPw32nftPedc/2oo7Yd+KcMxv+5Iv80kucgTtRr8XFpNHnnfIleeI986xxOXFu/eiP6lnvm+94jBtqf5qfnPO94sKyc6tnvFHLtj8zxLRSs1XGlLamLK2MefP9hl15u/Rp2XKhtml18ptpa5uP90wvU32ra1qbsqT+tvvU1jTH5El7x/K2OKqc3bxhWqqepmlq3nKivGDZyFrGCd/dcr80Xppnf/ab7ths5tuqyVzadGV4ERfTmOFm+pl0QW3xM5+1Z2UoexqutnNpx+ah1yvDyvvUlmFvs5KbKfvLOxOu5pktp6acNF1OnE/aMm4N4+prOixcLL9sb87OLCh/GM9T3pq+bVbiVllGfvm/STsTnxMGrLnxak/m7i3HssJqU4M2qx3LpsK/vLL9zpDr7fvSTHnD9rOcNP1b/k0ZySy0GUpv7FX81u9F8Wx+tzyprLdZqsaWQf+TO5zJsnnKGOJac1se2d6GDeeh1grH0m35p3RqGjJvla+KK6vNuSpfmB01G7khhpbBhvOb+5ZV/E1gPatD/5g+zPOsUTox728+IgblIWbVxg13rvkqoy0z6655yXDYvEeOuO+bzDGdT161z6V/1qt8Ls1XbjAnzdf1bunGahtultGFd9Up/ZVGTR+cvXCy3pU79I3lqfF+Pn8xNI6KV+JieW0Y0CeWY5zX8CnN2Jk8XjUr9ysHLO/MV9abp7CmbiddcufCqOaZ8thw23KkNG55MmWd+Z47WCbU3m8z0PZ/y4VxQ5wrk+gNe3/TMXU3+XHSu2Fa+b/1pMYsqwujSUfcx54bvqYL8m/3jZfyYWVneWbSYWVu6ZM+qlypbDO9mCbe5LfpoHh9q8M3mG2ZavlgWrcMnPKH39Nz1f+NXqbsY78txwvP0n5l4+SnZ60fzwj2Og=="
+      data = "eJyVlctx5DAMBZV/FsxiAlAOm87uYVylancD2gNLskyCwPvNua7r8133v3W+7+e7bjzPY//B88a+n3MffL9x1426z37seeT9XL/7eJ5hzU+c4UxHanzwP1vcR5ym+4nVQV3DynDid+JGjngPeeMs1eufx/rZ//xmvJk+yAl5M96nuWufzUUd8d6Jc/Zs+JMv8ksvsQfORL0aNuzdtGyeJabl7fKscTlxbvfRH3VnnTffcRk31P7UPznnueLCsnOrZ7xRyzY/M8S0Ur1VxpS2piytjHnzfcOuvF36tGz5oLZpdfKbaWvrj/tML1N9q2tam7Kk/rb91NbUx+RJO2N5WxxVzm7eMC3VnaZpat5yorxg2chaxgnPbrlfGi/N837eN+2x3sy3VZO5tOnK8CIupjHDzfQz6YLa4jufNWdlKO80XG3m0o71Q69XhpX3qS3D3nolN1P2l3cmXM0zW05NOWm6nDiftGXcGsZ1r+mwcLH8srnZO7Og/GE8T3lr+rZeiVtlGfnl/ybtTHxOGLDmxqs9mbu3LMsKq00NWq+2LJsK//LK9jtDrrfvpZnyhs1nOWn6t/ybMpJZaD2U3nhX8Vu/F8Wz+d3ypLLeeqkaWwb9T+6wJ8vmKWOIa/VteWRzGzbsh1orHEu35Z/SqWnIvFW+Kq6sNvuqfGF2VG/khhhaBhvOb/ZbVvE3gfWsDv1j+jDPs0bpxLy/+YgYlIeYVRs3nLn6q4y2zKy95iXDYfMeOeK8bzLHdD551d5L/6xX+Vyar9xgTpqv62zpxmobbpbRhXfVKf2VRk0f7L1wsrsrd+gby1Pj/Vy/MTSOilfiYnltGNAnlmPs1/ApzdiaPF41K/crByzvzFd2N1dhTd1OuuTMhVH1M+Wx4bblSGnc8mTKOvM9Z7BMqLnfZqDN/5YL44Y4VybRG3Z+0zF1N/lx0rthWvm/3UmNWVYXRpOOOI89N3xNF+Tf9hsv5cPKzvLMpMPK3NInfVS5UtlmejFNvMlv00Hx+laHbzDbMtXywbRuGTjlD7/Tc3X/G71M2cf7thwvPEv7lY2Tn561/gIev/ch"
+    },
+    {
+      type = "tilelayer",
+      name = "dirtpaths",
+      x = 0,
+      y = 0,
+      width = 18,
+      height = 120,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJztwTEBAAAAwqD1T20MH6AAAAAAAAAAAHgaIcAAAQ=="
     },
     {
       type = "tilelayer",
@@ -1252,7 +1375,55 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztwTEBAAAAwqD1T20MH6AAAAAAAAAAAHgaIcAAAQ=="
+      data = "eJzt0bsKwkAQheFpBEuJpPPaGdFOBDuNKb3Ukvd/D8+SAZfpXCws/g8OYYfN7M3sdzbKtvC/fTY+KNOCPpVyDH0mhX3y9WvlVNCnDuvXVnaueB+VlZ0rrp+P0xvslEaZ2/AeqbbyWmOfN4r3kfYz8/8Wykt5Kr0N75H2f1ceyk1Z+tx16HNVLsrY0/k31Vrl7LXOa6Nsfvv1bQAAAAAAAAAAAAAA8D/ed/wLHw=="
+    },
+    {
+      type = "tilelayer",
+      name = "grassdeco",
+      x = 0,
+      y = 0,
+      width = 18,
+      height = 120,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJztyKENAAAIwDDCSfx/HAKBQyHbZGYR8Ktyux4AAAAAAAAAMBpefgE5"
+    },
+    {
+      type = "tilelayer",
+      name = "houses",
+      x = 0,
+      y = 0,
+      width = 18,
+      height = 120,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJztlctKAzEUhifjqlV8AK9vLeJ1KeJ1I4jUSxdWRGq1CxVxoVCoIi4UhKoU/MOcwJkwnaaTFATPBx/JZP4JIZxk5lUU/cBTuAfP4AK5CJfgMlyBqyTPduEcXIdjcfrdBrkJt+A23IG7JM+O49s1tAcB5tm31lMbYJ5aj/XcoL2Fd7ACD2EbPpMv8ARWVTprr6fN8nV4CTvwi/yG17Cp0ll7PR2Wb8ESxsrwEf0nlfRH4+Qdz5r1XNA85jud/cTYBNpJ+I7+h0r6U/SOZ/U85xh7oHnMdzrLifE8Yo3xrJ7nHnO8wWn0ZzLsUo2aNiszC19VJPxz9Nk8gsfUVjNqwiWjz2YDXlHbLJgxZ6bFzmSRjDkz+hxq7XPmmhGGS15NDUJeTblSUfk15UpdhampUqB61HUeYo81PnvM7xGfPeb3iM8e83vEB36P/IV91pi9DlHLjUC1XA5Qz2av+/2PXOn3P8rDrueidwevZ5//0TDqWe7n3oS8nwVBEARBEARBEARBEARB8OcXXGGyGw=="
+    },
+    {
+      type = "tilelayer",
+      name = "rooftops",
+      x = 0,
+      y = 0,
+      width = 18,
+      height = 120,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJzt1m0KgCAMgOG6fkewogNY0RFbYNCPZsoM+ngf2B8bBHNOqwrAHzW1PdfJeivRSfQSw0meC9+7kHuW42VtlJgkZolFyZlCjEoO3iOn/zSxnspRoqdcoX70D+xr7Wyn2vdaO9spjrPG4jhrnsZa552lzhtXoM4bf1OdrbPj6j5K/b/lPvpDP8feBTli74JUX57PAAAAAAAAAL5nBUZ+L0M="
     },
     {
       type = "objectgroup",

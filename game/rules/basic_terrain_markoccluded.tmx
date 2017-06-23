@@ -1,102 +1,277 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="16" height="16" tilewidth="16" tileheight="16" nextobjectid="1">
+<map version="1.0" tiledversion="1.0.1" orientation="orthogonal" renderorder="right-up" width="1" height="1" tilewidth="16" tileheight="16" nextobjectid="1">
  <properties>
   <property name="DeleteTiles" type="bool" value="false"/>
  </properties>
  <tileset firstgid="1" source="../img/basic_terrain.tsx"/>
- <layer name="regions_input" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJyTYhgFo2AUjFQAAGwAABs=
-  </data>
+ <layer name="regions_input" width="1" height="1">
+  <data encoding="csv">
+26
+</data>
  </layer>
- <layer name="regions_output" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYhgFo2AUjFQAAAwAAAM=
-  </data>
+ <layer name="regions_output" width="1" height="1">
+  <data encoding="csv">
+2
+</data>
  </layer>
- <layer name="input_dirt" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxbyDAKRsEoGKkAAIgeAKI=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+161
+</data>
  </layer>
- <layer name="input_dirt" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJzbwTAKRsEoGKkAAOQeALk=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+184
+</data>
  </layer>
- <layer name="input_dirt" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJzbyTAKRsEoGKkAAOgeALo=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+185
+</data>
  </layer>
- <layer name="input_dirt" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJzbxTAKRsEoGKkAAOweALs=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+186
+</data>
  </layer>
- <layer name="input_dirt" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJw7wjAKRsEoGKkAABQtAMU=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+196
+</data>
  </layer>
- <layer name="input_dirt" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJw7yjAKRsEoGKkAABgtAMY=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+197
+</data>
  </layer>
- <layer name="input_dirt" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJw7xjAKRsEoGKkAABwtAMc=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+198
+</data>
  </layer>
- <layer name="input_grass" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJyzYBgFo2AUjFQAAOQAADk=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+158
+</data>
  </layer>
- <layer name="input_grass" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJyLYhgFo2AUjFQAAGwPAFs=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+181
+</data>
  </layer>
- <layer name="input_grass" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJzzYxgFo2AUjFQAADwPAE8=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+193
+</data>
  </layer>
- <layer name="input_grass" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJzzZxgFo2AUjFQAAEAPAFA=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+182
+</data>
  </layer>
- <layer name="input_grass" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJyLZhgFo2AUjFQAAHAPAFw=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+194
+</data>
  </layer>
- <layer name="input_grass" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJwLYBgFo2AUjFQAAEQPAFE=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+183
+</data>
  </layer>
- <layer name="input_grass" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJwLZBgFo2AUjFQAAEgPAFI=
-  </data>
+ <layer name="input_dirt" width="1" height="1">
+  <data encoding="csv">
+195
+</data>
  </layer>
- <layer name="input_grass" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJyLYRgFo2AUjFQAAHQPAF0=
-  </data>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+56
+</data>
  </layer>
- <layer name="input_grass" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJyLZRgFo2AUjFQAAHgPAF4=
-  </data>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+90
+</data>
  </layer>
- <layer name="output_dirt" width="16" height="16">
-  <data encoding="base64" compression="zlib">
-   eJy7wjAKRsEoGKkAAFQtANU=
-  </data>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+78
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+79
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+91
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+80
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+81
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+92
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+93
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+50
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+73
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+85
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+74
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+86
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+75
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+87
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+76
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+88
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+53
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+293
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+305
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+294
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+306
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+295
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+307
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+317
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+329
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+341
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+353
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+318
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+330
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+342
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+354
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+319
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+331
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+343
+</data>
+ </layer>
+ <layer name="input_grass" width="1" height="1">
+  <data encoding="csv">
+355
+</data>
+ </layer>
+ <layer name="output_dirt" width="1" height="1">
+  <data encoding="csv">
+212
+</data>
  </layer>
 </map>
