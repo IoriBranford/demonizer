@@ -35,6 +35,22 @@ function TargetLock:setLockTargetId(targetid)
 	self.locktargetid = targetid
 end
 
+function TargetLock:vehicleDestroyed(id)
+	if self.locktargetid == id then
+		self:setLockTargetId(nil)
+	end
+end
+
+function TargetLock:humanKnockedOut(id)
+	if self.locktargetid == id then
+		self:setLockTargetId(nil)
+	end
+end
+
+function TargetLock:playerKilled()
+	self:setLockTargetId(nil)
+end
+
 function TargetLock:endMove(dt)
 	local target = levity.map.objects[self.locktargetid]
 	if target then
@@ -67,6 +83,8 @@ function TargetLock:endMove(dt)
 		levity.map:setBatchSprite(self.batch, 2, firstgid+1, r, t)
 		levity.map:setBatchSprite(self.batch, 3, firstgid+2, l, b)
 		levity.map:setBatchSprite(self.batch, 4, firstgid+3, r, b)
+	else
+		self:setLockTargetId(nil)
 	end
 end
 
