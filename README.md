@@ -10,7 +10,7 @@ The runaway princess returns from the "evil" demon realm as a succubus, capturin
 
 Play with the keyboard, or a controller or mouse with three buttons. On keyboard, the arrow keys are the directions and the Z,X,C keys are Buttons 1,2,3.
 
-On touchscreen, swipe with one finger for directions. Button 1 is on whenever a finger is held down. To toggle Button 2, tap with a second finger while holding down the first finger. For Button 3, tap with a third finger while holding down two fingers.
+On touchscreen, swipe with one finger for directions. Fire is on whenever one finger is held down. Focus is always on. For Bomb, tap with two fingers.
 
 - Push directions to move your succubus squad in formation.
 	- Move into unarmed or defeated humans to capture them. Women become succubi and join your squad. Men give increasing point bonuses and energy for bombs. Succubi holding enough men unlock special capturing abilities in focus mode.
