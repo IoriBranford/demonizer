@@ -1,14 +1,14 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.0.0",
+  tiledversion = "1.0.1",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 18,
   height = 100,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 317,
+  nextobjectid = 333,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgm",
@@ -265,6 +265,11 @@ return {
         {
           name = "Weeds",
           tile = 326,
+          properties = {}
+        },
+        {
+          name = "Soil",
+          tile = 329,
           properties = {}
         }
       },
@@ -1167,12 +1172,28 @@ return {
           terrain = { -1, 10, 10, 10 }
         },
         {
+          id = 293,
+          terrain = { 11, 11, 11, 0 }
+        },
+        {
+          id = 294,
+          terrain = { 11, 11, 0, 11 }
+        },
+        {
           id = 300,
           terrain = { 10, 10, 10, -1 }
         },
         {
           id = 301,
           terrain = { 10, 10, -1, 10 }
+        },
+        {
+          id = 305,
+          terrain = { 11, 0, 11, 11 }
+        },
+        {
+          id = 306,
+          terrain = { 0, 11, 11, 11 }
         },
         {
           id = 313,
@@ -1187,6 +1208,18 @@ return {
           terrain = { -1, -1, 10, -1 }
         },
         {
+          id = 316,
+          terrain = { 0, 0, 0, 11 }
+        },
+        {
+          id = 317,
+          terrain = { 0, 0, 11, 11 }
+        },
+        {
+          id = 318,
+          terrain = { 0, 0, 11, 0 }
+        },
+        {
           id = 325,
           terrain = { -1, 10, -1, 10 }
         },
@@ -1199,6 +1232,18 @@ return {
           terrain = { 10, -1, 10, -1 }
         },
         {
+          id = 328,
+          terrain = { 0, 11, 0, 11 }
+        },
+        {
+          id = 329,
+          terrain = { 11, 11, 11, 11 }
+        },
+        {
+          id = 330,
+          terrain = { 11, 0, 11, 0 }
+        },
+        {
           id = 337,
           terrain = { -1, 10, -1, -1 }
         },
@@ -1209,6 +1254,18 @@ return {
         {
           id = 339,
           terrain = { 10, -1, -1, -1 }
+        },
+        {
+          id = 340,
+          terrain = { 0, 11, 0, 0 }
+        },
+        {
+          id = 341,
+          terrain = { 11, 11, 0, 0 }
+        },
+        {
+          id = 342,
+          terrain = { 11, 0, 0, 0 }
         },
         {
           id = 372,
@@ -3173,6 +3230,128 @@ return {
           }
         }
       }
+    },
+    {
+      name = "archer-f",
+      firstgid = 707,
+      filename = "img/human/enemy/archer-f.tsx",
+      tilewidth = 24,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "img/human/enemy/archer-f.png",
+      imagewidth = 72,
+      imageheight = 160,
+      tileoffset = {
+        x = -12,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 24,
+        height = 32
+      },
+      properties = {
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["direction_east"] = 0,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
+      },
+      terrains = {},
+      tilecount = 15,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -10,
+                y = 24,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 10,
+          properties = {
+            ["name"] = "wingman"
+          },
+          animation = {
+            {
+              tileid = 10,
+              duration = 125
+            },
+            {
+              tileid = 11,
+              duration = 125
+            },
+            {
+              tileid = 9,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 11,
+          properties = {
+            ["name"] = "convert"
+          },
+          animation = {
+            {
+              tileid = 11,
+              duration = 66
+            },
+            {
+              tileid = 9,
+              duration = 66
+            }
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "ko"
+          }
+        }
+      }
     }
   },
   layers = {
@@ -3222,7 +3401,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzdmTFz2zAMhTknnXuak85JZrtzndWSVkv6/7+iwh2+0zMOpGw3Q1vc8RJJ5CMAEg8gfSmlHNc2rK1f27i2y9pe1vZRruVtbT+833ltSxgz+vte+ti7nwnG4GMmn38UvN6/D6LbEHAO/m3ycZPgDf5u9ndHfx79OzjoMnof+vfhWec4yhzgdP5ucpsZd/Z+o3xTbPv/aW2fjvNrbd/Et7P/VVtmwcHfimE2fTjWs+MdvR/rwXrhX+z7Hvyi/ka3RTBmf6d+Ocs4G3MS3RQbv/b+P/i9z3EM+rx7Y08egj1PPlf0I75h3qlc78lO/Kl+VLuf5f2hbOthY4iTzt9nGJl0ZYuZi4zLfNYSbDV91GePCHPfMn/khkfE1iTjmXsxbF11jR4RbP9f5avWq7W/4J49sb3fWve974jF4tDoa9+nHSzNaWC9hv7gWJxm9isG/N4n/clZYwVHcxpY8L1yMfkmy63vZeO5pWw8RR6MOXT07/H9XPIcBNd+hv7k0Cxn8E1zYMaT4MwBR7FmaTWuZV/YfJmfVa9ou4n6kXV4Kdf5B4HHta5QPcxerT94jn3JH5pTMn3xpdmecR757ORjMqyTj63xvO5nnT/q3BIwNC+DdQ9Pd+V6nR/lMZ13L+9ovRG5QPvgo1atTC0a69fYhzXN1pO4MZwxmc/6EOfW4p7XeajLBx8T+Unr1ohDXBE3xGq0TWvFbI91ZavrsakvebxiWyboy1hq2siL6PRcwelEF2rZGke1BLvheM4ErZxZ219gURtmfnzz8a+lnQdbNWWsi8kb99RlYJzLZjNrkfFrTeBSct4ieHt+VCF/sZeJiyx37enDWur5K8tPLdF40LPt5U4cxTId8Mu9+1SxyAV/Wj9/tcC9Wc7dE/jbxnPubcVHTWz9leO0LrsVS+OLMxp7G93iObeWS9AFrKVs9ybW9Ewb95bqAWfq3YSe4RUn5hv4GH8Q81EfnV/PzGBpTbOUjXeOZYvbmBMP0l/PutRZyhl6j5DVvVOCQ7yrf4j5rL4F51xyfeCKs9hErlMua91XYBM+vchzPBeApVyvHIZOek9VqxmiaI4k3y6CEe+hahLreO7CllKvafewyNWtmvYWrEfH/kvyt93bcD5/lOepa+GkrPa7BUPvM5cHcDh3waNgGta9uULvz4kTw8lq8pouxLuN07tWnm/F0Tt65Tpquz0cXWe4GHvgWMPc8xFcq3Uq/2MXNrfWDZxRbNDfDbi/uQVHuZgW7/736lbNFfpbCjyt+XFPH3zLOun+IZctO/ro2Qx+xh72N+fVmj6sud4daQ2NnuTFmj7YBMYgY4h1zdc1fchd+tvQImOxlTVo4bDf9HcqdGQfMk/LLvad1hjqZ60VavroXu7L9XkHvVTXWox1Mp6x7JnfUXsKhA=="
+      data = "eJzlmT1P5DAQhqcGapQargbq3avh2k3Sbjb//1dcLM2jvDuMnSycdAWWLDaJ/Xq+Zzyczey4zGGZ/TLHZZ6X+bTMN7seL8v85etOy5zDntHf97KmvPudYAy+Z/LzR8Hr/fsgtA0B5+DfJt83Cd7g7y7+7ujPo38HB1pGX8P6PjzrGUc5A5zO303OM/tOvm6Ub4pdft8t84/jvC/zQWR78b/Ky0VwkLdiFJ7eHOve8Y6+Dn2gL+QLf49BLipvaJsFA/pULifZV/Z8CG2KjVx7+c3z7HhKz6tPbPKQ8IPdnIQWZMO5k13bZCfrseHeVh2fg2wOtuqjrMNPOpHN0Vb993atdz2X885Cp9oAckW2yDyzmUuQGbQiU74PImvVL1gf9llnvH+w1Vbw07uwds+A5sn3x/NuxfrO/p8yYiz/yig+9Ljxfc85xfaz/LL3O6PY99BYi/23sDSngfUc1oNT/DTjXzHw8z5ZT84aKzia08Ai3quvkm+y3Ppqa5ybbY1T5MGYQ4l38f3F8hxU1kefByfi4+d80xyYxQ1wLpbHJuIcsxZ7sItyXiZnpSvyXobKET082XX+YRDHs3hKjtL6g+e4lvyhOSWjF1kW3kt+j/yTz9B3hvXhe2txU+15ttX2I82toXlec07Ge2tg69RRX8070X5iLRhpp96IsaCMg63xAn+PdqZ17myf61dw+IZOM33iN7PTHXXa2ern/QYt1COD74nxSevWiINfoQd8NfKmtWJmY52ttQg8UXPFM+EtG9DLXmwtxkVouq/gdEILNvodGyPGY/OtnJnZl2JRG2ZyfPH9z9bOg60aKdbF5I09+TdiULOqLrL4WhvEUnLeLHhbctRB/tIaHHu9RafYKXYObVl+ag31B73b3hpTFavQgFy+UoODRS7Icsn/HMTeLOduDeJ32c+9t+UftVH0rzFO67K9WOpf3MGwbWiL99xa3wVawJpt7ZuUGe+WWd8F38QONU5RoylOzDfEY+SBz0d69Hy9M4OlNc1sa9zRu3PMiQdZrzmXOktjhvYRsrp3SnDwd5UPPp/Vt+CcLKeHWEE9Rr8i5mi988d+BTwh07M8x3sBWBrrNYZBk/apajVDHJojybezYMQ+VG3EOoxe2Gz1mnYLi1zdqmn3YP2EPsK/6gPcGkszDOJR7W61F4Natlb77cEgtmqP89Z7ivbswCxYt+YK7Z/jJwUnq8lrtODvZZ/2Wnnei6M9eo111HZbOKpnYjH8aL92S0bEWq1T+Q1f8NzSGzij8KD/N+A+twdHYzEz9v636lbNFfq/FOK05sctepAtelL7yXrZ2dC7GfEZfrBv7qs1etC59o60hoZO8mKNHngCY5A9+Lrm6xo95C7939Ase+EVHbRwtAeB/UKj9ktavkr/gLPRt8pZa4UaPWrLvV3fd6BLaa35WCf72YvN/AV0hxz7"
     },
     {
       type = "tilelayer",
@@ -3789,7 +3968,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 208,
+          y = 240,
           width = 288,
           height = 16,
           rotation = 0,
@@ -3958,8 +4137,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 48,
-          y = 152,
+          x = 64,
+          y = 192,
           width = 32,
           height = 32,
           rotation = 0,
@@ -3986,8 +4165,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 224,
-          y = 168,
+          x = 216,
+          y = 184,
           width = 32,
           height = 32,
           rotation = 0,
@@ -4106,140 +4285,174 @@ return {
           gid = 427,
           visible = true,
           properties = {}
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "catapults3",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 208,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 256,
-          y = 240,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 449,
-          visible = true,
-          properties = {
-            ["offscreenshot"] = false,
-            ["pathid"] = 213
-          }
         },
         {
-          id = 209,
-          name = "operator",
-          type = "CatapultOperator",
-          shape = "rectangle",
-          x = 272,
-          y = 220,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 620,
-          visible = true,
-          properties = {
-            ["rideid"] = 208
-          }
-        },
-        {
-          id = 210,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 32,
-          y = 240,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 447,
-          visible = true,
-          properties = {
-            ["offscreenshot"] = false,
-            ["pathid"] = 212
-          }
-        },
-        {
-          id = 211,
-          name = "operator",
-          type = "CatapultOperator",
-          shape = "rectangle",
-          x = 16,
-          y = 220,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 620,
-          visible = true,
-          properties = {
-            ["rideid"] = 210
-          }
-        },
-        {
-          id = 212,
-          name = "path",
+          id = 320,
+          name = "fire",
           type = "",
-          shape = "polyline",
-          x = -16,
-          y = 128,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 48, y = 112 },
-            { x = 112, y = 176 },
-            { x = 112, y = 368 }
-          },
-          properties = {
-            ["script"] = "PathGraph"
-          }
-        },
-        {
-          id = 213,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 336,
-          y = 128,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -80, y = 112 },
-            { x = -144, y = 176 },
-            { x = -144, y = 368 }
-          },
-          properties = {
-            ["script"] = "PathGraph"
-          }
-        },
-        {
-          id = 214,
-          name = "",
-          type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 256,
-          width = 288,
-          height = 16,
+          y = 216,
+          width = 64,
+          height = 64,
           rotation = 0,
+          gid = 441,
           visible = true,
-          properties = {
-            ["objectsinitiallayer"] = "ground",
-            ["triggertype"] = "activategroup"
-          }
+          properties = {}
+        },
+        {
+          id = 321,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 184,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 436,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 322,
+          name = "bush",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 240,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 421,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 323,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 192,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 441,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 324,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 16,
+          y = 176,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 436,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 326,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 216,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 436,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 327,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 248,
+          y = 216,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 424,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 328,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 280,
+          y = 232,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 441,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 329,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 184,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 436,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 330,
+          name = "fire",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 184,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 441,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 331,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 280,
+          y = 176,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 436,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 332,
+          name = "tree",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 224,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 436,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -4258,15 +4471,15 @@ return {
           name = "pikemanleader",
           type = "Pikeman",
           shape = "rectangle",
-          x = 152,
-          y = 288,
+          x = 336,
+          y = 240,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 205
+            ["pathid"] = 319
           }
         },
         {
@@ -4274,8 +4487,8 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 168,
-          y = 256,
+          x = 192,
+          y = 240,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4290,15 +4503,15 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 120,
-          y = 256,
+          x = -48,
+          y = 240,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 206
+            ["pathid"] = 318
           }
         },
         {
@@ -4306,8 +4519,8 @@ return {
           name = "pikemanleader",
           type = "Pikeman",
           shape = "rectangle",
-          x = 136,
-          y = 288,
+          x = 96,
+          y = 240,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4322,8 +4535,8 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 176,
-          y = 240,
+          x = 192,
+          y = 200,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4338,15 +4551,15 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 112,
-          y = 240,
+          x = -80,
+          y = 208,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 206
+            ["pathid"] = 318
           }
         },
         {
@@ -4354,15 +4567,15 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 160,
-          y = 272,
+          x = 368,
+          y = 208,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 205
+            ["pathid"] = 319
           }
         },
         {
@@ -4370,8 +4583,8 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 128,
-          y = 272,
+          x = 96,
+          y = 200,
           width = 24,
           height = 32,
           rotation = 0,
@@ -4386,20 +4599,17 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = 192,
-          y = 160,
+          x = 232,
+          y = 104,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = -40, y = 144 },
-            { x = -40, y = 288 },
-            { x = 48, y = 288 },
-            { x = 48, y = 400 }
+            { x = -40, y = 544 }
           },
           properties = {
-            ["beziercurve"] = true,
             ["script"] = "PathGraph"
           }
         },
@@ -4408,20 +4618,17 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = 80,
-          y = 160,
+          x = 40,
+          y = 104,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 56, y = 144 },
-            { x = 56, y = 288 },
-            { x = -32, y = 288 },
-            { x = -32, y = 400 }
+            { x = 56, y = 544 }
           },
           properties = {
-            ["beziercurve"] = true,
             ["script"] = "PathGraph"
           }
         },
@@ -4431,7 +4638,7 @@ return {
           type = "Trigger",
           shape = "polyline",
           x = 0,
-          y = 336,
+          y = 256,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4440,6 +4647,178 @@ return {
             { x = 0, y = 0 },
             { x = 288, y = 0 }
           },
+          properties = {
+            ["objectsinitiallayer"] = "ground",
+            ["triggertype"] = "activategroup"
+          }
+        },
+        {
+          id = 318,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 32,
+          y = 152,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -80, y = 88 },
+            { x = 64, y = 232 },
+            { x = 64, y = 552 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 319,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 136,
+          y = 152,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 200, y = 88 },
+            { x = 56, y = 232 },
+            { x = 56, y = 552 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "catapults3",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 208,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 168,
+          y = 336,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 448,
+          visible = true,
+          properties = {
+            ["offscreenshot"] = false,
+            ["pathid"] = 213
+          }
+        },
+        {
+          id = 209,
+          name = "operator",
+          type = "CatapultOperator",
+          shape = "rectangle",
+          x = 168,
+          y = 304,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 620,
+          visible = true,
+          properties = {
+            ["rideid"] = 208
+          }
+        },
+        {
+          id = 210,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 120,
+          y = 336,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 448,
+          visible = true,
+          properties = {
+            ["offscreenshot"] = false,
+            ["pathid"] = 212
+          }
+        },
+        {
+          id = 211,
+          name = "operator",
+          type = "CatapultOperator",
+          shape = "rectangle",
+          x = 120,
+          y = 304,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 620,
+          visible = true,
+          properties = {
+            ["rideid"] = 210
+          }
+        },
+        {
+          id = 212,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 72,
+          y = 224,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 48, y = 112 },
+            { x = 48, y = 160 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 213,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 248,
+          y = 224,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -80, y = 112 },
+            { x = -80, y = 160 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 214,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = 352,
+          width = 288,
+          height = 16,
+          rotation = 0,
+          visible = true,
           properties = {
             ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
@@ -4894,7 +5273,7 @@ return {
     },
     {
       type = "objectgroup",
-      name = "pikemen4",
+      name = "swordsmen4",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -4902,125 +5281,13 @@ return {
       draworder = "topdown",
       properties = {},
       objects = {
-        {
-          id = 117,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 72,
-          y = 448,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 96 },
-            { x = 24, y = 96 },
-            { x = 24, y = 176 },
-            { x = -24, y = 176 },
-            { x = -24, y = 352 },
-            { x = 24, y = 352 }
-          },
-          properties = {
-            ["beziercurve"] = true,
-            ["script"] = "PathGraph"
-          }
-        },
-        {
-          id = 118,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 216,
-          y = 448,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 96 },
-            { x = -24, y = 96 },
-            { x = -24, y = 176 },
-            { x = 24, y = 176 },
-            { x = 24, y = 352 },
-            { x = -24, y = 352 }
-          },
-          properties = {
-            ["beziercurve"] = true,
-            ["script"] = "PathGraph"
-          }
-        },
-        {
-          id = 120,
-          name = "pikemanleader",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 72,
-          y = 544,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 653,
-          visible = true,
-          properties = {
-            ["pathid"] = 117
-          }
-        },
-        {
-          id = 122,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 72,
-          y = 480,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 653,
-          visible = true,
-          properties = {
-            ["pathid"] = 117
-          }
-        },
-        {
-          id = 123,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 216,
-          y = 480,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 653,
-          visible = true,
-          properties = {
-            ["pathid"] = 118
-          }
-        },
-        {
-          id = 125,
-          name = "pikemanleader",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 216,
-          y = 544,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 653,
-          visible = true,
-          properties = {
-            ["pathid"] = 118
-          }
-        },
         {
           id = 129,
           name = "",
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 592,
+          y = 560,
           width = 288,
           height = 16,
           rotation = 0,
@@ -5029,80 +5296,6 @@ return {
             ["objectsinitiallayer"] = "ground",
             ["triggertype"] = "activategroup"
           }
-        },
-        {
-          id = 10,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 72,
-          y = 512,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 653,
-          visible = true,
-          properties = {
-            ["pathid"] = 117
-          }
-        },
-        {
-          id = 20,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 216,
-          y = 512,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 653,
-          visible = true,
-          properties = {
-            ["pathid"] = 118
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "swordsmencatapult",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 140,
-          name = "",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 0,
-          y = 656,
-          width = 288,
-          height = 16,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["objectsinitiallayer"] = "ground",
-            ["triggertype"] = "activategroup"
-          }
-        },
-        {
-          id = 141,
-          name = "swordsman",
-          type = "Swordsman",
-          shape = "rectangle",
-          x = -16,
-          y = 744,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 698,
-          visible = true,
-          properties = {}
         },
         {
           id = 142,
@@ -5117,6 +5310,48 @@ return {
           gid = 698,
           visible = true,
           properties = {}
+        },
+        {
+          id = 141,
+          name = "swordsman",
+          type = "Swordsman",
+          shape = "rectangle",
+          x = -16,
+          y = 744,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 698,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      name = "pikemencatapult",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 140,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = 624,
+          width = 288,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["objectsinitiallayer"] = "ground",
+            ["triggertype"] = "activategroup"
+          }
         },
         {
           id = 188,
@@ -5168,6 +5403,140 @@ return {
           visible = true,
           properties = {
             ["rideid"] = 128
+          }
+        },
+        {
+          id = 20,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 216,
+          y = 576,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 653,
+          visible = true,
+          properties = {
+            ["pathid"] = 118
+          }
+        },
+        {
+          id = 10,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 72,
+          y = 576,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 653,
+          visible = true,
+          properties = {
+            ["pathid"] = 117
+          }
+        },
+        {
+          id = 125,
+          name = "pikemanleader",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 216,
+          y = 608,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 653,
+          visible = true,
+          properties = {
+            ["pathid"] = 118
+          }
+        },
+        {
+          id = 123,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 216,
+          y = 544,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 653,
+          visible = true,
+          properties = {
+            ["pathid"] = 118
+          }
+        },
+        {
+          id = 122,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 72,
+          y = 544,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 653,
+          visible = true,
+          properties = {
+            ["pathid"] = 117
+          }
+        },
+        {
+          id = 120,
+          name = "pikemanleader",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 72,
+          y = 608,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 653,
+          visible = true,
+          properties = {
+            ["pathid"] = 117
+          }
+        },
+        {
+          id = 118,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 216,
+          y = 512,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 96 },
+            { x = 0, y = 512 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 117,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 72,
+          y = 512,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 96 },
+            { x = 0, y = 512 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
           }
         }
       }
@@ -5566,6 +5935,24 @@ return {
           gid = 608,
           visible = true,
           properties = {
+            ["pathid"] = 146,
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 189,
+          name = "archerf",
+          type = "Archer",
+          shape = "rectangle",
+          x = 144,
+          y = 1008,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 710,
+          visible = true,
+          properties = {
+            ["convertible"] = true,
             ["pathid"] = 146,
             ["pathmode"] = "relative"
           }
@@ -6243,7 +6630,7 @@ return {
       objects = {
         {
           id = 25,
-          name = "path",
+          name = "pathfront",
           type = "",
           shape = "polyline",
           x = 144,
@@ -6253,17 +6640,10 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 112 },
-            { x = -48, y = 112 },
-            { x = -48, y = 256 },
-            { x = 48, y = 256 },
-            { x = 48, y = 400 },
-            { x = -48, y = 400 },
-            { x = -48, y = 544 },
+            { x = 48, y = 96 },
             { x = 48, y = 544 }
           },
           properties = {
-            ["beziercurve"] = true,
             ["script"] = "PathGraph"
           }
         },
@@ -6272,16 +6652,15 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 160,
-          y = 1152,
+          x = 328,
+          y = 1200,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 25,
-            ["pathmode"] = "relative"
+            ["pathid"] = 317
           }
         },
         {
@@ -6289,16 +6668,15 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 96,
-          y = 1136,
+          x = 192,
+          y = 1072,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 25,
-            ["pathmode"] = "relative"
+            ["pathid"] = 25
           }
         },
         {
@@ -6306,16 +6684,15 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 128,
-          y = 1152,
+          x = 288,
+          y = 1200,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 25,
-            ["pathmode"] = "relative"
+            ["pathid"] = 317
           }
         },
         {
@@ -6324,15 +6701,14 @@ return {
           type = "Pikeman",
           shape = "rectangle",
           x = 192,
-          y = 1136,
+          y = 1152,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 25,
-            ["pathmode"] = "relative"
+            ["pathid"] = 25
           }
         },
         {
@@ -6352,38 +6728,19 @@ return {
           }
         },
         {
-          id = 189,
-          name = "pikewoman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 144,
-          y = 1120,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 638,
-          visible = true,
-          properties = {
-            ["convertible"] = true,
-            ["pathid"] = 25,
-            ["pathmode"] = "relative"
-          }
-        },
-        {
           id = 31,
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 176,
-          y = 1120,
+          x = 192,
+          y = 1112,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 25,
-            ["pathmode"] = "relative"
+            ["pathid"] = 25
           }
         },
         {
@@ -6391,120 +6748,42 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 112,
-          y = 1120,
+          x = 368,
+          y = 1200,
           width = 24,
           height = 32,
           rotation = 0,
           gid = 653,
           visible = true,
           properties = {
-            ["pathid"] = 25,
-            ["pathmode"] = "relative"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "pikemen2b",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 33,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 384,
-          y = 1216,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 653,
-          visible = true,
-          properties = {
-            ["pathid"] = 15
+            ["pathid"] = 317
           }
         },
         {
-          id = 22,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 288,
-          y = 1216,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 653,
-          visible = true,
-          properties = {
-            ["pathid"] = 15
-          }
-        },
-        {
-          id = 15,
-          name = "path",
+          id = 317,
+          name = "pathside",
           type = "",
           shape = "polyline",
-          x = 256,
-          y = 1328,
+          x = 240,
+          y = 1104,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 32, y = -112 },
-            { x = -80, y = -112 },
-            { x = -80, y = 256 }
+            { x = 48, y = 96 },
+            { x = -48, y = 136 },
+            { x = -48, y = 496 }
           },
           properties = {
-            ["beziercurve"] = true,
             ["script"] = "PathGraph"
-          }
-        },
-        {
-          id = 16,
-          name = "leader",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 336,
-          y = 1216,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 653,
-          visible = true,
-          properties = {
-            ["pathid"] = 15
-          }
-        },
-        {
-          id = 190,
-          name = "trigger",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 0,
-          y = 1184,
-          width = 288,
-          height = 16,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["objectsinitiallayer"] = "ground",
-            ["triggertype"] = "activategroup"
           }
         }
       }
     },
     {
       type = "objectgroup",
-      name = "pikemen2a",
+      name = "pikemen2",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -6514,22 +6793,21 @@ return {
       objects = {
         {
           id = 5,
-          name = "path",
+          name = "pathside",
           type = "",
           shape = "polyline",
           x = 56,
-          y = 1184,
+          y = 1216,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -56, y = 32 },
-            { x = 56, y = 32 },
-            { x = 56, y = 400 }
+            { x = -56, y = 16 },
+            { x = 40, y = 56 },
+            { x = 40, y = 416 }
           },
           properties = {
-            ["beziercurve"] = true,
             ["script"] = "PathGraph"
           }
         },
@@ -6538,8 +6816,8 @@ return {
           name = "leader",
           type = "Pikeman",
           shape = "rectangle",
-          x = -48,
-          y = 1216,
+          x = -40,
+          y = 1232,
           width = 24,
           height = 32,
           rotation = 0,
@@ -6555,7 +6833,7 @@ return {
           type = "Pikeman",
           shape = "rectangle",
           x = 0,
-          y = 1216,
+          y = 1232,
           width = 24,
           height = 32,
           rotation = 0,
@@ -6586,8 +6864,8 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = -96,
-          y = 1216,
+          x = -80,
+          y = 1232,
           width = 24,
           height = 32,
           rotation = 0,
@@ -6595,6 +6873,73 @@ return {
           visible = true,
           properties = {
             ["pathid"] = 5
+          }
+        },
+        {
+          id = 16,
+          name = "leader",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 96,
+          y = 1144,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 653,
+          visible = true,
+          properties = {
+            ["pathid"] = 15
+          }
+        },
+        {
+          id = 15,
+          name = "pathfront",
+          type = "",
+          shape = "polyline",
+          x = 176,
+          y = 1384,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -80, y = -200 },
+            { x = -80, y = 248 }
+          },
+          properties = {
+            ["script"] = "PathGraph"
+          }
+        },
+        {
+          id = 22,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 96,
+          y = 1184,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 653,
+          visible = true,
+          properties = {
+            ["pathid"] = 15
+          }
+        },
+        {
+          id = 33,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 96,
+          y = 1104,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 653,
+          visible = true,
+          properties = {
+            ["pathid"] = 15
           }
         }
       }

@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0.0" orientation="orthogonal" renderorder="right-up" width="30" height="40" tilewidth="8" tileheight="8" nextobjectid="3">
+<map version="1.0" tiledversion="1.0.1" orientation="orthogonal" renderorder="right-up" width="30" height="40" tilewidth="8" tileheight="8" nextobjectid="3">
  <properties>
   <property name="cameraid" type="int" value="2"/>
   <property name="overlaymap" type="file" value="../gameplay.lua"/>
   <property name="playerid" type="int" value="1"/>
  </properties>
  <tileset firstgid="1" source="../img/imp.tsx"/>
- <tileset firstgid="4" source="../img/playerhitbox.tsx"/>
- <tileset firstgid="5" source="../img/demonshots.tsx"/>
- <tileset firstgid="9" source="../img/demonbomb.tsx"/>
- <tileset firstgid="17" source="../img/demonizing.tsx"/>
- <tileset firstgid="20" source="../img/demonwomen.tsx"/>
- <tileset firstgid="59" source="../img/humanshots.tsx"/>
- <tileset firstgid="91" source="../img/sparks_small.tsx"/>
- <tileset firstgid="107" source="../img/sparks_med.tsx"/>
- <tileset firstgid="119" source="../img/sparks_huge.tsx"/>
- <tileset firstgid="139" source="../img/particles.tsx"/>
- <tileset firstgid="155" source="../img/powergauge.tsx"/>
  <objectgroup name="camera">
   <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>

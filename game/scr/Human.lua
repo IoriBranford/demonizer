@@ -63,7 +63,6 @@ function Human:_init(object)
 	end
 
 	self.shooter = levity.scripts:newScript(self.id, "Shooter", self.object)
-
 	self.pulledbyplayer = false
 	self.captured = false
 
@@ -300,7 +299,7 @@ function Human:defeat()
 
 	levity.bank:play(Sounds.KO)
 	levity.bank:play(Sounds.Explode)
-	levity.scripts:broadcast("npcKnockedOut", self.object.id)
+	levity.scripts:broadcast("humanKnockedOut", self.object.id)
 	levity.scripts:broadcast("pointsScored", self.properties.score or 100)
 
 	for _, fixture in ipairs(self.body:getFixtureList()) do

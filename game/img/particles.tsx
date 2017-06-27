@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="particles" tilewidth="4" tileheight="4" tilecount="16" columns="4">
+ <tileoffset x="0" y="4"/>
  <properties>
   <property name="commonanimation" type="int" value="0"/>
  </properties>

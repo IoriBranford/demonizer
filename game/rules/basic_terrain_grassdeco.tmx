@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="16" height="16" tilewidth="16" tileheight="16" nextobjectid="1">
+<map version="1.0" tiledversion="1.0.1" orientation="orthogonal" renderorder="right-up" width="4" height="4" tilewidth="16" tileheight="16" nextobjectid="1">
  <tileset firstgid="1" source="../img/basic_terrain.tsx"/>
  <tileset firstgid="385" source="../img/forest.tsx"/>
- <layer name="regions_input" width="16" height="16">
+ <layer name="regions_input" width="4" height="4">
   <data encoding="base64" compression="zlib">
-   eJyTYhgFo2AUjFQAAGwAABs=
+   eJyTYoAAKQbyAAAMcAA1
   </data>
  </layer>
- <layer name="regions_output" width="16" height="16">
+ <layer name="regions_output" width="4" height="4">
   <data encoding="base64" compression="zlib">
-   eJxjYhgFo2AUjFQAAAwAAAM=
+   eJxjYoAAJgbyAAABMAAF
   </data>
  </layer>
- <layer name="input_grass" width="16" height="16">
+ <layer name="input_grass" width="4" height="4">
   <data encoding="base64" compression="zlib">
-   eJyzYBgFo2AUjFQAAOQAADk=
+   eJyzYIAAIwbyAAAZMABr
   </data>
  </layer>
- <layer name="output2_grassdeco" width="16" height="16">
+ <layer name="input_grass" width="4" height="4">
   <data encoding="base64" compression="zlib">
-   eJzrZGQYBaNgFIxQAAAsHQCL
+   eJyzYIAAUwbyAAAZ2ABu
   </data>
  </layer>
- <layer name="output4_grassdeco" width="16" height="16">
+ <layer name="output2_grassdeco" width="4" height="4">
   <data encoding="base64" compression="zlib">
-   eJzrYmQYBaNgFIxQAAAwHQCM
+   eJzrZGQAg0YoTSoAAD8uAQ0=
   </data>
  </layer>
- <layer name="output5_grassdeco" width="16" height="16">
+ <layer name="output4_grassdeco" width="4" height="4">
   <data encoding="base64" compression="zlib">
-   eJzrZmQYBaNgFIxQAAA0HQCN
+   eJzrYmQAgyYoTSoAAD+mAQ8=
   </data>
  </layer>
- <layer name="output3_grassdeco" width="16" height="16">
+ <layer name="output3_grassdeco" width="4" height="4">
   <data encoding="base64" compression="zlib">
-   eJzrYWQYBaNgFIxQAAA4HQCO
+   eJzrYWQAgxYoTSoAAECWARM=
   </data>
  </layer>
- <layer name="output1_grassdeco" width="16" height="16">
+ <layer name="output1_grassdeco" width="4" height="4">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjFQAAAQAAAE=
+   eJzrZmQAg2YoTSoAAEAeARE=
   </data>
  </layer>
 </map>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.1" orientation="orthogonal" renderorder="right-up" width="18" height="180" tilewidth="16" tileheight="16" nextobjectid="6">
+ <properties>
+  <property name="cameraid" type="int" value="1"/>
+  <property name="music" type="file" value="mus/16 - Shrine.vgm"/>
+  <property name="overlaymap" type="file" value="gameplay.lua"/>
+  <property name="playerid" type="int" value="2"/>
+ </properties>
+ <tileset firstgid="1" source="img/temple.tsx"/>
+ <tileset firstgid="2049" source="img/imp.tsx"/>
+ <tileset firstgid="2052" source="img/basic_terrain.tsx"/>
+ <layer name="dirt" width="18" height="180">
+  <data encoding="base64" compression="zlib">
+   eJztl0tuBCEMBXvJ/W/ALWCPOFcSqZGqK69nH8VPQsPQ4D+2ua5CoVAoFAqFQqFQKBQKRm/Xte8xvse6x1lf9/rPfN7zfq/ve37GwPeJcwNj3d9WoD21trH/8DhrHd8oO2UhTfKc4HnOcG5bLNDqOHt4meYOZ5fGsRP1X1ijrqRpe9rm9MPS2gpz2q9rfnSjLWznI5NlJF/6Y7dnfHSt0/aOlyk+h4f949hjHCz9t914H6Zocf3Q2u1pU8bwas84pu5nD+MoyUi5uugO7Tn0fYd2e7ffAN/dnnbb4cyRs1Ao/B84v5xf5o1US0f7nYNT3Ts5xrWXedX5crTf9WIEmqwVrDWssW/9j+sg/1Ou/uEsZaccrC+0ZdrjvqeLXqoT7qmS/u7bWJeSPG+6D/Ga4btr02zZDtaNemzxt1zsM1Iv6n7CsnN9i7bjwXZnfbddUzy4h2KNHtpDuqkXZoywL6Tdku9S/+Iexz3/Wy+9xdc9MnsW96KUPfV21Nl92psdHKPuB32X/SZJMm8N914pv9Dn7ksZR+5/nRN5lxwzb3o5tsn7be7Yc59rXzmG/CZIPTTvJu3ue089+UbwXaIdUs1JtqA//VblnhTjn2oGZXFNpL8ZQ4wdysN8Zfv5fZJqAn1FHvax15M/HLOkzRiwj9L70O8My+m3UrKX8xr977iZgcan2kqazFXU23eQurIWphizr5070h1jPFlf8vO7ML0NmWtsk9Sj+a5TDvov1fKUT3mOshcKhUKhUCgUCoVCoVAo/HV8AVTkwOc=
+  </data>
+ </layer>
+ <layer name="grass" width="18" height="180">
+  <data encoding="base64" compression="zlib">
+   eJztlU9Lw0AUxHPSHEXJTUVvInhrbL2J4K1Jrkn2G+ZTugszdFqEviiIh/nBI02anbx/+7aqjDHGGGOMMcYYY4wxxhjz19zVVfVc/15nzBq32V5+qPWU1z1ka7N10FrrV9F4zLbLNmUb8HuNFjUWaJS4UrY+2z7ba1Bni/fL92fodbiW528BneLLPTSo1cH28O0moHONNfM3Wgl5iuokye8O9x182Qd0tEaL5GMR/4ZAnq+xjt/uJaYW/i1BnQVrRrn2UvMpUK9G1tKn03qVXF0F/BnlferQpw7XczoN8qhxtNCc8d8YyM9Was7+7fEsiea5um+l1szRhPsZ1q+ol8ZBn7jfp0B+6M8ELeZnlN5eAnFp/yziU5L+7oI6k+S2hxZ7iXPoXFwb6EyyD5gj7vs22M+MYYIfzC17sw3WvZUac14s0gdDsF6sC+vMvckYo3FxNszSv4PopeC+GOvjmd7JszbYz5v6sL+G+jAD2X9F4zLbR0CHPcKcMsf0LXJ2NfXxzNK92UMvcnY1WM8ZpOcPfYv4857fuZDcDCda0TOwsMF3eW5pLw3BuKhDP5jfUfZK1B+d9XruJNT8M6ijOWKNOMeiMalPzG9audYYY4wxxhhjjDHmP/IFKq9zeQ==
+  </data>
+ </layer>
+ <layer name="base" width="18" height="180">
+  <data encoding="base64" compression="zlib">
+   eJzt2MtOwlAUhWGE1gsM1QeSUqEQH8oLVHSiiS+kqHiZaKzv43/MaShHC6WpMdG1ki8n0M0OMIB0JV6tllRgx69GFe+lyvdz4Dhk9xGOcYIhYpxijDOce19f51pjpo0AHYTooocIfbQK7NkrsGdQYE9Vn+uamRtMcIs7TPGARzzhucj3gzoa8OBjA5vYQhOtJTs+vx+0EaCDEF30EKGPQYE9IiIiIiKS78rLt8ps3v3dOy5wmTnfStwP7uKF66/e7NzOmTUURVFWzW//Hv8XP/2/k3yzp2wP6e5ZNGv6wnqB3ixP0/aJaV9Ydk/aJ6Z9YWi7R9M5jmx/OLZi+ziyM5F9Psz0iW5fmD1Nd3hvTW1/mPaIE6dPdPvC7Gm6w3XLdIimP0x7xIY/3ye6fWH2NN3hvmU6RNMfpj1i4M/3iYsy5PrIipfMKoqiKIqiKIqiKIqiKIqiKIqiKMpfygfcErEE
+  </data>
+ </layer>
+ <layer name="deco" width="18" height="180">
+  <data encoding="base64" compression="zlib">
+   eJzt0k0KgCAQBlA33p9+blYHyo0QQtgiFeM9GIRx4cc4IfAnRwzhjKNT0MqW/nZPtaRab2dW9sv7r9XeK/s5f+s85Zze5m2VZ5b/qu1X7zyj5jPb/jzlBQAAAAAAAAAAAICeLr6HOjo=
+  </data>
+ </layer>
+ <layer name="frontwall" width="18" height="180">
+  <data encoding="base64" compression="zlib">
+   eJztzrENwCAMBEAKZ4MMDpsFKQPhLlQpCE2kO+n1hV18KQAAAADAV3fsyXnsiT3re2qmTb2658p7j6fffgEAAAAAAAD+bgDXvkWp
+  </data>
+ </layer>
+ <layer name="facade" width="18" height="180" offsetx="8" offsety="8">
+  <data encoding="base64" compression="zlib">
+   eJzt0ldOI1EQQFHCLhgnjPOScAScl0TOaUnkjM0qONK8+WB+ZhZQVzoqtV6rpH7qhYUoiqIoiqIoiqIoiqIo+ncr/CJDlhx5CqxSZI0SZSpUqVGnkfas06RFmw5demywyRZ9BgwZMWbCNO3ZZodd9tjngEOOOOaEU84454JLrrhOe2645Y57HnjkiWdeeOWNdz74ZMacrz/3s+h+yJAlR54CqxRZo0SZClVq1Gkspvsxm7Ro06FLjw022aLPgCEjxkyYpj3b5g677LHPAYccccwJp5xxzgWXXHGd9tyYt9xxzwOPPPHMC6+88c4Hn8yY85X2rCy5HzJkyZGnwCpF1ihRpkKVGnUaS+l+zCYt2nTo0mODTbboM2DIiDETpmnPtrnDLnvsc8Dh0s///tTzGedccMkV1+m9G/OWO+554JGndP6S5pv5zgefzJjzlc5Xlt0PGbLkyFNY/n1eTLNklqlQpUadRjpfN5u0aNOhS2/553f1PQ8YMmLMhOlf70VRFEVRFEVRFEVRFEVRFEVRFEVRFP1v39RwbGI=
+  </data>
+ </layer>
+ <objectgroup name="camera">
+  <object id="1" name="camera" type="Camera" x="24" y="1600" width="240" height="320">
+   <properties>
+    <property name="pathid" type="int" value="5"/>
+    <property name="pathspeed" type="float" value="30"/>
+   </properties>
+  </object>
+  <object id="5" name="path" x="24" y="1128">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,472 0,-1128"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="sparks"/>
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
+  <object id="2" name="player" gid="2049" x="144" y="1952" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="notes">
+  <properties>
+   <property name="static" type="bool" value="true"/>
+  </properties>
+  <object id="4" x="80" y="976" width="128" height="32">
+   <text wrap="1" halign="center" valign="center">Front yard</text>
+  </object>
+ </objectgroup>
+</map>

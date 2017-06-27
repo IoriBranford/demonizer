@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.1" orientation="orthogonal" renderorder="right-up" width="18" height="120" tilewidth="16" tileheight="16" nextobjectid="4">
+ <properties>
+  <property name="cameraid" type="int" value="2"/>
+  <property name="music" type="file" value="mus/09 - Blue Sky Laundry.vgm"/>
+  <property name="overlaymap" type="file" value="gameplay.lua"/>
+  <property name="playerid" type="int" value="1"/>
+ </properties>
+ <tileset firstgid="1" source="img/imp.tsx"/>
+ <tileset firstgid="4" source="img/basic_terrain.tsx"/>
+ <tileset firstgid="388" source="img/village.tsx"/>
+ <tileset firstgid="558" source="img/forest.tsx"/>
+ <layer name="dirt" width="18" height="120">
+  <data encoding="base64" compression="zlib">
+   eJyVlctx5DAMBZV/FsxiAlAOm87uYVylancD2gNLskyCwPvNua7r8133v3W+7+e7bjzPY//B88a+n3MffL9x1426z37seeT9XL/7eJ5hzU+c4UxHanzwP1vcR5ym+4nVQV3DynDid+JGjngPeeMs1eufx/rZ//xmvJk+yAl5M96nuWufzUUd8d6Jc/Zs+JMv8ksvsQfORL0aNuzdtGyeJabl7fKscTlxbvfRH3VnnTffcRk31P7UPznnueLCsnOrZ7xRyzY/M8S0Ur1VxpS2piytjHnzfcOuvF36tGz5oLZpdfKbaWvrj/tML1N9q2tam7Kk/rb91NbUx+RJO2N5WxxVzm7eMC3VnaZpat5yorxg2chaxgnPbrlfGi/N837eN+2x3sy3VZO5tOnK8CIupjHDzfQz6YLa4jufNWdlKO80XG3m0o71Q69XhpX3qS3D3nolN1P2l3cmXM0zW05NOWm6nDiftGXcGsZ1r+mwcLH8srnZO7Og/GE8T3lr+rZeiVtlGfnl/ybtTHxOGLDmxqs9mbu3LMsKq00NWq+2LJsK//LK9jtDrrfvpZnyhs1nOWn6t/ybMpJZaD2U3nhX8Vu/F8Wz+d3ypLLeeqkaWwb9T+6wJ8vmKWOIa/VteWRzGzbsh1orHEu35Z/SqWnIvFW+Kq6sNvuqfGF2VG/khhhaBhvOb/ZbVvE3gfWsDv1j+jDPs0bpxLy/+YgYlIeYVRs3nLn6q4y2zKy95iXDYfMeOeK8bzLHdD551d5L/6xX+Vyar9xgTpqv62zpxmobbpbRhXfVKf2VRk0f7L1wsrsrd+gby1Pj/Vy/MTSOilfiYnltGNAnlmPs1/ApzdiaPF41K/crByzvzFd2N1dhTd1OuuTMhVH1M+Wx4bblSGnc8mTKOvM9Z7BMqLnfZqDN/5YL44Y4VybRG3Z+0zF1N/lx0rthWvm/3UmNWVYXRpOOOI89N3xNF+Tf9hsv5cPKzvLMpMPK3NInfVS5UtlmejFNvMlv00Hx+laHbzDbMtXywbRuGTjlD7/Tc3X/G71M2cf7thwvPEv7lY2Tn561/gIev/ch
+  </data>
+ </layer>
+ <layer name="dirtpaths" width="18" height="120">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20MH6AAAAAAAAAAAHgaIcAAAQ==
+  </data>
+ </layer>
+ <layer name="grass" width="18" height="120">
+  <data encoding="base64" compression="zlib">
+   eJzt0bsKwkAQheFpBEuJpPPaGdFOBDuNKb3Ukvd/D8+SAZfpXCws/g8OYYfN7M3sdzbKtvC/fTY+KNOCPpVyDH0mhX3y9WvlVNCnDuvXVnaueB+VlZ0rrp+P0xvslEaZ2/AeqbbyWmOfN4r3kfYz8/8Wykt5Kr0N75H2f1ceyk1Z+tx16HNVLsrY0/k31Vrl7LXOa6Nsfvv1bQAAAAAAAAAAAAAA8D/ed/wLHw==
+  </data>
+ </layer>
+ <layer name="grassdeco" width="18" height="120">
+  <data encoding="base64" compression="zlib">
+   eJztyKENAAAIwDDCSfx/HAKBQyHbZGYR8Ktyux4AAAAAAAAAMBpefgE5
+  </data>
+ </layer>
+ <layer name="houses" width="18" height="120">
+  <data encoding="base64" compression="zlib">
+   eJztlctKAzEUhifjqlV8AK9vLeJ1KeJ1I4jUSxdWRGq1CxVxoVCoIi4UhKoU/MOcwJkwnaaTFATPBx/JZP4JIZxk5lUU/cBTuAfP4AK5CJfgMlyBqyTPduEcXIdjcfrdBrkJt+A23IG7JM+O49s1tAcB5tm31lMbYJ5aj/XcoL2Fd7ACD2EbPpMv8ARWVTprr6fN8nV4CTvwi/yG17Cp0ll7PR2Wb8ESxsrwEf0nlfRH4+Qdz5r1XNA85jud/cTYBNpJ+I7+h0r6U/SOZ/U85xh7oHnMdzrLifE8Yo3xrJ7nHnO8wWn0ZzLsUo2aNiszC19VJPxz9Nk8gsfUVjNqwiWjz2YDXlHbLJgxZ6bFzmSRjDkz+hxq7XPmmhGGS15NDUJeTblSUfk15UpdhampUqB61HUeYo81PnvM7xGfPeb3iM8e83vEB36P/IV91pi9DlHLjUC1XA5Qz2av+/2PXOn3P8rDrueidwevZ5//0TDqWe7n3oS8nwVBEARBEARBEARBEARB8OcXXGGyGw==
+  </data>
+ </layer>
+ <layer name="rooftops" width="18" height="120">
+  <data encoding="base64" compression="zlib">
+   eJzt1m0KgCAMgOG6fkewogNY0RFbYNCPZsoM+ngf2B8bBHNOqwrAHzW1PdfJeivRSfQSw0meC9+7kHuW42VtlJgkZolFyZlCjEoO3iOn/zSxnspRoqdcoX70D+xr7Wyn2vdaO9spjrPG4jhrnsZa552lzhtXoM4bf1OdrbPj6j5K/b/lPvpDP8feBTli74JUX57PAAAAAAAAAL5nBUZ+L0M=
+  </data>
+ </layer>
+ <objectgroup name="camera">
+  <object id="2" name="camera" type="Camera" x="24" y="1600" width="240" height="320">
+   <properties>
+    <property name="pathid" type="int" value="3"/>
+    <property name="pathspeed" type="float" value="30"/>
+   </properties>
+  </object>
+  <object id="3" name="path" x="24" y="1600">
+   <properties>
+    <property name="script" value="PathGraph"/>
+   </properties>
+   <polyline points="0,0 0,-1600"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="sparks"/>
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
+  <object id="1" name="player" gid="1" x="144" y="1952" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -50,12 +50,12 @@ function ShmupTouchControls:touchpressed(touch, x, y, dx, dy)
 	end
 
 	if self.numtouches == 2 then
-		local focused = levity.scripts:call(self.playerid, "isFocused")
-		levity.scripts:call(self.playerid, "joystickchanged",
-					ShmupPlayer.Button_Focus, not focused)
-	end
-
-	if self.numtouches == 3 then
+--		local focused = levity.scripts:call(self.playerid, "isFocused")
+--		levity.scripts:call(self.playerid, "joystickchanged",
+--					ShmupPlayer.Button_Focus, not focused)
+--	end
+--
+--	if self.numtouches == 3 then
 		levity.scripts:call(self.playerid, "joystickchanged",
 					ShmupPlayer.Button_Bomb, true)
 	end
