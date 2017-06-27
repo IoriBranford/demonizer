@@ -35,7 +35,7 @@ function ShmupPlayer:_init(object)
 
 	self.firebutton = false
 	self.firetimer = 0
-	self.focusbutton = false
+	self.focusbutton = IsMobile
 
 	self.killed = false
 	self.deathtimer = ShmupPlayer.DeathTime
