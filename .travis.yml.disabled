@@ -1,0 +1,62 @@
+language: android
+jdk: oraclejdk8
+android:
+  components:
+  - platform-tools
+  - tools
+  - build-tools-25.0.2
+  - android-25
+  - extra-google-m2repository
+  - extra-android-m2repository
+env:
+  global:
+  - LUAJIT=luajit-2.0.0-beta9
+  - GAME_DIR=$TRAVIS_BUILD_DIR/game
+  - GAME_ASSET=game.love
+  - GAME_ASSET_RELEASE=demonizer-data.love
+  - ANDROID_NDK_HOME=$HOME/android-ndk
+  - PATH=$ANDROID_NDK_HOME:$PATH
+  - LOVE_ANDROID_DIR=$TRAVIS_BUILD_DIR/love-android-sdl2
+  - LOVE_ANDROID_ASSETS_DIR=$LOVE_ANDROID_DIR/assets
+  - secure: YOVYGIj4HbjRUHwlmSe6XHznHzVapV5664y14QquaGd3AQmKzS1r6LNmKAVue8NbgYJAeJsob+ACtNrwaZQ3Gx0zZcJyfSSfpmsGG7cIzLNsBsx1wWIjpXDOnJgpZAq567ghYyLj/7wAbzP1uz5MKhuHPBHLT6YBOsOx7WgXzBzsLy9YaLXfFIG33wUTfHVPs/wuAaXURbgzpgek2uxHJJnHF8MgEpyrKPIoJAoCHWpXCynG/O7w8lT2l8+NxJJYNaPhSM8sIxttIPdB2oJbzBWR7pTCLd5c91V9jslOmDwPBAXzVJdAecrfG8LXotOfck6nj6lEOTDdicEa8ARPhZdMx64/6SVq7Nn6eOTLQ3ABCy0GOfz868qdHcEUrkchqVAgYCGuCDw/1uCJ0OyNdMUFQQTqu1GGu9fJOTCiYUjVIq9OD1vKgRzXM9zDZA40lgA29XFULe83YqQXcHQstW+gm2O+yxyhV083c+3VPZKz1GA6amWKiPBSEvlaowpppeduGgjtD7ORzfDgEE/Dck5gGcDrlHsEbRucTr0Xxea3io3r4xwLHXG6Z/Bm9eht/6TmRM3je5CroW8cL/900JvE/CQdJk0G3vcw5aeovkDgYNozK95CW80XwMGRw5eNqwJwIiyZlcmlbmvDBDIZcCwyvEMfm1Sz92FHZRrs+O0=
+  - secure: 042C7ZEaytACMdFMdtiNsbkk74A6l1kvrGbR21Y5rPKom6qekjbDlhHcTFX2FL5Nsne+rVxxYSkKdEDLRMiK5sKsODBeQqwFS1a5kSlYZhP9esfJKbq8zuKTXbP9IHCPACo8CZfoJlrIQQSDuw+78kb4zQy+mTbaw3GzjNG1COu/k3aYVfFto1V2m5xr2vobfyNYoQoOtKmZVw/+CnjZCc3HKqvYMx02WMMaEoosrWm22ppuOg8M8k43itYfnk/JBfb1yfOcsdcUWzJotkgEfxthjICdDMtI0Qbkv9w40fSAHHPa6uEFtJDVzwopr/SnnLozTnfjCsAhlT+8N7DGnirh4uZIGc6QVKC6ledVJhJHDOK4CR/ytslXMS/HvpxjH3twJ8CjVcrsZyYJo21zJpXpzFQcDRQPEemFpe9HUePaJe4PU8Jjblbh/82QjuwkLknTjOVe0lYUf7tDBIXNahMloaCT5BQVWL7zynGsuQ8RwL4g1VydddmYn2gO8fFntP7yRVV1WRiq16pyksOaUXLkxtM2RP1OHR2XPL3D7eOzFF6FL1SZfviEZw3NX0Wxj4LOX0MWxi5A6P8/Pd9HBIJSBKCvLYjO/8m0cPz2LiHXDV3XHBprJ0wRWEHgeI5zh4ly16nhCkTyW2rw7wFwtC4BOrfZo2g5DUAnwcabAvY=
+git:
+  depth: 1
+before_install:
+- curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh
+  | sudo bash
+- sudo apt-get install -q git-lfs luajit
+- cd $GAME_DIR
+- find -name "*.lua" -exec $LUAJIT -bl {} > /dev/null \;
+- git remote set-url origin https://IoriBranford:$GIT_TOKEN@github.com/IoriBranford/demonizer.git
+install:
+- git lfs pull
+- git clone https://github.com/urho3d/android-ndk.git $ANDROID_NDK_HOME
+before_script:
+- cd $TRAVIS_BUILD_DIR
+- ./make-game.sh
+- cp -r $TRAVIS_BUILD_DIR/love-android/* $LOVE_ANDROID_DIR
+- mkdir $LOVE_ANDROID_ASSETS_DIR
+- cp $GAME_ASSET $LOVE_ANDROID_ASSETS_DIR
+script:
+- cd $TRAVIS_BUILD_DIR
+- ARCH_BITS=64 ./make-windows.sh
+- ARCH_BITS=32 ./make-windows.sh
+- cd $LOVE_ANDROID_DIR && ndk-build -j2 NDK_DEBUG=0 && ant release
+after_success:
+- cd $TRAVIS_BUILD_DIR
+- mv $GAME_ASSET $GAME_ASSET_RELEASE
+deploy:
+  provider: releases
+  api_key:
+    secure: W8gvoZ3A6rL/XTHtaQoLrLmphXTPItFr7n9+nz7L/lyzo+dDtkfstyA4iZ6inTUke+L2cPIB+MDTSDhRUI/ltlQDZEX7karSs4oWaBnKDPFgB53/7/K8+6BRYoGtmbNkP68ar9WGvx5ebDMbFaed7DVN63OD+bD4F+ayAwitE8fiK7CEB2b/I/eYR5qekISWKzDeFt21RYjVX+6H6n5MUP/o5ZCQHcK1nNV4ukAzACceveCxYQfU2LULGxsvw7aIKOJub3id7y/vBBXwXTe3u19Db9GOFtEXMtXP2fp/Mx9PlvfSmXydohnWh9lXzmBBX5cPdhYQfDHmrpRune5HD+EsqkvY0oZ2/Zk8/bPWzuJAVKIla60W5m4Vm2AFUkbi68I+jT0FL7Qc23nVO7MD2ChTBiUR4Ed71sYe2rme/PO6Kw9AhuvsqZtsuAs2sYjruGeSW0J9JNOCicdrke95udtV3odLNTojogzRfETKkHDqgtN4O/bDyW9FkdxJXcm8jcXHcJyMtOS2Rpnv0bDSQMaWxvyUJO/XzKHcNNgD4MbRPYMIIFLG2bJx1Suk9Kq0GJ0joAE6hH6juuQ6bWa1iwZGFzqMrQhaaKo2XhvXtKZKVegaRWTvl8Jb2j4kx5MjEhrxP47p+iu5TRyWrGMjUAE0KSM+37n7oSdkt++k4hY=
+  file:
+  - $TRAVIS_BUILD_DIR/demonizer-win64.zip
+  - $TRAVIS_BUILD_DIR/demonizer-win32.zip
+  - $TRAVIS_BUILD_DIR/$GAME_ASSET_RELEASE
+  - $LOVE_ANDROID_DIR/bin/demonizer-android-release.apk
+  skip_cleanup: true
+  overwrite: true
+  on:
+    repo: IoriBranford/demonizer
+    tags: true

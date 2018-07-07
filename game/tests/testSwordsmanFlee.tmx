@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextobjectid="9">
+ <properties>
+  <property name="cameraid" type="int" value="2"/>
+  <property name="music" type="file" value=""/>
+  <property name="nextmap" type="file" value=""/>
+  <property name="overlaymap" type="file" value="../gameplay.lua"/>
+  <property name="playerid" type="int" value="1"/>
+ </properties>
+ <tileset firstgid="1" source="../img/player.tsx"/>
+ <tileset firstgid="29" source="../img/human/enemy/Swordsman.tsx"/>
+ <objectgroup name="camera">
+  <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
+ </objectgroup>
+ <objectgroup name="fleepaths">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="4" x="208" y="288">
+   <polyline points="0,0 56,56"/>
+  </object>
+  <object id="5" x="32" y="288">
+   <polyline points="0,0 -56,56"/>
+  </object>
+  <object id="6" x="32" y="32">
+   <polyline points="0,0 -64,-64"/>
+  </object>
+  <object id="7" x="208" y="32">
+   <polyline points="0,0 56,-56"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="swordsmen">
+  <object id="3" gid="35" x="64" y="-16" width="32" height="32"/>
+  <object id="8" gid="35" x="176" y="-16" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="sparks"/>
+ <objectgroup draworder="index" name="playershots"/>
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
+  <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

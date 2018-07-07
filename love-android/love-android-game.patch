@@ -1,0 +1,109 @@
+diff --git a/app/build.gradle b/app/build.gradle
+index 263ef5c..a928d0f 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -1,17 +1,34 @@
+ apply plugin: 'com.android.application'
+ 
++def keystorePropertiesFile = rootProject.file("keystore.properties")
++def keystoreProperties = new Properties()
++keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
++
+ android {
+     compileSdkVersion 25
+     buildToolsVersion "25.0.2"
+     defaultConfig {
+-        applicationId "org.love2d.android"
++        applicationId my_applicationId
+         versionCode 22
+-        versionName "0.10.2"
++        versionName my_versionName
+         minSdkVersion 10
+         targetSdkVersion 18
++        manifestPlaceholders = [
++                icon:my_icon,
++                label:my_label
++        ]
++    }
++    signingConfigs {
++        release {
++            keyAlias keystoreProperties['keyAlias']
++            keyPassword keystoreProperties['keyPassword']
++            storeFile file(keystoreProperties['storeFile'])
++            storePassword keystoreProperties['storePassword']
++        }
+     }
+     buildTypes {
+         release {
++            signingConfig signingConfigs.release
+             minifyEnabled false
+             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+         }
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+index dee04a9..9cf306b 100644
+--- a/app/src/main/AndroidManifest.xml
++++ b/app/src/main/AndroidManifest.xml
+@@ -12,55 +12,20 @@
+ 
+   <application
+       android:allowBackup="true"
+-      android:icon="@drawable/love"
+-      android:label="LÖVE for Android"
++      android:icon="${icon}"
++      android:label="${label}"
+       android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+-      <service android:name="org.love2d.android.DownloadService" />
+       <activity
+-        android:name="org.love2d.android.GameActivity"
++        android:name="${applicationId}.MainActivity"
+         android:configChanges="orientation|screenSize"
+-        android:label="LÖVE for Android"
++        android:label="${label}"
+         android:launchMode="singleTop"
+-        android:screenOrientation="landscape" >
++        android:screenOrientation="sensorPortrait" >
+         <intent-filter>
+           <action android:name="android.intent.action.MAIN" />
+           <category android:name="android.intent.category.LAUNCHER" />
+           <category android:name="tv.ouya.intent.category.GAME"/>
+         </intent-filter>
+-        <intent-filter>
+-          <action android:name="android.intent.action.VIEW" />
+-          <category android:name="android.intent.category.DEFAULT" />
+-          <data android:scheme="file" />
+-          <data android:scheme="content" />
+-          <data android:mimeType="application/x-love-game" />
+-        </intent-filter>
+-        <intent-filter>
+-          <action android:name="android.intent.action.VIEW" />
+-          <category android:name="android.intent.category.DEFAULT" />
+-          <data android:scheme="file" />
+-          <data android:mimeType="*/*" />
+-          <data android:pathPattern=".*\\.love" />
+-          <data android:host="*" />
+-        </intent-filter>
+-      </activity>
+-      <activity
+-        android:name="org.love2d.android.DownloadActivity"
+-        android:noHistory="true" >
+-        <intent-filter>
+-          <action android:name="android.intent.action.VIEW" />
+-          <category android:name="android.intent.category.DEFAULT" />
+-          <category android:name="android.intent.category.BROWSABLE" />
+-          <data android:scheme="http"
+-            android:host="*"
+-            android:pathPrefix="*"
+-            android:mimeType="*/*"
+-            android:pathPattern=".*\\.love" />
+-          <data android:scheme="https"
+-            android:host="*"
+-            android:pathPrefix="*"
+-            android:mimeType="*/*"
+-            android:pathPattern=".*\\.love" />
+-        </intent-filter>
+       </activity>
+     </application>
+ </manifest> 
+diff --git a/gradlew b/gradlew
+old mode 100644
+new mode 100755

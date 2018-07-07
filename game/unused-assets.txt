@@ -1,0 +1,8 @@
+"mus\16 - Shrine.vgz"
+"mus\28 - Smoking Head.vgz"
+"mus\17 - On The Air.vgz"
+"mus\08 - Curry and Rice.vgz"
+"mus\21 - Private Eye.vgz"
+"mus\19 - Dancing Hunter.vgz"
+"mus\23 - Lunatic Monkey.vgz"
+"mus\20 - My Kingdom.vgz" 

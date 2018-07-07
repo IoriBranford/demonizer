@@ -1,0 +1,4 @@
+[submodule "levity"]
+	path = game/levity
+	url = https://bitbucket.org/IoriBranford/levity.git
+	branch = master

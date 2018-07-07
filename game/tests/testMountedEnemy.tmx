@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextobjectid="80">
+ <properties>
+  <property name="cameraid" type="int" value="2"/>
+  <property name="music" type="file" value=""/>
+  <property name="nextmap" type="file" value=""/>
+  <property name="overlaymap" type="file" value="../gameplay.lua"/>
+  <property name="playerid" type="int" value="1"/>
+ </properties>
+ <tileset firstgid="1" source="../img/player.tsx"/>
+ <tileset firstgid="29" source="../img/horse/ArcherHorse.tsx"/>
+ <tileset firstgid="37" source="../img/human/enemy/ArcherMounted.tsx"/>
+ <tileset firstgid="53" source="../img/human/enemy/ArcherMountedF.tsx"/>
+ <tileset firstgid="69" source="../img/human/enemy/LancerMounted.tsx"/>
+ <tileset firstgid="85" source="../img/human/enemy/LancerMountedF.tsx"/>
+ <tileset firstgid="101" source="../img/human/enemy/SwordsmanMounted.tsx"/>
+ <tileset firstgid="117" source="../img/human/enemy/SwordsmanMountedF.tsx"/>
+ <tileset firstgid="133" source="../img/horse/SwordsmanHorse.tsx"/>
+ <tileset firstgid="141" source="../img/horse/horse-gold-v.tsx"/>
+ <tileset firstgid="149" source="../img/horse/LancerHorse.tsx"/>
+ <tileset firstgid="157" source="../img/human/enemy/JavelinerMounted.tsx"/>
+ <tileset firstgid="173" source="../img/horse/JavelinerHorse.tsx"/>
+ <tileset firstgid="181" source="../img/human/enemy/JavelinerMountedF.tsx"/>
+ <objectgroup name="camera">
+  <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
+ </objectgroup>
+ <objectgroup name="archers" visible="0">
+  <object id="3" gid="29" x="32" y="224" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="90"/>
+   </properties>
+  </object>
+  <object id="4" gid="41" x="32" y="224" width="32" height="32"/>
+  <object id="5" gid="33" x="32" y="80" width="16" height="48"/>
+  <object id="6" gid="49" x="32" y="80" width="32" height="32"/>
+  <object id="17" type="Trigger" x="-24" y="40" width="8" height="8"/>
+ </objectgroup>
+ <objectgroup name="swordsmen" visible="0">
+  <object id="7" gid="105" x="80" y="224" width="32" height="32"/>
+  <object id="8" gid="133" x="80" y="224" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="90"/>
+   </properties>
+  </object>
+  <object id="9" gid="137" x="80" y="80" width="16" height="48"/>
+  <object id="10" gid="113" x="80" y="80" width="32" height="32"/>
+  <object id="16" type="Trigger" x="-24" y="24" width="8" height="8"/>
+ </objectgroup>
+ <objectgroup name="lancers" visible="0">
+  <object id="11" gid="81" x="208" y="80" width="32" height="32"/>
+  <object id="12" gid="73" x="208" y="224" width="32" height="32"/>
+  <object id="13" gid="149" x="208" y="224" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="90"/>
+   </properties>
+  </object>
+  <object id="14" gid="153" x="208" y="80" width="16" height="48"/>
+  <object id="15" type="Trigger" x="-24" y="8" width="8" height="8"/>
+ </objectgroup>
+ <objectgroup name="javeliner1">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="53" type="Trigger" x="288" y="0" width="8" height="8">
+   <properties>
+    <property name="soundfile" type="file" value="../snd/gallop8.wav"/>
+   </properties>
+  </object>
+  <object id="54" gid="169" x="72" y="-24" width="32" height="32"/>
+  <object id="55" gid="177" x="72" y="-32" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="270"/>
+   </properties>
+  </object>
+  <object id="57" gid="169" x="56" y="-104" width="32" height="32"/>
+  <object id="58" gid="177" x="56" y="-112" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="270"/>
+   </properties>
+  </object>
+  <object id="59" gid="169" x="88" y="-104" width="32" height="32"/>
+  <object id="60" gid="177" x="88" y="-112" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="270"/>
+   </properties>
+  </object>
+  <object id="67" type="Path" x="56" y="-40">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,208 120,208 120,376"/>
+  </object>
+  <object id="68" gid="169" x="24" y="-104" width="32" height="32"/>
+  <object id="69" gid="177" x="24" y="-112" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="270"/>
+   </properties>
+  </object>
+  <object id="70" gid="169" x="40" y="-24" width="32" height="32"/>
+  <object id="71" gid="177" x="40" y="-32" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="270"/>
+   </properties>
+  </object>
+  <object id="72" type="Path" x="24" y="-40">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,256 112,256 112,376"/>
+  </object>
+  <object id="73" type="Path" x="88" y="-40">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,160 120,160 120,376"/>
+  </object>
+  <object id="74" type="Path" x="40" y="-40">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,208 120,208 120,376"/>
+  </object>
+  <object id="75" type="Path" x="72" y="-40">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,160 120,160 120,376"/>
+  </object>
+  <object id="76" gid="193" x="56" y="-184" width="32" height="32"/>
+  <object id="77" gid="177" x="56" y="-192" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="270"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="javelinerarcher">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="18" type="Trigger" x="304" y="0" width="8" height="8">
+   <properties>
+    <property name="soundfile" type="file" value="../snd/gallop8.wav"/>
+   </properties>
+  </object>
+  <object id="19" gid="169" x="40" y="-72" width="32" height="32"/>
+  <object id="21" gid="177" x="40" y="-80" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="270"/>
+   </properties>
+  </object>
+  <object id="22" x="24" y="-40">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,264 80,264 80,0"/>
+  </object>
+  <object id="23" x="40" y="-40">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,264 80,264 80,0"/>
+  </object>
+  <object id="24" x="56" y="-40">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,264 80,264 80,0"/>
+  </object>
+  <object id="25" gid="169" x="56" y="-24" width="32" height="32"/>
+  <object id="26" gid="177" x="56" y="-32" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="270"/>
+   </properties>
+  </object>
+  <object id="27" gid="169" x="24" y="-120" width="32" height="32"/>
+  <object id="28" gid="177" x="24" y="-128" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="270"/>
+   </properties>
+  </object>
+  <object id="29" gid="49" x="200" y="-216" width="32" height="32"/>
+  <object id="30" gid="49" x="216" y="-168" width="32" height="32"/>
+  <object id="32" gid="33" x="200" y="-224" width="16" height="48"/>
+  <object id="33" gid="33" x="216" y="-176" width="16" height="48"/>
+  <object id="34" x="168" y="-40">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="-80,0 -80,360 48,360 48,0"/>
+  </object>
+  <object id="35" x="152" y="-40">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="-80,0 -80,360 48,360 48,0"/>
+  </object>
+  <object id="78" gid="65" x="216" y="-264" width="32" height="32"/>
+  <object id="79" gid="33" x="216" y="-272" width="16" height="48"/>
+ </objectgroup>
+ <objectgroup name="javelinerarcher2">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="36" type="Trigger" x="320" y="0" width="8" height="8">
+   <properties>
+    <property name="soundfile" type="file" value="../snd/gallop8.wav"/>
+   </properties>
+  </object>
+  <object id="37" gid="169" x="80" y="-72" width="32" height="32"/>
+  <object id="38" gid="177" x="80" y="-80" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="270"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="39" x="96" y="-40">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,264 48,264 48,0"/>
+  </object>
+  <object id="42" gid="169" x="96" y="-24" width="32" height="32"/>
+  <object id="43" gid="177" x="96" y="-32" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="270"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="44" gid="169" x="112" y="-72" width="32" height="32"/>
+  <object id="45" gid="177" x="112" y="-80" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="270"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="46" gid="49" x="24" y="-216" width="32" height="32"/>
+  <object id="47" gid="49" x="216" y="-264" width="32" height="32"/>
+  <object id="48" gid="33" x="24" y="-224" width="16" height="48"/>
+  <object id="49" gid="33" x="216" y="-272" width="16" height="48"/>
+  <object id="50" x="24" y="-40">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,360 152,360 152,0"/>
+  </object>
+  <object id="51" x="168" y="-40">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="-104,0 -104,360 48,360 48,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="sequence">
+  <object id="52" type="Trigger" x="232" y="0" width="16" height="16">
+   <properties>
+    <property name="sequencetriggerids" value="53 18 36 "/>
+    <property name="soundfile" type="file" value="../snd/gallop8.wav"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="sparks"/>
+ <objectgroup draworder="index" name="playershots"/>
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
+  <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

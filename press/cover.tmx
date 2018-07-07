@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-up" width="28" height="21" tilewidth="8" tileheight="8" infinite="0" backgroundcolor="#171228" nextobjectid="17">
+ <tileset firstgid="1" source="../game/img/demonization.tsx"/>
+ <tileset firstgid="9" source="../game/img/player.tsx"/>
+ <tileset firstgid="37" source="../game/img/human/ko.tsx"/>
+ <tileset firstgid="105" source="../game/img/title.tsx"/>
+ <tileset firstgid="106" source="../game/img/title_demonization.tsx"/>
+ <tileset firstgid="122" source="../game/img/human/converted.tsx"/>
+ <imagelayer name="bg">
+  <image source="cover-bg.png" width="224" height="168"/>
+ </imagelayer>
+ <objectgroup draworder="index" name="wingman_ne">
+  <object id="11" gid="5" x="136" y="40" width="64" height="64"/>
+  <object id="10" gid="182" x="136" y="40" width="24" height="32"/>
+ </objectgroup>
+ <objectgroup name="wingman_nw">
+  <object id="9" gid="5" x="88" y="40" width="64" height="64"/>
+  <object id="8" gid="134" x="88" y="40" width="24" height="32"/>
+ </objectgroup>
+ <objectgroup name="converted">
+  <object id="3" gid="1" x="112" y="52" width="64" height="64"/>
+  <object id="2" gid="88" x="112" y="52" width="24" height="32"/>
+ </objectgroup>
+ <objectgroup name="wingman_sw">
+  <object id="13" gid="173" x="80" y="72" width="24" height="32"/>
+  <object id="14" gid="5" x="80" y="72" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup name="wingman_se">
+  <object id="15" gid="197" x="144" y="72" width="24" height="32"/>
+  <object id="16" gid="5" x="144" y="72" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup draworder="index" name="player">
+  <object id="1" gid="35" x="112" y="88" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup draworder="index" name="title">
+  <object id="7" gid="114" x="106" y="156" width="32" height="24"/>
+  <object id="5" gid="106" x="4" y="132" width="32" height="24"/>
+  <object id="6" gid="107" x="188" y="132" width="32" height="24"/>
+  <object id="4" gid="105" x="12" y="156" width="200" height="50"/>
+ </objectgroup>
+</map>

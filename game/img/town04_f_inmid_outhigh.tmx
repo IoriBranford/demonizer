@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" infinite="1" nextobjectid="1">
+ <tileset firstgid="1" source="town04_f.tsx"/>
+ <layer name="regions_input" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="-16" y="0" width="16" height="16">
+   eJxjYBgFAwVimAbaBZSBoe7+UcDAAACWewC9
+  </chunk>
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYKAuiGGCYFxsGB+belL0o5szUACXG/G5G1s4DBQY6u4fBZQBALptDw8=
+  </chunk>
+   <chunk x="16" y="0" width="16" height="16">
+   eJxjYBhYEMOEoGEYnY9PzWABg8H9yOYRwx5s+nGZRS8w0P4fiPADAC1pEf8=
+  </chunk>
+   <chunk x="32" y="0" width="16" height="16">
+   eJxjYBhYEMMEwUMVDHX3j4KRDQCYRAF5
+  </chunk>
+  </data>
+ </layer>
+ <layer name="regions_output" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYEAFPFCMi43MR1dDCiBHDy0AujvQ/YPNf/j8jEs9Pj4lYKi7fxQMLAAAeJwBjQ==
+  </chunk>
+   <chunk x="16" y="0" width="16" height="16">
+   eJxjYKAM8OBgw/j4xNDlsJmNTT+twFB3PyE34LMbPR6x6cHmH0J2DgeA7h9iwhGXnsEWhgAnnAHt
+  </chunk>
+   <chunk x="32" y="0" width="16" height="16">
+   eJxjYKAM8AywfkrBUHf/KBgFlAAAoAAAMQ==
+  </chunk>
+  </data>
+ </layer>
+ <layer name="input_town04_f_mid" width="32" height="32">
+  <properties>
+   <property name="StrictEmpty" type="bool" value="true"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   <chunk x="-16" y="0" width="16" height="16">
+   eJxjYBgFAwUcGAfaBZSBkiHu/lHAwAAAdiUAtw==
+  </chunk>
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYKAu+MrIwPCNEcL+DqR/QNnLgfQKIF7JiKYeiL8h8fmZGBgEmCBsQSAtBGUfBOo7BMSHofqd0MwZKODACMHE8nGJDRQoYYRgYvm4xEbB0AQAsjQQSw==
+  </chunk>
+   <chunk x="16" y="0" width="16" height="16">
+   eJxjYBhY8AVK30DCDGhiDDjE0OUGEvAwIjC6GDZ1MDY1QReFanDJdRGhBp86Ytw1GEA3hWpwyXUToQafOmLcRS4AANsvEMU=
+  </chunk>
+   <chunk x="32" y="0" width="16" height="16">
+   eJxjYBhYcGOA7acU8DAOtAtGwSggHwAAG+wA5g==
+  </chunk>
+  </data>
+ </layer>
+ <layer name="output_town04_f_mid" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYBgF1AT2jAwMjoyoYuh8ezT+YALFQLeVorkPnV88iN0/CkgDAB9CAtk=
+  </chunk>
+   <chunk x="16" y="0" width="16" height="16">
+   eJxjYBi84DoQ38QiNlQANyMDAy8jpthAgXwK9SwG4iVE6CFW3VAFPWToKYLSS4F4GRHqiVVHKQAA/o0Jrg==
+  </chunk>
+   <chunk x="32" y="0" width="16" height="16">
+   eJxjYBhYcHOA7acU8DIOtAtGwSggHwAAIiwA6A==
+  </chunk>
+  </data>
+ </layer>
+ <layer name="output_town04_f_high" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYEAFtxkZGO4wQth3gfQ9KLsXSPcBcT+UzwelbwPxHQbSgQYjGZpoANTQ3KEK5KszosqrY1GDrm+gQBSaOyKB/GhGVPloLGrQ9Y2CkQkAigYKoQ==
+  </chunk>
+   <chunk x="16" y="0" width="16" height="16">
+   eJxjYKAM3EJi70OT2wvE+7GIwdShqx9o8AmN/xGIP2MRg6lDVz8YQSgQFxChLh+JHUaknpECCoE4gki1RUh6wmnjHKoCANLADvY=
+  </chunk>
+   <chunk x="32" y="0" width="16" height="16">
+   eJxjYKAM7KdQ/0CDzwPtgFEwCgYQAACpiwGz
+  </chunk>
+  </data>
+ </layer>
+</map>

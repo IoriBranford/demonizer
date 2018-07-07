@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" nextobjectid="3">
+ <properties>
+  <property name="cameraid" type="int" value="2"/>
+  <property name="music" type="file" value=""/>
+  <property name="nextmap" type="file" value=""/>
+  <property name="overlaymap" type="file" value="../gameplay.lua"/>
+  <property name="playerid" type="int" value="1"/>
+ </properties>
+ <tileset firstgid="1" source="../img/player.tsx"/>
+ <objectgroup name="camera">
+  <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
+ </objectgroup>
+ <objectgroup name="sparks"/>
+ <objectgroup draworder="index" name="playershots"/>
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
+  <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

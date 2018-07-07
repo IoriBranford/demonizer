@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextobjectid="48">
+ <properties>
+  <property name="delayinitobjects" type="bool" value="true"/>
+  <property name="losemusic" type="file" value="mus/33 - All Over Tonight.vgz"/>
+  <property name="script" value="ShmupMap"/>
+  <property name="staticsounds">snd/alarm4.wav, snd/ballista.wav, snd/bomber.wav, snd/bomb.wav, snd/boom1.wav,
+  snd/boom2.wav, snd/boom3.wav, snd/bonus.wav, snd/bow.wav, snd/burst.wav, snd/buzz.wav, snd/catapult.wav, snd/charge.wav,
+snd/dragonfire.wav, snd/equip.wav, snd/extend.wav, snd/forcefield.wav, snd/gallop8.wav, snd/hit.wav, snd/hyaa.wav, snd/item1.wav,
+snd/item2.wav, snd/knockout.wav, snd/maxed.wav, snd/mmph.wav, snd/nnoooo.wav, snd/ow.wav,
+snd/parry.wav, snd/pause.wav, snd/pike.wav, snd/playershot.wav, snd/powershot.wav,
+snd/powerup.wav, snd/respawn.wav, snd/scream.wav, snd/selfdestruct.wav,
+snd/shriek.wav, snd/slash.wav, snd/sword.wav, snd/targetlock.wav,
+snd/thankyou.wav, snd/ting.wav, snd/turbo.wav, snd/warp.wav</property>
+  <property name="winmusic" type="file" value="mus/07 - Great Job!.vgz"/>
+ </properties>
+ <tileset firstgid="1" source="img/bombgauge.tsx"/>
+ <tileset firstgid="17" source="img/hud_icons.tsx"/>
+ <tileset firstgid="21" source="img/touchmarkers.tsx"/>
+ <tileset firstgid="23" source="img/particles.tsx"/>
+ <tileset firstgid="55" source="img/playerhitbox.tsx"/>
+ <tileset firstgid="56" source="img/powergauge.tsx"/>
+ <tileset firstgid="60" source="img/sparks_huge.tsx"/>
+ <tileset firstgid="80" source="img/sparks_med.tsx"/>
+ <tileset firstgid="92" source="img/sparks_small.tsx"/>
+ <tileset firstgid="108" source="img/demonization.tsx"/>
+ <tileset firstgid="116" source="img/demonbomb.tsx"/>
+ <tileset firstgid="124" source="img/demonshots.tsx"/>
+ <tileset firstgid="128" source="img/humanshots.tsx"/>
+ <tileset firstgid="164" source="img/crosshair.tsx"/>
+ <tileset firstgid="168" source="img/item.tsx"/>
+ <tileset firstgid="170" source="img/gameover.tsx"/>
+ <tileset firstgid="171" source="img/human/ko.tsx"/>
+ <tileset firstgid="239" source="img/human/converted.tsx"/>
+ <tileset firstgid="359" source="img/countdown.tsx"/>
+ <tileset firstgid="362" source="img/go.tsx"/>
+ <tileset firstgid="363" source="img/emotes.tsx"/>
+ <objectgroup name="items" opacity="0.5">
+  <properties>
+   <property name="script" value="ItemsLayer"/>
+  </properties>
+ </objectgroup>
+ <objectgroup name="enemyfireparticles">
+  <properties>
+   <property name="lifetime" type="float" value="0.25"/>
+   <property name="script" value="ParticleLayer"/>
+   <property name="speedmax" type="float" value="360"/>
+   <property name="speedmin" type="float" value="240"/>
+   <property name="spread" type="float" value="10"/>
+   <property name="tileid" value="enemyfire"/>
+   <property name="tileset" value="particles"/>
+  </properties>
+ </objectgroup>
+ <objectgroup name="defeatparticles">
+  <properties>
+   <property name="lifetime" type="float" value="0.5"/>
+   <property name="script" value="ParticleLayer"/>
+   <property name="speedmax" type="float" value="180"/>
+   <property name="speedmin" type="float" value="90"/>
+   <property name="tileid" value="defeat"/>
+   <property name="tileset" value="particles"/>
+  </properties>
+ </objectgroup>
+ <objectgroup name="damageparticles">
+  <properties>
+   <property name="lifetime" type="float" value="0.25"/>
+   <property name="script" value="ParticleLayer"/>
+   <property name="speedmax" type="float" value="360"/>
+   <property name="speedmin" type="float" value="180"/>
+   <property name="spread" type="float" value="22.5"/>
+   <property name="tileid" value="damage"/>
+   <property name="tileset" value="particles"/>
+  </properties>
+ </objectgroup>
+ <objectgroup name="guardparticles">
+  <properties>
+   <property name="lifetime" type="float" value="0.25"/>
+   <property name="script" value="ParticleLayer"/>
+   <property name="speedmax" type="float" value="360"/>
+   <property name="speedmin" type="float" value="180"/>
+   <property name="spread" type="float" value="22.5"/>
+   <property name="tileid" value="guard"/>
+   <property name="tileset" value="particles"/>
+  </properties>
+ </objectgroup>
+ <objectgroup name="launchbombparticles">
+  <properties>
+   <property name="lifetime" type="float" value="0.12"/>
+   <property name="maxparticles" value="4"/>
+   <property name="script" value="ParticleLayer"/>
+   <property name="speedmax" type="float" value="480"/>
+   <property name="speedmin" type="float" value="400"/>
+   <property name="spread" type="float" value="30"/>
+   <property name="tileset" value="playerhitbox"/>
+  </properties>
+ </objectgroup>
+ <objectgroup name="deathparticles">
+  <properties>
+   <property name="lifetime" type="float" value="0.5"/>
+   <property name="script" value="ParticleLayer"/>
+   <property name="speedmax" type="float" value="360"/>
+   <property name="speedmin" type="float" value="120"/>
+   <property name="spread" type="float" value="90"/>
+   <property name="tileid" value="death"/>
+   <property name="tileset" value="particles"/>
+  </properties>
+ </objectgroup>
+ <objectgroup draworder="index" name="npcshots"/>
+ <objectgroup draworder="index" name="status">
+  <properties>
+   <property name="script" value="ShmupStatus"/>
+  </properties>
+  <object id="42" name="countdown" gid="361" x="120" y="104" width="16" height="20"/>
+  <object id="41" name="timer" x="4" y="48" width="40" height="8">
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">mm:ss</text>
+  </object>
+  <object id="2" name="wingright" gid="20" x="20" y="48" width="16" height="16"/>
+  <object id="3" name="wingleft" gid="19" x="4" y="48" width="16" height="16"/>
+  <object id="4" name="bomb3" gid="1" x="36" y="316" width="16" height="32">
+   <properties>
+    <property name="script" value="GaugeBomb"/>
+   </properties>
+  </object>
+  <object id="5" name="bomb2" gid="1" x="20" y="316" width="16" height="32">
+   <properties>
+    <property name="script" value="GaugeBomb"/>
+   </properties>
+  </object>
+  <object id="6" name="bomb1" gid="1" x="4" y="316" width="16" height="32">
+   <properties>
+    <property name="script" value="GaugeBomb"/>
+   </properties>
+  </object>
+  <object id="7" name="life9" gid="17" x="132" y="32" width="16" height="16"/>
+  <object id="8" name="life8" gid="17" x="116" y="32" width="16" height="16"/>
+  <object id="9" name="life7" gid="17" x="100" y="32" width="16" height="16"/>
+  <object id="10" name="life6" gid="17" x="84" y="32" width="16" height="16"/>
+  <object id="11" name="life5" gid="17" x="68" y="32" width="16" height="16"/>
+  <object id="12" name="life4" gid="17" x="52" y="32" width="16" height="16"/>
+  <object id="13" name="life3" gid="17" x="36" y="32" width="16" height="16"/>
+  <object id="14" name="life2" gid="17" x="20" y="32" width="16" height="16"/>
+  <object id="15" name="life1" gid="17" x="4" y="32" width="16" height="16"/>
+  <object id="28" name="reserves" x="4" y="36" width="32" height="8">
+   <properties>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">0</text>
+  </object>
+  <object id="29" name="score" x="4" y="4" width="232" height="8">
+   <properties>
+    <property name="script" value="ShmupScore"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+    <property name="textformat" value="SCORE %8d  1UP@ %8d"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">SCORE 00000000  1UP@ 01000000</text>
+  </object>
+ </objectgroup>
+ <objectgroup name="results">
+  <properties>
+   <property name="script" value="ShmupResults"/>
+  </properties>
+  <object id="30" name="reservepoints" x="48" y="36" width="72" height="8">
+   <properties>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+    <property name="textformat" value="x %d"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">x rsrvpts</text>
+  </object>
+  <object id="31" name="reservetotal" x="128" y="36" width="104" height="8">
+   <properties>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+    <property name="textformat" value="%d pts"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="right">rsrvtotal</text>
+  </object>
+  <object id="32" name="bombpoints" x="56" y="304" width="56" height="8">
+   <properties>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+    <property name="textformat" value="x %d"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">xbombpt</text>
+  </object>
+  <object id="33" name="bombtotal" x="120" y="304" width="72" height="8">
+   <properties>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+    <property name="textformat" value="%d pts"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="right">bombtotal</text>
+  </object>
+  <object id="47" name="livespoints" x="152" y="16" width="80" height="8">
+   <properties>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+    <property name="textformat" value="x %d"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">x livespts</text>
+  </object>
+  <object id="44" name="livestotal" x="152" y="24" width="80" height="8">
+   <properties>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+    <property name="textformat" value="%d pts"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="right">livestotal</text>
+  </object>
+  <object id="45" name="timepoints" x="48" y="48" width="72" height="8">
+   <properties>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+    <property name="textformat" value="x %d"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">x timepts</text>
+  </object>
+  <object id="46" name="timetotal" x="128" y="48" width="104" height="8">
+   <properties>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+    <property name="textformat" value="%d pts"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="right">timetotal</text>
+  </object>
+ </objectgroup>
+ <objectgroup name="pausemenu" visible="0">
+  <properties>
+   <property name="script" value="MenuPause"/>
+  </properties>
+  <object id="37" name="title" type="UIButton" x="48" y="192" width="144" height="32">
+   <properties>
+    <property name="script" value="ButtonTitle"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">END GAME</text>
+  </object>
+  <object id="36" name="restart" type="UIButton" x="48" y="144" width="144" height="32">
+   <properties>
+    <property name="script" value="ButtonRestart"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">RESTART</text>
+  </object>
+  <object id="35" name="resume" type="UIButton" x="48" y="96" width="144" height="32">
+   <properties>
+    <property name="script" value="ButtonResume"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">RESUME</text>
+  </object>
+  <object id="34" name="pause" x="0" y="64" width="240" height="16">
+   <properties>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">PAUSE</text>
+  </object>
+ </objectgroup>
+ <objectgroup name="gameovermenu" visible="0">
+  <properties>
+   <property name="script" value="MenuGameOver"/>
+  </properties>
+  <object id="38" name="gameover" gid="170" x="120" y="112" width="192" height="40"/>
+  <object id="39" name="restart" type="UIButton" x="48" y="144" width="144" height="32">
+   <properties>
+    <property name="script" value="ButtonRestart"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">RESTART</text>
+  </object>
+  <object id="40" name="title" type="UIButton" x="48" y="192" width="144" height="32">
+   <properties>
+    <property name="script" value="ButtonTitle"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">END GAME</text>
+  </object>
+ </objectgroup>
+ <objectgroup name="touchcontrols" visible="0">
+  <properties>
+   <property name="script" value="ShmupTouchControls"/>
+  </properties>
+  <object id="22" name="move" gid="21" x="0" y="0" width="64" height="64"/>
+  <object id="23" name="focus" gid="22" x="0" y="0" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup name="curtain">
+  <properties>
+   <property name="script" value="Curtain"/>
+  </properties>
+ </objectgroup>
+</map>

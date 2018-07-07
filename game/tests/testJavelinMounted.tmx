@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextobjectid="8">
+ <properties>
+  <property name="cameraid" type="int" value="2"/>
+  <property name="music" type="file" value=""/>
+  <property name="nextmap" type="file" value=""/>
+  <property name="overlaymap" type="file" value="../gameplay.lua"/>
+  <property name="playerid" type="int" value="1"/>
+ </properties>
+ <tileset firstgid="1" source="../img/player.tsx"/>
+ <tileset firstgid="29" source="../img/human/enemy/LancerMounted.tsx"/>
+ <tileset firstgid="45" source="../img/horse/ArcherHorse.tsx"/>
+ <tileset firstgid="53" source="../img/human/enemy/JavelinerMounted.tsx"/>
+ <tileset firstgid="69" source="../img/horse/JavelinerHorse.tsx"/>
+ <objectgroup name="camera" visible="0">
+  <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
+ </objectgroup>
+ <objectgroup name="javelins">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="3" gid="73" x="88" y="-24" width="16" height="48">
+   <properties>
+    <property name="faceangle" type="float" value="270"/>
+   </properties>
+  </object>
+  <object id="4" gid="65" x="88" y="-16" width="32" height="32"/>
+  <object id="5" x="88" y="-24">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,192 -32,192 -32,168"/>
+  </object>
+  <object id="6" type="Trigger" x="0" y="0" width="8" height="8"/>
+  <object id="7" x="56" y="144">
+   <properties>
+    <property name="beziercurve" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 0,-24 -32,-24 -32,184"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="sparks"/>
+ <objectgroup draworder="index" name="playershots"/>
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
+  <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

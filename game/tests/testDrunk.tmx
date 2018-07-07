@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextobjectid="23">
+ <properties>
+  <property name="cameraid" type="int" value="2"/>
+  <property name="music" type="file" value=""/>
+  <property name="overlaymap" type="file" value="../gameplay.lua"/>
+  <property name="playerid" type="int" value="1"/>
+  <property name="script" value="DrunkShmupMap"/>
+ </properties>
+ <tileset firstgid="1" source="../img/player.tsx"/>
+ <tileset firstgid="29" source="../img/wine.tsx"/>
+ <objectgroup name="camera">
+  <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
+ </objectgroup>
+ <objectgroup name="wine">
+  <object id="3" gid="29" x="48" y="40" width="8" height="16"/>
+  <object id="4" gid="29" x="192" y="40" width="8" height="16"/>
+  <object id="5" gid="29" x="72" y="40" width="8" height="16"/>
+  <object id="6" gid="29" x="120" y="40" width="8" height="16"/>
+  <object id="7" gid="29" x="160" y="32" width="8" height="16"/>
+  <object id="8" gid="29" x="48" y="88" width="8" height="16"/>
+  <object id="9" gid="29" x="104" y="80" width="8" height="16"/>
+  <object id="10" gid="29" x="168" y="96" width="8" height="16"/>
+  <object id="11" gid="29" x="184" y="80" width="8" height="16"/>
+  <object id="12" gid="29" x="64" y="128" width="8" height="16"/>
+  <object id="13" gid="29" x="64" y="72" width="8" height="16"/>
+  <object id="14" gid="29" x="88" y="120" width="8" height="16"/>
+  <object id="15" gid="29" x="136" y="136" width="8" height="16"/>
+  <object id="16" gid="29" x="184" y="136" width="8" height="16"/>
+  <object id="17" gid="29" x="208" y="128" width="8" height="16"/>
+  <object id="18" gid="29" x="48" y="176" width="8" height="16"/>
+  <object id="19" gid="29" x="80" y="176" width="8" height="16"/>
+  <object id="20" gid="29" x="128" y="192" width="8" height="16"/>
+  <object id="21" gid="29" x="160" y="192" width="8" height="16"/>
+  <object id="22" gid="29" x="200" y="184" width="8" height="16"/>
+ </objectgroup>
+ <objectgroup name="sparks"/>
+ <objectgroup draworder="index" name="playershots"/>
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
+  <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
+   <properties>
+    <property name="script" value="DrunkShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

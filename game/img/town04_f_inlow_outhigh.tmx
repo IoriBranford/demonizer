@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" infinite="1" nextobjectid="1">
+ <tileset firstgid="1" source="town04_f.tsx"/>
+ <layer name="regions_input" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYKAMxDBhp+mlfxSMglFAPgAA7z0CNQ==
+  </chunk>
+  </data>
+ </layer>
+ <layer name="regions_output" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJyLYWIAgxg0ehSMglEw/AEAY2YBGw==
+  </chunk>
+  </data>
+ </layer>
+ <layer name="input_town04_f_low" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYKAMXGWE0Neg9HVG0vS/h6r/AKU/kqh/FIyCUUA+AAAvdwVZ
+  </chunk>
+  </data>
+ </layer>
+ <layer name="output_town04_f_high" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJyzZoAAGyhtyzAKRsEoGCkAAM5uALU=
+  </chunk>
+  </data>
+ </layer>
+</map>

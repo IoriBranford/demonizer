@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" infinite="1" nextobjectid="2">
+ <tileset firstgid="1" source="road02_a.tsx"/>
+ <layer name="regions_output" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="-16" y="0" width="16" height="16">
+   eJxjYBgYEMM0QBaPglEwCuAAAE/9AF8=
+  </chunk>
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYKAMxDBRRo+CUTAKBg4AALZGAvE=
+  </chunk>
+   <chunk x="16" y="0" width="16" height="16">
+   eJxjYKAMxDDhp0fBKBgFgxcAAHSjAXk=
+  </chunk>
+  </data>
+ </layer>
+ <layer name="regions_input" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="-16" y="0" width="16" height="16">
+   eJxjYCAPODCSqXEUjIJRMGgAAPnHAEI=
+  </chunk>
+   <chunk x="0" y="0" width="16" height="16">
+   eJxzYGQAAwcy6VEwCkbB0AUA64ECCQ==
+  </chunk>
+   <chunk x="16" y="0" width="16" height="16">
+   eJxzYGQAAwcc9CgYBaNg+AIACAgBBQ==
+  </chunk>
+  </data>
+ </layer>
+ <layer name="output_road02_a_mid" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="-16" y="0" width="16" height="16">
+   eJxjYBgYEM80QBaPglEwCuAAAFqVAGI=
+  </chunk>
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYKAMJDBB6EQonQSlXRghtCaUrwWlY6F0HBOFFo+CUTAKKAYAMJgChQ==
+  </chunk>
+   <chunk x="16" y="0" width="16" height="16">
+   eJxjYKAM7IPS+6H0Xij9kUJzR8EoGAW0BwC9hQMs
+  </chunk>
+  </data>
+ </layer>
+ <layer name="input_road02_a_high" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="-16" y="0" width="16" height="16">
+   eJxjYCAPuDKRqXEUjIJRMGgAABCFAEg=
+  </chunk>
+   <chunk x="0" y="0" width="16" height="16">
+   eJxzY2IAA3co7QGltRghND+ULwClnaG0C5QeBaNgFAxdAACoKwG1
+  </chunk>
+   <chunk x="16" y="0" width="16" height="16">
+   eJxbwgABS6H0Yih9nWEUjIJRMNwBAO0WAsQ=
+  </chunk>
+  </data>
+ </layer>
+</map>

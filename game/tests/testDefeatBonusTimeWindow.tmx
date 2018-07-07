@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextobjectid="8">
+ <properties>
+  <property name="cameraid" type="int" value="2"/>
+  <property name="music" type="file" value=""/>
+  <property name="nextmap" type="file" value=""/>
+  <property name="overlaymap" type="file" value="../gameplay.lua"/>
+  <property name="playerid" type="int" value="1"/>
+ </properties>
+ <tileset firstgid="1" source="../img/player.tsx"/>
+ <tileset firstgid="29" source="../img/human/civilian/townfolk-adult-f-001.tsx"/>
+ <tileset firstgid="41" source="../img/human/civilian/townfolk-adult-f-002.tsx"/>
+ <tileset firstgid="53" source="../img/human/enemy/HeavyMilitia.tsx"/>
+ <objectgroup name="camera">
+  <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
+ </objectgroup>
+ <objectgroup name="Object Layer 5">
+  <object id="3" type="Trigger" x="8" y="8" width="224" height="8">
+   <properties>
+    <property name="defeatenemiesbonus" type="int" value="10000"/>
+    <property name="defeatenemiesbonustimewindow" type="float" value="0.5"/>
+   </properties>
+  </object>
+  <object id="4" gid="32" x="112" y="272" width="24" height="32"/>
+  <object id="5" gid="44" x="128" y="272" width="24" height="32"/>
+  <object id="6" gid="59" x="80" y="96" width="32" height="32"/>
+  <object id="7" gid="59" x="160" y="96" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="sparks"/>
+ <objectgroup draworder="index" name="playershots"/>
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
+  <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

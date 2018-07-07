@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextobjectid="13">
+ <properties>
+  <property name="cameraid" type="int" value="2"/>
+  <property name="music" type="file" value=""/>
+  <property name="nextmap" type="file" value=""/>
+  <property name="overlaymap" type="file" value="../gameplay.lua"/>
+  <property name="playerid" type="int" value="1"/>
+ </properties>
+ <tileset firstgid="1" source="../img/player.tsx"/>
+ <tileset firstgid="29" source="../img/friend/alraune.tsx"/>
+ <tileset firstgid="41" source="../img/human/enemy/HeavyMilitia.tsx"/>
+ <objectgroup name="camera">
+  <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
+ </objectgroup>
+ <objectgroup name="friendattack">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="3" gid="47" x="88" y="112" width="32" height="32">
+   <properties>
+    <property name="firetargetid" value="6"/>
+    <property name="pathfinder" value="linear2way"/>
+    <property name="pathid" value="mylayer"/>
+   </properties>
+  </object>
+  <object id="4" gid="47" x="120" y="32" width="32" height="32">
+   <properties>
+    <property name="firetargetid" value="6"/>
+    <property name="pathfinder" value="linear2way"/>
+    <property name="pathid" value="mylayer"/>
+   </properties>
+  </object>
+  <object id="5" name="trigger" type="Trigger" x="104" y="-80" width="32" height="208">
+   <properties>
+    <property name="defeatenemiesbonus" type="int" value="10000"/>
+   </properties>
+  </object>
+  <object id="6" gid="29" x="120" y="72" width="64" height="64">
+   <properties>
+    <property name="defeatparticles" value="deathparticles"/>
+    <property name="friendly" type="bool" value="true"/>
+    <property name="health" type="int" value="36"/>
+    <property name="hitparticles" value="deathparticles"/>
+    <property name="hitsound" type="file" value="../snd/slash.wav"/>
+    <property name="script" value="Friend"/>
+   </properties>
+  </object>
+  <object id="7" gid="47" x="152" y="112" width="32" height="32">
+   <properties>
+    <property name="firetargetid" value="6"/>
+    <property name="pathfinder" value="linear2way"/>
+    <property name="pathid" value="mylayer"/>
+   </properties>
+  </object>
+  <object id="10" x="120" y="128">
+   <polyline points="16,-16 32,-16 48,-32 48,-48"/>
+  </object>
+  <object id="11" x="120" y="128">
+   <polyline points="-48,-48 -48,-32 -32,-16 -16,-16"/>
+  </object>
+  <object id="12" x="88" y="48">
+   <polyline points="0,0 16,-16 32,-16 48,-16 64,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="sparks"/>
+ <objectgroup draworder="index" name="playershots"/>
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
+  <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
+   <properties>
+    <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

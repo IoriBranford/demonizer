@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="right-up" width="4" height="1" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" source="../img/basic_terrain.tsx"/>
+ <tileset firstgid="385" source="../img/forest.tsx"/>
+ <layer name="regions_input" width="4" height="1">
+  <data encoding="csv">
+26,0,26,0
+</data>
+ </layer>
+ <layer name="regions_output" width="4" height="1">
+  <data encoding="csv">
+2,0,2,0
+</data>
+ </layer>
+ <layer name="input1_dirt" width="4" height="1">
+  <data encoding="csv">
+184,0,158,0
+</data>
+ </layer>
+ <layer name="inputnot1_grass" width="4" height="1">
+  <data encoding="csv">
+56,0,50,0
+</data>
+ </layer>
+ <layer name="inputnot1_grass" width="4" height="1">
+  <data encoding="csv">
+78,0,53,0
+</data>
+ </layer>
+ <layer name="inputnot1_grass" width="4" height="1">
+  <data encoding="csv">
+79,0,73,0
+</data>
+ </layer>
+ <layer name="inputnot1_grass" width="4" height="1">
+  <data encoding="csv">
+80,0,85,0
+</data>
+ </layer>
+ <layer name="inputnot1_grass" width="4" height="1">
+  <data encoding="csv">
+81,0,74,0
+</data>
+ </layer>
+ <layer name="inputnot1_grass" width="4" height="1">
+  <data encoding="csv">
+90,0,86,0
+</data>
+ </layer>
+ <layer name="inputnot1_grass" width="4" height="1">
+  <data encoding="csv">
+91,0,75,0
+</data>
+ </layer>
+ <layer name="inputnot1_grass" width="4" height="1">
+  <data encoding="csv">
+92,0,87,0
+</data>
+ </layer>
+ <layer name="inputnot1_grass" width="4" height="1">
+  <data encoding="csv">
+93,0,76,0
+</data>
+ </layer>
+ <layer name="inputnot1_grass" width="4" height="1">
+  <data encoding="csv">
+93,0,88,0
+</data>
+ </layer>
+ <layer name="output1_dirtdeco" width="4" height="1">
+  <data encoding="csv">
+207,0,205,0
+</data>
+ </layer>
+ <layer name="output2_dirtdeco" width="4" height="1">
+  <data encoding="csv">
+208,0,206,0
+</data>
+ </layer>
+</map>

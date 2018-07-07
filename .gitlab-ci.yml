@@ -1,0 +1,110 @@
+# This file is a template, and might need editing before it works on your project.
+# see https://docs.gitlab.com/ce/ci/yaml/README.html for all available options
+
+image: ubuntu:latest
+
+variables:
+ PROJECT: demonizer
+# CI_PROJECT_NAME not accessible here???
+ PROJECT_TITLE: Demonizer
+ APPLICATION_ID: "com.github.ioribranford.${PROJECT}"
+ PROJECT_AND_VERSION: "${PROJECT}-${CI_COMMIT_REF_NAME}"
+ GIT_DEPTH: "1"
+# broken by https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/2148
+# GIT_SUBMODULE_STRATEGY: recursive
+ GAME_ASSET: game.love
+
+stages:
+ - build
+
+before_script:
+ - apt-get update -qq
+ - apt-get install -y -qq git zip luajit
+# workaround https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/2148
+ - git submodule sync --recursive
+ - git submodule update --init --recursive
+
+build-data:
+ stage: build
+ variables:
+  OUTPUT: "${PROJECT}.love"
+ script:
+   - apt-get install -y -qq wget xz-utils
+   - ./make-game.sh
+   - mv $GAME_ASSET ${OUTPUT}
+ artifacts:
+  name: "${PROJECT_AND_VERSION}-data"
+  paths:
+  - ${OUTPUT}
+  expire_in: 1 week
+
+build-win32:
+ stage: build
+ variables:
+  ARCH_BITS: "32"
+  PROJECT_DIR: "${PROJECT}-win32"
+ script:
+   - apt-get install -y -qq wget xz-utils
+   - ./make-game.sh
+   - ./make-windows.sh
+ artifacts:
+  name: "${PROJECT_AND_VERSION}-win${ARCH_BITS}"
+  paths:
+  - ${PROJECT_DIR}
+  expire_in: 1 week
+
+build-win64:
+ stage: build
+ variables:
+  ARCH_BITS: "64"
+  PROJECT_DIR: "${PROJECT}-win64"
+ script:
+   - apt-get install -y -qq wget xz-utils
+   - ./make-game.sh
+   - ./make-windows.sh
+ artifacts:
+  name: "${PROJECT_AND_VERSION}-win${ARCH_BITS}"
+  paths:
+  - ${PROJECT_DIR}
+  expire_in: 1 week
+
+build-macosx:
+        stage: build
+        image: andrewd/osxcross
+        variables:
+                PROJECT_DIR: "${PROJECT_TITLE}.app"
+                INSTALL_NAME_TOOL: x86_64-apple-darwin12-install_name_tool
+        script:
+                - apt-get install -y -qq cmake wget xz-utils
+                - ./make-game.sh
+                - ./make-macosx.sh
+        artifacts:
+                name: "${PROJECT_AND_VERSION}-macosx"
+                paths:
+                        - ${PROJECT_DIR}
+                expire_in: 1 week
+
+build-android:
+        stage: build
+        image: snowdream/android-ndk:r14
+        variables:
+                GAME_APK: "${PROJECT}.apk"
+        script:
+                - echo $GAME_APK
+                - apt-get install -y -qq wget xz-utils make file
+                - ./make-game.sh
+                - ./configure-android.sh
+                - ./make-android.sh
+#        cache:
+#                key: $PROJECT-android
+#                paths:
+#                        - love-android-cache/.gradle
+#                        - love-android-cache/build/
+#                        - love-android-cache/app/build/
+#                        - love-android-cache/love/build/
+#                        - love-android-cache/love/.externalNativeBuild/
+        artifacts:
+                name: "${PROJECT_AND_VERSION}-android"
+                paths:
+                        - $GAME_APK
+                expire_in: 1 week

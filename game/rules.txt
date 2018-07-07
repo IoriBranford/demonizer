@@ -1,0 +1,9 @@
+img/town04_f_inlow_outhigh.tmx
+img/town04_f_inmid_outhigh.tmx
+img/road02_a_inhigh_outmid.tmx
+img/town02_a_output_high.tmx
+img/town02_a_output_mid.tmx
+rules/basic_terrain_markoccluded.tmx
+rules/basic_terrain_dirtdeco.tmx
+rules/basic_terrain_grassdeco.tmx
+rules/waterelectricity.tmx
