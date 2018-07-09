@@ -8,7 +8,7 @@ return {
   height = 100,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 344,
+  nextobjectid = 347,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgz",
@@ -7288,7 +7288,7 @@ return {
           name = "",
           type = "Friend",
           shape = "rectangle",
-          x = 144,
+          x = 128,
           y = 752,
           width = 32,
           height = 32,
@@ -7299,7 +7299,7 @@ return {
             ["emotetileid"] = "help",
             ["emotetileset"] = "emotes",
             ["fleeing"] = true,
-            ["health"] = 10,
+            ["health"] = 5,
             ["pathfinder"] = "linearDown",
             ["pathid"] = "mylayer"
           }
@@ -7309,7 +7309,7 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 144,
+          x = 128,
           y = 752,
           width = 0,
           height = 0,
@@ -7318,8 +7318,8 @@ return {
           polyline = {
             { x = 0, y = 0 },
             { x = 0, y = 112 },
-            { x = -24, y = 128 },
-            { x = 24, y = 144 },
+            { x = -8, y = 128 },
+            { x = 8, y = 144 },
             { x = 0, y = 160 },
             { x = 0, y = 256 }
           },
@@ -7339,8 +7339,7 @@ return {
           visible = true,
           properties = {
             ["firetargetid"] = "340",
-            ["pathid"] = "340",
-            ["pathspeedfunction"] = "abssin"
+            ["pathid"] = "340"
           }
         },
         {
@@ -7357,9 +7356,8 @@ return {
           visible = true,
           properties = {
             ["defeatitem"] = "ItemWingman",
-            ["firetargetid"] = "340",
-            ["pathid"] = "340",
-            ["pathspeedfunction"] = "abssin"
+            ["firetargetid"] = "345",
+            ["pathid"] = "345"
           }
         },
         {
@@ -7375,9 +7373,8 @@ return {
           gid = 725,
           visible = true,
           properties = {
-            ["firetargetid"] = "340",
-            ["pathid"] = "340",
-            ["pathspeedfunction"] = "abssin"
+            ["firetargetid"] = "345",
+            ["pathid"] = "345"
           }
         },
         {
@@ -7394,8 +7391,7 @@ return {
           visible = true,
           properties = {
             ["firetargetid"] = "340",
-            ["pathid"] = "340",
-            ["pathspeedfunction"] = "abssin"
+            ["pathid"] = "340"
           }
         },
         {
@@ -7411,9 +7407,50 @@ return {
           gid = 725,
           visible = true,
           properties = {
-            ["firetargetid"] = "340",
-            ["pathid"] = "340",
-            ["pathspeedfunction"] = "abssin"
+            ["firetargetid"] = "345",
+            ["pathid"] = "345"
+          }
+        },
+        {
+          id = 344,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 160,
+          y = 752,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 112 },
+            { x = -8, y = 128 },
+            { x = 8, y = 144 },
+            { x = 0, y = 160 },
+            { x = 0, y = 256 }
+          },
+          properties = {}
+        },
+        {
+          id = 345,
+          name = "",
+          type = "Friend",
+          shape = "rectangle",
+          x = 160,
+          y = 736,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 527,
+          visible = true,
+          properties = {
+            ["emotetileid"] = "help",
+            ["emotetileset"] = "emotes",
+            ["fleeing"] = true,
+            ["health"] = 8,
+            ["pathfinder"] = "linearDown",
+            ["pathid"] = "mylayer"
           }
         }
       }
@@ -9802,7 +9839,7 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 8 },
+            { x = 0, y = -1264 },
             { x = 0, y = -1272 }
           },
           properties = {

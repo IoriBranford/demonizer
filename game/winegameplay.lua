@@ -8,12 +8,12 @@ return {
   height = 20,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 49,
+  nextobjectid = 57,
   properties = {
     ["delayinitobjects"] = true,
     ["losemusic"] = "mus/33 - All Over Tonight.vgz",
     ["script"] = "ShmupMap",
-    ["staticsounds"] = "snd/alarm4.wav, snd/ballista.wav, snd/bomber.wav, snd/bomb.wav, snd/boom1.wav,\n  snd/boom2.wav, snd/boom3.wav, snd/bonus.wav, snd/bow.wav, snd/burst.wav, snd/buzz.wav, snd/catapult.wav, snd/charge.wav,\nsnd/dragonfire.wav, snd/equip.wav, snd/extend.wav, snd/forcefield.wav, snd/gallop8.wav, snd/hit.wav, snd/hyaa.wav, snd/item1.wav,\nsnd/item2.wav, snd/knockout.wav, snd/maxed.wav, snd/mmph.wav, snd/nnoooo.wav, snd/ow.wav,\nsnd/parry.wav, snd/pause.wav, snd/pike.wav, snd/playershot.wav, snd/powershot.wav,\nsnd/powerup.wav, snd/respawn.wav, snd/scream.wav, snd/selfdestruct.wav,\nsnd/shriek.wav, snd/slash.wav, snd/sword.wav, snd/targetlock.wav,\nsnd/thankyou.wav, snd/ting.wav, snd/turbo.wav, snd/warp.wav",
+    ["staticsounds"] = "snd/alarm4.wav, snd/ballista.wav, snd/bomber.wav, snd/bomb.wav, snd/boom1.wav,\n  snd/boom2.wav, snd/boom3.wav, snd/bonus.wav, snd/bow.wav, snd/burst.wav, snd/buzz.wav, snd/catapult.wav, snd/charge.wav,\nsnd/dragonfire.wav, snd/equip.wav, snd/extend.wav, snd/forcefield.wav, snd/gallop8.wav, snd/hit.wav, snd/hyaa.wav, snd/item1.wav,\nsnd/item2.wav, snd/kick.wav, snd/knockout.wav, snd/maxed.wav, snd/mmph.wav, snd/nnoooo.wav, snd/ow.wav,\nsnd/parry.wav, snd/pause.wav, snd/pike.wav, snd/playershot.wav, snd/powershot.wav,\nsnd/powerup.wav, snd/respawn.wav, snd/scream.wav, snd/selfdestruct.wav,\nsnd/shriek.wav, snd/slash.wav, snd/sword.wav, snd/targetlock.wav,\nsnd/thankyou.wav, snd/ting.wav, snd/turbo.wav, snd/warp.wav",
     ["winmusic"] = "mus/07 - Great Job!.vgz"
   },
   tilesets = {
@@ -2158,122 +2158,66 @@ return {
       tiles = {}
     },
     {
-      name = "emotes",
+      name = "winebomb",
       firstgid = 363,
-      filename = "img/emotes.tsx",
-      tilewidth = 16,
-      tileheight = 16,
+      filename = "img/winebomb.tsx",
+      tilewidth = 18,
+      tileheight = 12,
       spacing = 0,
       margin = 0,
-      image = "img/emotes.png",
-      imagewidth = 128,
-      imageheight = 32,
+      image = "img/winebomb.png",
+      imagewidth = 18,
+      imageheight = 24,
       tileoffset = {
-        x = -8,
-        y = -16
+        x = -9,
+        y = 6
       },
       grid = {
         orientation = "orthogonal",
-        width = 16,
-        height = 16
+        width = 18,
+        height = 12
       },
       properties = {},
       terrains = {},
-      tilecount = 16,
+      tilecount = 2,
       tiles = {
         {
           id = 0,
-          properties = {
-            ["name"] = "drunk"
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = -3,
+                y = 6,
+                width = 12,
+                height = 12,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
           },
           animation = {
             {
               tileid = 0,
-              duration = 125
+              duration = 67
             },
             {
               tileid = 1,
-              duration = 125
-            },
-            {
-              tileid = 2,
-              duration = 125
-            },
-            {
-              tileid = 3,
-              duration = 125
-            }
-          }
-        },
-        {
-          id = 4,
-          properties = {
-            ["name"] = "heart"
-          },
-          animation = {
-            {
-              tileid = 4,
-              duration = 125
-            },
-            {
-              tileid = 5,
-              duration = 125
-            },
-            {
-              tileid = 6,
-              duration = 125
-            },
-            {
-              tileid = 7,
-              duration = 125
-            }
-          }
-        },
-        {
-          id = 8,
-          properties = {
-            ["name"] = "sweat"
-          },
-          animation = {
-            {
-              tileid = 8,
               duration = 67
-            },
-            {
-              tileid = 9,
-              duration = 67
-            },
-            {
-              tileid = 10,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 11,
-          properties = {
-            ["name"] = "help"
-          },
-          animation = {
-            {
-              tileid = 11,
-              duration = 125
-            },
-            {
-              tileid = 12,
-              duration = 125
-            },
-            {
-              tileid = 13,
-              duration = 125
-            },
-            {
-              tileid = 14,
-              duration = 125
-            },
-            {
-              tileid = 15,
-              duration = 125
             }
           }
         }
@@ -2290,6 +2234,7 @@ return {
       offsety = 0,
       draworder = "topdown",
       properties = {
+        ["itemtileset"] = "wineitems",
         ["script"] = "ItemsLayer"
       },
       objects = {}
@@ -2399,8 +2344,8 @@ return {
       properties = {
         ["lifetime"] = 0.5,
         ["script"] = "ParticleLayer",
-        ["speedmax"] = 360,
-        ["speedmin"] = 120,
+        ["speedmax"] = 180,
+        ["speedmin"] = 90,
         ["spread"] = 90,
         ["tileid"] = "death",
         ["tileset"] = "particles"
@@ -2436,7 +2381,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 120,
-          y = 168,
+          y = 104,
           width = 16,
           height = 20,
           rotation = 0,
@@ -2711,24 +2656,82 @@ return {
         },
         {
           id = 48,
-          name = "caravanrules",
+          name = "winebomb1",
           type = "",
-          shape = "text",
-          x = 64,
-          y = 64,
-          width = 112,
-          height = 64,
-          rotation = 0,
+          shape = "rectangle",
+          x = 8,
+          y = 312,
+          width = 18,
+          height = 12,
+          rotation = -90,
+          gid = 363,
           visible = true,
-          text = "%3d SECONDS\n\n%s BOMBS\n\n\n\nGOOD LUCK!!!",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
-          wrap = true,
-          color = { 255, 255, 255 },
-          halign = "center",
           properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt",
-            ["textformat"] = "%3d SECONDS\n\n%s BOMBS\n\n\n\nGOOD LUCK!!!"
+            ["collidable"] = false
+          }
+        },
+        {
+          id = 49,
+          name = "winebomb2",
+          type = "",
+          shape = "rectangle",
+          x = 24,
+          y = 312,
+          width = 18,
+          height = 12,
+          rotation = -90,
+          gid = 363,
+          visible = true,
+          properties = {
+            ["collidable"] = false
+          }
+        },
+        {
+          id = 50,
+          name = "winebomb3",
+          type = "",
+          shape = "rectangle",
+          x = 40,
+          y = 312,
+          width = 18,
+          height = 12,
+          rotation = -90,
+          gid = 363,
+          visible = true,
+          properties = {
+            ["collidable"] = false
+          }
+        },
+        {
+          id = 51,
+          name = "winebomb4",
+          type = "",
+          shape = "rectangle",
+          x = 56,
+          y = 312,
+          width = 18,
+          height = 12,
+          rotation = -90,
+          gid = 363,
+          visible = true,
+          properties = {
+            ["collidable"] = false
+          }
+        },
+        {
+          id = 52,
+          name = "winebomb5",
+          type = "",
+          shape = "rectangle",
+          x = 72,
+          y = 312,
+          width = 18,
+          height = 12,
+          rotation = -90,
+          gid = 363,
+          visible = true,
+          properties = {
+            ["collidable"] = false
           }
         }
       }
@@ -2793,7 +2796,7 @@ return {
           name = "bombpoints",
           type = "",
           shape = "text",
-          x = 56,
+          x = 80,
           y = 304,
           width = 56,
           height = 8,
@@ -2814,7 +2817,7 @@ return {
           name = "bombtotal",
           type = "",
           shape = "text",
-          x = 120,
+          x = 144,
           y = 304,
           width = 72,
           height = 8,
@@ -2950,8 +2953,9 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "title.lua",
-            ["script"] = "ButtonChangeMap"
+            ["nextmap"] = "drunktitle.lua",
+            ["script"] = "ButtonChangeMap",
+            ["textfont"] = "fnt/pressstart2p.fnt"
           }
         },
         {
@@ -3092,8 +3096,9 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "title.lua",
-            ["script"] = "ButtonChangeMap"
+            ["nextmap"] = "drunktitle.lua",
+            ["script"] = "ButtonChangeMap",
+            ["textfont"] = "fnt/pressstart2p.fnt"
           }
         }
       }

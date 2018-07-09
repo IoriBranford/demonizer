@@ -11,6 +11,10 @@ function DrunkTitleMap:_init(map)
 	self.screeneffect = levity.scripts:newScript(self.map.name, "ScreenEffectDrunk", map)
 end
 
+function DrunkTitleMap:keypressed_escape()
+	levity:setNextMap("title.lua")
+end
+
 function DrunkTitleMap:beginMove(dt)
 	self.properties.blurradius = 1
 end

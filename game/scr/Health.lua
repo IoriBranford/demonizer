@@ -15,8 +15,6 @@ function Health:_init(object)
 	self.health = object.properties.health or 8
 	self.movedamage = 0
 	self.dps = 0
-	self.oncamera = false
-	self.oncameraedge = false
 end
 
 local Sounds = {
@@ -39,28 +37,6 @@ end
 
 function Health:beginMove(dt)
 	self.movedamage = 0
-end
-
-function Health:beginContact(myfixture, otherfixture, contact)
-	for i = 1, select("#", otherfixture:getCategory()) do
-		local category = select(i, otherfixture:getCategory())
-		if category == ShmupCollision.Category_Camera then
-			self.oncamera = true
-		elseif category == ShmupCollision.Category_CameraEdge then
-			self.oncameraedge = true
-		end
-	end
-end
-
-function Health:endContact(myfixture, otherfixture, contact)
-	for i = 1, select("#", otherfixture:getCategory()) do
-		local category = select(i, otherfixture:getCategory())
-		if category == ShmupCollision.Category_Camera then
-			self.oncamera = false
-		elseif category == ShmupCollision.Category_CameraEdge then
-			self.oncameraedge = false
-		end
-	end
 end
 
 function Health:createContactHitFX(contact, myfixture, sparktype)
@@ -105,7 +81,7 @@ end
 
 function Health:endMove(dt)
 	local damage = 0
-	if self.oncamera and not self.oncameraedge then
+	if levity.scripts:call(self.id, "canTakeDamage") ~= false then
 		damage = self.movedamage + (self.dps * dt)
 	end
 

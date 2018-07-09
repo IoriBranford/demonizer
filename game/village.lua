@@ -1,14 +1,14 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.1.4",
+  tiledversion = "1.1.5",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 18,
   height = 245,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 326,
+  nextobjectid = 327,
   properties = {
     ["cameraid"] = 2,
     ["music"] = "mus/09 - Blue Sky Laundry.vgz",
@@ -5695,6 +5695,101 @@ return {
           }
         }
       }
+    },
+    {
+      name = "explosion_giant",
+      firstgid = 1459,
+      filename = "img/explosion_giant.tsx",
+      tilewidth = 256,
+      tileheight = 256,
+      spacing = 0,
+      margin = 0,
+      image = "img/explosion_giant.png",
+      imagewidth = 1024,
+      imageheight = 1024,
+      tileoffset = {
+        x = -128,
+        y = 128
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 256,
+        height = 256
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 16,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 67
+            },
+            {
+              tileid = 1,
+              duration = 67
+            },
+            {
+              tileid = 2,
+              duration = 67
+            },
+            {
+              tileid = 3,
+              duration = 67
+            },
+            {
+              tileid = 4,
+              duration = 67
+            },
+            {
+              tileid = 5,
+              duration = 67
+            },
+            {
+              tileid = 6,
+              duration = 67
+            },
+            {
+              tileid = 7,
+              duration = 67
+            },
+            {
+              tileid = 8,
+              duration = 67
+            },
+            {
+              tileid = 9,
+              duration = 67
+            },
+            {
+              tileid = 10,
+              duration = 67
+            },
+            {
+              tileid = 11,
+              duration = 67
+            },
+            {
+              tileid = 12,
+              duration = 67
+            },
+            {
+              tileid = 13,
+              duration = 67
+            },
+            {
+              tileid = 14,
+              duration = 67
+            },
+            {
+              tileid = 15,
+              duration = 67
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -7777,58 +7872,16 @@ return {
       properties = {},
       objects = {
         {
-          id = 167,
-          name = "explosion",
+          id = 326,
+          name = "giantexplosion",
           type = "Spark",
           shape = "rectangle",
           x = 144,
-          y = 792,
-          width = 96,
-          height = 96,
-          rotation = 0,
-          gid = 1141,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 166,
-          name = "explosion",
-          type = "Spark",
-          shape = "rectangle",
-          x = 144,
-          y = 736,
-          width = 96,
-          height = 96,
-          rotation = 0,
-          gid = 1141,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 165,
-          name = "explosion",
-          type = "Spark",
-          shape = "rectangle",
-          x = 192,
           y = 776,
-          width = 96,
-          height = 96,
+          width = 256,
+          height = 256,
           rotation = 0,
-          gid = 1141,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 164,
-          name = "explosion",
-          type = "Spark",
-          shape = "rectangle",
-          x = 96,
-          y = 776,
-          width = 96,
-          height = 96,
-          rotation = 0,
-          gid = 1141,
+          gid = 1459,
           visible = true,
           properties = {}
         },

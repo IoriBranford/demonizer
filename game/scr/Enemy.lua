@@ -46,6 +46,7 @@ function Enemy:_init(object)
 	self.properties = object.properties
 
 	self.oncamera = false
+	self.oncameraedge = false
 	self.exitedcamera = false -- false until first time going off-camera, then opposite of oncamera
 
 	local category
@@ -151,12 +152,17 @@ function Enemy:isOnCamera()
 	return self.oncamera
 end
 
-function Enemy:canBeLockTarget()
-	local rideid = self.properties.rideid
-	return self.oncamera and self.object.visible
+function Enemy:canTakeDamage()
+	return self.oncamera and not self.oncameraedge
 		and self.health and not self.health:isDefeated()
 		and self.shields < 1
-		and not (rideid and self.properties.rideshield)
+		and not (self.properties.rideid and self.properties.rideshield)
+		and not (self.properties.ridershield and self.mover and self.mover:hasRiders())
+end
+
+function Enemy:canBeLockTarget()
+	return self:canTakeDamage()
+		and self.object.visible
 		and not self.properties.bombdamageonly
 end
 
@@ -227,10 +233,7 @@ function Enemy:endMove(dt)
 end
 
 function Enemy:beginContact_PlayerShot(myfixture, otherfixture, contact)
-	if not self.health
-	or self.cover and self.cover:hasCover()
-	or self.shields > 0
-	or self.properties.rideid and self.properties.rideshield then
+	if not self.health or self.cover and self.cover:hasCover() then
 		levity.scripts:send(self.id, "suppress")
 	else
 		local bulletproperties = otherfixture:getBody():getUserData().properties
@@ -288,6 +291,8 @@ function Enemy:beginContact(myfixture, otherfixture, contact)
 		elseif category == ShmupCollision.Category_Camera then
 			self.oncamera = true
 			self.exitedcamera = false
+		elseif category == ShmupCollision.Category_CameraEdge then
+			self.oncameraedge = true
 		end
 	end
 end
@@ -347,6 +352,8 @@ function Enemy:endContact(myfixture, otherfixture, contact)
 		elseif category == ShmupCollision.Category_Camera then
 			self.oncamera = false
 			self.exitedcamera = true
+		elseif category == ShmupCollision.Category_CameraEdge then
+			self.oncameraedge = false
 		end
 	end
 end
@@ -473,9 +480,10 @@ function Enemy:dropDefeatItem()
 	end
 end
 
-function Enemy:explosionClusterCoroutine(explosiontype, numexplosions, clusterradius, explosionlayer,
-					particlelayer, numparticles, timeinterval)
-
+function Enemy:explosionClusterCoroutine(explosiontype, numexplosions,
+						clusterradius, explosionlayer,
+						particlelayer, numparticles,
+						timeinterval)
 	clusterradius = clusterradius or 0
 	timeinterval = timeinterval or 0
 	explosionlayer = explosionlayer or "sparks"

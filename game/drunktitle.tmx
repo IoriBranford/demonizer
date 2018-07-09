@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="48" height="64" tilewidth="5" tileheight="5" infinite="0" nextobjectid="44">
+ <properties>
+  <property name="music" type="file" value="mus/08 - Curry and Rice.vgz"/>
+  <property name="nextmap" type="file" value="demonrealm.lua"/>
+  <property name="script" value="DrunkTitleMap"/>
+ </properties>
+ <tileset firstgid="1" source="img/bg_swirl.tsx"/>
+ <tileset firstgid="101" source="img/title_demonization.tsx"/>
+ <tileset firstgid="117" source="img/title.tsx"/>
+ <tileset firstgid="118" source="img/winetitle.tsx"/>
+ <tileset firstgid="119" source="img/emotes.tsx"/>
+ <tileset firstgid="135" source="img/winebomb.tsx"/>
+ <layer name="Tile Layer 1" width="48" height="64">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3VVVZCAQBF0fdERQzEwsICu0WxFRMTEwtbnP8YPKNw3cW6H/vv/J8wCIIaRFCLOtQjigbE0IhQtGtCM1oQRysSaEM7OtAp3HUhiW70oBd96EcKAxgU7oYwjBGkkcEoxjCOCUwKd1OYxgxmMYd5LGARS8gKd8tYQQ6rWMM6NrCJLWwLdzvYRR572McBDnGEYxSEuxOc4gznuMAlirjCNW6Eu1vc4R4lPOART3jGC8rC3Sve8I4PfOIL3/hBBb/CnepX/V//1//1f/1f/9f/1e1Uv+r/+r/+r//r//q//q9up/pV/9f/9X/9X//X//V/dTvVr/q//u9/dKpf9X/9X//X//V//V//V7dT/ar/6//6v9X/3z8EBwieADAAAA==
+  </data>
+ </layer>
+ <objectgroup draworder="index" name="title">
+  <object id="25" gid="118" x="40" y="50" width="160" height="24"/>
+  <object id="35" gid="119" x="75" y="60" width="16" height="16"/>
+  <object id="36" gid="119" x="57.5" y="65" width="16" height="16"/>
+  <object id="37" gid="119" x="92.5" y="62.5" width="16" height="16"/>
+  <object id="38" gid="119" x="127.5" y="60" width="16" height="16"/>
+  <object id="39" gid="119" x="110" y="60" width="16" height="16"/>
+  <object id="40" gid="119" x="145" y="62.5" width="16" height="16"/>
+  <object id="41" gid="119" x="162.5" y="60" width="16" height="16"/>
+  <object id="42" gid="119" x="180" y="62.5" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup draworder="index" name="Object Layer 1">
+  <object id="3" name="hiscore" x="0" y="5" width="240" height="10" visible="0">
+   <properties>
+    <property name="text" value="HI SCORE 0"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+  </object>
+  <object id="11" name="camera" type="Camera" x="0" y="0" width="240" height="320" visible="0"/>
+  <object id="17" name="instructions" x="20" y="80" width="200" height="136">
+   <properties>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">ARROW keys: MOVE
+
+Z key:   FIRE wine shots
+
+X key:   FOCUS
+         to resist drunk
+
+C key:   VOMIT BOMB
+         with 1 or more
+
+
+ESC key: PAUSE game
+
+F2 key:  RESET level
+
+Alt-F4:  QUIT</text>
+  </object>
+  <object id="18" name="quit" x="0" y="250" width="240" height="10">
+   <properties>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">or ESC back to main title</text>
+  </object>
+  <object id="19" name="copyright" x="0" y="290" width="240" height="30">
+   <properties>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">© 2018 IoriBranford
+
+Twitter: @ioribranford</text>
+  </object>
+  <object id="43" gid="135" x="215" y="150" width="18" height="12" rotation="270"/>
+ </objectgroup>
+ <objectgroup name="stagemenu">
+  <properties>
+   <property name="script" value="MenuDrunk"/>
+  </properties>
+  <object id="31" name="caravan" type="UIButton" x="40" y="220" width="160" height="24">
+   <properties>
+    <property name="nextmap" type="file" value="winetasting.lua"/>
+    <property name="script" value="ButtonPlayStage"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">PRESS Z TO START</text>
+  </object>
+ </objectgroup>
+ <objectgroup name="curtain">
+  <properties>
+   <property name="script" value="Curtain"/>
+  </properties>
+ </objectgroup>
+</map>

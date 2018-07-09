@@ -21,16 +21,18 @@ function Lord:defeat()
 end
 
 function Lord:defeatCoroutine(dt)
-	levity.bank:play("snd/nnoooo.wav")
-	while true do
-		local cx, cy = self.body:getWorldCenter()
-		local x = cx + (love.math.random() - 0.5)*16
-		local y = cy + (love.math.random() - 0.5)*16
-		ShmupBullet.create("SparkDefeatMed", x, y, 0, 0, "sparks")
-		levity.scripts:send("defeatparticles", "emit",
-			16, x, y, 0, 2*math.pi)
-		self.coroutine:waitTime(.125)
+	self.health:createDefeatFX()
+	self.typechanger:setType("Lord")
+
+	for _, fixture in ipairs(self.body:getFixtureList()) do
+		fixture:setMask(Enemy.InvulnerableMask)
 	end
+
+	self:explosionClusterCoroutine("SparkDefeatHuge", 8, 32, "sparks", "defeatparticles", 16, .25)
+	levity.bank:play("snd/nnoooo.wav")
+	self.giveitemtoid = levity.map.properties.playerid
+	self:dropDefeatItem()
+	self:discard()
 end
 
 return Lord

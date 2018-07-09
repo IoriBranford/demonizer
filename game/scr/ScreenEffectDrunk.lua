@@ -66,4 +66,8 @@ function ScreenEffectDrunk:endDraw()
 	end
 end
 
+function ScreenEffectDrunk:nextMap()
+	love.graphics.setShader()
+end
+
 return ScreenEffectDrunk

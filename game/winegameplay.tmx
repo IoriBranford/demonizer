@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextobjectid="49">
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextobjectid="57">
  <properties>
   <property name="delayinitobjects" type="bool" value="true"/>
   <property name="losemusic" type="file" value="mus/33 - All Over Tonight.vgz"/>
@@ -7,7 +7,7 @@
   <property name="staticsounds">snd/alarm4.wav, snd/ballista.wav, snd/bomber.wav, snd/bomb.wav, snd/boom1.wav,
   snd/boom2.wav, snd/boom3.wav, snd/bonus.wav, snd/bow.wav, snd/burst.wav, snd/buzz.wav, snd/catapult.wav, snd/charge.wav,
 snd/dragonfire.wav, snd/equip.wav, snd/extend.wav, snd/forcefield.wav, snd/gallop8.wav, snd/hit.wav, snd/hyaa.wav, snd/item1.wav,
-snd/item2.wav, snd/knockout.wav, snd/maxed.wav, snd/mmph.wav, snd/nnoooo.wav, snd/ow.wav,
+snd/item2.wav, snd/kick.wav, snd/knockout.wav, snd/maxed.wav, snd/mmph.wav, snd/nnoooo.wav, snd/ow.wav,
 snd/parry.wav, snd/pause.wav, snd/pike.wav, snd/playershot.wav, snd/powershot.wav,
 snd/powerup.wav, snd/respawn.wav, snd/scream.wav, snd/selfdestruct.wav,
 snd/shriek.wav, snd/slash.wav, snd/sword.wav, snd/targetlock.wav,
@@ -34,9 +34,10 @@ snd/thankyou.wav, snd/ting.wav, snd/turbo.wav, snd/warp.wav</property>
  <tileset firstgid="239" source="img/human/converted.tsx"/>
  <tileset firstgid="359" source="img/countdown.tsx"/>
  <tileset firstgid="362" source="img/go.tsx"/>
- <tileset firstgid="363" source="img/emotes.tsx"/>
+ <tileset firstgid="363" source="img/winebomb.tsx"/>
  <objectgroup name="items" opacity="0.5">
   <properties>
+   <property name="itemtileset" value="wineitems"/>
    <property name="script" value="ItemsLayer"/>
   </properties>
  </objectgroup>
@@ -98,8 +99,8 @@ snd/thankyou.wav, snd/ting.wav, snd/turbo.wav, snd/warp.wav</property>
   <properties>
    <property name="lifetime" type="float" value="0.5"/>
    <property name="script" value="ParticleLayer"/>
-   <property name="speedmax" type="float" value="360"/>
-   <property name="speedmin" type="float" value="120"/>
+   <property name="speedmax" type="float" value="180"/>
+   <property name="speedmin" type="float" value="90"/>
    <property name="spread" type="float" value="90"/>
    <property name="tileid" value="death"/>
    <property name="tileset" value="particles"/>
@@ -110,7 +111,7 @@ snd/thankyou.wav, snd/ting.wav, snd/turbo.wav, snd/warp.wav</property>
   <properties>
    <property name="script" value="ShmupStatus"/>
   </properties>
-  <object id="42" name="countdown" gid="361" x="120" y="168" width="16" height="20"/>
+  <object id="42" name="countdown" gid="361" x="120" y="104" width="16" height="20"/>
   <object id="41" name="timer" x="4" y="48" width="40" height="8">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">mm:ss</text>
   </object>
@@ -154,24 +155,30 @@ snd/thankyou.wav, snd/ting.wav, snd/turbo.wav, snd/warp.wav</property>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">SCORE 00000000  1UP@ 01000000</text>
   </object>
-  <object id="48" name="caravanrules" x="64" y="64" width="112" height="64">
+  <object id="48" name="winebomb1" gid="363" x="8" y="312" width="18" height="12" rotation="-90">
    <properties>
-    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
-    <property name="textformat">%3d SECONDS
-
-%s BOMBS
-
-
-
-GOOD LUCK!!!</property>
+    <property name="collidable" type="bool" value="false"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">%3d SECONDS
-
-%s BOMBS
-
-
-
-GOOD LUCK!!!</text>
+  </object>
+  <object id="49" name="winebomb2" gid="363" x="24" y="312" width="18" height="12" rotation="-90">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="50" name="winebomb3" gid="363" x="40" y="312" width="18" height="12" rotation="-90">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="51" name="winebomb4" gid="363" x="56" y="312" width="18" height="12" rotation="-90">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="52" name="winebomb5" gid="363" x="72" y="312" width="18" height="12" rotation="-90">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
   </object>
  </objectgroup>
  <objectgroup name="results">
@@ -192,14 +199,14 @@ GOOD LUCK!!!</text>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="right">rsrvtotal</text>
   </object>
-  <object id="32" name="bombpoints" x="56" y="304" width="56" height="8">
+  <object id="32" name="bombpoints" x="80" y="304" width="56" height="8">
    <properties>
     <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
     <property name="textformat" value="x %d"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">xbombpt</text>
   </object>
-  <object id="33" name="bombtotal" x="120" y="304" width="72" height="8">
+  <object id="33" name="bombtotal" x="144" y="304" width="72" height="8">
    <properties>
     <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
     <property name="textformat" value="%d pts"/>
@@ -241,8 +248,9 @@ GOOD LUCK!!!</text>
   </properties>
   <object id="37" name="title" type="UIButton" x="48" y="192" width="144" height="32">
    <properties>
-    <property name="nextmap" type="file" value="title.lua"/>
+    <property name="nextmap" type="file" value="drunktitle.lua"/>
     <property name="script" value="ButtonChangeMap"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">END GAME</text>
   </object>
@@ -281,8 +289,9 @@ GOOD LUCK!!!</text>
   </object>
   <object id="40" name="title" type="UIButton" x="48" y="192" width="144" height="32">
    <properties>
-    <property name="nextmap" type="file" value="title.lua"/>
+    <property name="nextmap" type="file" value="drunktitle.lua"/>
     <property name="script" value="ButtonChangeMap"/>
+    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">END GAME</text>
   </object>

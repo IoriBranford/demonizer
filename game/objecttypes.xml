@@ -184,7 +184,7 @@
  </objecttype>
  <objecttype name="BulletSword" color="#00aaff">
   <property name="category" type="string" default="EnemyShot"/>
-  <property name="lifetime" type="float" default="0.25"/>
+  <property name="lifetime" type="float" default="0.4"/>
   <property name="script" type="string" default="ShmupBullet"/>
   <property name="sound" type="file" default="snd/sword.wav"/>
   <property name="speed" type="float" default="240"/>
@@ -350,6 +350,7 @@
   <property name="pathspeed" type="string" default="180"/>
   <property name="pathspeedfunction" type="string" default="ncos"/>
   <property name="pathspeedmin" type="float" default="60"/>
+  <property name="ridershield" type="bool" default="true"/>
   <property name="score" type="int" default="25000"/>
   <property name="script" type="string" default="EnemyFireMage"/>
   <property name="strafearc" type="float" default="180"/>
@@ -502,8 +503,8 @@
   <property name="defeatitemlaunch" type="bool" default="true"/>
   <property name="defeatspark" type="string" default="SparkDefeatMed"/>
   <property name="firebullet" type="string" default="BulletPike"/>
-  <property name="firefan" type="int" default="5"/>
-  <property name="firefanslice" type="float" default="75"/>
+  <property name="firefan" type="int" default="3"/>
+  <property name="firefanslice" type="float" default="90"/>
   <property name="firetime" type="float" default="0.1"/>
   <property name="fleeing" type="bool" default="true"/>
   <property name="health" type="int" default="16"/>
@@ -517,6 +518,7 @@
  </objecttype>
  <objecttype name="Lord" color="#ff0000">
   <property name="defeatclearenemies" type="bool" default="true"/>
+  <property name="defeatcoroutine" type="string" default="defeatCoroutine"/>
   <property name="defeatitemlaunch" type="bool" default="true"/>
   <property name="defeatspark" type="string" default="SparkDefeatHuge"/>
   <property name="health" type="int" default="240"/>

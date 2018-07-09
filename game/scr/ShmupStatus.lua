@@ -31,11 +31,13 @@ function ShmupStatus:_init(layer)
 	local nextmapstatus = nextmapdata.status or {}
 	self.numlives = nextmapstatus.numlives or 2
 
-	local startbombs = levity.map.properties.startbombs
-			or ShmupStatus.DefaultStartBombs
-	local startbombpieces = startbombs * ShmupStatus.PiecesPerBomb
+	local maxbombs = levity.map.properties.maxbombs or ShmupStatus.DefaultMaxBombs
+	levity.map.properties.maxbombs = maxbombs
 
-	self.numbombpieces = nextmapstatus.numbombpieces or startbombpieces
+	local startbombs = levity.map.properties.startbombs or ShmupStatus.DefaultStartBombs
+	local startbombpieces = nextmapstatus.numbombpieces or startbombs*ShmupStatus.PiecesPerBomb
+	self.numbombpieces = math.min(startbombpieces, maxbombs*ShmupStatus.PiecesPerBomb)
+
 	self.reservegids = levity.map:tileNamesToGids(nextmapstatus.reservenames) or {}
 	nextmapdata.status = nil
 
@@ -58,10 +60,24 @@ function ShmupStatus:_init(layer)
 		self.timeleft = self.timeleft + ShmupStatus.CountdownSecs + 1
 		self.objects.timer.visible = true
 		self.objects.countdown.visible = true
+
+		local caravanrules = self.objects.caravanrules
+		if caravanrules then
+			caravanrules.visible = true
+			caravanrules.text = string.format(
+				caravanrules.properties.textformat,
+				levity.map.properties.timelimit,
+				maxbombs > 0 and "MAX "..maxbombs or "NO ")
+		end
+
 		self:updateTimeLeft(0)
 	else
 		self.objects.timer.visible = false
 		self.objects.countdown.visible = false
+		local caravanrules = self.objects.caravanrules
+		if caravanrules then
+			caravanrules.visible = false
+		end
 	end
 end
 
@@ -78,7 +94,7 @@ function ShmupStatus:getScoreId()
 end
 
 function ShmupStatus:addBombPieces(addpieces)
-	local maxbombs = levity.map.properties.maxbombs or ShmupStatus.DefaultMaxBombs
+	local maxbombs = levity.map.properties.maxbombs
 	local newpieces = math.min(self.numbombpieces + addpieces,
 					maxbombs*ShmupStatus.PiecesPerBomb)
 
@@ -213,6 +229,10 @@ function ShmupStatus:updateTimeLeft(dt)
 
 		if countdowntimeleft < 0 then
 			countdown.visible = false
+			local caravanrules = self.objects.caravanrules
+			if caravanrules then
+				caravanrules.visible = false
+			end
 		elseif countdowntimeleft < 1 then
 			Object.setGid(countdown, levity.map:getTileGid("go", 0))
 			levity.bank:play(Sounds.Go)
@@ -291,6 +311,7 @@ function ShmupStatus:playerWon()
 	self.pausetimer = true
 end
 ShmupStatus.beginPlayerWin = ShmupStatus.playerWon
+ShmupStatus.playerLost = ShmupStatus.playerWon
 
 function ShmupStatus:nextMap(nextmapfile, nextmapdata)
 	if nextmapdata

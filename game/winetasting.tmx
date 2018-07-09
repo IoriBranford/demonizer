@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-up" width="18" height="100" tilewidth="16" tileheight="16" infinite="0" nextobjectid="254">
+ <properties>
+  <property name="cameraid" type="int" value="2"/>
+  <property name="extendinc" type="int" value="15000"/>
+  <property name="extendpoints" type="int" value="10000"/>
+  <property name="maxbombs" type="int" value="0"/>
+  <property name="music" type="file" value="mus/19 - Dancing Hunter.vgz"/>
+  <property name="objecttypesxml" type="file" value="wineobjecttypes.xml"/>
+  <property name="overlaymap" type="file" value="winegameplay.lua"/>
+  <property name="playerid" type="int" value="1"/>
+  <property name="script" value="DrunkShmupMap"/>
+  <property name="startbombs" type="int" value="0"/>
+  <property name="winlivesbonus" type="int" value="1000"/>
+ </properties>
+ <tileset firstgid="1" source="img/player.tsx"/>
+ <tileset firstgid="29" source="img/town04_f.tsx"/>
+ <tileset firstgid="653" source="img/wineguards.tsx"/>
+ <tileset firstgid="743" source="img/winecivilians.tsx"/>
+ <tileset firstgid="839" source="img/wineitems.tsx"/>
+ <tileset firstgid="847" source="img/emotes.tsx"/>
+ <tileset firstgid="863" source="img/explosion_giant.tsx"/>
+ <layer name="town04_f_low" width="18" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztWF1u00AQHpsf8XsAAkJQDhAldkzTcoEkdRwqxA3gETgGIN55QPy1XIAHkJAKR+AFqfQUoS0HgBkyI4+3u2s7jkQQffiU8ezsl51v17vjnQLAD8SzAGDK9lXEvRDgORRBPmqbWvqcQfssYtWw72Of91AE+cw4sVcQNxCbULQ/Ib4aIJ8ZJ/Y5GiuiDUX7GyLA9pBxIpj5zDhtC3qIgXo+iX1/wQyngtw/Qmyw3eXnMHDjsuK54okLVdyy4FKwGKSs04S1G7Pe9Nxhn8TQHAwZ5ItUfMJ9hhw74v4xc3S4f8oxbe7bVf8zhuK8mxjzfyTM1SuJP4YbPZz7BHEzaOZbRUSIvmqfx3fM83/yrNEehBir9ia+ZYM+8zTo/PO1mTx05u3g72eFLzA7/3xtNp5d/P2usKd4XG02nn38PVA4VDyutnnyomc683agWV57zLML8+dVh8eX1z7zVuHx5aVrAuGcJ68668eXV531s0zr8HRgr49agb9N+kv9RLUN1TxU10jdlPCz1FVSS0m9OmFkMDtXFwHaXx8g30PEIyjam7xvunCb+wseY58niKdQtGn/fol4ZcHrIN/nBVvYZxvxDoo28bxBvLDgrYXHhbo8Ln3q8vj02UJ8sOBjDX0mJXOdVdTHla+2q/C48tV2FR5XvtqWWN96rYO/XQ/MUz/Y6oG6oL3Qtu/5IHW+gOp94bG1uXjMdd5XPLa2f4VH6k/BWPHY2nTfsm/dKvNFZ8qghIfOrlYJT8rjyRDXECtGe6L8mfJvGH65F6CzbA1xi591zuKPlT9S/h7nJefoHcRdyO8MZDzi1zxt5e/ymKIa690F0Sbl/xtz7vrd7Kixiz825iflsWudMzVHpv42v9QNsaGznpdE+XX+PeUfcR6Sm+iWqPiO8us8IuVvc1t3ATpnkN/fNUFX8ZBu16G4ps17yLYjNlY8pNs6a6ffUds9pBkrd2JkH2DcIeJnUM5jxmaQr/fzIcAFxMWwnMeMjZlL1sAAqt2vih6i74B5Og6dXTw6NoK8Xu420FnGL+u9ic76XrGJzlLbyzs2ZK3KeCR2qOaJ+qUNdJY7XtJa9od5dJ6wxotazzJfNp31d1fLo3PMc9ZhmHuR6GDqJt9lco7KWCLIv9MyOKqDqZt848lY5FtQeOVsMHUwdRtCfscu34sjKOaiITqYuplIoXgOm9C1nK+Oi0t4dO3kq5v0e9qER7RdxHh851dVnj/7V3gU66Gbp2+JJ/wGNzAXaQ==
+  </data>
+ </layer>
+ <layer name="town04_f_mid" width="18" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztlckNwjAQRe10ADcqAKpgvVIBS0NILE0AXbB3ADeWIoA735BDSJzITkzg8J/0pZEnnow9Ho0QhBDye2qeEA0v3RrjMI6rOGMpxFSmWyPmlLx3Lep+PTqemU9H8FsbH/NhPgrVy5OYfk7ykXw5xdg2LKGVxg6yRa130D5jzc/Yf4GuCXFM8nnFMvifi/txRQFnLsqo7RJ1xjLiVmXU/kU+5JMbdIcelj6XDKFZin1zaBQTp4l50oLamrkS9qk4i4A/2ONdvMEe1Ne8xbBvDW1SnMMG1T8Vv4dsfIpBhn7KsjcPjtDBwTpJhvdMCCHfRTdv/30Gk/x5AoToV54=
+  </data>
+ </layer>
+ <objectgroup name="groundobjects"/>
+ <layer name="town04_f_high" width="18" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztlU1OAzEMhePugVugMlt6BNYVO8oxQLQcgp97AIsi4AZd8bsHloDgBrArL6IRZvBkUs9oaIU/yWr6XqLx2HXjnGEYhp4+ObdLOo1zCe+KdBrnCd4z6TTOGbz1lk7jXMA/J53GuYN3SzqN8wbvlXQap4N3PiWdxunCvyadxhnCeyGdZqQzpq9ZHkzmebWV5kncJPShbI9/5gify5Pv+Xz8ee+NXHk+Hv87K3pmJ+H8OHc2n08gNZ+Qe57wzin18XtC7lJ9uoIXI6VvsXxi/XJuun6V5VMlV2N22EbsC2vOEXp9jDhpoOcp+cwj74gPYV03C+jREv1e/1U+xjf3iAfE45RenWw53UwdIHYKvDbukxVEJtwrMc+zp8glcFjhbBEZmxc/P4sFMyR5/Oxahf/KKmebYIDo16AbcazOzbCB6CE2a95r/MTq3Az/pc6ZcE9KWhn+vg11CLWY9TvYmF8+AWqSbbk=
+  </data>
+ </layer>
+ <objectgroup name="highobjects"/>
+ <objectgroup name="camera">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="2" name="camera" type="Camera" x="24" y="1280" width="240" height="320">
+   <properties>
+    <property name="pathid" value="mylayer"/>
+    <property name="pathspeed" type="float" value="30"/>
+   </properties>
+  </object>
+  <object id="3" name="path" x="24" y="0">
+   <polyline points="0,0 0,16"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="fleepaths">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="49" x="16" y="1296">
+   <polyline points="64,0 -32,0"/>
+  </object>
+  <object id="50" x="16" y="1376">
+   <polyline points="64,0 -32,0"/>
+  </object>
+  <object id="51" x="16" y="1456">
+   <polyline points="64,0 -32,0"/>
+  </object>
+  <object id="52" x="304" y="1296">
+   <polyline points="0,0 -96,0"/>
+  </object>
+  <object id="53" x="304" y="1376">
+   <polyline points="0,0 -96,0"/>
+  </object>
+  <object id="54" x="304" y="1456">
+   <polyline points="0,0 -96,0"/>
+  </object>
+  <object id="28" name="path" x="144" y="1456">
+   <polyline points="0,0 0,-240"/>
+  </object>
+  <object id="95" x="104" y="1008">
+   <polyline points="0,0 -40,0 -64,24 -112,24"/>
+  </object>
+  <object id="97" x="184" y="1008">
+   <polyline points="0,0 40,0 64,24 112,24"/>
+  </object>
+  <object id="99" x="48" y="976">
+   <polyline points="8,16 8,32 -8,48 -64,48"/>
+  </object>
+  <object id="100" x="232" y="976">
+   <polyline points="0,16 0,32 16,48 72,48"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="paths">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+ </objectgroup>
+ <objectgroup name="boss">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="249" type="Trigger" x="0" y="0">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
+    <property name="cleartowin" type="bool" value="true"/>
+   </properties>
+   <polyline points="0,0 288,0"/>
+  </object>
+  <object id="250" type="WineHighPriestFanAttack1" gid="683" x="144" y="-24" width="24" height="32"/>
+  <object id="251" x="144" y="56">
+   <polyline points="0,0 32,32 64,32 96,64 64,64 48,80 16,80 0,64 -16,80 -48,80 -64,64 -96,64 -64,32 -32,32 0,0"/>
+  </object>
+  <object id="252" gid="686" x="128" y="-16" width="24" height="32">
+   <properties>
+    <property name="rideid" type="int" value="250"/>
+   </properties>
+  </object>
+  <object id="253" gid="686" x="160" y="-16" width="24" height="32">
+   <properties>
+    <property name="rideid" type="int" value="250"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="preboss">
+  <object id="126" type="Trigger" x="136" y="72" width="16" height="8">
+   <properties>
+    <property name="soundfile" type="file" value="snd/alarm4.wav"/>
+   </properties>
+  </object>
+  <object id="210" gid="509" x="48" y="40" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="211" gid="510" x="64" y="40" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="212" gid="562" x="16" y="40" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="213" gid="535" x="48" y="56" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="214" gid="536" x="64" y="56" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="215" gid="561" x="0" y="40" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="216" gid="588" x="16" y="56" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="217" gid="587" x="0" y="56" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="218" gid="509" x="208" y="40" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="219" gid="510" x="224" y="40" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="220" gid="535" x="208" y="56" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="221" gid="536" x="224" y="56" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="222" gid="562" x="272" y="40" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="223" gid="561" x="256" y="40" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="224" gid="588" x="272" y="56" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="225" gid="587" x="256" y="56" width="16" height="16">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="prebosspowerup">
+  <object id="163" gid="846" x="144" y="256" width="8" height="24"/>
+  <object id="162" gid="843" x="64" y="256" width="8" height="24"/>
+  <object id="226" gid="843" x="224" y="256" width="8" height="24"/>
+  <object id="227" name="trigger" type="Trigger" x="136" y="232" width="16" height="24">
+   <properties>
+    <property name="activateobjectslayer" value="highobjects"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="guard12">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="228" name="trigger" type="Trigger" x="104" y="344" width="80" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
+   </properties>
+  </object>
+  <object id="241" gid="671" x="40" y="336" width="24" height="32"/>
+  <object id="242" gid="671" x="40" y="312" width="24" height="32"/>
+  <object id="243" gid="680" x="40" y="288" width="24" height="32"/>
+  <object id="244" gid="671" x="248" y="336" width="24" height="32"/>
+  <object id="245" gid="671" x="248" y="312" width="24" height="32"/>
+  <object id="246" gid="680" x="248" y="288" width="24" height="32"/>
+  <object id="247" x="40" y="312">
+   <polyline points="0,0 0,104 16,120 32,120 48,104 48,-72 -64,-184"/>
+  </object>
+  <object id="248" x="248" y="336">
+   <polyline points="0,0 0,80 -16,96 -32,96 -48,80 -48,-96 64,-208"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="guard11">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="209" name="trigger" type="Trigger" x="104" y="376" width="80" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
+   </properties>
+  </object>
+  <object id="229" gid="671" x="120" y="368" width="24" height="32"/>
+  <object id="230" gid="671" x="168" y="368" width="24" height="32"/>
+  <object id="231" x="120" y="368">
+   <polyline points="0,0 0,40 -48,88 -64,88 -88,112 -88,352"/>
+  </object>
+  <object id="232" x="168" y="368">
+   <polyline points="0,0 0,40 48,88 64,88 88,112 88,352"/>
+  </object>
+  <object id="233" gid="674" x="120" y="320" width="24" height="32"/>
+  <object id="234" gid="674" x="120" y="344" width="24" height="32"/>
+  <object id="235" gid="674" x="168" y="344" width="24" height="32"/>
+  <object id="236" gid="674" x="168" y="320" width="24" height="32"/>
+  <object id="237" gid="674" x="120" y="296" width="24" height="32"/>
+  <object id="238" gid="674" x="168" y="296" width="24" height="32"/>
+  <object id="239" gid="674" x="120" y="272" width="24" height="32"/>
+  <object id="240" gid="674" x="168" y="272" width="24" height="32"/>
+ </objectgroup>
+ <objectgroup name="highobj7">
+  <object id="159" name="trigger" type="Trigger" x="136" y="488" width="16" height="104">
+   <properties>
+    <property name="activateobjectslayer" value="highobjects"/>
+   </properties>
+  </object>
+  <object id="160" gid="839" x="72" y="544" width="8" height="24"/>
+  <object id="161" gid="839" x="184" y="576" width="8" height="24"/>
+  <object id="164" gid="839" x="216" y="584" width="8" height="24"/>
+  <object id="165" gid="839" x="104" y="504" width="8" height="24"/>
+  <object id="166" gid="842" x="184" y="520" width="8" height="24"/>
+  <object id="167" gid="842" x="104" y="592" width="8" height="24"/>
+ </objectgroup>
+ <objectgroup name="guard10">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="193" name="trigger" type="Trigger" x="104" y="528" width="80" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
+   </properties>
+  </object>
+  <object id="194" x="32" y="480">
+   <polyline points="8,40 8,152 32,176 80,176 104,152 104,-8 88,-24 -48,-24"/>
+  </object>
+  <object id="195" x="256" y="480">
+   <polyline points="-8,40 -8,152 -32,176 -80,176 -104,152 -104,-8 -88,-24 48,-24"/>
+  </object>
+  <object id="197" gid="680" x="40" y="520" width="24" height="32"/>
+  <object id="198" gid="680" x="248" y="520" width="24" height="32"/>
+  <object id="199" gid="680" x="40" y="496" width="24" height="32"/>
+  <object id="200" gid="680" x="248" y="496" width="24" height="32"/>
+ </objectgroup>
+ <objectgroup name="guard9">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="196" name="trigger" type="Trigger" x="128" y="576" width="32" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
+   </properties>
+  </object>
+  <object id="201" gid="674" x="136" y="544" width="24" height="32"/>
+  <object id="202" gid="674" x="152" y="544" width="24" height="32"/>
+  <object id="203" gid="674" x="136" y="520" width="24" height="32"/>
+  <object id="204" gid="674" x="152" y="520" width="24" height="32"/>
+  <object id="205" x="136" y="568">
+   <polyline points="0,0 0,80 -24,104 -80,104 -112,72 -112,-112 -160,-160"/>
+  </object>
+  <object id="206" x="152" y="568">
+   <polyline points="0,0 0,80 24,104 80,104 112,72 112,-112 160,-160"/>
+  </object>
+  <object id="207" x="136" y="568">
+   <polyline points="0,0 0,-24 0,-48"/>
+  </object>
+  <object id="208" x="152" y="568">
+   <polyline points="0,0 0,-24 0,-48"/>
+  </object>
+  <object id="179" gid="671" x="136" y="568" width="24" height="32"/>
+  <object id="180" gid="671" x="152" y="568" width="24" height="32"/>
+ </objectgroup>
+ <objectgroup name="guard8">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="170" name="trigger" type="Trigger" x="128" y="680" width="32" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
+   </properties>
+  </object>
+  <object id="171" gid="674" x="328" y="712" width="24" height="32"/>
+  <object id="172" gid="674" x="360" y="712" width="24" height="32"/>
+  <object id="173" gid="674" x="392" y="712" width="24" height="32"/>
+  <object id="174" gid="674" x="328" y="752" width="24" height="32"/>
+  <object id="175" gid="674" x="360" y="752" width="24" height="32"/>
+  <object id="176" gid="674" x="392" y="752" width="24" height="32"/>
+  <object id="177" gid="671" x="296" y="712" width="24" height="32"/>
+  <object id="178" gid="671" x="296" y="752" width="24" height="32"/>
+  <object id="181" x="296" y="712">
+   <polyline points="0,0 -184,0 -200,-16 -216,-16 -240,8 -240,144 -200,184 -160,224"/>
+  </object>
+  <object id="182" x="296" y="752">
+   <polyline points="0,0 -48,48 -168,48 -192,24 -192,-40 -208,-56 -224,-56 -240,-40 -240,288"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="highobj6">
+  <object id="134" gid="846" x="88" y="720" width="8" height="24"/>
+  <object id="146" name="trigger" type="Trigger" x="136" y="696" width="8" height="24">
+   <properties>
+    <property name="activateobjectslayer" value="highobjects"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="highobj5">
+  <object id="145" name="trigger" type="Trigger" x="136" y="768" width="8" height="24">
+   <properties>
+    <property name="activateobjectslayer" value="highobjects"/>
+   </properties>
+  </object>
+  <object id="129" gid="839" x="40" y="792" width="8" height="24"/>
+  <object id="130" gid="842" x="88" y="792" width="8" height="24"/>
+ </objectgroup>
+ <objectgroup name="guard7">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="147" name="trigger" type="Trigger" x="128" y="792" width="32" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
+   </properties>
+  </object>
+  <object id="148" gid="674" x="56" y="784" width="24" height="32"/>
+  <object id="149" gid="674" x="56" y="760" width="24" height="32"/>
+  <object id="150" gid="674" x="56" y="736" width="24" height="32"/>
+  <object id="151" gid="671" x="296" y="800" width="24" height="32"/>
+  <object id="152" gid="671" x="328" y="800" width="24" height="32"/>
+  <object id="153" gid="674" x="104" y="784" width="24" height="32"/>
+  <object id="154" gid="674" x="104" y="760" width="24" height="32"/>
+  <object id="155" gid="674" x="104" y="736" width="24" height="32"/>
+  <object id="156" x="56" y="784">
+   <polyline points="0,0 0,88 24,112 56,112 80,136 80,264 64,280 64,328"/>
+  </object>
+  <object id="157" x="104" y="784">
+   <polyline points="0,0 0,88 24,112 48,136 48,264 64,280 64,328"/>
+  </object>
+  <object id="158" x="296" y="800">
+   <polyline points="0,0 -168,0 -192,24 -192,56 -168,80 8,80"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="highobj4">
+  <object id="127" gid="842" x="184" y="840" width="8" height="24"/>
+  <object id="128" gid="839" x="136" y="840" width="8" height="24"/>
+  <object id="131" gid="839" x="232" y="840" width="8" height="24"/>
+  <object id="132" name="trigger" type="Trigger" x="136" y="816" width="8" height="24">
+   <properties>
+    <property name="activateobjectslayer" value="highobjects"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="guard6">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="133" name="trigger" type="Trigger" x="136" y="864" width="16" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
+   </properties>
+  </object>
+  <object id="135" gid="671" x="-16" y="912" width="24" height="32"/>
+  <object id="136" gid="671" x="304" y="936" width="24" height="32"/>
+  <object id="143" x="-16" y="912">
+   <polyline points="0,0 56,0 88,-32 144,-32 176,0 176,144 224,192 224,328"/>
+  </object>
+  <object id="144" x="-16" y="936">
+   <polyline points="96,304 96,168 144,120 144,0 176,-32 232,-32 264,0 320,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="guard5">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="109" gid="674" x="40" y="920" width="24" height="32"/>
+  <object id="110" x="40" y="928">
+   <polyline points="0,-8 24,16 72,16 88,32 88,112 56,144 56,280"/>
+  </object>
+  <object id="111" gid="674" x="16" y="896" width="24" height="32"/>
+  <object id="112" gid="674" x="248" y="920" width="24" height="32"/>
+  <object id="113" gid="674" x="272" y="896" width="24" height="32"/>
+  <object id="114" x="16" y="896">
+   <polyline points="0,0 40,40 40,104 48,112 104,112 120,128 120,160 96,184 96,328"/>
+  </object>
+  <object id="115" x="248" y="920">
+   <polyline points="0,0 -24,24 -72,24 -88,40 -88,120 -56,152 -56,288"/>
+  </object>
+  <object id="116" x="272" y="896">
+   <polyline points="0,0 -40,40 -40,104 -48,112 -104,112 -120,128 -120,160 -96,184 -96,328"/>
+  </object>
+  <object id="117" name="trigger" type="Trigger" x="136" y="936" width="16" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="guard4">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="76" gid="674" x="96" y="1056" width="24" height="32"/>
+  <object id="77" gid="674" x="-8" y="1088" width="24" height="32"/>
+  <object id="78" gid="674" x="192" y="1056" width="24" height="32"/>
+  <object id="79" gid="674" x="296" y="1088" width="24" height="32"/>
+  <object id="86" name="trigger" type="Trigger" x="128" y="1064" width="32" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
+   </properties>
+  </object>
+  <object id="82" x="96" y="1056">
+   <polyline points="0,0 0,48 24,72 24,344"/>
+  </object>
+  <object id="83" x="192" y="1056">
+   <polyline points="0,0 0,48 -24,72 -24,344"/>
+  </object>
+  <object id="84" x="0" y="1088">
+   <polyline points="-8,0 96,64 96,328"/>
+  </object>
+  <object id="85" x="296" y="1088">
+   <polyline points="0,0 -104,64 -104,352"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="highobj3">
+  <object id="87" gid="272" x="80" y="984" width="16" height="16"/>
+  <object id="88" gid="246" x="80" y="968" width="16" height="16"/>
+  <object id="89" gid="538" x="192" y="984" width="16" height="16"/>
+  <object id="90" gid="512" x="192" y="968" width="16" height="16"/>
+  <object id="101" name="trigger" type="Trigger" x="112" y="952" width="64" height="40">
+   <properties>
+    <property name="activateobjectslayer" value="highobjects"/>
+   </properties>
+  </object>
+  <object id="118" gid="845" x="80" y="984" width="8" height="24"/>
+  <object id="119" gid="840" x="96" y="992" width="8" height="24"/>
+  <object id="120" gid="839" x="184" y="992" width="8" height="24"/>
+  <object id="121" gid="842" x="216" y="976" width="8" height="24"/>
+  <object id="122" gid="841" x="72" y="992" width="8" height="24"/>
+ </objectgroup>
+ <objectgroup name="guests1">
+  <object id="102" gid="809" x="104" y="1008" width="24" height="32"/>
+  <object id="103" gid="806" x="56" y="992" width="24" height="32"/>
+  <object id="104" gid="755" x="232" y="992" width="24" height="32"/>
+  <object id="105" gid="764" x="184" y="1008" width="24" height="32"/>
+  <object id="108" name="trigger" type="Trigger" x="136" y="1016" width="16" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="highobj2">
+  <object id="65" gid="38" x="136" y="1080" width="16" height="16"/>
+  <object id="72" gid="38" x="232" y="1080" width="16" height="16"/>
+  <object id="73" gid="38" x="40" y="1080" width="16" height="16"/>
+  <object id="75" name="trigger" type="Trigger" x="136" y="1064" width="16" height="16">
+   <properties>
+    <property name="activateobjectslayer" value="highobjects"/>
+   </properties>
+  </object>
+  <object id="140" gid="840" x="232" y="1080" width="8" height="24"/>
+  <object id="141" gid="839" x="144" y="1084" width="8" height="24"/>
+  <object id="142" gid="840" x="54" y="1082" width="8" height="24"/>
+ </objectgroup>
+ <objectgroup name="highobj1">
+  <object id="66" gid="38" x="40" y="1160" width="16" height="16"/>
+  <object id="70" gid="38" x="136" y="1160" width="16" height="16"/>
+  <object id="71" gid="38" x="232" y="1160" width="16" height="16"/>
+  <object id="74" name="trigger" type="Trigger" x="136" y="1144" width="16" height="16">
+   <properties>
+    <property name="activateobjectslayer" value="highobjects"/>
+   </properties>
+  </object>
+  <object id="137" gid="840" x="136" y="1160" width="8" height="24"/>
+  <object id="138" gid="841" x="244" y="1164" width="8" height="24"/>
+  <object id="139" gid="841" x="48" y="1164" width="8" height="24"/>
+ </objectgroup>
+ <objectgroup name="guard2">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="67" name="trigger" type="Trigger" x="128" y="1144" width="32" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
+   </properties>
+  </object>
+  <object id="91" x="0" y="1208">
+   <polyline points="0,0 80,0 112,32 112,224 80,256 80,336"/>
+  </object>
+  <object id="92" gid="674" x="0" y="1208" width="24" height="32"/>
+  <object id="93" gid="674" x="288" y="1208" width="24" height="32"/>
+  <object id="94" x="288" y="1208">
+   <polyline points="0,0 -80,0 -112,32 -112,224 -80,256 -80,336"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="guard1">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="55" gid="674" x="96" y="1224" width="24" height="32"/>
+  <object id="57" name="trigger" type="Trigger" x="128" y="1232" width="32" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
+   </properties>
+  </object>
+  <object id="68" x="96" y="1224">
+   <polyline points="0,0 0,32 24,80 24,168 0,216 0,304"/>
+  </object>
+  <object id="56" gid="674" x="192" y="1224" width="24" height="32"/>
+  <object id="69" x="192" y="1224">
+   <polyline points="0,0 0,32 -24,80 -24,168 0,208 0,304"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="wine1">
+  <object id="8" type="Trigger" x="136" y="1232" width="16" height="56">
+   <properties>
+    <property name="activateobjectslayer" value="highobjects"/>
+   </properties>
+  </object>
+  <object id="17" gid="839" x="48" y="1248" width="8" height="24"/>
+  <object id="18" gid="839" x="224" y="1248" width="8" height="24"/>
+  <object id="19" gid="841" x="64" y="1400" width="8" height="24"/>
+  <object id="20" gid="841" x="232" y="1400" width="8" height="24"/>
+  <object id="23" gid="839" x="64" y="1248" width="8" height="24"/>
+  <object id="24" gid="839" x="240" y="1248" width="8" height="24"/>
+  <object id="16" gid="840" x="240" y="1328" width="8" height="24"/>
+  <object id="15" gid="841" x="48" y="1416" width="8" height="24"/>
+  <object id="14" gid="840" x="224" y="1328" width="8" height="24"/>
+  <object id="13" gid="840" x="56" y="1336" width="8" height="24"/>
+  <object id="12" gid="841" x="240" y="1408" width="8" height="24"/>
+  <object id="11" gid="841" x="64" y="1416" width="8" height="24"/>
+  <object id="10" gid="841" x="232" y="1416" width="8" height="24"/>
+  <object id="9" gid="840" x="64" y="1328" width="8" height="24"/>
+  <object id="7" gid="841" x="224" y="1408" width="8" height="24"/>
+  <object id="6" gid="841" x="48" y="1400" width="8" height="24"/>
+  <object id="5" gid="840" x="232" y="1336" width="8" height="24"/>
+  <object id="4" gid="840" x="48" y="1328" width="8" height="24"/>
+  <object id="183" gid="38" x="48" y="1408" width="16" height="16"/>
+  <object id="184" gid="38" x="48" y="1328" width="16" height="16"/>
+  <object id="185" gid="38" x="224" y="1328" width="16" height="16"/>
+  <object id="189" gid="38" x="224" y="1408" width="16" height="16"/>
+  <object id="190" gid="38" x="48" y="1248" width="16" height="16"/>
+  <object id="191" gid="38" x="136" y="1472" width="16" height="16"/>
+  <object id="192" gid="38" x="224" y="1248" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="reception">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="25" name="receptionist" gid="767" x="128" y="1456" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="26" name="receptionist" gid="770" x="160" y="1456" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="27" name="trigger" type="Trigger" x="128" y="1304" width="32" height="168">
+   <properties>
+    <property name="activateobjectslayer" value="ground"/>
+   </properties>
+  </object>
+  <object id="29" gid="749" x="72" y="1368" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="30" gid="752" x="64" y="1384" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="31" gid="779" x="192" y="1296" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="32" gid="827" x="200" y="1456" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="33" gid="758" x="192" y="1368" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="34" gid="803" x="88" y="1288" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="35" gid="836" x="208" y="1384" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="36" gid="785" x="216" y="1440" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="37" gid="806" x="88" y="1376" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="38" gid="800" x="232" y="1376" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="39" gid="764" x="64" y="1288" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="40" gid="782" x="80" y="1432" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="41" gid="824" x="72" y="1456" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="42" gid="830" x="200" y="1312" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="43" gid="776" x="192" y="1440" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="44" gid="812" x="96" y="1440" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="45" gid="788" x="216" y="1296" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="46" gid="755" x="56" y="1440" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="47" gid="797" x="216" y="1360" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="48" gid="833" x="72" y="1304" width="24" height="32">
+   <properties>
+    <property name="pathid" value="fleepaths"/>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="sparks"/>
+ <objectgroup draworder="index" name="playershots"/>
+ <objectgroup name="playerteam">
+  <properties>
+   <property name="script" value="PlayerTeam"/>
+  </properties>
+  <object id="1" name="player" gid="1" x="144" y="1632" width="64" height="64">
+   <properties>
+    <property name="script" value="DrunkShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
