@@ -3,7 +3,7 @@ local Object = require "levity.object"
 local UIButton = require "UIButton"
 
 local Sounds = {
-	Press = "snd/ting.wav"
+	Press = "snd/ting.ogg"
 }
 levity.bank:load(Sounds)
 

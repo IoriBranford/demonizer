@@ -4,107 +4,164 @@
 image: ubuntu:latest
 
 variables:
- PROJECT: demonizer
-# CI_PROJECT_NAME not accessible here???
- PROJECT_TITLE: Demonizer
- APPLICATION_ID: "com.github.ioribranford.${PROJECT}"
- PROJECT_AND_VERSION: "${PROJECT}-${CI_COMMIT_REF_NAME}"
- GIT_DEPTH: "1"
-# broken by https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/2148
-# GIT_SUBMODULE_STRATEGY: recursive
- GAME_ASSET: game.love
+        PROJECT: demonizer
+        # CI_PROJECT_NAME not accessible here???
+        PROJECT_TITLE: Demonizer
+        PROJECT_AND_VERSION: "${PROJECT}-${CI_COMMIT_REF_NAME}"
+        GIT_DEPTH: "1"
+        GAME_TYPE: full
+        LOVE_VERSION: "0.10.2"
+        # GIT_SUBMODULE_STRATEGY: recursive
+        # broken by https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/2148
 
 stages:
- - build
+        - build
 
 before_script:
- - apt-get update -qq
- - apt-get install -y -qq git zip luajit
-# workaround https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/2148
- - git submodule sync --recursive
- - git submodule update --init --recursive
+        - apt-get update -qq
+        - apt-get install -y -qq git zip luajit
+        - git submodule sync --recursive
+        - git submodule update --init --recursive
+          # workaround https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/2148
 
-build-data:
- stage: build
- variables:
-  OUTPUT: "${PROJECT}.love"
- script:
-   - apt-get install -y -qq wget xz-utils
-   - ./make-game.sh
-   - mv $GAME_ASSET ${OUTPUT}
- artifacts:
-  name: "${PROJECT_AND_VERSION}-data"
-  paths:
-  - ${OUTPUT}
-  expire_in: 1 week
+.full:
+        <<: &full
+                except:
+                        - /demo/
 
-build-win32:
- stage: build
- variables:
-  ARCH_BITS: "32"
-  PROJECT_DIR: "${PROJECT}-win32"
- script:
-   - apt-get install -y -qq wget xz-utils
-   - ./make-game.sh
-   - ./make-windows.sh
- artifacts:
-  name: "${PROJECT_AND_VERSION}-win${ARCH_BITS}"
-  paths:
-  - ${PROJECT_DIR}
-  expire_in: 1 week
+.demo:
+        <<: &demo
+                only:
+                        - master
+                        - /demo/
+        variables:
+                <<: &demo-variables
+                        PROJECT_TITLE: "Demonizer Demo"
+                        GAME_TYPE: demo
 
-build-win64:
- stage: build
- variables:
-  ARCH_BITS: "64"
-  PROJECT_DIR: "${PROJECT}-win64"
- script:
-   - apt-get install -y -qq wget xz-utils
-   - ./make-game.sh
-   - ./make-windows.sh
- artifacts:
-  name: "${PROJECT_AND_VERSION}-win${ARCH_BITS}"
-  paths:
-  - ${PROJECT_DIR}
-  expire_in: 1 week
+.build-data: &build-data
+        stage: build
+        script:
+                - apt-get install -y -qq wget xz-utils
+                - ./make-game.sh
+                - mv ${GAME_TYPE}.love "${PROJECT}-${GAME_TYPE}.love"
+        artifacts:
+                name: "${PROJECT_AND_VERSION}-${GAME_TYPE}-data"
+                paths:
+                        - "${PROJECT}-${GAME_TYPE}.love"
+                expire_in: 1 week
 
-build-macosx:
+full-data:
+        <<: *build-data
+        <<: *full
+
+demo-data:
+        <<: *build-data
+        <<: *demo
+        variables:
+                <<: *demo-variables
+
+.build-windows: &build-windows
+        stage: build
+        variables:
+                ARCH_BITS: "64"
+        script:
+                - apt-get install -y -qq wget xz-utils
+                - ./make-game.sh
+                - ./make-windows.sh
+        artifacts:
+                name: "${PROJECT_AND_VERSION}-${GAME_TYPE}-win${ARCH_BITS}"
+                paths:
+                        - "${PROJECT_TITLE}"
+                expire_in: 1 week
+
+full-win64:
+        <<: *build-windows
+        <<: *full
+
+full-win32:
+        <<: *build-windows
+        <<: *full
+        variables:
+                ARCH_BITS: "32"
+
+demo-win64:
+        <<: *build-windows
+        <<: *demo
+        variables:
+                <<: *demo-variables
+                ARCH_BITS: "64"
+
+demo-win32:
+        <<: *build-windows
+        <<: *demo
+        variables:
+                <<: *demo-variables
+                ARCH_BITS: "32"
+
+.build-macosx: &build-macosx
         stage: build
         image: andrewd/osxcross
         variables:
-                PROJECT_DIR: "${PROJECT_TITLE}.app"
-                INSTALL_NAME_TOOL: x86_64-apple-darwin12-install_name_tool
+                CFBundleIdentifier: "com.github.ioribranford.${PROJECT}"
+                <<: &build-macosx-variables
+                        NSHumanReadableCopyright: "© 2018 IoriBranford"
+                        INSTALL_NAME_TOOL: x86_64-apple-darwin12-install_name_tool
         script:
-                - apt-get install -y -qq cmake wget xz-utils
+                - apt-get install -y -qq wget xz-utils
                 - ./make-game.sh
                 - ./make-macosx.sh
-        artifacts:
-                name: "${PROJECT_AND_VERSION}-macosx"
+        cache:
+                key: "${PROJECT}-macosx"
                 paths:
-                        - ${PROJECT_DIR}
+                        - "love-${LOVE_VERSION}-macosx-x64.zip"
+                        - "game-music-emu-0.6.1.yosemite.bottle.tar.gz"
+        artifacts:
+                name: "${PROJECT_AND_VERSION}-${GAME_TYPE}-macosx"
+                paths:
+                        - "${PROJECT_TITLE}.app"
                 expire_in: 1 week
 
-build-android:
+full-macosx:
+        <<: *build-macosx
+        <<: *full
+
+demo-macosx:
+        <<: *build-macosx
+        <<: *demo
+        variables:
+                <<: *demo-variables
+                <<: *build-macosx-variables
+                CFBundleIdentifier: "com.github.ioribranford.${PROJECT}demo"
+
+.build-android: &build-android
         stage: build
         image: snowdream/android-ndk:r14
         variables:
-                GAME_APK: "${PROJECT}.apk"
+                APPLICATION_ID: "com.github.ioribranford.${PROJECT}"
         script:
-                - echo $GAME_APK
-                - apt-get install -y -qq wget xz-utils make file
+                - apt-get install -y -qq make file
                 - ./make-game.sh
                 - ./configure-android.sh
                 - ./make-android.sh
-#        cache:
-#                key: $PROJECT-android
-#                paths:
-#                        - love-android-cache/.gradle
-#                        - love-android-cache/build/
-#                        - love-android-cache/app/build/
-#                        - love-android-cache/love/build/
-#                        - love-android-cache/love/.externalNativeBuild/
-        artifacts:
-                name: "${PROJECT_AND_VERSION}-android"
+        cache:
+                key: "${PROJECT_AND_VERSION}-android"
                 paths:
-                        - $GAME_APK
+                        - love-android-sdl2
+        artifacts:
+                name: "${PROJECT_AND_VERSION}-${GAME_TYPE}-android"
+                paths:
+                        - "${PROJECT_TITLE}.apk"
                 expire_in: 1 week
+
+
+full-android:
+        <<: *build-android
+        <<: *full
+
+demo-android:
+        <<: *build-android
+        <<: *demo
+        variables:
+                <<: *demo-variables
+                APPLICATION_ID: "com.github.ioribranford.${PROJECT}demo"

@@ -201,7 +201,7 @@
    <properties>
     <property name="activateobjectslayer" value="ground"/>
     <property name="musicfade" type="bool" value="true"/>
-    <property name="soundfile" type="file" value="snd/alarm4.wav"/>
+    <property name="soundfile" type="file" value="snd/alarm4.ogg"/>
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
@@ -553,7 +553,7 @@
    <properties>
     <property name="activateobjectslayer" value="ground"/>
     <property name="defeatenemiesbonus" type="int" value="5000"/>
-    <property name="soundfile" type="file" value="snd/hyaa.wav"/>
+    <property name="soundfile" type="file" value="snd/hyaa.ogg"/>
    </properties>
   </object>
   <object id="340" type="Friend" gid="503" x="128" y="752" width="32" height="32">
@@ -1061,7 +1061,7 @@
   <object id="73" name="trigger" type="Trigger" x="0" y="1264" width="288" height="16">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
-    <property name="soundfile" type="file" value="snd/scream.wav"/>
+    <property name="soundfile" type="file" value="snd/scream.ogg"/>
    </properties>
   </object>
   <object id="74" name="path" x="0" y="1232">

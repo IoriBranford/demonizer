@@ -4,7 +4,7 @@ local ShmupResults = class()
 
 ShmupResults.PerReserveBonus = 2500
 ShmupResults.PerBombBonus = 200
-ShmupResults.PerSecondBonus = 1000
+ShmupResults.PerSecondBonus = 500
 
 function ShmupResults:_init(layer)
 	self.id = layer.name

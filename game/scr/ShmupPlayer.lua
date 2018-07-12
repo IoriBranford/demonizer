@@ -73,15 +73,15 @@ function ShmupPlayer:_init(object)
 end
 
 local Sounds = {
-	Shot = "snd/playershot.wav",
-	Bomber = "snd/bomber.wav",
-	Bomb = "snd/bomb.wav",
-	Maxed = "snd/maxed.wav",
-	Powerup = "snd/powerup.wav",
-	Death = "snd/selfdestruct.wav",
-	Scream = "snd/shriek.wav",
-	Respawn = "snd/respawn.wav",
-	Exit = "snd/turbo.wav"
+	Shot = "snd/playershot.ogg",
+	Bomber = "snd/bomber.ogg",
+	Bomb = "snd/bomb.ogg",
+	Maxed = "snd/maxed.ogg",
+	Powerup = "snd/powerup.ogg",
+	Death = "snd/selfdestruct.ogg",
+	Scream = "snd/shriek.ogg",
+	Respawn = "snd/respawn.ogg",
+	Exit = "snd/turbo.ogg"
 }
 levity.bank:load(Sounds)
 

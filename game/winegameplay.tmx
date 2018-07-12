@@ -4,14 +4,14 @@
   <property name="delayinitobjects" type="bool" value="true"/>
   <property name="losemusic" type="file" value="mus/33 - All Over Tonight.vgz"/>
   <property name="script" value="ShmupMap"/>
-  <property name="staticsounds">snd/alarm4.wav, snd/ballista.wav, snd/bomber.wav, snd/bomb.wav, snd/boom1.wav,
-  snd/boom2.wav, snd/boom3.wav, snd/bonus.wav, snd/bow.wav, snd/burst.wav, snd/buzz.wav, snd/catapult.wav, snd/charge.wav,
-snd/dragonfire.wav, snd/equip.wav, snd/extend.wav, snd/forcefield.wav, snd/gallop8.wav, snd/hit.wav, snd/hyaa.wav, snd/item1.wav,
-snd/item2.wav, snd/kick.wav, snd/knockout.wav, snd/maxed.wav, snd/mmph.wav, snd/nnoooo.wav, snd/ow.wav,
-snd/parry.wav, snd/pause.wav, snd/pike.wav, snd/playershot.wav, snd/powershot.wav,
-snd/powerup.wav, snd/respawn.wav, snd/scream.wav, snd/selfdestruct.wav,
-snd/shriek.wav, snd/slash.wav, snd/sword.wav, snd/targetlock.wav,
-snd/thankyou.wav, snd/ting.wav, snd/turbo.wav, snd/warp.wav</property>
+  <property name="staticsounds">snd/alarm4.ogg, snd/ballista.ogg, snd/bomber.ogg, snd/bomb.ogg, snd/boom1.ogg,
+  snd/boom2.ogg, snd/boom3.ogg, snd/bonus.ogg, snd/bow.ogg, snd/burst.ogg, snd/buzz.ogg, snd/catapult.ogg, snd/charge.ogg,
+snd/dragonfire.ogg, snd/equip.ogg, snd/extend.ogg, snd/forcefield.ogg, snd/gallop8.ogg, snd/hit.ogg, snd/hyaa.ogg, snd/item1.ogg,
+snd/item2.ogg, snd/kick.ogg, snd/knockout.ogg, snd/maxed.ogg, snd/mmph.ogg, snd/nnoooo.ogg, snd/ow.ogg,
+snd/parry.ogg, snd/pause.ogg, snd/pike.ogg, snd/playershot.ogg, snd/powershot.ogg,
+snd/powerup.ogg, snd/respawn.ogg, snd/scream.ogg, snd/selfdestruct.ogg,
+snd/shriek.ogg, snd/slash.ogg, snd/sword.ogg, snd/targetlock.ogg,
+snd/thankyou.ogg, snd/ting.ogg, snd/turbo.ogg, snd/warp.ogg</property>
   <property name="winmusic" type="file" value="mus/07 - Great Job!.vgz"/>
  </properties>
  <tileset firstgid="1" source="img/bombgauge.tsx"/>

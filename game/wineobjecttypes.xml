@@ -14,7 +14,7 @@
  <objecttype name="BulletArrow" color="#00aaff">
   <property name="category" type="string" default="EnemyShot"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/bow.wav"/>
+  <property name="sound" type="file" default="snd/bow.ogg"/>
   <property name="speed" type="float" default="240"/>
   <property name="tileid" type="string" default="arrow"/>
   <property name="tileset" type="string" default="humanshots"/>
@@ -22,7 +22,7 @@
  <objecttype name="BulletBallista" color="#00aaff">
   <property name="category" type="string" default="EnemyShot"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/ballista.wav"/>
+  <property name="sound" type="file" default="snd/ballista.ogg"/>
   <property name="speed" type="float" default="480"/>
   <property name="tileid" type="string" default="ballista"/>
   <property name="tileset" type="string" default="humanshots"/>
@@ -30,7 +30,7 @@
  <objecttype name="BulletCatapult" color="#00aaff">
   <property name="category" type="string" default="EnemyShot"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/catapult.wav"/>
+  <property name="sound" type="file" default="snd/catapult.ogg"/>
   <property name="speed" type="float" default="150"/>
   <property name="tileid" type="string" default="catapult"/>
   <property name="tileset" type="string" default="humanshots"/>
@@ -38,7 +38,7 @@
  <objecttype name="BulletFire" color="#00aaff">
   <property name="category" type="string" default="EnemyShot"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/firesmall.wav"/>
+  <property name="sound" type="file" default="snd/firesmall.ogg"/>
   <property name="speed" type="float" default="120"/>
   <property name="tileid" type="string" default="fire"/>
   <property name="tileset" type="string" default="humanshots"/>
@@ -48,7 +48,7 @@
   <property name="accely" type="float" default="480"/>
   <property name="category" type="string" default="EnemyShot"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/powershot.wav"/>
+  <property name="sound" type="file" default="snd/powershot.ogg"/>
   <property name="speed" type="float" default="240"/>
   <property name="tileid" type="string" default="firearrow"/>
   <property name="tileset" type="string" default="humanshots"/>
@@ -56,7 +56,7 @@
  <objecttype name="BulletHoly" color="#00aaff">
   <property name="category" type="string" default="EnemyShot"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/burst.wav"/>
+  <property name="sound" type="file" default="snd/burst.ogg"/>
   <property name="speed" type="float" default="180"/>
   <property name="tileid" type="string" default="holy"/>
   <property name="tileset" type="string" default="humanshots"/>
@@ -66,7 +66,7 @@
   <property name="accely" type="float" default="480"/>
   <property name="category" type="string" default="EnemyShot"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/thrustfall.wav"/>
+  <property name="sound" type="file" default="snd/thrustfall.ogg"/>
   <property name="speed" type="float" default="480"/>
   <property name="tileid" type="string" default="ballista"/>
   <property name="tileset" type="string" default="humanshots"/>
@@ -76,7 +76,7 @@
   <property name="accely" type="float" default="480"/>
   <property name="category" type="string" default="EnemyShot"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/powershot.wav"/>
+  <property name="sound" type="file" default="snd/powershot.ogg"/>
   <property name="speed" type="float" default="480"/>
   <property name="tileid" type="string" default="magic"/>
   <property name="tileset" type="string" default="humanshots"/>
@@ -84,7 +84,7 @@
  <objecttype name="BulletPike" color="#00aaff">
   <property name="category" type="string" default="EnemyShot"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/pike.wav"/>
+  <property name="sound" type="file" default="snd/pike.ogg"/>
   <property name="speed" type="float" default="150"/>
   <property name="tileid" type="string" default="pike"/>
   <property name="tileset" type="string" default="humanshots"/>
@@ -104,7 +104,7 @@
   <property name="lifetime" type="float" default="2"/>
   <property name="persist" type="bool" default="true"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/bomb.wav"/>
+  <property name="sound" type="file" default="snd/bomb.ogg"/>
   <property name="speed" type="float" default="0"/>
   <property name="tileid" type="int" default="0"/>
   <property name="tileset" type="string" default="demonbomb"/>
@@ -135,7 +135,7 @@
   <property name="accely" type="float" default="180"/>
   <property name="category" type="string" default="EnemyShot"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/firesmall.wav"/>
+  <property name="sound" type="file" default="snd/firesmall.ogg"/>
   <property name="speed" type="float" default="240"/>
   <property name="tileid" type="string" default="spiritfire"/>
   <property name="tileset" type="string" default="humanshots"/>
@@ -144,7 +144,7 @@
   <property name="category" type="string" default="EnemyShot"/>
   <property name="lifetime" type="float" default="0.75"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/sword.wav"/>
+  <property name="sound" type="file" default="snd/sword.ogg"/>
   <property name="speed" type="float" default="240"/>
   <property name="tileid" type="string" default="sword"/>
   <property name="tileset" type="string" default="humanshots"/>
@@ -198,7 +198,7 @@
   <property name="friendly" type="bool" default="true"/>
   <property name="health" type="int" default="36"/>
   <property name="hitparticles" type="string" default="deathparticles"/>
-  <property name="hitsound" type="file" default="snd/slash.wav"/>
+  <property name="hitsound" type="file" default="snd/slash.ogg"/>
   <property name="pathfinder" type="string" default="linearUp"/>
   <property name="pathid" type="string" default="friendpaths"/>
   <property name="pathmode" type="string" default="absolute"/>
@@ -208,20 +208,20 @@
  <objecttype name="FriendlyDeath" color="#ff80ff">
   <property name="lifetime" type="string" default="animation"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/shriek.wav"/>
+  <property name="sound" type="file" default="snd/shriek.ogg"/>
   <property name="tileid" type="string" default="wingmanexplosion"/>
   <property name="tileset" type="string" default="sparks_med"/>
  </objecttype>
  <objecttype name="ItemLiquor" color="#00ffff">
   <property name="alcohol" type="float" default="0.01"/>
-  <property name="capturesound" type="file" default="snd/item2.wav"/>
+  <property name="capturesound" type="file" default="snd/item2.ogg"/>
   <property name="itemtype" type="string" default="score"/>
   <property name="script" type="string" default="Item"/>
  </objecttype>
  <objecttype name="ItemScore" color="#00ffff">
-  <property name="capturesound" type="file" default="snd/item2.wav"/>
+  <property name="capturesound" type="file" default="snd/item2.ogg"/>
   <property name="itemtype" type="string" default="score"/>
-  <property name="lostsound" type="file" default="snd/mmph.wav"/>
+  <property name="lostsound" type="file" default="snd/mmph.ogg"/>
   <property name="pathid" type="string"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="rideid" type="int" default="0"/>
@@ -230,9 +230,9 @@
   <property name="takescover" type="bool" default="true"/>
  </objecttype>
  <objecttype name="ItemWingman" color="#00ffff">
-  <property name="capturesound" type="file" default="snd/item1.wav"/>
+  <property name="capturesound" type="file" default="snd/item1.ogg"/>
   <property name="itemtype" type="string" default="wingman"/>
-  <property name="lostsound" type="file" default="snd/shriek.wav"/>
+  <property name="lostsound" type="file" default="snd/shriek.ogg"/>
   <property name="pathid" type="string"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="rideid" type="int" default="0"/>
@@ -260,42 +260,42 @@
  <objecttype name="SparkDamage" color="#ffaa00">
   <property name="lifetime" type="string" default="animation"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/hit.wav"/>
+  <property name="sound" type="file" default="snd/hit.ogg"/>
   <property name="tileid" type="string" default="enemydamage"/>
   <property name="tileset" type="string" default="sparks_small"/>
  </objecttype>
  <objecttype name="SparkDamageBlunt" color="#ffaa00">
   <property name="lifetime" type="string" default="animation"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/kick.wav"/>
+  <property name="sound" type="file" default="snd/kick.ogg"/>
   <property name="tileid" type="string" default="enemydamage"/>
   <property name="tileset" type="string" default="sparks_small"/>
  </objecttype>
  <objecttype name="SparkDefeatGiant" color="#ffaa00">
   <property name="lifetime" type="string" default="animation"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/boom3.wav"/>
+  <property name="sound" type="file" default="snd/boom3.ogg"/>
   <property name="tileid" type="int" default="0"/>
   <property name="tileset" type="string" default="explosion_giant"/>
  </objecttype>
  <objecttype name="SparkDefeatHuge" color="#ffaa00">
   <property name="lifetime" type="string" default="animation"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/boom2.wav"/>
+  <property name="sound" type="file" default="snd/boom2.ogg"/>
   <property name="tileid" type="string" default="explosion"/>
   <property name="tileset" type="string" default="sparks_huge"/>
  </objecttype>
  <objecttype name="SparkDefeatMed" color="#ffaa00">
   <property name="lifetime" type="string" default="animation"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/boom1.wav"/>
+  <property name="sound" type="file" default="snd/boom1.ogg"/>
   <property name="tileid" type="string" default="explosion"/>
   <property name="tileset" type="string" default="sparks_med"/>
  </objecttype>
  <objecttype name="SparkGuard" color="#ffaa00">
   <property name="lifetime" type="string" default="animation"/>
   <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/parry.wav"/>
+  <property name="sound" type="file" default="snd/parry.ogg"/>
   <property name="tileid" type="string" default="enemyguard"/>
   <property name="tileset" type="string" default="sparks_small"/>
  </objecttype>

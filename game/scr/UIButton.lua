@@ -15,7 +15,7 @@ function UIButton:isPressable()
 end
 
 local Sounds = {
-	Press = "snd/ting.wav"
+	Press = "snd/ting.ogg"
 }
 levity.bank:load(Sounds)
 

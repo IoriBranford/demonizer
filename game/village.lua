@@ -7110,7 +7110,7 @@ return {
           properties = {
             ["activateobjectslayer"] = "ground",
             ["musicfade"] = true,
-            ["soundfile"] = "snd/alarm4.wav"
+            ["soundfile"] = "snd/alarm4.ogg"
           }
         },
         {

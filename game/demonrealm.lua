@@ -5546,7 +5546,7 @@ return {
           properties = {
             ["activateobjectslayer"] = "ground",
             ["musicfade"] = true,
-            ["soundfile"] = "snd/alarm4.wav"
+            ["soundfile"] = "snd/alarm4.ogg"
           }
         }
       }
@@ -7280,7 +7280,7 @@ return {
           properties = {
             ["activateobjectslayer"] = "ground",
             ["defeatenemiesbonus"] = 5000,
-            ["soundfile"] = "snd/hyaa.wav"
+            ["soundfile"] = "snd/hyaa.ogg"
           }
         },
         {
@@ -9747,7 +9747,7 @@ return {
           visible = true,
           properties = {
             ["activateobjectslayer"] = "ground",
-            ["soundfile"] = "snd/scream.wav"
+            ["soundfile"] = "snd/scream.ogg"
           }
         },
         {

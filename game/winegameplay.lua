@@ -13,7 +13,7 @@ return {
     ["delayinitobjects"] = true,
     ["losemusic"] = "mus/33 - All Over Tonight.vgz",
     ["script"] = "ShmupMap",
-    ["staticsounds"] = "snd/alarm4.wav, snd/ballista.wav, snd/bomber.wav, snd/bomb.wav, snd/boom1.wav,\n  snd/boom2.wav, snd/boom3.wav, snd/bonus.wav, snd/bow.wav, snd/burst.wav, snd/buzz.wav, snd/catapult.wav, snd/charge.wav,\nsnd/dragonfire.wav, snd/equip.wav, snd/extend.wav, snd/forcefield.wav, snd/gallop8.wav, snd/hit.wav, snd/hyaa.wav, snd/item1.wav,\nsnd/item2.wav, snd/kick.wav, snd/knockout.wav, snd/maxed.wav, snd/mmph.wav, snd/nnoooo.wav, snd/ow.wav,\nsnd/parry.wav, snd/pause.wav, snd/pike.wav, snd/playershot.wav, snd/powershot.wav,\nsnd/powerup.wav, snd/respawn.wav, snd/scream.wav, snd/selfdestruct.wav,\nsnd/shriek.wav, snd/slash.wav, snd/sword.wav, snd/targetlock.wav,\nsnd/thankyou.wav, snd/ting.wav, snd/turbo.wav, snd/warp.wav",
+    ["staticsounds"] = "snd/alarm4.ogg, snd/ballista.ogg, snd/bomber.ogg, snd/bomb.ogg, snd/boom1.ogg,\n  snd/boom2.ogg, snd/boom3.ogg, snd/bonus.ogg, snd/bow.ogg, snd/burst.ogg, snd/buzz.ogg, snd/catapult.ogg, snd/charge.ogg,\nsnd/dragonfire.ogg, snd/equip.ogg, snd/extend.ogg, snd/forcefield.ogg, snd/gallop8.ogg, snd/hit.ogg, snd/hyaa.ogg, snd/item1.ogg,\nsnd/item2.ogg, snd/kick.ogg, snd/knockout.ogg, snd/maxed.ogg, snd/mmph.ogg, snd/nnoooo.ogg, snd/ow.ogg,\nsnd/parry.ogg, snd/pause.ogg, snd/pike.ogg, snd/playershot.ogg, snd/powershot.ogg,\nsnd/powerup.ogg, snd/respawn.ogg, snd/scream.ogg, snd/selfdestruct.ogg,\nsnd/shriek.ogg, snd/slash.ogg, snd/sword.ogg, snd/targetlock.ogg,\nsnd/thankyou.ogg, snd/ting.ogg, snd/turbo.ogg, snd/warp.ogg",
     ["winmusic"] = "mus/07 - Great Job!.vgz"
   },
   tilesets = {

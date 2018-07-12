@@ -49,9 +49,9 @@ ShmupFriend.CatchupTime = 3
 ShmupFriend.CatchupTimeScale = 4
 
 local Sounds = {
-	Lock = "snd/targetlock.wav",
-	--HelpMe = "snd/hyaa.wav",
-	Death = "snd/shriek.wav"
+	Lock = "snd/targetlock.ogg",
+	--HelpMe = "snd/hyaa.ogg",
+	Death = "snd/shriek.ogg"
 }
 levity.bank:load(Sounds)
 

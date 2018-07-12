@@ -404,7 +404,7 @@ function Trigger:giveBonus(bonus)
 	local player = levity.map.objects[levity.map.properties.playerid]
 	levity.scripts:broadcast("pointsScored", bonus,
 		player.x, player.y, "BONUS\n%d")
-	levity.bank:play("snd/bonus.wav")
+	levity.bank:play("snd/bonus.ogg")
 end
 
 function Trigger:friendKilled(friendid)

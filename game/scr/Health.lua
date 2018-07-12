@@ -18,8 +18,8 @@ function Health:_init(object)
 end
 
 local Sounds = {
-	Hit = "snd/hit.wav",
-	Defeat = "snd/knockout.wav",
+	Hit = "snd/hit.ogg",
+	Defeat = "snd/knockout.ogg",
 }
 levity.bank:load(Sounds)
 

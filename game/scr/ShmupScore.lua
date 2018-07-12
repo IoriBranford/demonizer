@@ -25,7 +25,7 @@ ShmupScore.ExtendInc = 1000000
 ShmupScore.BaseCapturePoints = 100
 
 local Sounds = {
-	Extend = "snd/extend.wav"
+	Extend = "snd/extend.ogg"
 }
 levity.bank:load(Sounds)
 

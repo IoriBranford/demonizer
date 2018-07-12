@@ -42,11 +42,11 @@ function ShmupWingman:initQuery()
 end
 
 local Sounds = {
-	Cut = "snd/slash.wav",
-	Maxed = "snd/maxed.wav",
-	Powerup = "snd/powerup.wav",
-	--Ouch = "snd/ow.wav",
-	Death = "snd/shriek.wav"
+	Cut = "snd/slash.ogg",
+	Maxed = "snd/maxed.ogg",
+	Powerup = "snd/powerup.ogg",
+	--Ouch = "snd/ow.ogg",
+	Death = "snd/shriek.ogg"
 }
 levity.bank:load(Sounds)
 

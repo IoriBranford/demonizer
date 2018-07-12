@@ -404,7 +404,7 @@
    <properties>
     <property name="activateobjectslayer" value="ground"/>
     <property name="musicfade" type="bool" value="true"/>
-    <property name="soundfile" type="file" value="snd/alarm4.wav"/>
+    <property name="soundfile" type="file" value="snd/alarm4.ogg"/>
    </properties>
    <polyline points="0,0 288,0"/>
   </object>

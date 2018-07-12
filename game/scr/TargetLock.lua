@@ -6,7 +6,7 @@ TargetLock.AnimationSize = 32
 TargetLock.AnimationTime = .125
 
 local Sounds = {
-	Lock = "snd/targetlock.wav"
+	Lock = "snd/targetlock.ogg"
 }
 levity.bank:load(Sounds)
 

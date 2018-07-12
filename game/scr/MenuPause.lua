@@ -11,7 +11,7 @@ function MenuPause:_init(layer)
 end
 
 local Sounds = {
-	Pause = "snd/pause.wav"
+	Pause = "snd/pause.ogg"
 }
 levity.bank:load(Sounds)
 

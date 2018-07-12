@@ -9,7 +9,7 @@ end
 
 local BuzzRate = 6
 local Sounds = {
-	Buzz = "snd/buzz.wav"
+	Buzz = "snd/buzz.ogg"
 }
 levity.bank:load(Sounds)
 

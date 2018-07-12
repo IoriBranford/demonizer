@@ -82,10 +82,10 @@ function ShmupStatus:_init(layer)
 end
 
 local Sounds = {
-	Maxed = "snd/maxed.wav",
-	BombUp = "snd/thankyou.wav",
-	Go = "snd/extend.wav",
-	Countdown = "snd/equip.wav"
+	Maxed = "snd/maxed.ogg",
+	BombUp = "snd/thankyou.ogg",
+	Go = "snd/extend.ogg",
+	Countdown = "snd/equip.ogg"
 }
 levity.bank:load(Sounds)
 

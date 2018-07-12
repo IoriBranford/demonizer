@@ -6005,7 +6005,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["soundfile"] = "snd/alarm4.wav"
+            ["soundfile"] = "snd/alarm4.ogg"
           }
         },
         {

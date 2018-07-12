@@ -42,7 +42,7 @@ function Rescuer:createShield(x, y)
 	}
 
 	levity.map.layers["playerteam"]:addObject(shield)
-	levity.bank:play("snd/forcefield.wav")
+	levity.bank:play("snd/forcefield.ogg")
 	return shield.id
 end
 ]]
