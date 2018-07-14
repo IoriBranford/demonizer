@@ -1,16 +1,19 @@
 # This file is a template, and might need editing before it works on your project.
 # see https://docs.gitlab.com/ce/ci/yaml/README.html for all available options
 
-image: ubuntu:latest
+image: alpine:latest
 
 variables:
         PROJECT: demonizer
         # CI_PROJECT_NAME not accessible here???
         PROJECT_TITLE: Demonizer
-        PROJECT_AND_VERSION: "${PROJECT}-${CI_COMMIT_REF_NAME}"
-        GIT_DEPTH: "1"
-        GAME_TYPE: full
+        PROJECT_TITLE_NOSPACE: Demonizer
+        DESCRIPTION: "Demonic corruption fantasy shmup"
+        APPLICATION_ID_BASE: "io.itch.ioribranford.demonizer"
         LOVE_VERSION: "0.10.2"
+        GAME_TYPE: full
+        VERSION: "${CI_COMMIT_REF_NAME}"
+        GIT_DEPTH: "1"
         # GIT_SUBMODULE_STRATEGY: recursive
         # broken by https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/2148
 
@@ -18,11 +21,19 @@ stages:
         - build
 
 before_script:
-        - apt-get update -qq
-        - apt-get install -y -qq git zip luajit
+        - apk add --update git zip luajit
         - git submodule sync --recursive
         - git submodule update --init --recursive
           # workaround https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/2148
+
+.debian:
+        <<: &debian
+                before_script:
+                        - apt-get update
+                        - apt-get install -y -qq git zip luajit
+                        - git submodule sync --recursive
+                        - git submodule update --init --recursive
+
 
 .full:
         <<: &full
@@ -37,16 +48,17 @@ before_script:
         variables:
                 <<: &demo-variables
                         PROJECT_TITLE: "Demonizer Demo"
+                        PROJECT_TITLE_NOSPACE: "Demonizer_Demo"
                         GAME_TYPE: demo
 
 .build-data: &build-data
         stage: build
         script:
-                - apt-get install -y -qq wget xz-utils
+                - apk add wget xz
                 - ./make-game.sh
                 - mv ${GAME_TYPE}.love "${PROJECT}-${GAME_TYPE}.love"
         artifacts:
-                name: "${PROJECT_AND_VERSION}-${GAME_TYPE}-data"
+                name: "${PROJECT}-${VERSION}-data"
                 paths:
                         - "${PROJECT}-${GAME_TYPE}.love"
                 expire_in: 1 week
@@ -61,16 +73,49 @@ demo-data:
         variables:
                 <<: *demo-variables
 
+.build-linux: &build-linux
+        <<: *debian
+        stage: build
+        image: debian:stretch-slim
+        variables:
+                <<: &build-linux-variables
+                        GAME_APPIMAGE: "${PROJECT_TITLE_NOSPACE}-x86_64.AppImage"
+        script:
+                - apt-get install -y -qq file wget fuse libglib2.0-0
+                - ./make-game.sh
+                - ./make-linux.sh
+        cache:
+                key: "${PROJECT}-linux"
+                paths:
+                        - "love-${LOVE_VERSION}-x86_64.AppImage"
+                        - "appimagetool-x86_64.AppImage"
+        artifacts:
+                name: "${PROJECT}-${VERSION}-linux"
+                paths:
+                        - "${GAME_APPIMAGE}"
+                expire_in: 1 week
+
+full-linux:
+        <<: *build-linux
+        <<: *full
+
+demo-linux:
+        <<: *build-linux
+        <<: *demo
+        variables:
+                <<: *demo-variables
+                <<: *build-linux-variables
+
 .build-windows: &build-windows
         stage: build
         variables:
                 ARCH_BITS: "64"
         script:
-                - apt-get install -y -qq wget xz-utils
+                - apk add wget xz
                 - ./make-game.sh
                 - ./make-windows.sh
         artifacts:
-                name: "${PROJECT_AND_VERSION}-${GAME_TYPE}-win${ARCH_BITS}"
+                name: "${PROJECT}-${VERSION}-win${ARCH_BITS}"
                 paths:
                         - "${PROJECT_TITLE}"
                 expire_in: 1 week
@@ -100,10 +145,11 @@ demo-win32:
                 ARCH_BITS: "32"
 
 .build-macosx: &build-macosx
+        <<: *debian
         stage: build
         image: andrewd/osxcross
         variables:
-                CFBundleIdentifier: "com.github.ioribranford.${PROJECT}"
+                CFBundleIdentifier: "${APPLICATION_ID_BASE}"
                 <<: &build-macosx-variables
                         NSHumanReadableCopyright: "© 2018 IoriBranford"
                         INSTALL_NAME_TOOL: x86_64-apple-darwin12-install_name_tool
@@ -117,7 +163,7 @@ demo-win32:
                         - "love-${LOVE_VERSION}-macosx-x64.zip"
                         - "game-music-emu-0.6.1.yosemite.bottle.tar.gz"
         artifacts:
-                name: "${PROJECT_AND_VERSION}-${GAME_TYPE}-macosx"
+                name: "${PROJECT}-${VERSION}-macosx"
                 paths:
                         - "${PROJECT_TITLE}.app"
                 expire_in: 1 week
@@ -132,24 +178,25 @@ demo-macosx:
         variables:
                 <<: *demo-variables
                 <<: *build-macosx-variables
-                CFBundleIdentifier: "com.github.ioribranford.${PROJECT}demo"
+                CFBundleIdentifier: "${APPLICATION_ID_BASE}demo"
 
 .build-android: &build-android
+        <<: *debian
         stage: build
         image: snowdream/android-ndk:r14
         variables:
-                APPLICATION_ID: "com.github.ioribranford.${PROJECT}"
+                APPLICATION_ID: "${APPLICATION_ID_BASE}"
         script:
                 - apt-get install -y -qq make file
                 - ./make-game.sh
                 - ./configure-android.sh
                 - ./make-android.sh
         cache:
-                key: "${PROJECT_AND_VERSION}-android"
+                key: "${PROJECT}-android"
                 paths:
                         - love-android-sdl2
         artifacts:
-                name: "${PROJECT_AND_VERSION}-${GAME_TYPE}-android"
+                name: "${PROJECT}-${VERSION}-android"
                 paths:
                         - "${PROJECT_TITLE}.apk"
                 expire_in: 1 week
@@ -164,4 +211,4 @@ demo-android:
         <<: *demo
         variables:
                 <<: *demo-variables
-                APPLICATION_ID: "com.github.ioribranford.${PROJECT}demo"
+                APPLICATION_ID: "${APPLICATION_ID_BASE}demo"

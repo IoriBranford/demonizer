@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 GAME_TYPE=${GAME_TYPE:=demo}
 

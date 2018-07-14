@@ -18,6 +18,8 @@ history.db
 
 *.zip
 *.love
+*.AppImage
+squashfs-root
 bin*/
 
 **/ignore/**/*

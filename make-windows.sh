@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 PROJECT=${PROJECT:=${PWD##*/}}
@@ -17,7 +17,7 @@ else
 	EH_SYSTEM=dw2
 fi
 
-LOVE_VERSION=0.10.2
+LOVE_VERSION=${LOVE_VERSION:="0.10.2"}
 LOVE_DIR=love-${LOVE_VERSION}-win${ARCH_BITS}
 LOVE_ZIP=${LOVE_DIR}.zip
 LOVE_URL=https://bitbucket.org/rude/love/downloads/${LOVE_ZIP}

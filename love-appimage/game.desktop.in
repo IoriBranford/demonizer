@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=%NAME%
+Comment=%COMMENT%
+MimeType=application/x-love-game;
+Exec=wrapper-love %f
+Type=Application
+Categories=Development;Game;
+Terminal=false
+Icon=game
+NoDisplay=true
+

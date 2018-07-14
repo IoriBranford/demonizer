@@ -44,6 +44,7 @@ end
 local NonMapFiles = {
 	["conf.lua"] = true,
 	["main.lua"] = true,
+	["make-game.lua"] = true,
 	["find-unused-assets.lua"] = true
 }
 

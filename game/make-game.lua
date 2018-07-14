@@ -50,7 +50,7 @@ local AssetTypes = {
 	[".vgm"] = true
 }
 
-local function findAssetsInProperties(assets, properties)
+local function findAssetsInTable(assets, properties)
 	for _, filename in pairs(properties) do
 		if type(filename)=="string" then
 			local ext = filename:sub(-4, -1)
@@ -76,16 +76,17 @@ for _, gamefilename in pairs(gamefilelist) do
 		assets[gamefilename] = gamefilename
 		local map = dofile(gamefilename)
 		if map then
-			findAssetsInProperties(assets, map.properties)
-			
+			findAssetsInTable(assets, map.properties)
+
 			for _, tileset in pairs(map.tilesets) do
 				assets[tileset.image] = tileset.image
 			end
 			for _, layer in pairs(map.layers) do
+				findAssetsInTable(assets, layer)
 				local objects = layer.objects
 				if objects then
 					for _, object in pairs(objects) do
-						findAssetsInProperties(assets, object.properties)
+						findAssetsInTable(assets, object.properties)
 					end
 				end
 			end
