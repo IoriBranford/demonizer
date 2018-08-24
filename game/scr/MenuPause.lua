@@ -1,4 +1,6 @@
 local levity = require "levity"
+local prefs = levity.prefs
+
 local Object = require "levity.object"
 local UIMenu = require "UIMenu"
 local UIButton = require "UIButton"
@@ -8,12 +10,17 @@ local MenuPause = class(UIMenu)
 function MenuPause:_init(layer)
 	self:super(layer)
 	layer.visible = false
+	levity.bank:load(layer.properties.pausesound)
 end
 
-local Sounds = {
-	Pause = "snd/pause.ogg"
-}
-levity.bank:load(Sounds)
+function MenuPause:togglePauseOnly()
+	local pause = not levity.map.paused
+	levity.map.paused = pause
+
+	if pause then
+		levity.bank:play(self.layer.properties.pausesound)
+	end
+end
 
 function MenuPause:toggleMenu()
 	local pause = not levity.map.paused
@@ -21,13 +28,13 @@ function MenuPause:toggleMenu()
 	self.layer.visible = pause
 
 	if pause then
-		levity.bank:play(Sounds.Pause)
-		self:moveCursor(1, #self.buttonids + 1)
+		levity.bank:play(self.layer.properties.pausesound)
+		self:moveCursor(1, #self.objects + 1)
 	else
 		self:setMouseCursorMode(false)
 		self.cursorpos = nil
-		for _, buttonid in ipairs(self.buttonids) do
-			levity.scripts:call(buttonid, "unpress")
+		for _, button in ipairs(self.objects) do
+			levity.scripts:call(button.id, "unpress")
 		end
 	end
 end
@@ -36,15 +43,10 @@ function MenuPause:keypressed(k)
 	if levity.map.layers["gameovermenu"].visible then
 		return
 	end
-	if k == "escape" then
+	if k == prefs.key_pausemenu then
 		self:toggleMenu()
-	elseif k == "pause" then
-		local pause = not levity.map.paused
-		levity.map.paused = pause
-
-		if pause then
-			levity.bank:play(Sounds.Pause)
-		end
+	elseif k == prefs.key_pause then
+		self:togglePauseOnly()
 	else
 		UIMenu.keypressed(self, k)
 	end
@@ -54,8 +56,10 @@ function MenuPause:joystickpressed(joystick, button)
 	if levity.map.layers["gameovermenu"].visible then
 		return
 	end
-	if button == 10 then
+	if button == prefs.joy_pausemenu then
 		self:toggleMenu()
+	elseif button == prefs.joy_pause then
+		self:togglePauseOnly()
 	else
 		UIMenu.joystickpressed(self, joystick, button)
 	end

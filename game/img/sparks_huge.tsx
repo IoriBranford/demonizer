@@ -24,7 +24,7 @@
    <property name="name" value="playerexplosion"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" x="-42" y="54" width="84" height="84">
+   <object id="1" x="6" y="6" width="84" height="84">
     <properties>
      <property name="collidable" type="bool" value="true"/>
     </properties>

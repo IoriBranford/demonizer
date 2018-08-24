@@ -16,7 +16,7 @@ function EnemyPrincess:defeatCoroutine(dt)
 
 	self.typechanger:setType("Princess")
 	self.properties.pathspeed = 0
-	local kogid = Item.getKOGid(self)
+	local kogid = self:getDefeatDropGid()
 	if kogid then
 		self.object:setGid(kogid, true, "dynamic", false)
 	end

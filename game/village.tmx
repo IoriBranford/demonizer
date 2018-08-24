@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="18" height="245" tilewidth="16" tileheight="16" infinite="0" nextobjectid="327">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="18" height="245" tilewidth="16" tileheight="16" infinite="0" nextobjectid="327">
  <properties>
   <property name="cameraid" type="int" value="2"/>
   <property name="music" type="file" value="mus/09 - Blue Sky Laundry.vgz"/>
+  <property name="nextmap" type="file" value="chapel.lua"/>
   <property name="overlaymap" type="file" value="gameplay.lua"/>
   <property name="playerid" type="int" value="1"/>
  </properties>
@@ -383,16 +384,8 @@
   </object>
  </objectgroup>
  <objectgroup name="bosshouse_doors">
-  <object id="261" name="door" gid="1136" x="136" y="144" width="16" height="32">
-   <properties>
-    <property name="script" value="Door"/>
-   </properties>
-  </object>
-  <object id="262" name="door" gid="2147484784" x="152" y="144" width="16" height="32">
-   <properties>
-    <property name="script" value="Door"/>
-   </properties>
-  </object>
+  <object id="261" name="door" gid="1136" x="136" y="144" width="16" height="32"/>
+  <object id="262" name="door" gid="2147484784" x="152" y="144" width="16" height="32"/>
   <object id="263" name="storehouse_doors" type="Trigger" x="128" y="128" width="32" height="32">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
@@ -715,41 +708,17 @@ storehouseroof</property>
   </data>
  </layer>
  <objectgroup name="storehouse_doors" visible="0">
-  <object id="128" name="door" gid="1137" x="88" y="848" width="16" height="32">
-   <properties>
-    <property name="script" value="Door"/>
-   </properties>
-  </object>
-  <object id="129" name="door" gid="2147484785" x="104" y="848" width="16" height="32">
-   <properties>
-    <property name="script" value="Door"/>
-   </properties>
-  </object>
+  <object id="128" name="door" gid="1137" x="88" y="848" width="16" height="32"/>
+  <object id="129" name="door" gid="2147484785" x="104" y="848" width="16" height="32"/>
   <object id="130" name="storehouse_doors" type="Trigger" x="72" y="832" width="144" height="32">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="132" name="door" gid="2147484785" x="200" y="848" width="16" height="32">
-   <properties>
-    <property name="script" value="Door"/>
-   </properties>
-  </object>
-  <object id="133" name="door" gid="1137" x="184" y="848" width="16" height="32">
-   <properties>
-    <property name="script" value="Door"/>
-   </properties>
-  </object>
-  <object id="134" name="door" gid="1137" x="136" y="848" width="16" height="32">
-   <properties>
-    <property name="script" value="Door"/>
-   </properties>
-  </object>
-  <object id="135" name="door" gid="2147484785" x="152" y="848" width="16" height="32">
-   <properties>
-    <property name="script" value="Door"/>
-   </properties>
-  </object>
+  <object id="132" name="door" gid="2147484785" x="200" y="848" width="16" height="32"/>
+  <object id="133" name="door" gid="1137" x="184" y="848" width="16" height="32"/>
+  <object id="134" name="door" gid="1137" x="136" y="848" width="16" height="32"/>
+  <object id="135" name="door" gid="2147484785" x="152" y="848" width="16" height="32"/>
  </objectgroup>
  <objectgroup name="postmidboss">
   <object id="325" type="Trigger" x="296" y="736" width="8" height="8">

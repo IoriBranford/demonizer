@@ -19,10 +19,13 @@
 --------------------------------------------------------------------------------
 --
 
+local print = print
 local pairs = pairs
+local assert = assert
 local io_open = io.open
---local print = print
---local maputil = require "levity.maputil"
+local xml = require "pl.xml"
+local xml_parse = xml.parse
+local xml_walk = xml.walk
 
 local args = {...}
 
@@ -45,21 +48,27 @@ gamefilelistfile:close()
 local AssetTypes = {
 	[".ogg"] = true,
 	[".png"] = true,
-	[".fnt"] = true,
 	[".vgz"] = true,
 	[".vgm"] = true
 }
 
+local function checkAsset(filename)
+	local ext = filename:sub(-4, -1)
+	if AssetTypes[ext] then
+		local file = io_open(filename)
+		if file then
+			file:close()
+			return true
+		end
+	end
+	return false
+end
+
 local function findAssetsInTable(assets, properties)
 	for _, filename in pairs(properties) do
 		if type(filename)=="string" then
-			local ext = filename:sub(-4, -1)
-			if AssetTypes[ext] then
-				local file = io_open(filename)
-				if file then
-					assets[filename] = filename
-					file:close()
-				end
+			if checkAsset(filename) then
+				assets[filename] = filename
 			end
 		end
 	end
@@ -69,6 +78,18 @@ local assets = {
 	"main.lua",
 	"conf.lua"
 }
+
+local function findAssetsInXML(tag, node)
+	if tag == "property" then
+		local attr = node.attr
+		if attr.type == "file" then
+			local filename = attr.default
+			if checkAsset(filename) then
+				assets[filename] = filename
+			end
+		end
+	end
+end
 
 for _, gamefilename in pairs(gamefilelist) do
 	local extension = gamefilename:sub(-4, -1)
@@ -93,16 +114,10 @@ for _, gamefilename in pairs(gamefilelist) do
 		end
 	elseif extension == ".xml" then
 		assets[gamefilename] = gamefilename
-		--[[local objecttypes = maputil.loadObjectTypes(gamefilename)
-		if objecttypes then
-			for _, properties in pairs(objecttypes) do
-				for _, value in pairs(properties) do
-					if value.type == "file" then
-						assets[value.value] = value.value
-					end
-				end
-			end
-		end]]
+
+		local doc, err = xml_parse(gamefilename, true)
+		assert(doc, err)
+		xml_walk(doc, false, findAssetsInXML)
 	end
 end
 
@@ -115,7 +130,7 @@ end
 
 os_execute('find -name "*.ogg" | '..zipcommand..'-@') -- TEMP until all sound filenames are purged from scripts
 os_execute('find scr -name "*.lua" | '..zipcommand..'-@')
-os_execute('find fnt -name "*.png" | '..zipcommand..'-@')
+os_execute('find fnt -name "*.png" -o -name "*.fnt" -o -name "*.ttf" | '..zipcommand..'-@')
 os_execute('find levity -name "examples" -prune -o -name "tests" -prune -o -name "*.lua" | '..zipcommand..'-@')
 os_execute('find levity -name "*.txt" | '..zipcommand..'-@')
 os_execute('git describe --tags --always > version')

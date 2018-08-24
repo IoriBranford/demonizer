@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="48" height="64" tilewidth="5" tileheight="5" infinite="0" nextobjectid="44">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="48" height="64" tilewidth="5" tileheight="5" infinite="0" nextobjectid="44">
  <properties>
   <property name="music" type="file" value="mus/08 - Curry and Rice.vgz"/>
   <property name="nextmap" type="file" value="demonrealm.lua"/>
@@ -31,14 +31,10 @@
   <object id="3" name="hiscore" x="0" y="5" width="240" height="10" visible="0">
    <properties>
     <property name="text" value="HI SCORE 0"/>
-    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
   </object>
   <object id="11" name="camera" type="Camera" x="0" y="0" width="240" height="320" visible="0"/>
   <object id="17" name="instructions" x="20" y="80" width="200" height="136">
-   <properties>
-    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
-   </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">ARROW keys: MOVE
 
 Z key:   FIRE wine shots
@@ -57,15 +53,9 @@ F2 key:  RESET level
 Alt-F4:  QUIT</text>
   </object>
   <object id="18" name="quit" x="0" y="250" width="240" height="10">
-   <properties>
-    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
-   </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">or ESC back to main title</text>
   </object>
   <object id="19" name="copyright" x="0" y="290" width="240" height="30">
-   <properties>
-    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
-   </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">© 2018 IoriBranford
 
 Twitter: @ioribranford</text>
@@ -78,8 +68,8 @@ Twitter: @ioribranford</text>
   </properties>
   <object id="31" name="caravan" type="UIButton" x="40" y="220" width="160" height="24">
    <properties>
+    <property name="action" value="startGame"/>
     <property name="nextmap" type="file" value="winetasting.lua"/>
-    <property name="script" value="ButtonPlayStage"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">PRESS Z TO START</text>
   </object>

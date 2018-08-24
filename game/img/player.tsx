@@ -10,34 +10,34 @@
    <property name="name" value="forward"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="4" name="body" x="-4" y="60" width="8" height="8">
+   <object id="4" name="body" x="28" y="28" width="8" height="8">
     <properties>
      <property name="collidable" type="bool" value="true"/>
     </properties>
     <ellipse/>
    </object>
-   <object id="7" name="wingman1" x="-24" y="72">
+   <object id="7" name="wingman1" x="8" y="40">
     <ellipse/>
    </object>
-   <object id="8" name="wingman2" x="24" y="72">
+   <object id="8" name="wingman2" x="56" y="40">
     <ellipse/>
    </object>
-   <object id="10" name="wingman3" x="-16" y="48">
+   <object id="10" name="wingman3" x="16" y="16">
     <ellipse/>
    </object>
-   <object id="11" name="wingman4" x="16" y="48">
+   <object id="11" name="wingman4" x="48" y="16">
     <ellipse/>
    </object>
-   <object id="12" name="focuswingman1" x="-32" y="40">
+   <object id="12" name="focuswingman1" x="0" y="8">
     <ellipse/>
    </object>
-   <object id="13" name="focuswingman2" x="32" y="40">
+   <object id="13" name="focuswingman2" x="64" y="8">
     <ellipse/>
    </object>
-   <object id="14" name="focuswingman3" x="-16" y="8">
+   <object id="14" name="focuswingman3" x="16" y="-24">
     <ellipse/>
    </object>
-   <object id="15" name="focuswingman4" x="16" y="8">
+   <object id="15" name="focuswingman4" x="48" y="-24">
     <ellipse/>
    </object>
   </objectgroup>

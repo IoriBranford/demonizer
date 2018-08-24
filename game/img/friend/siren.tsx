@@ -12,7 +12,7 @@
  <image source="siren.png" width="192" height="256"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="1" x="-16" y="48" width="32" height="32">
+   <object id="1" x="16" y="16" width="32" height="32">
     <properties>
      <property name="collidable" type="bool" value="true"/>
     </properties>

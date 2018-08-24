@@ -13,7 +13,7 @@
  <image source="catapult.png" width="576" height="216"/>
  <tile id="0" type="Catapult">
   <objectgroup draworder="index">
-   <object id="1" x="-18" y="54" width="36" height="36">
+   <object id="1" x="18" y="18" width="36" height="36">
     <properties>
      <property name="collidable" type="bool" value="true"/>
     </properties>

@@ -96,7 +96,9 @@ function Enemy:_init(object)
 		self.afterimage = levity.scripts:newScript(self.id, "AfterImage", object)
 	end
 
-	self.shooter = levity.scripts:newScript(self.id, "Shooter", self.object)
+	if self.properties.firebullet then
+		self.shooter = levity.scripts:newScript(self.id, "Shooter", self.object)
+	end
 
 	if self.properties.defeatcoroutine then
 		self.coroutine = levity.scripts:newScript(self.id, "Coroutine", object)
@@ -173,13 +175,15 @@ end
 function Enemy:endMove(dt)
 	local faceangle = self.properties.faceangle
 
+	local target = self.shooter
+		and self.shooter:getTargetObject(self.properties.firetargetid)
+		or levity.map.objects[levity.map.properties.playerid]
+
 	if type(faceangle) == "number" then
 		faceangle = math.rad(faceangle)
 	elseif faceangle == "" then
 		faceangle = nil
-	else
-		local target = self.shooter:getTargetObject(self.properties.firetargetid)
-			or levity.map.objects[levity.map.properties.playerid]
+	elseif target and target.body then
 		local targetcx, targetcy = target.body:getWorldCenter()
 		local cx, cy = self.body:getWorldCenter()
 		local targetdx, targetdy = targetcx - cx, targetcy - cy
@@ -436,47 +440,33 @@ function Enemy:defeatDefaultRoutine()
 		end
 	end
 
-	local defeatdroptileid = self.properties.defeatdroptileid
-	local defeatdroptileset = self.properties.defeatdroptileset
-		or (self.object.tile and self.object.tile.tileset)
-	if defeatdroptileid and defeatdroptileset then
-		local gid = levity.map:getTileGid(defeatdroptileset, defeatdroptileid)
+	self:dropDefeatItem(self.properties.giveitemtoid)
+	levity.scripts:send(self.id, "discard")
+end
+
+function Enemy:getDefeatDropGid()
+	local tileset = self.object.tile and self.object.tile.tileset
+	local defeatdroptileset = self.properties.defeatdroptileset or tileset
+	tileset = tileset and levity.map.tilesets[tileset]
+	local defeatdroptileid = self.properties.defeatdroptileid or
+		(tileset and tileset.name)
+
+	return defeatdroptileid and defeatdroptileset
+		and levity.map:getTileGid(defeatdroptileset, defeatdroptileid)
+end
+
+function Enemy:dropDefeatItem(givetoid)
+	local gid = self:getDefeatDropGid()
+	if gid then
 		self.object.layer:addObject({
 			gid = gid,
 			x = self.body:getX(),
-			y = self.body:getY()
+			y = self.body:getY(),
+			properties = {
+				launched = self.properties.defeatitemlaunch,
+				pulledbyid = givetoid
+			}
 		})
-	end
-
-	local destroyedtile = self.properties.destroyedtile
-		or self.object.tile and self.object.tile.properties.destroyedtile
-	if destroyedtile then
-		local destroyedgid = levity.map:getTileGid(
-			self.object.tile.tileset, destroyedtile)
-
-		self.object:setGid(destroyedgid, true, "static", true)
-
-		for _, fixture in pairs(self.body:getFixtureList()) do
-			fixture:setFilterData(0, 0, 0)
-		end
-
-		self.body:setLinearVelocity(0, 0)
-	else
-		levity.scripts:send(self.id, "discard")
-	end
-
-	self:dropDefeatItem()
-end
-
-function Enemy:dropDefeatItem()
-	local kogid = Item.getKOGid(self)
-	if kogid then
-		local defeatitem = self.properties.defeatitem
-		local defeatitemlaunch = self.properties.defeatitemlaunch
-		local x, y = self.body:getPosition()
-		Item.create(defeatitem, defeatitemlaunch,
-				kogid, x, y, self.object.layer,
-				nil, nil, nil, self.giveitemtoid)
 	end
 end
 
@@ -508,11 +498,11 @@ function Enemy:defeat(giveitemtoid)
 		return
 	end
 	self.properties.defeated = true
-	self.giveitemtoid = giveitemtoid
+	self.properties.giveitemtoid = giveitemtoid
 
 	self.properties.rideshield = nil
 	self.properties.pathid = nil
-	self.properties.firebullet = nil
+	self.properties.firebullet = false
 
 	levity.scripts:broadcast("pointsScored", self.properties.score or 100)
 
@@ -544,7 +534,9 @@ function Enemy:beginDraw()
 		color[i] = 0xff
 	end
 
-	if self.shooter:canFire() and self.shooter:isAttacking() then
+	if self.shooter and self.shooter:isAttacking()
+	or self.rescuer and self.rescuer:isRescuing()
+	then
 		local flash = 3 + 2*math.cos(30*math.pi*love.timer.getTime())
 		for i = 1,3 do
 			color[i] = color[i] * flash

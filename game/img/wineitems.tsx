@@ -12,7 +12,7 @@
    <property name="name" value="glass_redwine"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="2" x="-4" y="2" width="8" height="24">
+   <object id="2" x="0" y="0" width="8" height="24">
     <properties>
      <property name="collidable" type="bool" value="true"/>
      <property name="sensor" type="bool" value="true"/>

@@ -1,21 +1,18 @@
 local levity = require "levity"
+local ShmupScore
 
 local PlayerPower = class()
 function PlayerPower:_init(object)
 	self.object = object
+	ShmupScore = require "ShmupScore"
 
 	if not PlayerPower.DotPositions then
 		local positions = {}
-		local tile = levity.map.tiles[object.gid]
-		local tileshapes = tile.objectGroup.objects
-		local tileheight = levity.map:getTileset(tile.tileset).tileheight
-		-- bottom left origin
-		-- TODO in levity transform all tile objects so scripts don't have to
-		for _, shape in pairs(tileshapes) do
-			local i = tonumber(shape.name:match("power(%x+)"))
-			if i then
-				positions[i] = {shape.x, shape.y - tileheight}
-			end
+		local gid = object.gid
+		for i = 1, ShmupScore.MaxMultiplier do
+			positions[i] = {
+				levity.map:getTileShapePosition(gid, "power"..i)
+			}
 		end
 		PlayerPower.DotPositions = positions
 	end

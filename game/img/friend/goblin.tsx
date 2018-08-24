@@ -15,7 +15,7 @@
  <image source="goblin.png" width="96" height="128"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="1" x="-12" y="20" width="24" height="24">
+   <object id="1" x="4" y="4" width="24" height="24">
     <properties>
      <property name="collidable" type="bool" value="true"/>
      <property name="sensor" type="bool" value="true"/>

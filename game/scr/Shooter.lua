@@ -39,7 +39,7 @@ function Shooter:initQuery()
 	end
 end
 
-function Shooter:getTargetObject(targetid)
+function Shooter:getTargetId(targetid)
 	if type(targetid) == "string" then
 		if targetid == "player" then
 			targetid = levity.map.properties.playerid
@@ -58,7 +58,10 @@ function Shooter:getTargetObject(targetid)
 			end
 		end
 	end
-	return levity.map.objects[targetid]
+	return targetid
+end
+function Shooter:getTargetObject(targetid)
+	return levity.map.objects[self:getTargetId(targetid)]
 end
 
 local AttackAnimTile = {
@@ -69,22 +72,26 @@ local function getAttackAnimTime(tileset)
 	return attackgid and levity.map:getAnimTime(attackgid) or 0
 end
 
+function Shooter:isTimeToFire()
+	local firetime = self.properties.firetime
+	return type(firetime) == "number" and self.timer >= firetime
+end
+
 function Shooter:canFire()
+	return self:isTimeToFire()
+	and levity.scripts:call(self.id, "isOnCamera")
+	--and not levity.scripts:call(self.id, "isRescuing")
+	and not levity.scripts:call(self.id, "hasCover")
+	and self:hasLineOfFire()
+end
+
+function Shooter:hasLineOfFire()
 	local bullet = levity.map.objecttypes[self.properties.firebullet]
 	local faceangle = levity.scripts:call(self.id, "getFaceAngle")
-	local firetime = self.properties.firetime
-
-	if not bullet
-	or not faceangle
-	or (type(firetime) == "number" and self.timer < firetime)
-	or not levity.scripts:call(self.id, "isOnCamera")
-	--or levity.scripts:call(self.id, "isRescuing")
-	or levity.scripts:call(self.id, "hasCover")
-	then
+	local target = self:getTargetObject(self.properties.firetargetid)
+	if not bullet or not faceangle then
 		return false
 	end
-
-	local target = self:getTargetObject(self.properties.firetargetid)
 	if target then
 		local cx, cy = self.object.body:getWorldCenter()
 		local tx, ty = target.body:getWorldCenter()
@@ -153,17 +160,19 @@ function Shooter:fire()
 	local keepupwithcamera = not target
 		or target.id == levity.map.properties.playerid
 
-	local fansize = math.max(1,self.properties.firefan or 1)
+	local fansize = math.floor(self.properties.firefan or 1)
 	local fanslice = math.rad(self.properties.firefanslice or 0)
 	fireangle = fireangle - fanslice*(fansize-1)/2
 
-	for i = 1, fansize do
+	local i = 1
+	while i <= fansize do
 		ShmupBullet.create(self.properties.firebullet, cx, cy,
 			speed*math.cos(fireangle), speed*math.sin(fireangle),
 			"npcshots", keepupwithcamera)
 		levity.scripts:send("enemyfireparticles", "emit", 8, cx, cy,
 			fireangle)
 		fireangle = fireangle + fanslice
+		i = i + 1
 	end
 
 	if type(self.properties.firetime) == "number" then
@@ -209,7 +218,7 @@ end
 function Shooter:endMove(dt)
 	if self.properties.firetime == "animation"
 	or not levity.scripts:call(self.id, "isOnCamera")
-	or levity.scripts:call(self.properties.firetargetid, "isKilled")
+	or levity.scripts:call(self:getTargetId(self.properties.firetargetid), "isKilled")
 	--or levity.scripts:call(self.id, "isRescuing")
 	then
 		self.timer = 0
@@ -218,7 +227,7 @@ function Shooter:endMove(dt)
 
 	self.timer = self.timer + dt
 
-	if self:canFire() and not self:isAttacking() then
+	if self:isTimeToFire() and not self:isAttacking() then
 		local animtile = levity.map.tiles[self.object.gid]
 		local tileset = levity.map.tilesets[animtile.tileset]
 		local attackline = tileset.properties.column_attack
@@ -226,7 +235,7 @@ function Shooter:endMove(dt)
 		if attackline then
 			local angle = levity.scripts:call(self.id, "getFaceAngle")
 			levity.scripts:send(self.id, "faceAngle", angle, "attack")
-		else
+		elseif self:canFire() then
 			self:fire()
 		end
 	end

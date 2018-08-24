@@ -17,26 +17,45 @@ else
 	EH_SYSTEM=dw2
 fi
 
+if [ ! -f ${GAME_ASSET} ]
+then ./make-game.sh
+fi
+
 LOVE_VERSION=${LOVE_VERSION:="0.10.2"}
 LOVE_DIR=love-${LOVE_VERSION}-win${ARCH_BITS}
 LOVE_ZIP=${LOVE_DIR}.zip
 LOVE_URL=https://bitbucket.org/rude/love/downloads/${LOVE_ZIP}
 
-if [ ! -f ${GAME_ASSET} ]
-then ./make-game.sh
-fi
+RESHACK_ZIP=resource_hacker.zip
+RESHACK_URL=http://www.angusj.com/resourcehacker/${RESHACK_ZIP}
 
-wget -N ${LOVE_URL}
-unzip ${LOVE_ZIP} -d .
+getZip () {
+	ZIP=$1
+	URL=$2
+	if [ ! -f ${ZIP} ]
+	then wget -N ${URL}
+	fi
+	unzip ${ZIP} -d .
+}
+getZip ${LOVE_ZIP} ${LOVE_URL}
+getZip ${RESHACK_ZIP} ${RESHACK_URL}
 
 cat ${LOVE_DIR}/love.exe ${GAME_ASSET} > ${LOVE_DIR}/${PROJECT}.exe
-rm ${LOVE_DIR}/love*.exe
+rm ${LOVE_DIR}/love.exe ${LOVE_DIR}/lovec.exe ${LOVE_DIR}/*.ico
 mv ${LOVE_DIR}/readme.txt ${LOVE_DIR}/readme-love.txt
+
+resHack () {
+	xvfb-run wine ResourceHacker.exe -open ${LOVE_DIR}\\${PROJECT}.exe -save ${LOVE_DIR}\\${PROJECT}.exe $*
+}
+resHack -action delete -mask ICONGROUP,,
+resHack -action add -res appicon.ico -mask ICONGROUP,MAINICON,
 
 getMSYS2dll () {
 	PKG_TAR_XZ=mingw-w64-$ARCH-$1-any.pkg.tar.xz
 	PKG_URL=https://downloads.sourceforge.net/project/msys2/REPOS/MINGW/$ARCH/${PKG_TAR_XZ}
-	wget -N ${PKG_URL}
+	if [ ! -f ${PKG_TAR_XZ} ]
+	then wget -N ${PKG_URL}
+	fi
 	tar -Jxf ${PKG_TAR_XZ} mingw${ARCH_BITS}/bin
 }
 

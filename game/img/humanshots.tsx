@@ -10,7 +10,7 @@
    <property name="name" value="pike"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" x="-1" y="15" width="2" height="2">
+   <object id="1" x="23" y="7" width="2" height="2">
     <properties>
      <property name="collidable" type="bool" value="true"/>
     </properties>

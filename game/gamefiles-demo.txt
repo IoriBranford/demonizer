@@ -1,3 +1,4 @@
+options.lua
 demonrealm.lua
 drunktitle.lua
 gameplay.lua

@@ -247,9 +247,9 @@ function Mover:beginMove(dt)
 end
 
 function Mover:updateRidersVelocity(dt, newvx, newvy)
-	local tile = self.object.tile
-	local tileset = tile and levity.map.tilesets[tile.tileset]
-	local tileheight = tileset and tileset.tileheight
+	if not self.riderids then
+		return
+	end
 	for _, riderid in pairs(self.riderids) do
 		local rider = levity.map.objects[riderid]
 		if rider and rider.body then
@@ -258,10 +258,15 @@ function Mover:updateRidersVelocity(dt, newvx, newvy)
 			local seat = rider.properties.rideseat
 			local seatx, seaty
 			local seatorbit = seat == "orbit"
+			local tilegid
 
-			seat = seat and self:getRideSeat(seat)
 			if seat then
-				seatx, seaty = self.body:getWorldPoint(seat.x, seat.y - tileheight)
+				seat, tilegid = self:getRideSeat(seat)
+			end
+
+			if seat then
+				seatx, seaty = levity.map:getTileShapePosition(tilegid, seat)
+				seatx, seaty = self.body:getWorldPoint(seatx, seaty)
 			elseif seatorbit then
 				seatx, seaty = levity.scripts:call(riderid, "getOrbitUnitVector")
 
@@ -283,6 +288,7 @@ function Mover:updateRidersVelocity(dt, newvx, newvy)
 				ridervy = ridervy + ((seaty - ridery) / dt)
 			end
 			rider.body:setLinearVelocity(ridervx, ridervy)
+			levity.scripts:send(riderid, "updateRidersVelocity", dt, ridervx, ridervy)
 		end
 	end
 end
@@ -313,15 +319,20 @@ end
 function Mover:getRideSeat(seatname, dt)
 	local tile = self.object.tile
 	local tileset = tile and levity.map.tilesets[tile.tileset]
+	local gid = tileset.firstgid
 	if dt then
 		local nextframetile = tile and self.object:getAnimationUpdate(dt)
+		gid = gid + nextframetile
 		tile = nextframetile and tileset and
-			levity.map.tiles[tileset.firstgid + nextframetile]
+			levity.map.tiles[gid]
 			or tile
+	else
+		gid = gid + tile.id
 	end
 	local seats = tile and tile.properties.rideseats
-	local seat = seats and seats[seatname]
-	return seat
+	if seats then
+		return seats[seatname], gid
+	end
 end
 
 function Mover:addRider(riderid)

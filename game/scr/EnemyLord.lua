@@ -30,8 +30,7 @@ function Lord:defeatCoroutine(dt)
 
 	self:explosionClusterCoroutine("SparkDefeatHuge", 8, 32, "sparks", "defeatparticles", 16, .25)
 	levity.bank:play("snd/nnoooo.ogg")
-	self.giveitemtoid = levity.map.properties.playerid
-	self:dropDefeatItem()
+	self:dropDefeatItem(levity.map.properties.playerid)
 	self:discard()
 end
 

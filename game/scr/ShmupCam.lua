@@ -29,8 +29,9 @@ function ShmupCam:_init(object)
 
 	self.camera = levity.camera
 	local cx, cy = self.object.body:getWorldCenter()
-	self.camera:set(cx, cy, self.object.width, self.object.height)
-
+	self.camera:set(cx, cy,
+		self.object.width, self.object.height)
+		--love.graphics.getWidth(), love.graphics.getHeight())--debug
 	local mapwidth = (levity.map.width * levity.map.tilewidth)
 	self.mapwidthratio = 1 - (self.object.width / mapwidth)
 
@@ -75,18 +76,6 @@ end
 
 function ShmupCam:playerLost()
 	self.properties.pathspeed = 0
-end
-
-function ShmupCam:keypressed(k)
-	if k==',' then
-		levity.prefs.rotation = levity.prefs.rotation - math.pi/2
-		levity.map:windowResized(love.graphics.getWidth(),
-			love.graphics.getHeight(), self.camera)
-	elseif k=='.' then
-		levity.prefs.rotation = levity.prefs.rotation + math.pi/2
-		levity.map:windowResized(love.graphics.getWidth(),
-			love.graphics.getHeight(), self.camera)
-	end
 end
 
 return ShmupCam

@@ -10,7 +10,7 @@ end
 
 function MenuGameOver:playerLost()
 	self.layer.visible = true
-	self:moveCursor(1, #self.buttonids + 1)
+	self:moveCursor(1, #self.objects + 1)
 end
 
 function MenuGameOver:beginDraw()

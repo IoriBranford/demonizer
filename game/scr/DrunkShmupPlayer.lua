@@ -83,7 +83,7 @@ function DrunkShmupPlayer:endMove(dt)
 	end
 end
 
-function DrunkShmupPlayer:joystickchanged(button, pressed)
+function DrunkShmupPlayer:buttonchanged(button, pressed)
 	if button == ShmupPlayer.Button_Bomb and pressed
 	and not self.coroutine and not levity.map.paused
 	and self:getNumShots() > 1
@@ -91,7 +91,7 @@ function DrunkShmupPlayer:joystickchanged(button, pressed)
 		self.bombbutton = true
 		self.coroutine = coroutine.create(DrunkShmupPlayer.bombCoroutine)
 	else
-		ShmupPlayer.joystickchanged(self, button, pressed)
+		ShmupPlayer.buttonchanged(self, button, pressed)
 	end
 end
 

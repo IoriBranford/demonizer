@@ -331,7 +331,6 @@
  </objecttype>
  <objecttype name="UIButton" color="#ffffff">
   <property name="script" type="string" default="UIButton"/>
-  <property name="textfont" type="file" default="fnt/pressstart2p.fnt"/>
  </objecttype>
  <objecttype name="Warning" color="#a0a0a4">
   <property name="afterimage" type="bool" default="true"/>

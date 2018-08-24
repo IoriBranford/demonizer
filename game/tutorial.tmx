@@ -87,7 +87,6 @@
   <object id="16" name="text" x="32" y="16" width="176" height="8">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
-    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">OK ! GOOD LUCK !!</text>
   </object>
@@ -110,7 +109,6 @@
   <object id="15" name="text" x="32" y="16" width="176" height="48">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
-    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Tap BUTTON 3: BOMB !
 Deals area damage and captures humans
@@ -489,7 +487,6 @@ RECHARGE by capturing and holding blue souls</text>
   <object id="125" name="text" x="32" y="16" width="176" height="56">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
-    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Hold BUTTON 2:
 POWER GRAB humans from long range !
@@ -515,7 +512,6 @@ POWER GRAB humans from long range !
   <object id="117" name="text" x="32" y="16" width="176" height="56">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
-    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">BUTTON 2 also shows BLUE SOUL humans captured
 
@@ -535,7 +531,6 @@ Any team member with full circle of 20 will unlock...</text>
   <object id="13" name="text" x="32" y="16" width="176" height="56">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
-    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Hold BUTTON 2: FOCUS
 
@@ -634,7 +629,6 @@ MOVE SLOW for precise dodging</text>
   <object id="12" name="text" x="32" y="16" width="176" height="48">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
-    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Capture RED SOUL humans to DEMONIZE !
 
@@ -709,7 +703,6 @@ Up to 4 teammates can shoot and capture with you</text>
   <object id="11" name="text" x="32" y="16" width="176" height="48">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
-    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Move JOYSTICK: MOVE
 Hold BUTTON 1: FIRE
@@ -761,7 +754,6 @@ SHOOT enemy then move to CAPTURE humans for points towards 1UP</text>
   <object id="3" name="text" x="32" y="16" width="176" height="24">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
-    <property name="textfont" type="file" value="fnt/pressstart2p.fnt"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Welcome to DEMONIZER !</text>
   </object>

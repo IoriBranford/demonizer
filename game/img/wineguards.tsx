@@ -11,7 +11,7 @@
  <image source="wineguards.png" width="432" height="160"/>
  <tile id="0" type="WineCaptain">
   <objectgroup draworder="index">
-   <object id="4" type="CollisionEnemy" x="-6" y="28" width="12" height="16"/>
+   <object id="4" type="CollisionEnemy" x="6" y="12" width="12" height="16"/>
   </objectgroup>
   <animation>
    <frame tileid="0" duration="125"/>
@@ -84,7 +84,7 @@
    <property name="name" value="kocaptain"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" type="CollisionEnemy" x="-12" y="28" width="24" height="16"/>
+   <object id="1" type="CollisionEnemy" x="0" y="12" width="24" height="16"/>
   </objectgroup>
  </tile>
  <tile id="73" type="WineDefeatedEnemy"/>
@@ -94,14 +94,14 @@
    <property name="name" value="koguard"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" type="CollisionEnemy" x="-12" y="29" width="24" height="16"/>
+   <object id="1" type="CollisionEnemy" x="0" y="13" width="24" height="16"/>
   </objectgroup>
  </tile>
  <tile id="76" type="WineDefeatedEnemy"/>
  <tile id="77" type="WineDefeatedEnemy"/>
  <tile id="78" type="WineDefeatedEnemy">
   <objectgroup draworder="index">
-   <object id="1" type="CollisionEnemy" x="-12" y="28" width="24" height="16"/>
+   <object id="1" type="CollisionEnemy" x="0" y="12" width="24" height="16"/>
   </objectgroup>
  </tile>
  <tile id="79" type="WineDefeatedEnemy"/>
@@ -111,7 +111,7 @@
    <property name="name" value="konun"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="2" type="CollisionEnemy" x="-12" y="24" width="24" height="16"/>
+   <object id="2" type="CollisionEnemy" x="0" y="8" width="24" height="16"/>
   </objectgroup>
  </tile>
  <tile id="82" type="WineDefeatedEnemy"/>
@@ -121,7 +121,7 @@
    <property name="name" value="kohighpriest"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" type="CollisionEnemy" x="-12" y="24" width="24" height="16"/>
+   <object id="1" type="CollisionEnemy" x="0" y="8" width="24" height="16"/>
   </objectgroup>
  </tile>
  <tile id="85" type="WineDefeatedEnemy"/>
@@ -131,7 +131,7 @@
    <property name="name" value="kohighpriestess"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" type="CollisionEnemy" x="-12" y="26" width="24" height="16"/>
+   <object id="1" type="CollisionEnemy" x="0" y="10" width="24" height="16"/>
   </objectgroup>
  </tile>
  <tile id="88" type="WineDefeatedEnemy"/>

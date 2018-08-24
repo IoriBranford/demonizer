@@ -158,19 +158,6 @@ function Item:beginContact_PlayerBomb(myfixture, otherfixture, contact)
 	end
 end
 
-function Item:getKOGid()
-	local tile = self.object.tile
-	if not tile then
-		return
-	end
-	local tilesetname = levity.map.tilesets[tile.tileset].name
-	if tilesetname == "ko" then
-		return self.object.gid
-	end
-	return levity.map:getTileGid("ko", tilesetname)
-		or levity.map:getTileGid("ko", self.properties._basetype)
-end
-
 function Item:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 	if not self:canBeCaptured() then
 		return
@@ -188,7 +175,13 @@ function Item:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 
 	if itemtype == "wingman" then
 		local cx, cy = self.body:getWorldCenter()
-		local gid = self:getKOGid() or self.object.gid
+		local convertingtileset = self.properties.convertingtileset
+			or self.object.tile.tileset
+		local convertingtileid = self.properties.convertingtileid
+			or self.object.tile.properties.name
+			or levity.map.tilesets[self.object.tile.tileset].name
+
+		local gid = levity.map:getTileGid(convertingtileset, convertingtileid)
 		local newwingmanid = ShmupWingman.create(levity.map, gid,
 			cx, cy, captorid, self.id)
 
@@ -439,26 +432,7 @@ function Item:playerEntering(entranceid)
 	self:allItemsPulled()
 end
 
-function Item.create(itemtype, launch, gid, x, y, layer,
-launchvelx, launchvely, capturepoints, pulledbyid)
-	local item = {
-		type = itemtype,
-		gid = gid,
-		x = x,
-		y = y,
-		properties = {
-			launched = launch,
-			launchvelx = launchvelx,
-			launchvely = launchvely,
-			capturepoints = capturepoints,
-			pulledbyid = pulledbyid
-		}
-	}
-	layer:addObject(item)
-end
-
 function Item.releaseCaptives(captivegids, captives, x, y, layer)
-
 	captives = math.min(captives, Item.MaxReleasedCaptives)
 	captives = math.min(captives, #captivegids)
 	local i0 = 1 + #captivegids - captives
@@ -467,8 +441,19 @@ function Item.releaseCaptives(captivegids, captives, x, y, layer)
 		local launchvelx = love.math.random(-16, 16)
 		local launchvely = love.math.random(Item.ReleaseLaunchVelY,
 						Item.ReleaseLaunchVelY - 64)
-		Item.create("ItemScore", true, captivegids[i], x, y, layer,
-			launchvelx, launchvely, 0)
+		local item = {
+			type = "ItemScore",
+			gid = captivegids[i],
+			x = x,
+			y = y,
+			properties = {
+				launched = true,
+				launchvelx = launchvelx,
+				launchvely = launchvely,
+				capturepoints = 0,
+			}
+		}
+		layer:addObject(item)
 		captivegids[i] = nil
 	end
 end

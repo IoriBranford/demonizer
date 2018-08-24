@@ -1,18 +1,18 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.1.5",
+  tiledversion = "1.1.6",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 48,
   height = 64,
   tilewidth = 5,
   tileheight = 5,
-  nextobjectid = 36,
+  nextobjectid = 37,
   properties = {
     ["music"] = "mus/02 - Burning Heart.vgz",
     ["nextmap"] = "demonrealm.lua",
-    ["script"] = "TitleMap"
+    ["script"] = "MenuMap"
   },
   tilesets = {
     {
@@ -170,7 +170,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "gzip",
-      data = "H4sIAAAAAAAACu3VVVZCAQBF0fdERQzEwsICu0WxFRMTEwtbnP8YPKNw3cW6H/vv/J8wCIIaRFCLOtQjigbE0IhQtGtCM1oQRysSaEM7OtAp3HUhiW70oBd96EcKAxgU7oYwjBGkkcEoxjCOCUwKd1OYxgxmMYd5LGARS8gKd8tYQQ6rWMM6NrCJLWwLdzvYRR572McBDnGEYxSEuxOc4gznuMAlirjCNW6Eu1vc4R4lPOART3jGC8rC3Sve8I4PfOIL3/hBBb/CnepX/V//1//1f/1f/9f/1e1Uv+r/+r/+r//r//q//q9up/pV/9f/9X/9X//X//V/dTvVr/q//u9/dKpf9X/9X//X//V//V//V7dT/ar/6//6v9X/3z8EBwieADAAAA=="
+      data = "H4sIAAAAAAAAA+3VVVZCAQBF0fdERQzEwsICu0WxFRMTEwtbnP8YPKNw3cW6H/vv/J8wCIIaRFCLOtQjigbE0IhQtGtCM1oQRysSaEM7OtAp3HUhiW70oBd96EcKAxgU7oYwjBGkkcEoxjCOCUwKd1OYxgxmMYd5LGARS8gKd8tYQQ6rWMM6NrCJLWwLdzvYRR572McBDnGEYxSEuxOc4gznuMAlirjCNW6Eu1vc4R4lPOART3jGC8rC3Sve8I4PfOIL3/hBBb/CnepX/V//1//1f/1f/9f/1e1Uv+r/+r/+r//r//q//q9up/pV/9f/9X/9X//X//V/dTvVr/q//u9/dKpf9X/9X//X//V//V//V7dT/ar/6//6v9X/3z8EBwieADAAAA=="
     },
     {
       type = "objectgroup",
@@ -194,8 +194,7 @@ return {
           rotation = 0,
           visible = false,
           properties = {
-            ["text"] = "HI SCORE 0",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["text"] = "HI SCORE 0"
           }
         },
         {
@@ -227,9 +226,7 @@ return {
           pixelsize = 8,
           wrap = true,
           color = { 255, 255, 255 },
-          properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
+          properties = {}
         },
         {
           id = 18,
@@ -248,9 +245,7 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           halign = "center",
-          properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
+          properties = {}
         },
         {
           id = 19,
@@ -258,7 +253,7 @@ return {
           type = "",
           shape = "text",
           x = 0,
-          y = 312,
+          y = 304,
           width = 240,
           height = 30,
           rotation = 0,
@@ -269,9 +264,7 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           halign = "center",
-          properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
+          properties = {}
         },
         {
           id = 26,
@@ -279,7 +272,7 @@ return {
           type = "",
           shape = "text",
           x = 0,
-          y = 296,
+          y = 288,
           width = 240,
           height = 8,
           rotation = 0,
@@ -290,9 +283,7 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           halign = "center",
-          properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
+          properties = {}
         }
       }
     },
@@ -304,7 +295,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "TitleLayer"
+      },
       objects = {
         {
           id = 21,
@@ -312,7 +305,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 12.5,
-          y = 35,
+          y = 40,
           width = 32,
           height = 24,
           rotation = 0,
@@ -326,7 +319,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 192.5,
-          y = 35,
+          y = 40,
           width = 32,
           height = 24,
           rotation = 0,
@@ -340,7 +333,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 115,
-          y = 60,
+          y = 65,
           width = 32,
           height = 24,
           rotation = 0,
@@ -354,7 +347,7 @@ return {
           type = "",
           shape = "rectangle",
           x = 20,
-          y = 60,
+          y = 65,
           width = 200,
           height = 50,
           rotation = 0,
@@ -382,9 +375,9 @@ return {
           type = "UIButton",
           shape = "text",
           x = 60,
-          y = 55,
+          y = 75,
           width = 120,
-          height = 20,
+          height = 15,
           rotation = 0,
           visible = true,
           text = "tutorial",
@@ -395,19 +388,19 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "tutorial.lua",
-            ["script"] = "ButtonPlayStage"
+            ["action"] = "startGame",
+            ["nextmap"] = "tutorial.lua"
           }
         },
         {
           id = 15,
-          name = "stage1",
+          name = "stage0",
           type = "UIButton",
           shape = "text",
           x = 60,
-          y = 75,
+          y = 90,
           width = 120,
-          height = 20,
+          height = 15,
           rotation = 0,
           visible = true,
           text = "demonrealm",
@@ -418,19 +411,19 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "demonrealm.lua",
-            ["script"] = "ButtonPlayStage"
+            ["action"] = "startGame",
+            ["nextmap"] = "demonrealm.lua"
           }
         },
         {
           id = 16,
-          name = "stage2",
+          name = "stage1",
           type = "UIButton",
           shape = "text",
           x = 60,
-          y = 95,
+          y = 105,
           width = 120,
-          height = 20,
+          height = 15,
           rotation = 0,
           visible = true,
           text = "village",
@@ -441,19 +434,19 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "village.lua",
-            ["script"] = "ButtonPlayStage"
+            ["action"] = "startGame",
+            ["nextmap"] = "village.lua"
           }
         },
         {
           id = 27,
-          name = "stage3",
+          name = "stage2",
           type = "UIButton",
           shape = "text",
           x = 60,
-          y = 115,
+          y = 120,
           width = 120,
-          height = 20,
+          height = 15,
           rotation = 0,
           visible = true,
           text = "chapel",
@@ -464,19 +457,19 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "chapel.lua",
-            ["script"] = "ButtonPlayStage"
+            ["action"] = "startGame",
+            ["nextmap"] = "chapel.lua"
           }
         },
         {
           id = 29,
-          name = "stage4",
+          name = "stage3",
           type = "UIButton",
           shape = "text",
           x = 60,
           y = 135,
           width = 120,
-          height = 20,
+          height = 15,
           rotation = 0,
           visible = true,
           text = "cave",
@@ -487,19 +480,19 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "cave.lua",
-            ["script"] = "ButtonPlayStage"
+            ["action"] = "startGame",
+            ["nextmap"] = "cave.lua"
           }
         },
         {
           id = 30,
-          name = "stage5",
+          name = "stage4",
           type = "UIButton",
           shape = "text",
           x = 60,
-          y = 155,
+          y = 150,
           width = 120,
-          height = 20,
+          height = 15,
           rotation = 0,
           visible = true,
           text = "highway",
@@ -510,19 +503,19 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "highway.lua",
-            ["script"] = "ButtonPlayStage"
+            ["action"] = "startGame",
+            ["nextmap"] = "highway.lua"
           }
         },
         {
           id = 32,
-          name = "stage6",
+          name = "stage5",
           type = "UIButton",
           shape = "text",
           x = 60,
-          y = 175,
+          y = 165,
           width = 120,
-          height = 20,
+          height = 15,
           rotation = 0,
           visible = true,
           text = "capital",
@@ -533,19 +526,19 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "capital.lua",
-            ["script"] = "ButtonPlayStage"
+            ["action"] = "startGame",
+            ["nextmap"] = "capital.lua"
           }
         },
         {
           id = 33,
-          name = "stage7",
+          name = "stage6",
           type = "UIButton",
           shape = "text",
           x = 60,
-          y = 195,
+          y = 180,
           width = 120,
-          height = 20,
+          height = 15,
           rotation = 0,
           visible = true,
           text = "castle",
@@ -556,8 +549,8 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "castle.lua",
-            ["script"] = "ButtonPlayStage"
+            ["action"] = "startGame",
+            ["nextmap"] = "castle.lua"
           }
         },
         {
@@ -566,9 +559,9 @@ return {
           type = "UIButton",
           shape = "text",
           x = 60,
-          y = 245,
+          y = 220,
           width = 120,
-          height = 20,
+          height = 15,
           rotation = 0,
           visible = true,
           text = "150s challenge",
@@ -579,19 +572,19 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "caravan.lua",
-            ["script"] = "ButtonPlayStage"
+            ["action"] = "startGame",
+            ["nextmap"] = "caravan.lua"
           }
         },
         {
           id = 34,
-          name = "stage8",
+          name = "final",
           type = "UIButton",
           shape = "text",
           x = 60,
-          y = 215,
+          y = 195,
           width = 120,
-          height = 20,
+          height = 15,
           rotation = 0,
           visible = true,
           text = "final",
@@ -602,8 +595,8 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "final.lua",
-            ["script"] = "ButtonPlayStage"
+            ["action"] = "startGame",
+            ["nextmap"] = "final.lua"
           }
         },
         {
@@ -612,9 +605,9 @@ return {
           type = "UIButton",
           shape = "text",
           x = 60,
-          y = 265,
+          y = 235,
           width = 120,
-          height = 20,
+          height = 15,
           rotation = 0,
           visible = true,
           text = "inebriator",
@@ -625,8 +618,31 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "drunktitle.lua",
-            ["script"] = "ButtonPlayStage"
+            ["action"] = "startGame",
+            ["nextmap"] = "drunktitle.lua"
+          }
+        },
+        {
+          id = 36,
+          name = "options",
+          type = "UIButton",
+          shape = "text",
+          x = 60,
+          y = 260,
+          width = 120,
+          height = 15,
+          rotation = 0,
+          visible = true,
+          text = "options",
+          fontfamily = "Press Start 2P",
+          pixelsize = 8,
+          wrap = true,
+          color = { 255, 255, 255 },
+          halign = "center",
+          valign = "center",
+          properties = {
+            ["action"] = "startGame",
+            ["nextmap"] = "options.lua"
           }
         }
       }

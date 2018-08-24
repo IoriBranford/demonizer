@@ -1,14 +1,12 @@
-# This file is a template, and might need editing before it works on your project.
-# see https://docs.gitlab.com/ce/ci/yaml/README.html for all available options
+# LOVE Multiplatform GitLab CI
 
-image: alpine:latest
-
+# Fill in the project info
 variables:
         PROJECT: demonizer
-        # CI_PROJECT_NAME not accessible here???
         PROJECT_TITLE: Demonizer
         PROJECT_TITLE_NOSPACE: Demonizer
         DESCRIPTION: "Demonic corruption fantasy shmup"
+        COPYRIGHT: "© 2018 IoriBranford"
         APPLICATION_ID_BASE: "io.itch.ioribranford.demonizer"
         LOVE_VERSION: "0.10.2"
         GAME_TYPE: full
@@ -17,8 +15,27 @@ variables:
         # GIT_SUBMODULE_STRATEGY: recursive
         # broken by https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/2148
 
+# Fill in the demo info if providing a demo
+.demo:
+        <<: &demo
+                only:
+                        - master
+                        - /demo/
+        variables:
+                <<: &demo-variables
+                        PROJECT_TITLE: "Demonizer Demo"
+                        PROJECT_TITLE_NOSPACE: "Demonizer_Demo"
+                        GAME_TYPE: demo
+
+.full:
+        <<: &full
+                except:
+                        - /demo/
+
 stages:
         - build
+
+image: alpine:latest
 
 before_script:
         - apk add --update git zip luajit
@@ -34,23 +51,6 @@ before_script:
                         - git submodule sync --recursive
                         - git submodule update --init --recursive
 
-
-.full:
-        <<: &full
-                except:
-                        - /demo/
-
-.demo:
-        <<: &demo
-                only:
-                        - master
-                        - /demo/
-        variables:
-                <<: &demo-variables
-                        PROJECT_TITLE: "Demonizer Demo"
-                        PROJECT_TITLE_NOSPACE: "Demonizer_Demo"
-                        GAME_TYPE: demo
-
 .build-data: &build-data
         stage: build
         script:
@@ -63,86 +63,46 @@ before_script:
                         - "${PROJECT}-${GAME_TYPE}.love"
                 expire_in: 1 week
 
-full-data:
-        <<: *build-data
-        <<: *full
-
-demo-data:
-        <<: *build-data
-        <<: *demo
-        variables:
-                <<: *demo-variables
-
 .build-linux: &build-linux
         <<: *debian
         stage: build
         image: debian:stretch-slim
-        variables:
-                <<: &build-linux-variables
-                        GAME_APPIMAGE: "${PROJECT_TITLE_NOSPACE}-x86_64.AppImage"
         script:
                 - apt-get install -y -qq file wget fuse libglib2.0-0
                 - ./make-game.sh
                 - ./make-linux.sh
         cache:
-                key: "${PROJECT}-linux"
+                key: "${PROJECT}-linux-${ARCH}"
                 paths:
-                        - "love-${LOVE_VERSION}-x86_64.AppImage"
-                        - "appimagetool-x86_64.AppImage"
+                        - "love-${LOVE_VERSION}-${ARCH}.AppImage"
+                        - "appimagetool-${ARCH}.AppImage"
+                        - "*.deb"
         artifacts:
-                name: "${PROJECT}-${VERSION}-linux"
+                name: "${PROJECT}-${VERSION}-linux-${ARCH}"
                 paths:
-                        - "${GAME_APPIMAGE}"
+                        - ${PROJECT_TITLE_NOSPACE}-${ARCH}.AppImage
                 expire_in: 1 week
 
-full-linux:
-        <<: *build-linux
-        <<: *full
-
-demo-linux:
-        <<: *build-linux
-        <<: *demo
-        variables:
-                <<: *demo-variables
-                <<: *build-linux-variables
-
 .build-windows: &build-windows
+        <<: *debian
+        image: tianon/wine
         stage: build
         variables:
                 ARCH_BITS: "64"
         script:
-                - apk add wget xz
+                - apt-get install -y -qq wget xz-utils xvfb
                 - ./make-game.sh
                 - ./make-windows.sh
+        cache:
+                key: "${PROJECT}-win${ARCH_BITS}"
+                paths:
+                        - "love-${LOVE_VERSION}-win${ARCH_BITS}.zip"
+                        - "resource_hacker.zip"
         artifacts:
                 name: "${PROJECT}-${VERSION}-win${ARCH_BITS}"
                 paths:
                         - "${PROJECT_TITLE}"
                 expire_in: 1 week
-
-full-win64:
-        <<: *build-windows
-        <<: *full
-
-full-win32:
-        <<: *build-windows
-        <<: *full
-        variables:
-                ARCH_BITS: "32"
-
-demo-win64:
-        <<: *build-windows
-        <<: *demo
-        variables:
-                <<: *demo-variables
-                ARCH_BITS: "64"
-
-demo-win32:
-        <<: *build-windows
-        <<: *demo
-        variables:
-                <<: *demo-variables
-                ARCH_BITS: "32"
 
 .build-macosx: &build-macosx
         <<: *debian
@@ -151,7 +111,7 @@ demo-win32:
         variables:
                 CFBundleIdentifier: "${APPLICATION_ID_BASE}"
                 <<: &build-macosx-variables
-                        NSHumanReadableCopyright: "© 2018 IoriBranford"
+                        NSHumanReadableCopyright: "${COPYRIGHT}"
                         INSTALL_NAME_TOOL: x86_64-apple-darwin12-install_name_tool
         script:
                 - apt-get install -y -qq wget xz-utils
@@ -167,18 +127,6 @@ demo-win32:
                 paths:
                         - "${PROJECT_TITLE}.app"
                 expire_in: 1 week
-
-full-macosx:
-        <<: *build-macosx
-        <<: *full
-
-demo-macosx:
-        <<: *build-macosx
-        <<: *demo
-        variables:
-                <<: *demo-variables
-                <<: *build-macosx-variables
-                CFBundleIdentifier: "${APPLICATION_ID_BASE}demo"
 
 .build-android: &build-android
         <<: *debian
@@ -198,13 +146,86 @@ demo-macosx:
         artifacts:
                 name: "${PROJECT}-${VERSION}-android"
                 paths:
-                        - "${PROJECT_TITLE}.apk"
+                        - "${PROJECT_TITLE_NOSPACE}.apk"
                 expire_in: 1 week
 
+full-data:
+        <<: *build-data
+        <<: *full
+
+full-lin64:
+        <<: *build-linux
+        <<: *full
+        variables:
+                ARCH: "x86_64"
+
+full-lin32:
+        <<: *build-linux
+        <<: *full
+        image: i386/debian:stretch-slim
+        variables:
+                ARCH: "i686"
+
+full-win64:
+        <<: *build-windows
+        <<: *full
+
+full-win32:
+        <<: *build-windows
+        <<: *full
+        variables:
+                ARCH_BITS: "32"
+
+full-macosx:
+        <<: *build-macosx
+        <<: *full
 
 full-android:
         <<: *build-android
         <<: *full
+
+demo-data:
+        <<: *build-data
+        <<: *demo
+        variables:
+                <<: *demo-variables
+
+demo-lin64:
+        <<: *build-linux
+        <<: *demo
+        variables:
+                ARCH: "x86_64"
+                <<: *demo-variables
+
+demo-lin32:
+        <<: *build-linux
+        <<: *demo
+        image: i386/debian:stretch-slim
+        variables:
+                ARCH: "i686"
+                <<: *demo-variables
+
+demo-win64:
+        <<: *build-windows
+        <<: *demo
+        variables:
+                <<: *demo-variables
+                ARCH_BITS: "64"
+
+demo-win32:
+        <<: *build-windows
+        <<: *demo
+        variables:
+                <<: *demo-variables
+                ARCH_BITS: "32"
+
+demo-macosx:
+        <<: *build-macosx
+        <<: *demo
+        variables:
+                <<: *demo-variables
+                <<: *build-macosx-variables
+                CFBundleIdentifier: "${APPLICATION_ID_BASE}demo"
 
 demo-android:
         <<: *build-android

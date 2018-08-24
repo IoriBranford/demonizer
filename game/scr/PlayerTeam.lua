@@ -21,21 +21,14 @@ function PlayerTeam:_init(layer)
 
 	self.wingmanpositions = {}
 	self.focuswingmanpositions = {}
-	local tile = levity.map.tiles[player.gid]
-	local tileobjects = tile.objectGroup.objects
-	local tileheight = levity.map:getTileset(tile.tileset).tileheight
-	-- bottom left origin
-	-- TODO in levity transform all tile objects so scripts don't have to
-	for _, object in pairs(tileobjects) do
-		local i = tonumber(object.name:match("focuswingman(%x)"))
-		if i then
-			self.focuswingmanpositions[i] = {object.x, object.y - tileheight}
-		else
-			i = tonumber(object.name:match("wingman(%x)"))
-			if i then
-				self.wingmanpositions[i] = {object.x, object.y - tileheight}
-			end
-		end
+	local gid = player.gid
+	for i = 1, PlayerTeam.MaxWingmen do
+		self.wingmanpositions[i] = {
+			levity.map:getTileShapePosition(gid, "wingman"..i)
+		}
+		self.focuswingmanpositions[i] = {
+			levity.map:getTileShapePosition(gid, "focuswingman"..i)
+		}
 	end
 
 	local nextmapdata = levity.nextmapdata or {}

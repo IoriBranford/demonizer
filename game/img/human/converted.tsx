@@ -16,10 +16,7 @@
   <property name="rowname13" value="townfolk-adult-f-003"/>
   <property name="rowname14" value="townfolk-adult-f-005"/>
   <property name="rowname15" value="townfolk-adult-f-006"/>
-  <property name="rowname16" value="ArcherMountedF"/>
-  <property name="rowname17" value="FireArcherMountedF"/>
-  <property name="rowname18" value="JavelinerMountedF"/>
-  <property name="rowname19" value="LancerMountedF"/>
+  <property name="rowname16" value="FireArcherF"/>
   <property name="rowname2" value="DancerF"/>
   <property name="rowname3" value="MageF"/>
   <property name="rowname4" value="PikemanF"/>
@@ -33,7 +30,7 @@
  <image source="converted.png" width="144" height="640"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="1" x="-5" y="27" width="10" height="10">
+   <object id="1" x="7" y="11" width="10" height="10">
     <properties>
      <property name="collidable" type="bool" value="true"/>
      <property name="sensor" type="bool" value="true"/>

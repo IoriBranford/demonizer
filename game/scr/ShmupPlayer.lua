@@ -1,4 +1,5 @@
 local levity = require "levity"
+local prefs = levity.prefs
 local ShmupCollision = require "ShmupCollision"
 local ShmupBullet = require("ShmupBullet")
 
@@ -35,8 +36,8 @@ function ShmupPlayer:_init(object)
 	self.object.body:setFixedRotation(true)
 	self.object.body:setBullet(true)
 
-	self.inputvx = 0
-	self.inputvy = 0
+	self.inputx = 0
+	self.inputy = 0
 	self.didmousemove = false
 
 	self.firebutton = false
@@ -162,53 +163,44 @@ function ShmupPlayer:getDistanceSq(fromx, fromy)
 end
 
 function ShmupPlayer:joystickaxis(joystick, axis, value)
-	local speed = ShmupPlayer.Speed
-	local focusspeedfactor = .5
-	if self.focusbutton then
-		speed = speed * focusspeedfactor
-	end
-
 	value = math.floor(value + .5)
 
-	if axis == 1 then
-		self.inputvx = speed * value
-	elseif axis == 2 then
-		self.inputvy = speed * value
+	local inputstring = "axis"..axis
+	if inputstring == prefs.joy_x then
+		self.inputx = value
+	elseif inputstring == prefs.joy_y then
+		self.inputy = value
 	end
 end
 
 function ShmupPlayer:joystickhat(joystick, hat, value)
-	local x, y = 0, 0
-
-	if value:find("l") then
-		x = -1
-	elseif value:find("r") then
-		x = 1
+	local inputstring = "hat"..hat
+	if inputstring == prefs.joy_x then
+		if value:find("l") then
+			self.inputx = -1
+		elseif value:find("r") then
+			self.inputx = 1
+		else
+			self.inputx = 0
+		end
 	end
-
-	if value:find("u") then
-		y = -1
-	elseif value:find("d") then
-		y = 1
+	if inputstring == prefs.joy_y then
+		if value:find("u") then
+			self.inputy = -1
+		elseif value:find("d") then
+			self.inputy = 1
+		else
+			self.inputy = 0
+		end
 	end
-
-	self:joystickaxis(joystick, 1, x)
-	self:joystickaxis(joystick, 2, y)
 end
 
-function ShmupPlayer:joystickchanged(button, pressed)
+function ShmupPlayer:buttonchanged(button, pressed)
 	if button == ShmupPlayer.Button_Fire and self.firebutton ~= pressed then
 		self.firebutton = pressed
 		self.firetimer = ShmupPlayer.BulletInterval
 	elseif button == ShmupPlayer.Button_Focus and self.focusbutton ~= pressed then
-		local focusspeedfactor = .5
-		if not pressed then
-			focusspeedfactor = 1/focusspeedfactor
-		end
-
 		self.focusbutton = pressed
-		self.inputvx = self.inputvx * focusspeedfactor
-		self.inputvy = self.inputvy * focusspeedfactor
 	elseif button == ShmupPlayer.Button_Bomb and pressed
 	and not self.coroutine and not levity.map.paused
 	and levity.scripts:call("status", "hasBombs") ~= false then
@@ -216,48 +208,45 @@ function ShmupPlayer:joystickchanged(button, pressed)
 	end
 end
 
+function ShmupPlayer:joystickchanged(joystick, button, pressed)
+	if button == prefs.joy_fire then
+		self:buttonchanged(ShmupPlayer.Button_Fire, pressed)
+	elseif button == prefs.joy_focus then
+		self:buttonchanged(ShmupPlayer.Button_Focus, pressed)
+	elseif button == prefs.joy_bomb then
+		self:buttonchanged(ShmupPlayer.Button_Bomb, pressed)
+	end
+end
+
 function ShmupPlayer:joystickpressed(joystick, button)
-	self:joystickchanged(button, true)
+	self:joystickchanged(joystick, button, true)
 end
 
 function ShmupPlayer:joystickreleased(joystick, button)
-	self:joystickchanged(button, false)
+	self:joystickchanged(joystick, button, false)
 end
 
 function ShmupPlayer:keychanged(key, pressed)
-	local speed = ShmupPlayer.Speed
-	local focusspeedfactor = .5
-	if self.focusbutton then
-		speed = speed * focusspeedfactor
-	end
-
+	local input = 1
 	if not pressed then
-		speed = -speed
+		input = -input
 	end
 
-	if key == "up" then
-		self.inputvy = self.inputvy - speed
-	elseif key == "down" then
-		self.inputvy = self.inputvy + speed
-	elseif key == "left" then
-		self.inputvx = self.inputvx - speed
-	elseif key == "right" then
-		self.inputvx = self.inputvx + speed
-	elseif key == "z" then
-		self:joystickchanged(ShmupPlayer.Button_Fire, pressed)
-	elseif key == "x" then
-		self:joystickchanged(ShmupPlayer.Button_Focus, pressed)
-	elseif key == "c" then
-		self:joystickchanged(ShmupPlayer.Button_Bomb, pressed)
+	if key == prefs.key_up then
+		self.inputy = self.inputy - input
+	elseif key == prefs.key_down then
+		self.inputy = self.inputy + input
+	elseif key == prefs.key_left then
+		self.inputx = self.inputx - input
+	elseif key == prefs.key_right then
+		self.inputx = self.inputx + input
+	elseif key == prefs.key_fire then
+		self:buttonchanged(ShmupPlayer.Button_Fire, pressed)
+	elseif key == prefs.key_focus then
+		self:buttonchanged(ShmupPlayer.Button_Focus, pressed)
+	elseif key == prefs.key_bomb then
+		self:buttonchanged(ShmupPlayer.Button_Bomb, pressed)
 	end
-end
-
-function ShmupPlayer:mousepressed(x, y, button)
-	self:joystickpressed(nil, button)
-end
-
-function ShmupPlayer:mousereleased(x, y, button)
-	self:joystickreleased(nil, button)
 end
 
 function ShmupPlayer:keypressed(key, u)
@@ -268,10 +257,19 @@ function ShmupPlayer:keyreleased(key, u)
 	self:keychanged(key, false)
 end
 
+function ShmupPlayer:mousepressed(x, y, button)
+	self:buttonchanged(button, true)
+end
+
+function ShmupPlayer:mousereleased(x, y, button)
+	self:buttonchanged(button, false)
+end
+
 function ShmupPlayer:mousemoved(x, y, dx, dy)
 	if not levity.map.paused then
-		self.inputvx = self.inputvx + (dx / levity.camera.scale)
-		self.inputvy = self.inputvy + (dy / levity.camera.scale)
+		local scale = levity.camera.scale
+		self.inputx = self.inputx + (dx / scale)
+		self.inputy = self.inputy + (dy / scale)
 		self.didmousemove = true
 	end
 end
@@ -414,7 +412,11 @@ function ShmupPlayer:spawnCoroutine(dt)
 end
 
 function ShmupPlayer:startEntrance(entranceid)
-	self.entranceid = entranceid
+	local entrance = levity.map.objects[entranceid]
+	if entrance then
+		self.entranceid = entranceid
+		self.object:setLayer(entrance.layer)
+	end
 	self.coroutine = coroutine.create(ShmupPlayer.exitCoroutine)
 end
 
@@ -472,7 +474,11 @@ function ShmupPlayer:exitCoroutine(dt)
 	until t >= 1
 
 	if self.won then
-		levity:setNextMap(levity.map.properties.nextmap or "title.lua", {})
+		local nextmap = levity.map.properties.nextmap
+		if not nextmap or not love.filesystem.exists(nextmap) then
+			nextmap = "title.lua"
+		end
+		levity:setNextMap(nextmap, {})
 	else
 		local cameraid = levity.map.properties.cameraid
 		local destobject = self.entrancedestid
@@ -484,6 +490,7 @@ function ShmupPlayer:exitCoroutine(dt)
 				destobject.x + destobject.width/2,
 				destobject.y + destobject.height + self.object.height/2)
 		end
+		self.object:setLayer(levity.map.layers["playerteam"])
 		levity.scripts:send(self.entrancedestid, "activate")
 		self.exiting = false
 		self.entranceid = nil
@@ -508,8 +515,7 @@ function ShmupPlayer:beginMove(dt)
 	end
 
 	local body = self.object.body
-	local vx0, vy0 = body:getLinearVelocity()
-	local vx1, vy1 = self.inputvx, self.inputvy
+	local vx, vy = self.inputx, self.inputy
 
 	local cameraid = levity.map.properties.cameraid
 	local camera = nil
@@ -518,27 +524,35 @@ function ShmupPlayer:beginMove(dt)
 	end
 
 	if self.moverestricted == "y" then
-		vx1 = 0
+		vx = 0
 	elseif self.moverestricted == "x" then
-		vy1 = 0
+		vy = 0
 	elseif self.moverestricted == "none" then
-		vx1, vy1 = 0, 0
+		vx, vy = 0, 0
 	end
 
 	if self.didmousemove then
-		vx1 = vx1 / dt
-		vy1 = vy1 / dt
-		self.inputvx = 0
-		self.inputvy = 0
+		vx = vx / dt
+		vy = vy / dt
+		self.inputx = 0
+		self.inputy = 0
 		self.didmousemove = false
+	else
+		local speed = ShmupPlayer.Speed
+		local focusspeedfactor = .5
+		if self.focusbutton then
+			speed = speed * focusspeedfactor
+		end
+		vx = vx * speed
+		vy = vy * speed
 	end
 
 	local camvx, camvy = levity.scripts:call(cameraid, "getVelocity")
 	if camvy then
-		vy1 = vy1 + camvy
+		vy = vy + camvy
 	end
 
-	body:setLinearVelocity(vx1, vy1)
+	body:setLinearVelocity(vx, vy)
 end
 
 function ShmupPlayer:updateFire(dt)

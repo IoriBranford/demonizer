@@ -17,8 +17,25 @@ Door.Mask = {
 function Door:_init(object)
 	self.contacts = 0
 	self.object = object
+	self.properties = object.properties
 	for _, fixture in pairs(self.object.body:getFixtureList()) do
 		fixture:setMask(Door.Mask)
+	end
+end
+
+function Door:open()
+	self.object:setTileId(self.properties.opentile)
+	local opensound = self.properties.opensound
+	if opensound then
+		levity.bank:play(opensound)
+	end
+end
+
+function Door:close()
+	self.object:setTileId(self.properties.closedtile)
+	local closedsound = self.properties.closedsound
+	if closedsound then
+		levity.bank:play(closedsound)
 	end
 end
 
@@ -27,12 +44,7 @@ function Door:beginContact(myfixture, otherfixture, contact)
 	local otherlayer = otherfixture:getBody():getUserData().object.layer
 	if otherlayer == self.object.layer then
 		if self.contacts == 0 then
-			local flipx, flipy = Tiles.getGidFlip(self.object.gid)
-			local tile = self.object.tile
-			local gid = levity.map:getTileGid(tile.tileset,
-						tile.properties.opentile)
-			gid = Tiles.setGidFlip(gid, flipx, flipy)
-			self.object:setGid(gid)
+			self:open()
 		end
 		self.contacts = self.contacts + 1
 	end
@@ -44,12 +56,7 @@ function Door:endContact(myfixture, otherfixture, contact)
 	if otherlayer == self.object.layer then
 		self.contacts = self.contacts - 1
 		if self.contacts == 0 then
-			local flipx, flipy = Tiles.getGidFlip(self.object.gid)
-			local tile = self.object.tile
-			local gid = levity.map:getTileGid(tile.tileset,
-						tile.properties.closedtile)
-			gid = Tiles.setGidFlip(gid, flipx, flipy)
-			self.object:setGid(gid)
+			self:close()
 		end
 	end
 end

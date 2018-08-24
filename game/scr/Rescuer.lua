@@ -15,6 +15,7 @@ function Rescuer:_init(object)
 	self.body = object.body
 	self.properties = object.properties
 	self.numrescued = 0
+	self.sound = nil
 end
 
 function Rescuer:canMoveToRescue()
@@ -82,6 +83,15 @@ function Rescuer:startRescue(id)
 	end
 	self.properties.pathid = id
 	self.properties.afterimage = true
+	if self.sound then
+		self.sound:play()
+	else
+		local rescueloopsound = self.properties.rescueloopsound
+		if rescueloopsound then
+			self.sound = levity.bank:play(rescueloopsound, nil, true)
+			self.sound:setLooping(true)
+		end
+	end
 	levity.scripts:broadcast("rescueStarted", id, self.id)
 end
 
@@ -96,10 +106,30 @@ function Rescuer:returnFromRescue()
 	self.properties.afterimage = false
 end
 
+function Rescuer:incProperty(property, sign)
+	sign = sign or 1
+	local value = self.properties[property]
+	local rescueincvalue = self.properties["rescueinc"..property]
+	if value and rescueincvalue then
+		self.properties[property] = value + sign*rescueincvalue
+	end
+end
+
 function Rescuer:rescue(id)
 	self.numrescued = self.numrescued + 1
 	levity.scripts:send(id, "pullTo", self.id)
 	self:returnFromRescue()
+
+	self:incProperty("firetime")
+	self:incProperty("firefan")
+	self:incProperty("firefanslice")
+
+	local firebullet = self.properties.firebullet
+	local rescuefirebullet = self.properties.rescuefirebullet
+	if rescuefirebullet and firebullet ~= rescuefirebullet then
+		self.properties.firebullet = rescuefirebullet
+		self.properties.originalfirebullet = firebullet
+	end
 	--levity.scripts:broadcast("humanRescued", id, self.id)
 end
 
@@ -108,10 +138,20 @@ function Rescuer:finishReturn()
 	self.properties.rideid = self.originalrideid
 	self.originalrideid = nil
 	self.properties.pathid = nil
+	if self.sound then
+		self.sound:stop()
+	end
 end
 
 function Rescuer:stopPulling()
 	self.numrescued = self.numrescued - 1
+	self:incProperty("firetime", -1)
+	self:incProperty("firefan", -1)
+	self:incProperty("firefanslice", -1)
+	local rescuefirebullet = self.properties.rescuefirebullet
+	if rescuefirebullet and self.numrescued == 0 then
+		self.properties.firebullet = self.properties.originalfirebullet
+	end
 end
 
 function Rescuer:enemyDefeated(enemyid)
@@ -122,6 +162,12 @@ function Rescuer:enemyDefeated(enemyid)
 	or enemyid == self.properties.pathid
 	then
 		levity.scripts:send(self.id, "defeat")
+	end
+end
+
+function Rescuer:discard()
+	if self.sound then
+		self.sound:stop()
 	end
 end
 

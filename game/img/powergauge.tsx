@@ -10,64 +10,64 @@
    <property name="name" value="notfull"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" name="power1" x="1" y="16" width="4" height="4">
+   <object id="1" name="power1" x="17" y="0" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="2" name="power2" x="5" y="18" width="4" height="4">
+   <object id="2" name="power2" x="21" y="2" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="3" name="power3" x="8" y="21" width="4" height="4">
+   <object id="3" name="power3" x="24" y="5" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="4" name="power4" x="11" y="24" width="4" height="4">
+   <object id="4" name="power4" x="27" y="8" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="5" name="power5" x="13" y="28" width="4" height="4">
+   <object id="5" name="power5" x="29" y="12" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="6" name="power6" x="13" y="33" width="4" height="4">
+   <object id="6" name="power6" x="29" y="17" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="7" name="power7" x="11" y="37" width="4" height="4">
+   <object id="7" name="power7" x="27" y="21" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="8" name="power8" x="8" y="40" width="4" height="4">
+   <object id="8" name="power8" x="24" y="24" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="9" name="power9" x="5" y="43" width="4" height="4">
+   <object id="9" name="power9" x="21" y="27" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="10" name="power10" x="1" y="45" width="4" height="4">
+   <object id="10" name="power10" x="17" y="29" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="11" name="power18" x="-11" y="21" width="4" height="4">
+   <object id="11" name="power18" x="5" y="5" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="12" name="power14" x="-14" y="37" width="4" height="4">
+   <object id="12" name="power14" x="2" y="21" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="13" name="power15" x="-16" y="33" width="4" height="4">
+   <object id="13" name="power15" x="0" y="17" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="14" name="power16" x="-16" y="28" width="4" height="4">
+   <object id="14" name="power16" x="0" y="12" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="15" name="power12" x="-8" y="43" width="4" height="4">
+   <object id="15" name="power12" x="8" y="27" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="16" name="power11" x="-4" y="45" width="4" height="4">
+   <object id="16" name="power11" x="12" y="29" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="17" name="power13" x="-11" y="40" width="4" height="4">
+   <object id="17" name="power13" x="5" y="24" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="18" name="power17" x="-14" y="24" width="4" height="4">
+   <object id="18" name="power17" x="2" y="8" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="19" name="power19" x="-8" y="18" width="4" height="4">
+   <object id="19" name="power19" x="8" y="2" width="4" height="4">
     <ellipse/>
    </object>
-   <object id="20" name="power20" x="-4" y="16" width="4" height="4">
+   <object id="20" name="power20" x="12" y="0" width="4" height="4">
     <ellipse/>
    </object>
   </objectgroup>

@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.1.5",
+  tiledversion = "1.1.6",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 15,
@@ -64,8 +64,8 @@ return {
                 name = "body",
                 type = "",
                 shape = "ellipse",
-                x = -4,
-                y = 60,
+                x = 28,
+                y = 28,
                 width = 8,
                 height = 8,
                 rotation = 0,
@@ -79,8 +79,8 @@ return {
                 name = "wingman1",
                 type = "",
                 shape = "ellipse",
-                x = -24,
-                y = 72,
+                x = 8,
+                y = 40,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -92,8 +92,8 @@ return {
                 name = "wingman2",
                 type = "",
                 shape = "ellipse",
-                x = 24,
-                y = 72,
+                x = 56,
+                y = 40,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -105,8 +105,8 @@ return {
                 name = "wingman3",
                 type = "",
                 shape = "ellipse",
-                x = -16,
-                y = 48,
+                x = 16,
+                y = 16,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -118,8 +118,8 @@ return {
                 name = "wingman4",
                 type = "",
                 shape = "ellipse",
-                x = 16,
-                y = 48,
+                x = 48,
+                y = 16,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -131,8 +131,8 @@ return {
                 name = "focuswingman1",
                 type = "",
                 shape = "ellipse",
-                x = -32,
-                y = 40,
+                x = 0,
+                y = 8,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -144,8 +144,8 @@ return {
                 name = "focuswingman2",
                 type = "",
                 shape = "ellipse",
-                x = 32,
-                y = 40,
+                x = 64,
+                y = 8,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -157,8 +157,8 @@ return {
                 name = "focuswingman3",
                 type = "",
                 shape = "ellipse",
-                x = -16,
-                y = 8,
+                x = 16,
+                y = -24,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -170,8 +170,8 @@ return {
                 name = "focuswingman4",
                 type = "",
                 shape = "ellipse",
-                x = 16,
-                y = 8,
+                x = 48,
+                y = -24,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -1586,8 +1586,8 @@ return {
                 name = "",
                 type = "EnemyCover",
                 shape = "ellipse",
-                x = -20,
-                y = 24,
+                x = 12,
+                y = 8,
                 width = 40,
                 height = 40,
                 rotation = 0,
@@ -1642,8 +1642,8 @@ return {
                 name = "",
                 type = "EnemyCover",
                 shape = "ellipse",
-                x = -16,
-                y = 40,
+                x = 8,
+                y = 24,
                 width = 32,
                 height = 32,
                 rotation = 0,
@@ -1655,8 +1655,8 @@ return {
                 name = "",
                 type = "EnemyCover",
                 shape = "ellipse",
-                x = -10,
-                y = 28,
+                x = 14,
+                y = 12,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -1772,8 +1772,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 6,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -2053,8 +2053,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 6,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -2330,8 +2330,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -18,
-                y = 54,
+                x = 18,
+                y = 18,
                 width = 36,
                 height = 36,
                 rotation = 0,
@@ -2790,8 +2790,7 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
-            ["initiallayer"] = "tutorialtext",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["initiallayer"] = "tutorialtext"
           }
         },
         {
@@ -2857,8 +2856,7 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
-            ["initiallayer"] = "tutorialtext",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["initiallayer"] = "tutorialtext"
           }
         },
         {
@@ -3707,8 +3705,7 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
-            ["initiallayer"] = "tutorialtext",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["initiallayer"] = "tutorialtext"
           }
         }
       }
@@ -3787,8 +3784,7 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
-            ["initiallayer"] = "tutorialtext",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["initiallayer"] = "tutorialtext"
           }
         }
       }
@@ -3839,8 +3835,7 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
-            ["initiallayer"] = "tutorialtext",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["initiallayer"] = "tutorialtext"
           }
         },
         {
@@ -4078,8 +4073,7 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
-            ["initiallayer"] = "tutorialtext",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["initiallayer"] = "tutorialtext"
           }
         },
         {
@@ -4262,8 +4256,7 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
-            ["initiallayer"] = "tutorialtext",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["initiallayer"] = "tutorialtext"
           }
         },
         {
@@ -4390,8 +4383,7 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
-            ["initiallayer"] = "tutorialtext",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["initiallayer"] = "tutorialtext"
           }
         },
         {

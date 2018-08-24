@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.1.5",
+  tiledversion = "1.1.6",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 18,
@@ -12,6 +12,7 @@ return {
   properties = {
     ["cameraid"] = 2,
     ["music"] = "mus/09 - Blue Sky Laundry.vgz",
+    ["nextmap"] = "chapel.lua",
     ["overlaymap"] = "gameplay.lua",
     ["playerid"] = 1
   },
@@ -1335,8 +1336,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -18,
-                y = 54,
+                x = 18,
+                y = 18,
                 width = 36,
                 height = 36,
                 rotation = 0,
@@ -1514,8 +1515,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 6,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -1788,8 +1789,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 2,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -1920,8 +1921,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 6,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -2194,8 +2195,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 2,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -2326,8 +2327,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 6,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -2607,8 +2608,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 6,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -2862,6 +2863,7 @@ return {
       tiles = {
         {
           id = 0,
+          type = "Door",
           properties = {
             ["closedtile"] = "wood_int_closed",
             ["name"] = "wood_int_open"
@@ -2869,13 +2871,31 @@ return {
         },
         {
           id = 1,
+          type = "Door",
           properties = {
             ["closedtile"] = "wood_ext_closed",
             ["name"] = "wood_ext_open"
           }
         },
         {
+          id = 2,
+          type = "Door"
+        },
+        {
+          id = 3,
+          type = "Door"
+        },
+        {
+          id = 4,
+          type = "Door"
+        },
+        {
+          id = 5,
+          type = "Door"
+        },
+        {
           id = 6,
+          type = "Door",
           properties = {
             ["name"] = "wood_ext_opening"
           },
@@ -2895,7 +2915,20 @@ return {
           }
         },
         {
+          id = 7,
+          type = "Door"
+        },
+        {
+          id = 8,
+          type = "Door"
+        },
+        {
+          id = 9,
+          type = "Door"
+        },
+        {
           id = 10,
+          type = "Door",
           properties = {
             ["name"] = "wood_int_closed",
             ["opentile"] = "wood_int_open"
@@ -2915,8 +2948,8 @@ return {
                 name = "",
                 type = "",
                 shape = "rectangle",
-                x = -8,
-                y = 24,
+                x = 0,
+                y = 8,
                 width = 16,
                 height = 16,
                 rotation = 0,
@@ -2931,10 +2964,23 @@ return {
         },
         {
           id = 11,
+          type = "Door",
           properties = {
             ["name"] = "wood_ext_closed",
             ["opentile"] = "wood_ext_open"
           }
+        },
+        {
+          id = 12,
+          type = "Door"
+        },
+        {
+          id = 13,
+          type = "Door"
+        },
+        {
+          id = 14,
+          type = "Door"
         }
       }
     },
@@ -3030,8 +3076,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -42,
-                y = 54,
+                x = 6,
+                y = 6,
                 width = 84,
                 height = 84,
                 rotation = 0,
@@ -3134,8 +3180,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 2,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -3266,8 +3312,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 6,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -3650,8 +3696,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 2,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -3775,8 +3821,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 2,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -3900,8 +3946,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 2,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -4032,8 +4078,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 6,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -4313,8 +4359,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 6,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -4797,8 +4843,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 24,
+                x = 6,
+                y = 8,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -5006,8 +5052,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 22,
+                x = 6,
+                y = 6,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -5082,7 +5128,7 @@ return {
                 type = "",
                 shape = "rectangle",
                 x = 4,
-                y = 16,
+                y = 0,
                 width = 12,
                 height = 32,
                 rotation = 0,
@@ -5156,8 +5202,8 @@ return {
                 name = "",
                 type = "",
                 shape = "rectangle",
-                x = -16,
-                y = 16,
+                x = 0,
+                y = 0,
                 width = 12,
                 height = 32,
                 rotation = 0,
@@ -5233,8 +5279,8 @@ return {
                 name = "",
                 type = "EnemyCover",
                 shape = "ellipse",
-                x = -16,
-                y = 40,
+                x = 8,
+                y = 24,
                 width = 32,
                 height = 32,
                 rotation = 0,
@@ -5246,8 +5292,8 @@ return {
                 name = "",
                 type = "EnemyCover",
                 shape = "ellipse",
-                x = -10,
-                y = 28,
+                x = 14,
+                y = 12,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -5302,8 +5348,8 @@ return {
                 name = "",
                 type = "EnemyCover",
                 shape = "ellipse",
-                x = -20,
-                y = 24,
+                x = 12,
+                y = 8,
                 width = 40,
                 height = 40,
                 rotation = 0,
@@ -5361,8 +5407,8 @@ return {
                 name = "body",
                 type = "",
                 shape = "ellipse",
-                x = -4,
-                y = 60,
+                x = 28,
+                y = 28,
                 width = 8,
                 height = 8,
                 rotation = 0,
@@ -5376,8 +5422,8 @@ return {
                 name = "wingman1",
                 type = "",
                 shape = "ellipse",
-                x = -24,
-                y = 72,
+                x = 8,
+                y = 40,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5389,8 +5435,8 @@ return {
                 name = "wingman2",
                 type = "",
                 shape = "ellipse",
-                x = 24,
-                y = 72,
+                x = 56,
+                y = 40,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5402,8 +5448,8 @@ return {
                 name = "wingman3",
                 type = "",
                 shape = "ellipse",
-                x = -16,
-                y = 48,
+                x = 16,
+                y = 16,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5415,8 +5461,8 @@ return {
                 name = "wingman4",
                 type = "",
                 shape = "ellipse",
-                x = 16,
-                y = 48,
+                x = 48,
+                y = 16,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5428,8 +5474,8 @@ return {
                 name = "focuswingman1",
                 type = "",
                 shape = "ellipse",
-                x = -32,
-                y = 40,
+                x = 0,
+                y = 8,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5441,8 +5487,8 @@ return {
                 name = "focuswingman2",
                 type = "",
                 shape = "ellipse",
-                x = 32,
-                y = 40,
+                x = 64,
+                y = 8,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5454,8 +5500,8 @@ return {
                 name = "focuswingman3",
                 type = "",
                 shape = "ellipse",
-                x = -16,
-                y = 8,
+                x = 16,
+                y = -24,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5467,8 +5513,8 @@ return {
                 name = "focuswingman4",
                 type = "",
                 shape = "ellipse",
-                x = 16,
-                y = 8,
+                x = 48,
+                y = -24,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -7045,9 +7091,7 @@ return {
           rotation = 0,
           gid = 1136,
           visible = true,
-          properties = {
-            ["script"] = "Door"
-          }
+          properties = {}
         },
         {
           id = 262,
@@ -7061,9 +7105,7 @@ return {
           rotation = 0,
           gid = 2147484784,
           visible = true,
-          properties = {
-            ["script"] = "Door"
-          }
+          properties = {}
         },
         {
           id = 263,
@@ -8358,9 +8400,7 @@ return {
           rotation = 0,
           gid = 1137,
           visible = true,
-          properties = {
-            ["script"] = "Door"
-          }
+          properties = {}
         },
         {
           id = 129,
@@ -8374,9 +8414,7 @@ return {
           rotation = 0,
           gid = 2147484785,
           visible = true,
-          properties = {
-            ["script"] = "Door"
-          }
+          properties = {}
         },
         {
           id = 130,
@@ -8405,9 +8443,7 @@ return {
           rotation = 0,
           gid = 2147484785,
           visible = true,
-          properties = {
-            ["script"] = "Door"
-          }
+          properties = {}
         },
         {
           id = 133,
@@ -8421,9 +8457,7 @@ return {
           rotation = 0,
           gid = 1137,
           visible = true,
-          properties = {
-            ["script"] = "Door"
-          }
+          properties = {}
         },
         {
           id = 134,
@@ -8437,9 +8471,7 @@ return {
           rotation = 0,
           gid = 1137,
           visible = true,
-          properties = {
-            ["script"] = "Door"
-          }
+          properties = {}
         },
         {
           id = 135,
@@ -8453,9 +8485,7 @@ return {
           rotation = 0,
           gid = 2147484785,
           visible = true,
-          properties = {
-            ["script"] = "Door"
-          }
+          properties = {}
         }
       }
     },

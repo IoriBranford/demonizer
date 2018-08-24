@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.1.5",
+  tiledversion = "1.1.6",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 48,
@@ -342,8 +342,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -3,
-                y = 6,
+                x = 6,
+                y = 0,
                 width = 12,
                 height = 12,
                 rotation = 0,
@@ -383,7 +383,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "gzip",
-      data = "H4sIAAAAAAAACu3VVVZCAQBF0fdERQzEwsICu0WxFRMTEwtbnP8YPKNw3cW6H/vv/J8wCIIaRFCLOtQjigbE0IhQtGtCM1oQRysSaEM7OtAp3HUhiW70oBd96EcKAxgU7oYwjBGkkcEoxjCOCUwKd1OYxgxmMYd5LGARS8gKd8tYQQ6rWMM6NrCJLWwLdzvYRR572McBDnGEYxSEuxOc4gznuMAlirjCNW6Eu1vc4R4lPOART3jGC8rC3Sve8I4PfOIL3/hBBb/CnepX/V//1//1f/1f/9f/1e1Uv+r/+r/+r//r//q//q9up/pV/9f/9X/9X//X//V/dTvVr/q//u9/dKpf9X/9X//X//V//V//V7dT/ar/6//6v9X/3z8EBwieADAAAA=="
+      data = "H4sIAAAAAAAAA+3VVVZCAQBF0fdERQzEwsICu0WxFRMTEwtbnP8YPKNw3cW6H/vv/J8wCIIaRFCLOtQjigbE0IhQtGtCM1oQRysSaEM7OtAp3HUhiW70oBd96EcKAxgU7oYwjBGkkcEoxjCOCUwKd1OYxgxmMYd5LGARS8gKd8tYQQ6rWMM6NrCJLWwLdzvYRR572McBDnGEYxSEuxOc4gznuMAlirjCNW6Eu1vc4R4lPOART3jGC8rC3Sve8I4PfOIL3/hBBb/CnepX/V//1//1f/1f/9f/1e1Uv+r/+r/+r//r//q//q9up/pV/9f/9X/9X//X//V/dTvVr/q//u9/dKpf9X/9X//X//V//V//V7dT/ar/6//6v9X/3z8EBwieADAAAA=="
     },
     {
       type = "objectgroup",
@@ -545,8 +545,7 @@ return {
           rotation = 0,
           visible = false,
           properties = {
-            ["text"] = "HI SCORE 0",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["text"] = "HI SCORE 0"
           }
         },
         {
@@ -578,9 +577,7 @@ return {
           pixelsize = 8,
           wrap = true,
           color = { 255, 255, 255 },
-          properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
+          properties = {}
         },
         {
           id = 18,
@@ -599,9 +596,7 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           halign = "center",
-          properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
+          properties = {}
         },
         {
           id = 19,
@@ -620,9 +615,7 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           halign = "center",
-          properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
+          properties = {}
         },
         {
           id = 43,
@@ -671,8 +664,8 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "winetasting.lua",
-            ["script"] = "ButtonPlayStage"
+            ["action"] = "startGame",
+            ["nextmap"] = "winetasting.lua"
           }
         }
       }

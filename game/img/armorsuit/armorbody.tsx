@@ -4,7 +4,7 @@
  <image source="armorbody.png" width="96" height="32"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="1" x="-10" y="22" width="20" height="20">
+   <object id="1" x="6" y="6" width="20" height="20">
     <properties>
      <property name="collidable" type="bool" value="true"/>
      <property name="sensor" type="bool" value="true"/>

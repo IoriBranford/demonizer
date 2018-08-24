@@ -10,7 +10,7 @@
    <property name="name" value="player"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" x="-8" y="8" width="16" height="16">
+   <object id="1" x="8" y="0" width="16" height="16">
     <properties>
      <property name="collidable" type="bool" value="true"/>
     </properties>

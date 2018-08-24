@@ -56,11 +56,12 @@ function ShmupScore:pointsScored(points, cardx, cardy, cardformat)
 			halign = "center",
 			width = 64,
 			height = 16,
+			fontfamily = "Press Start 2P",
+			pixelsize = 8,
 			properties = {
 				lifetime = 1,
 				vely = camvy - 30,
 				script = "ShmupBullet",
-				textfont = "fnt/pressstart2p.fnt"
 			}
 		}
 		sparks:addObject(pointsobject)

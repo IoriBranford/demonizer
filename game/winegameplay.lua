@@ -1,7 +1,7 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.1.5",
+  tiledversion = "1.1.6",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 15,
@@ -324,8 +324,8 @@ return {
                 name = "power1",
                 type = "",
                 shape = "ellipse",
-                x = 1,
-                y = 16,
+                x = 17,
+                y = 0,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -337,8 +337,8 @@ return {
                 name = "power2",
                 type = "",
                 shape = "ellipse",
-                x = 5,
-                y = 18,
+                x = 21,
+                y = 2,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -350,8 +350,8 @@ return {
                 name = "power3",
                 type = "",
                 shape = "ellipse",
-                x = 8,
-                y = 21,
+                x = 24,
+                y = 5,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -363,8 +363,8 @@ return {
                 name = "power4",
                 type = "",
                 shape = "ellipse",
-                x = 11,
-                y = 24,
+                x = 27,
+                y = 8,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -376,8 +376,8 @@ return {
                 name = "power5",
                 type = "",
                 shape = "ellipse",
-                x = 13,
-                y = 28,
+                x = 29,
+                y = 12,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -389,8 +389,8 @@ return {
                 name = "power6",
                 type = "",
                 shape = "ellipse",
-                x = 13,
-                y = 33,
+                x = 29,
+                y = 17,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -402,8 +402,8 @@ return {
                 name = "power7",
                 type = "",
                 shape = "ellipse",
-                x = 11,
-                y = 37,
+                x = 27,
+                y = 21,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -415,8 +415,8 @@ return {
                 name = "power8",
                 type = "",
                 shape = "ellipse",
-                x = 8,
-                y = 40,
+                x = 24,
+                y = 24,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -428,8 +428,8 @@ return {
                 name = "power9",
                 type = "",
                 shape = "ellipse",
-                x = 5,
-                y = 43,
+                x = 21,
+                y = 27,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -441,8 +441,8 @@ return {
                 name = "power10",
                 type = "",
                 shape = "ellipse",
-                x = 1,
-                y = 45,
+                x = 17,
+                y = 29,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -454,8 +454,8 @@ return {
                 name = "power18",
                 type = "",
                 shape = "ellipse",
-                x = -11,
-                y = 21,
+                x = 5,
+                y = 5,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -467,8 +467,8 @@ return {
                 name = "power14",
                 type = "",
                 shape = "ellipse",
-                x = -14,
-                y = 37,
+                x = 2,
+                y = 21,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -480,8 +480,8 @@ return {
                 name = "power15",
                 type = "",
                 shape = "ellipse",
-                x = -16,
-                y = 33,
+                x = 0,
+                y = 17,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -493,8 +493,8 @@ return {
                 name = "power16",
                 type = "",
                 shape = "ellipse",
-                x = -16,
-                y = 28,
+                x = 0,
+                y = 12,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -506,8 +506,8 @@ return {
                 name = "power12",
                 type = "",
                 shape = "ellipse",
-                x = -8,
-                y = 43,
+                x = 8,
+                y = 27,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -519,8 +519,8 @@ return {
                 name = "power11",
                 type = "",
                 shape = "ellipse",
-                x = -4,
-                y = 45,
+                x = 12,
+                y = 29,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -532,8 +532,8 @@ return {
                 name = "power13",
                 type = "",
                 shape = "ellipse",
-                x = -11,
-                y = 40,
+                x = 5,
+                y = 24,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -545,8 +545,8 @@ return {
                 name = "power17",
                 type = "",
                 shape = "ellipse",
-                x = -14,
-                y = 24,
+                x = 2,
+                y = 8,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -558,8 +558,8 @@ return {
                 name = "power19",
                 type = "",
                 shape = "ellipse",
-                x = -8,
-                y = 18,
+                x = 8,
+                y = 2,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -571,8 +571,8 @@ return {
                 name = "power20",
                 type = "",
                 shape = "ellipse",
-                x = -4,
-                y = 16,
+                x = 12,
+                y = 0,
                 width = 4,
                 height = 4,
                 rotation = 0,
@@ -696,8 +696,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -42,
-                y = 54,
+                x = 6,
+                y = 6,
                 width = 84,
                 height = 84,
                 rotation = 0,
@@ -1084,8 +1084,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -64,
-                y = 128,
+                x = 0,
+                y = 0,
                 width = 128,
                 height = 128,
                 rotation = 0,
@@ -1180,8 +1180,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -8,
-                y = 8,
+                x = 8,
+                y = 0,
                 width = 16,
                 height = 16,
                 rotation = 0,
@@ -1259,8 +1259,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -1,
-                y = 15,
+                x = 23,
+                y = 7,
                 width = 2,
                 height = 2,
                 rotation = 0,
@@ -1537,8 +1537,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -10,
-                y = 22,
+                x = 2,
+                y = 6,
                 width = 20,
                 height = 20,
                 rotation = 0,
@@ -1618,29 +1618,20 @@ return {
           id = 10,
           type = "ItemScore",
           properties = {
-            ["name"] = "FireArcherMounted"
+            ["name"] = "FireArcher"
           }
         },
         {
           id = 11,
-          type = "ItemScore",
-          properties = {
-            ["name"] = "LancerMounted"
-          }
+          type = "ItemScore"
         },
         {
           id = 12,
-          type = "ItemScore",
-          properties = {
-            ["name"] = "JavelinerMounted"
-          }
+          type = "ItemScore"
         },
         {
           id = 13,
-          type = "ItemScore",
-          properties = {
-            ["name"] = "ArcherMounted"
-          }
+          type = "ItemScore"
         },
         {
           id = 14,
@@ -1715,29 +1706,20 @@ return {
           id = 27,
           type = "ItemWingman",
           properties = {
-            ["name"] = "FireArcherMountedF"
+            ["name"] = "FireArcherF"
           }
         },
         {
           id = 28,
-          type = "ItemWingman",
-          properties = {
-            ["name"] = "LancerMountedF"
-          }
+          type = "ItemWingman"
         },
         {
           id = 29,
-          type = "ItemWingman",
-          properties = {
-            ["name"] = "JavelinerMountedF"
-          }
+          type = "ItemWingman"
         },
         {
           id = 30,
-          type = "ItemWingman",
-          properties = {
-            ["name"] = "ArcherMountedF"
-          }
+          type = "ItemWingman"
         },
         {
           id = 31,
@@ -1911,7 +1893,7 @@ return {
       margin = 0,
       image = "img/human/converted.png",
       imagewidth = 144,
-      imageheight = 640,
+      imageheight = 544,
       tileoffset = {
         x = -12,
         y = 16
@@ -1936,10 +1918,7 @@ return {
         ["rowname13"] = "townfolk-adult-f-003",
         ["rowname14"] = "townfolk-adult-f-005",
         ["rowname15"] = "townfolk-adult-f-006",
-        ["rowname16"] = "ArcherMountedF",
-        ["rowname17"] = "FireArcherMountedF",
-        ["rowname18"] = "JavelinerMountedF",
-        ["rowname19"] = "LancerMountedF",
+        ["rowname16"] = "FireArcherF",
         ["rowname2"] = "DancerF",
         ["rowname3"] = "MageF",
         ["rowname4"] = "PikemanF",
@@ -1951,7 +1930,7 @@ return {
         ["rowstype"] = "state"
       },
       terrains = {},
-      tilecount = 120,
+      tilecount = 102,
       tiles = {
         {
           id = 0,
@@ -1970,8 +1949,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -5,
-                y = 27,
+                x = 7,
+                y = 11,
                 width = 10,
                 height = 10,
                 rotation = 0,
@@ -2090,7 +2069,7 @@ return {
     },
     {
       name = "countdown",
-      firstgid = 359,
+      firstgid = 341,
       filename = "img/countdown.tsx",
       tilewidth = 16,
       tileheight = 20,
@@ -2134,7 +2113,7 @@ return {
     },
     {
       name = "go",
-      firstgid = 362,
+      firstgid = 344,
       filename = "img/go.tsx",
       tilewidth = 64,
       tileheight = 32,
@@ -2159,7 +2138,7 @@ return {
     },
     {
       name = "winebomb",
-      firstgid = 363,
+      firstgid = 345,
       filename = "img/winebomb.tsx",
       tilewidth = 18,
       tileheight = 12,
@@ -2198,8 +2177,8 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = -3,
-                y = 6,
+                x = 6,
+                y = 0,
                 width = 12,
                 height = 12,
                 rotation = 0,
@@ -2385,7 +2364,7 @@ return {
           width = 16,
           height = 20,
           rotation = 0,
-          gid = 361,
+          gid = 343,
           visible = true,
           properties = {}
         },
@@ -2627,9 +2606,7 @@ return {
           color = { 255, 255, 255 },
           halign = "center",
           valign = "center",
-          properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
+          properties = {}
         },
         {
           id = 29,
@@ -2650,7 +2627,6 @@ return {
           valign = "center",
           properties = {
             ["script"] = "ShmupScore",
-            ["textfont"] = "fnt/pressstart2p.fnt",
             ["textformat"] = "SCORE %8d  1UP@ %8d"
           }
         },
@@ -2664,7 +2640,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 363,
+          gid = 345,
           visible = true,
           properties = {
             ["collidable"] = false
@@ -2680,7 +2656,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 363,
+          gid = 345,
           visible = true,
           properties = {
             ["collidable"] = false
@@ -2696,7 +2672,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 363,
+          gid = 345,
           visible = true,
           properties = {
             ["collidable"] = false
@@ -2712,7 +2688,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 363,
+          gid = 345,
           visible = true,
           properties = {
             ["collidable"] = false
@@ -2728,7 +2704,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 363,
+          gid = 345,
           visible = true,
           properties = {
             ["collidable"] = false
@@ -2765,7 +2741,6 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt",
             ["textformat"] = "x %d"
           }
         },
@@ -2787,7 +2762,6 @@ return {
           color = { 255, 255, 255 },
           halign = "right",
           properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt",
             ["textformat"] = "%d pts"
           }
         },
@@ -2808,7 +2782,6 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt",
             ["textformat"] = "x %d"
           }
         },
@@ -2830,7 +2803,6 @@ return {
           color = { 255, 255, 255 },
           halign = "right",
           properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt",
             ["textformat"] = "%d pts"
           }
         },
@@ -2851,7 +2823,6 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt",
             ["textformat"] = "x %d"
           }
         },
@@ -2873,7 +2844,6 @@ return {
           color = { 255, 255, 255 },
           halign = "right",
           properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt",
             ["textformat"] = "%d pts"
           }
         },
@@ -2894,7 +2864,6 @@ return {
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt",
             ["textformat"] = "x %d"
           }
         },
@@ -2916,7 +2885,6 @@ return {
           color = { 255, 255, 255 },
           halign = "right",
           properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt",
             ["textformat"] = "%d pts"
           }
         }
@@ -2953,9 +2921,8 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "drunktitle.lua",
-            ["script"] = "ButtonChangeMap",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["action"] = "changeMap",
+            ["nextmap"] = "drunktitle.lua"
           }
         },
         {
@@ -2977,8 +2944,7 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["script"] = "ButtonRestart",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["action"] = "restartMap"
           }
         },
         {
@@ -3000,8 +2966,7 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["script"] = "ButtonResume",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["action"] = "toggleMenu"
           }
         },
         {
@@ -3016,15 +2981,12 @@ return {
           rotation = 0,
           visible = true,
           text = "PAUSE",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          fontfamily = "Lady Radical",
           wrap = true,
           color = { 255, 255, 255 },
           halign = "center",
           valign = "center",
-          properties = {
-            ["textfont"] = "fnt/pressstart2p.fnt"
-          }
+          properties = {}
         }
       }
     },
@@ -3073,8 +3035,7 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["script"] = "ButtonRestart",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["action"] = "restartMap"
           }
         },
         {
@@ -3096,9 +3057,8 @@ return {
           halign = "center",
           valign = "center",
           properties = {
-            ["nextmap"] = "drunktitle.lua",
-            ["script"] = "ButtonChangeMap",
-            ["textfont"] = "fnt/pressstart2p.fnt"
+            ["action"] = "changeMap",
+            ["nextmap"] = "drunktitle.lua"
           }
         }
       }

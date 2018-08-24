@@ -10,7 +10,7 @@
    <property name="name" value="Pikeman"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" x="-10" y="22" width="20" height="20">
+   <object id="1" x="2" y="6" width="20" height="20">
     <properties>
      <property name="collidable" type="bool" value="true"/>
      <property name="sensor" type="bool" value="true"/>
@@ -66,24 +66,12 @@
  </tile>
  <tile id="10" type="ItemScore">
   <properties>
-   <property name="name" value="FireArcherMounted"/>
+   <property name="name" value="FireArcher"/>
   </properties>
  </tile>
- <tile id="11" type="ItemScore">
-  <properties>
-   <property name="name" value="LancerMounted"/>
-  </properties>
- </tile>
- <tile id="12" type="ItemScore">
-  <properties>
-   <property name="name" value="JavelinerMounted"/>
-  </properties>
- </tile>
- <tile id="13" type="ItemScore">
-  <properties>
-   <property name="name" value="ArcherMounted"/>
-  </properties>
- </tile>
+ <tile id="11" type="ItemScore"/>
+ <tile id="12" type="ItemScore"/>
+ <tile id="13" type="ItemScore"/>
  <tile id="14" type="ItemScore"/>
  <tile id="15" type="ItemScore"/>
  <tile id="16" type="ItemScore"/>
@@ -123,24 +111,12 @@
  </tile>
  <tile id="27" type="ItemWingman">
   <properties>
-   <property name="name" value="FireArcherMountedF"/>
+   <property name="name" value="FireArcherF"/>
   </properties>
  </tile>
- <tile id="28" type="ItemWingman">
-  <properties>
-   <property name="name" value="LancerMountedF"/>
-  </properties>
- </tile>
- <tile id="29" type="ItemWingman">
-  <properties>
-   <property name="name" value="JavelinerMountedF"/>
-  </properties>
- </tile>
- <tile id="30" type="ItemWingman">
-  <properties>
-   <property name="name" value="ArcherMountedF"/>
-  </properties>
- </tile>
+ <tile id="28" type="ItemWingman"/>
+ <tile id="29" type="ItemWingman"/>
+ <tile id="30" type="ItemWingman"/>
  <tile id="31" type="ItemWingman"/>
  <tile id="32" type="ItemWingman"/>
  <tile id="33" type="ItemWingman"/>

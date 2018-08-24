@@ -4,7 +4,7 @@
  <image source="demonbomb.png" width="512" height="256"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="1" x="-64" y="128" width="128" height="128">
+   <object id="1" x="0" y="0" width="128" height="128">
     <properties>
      <property name="collidable" type="bool" value="true"/>
      <property name="sensor" type="bool" value="true"/>

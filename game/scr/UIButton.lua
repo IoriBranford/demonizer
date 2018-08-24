@@ -4,6 +4,18 @@ local UIButton = class()
 function UIButton:_init(object)
 	self.object = object
 	self.pressed = false
+	self.properties = object.properties
+
+	local presssound = self.properties.presssound
+	if presssound then
+		levity.bank:load(presssound)
+	end
+
+	local action = self.properties.action
+	local initLock = action and self["initLock_"..action]
+	if initLock then
+		initLock(self)
+	end
 end
 
 function UIButton:isVisible()
@@ -13,11 +25,6 @@ end
 function UIButton:isPressable()
 	return self:isVisible() and not self.locked
 end
-
-local Sounds = {
-	Press = "snd/ting.ogg"
-}
-levity.bank:load(Sounds)
 
 function UIButton:mousepressed(x, y, button)
 	if button == 1 then
@@ -37,13 +44,20 @@ function UIButton:mousereleased(x, y, button)
 	end
 end
 
+function UIButton:playPressSound()
+	local presssound = self.properties.presssound
+	if presssound then
+		levity.bank:play(presssound)
+	end
+end
+
 function UIButton:touchpressed(touch, x, y, dx, dy, pressure)
 	if self:isPressable() then
 		x, y = levity:screenToCamera(x, y)
 		if math.rectsisect(x, y, 0, 0, self.object.x, self.object.y,
 			self.object.width, self.object.height)
 		then
-			levity.bank:play(Sounds.Press)
+			self:playPressSound()
 			self:press()
 			levity.scripts:call(self.object.layer.name,
 				"setCursorButton", self.object.id)
@@ -68,6 +82,7 @@ function UIButton:touchreleased(touch, x, y, dx, dy, pressure)
 		if math.rectsisect(x, y, 0, 0, self.object.x, self.object.y,
 			self.object.width, self.object.height)
 		then
+			self.pressed = false
 			self:activate()
 		end
 	end
@@ -86,38 +101,88 @@ function UIButton:unpress()
 end
 
 function UIButton:activate()
-	self.pressed = false
-	if self.buttonReleased then
-		self:buttonReleased()
+	local action = self.properties.action
+	action = action and self[action]
+	if action then
+		action(self)
 	end
 end
 
 function UIButton:beginDraw()
 	local x, y, w, h = self.object.x, self.object.y,
 				self.object.width, self.object.height
+	local fillwidth = self.properties.fillwidth or w
 
 	if self.locked then
 		for i = 1, 4 do
 			self.object.color[i] = 0x80
 		end
-		love.graphics.setColor(32, 32, 32, 128)
+		levity.setColorARGB(self.properties.lockedfillcolor or "#80202020")
 		love.graphics.rectangle("fill", x, y, w, h)
 	else
 		for i = 1, 4 do
 			self.object.color[i] = 0xff
 		end
 		if self.pressed then
-			love.graphics.setColor(115, 89, 165, 128)
-			love.graphics.rectangle("fill", x, y, w, h)
+			levity.setColorARGB(self.properties.pressfillcolor or "#807359a5")
+			love.graphics.rectangle("fill", x, y, fillwidth, h)
+			levity.setColorARGB(self.properties.presslinecolor or "#ffa478ff")
+			love.graphics.rectangle("line", x, y, w, h)
 		else
-			love.graphics.setColor(41, 32, 66, 128)
-			love.graphics.rectangle("fill", x, y, w, h)
+			levity.setColorARGB(self.properties.fillcolor or "#80292042")
+			love.graphics.rectangle("fill", x, y, fillwidth, h)
+			levity.setColorARGB(self.properties.linecolor or "#ff523c84")
+			love.graphics.rectangle("line", x, y, w, h)
 		end
-		love.graphics.setColor(82, 60, 132, 255)
-		love.graphics.rectangle("line", x, y, w, h)
 	end
 
 	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
+end
+
+function UIButton:initLock_startGame()
+	self:setLock(not love.filesystem.exists(self.properties.nextmap))
+end
+
+function UIButton:initLock_changeMenu()
+	if self.properties.nextmenu == "options_controller" then
+		self:setLock(love.joystick:getJoystickCount() < 1)
+	end
+end
+
+function UIButton:startGame()
+	levity.scripts:send(levity.mapfile, "startGame", self.properties.nextmap)
+
+	local menu = self.object.layer
+	if menu then
+		for _, object in pairs(menu.objects) do
+			levity:discardObject(object.id)
+		end
+	end
+end
+
+function UIButton:goBack()
+	levity.scripts:send(levity.mapfile, "goBack")
+end
+
+function UIButton:changeMap()
+	levity:setNextMap(self.properties.nextmap)
+end
+
+function UIButton:restartMap()
+	levity:setNextMap(levity.map.name)
+end
+
+function UIButton:toggleMenu()
+	levity.scripts:send(self.object.layer.name, "toggleMenu")
+end
+
+function UIButton:changeMenu()
+	levity.scripts:send(levity.mapfile, "changeMenu", self.properties.nextmenu)
+end
+
+function UIButton:resetPrefs()
+	levity.prefs.reset()
+	levity.scripts:broadcast("prefsReset")
 end
 
 return UIButton
