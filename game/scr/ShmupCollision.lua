@@ -15,9 +15,9 @@ local ShmupCollision = {
 	Category_PlayerBomb = 6,
 	Category_EnemyTeam = 7,
 	Category_EnemyShot = 8,
-	Category_EnemyInCover = 9,
-	Category_EnemyCover = 10,
-	Category_EnemyBounds = 11,
+	Category_EnemyCover = 9,
+	Category_EnemyBounds = 10,
+	Category_BonusMaze = 11
 }
 
 local function printx(x)

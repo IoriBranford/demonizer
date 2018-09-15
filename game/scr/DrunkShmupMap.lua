@@ -4,10 +4,6 @@ local ShmupMap = require "ShmupMap"
 local DrunkShmupMap = class(ShmupMap)
 function DrunkShmupMap:_init(map)
 	self:super(map)
-	self.properties.blurradius = 0
-	self.properties.blurdirx = 0
-	self.properties.blurdiry = 0
-	self.screeneffect = levity.scripts:newScript(self.map.name, "ScreenEffectDrunk", map)
 end
 
 function DrunkShmupMap:endMove(dt)

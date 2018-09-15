@@ -181,11 +181,11 @@
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Bomb = %s</text>
   </object>
-  <object id="17" name="key_pausemenu" type="UIInputBind" x="30" y="180" width="180" height="15">
+  <object id="17" name="key_pausemenu" x="30" y="180" width="180" height="15">
    <properties>
     <property name="textformat" value="Pause = %s"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Pause = %s</text>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Pause = escape</text>
   </object>
   <object id="21" name="key_pause" type="UIInputBind" x="30" y="180" width="180" height="15" visible="0">
    <properties>

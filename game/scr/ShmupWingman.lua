@@ -56,12 +56,13 @@ ShmupWingman.BaseMask = {
 	ShmupCollision.Category_PlayerTeam,
 	ShmupCollision.Category_PlayerShot,
 	ShmupCollision.Category_PlayerBomb,
-	ShmupCollision.Category_EnemyBounds
+	ShmupCollision.Category_EnemyBounds,
+	ShmupCollision.Category_BonusMaze
 }
 
 ShmupWingman.Speed = 320
 ShmupWingman.SpeedSq = ShmupWingman.Speed * ShmupWingman.Speed
-ShmupWingman.MaxHealth = 8
+ShmupWingman.MaxHealth = 4
 ShmupWingman.DemonizationOffset = 1/64 --to ensure correct draw order for demonization vfx
 ShmupWingman.ConvertTime = 1
 --ShmupWingman.ConvertShake = 4
@@ -473,8 +474,7 @@ function ShmupWingman:endMove(dt)
 					otherfix = fix1
 				end
 				if ShmupCollision.checkFixtureCategory(otherfix,
-					ShmupCollision.Category_EnemyTeam,
-					ShmupCollision.Category_EnemyInCover)
+					ShmupCollision.Category_EnemyTeam)
 				then
 					bombmeleecontact = true
 					break

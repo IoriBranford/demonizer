@@ -32,6 +32,7 @@ local WinMask = {
 local ShmupPlayer = class()
 function ShmupPlayer:_init(object)
 	self.object = object
+	self.id = object.id
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
 	self.object.body:setBullet(true)
@@ -71,28 +72,18 @@ function ShmupPlayer:_init(object)
 
 	self.moverestricted = nil
 	self.firerestricted = nil
+
+	self.ride = levity.scripts:newScript(self.id, "Ride", self.object)
+	self.emote = levity.scripts:newScript(self.id, "Emote", self.object)
 end
 
-local Sounds = {
-	Shot = "snd/playershot.ogg",
-	Bomber = "snd/bomber.ogg",
-	Bomb = "snd/bomb.ogg",
-	Maxed = "snd/maxed.ogg",
-	Powerup = "snd/powerup.ogg",
-	Death = "snd/selfdestruct.ogg",
-	Scream = "snd/shriek.ogg",
-	Respawn = "snd/respawn.ogg",
-	Exit = "snd/turbo.ogg"
-}
-levity.bank:load(Sounds)
-
-ShmupPlayer.Sounds = Sounds
 ShmupPlayer.Speed = 180
 ShmupPlayer.SpeedSq = ShmupPlayer.Speed * ShmupPlayer.Speed
 ShmupPlayer.BulletInterval = 1/10
 ShmupPlayer.DeathTime = 1
 ShmupPlayer.RecenterTime = .1
 ShmupPlayer.RespawnShieldTime = 3
+ShmupPlayer.StunExtraShieldTime = .5
 ShmupPlayer.DeathSnapToCameraVelocity = 1/16
 ShmupPlayer.Button_Fire = 1
 ShmupPlayer.Button_Focus = 2
@@ -105,7 +96,7 @@ function ShmupPlayer:playSound(soundfile)
 	if self.soundfile ~= soundfile then
 		self.soundfile = soundfile
 		self.soundsource = levity.bank:play(soundfile)
-	else
+	elseif self.soundsource then
 		self.soundsource:rewind()
 		self.soundsource:play()
 	end
@@ -134,6 +125,10 @@ end
 
 function ShmupPlayer:isPoweredUp()
 	return self.poweredup
+end
+
+function ShmupPlayer:getStunTime()
+	return self.stuntimer
 end
 
 function ShmupPlayer:setFiring(button)
@@ -275,12 +270,23 @@ function ShmupPlayer:mousemoved(x, y, dx, dy)
 end
 
 function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
+	local otherdata = otherfixture:getBody():getUserData()
+	local otherproperties = otherdata and otherdata.properties
 	for i = 1, select("#", otherfixture:getCategory()) do
 		local category = select(i, otherfixture:getCategory())
 		if category == ShmupCollision.Category_Default then
-			local otherproperties = otherfixture:getBody():getUserData().properties
-			self.entrancedestid = self.entrancedestid
-				or otherproperties.entrancedestid
+			if self.entranceid == otherdata.id then
+				self.entrancedestid = self.entrancedestid
+					or otherproperties.entrancedestid
+			end
+		elseif category == ShmupCollision.Category_EnemyTeam then
+			if otherproperties.meleeknockback then
+				self:playSound(self.properties.knockedbacksound)
+				self.stuntimer = otherproperties.meleestuntimer or 1
+				self.shieldtimer = self.stuntimer + ShmupPlayer.StunExtraShieldTime
+				self.emote:setEmote("emotes", "stun")
+				self:recenter()
+			end
 		elseif category == ShmupCollision.Category_EnemyShot then
 			if not self.killed and self.shieldtimer == 0 then
 				self:kill()
@@ -293,7 +299,6 @@ function ShmupPlayer:preSolve(myfixture, otherfixture, contact)
 	for i = 1, select("#", otherfixture:getCategory()) do
 		local category = select(i, otherfixture:getCategory())
 		if category == ShmupCollision.Category_EnemyTeam
-		or category == ShmupCollision.Category_EnemyInCover
 		then
 			local otherobject = otherfixture:getBody():getUserData().object
 			if otherobject.layer ~= self.object.layer then
@@ -322,8 +327,8 @@ function ShmupPlayer:deathCoroutine(dt)
 
 	levity.scripts:broadcast("playerKilled")
 
-	self:playSound(Sounds.Death)
-	self:playSound(Sounds.Scream)
+	self:playSound(self.properties.deathsound)
+	self:playSound(self.properties.screamsound)
 
 	local t = 0
 	while t < ShmupPlayer.DeathTime do
@@ -387,7 +392,7 @@ function ShmupPlayer:recenterCoroutine(dt)
 		vx, vy = self:getRecenterVelocity(dt)
 		self.object.body:setLinearVelocity(vx, vy)
 		_, dt = coroutine.yield()
-	until vx == 0 and vy == 0
+	until vx == 0 and vy == 0 and not self.stuntimer
 end
 
 function ShmupPlayer:spawnCoroutine(dt)
@@ -404,7 +409,7 @@ function ShmupPlayer:spawnCoroutine(dt)
 	if self.killed then
 		self.killed = false
 		levity.scripts:broadcast("playerRespawned")
-		self:playSound(Sounds.Respawn)
+		self:playSound(self.properties.respawnsound)
 		self.object.visible = true
 		self.object:setGid(
 			levity.map:getTileGid(self.object.tile.tileset, "forward"))
@@ -451,7 +456,7 @@ function ShmupPlayer:exitCoroutine(dt)
 	until t >= exitwaittime
 
 	if self.won then
-		self:playSound(Sounds.Exit)
+		self:playSound(self.properties.exitsound)
 	end
 
 	self.object.body:setLinearVelocity(0, -ShmupPlayer.ExitSpeed)
@@ -510,6 +515,8 @@ function ShmupPlayer:beginMove(dt)
 		if coroutine.status(self.coroutine) == "dead" then
 			self.coroutine = nil
 		else
+			local vx, vy = self.object.body:getLinearVelocity()
+			self.ride:updateRidersVelocity(dt, vx, vy)
 			return
 		end
 	end
@@ -553,6 +560,7 @@ function ShmupPlayer:beginMove(dt)
 	end
 
 	body:setLinearVelocity(vx, vy)
+	self.ride:updateRidersVelocity(dt, vx, vy)
 end
 
 function ShmupPlayer:updateFire(dt)
@@ -570,7 +578,7 @@ function ShmupPlayer:updateFire(dt)
 		end
 		self.firetimer = firetimer
 
-		self:playSound(Sounds.Shot)
+		self:playSound(self.properties.shotsound)
 	end
 	self.firetimer = levity:timerCorrectRoundingError(
 				self.firetimer + dt,
@@ -581,10 +589,10 @@ function ShmupPlayer:endMove(dt)
 	local scoreid = levity.scripts:call("status", "getScoreId")
 	if scoreid and not self.poweredup and not self.killed then
 		self.poweredup = levity.scripts:call(scoreid, "isMaxMultiplier",
-							self.object.id)
+							self.id)
 		if self.poweredup then
-			levity.bank:play(Sounds.Maxed)
-			levity.bank:play(Sounds.Powerup)
+			levity.bank:play(self.properties.maxedsound)
+			levity.bank:play(self.properties.powerupsound)
 		end
 	end
 
@@ -623,7 +631,7 @@ function ShmupPlayer:endMove(dt)
 
 	local vx1 = self.object.body:getLinearVelocity()
 	if self.bombbutton and not tilename:find("bomb") then
-		levity.bank:play(Sounds.Bomber)
+		levity.bank:play(self.properties.bombersound)
 		nextanim = "bombready"
 	elseif vx1 > 0 then
 		if tilename == "forward"
@@ -647,6 +655,16 @@ function ShmupPlayer:endMove(dt)
 
 	if nextanim then
 		self.object:setGid(levity.map:getTileGid(tileset, nextanim))
+	end
+
+	local stuntimer = self.stuntimer
+	if stuntimer then
+		stuntimer = stuntimer - dt
+		if stuntimer < 0 then
+			stuntimer = nil
+			self.emote:setEmote()
+		end
+		self.stuntimer = stuntimer
 	end
 end
 
@@ -715,7 +733,8 @@ end
 
 function ShmupPlayer:playerWon()
 	self.won = true
-	self.coroutine = coroutine.create(ShmupPlayer.exitCoroutine)
+	local exitid = levity.map.properties.exitid
+	self:startEntrance(exitid)
 end
 
 function ShmupPlayer:nextMap(nextmapfile, nextmapdata)

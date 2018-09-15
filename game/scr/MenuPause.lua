@@ -10,7 +10,6 @@ local MenuPause = class(UIMenu)
 function MenuPause:_init(layer)
 	self:super(layer)
 	layer.visible = false
-	levity.bank:load(layer.properties.pausesound)
 end
 
 function MenuPause:togglePauseOnly()

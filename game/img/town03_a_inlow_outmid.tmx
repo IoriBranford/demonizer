@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="15" height="20" tilewidth="16" tileheight="16" infinite="1" nextobjectid="1">
+ <tileset firstgid="1" source="town03_a.tsx"/>
+ <layer name="regions_input" width="15" height="20">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="-16" width="16" height="16">
+   eJxjYBgFo2Dkghgm/OK45AmZRY5+agJi7QcA3mcC8Q==
+  </chunk>
+   <chunk x="-16" y="0" width="16" height="16">
+   eJxjYBgFAwVimEa2/aNg4AEArfsAvQ==
+  </chunk>
+   <chunk x="0" y="0" width="16" height="16">
+   eJyLYWIAgxgoDQMxOMTpBYi1H5c6erkf2R5q2YVsFiFzaWU/Pj6t9dMboIcdNcNysAMA6y8KSQ==
+  </chunk>
+  </data>
+ </layer>
+ <layer name="regions_output" width="15" height="20">
+  <data encoding="base64" compression="zlib">
+   <chunk x="-16" y="-16" width="16" height="16">
+   eJxjYBgFo2AUjETgzMjAAAAFDwBF
+  </chunk>
+   <chunk x="0" y="-16" width="16" height="16">
+   eJxjYBgFo2DkAmdGTDayGDb+YALIbibH/QBCxgJl
+  </chunk>
+   <chunk x="-16" y="0" width="16" height="16">
+   eJxjYCAfODNSoJkKgFL7B9r9o2AUDDQAAK9LAM0=
+  </chunk>
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYEAAZ0aGAQUw+9Hdgc9dyHoGwv2E3ExrN9HKHnq5n1oA2Z2kuJmYtDWcAQCKMQUN
+  </chunk>
+  </data>
+ </layer>
+ <layer name="input_town03_a_low" width="15" height="20">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="-16" width="16" height="16">
+   eJxjYBgFo2DkglRG7OIBUPFAHPLYgB+SWnL0UxP4Qu31J2A/ALFTApo=
+  </chunk>
+   <chunk x="-16" y="0" width="16" height="16">
+   eJxjYBgFAwWyGEe2/aNg4AEA6OUA1w==
+  </chunk>
+   <chunk x="0" y="0" width="16" height="16">
+   eJzzZWQAA38oDQPpUH4Gmji9QCbU3iwC9gdB5dMYiROnNoCZD7Ivk0p2gcLcD2oWiE7HY24qI4Kmlv2BaOYEkGgueprB5/7BAHKQwhsEQOzsQe5magEAQy4KbQ==
+  </chunk>
+  </data>
+ </layer>
+ <layer name="output_town03_a_mid" width="15" height="20">
+  <data encoding="base64" compression="zlib">
+   <chunk x="-16" y="-16" width="16" height="16">
+   eJxjYBgFo2AUjERwl5GBAQAHdwDf
+  </chunk>
+   <chunk x="0" y="-16" width="16" height="16">
+   eJxjYBgFo2DkgqOMmOwHjKhq7qHxBxOAuRlE34Gyf6G59wce9wMA5gAHqg==
+  </chunk>
+   <chunk x="-16" y="0" width="16" height="16">
+   eJxjYCAfPGCkQDMVAKX2Hx5g94+CUTDQAACBjQKH
+  </chunk>
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYECAe4wMAwpg9h9Dc8cRPO46yoigDw2A+4/gcPMPKP8Xjd2Ey35KAb3cTy3wA8mdpLgZX7jhS3fDBQAAfyoQGg==
+  </chunk>
+  </data>
+ </layer>
+</map>

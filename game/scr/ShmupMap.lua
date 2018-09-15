@@ -1,11 +1,14 @@
 local levity = require "levity"
 local Object = require "levity.object"
 local Layer = require "levity.layer"
+local pl_tablex = require "pl.tablex"
 
 local ShmupPlayer = require "ShmupPlayer"
 local ShmupCollision = require "ShmupCollision"
 
 local InitialRank = .25
+
+local ShmupMap = class()
 
 local function setFilterFromProperties(body)
 	for _, fixture in ipairs(body:getFixtureList()) do
@@ -39,7 +42,37 @@ local function setFilterFromProperties(body)
 	end
 end
 
-local ShmupMap = class()
+local function loadBulletSounds(properties)
+	for name, value in pairs(properties) do
+		if type(value) == "string" then
+			if name:find("bullet") or name:find("spark") then
+				levity.map:loadObjectTypeSounds(value, levity.bank)
+			end
+		end
+	end
+	local basetype = properties._basetype
+	basetype = basetype and levity.map.objecttypes[basetype]
+	if basetype then
+		loadBulletSounds(basetype)
+	end
+end
+
+local loadSoundsInObjectTypeChain_visitedtypes = {}
+local function loadSoundsInObjectTypeChain(inittype)
+	if not inittype then return end
+	local visitedtypes = loadSoundsInObjectTypeChain_visitedtypes
+	local objecttypes = levity.map.objecttypes
+	local typ = inittype
+	repeat
+		visitedtypes[typ] = true
+		levity.map:loadObjectTypeSounds(typ, levity.bank)
+		local objecttype = objecttypes[typ]
+		loadBulletSounds(objecttype, levity.bank)
+		typ = objecttype.nexttype or inittype
+	until typ == inittype or visitedtypes[typ]
+	pl_tablex.clear(visitedtypes)
+end
+
 function ShmupMap:_init(map)
 	self.map = map
 	self.properties = self.map.properties
@@ -72,20 +105,6 @@ function ShmupMap:_init(map)
 
 	--setFilterFromProperties(self.map.box2d_collision)
 
-	local winmusic = self.map.properties.winmusic
-	if winmusic then
-		levity.bank:load(winmusic, "emu")
-	end
-	local losemusic = self.map.properties.losemusic
-	if losemusic then
-		levity.bank:load(losemusic, "emu")
-	end
-	local music = self.map.properties.music
-	if music then
-		levity.bank:load(music, "emu")
-		levity.bank:play(music)
-	end
-
 	self.rank = InitialRank
 
 	love.mouse.setVisible(false)
@@ -99,13 +118,6 @@ function ShmupMap:_init(map)
 					Object.init(object, layer, map)
 					istrigger = true
 					layer.visible = false
-					for name, value in pairs(object.properties) do
-						if name:find("music")
-						and type(value) == "string"
-						and value:find(".vg") then
-							levity.bank:load(value, "emu")
-						end
-					end
 				end
 			end
 
@@ -118,6 +130,29 @@ function ShmupMap:_init(map)
 				end
 			end
 		end
+		if layer.objects then
+			for _, object in ipairs(layer.objects) do
+				loadBulletSounds(object.properties)
+				loadSoundsInObjectTypeChain(object.properties.nexttype)
+
+				local objecttype = map.objecttypes[object.type]
+				if objecttype then
+					loadBulletSounds(objecttype)
+				end
+
+				if object.tile then
+					objecttype = map.objecttypes[object.tile.type]
+					if objecttype then
+						loadBulletSounds(objecttype)
+					end
+				end
+			end
+		end
+	end
+
+	local music = self.map.properties.music
+	if music then
+		levity.bank:play(music)
 	end
 
 	for t, properties in pairs(self.map.objecttypes) do
@@ -128,14 +163,23 @@ function ShmupMap:_init(map)
 				or category
 		end
 	end
+
+	self.properties.blurradius = 0
+	self.properties.blurdirx = 0
+	self.properties.blurdiry = 0
+	self.screeneffect = levity.scripts:newScript(self.map.name, "ScreenEffectDrunk", map)
 end
 
---[[
 function ShmupMap:endMove(dt)
 	local playerid = self.properties.playerid
-	self.rank = levity.scripts:call(playerid, "rankFactor")
+	--self.rank = levity.scripts:call(playerid, "rankFactor")
+	local playerstuntime = levity.scripts:call(playerid, "getStunTime") or 0
+	local blur = playerstuntime * playerstuntime
+	blur = 16*blur*blur
+	self.properties.blurdirx = blur/levity.camera.w
+	self.properties.blurradius = blur > 0 and 1 or 0
 end
-]]
+
 function ShmupMap.isTutorial()
 	return levity.map.name:find("tutorial")
 end

@@ -80,6 +80,7 @@ function Enemy:_init(object)
 	then
 		self.mover = levity.scripts:newScript(self.id, "Mover", self.object)
 	end
+	self.ride = levity.scripts:newScript(self.id, "Ride", self.object)
 
 	local nexttype = self.properties.nexttype
 	if nexttype then
@@ -100,7 +101,7 @@ function Enemy:_init(object)
 		self.shooter = levity.scripts:newScript(self.id, "Shooter", self.object)
 	end
 
-	if self.properties.defeatcoroutine then
+	if self.properties.coroutine or self.properties.defeatcoroutine then
 		self.coroutine = levity.scripts:newScript(self.id, "Coroutine", object)
 	end
 
@@ -123,13 +124,15 @@ Enemy.NonCoverCategory = {
 }
 
 Enemy.CombatantMask = {
-	ShmupCollision.Category_EnemyShot
+	ShmupCollision.Category_EnemyShot,
+	ShmupCollision.Category_BonusMaze
 }
 
 Enemy.NonCombatantMask = {
 	ShmupCollision.Category_PlayerTeam,
 	ShmupCollision.Category_PlayerShot,
 	ShmupCollision.Category_EnemyShot,
+	ShmupCollision.Category_BonusMaze
 }
 
 Enemy.InvulnerableMask = {
@@ -137,6 +140,7 @@ Enemy.InvulnerableMask = {
 	ShmupCollision.Category_PlayerShot,
 	ShmupCollision.Category_PlayerBomb,
 	ShmupCollision.Category_EnemyShot,
+	ShmupCollision.Category_BonusMaze
 }
 
 function Enemy:initQuery()
@@ -145,6 +149,10 @@ function Enemy:initQuery()
 		levity.scripts:send(triggerid, "addEnemy", self.id)
 	end
 	local rideid = self.properties.rideid
+	local playerid = levity.map.properties.playerid
+	if rideid == "player" then
+		rideid = playerid
+	end
 	if rideid then
 		levity.scripts:send(rideid, "addRider", self.id)
 	end
@@ -156,10 +164,11 @@ end
 
 function Enemy:canTakeDamage()
 	return self.oncamera and not self.oncameraedge
+		and not self.properties.invulnerable
 		and self.health and not self.health:isDefeated()
 		and self.shields < 1
 		and not (self.properties.rideid and self.properties.rideshield)
-		and not (self.properties.ridershield and self.mover and self.mover:hasRiders())
+		and not (self.properties.ridershield and levity.scripts:call(self.id, "hasRiders"))
 end
 
 function Enemy:canBeLockTarget()
@@ -170,6 +179,20 @@ end
 
 function Enemy:canBeBombMeleeTarget()
 	return self:canBeLockTarget()
+end
+
+function Enemy:beginMove(dt)
+	if self.coroutine and not self.coroutine:status() then
+		local coroutine = self.properties.coroutine
+		coroutine = coroutine and self[coroutine]
+		if coroutine then
+			self.coroutine:startCoroutine(coroutine, self)
+		end
+	end
+	if self.ride and not self.mover then
+		local vx, vy = self.object.body:getLinearVelocity()
+		self.ride:updateRidersVelocity(dt, vx, vy)
+	end
 end
 
 function Enemy:endMove(dt)
@@ -262,6 +285,9 @@ end
 
 function Enemy:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 	local otherid = otherfixture:getBody():getUserData().id
+	if self.properties.meleeknockback then
+		levity.bank:play(self.properties.meleesound)
+	end
 	if self.health and otherid == levity.map.properties.playerid then
 		self.health:addDPS(Enemy.PlayerMeleeDamage)
 	end
@@ -368,7 +394,7 @@ function Enemy:friendKilled(friendid)
 	end
 	if friendid == tonumber(self.properties.pathid) then
 		self.properties.pathid = nil
-		levity.scripts:send(self.id, "setDest", nil, nil)
+		levity.scripts:send(self.id, "resetPath")
 	end
 end
 
@@ -400,13 +426,13 @@ function Enemy:enemyDefeated(enemyid)
 				+ deltafiretime
 		end
 
-		if not self.mover:hasRiders() then
+		if not levity.scripts:call(self.id, "hasRiders") then
 			if self.properties.riderdefeatedflee then
 				self.properties.fleeing = true
 				local fleepathid = self.properties.riderdefeatedfleepathid
 				if fleepathid then
 					self.properties.pathid = fleepathid
-					levity.scripts:send(self.id, "setDest", nil, nil)
+					levity.scripts:send(self.id, "resetPath")
 				end
 			end
 
@@ -457,7 +483,7 @@ end
 
 function Enemy:dropDefeatItem(givetoid)
 	local gid = self:getDefeatDropGid()
-	if gid then
+	if gid and self.oncamera then
 		self.object.layer:addObject({
 			gid = gid,
 			x = self.body:getX(),
@@ -493,8 +519,11 @@ function Enemy:explosionClusterCoroutine(explosiontype, numexplosions,
 	end
 end
 
-function Enemy:defeat(giveitemtoid)
+function Enemy:defeat(giveitemtoid, withbomb)
 	if self.properties.defeated then
+		return
+	end
+	if self.properties.bombdamageonly and not withbomb then
 		return
 	end
 	self.properties.defeated = true
@@ -557,6 +586,10 @@ end
 
 function Enemy:discard()
 	local rideid = self.properties.rideid
+	local playerid = levity.map.properties.playerid
+	if rideid == "player" then
+		rideid = playerid
+	end
 	if rideid then
 		levity.scripts:send(rideid, "removeRider", self.id)
 	end

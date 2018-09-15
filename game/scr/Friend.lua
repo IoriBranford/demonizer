@@ -19,8 +19,7 @@ function Friend:_init(object)
 		--ShmupCollision.Category_PlayerTeam,
 		ShmupCollision.Category_PlayerShot,
 		ShmupCollision.Category_PlayerBomb,
-		ShmupCollision.Category_EnemyTeam,
-		ShmupCollision.Category_EnemyInCover
+		ShmupCollision.Category_EnemyTeam
 	})
 
 	self.oncamera = nil

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="15" height="20" tilewidth="16" tileheight="16" infinite="1" nextobjectid="1">
+ <tileset firstgid="1" source="town03_a.tsx"/>
+ <layer name="regions_output" width="15" height="20">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYKAMRDFhp+mlf6DBSPf/KBjaAABcKwRR
+  </chunk>
+  </data>
+ </layer>
+ <layer name="regions_input" width="15" height="20">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJyLYWIAgxg0eqQAdH+PNP+PgpENAKi9AjU=
+  </chunk>
+  </data>
+ </layer>
+ <layer name="output_town03_a_mid" width="15" height="20">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYKAMXGWE0Neg9HVG0vQXQeliKF1CoXvoDUa6/0fB0AYAPcIHvQ==
+  </chunk>
+  </data>
+ </layer>
+ <layer name="input_town03_a_mid" width="15" height="20">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJz7xMgABp+h9BcoPVLAbqh/90DpvSPM/6NgZAMA8UEFFA==
+  </chunk>
+  </data>
+ </layer>
+</map>

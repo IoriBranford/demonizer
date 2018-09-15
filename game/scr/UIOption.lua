@@ -5,10 +5,6 @@ local UIOption = class(UIButton)
 function UIOption:_init(object)
 	self:super(object)
 	self.properties.fillwidth = object.width
-	local changesound = self.properties.changesound
-	if changesound then
-		levity.bank:load(changesound)
-	end
 end
 
 function UIOption:initQuery()

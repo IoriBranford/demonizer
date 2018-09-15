@@ -5,7 +5,7 @@
   <property name="commoncollision" type="int" value="0"/>
  </properties>
  <image source="player.png" width="256" height="448"/>
- <tile id="0">
+ <tile id="0" type="Player">
   <properties>
    <property name="name" value="forward"/>
   </properties>
@@ -48,7 +48,10 @@
    <frame tileid="3" duration="150"/>
   </animation>
  </tile>
- <tile id="4">
+ <tile id="1" type="Player"/>
+ <tile id="2" type="Player"/>
+ <tile id="3" type="Player"/>
+ <tile id="4" type="Player">
   <properties>
    <property name="name" value="lefttilt"/>
    <property name="nextanim" value="left"/>
@@ -60,7 +63,9 @@
    <frame tileid="7" duration="67"/>
   </animation>
  </tile>
- <tile id="7">
+ <tile id="5" type="Player"/>
+ <tile id="6" type="Player"/>
+ <tile id="7" type="Player">
   <properties>
    <property name="name" value="leftuntilt"/>
    <property name="nextanim" value="forward"/>
@@ -72,7 +77,7 @@
    <frame tileid="4" duration="100"/>
   </animation>
  </tile>
- <tile id="8">
+ <tile id="8" type="Player">
   <properties>
    <property name="name" value="left"/>
   </properties>
@@ -83,7 +88,10 @@
    <frame tileid="11" duration="100"/>
   </animation>
  </tile>
- <tile id="12">
+ <tile id="9" type="Player"/>
+ <tile id="10" type="Player"/>
+ <tile id="11" type="Player"/>
+ <tile id="12" type="Player">
   <properties>
    <property name="name" value="righttilt"/>
    <property name="nextanim" value="right"/>
@@ -95,7 +103,9 @@
    <frame tileid="15" duration="100"/>
   </animation>
  </tile>
- <tile id="15">
+ <tile id="13" type="Player"/>
+ <tile id="14" type="Player"/>
+ <tile id="15" type="Player">
   <properties>
    <property name="name" value="rightuntilt"/>
    <property name="nextanim" value="forward"/>
@@ -107,7 +117,7 @@
    <frame tileid="12" duration="100"/>
   </animation>
  </tile>
- <tile id="16">
+ <tile id="16" type="Player">
   <properties>
    <property name="name" value="right"/>
   </properties>
@@ -118,7 +128,10 @@
    <frame tileid="19" duration="100"/>
   </animation>
  </tile>
- <tile id="20">
+ <tile id="17" type="Player"/>
+ <tile id="18" type="Player"/>
+ <tile id="19" type="Player"/>
+ <tile id="20" type="Player">
   <properties>
    <property name="name" value="bombready"/>
    <property name="nextanim" value="bomblaunch"/>
@@ -132,7 +145,12 @@
    <frame tileid="25" duration="99"/>
   </animation>
  </tile>
- <tile id="26">
+ <tile id="21" type="Player"/>
+ <tile id="22" type="Player"/>
+ <tile id="23" type="Player"/>
+ <tile id="24" type="Player"/>
+ <tile id="25" type="Player"/>
+ <tile id="26" type="Player">
   <properties>
    <property name="name" value="bomblaunch"/>
    <property name="nextanim" value="forward"/>
@@ -142,4 +160,5 @@
    <frame tileid="27" duration="99"/>
   </animation>
  </tile>
+ <tile id="27" type="Player"/>
 </tileset>

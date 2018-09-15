@@ -3,7 +3,7 @@
  <properties>
   <property name="DeleteTiles" type="bool" value="false"/>
  </properties>
- <tileset firstgid="1" source="../img/basic_terrain.tsx"/>
+ <tileset firstgid="1" source="basic_terrain.tsx"/>
  <layer name="regions_input" width="1" height="1">
   <data encoding="csv">
 26

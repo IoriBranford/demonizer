@@ -64,7 +64,8 @@ Item.Mask = {
 	ShmupCollision.Category_PlayerShot,
 	ShmupCollision.Category_EnemyShot,
 	ShmupCollision.Category_EnemyCover,
-	ShmupCollision.Category_EnemyBounds
+	ShmupCollision.Category_EnemyBounds,
+	ShmupCollision.Category_BonusMaze
 }
 
 function Item.getNumItems()
@@ -91,6 +92,7 @@ function Item:canBeCaptured()
 	return not self.discarded
 		and self.shields < 1
 		and not (self.properties.rideid and self.properties.rideshield)
+		and not self:isPulledByRescuer()
 end
 
 function Item:canBeBombMeleeTarget()
@@ -129,14 +131,14 @@ function Item:beginMove(dt)
 		end
 	end
 
-	if self.pulledbyid then
+	local puller = levity.map.objects[self.pulledbyid]
+	if puller then
 		local pullerdx = playerdx
 		local pullerdy = playerdy
 		local dist
 		if self.pulledbyid == playerid then
 			dist = math.sqrt(playerdsq)
 		else
-			local puller = levity.map.objects[self.pulledbyid]
 			local pullercx, pullercy = puller.body:getWorldCenter()
 			pullerdx = pullercx - cx
 			pullerdy = pullercy - cy

@@ -4,9 +4,10 @@
 
 --- Properties
 --@field nexttype
---@field nexttypeevent "timePassed", "shotsFired", "coverUpdated", "rideDestroyed", "playerEnteredTrigger", "playerExitedTrigger"
---@field nexttypeparam time, number of shots fired, number of cover objects, or trigger ID
---@field settypesound Sound file to play on changing to this type
+--@field nexttypeevent "timePassed", "shotsFired", "coverUpdated", "rideDestroyed", "allRidersDestroyed", "triggerActivated", "playerEnteredTrigger", "playerExitedTrigger", "triggerEnemiesCleared", "reachedDest"
+--@field nexttypeparam time, number of shots fired, number of cover objects, trigger ID, dest X
+--@field nexttypeparam2 dest Y
+--@field typesound Sound file to play on changing to this type
 --@table Properties
 
 local levity = require "levity"
@@ -34,6 +35,13 @@ function TypeChanger:changeIfEqual(param)
 		self:setType(self.properties.nexttype)
 	end
 end
+function TypeChanger:changeIfNilOrEqual2(param1, param2)
+	if not self.properties.nexttypeparam and not self.properties.nexttypeparam2
+	or param1 == self.properties.nexttypeparam and param2 == self.properties.nexttypeparam2
+	then
+		self:setType(self.properties.nexttype)
+	end
+end
 
 local function AddEventFunction(e, f)
 	TypeChanger[e] = function(self, ...)
@@ -46,10 +54,14 @@ end
 AddEventFunction("timePassed", TypeChanger.incChangeCounter)
 AddEventFunction("coverUpdated", TypeChanger.changeIfEqual)
 AddEventFunction("rideDestroyed", TypeChanger.changeState)
+AddEventFunction("allRidersDestroyed", TypeChanger.changeState)
 AddEventFunction("shotsFired", TypeChanger.incChangeCounter)
 AddEventFunction("riderShotsFired", TypeChanger.incChangeCounter)
+AddEventFunction("triggerActivated", TypeChanger.changeIfEqual)
 AddEventFunction("playerEnteredTrigger", TypeChanger.changeIfEqual)
 AddEventFunction("playerExitedTrigger", TypeChanger.changeIfEqual)
+AddEventFunction("triggerEnemiesCleared", TypeChanger.changeIfEqual)
+AddEventFunction("reachedDest", TypeChanger.changeIfNilOrEqual2)
 
 function TypeChanger:endMove(dt)
 	if self.timePassed then
@@ -60,10 +72,15 @@ end
 function TypeChanger:setType(newtype)
 	local newtypeproperties = levity.map.objecttypes[newtype]
 	if newtypeproperties then
+		local typelayer = self.properties.typelayer
+		typelayer = typelayer and levity.map.layers[typelayer]
+		if typelayer then
+			self.object:setLayer(typelayer)
+		end
 		if not rawget(self.properties, "pathid") then
 			local pathid = self.properties.pathid
 			if pathid ~= newtypeproperties.pathid then
-				levity.scripts:send(self.id, "setDest", nil, nil)
+				levity.scripts:send(self.id, "resetPath")
 			end
 		end
 	end

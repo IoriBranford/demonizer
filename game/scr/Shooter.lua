@@ -25,11 +25,6 @@ function Shooter:_init(object)
 	self.properties = object.properties
 
 	self.timer = 0
-
-	local bullet = levity.map.objecttypes[self.properties.firebullet]
-	if bullet and bullet.sound then
-		levity.bank:load(bullet.sound)
-	end
 end
 
 function Shooter:initQuery()
@@ -239,6 +234,47 @@ function Shooter:endMove(dt)
 			self:fire()
 		end
 	end
+end
+
+function Shooter:drawLineOfFire(diry)
+	if not self:hasLineOfFire() or levity.scripts:call(self.id, "hasCover") then
+		return
+	end
+	local firelinecolor = self.properties.firelinecolor
+	if not firelinecolor then
+		return
+	end
+	local cx, cy = self.object.body:getWorldCenter()
+	local targetid = self.properties.firetargetid
+	local target = self:getTargetObject(targetid)
+	local targetbody = target and target.body
+	if not targetbody then
+		return
+	end
+
+	local tx, ty = targetbody:getWorldCenter()
+	if diry * (ty - cy) < 0 then
+		return
+	end
+
+	local firelinecolor2 = self.properties.firelinecolor2
+	if firelinecolor2 then
+		local firelinefreq = self.properties.firelinefreq or 30
+		if math.sin(firelinefreq*love.timer.getTime()*math.pi) < 0 then
+			firelinecolor = firelinecolor2
+		end
+	end
+	levity.setColorARGB(firelinecolor)
+	love.graphics.line(cx, cy, tx, ty)
+	love.graphics.setColor(0xff,0xff,0xff)
+end
+
+function Shooter:beginDraw()
+	self:drawLineOfFire(-1)
+end
+
+function Shooter:endDraw()
+	self:drawLineOfFire(1)
 end
 
 return Shooter

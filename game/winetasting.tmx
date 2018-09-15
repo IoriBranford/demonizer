@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-up" width="18" height="100" tilewidth="16" tileheight="16" infinite="0" nextobjectid="254">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-up" width="18" height="100" tilewidth="16" tileheight="16" infinite="0" nextobjectid="254">
  <properties>
+  <property name="blurupdatespeed" type="float" value="1"/>
   <property name="cameraid" type="int" value="2"/>
   <property name="extendinc" type="int" value="15000"/>
   <property name="extendpoints" type="int" value="10000"/>
   <property name="maxbombs" type="int" value="0"/>
   <property name="music" type="file" value="mus/19 - Dancing Hunter.vgz"/>
-  <property name="objecttypesxml" type="file" value="wineobjecttypes.xml"/>
   <property name="overlaymap" type="file" value="winegameplay.lua"/>
   <property name="playerid" type="int" value="1"/>
   <property name="script" value="DrunkShmupMap"/>
@@ -19,7 +19,7 @@
  <tileset firstgid="743" source="img/winecivilians.tsx"/>
  <tileset firstgid="839" source="img/wineitems.tsx"/>
  <tileset firstgid="847" source="img/emotes.tsx"/>
- <tileset firstgid="863" source="img/explosion_giant.tsx"/>
+ <tileset firstgid="871" source="img/explosion_giant.tsx"/>
  <layer name="town04_f_low" width="18" height="100">
   <data encoding="base64" compression="zlib">
    eJztWF1u00AQHpsf8XsAAkJQDhAldkzTcoEkdRwqxA3gETgGIN55QPy1XIAHkJAKR+AFqfQUoS0HgBkyI4+3u2s7jkQQffiU8ezsl51v17vjnQLAD8SzAGDK9lXEvRDgORRBPmqbWvqcQfssYtWw72Of91AE+cw4sVcQNxCbULQ/Ib4aIJ8ZJ/Y5GiuiDUX7GyLA9pBxIpj5zDhtC3qIgXo+iX1/wQyngtw/Qmyw3eXnMHDjsuK54okLVdyy4FKwGKSs04S1G7Pe9Nxhn8TQHAwZ5ItUfMJ9hhw74v4xc3S4f8oxbe7bVf8zhuK8mxjzfyTM1SuJP4YbPZz7BHEzaOZbRUSIvmqfx3fM83/yrNEehBir9ia+ZYM+8zTo/PO1mTx05u3g72eFLzA7/3xtNp5d/P2usKd4XG02nn38PVA4VDyutnnyomc683agWV57zLML8+dVh8eX1z7zVuHx5aVrAuGcJ68668eXV531s0zr8HRgr49agb9N+kv9RLUN1TxU10jdlPCz1FVSS0m9OmFkMDtXFwHaXx8g30PEIyjam7xvunCb+wseY58niKdQtGn/fol4ZcHrIN/nBVvYZxvxDoo28bxBvLDgrYXHhbo8Ln3q8vj02UJ8sOBjDX0mJXOdVdTHla+2q/C48tV2FR5XvtqWWN96rYO/XQ/MUz/Y6oG6oL3Qtu/5IHW+gOp94bG1uXjMdd5XPLa2f4VH6k/BWPHY2nTfsm/dKvNFZ8qghIfOrlYJT8rjyRDXECtGe6L8mfJvGH65F6CzbA1xi591zuKPlT9S/h7nJefoHcRdyO8MZDzi1zxt5e/ymKIa690F0Sbl/xtz7vrd7Kixiz825iflsWudMzVHpv42v9QNsaGznpdE+XX+PeUfcR6Sm+iWqPiO8us8IuVvc1t3ATpnkN/fNUFX8ZBu16G4ps17yLYjNlY8pNs6a6ffUds9pBkrd2JkH2DcIeJnUM5jxmaQr/fzIcAFxMWwnMeMjZlL1sAAqt2vih6i74B5Og6dXTw6NoK8Xu420FnGL+u9ic76XrGJzlLbyzs2ZK3KeCR2qOaJ+qUNdJY7XtJa9od5dJ6wxotazzJfNp31d1fLo3PMc9ZhmHuR6GDqJt9lco7KWCLIv9MyOKqDqZt848lY5FtQeOVsMHUwdRtCfscu34sjKOaiITqYuplIoXgOm9C1nK+Oi0t4dO3kq5v0e9qER7RdxHh851dVnj/7V3gU66Gbp2+JJ/wGNzAXaQ==

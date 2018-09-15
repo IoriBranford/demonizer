@@ -19,7 +19,11 @@
  <image source="winecivilians.png" width="576" height="128"/>
  <tile id="0" type="WineCivilian">
   <objectgroup draworder="index">
-   <object id="2" type="CollisionCivilian" x="6" y="12" width="12" height="16"/>
+   <object id="2" type="CollisionCivilian" x="6" y="12" width="12" height="16">
+    <properties>
+     <property name="sensor" type="bool" value="false"/>
+    </properties>
+   </object>
   </objectgroup>
   <animation>
    <frame tileid="0" duration="125"/>

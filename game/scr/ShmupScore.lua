@@ -29,6 +29,12 @@ local Sounds = {
 }
 levity.bank:load(Sounds)
 
+function ShmupScore:givePlayerBonus(bonus, sound)
+	local player = levity.map.objects[levity.map.properties.playerid]
+	self:pointsScored(bonus, player.x, player.y, "BONUS\n%d")
+	levity.bank:play(sound)
+end
+
 function ShmupScore:pointsScored(points, cardx, cardy, cardformat)
 	self.points = math.min(self.points + points, ShmupScore.MaxPoints)
 	if self.extendpoints and self.points >= self.extendpoints then

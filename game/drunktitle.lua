@@ -10,6 +10,7 @@ return {
   tileheight = 5,
   nextobjectid = 44,
   properties = {
+    ["blurupdatespeed"] = 1,
     ["music"] = "mus/08 - Curry and Rice.vgz",
     ["nextmap"] = "demonrealm.lua",
     ["script"] = "DrunkTitleMap"
@@ -183,25 +184,25 @@ return {
       name = "emotes",
       firstgid = 119,
       filename = "img/emotes.tsx",
-      tilewidth = 16,
+      tilewidth = 24,
       tileheight = 16,
       spacing = 0,
       margin = 0,
       image = "img/emotes.png",
-      imagewidth = 128,
-      imageheight = 32,
+      imagewidth = 192,
+      imageheight = 48,
       tileoffset = {
-        x = -8,
+        x = -12,
         y = -16
       },
       grid = {
         orientation = "orthogonal",
-        width = 16,
+        width = 24,
         height = 16
       },
       properties = {},
       terrains = {},
-      tilecount = 16,
+      tilecount = 24,
       tiles = {
         {
           id = 0,
@@ -298,12 +299,36 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 16,
+          properties = {
+            ["name"] = "stun"
+          },
+          animation = {
+            {
+              tileid = 16,
+              duration = 125
+            },
+            {
+              tileid = 17,
+              duration = 125
+            },
+            {
+              tileid = 18,
+              duration = 125
+            },
+            {
+              tileid = 17,
+              duration = 125
+            }
+          }
         }
       }
     },
     {
       name = "winebomb",
-      firstgid = 135,
+      firstgid = 143,
       filename = "img/winebomb.tsx",
       tilewidth = 18,
       tileheight = 12,
@@ -393,7 +418,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "index",
-      properties = {},
+      properties = {
+        ["script"] = "DrunkTitleLayer"
+      },
       objects = {
         {
           id = 25,
@@ -627,7 +654,7 @@ return {
           width = 18,
           height = 12,
           rotation = 270,
-          gid = 135,
+          gid = 143,
           visible = true,
           properties = {}
         }

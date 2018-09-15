@@ -6,11 +6,6 @@ function UIButton:_init(object)
 	self.pressed = false
 	self.properties = object.properties
 
-	local presssound = self.properties.presssound
-	if presssound then
-		levity.bank:load(presssound)
-	end
-
 	local action = self.properties.action
 	local initLock = action and self["initLock_"..action]
 	if initLock then

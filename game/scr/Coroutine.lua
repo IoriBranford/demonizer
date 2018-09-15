@@ -11,6 +11,10 @@ function Coroutine:_init(object, func, param)
 	self:startCoroutine(func, param)
 end
 
+function Coroutine:status()
+	return self.coroutine and coroutine.status(self.coroutine)
+end
+
 --- Start running a function as a coroutine.
 -- Function will be resumed on every beginMove.
 --@param func Coroutine function taking two arguments: param and dt.

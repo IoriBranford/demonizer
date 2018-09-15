@@ -43,15 +43,20 @@ function ScreenEffectDrunk:endMove(dt)
 	local diry = self.properties.blurdiry or 0
 	local radius = self.properties.blurradius or 0
 	local direction = self.direction
-	local dirx0 = direction[1]
-	local diry0 = direction[2]
-	local deltadirx = dirx - dirx0
-	local deltadiry = diry - diry0
-	local dradius = radius - self.radius
-	local updatespeed = self.properties.blurupdatespeed or 1
-	direction[1] = dirx0 + deltadirx*dt*updatespeed
-	direction[2] = diry0 + deltadiry*dt*updatespeed
-	self.radius = self.radius + dradius*dt*updatespeed
+	local updatespeed = self.properties.blurupdatespeed or 0
+	if updatespeed > 0 then
+		local dirx0 = direction[1]
+		local diry0 = direction[2]
+		local deltadirx = dirx - dirx0
+		local deltadiry = diry - diry0
+		local dradius = radius - self.radius
+		direction[1] = dirx0 + deltadirx*dt*updatespeed
+		direction[2] = diry0 + deltadiry*dt*updatespeed
+		--self.radius = self.radius + dradius*dt*updatespeed
+	else
+		direction[1] = dirx
+		direction[2] = diry
+	end
 	self.shader:send("radius", (radius))
 	self.shader:send("direction", direction)
 end

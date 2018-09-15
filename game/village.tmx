@@ -1677,7 +1677,6 @@ storehouseroof</property>
   </properties>
   <object id="1" name="player" gid="1431" x="144" y="3952" width="64" height="64">
    <properties>
-    <property name="script" value="ShmupPlayer"/>
    </properties>
   </object>
  </objectgroup>

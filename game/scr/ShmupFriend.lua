@@ -18,7 +18,6 @@ function ShmupFriend:_init(object)
 		ShmupCollision.Category_PlayerShot,
 		ShmupCollision.Category_PlayerBomb,
 		ShmupCollision.Category_EnemyTeam,
-		ShmupCollision.Category_EnemyInCover
 	})
 
 	self.ready = false

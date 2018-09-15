@@ -2,7 +2,7 @@
 <tileset name="sparks_huge" tilewidth="96" tileheight="96" tilecount="20" columns="5">
  <tileoffset x="-48" y="48"/>
  <image source="sparks_huge.png" width="480" height="384"/>
- <tile id="0">
+ <tile id="0" type="Spark">
   <properties>
    <property name="name" value="explosion"/>
   </properties>
@@ -19,7 +19,7 @@
    <frame tileid="9" duration="67"/>
   </animation>
  </tile>
- <tile id="10">
+ <tile id="10" type="PlayerDeath">
   <properties>
    <property name="name" value="playerexplosion"/>
   </properties>

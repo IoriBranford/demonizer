@@ -1,4 +1,5 @@
 local levity = require "levity"
+local maputil = require "levity.maputil"
 local ShmupCollision = require "ShmupCollision"
 
 local Trigger = class()
@@ -29,6 +30,13 @@ function Trigger:activateObjects(num)
 			end
 		end
 	end
+end
+
+function Trigger:addNewObject(object)
+	maputil.setObjectDefaultProperties(object, levity.map.objecttypes)
+	object.layer = self.object.layer
+	object.id = object.id or levity.map:newObjectId()
+	self:activateObject(object)
 end
 
 function Trigger:activateObject(object)
@@ -111,7 +119,6 @@ function Trigger:activate()
 
 	local sound = self.properties.soundfile or ""
 	if sound ~= "" then
-		levity.bank:load(sound, "static")
 		levity.bank:play(sound)
 	end
 
@@ -207,6 +214,8 @@ function Trigger:activate()
 	levity.scripts:call(playerid, "restrictMove", playerrestrictmove)
 	local playerrestrictfire = self.properties.playerrestrictfire
 	levity.scripts:call(playerid, "restrictFire", playerrestrictfire)
+
+	levity.scripts:broadcast("triggerActivated", self.id)
 end
 
 function Trigger:isPlayerIn()
@@ -343,6 +352,8 @@ function Trigger:enemyDefeated(enemyid)
 		return
 	end
 
+	levity.scripts:broadcast("triggerEnemiesCleared", self.id)
+
 	local cleartowin = self.properties.cleartowin
 	if cleartowin then
 		levity.scripts:broadcast("beginPlayerWin")
@@ -363,7 +374,8 @@ function Trigger:enemyDefeated(enemyid)
 		local defeatenemiesbonustimewindow = self.properties.defeatenemiesbonustimewindow or math.huge
 		local cleartime = love.timer.getTime() - self.firstdefeattime
 		if cleartime <= defeatenemiesbonustimewindow then
-			self:giveBonus(bonus)
+			levity.scripts:broadcast("givePlayerBonus", bonus,
+						self.properties.bonussound)
 			self.properties.defeatenemiesbonus = 0
 		end
 	end
@@ -404,7 +416,7 @@ function Trigger:giveBonus(bonus)
 	local player = levity.map.objects[levity.map.properties.playerid]
 	levity.scripts:broadcast("pointsScored", bonus,
 		player.x, player.y, "BONUS\n%d")
-	levity.bank:play("snd/bonus.ogg")
+	levity.bank:play(self.properties.bonussound)
 end
 
 function Trigger:friendKilled(friendid)

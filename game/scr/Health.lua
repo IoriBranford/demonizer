@@ -94,7 +94,7 @@ function Health:endMove(dt)
 			if not self.properties.friendly then
 				levity.scripts:broadcast("pointsScored", self.health*10)
 			end
-			levity.scripts:send(self.id, "defeat")
+			levity.scripts:send(self.id, "defeat", nil, self.dps > 0)
 		else
 			if not self.properties.friendly then
 				levity.scripts:broadcast("pointsScored", damage*10)

@@ -10,12 +10,12 @@ return {
   tileheight = 16,
   nextobjectid = 254,
   properties = {
+    ["blurupdatespeed"] = 1,
     ["cameraid"] = 2,
     ["extendinc"] = 15000,
     ["extendpoints"] = 10000,
     ["maxbombs"] = 0,
     ["music"] = "mus/19 - Dancing Hunter.vgz",
-    ["objecttypesxml"] = "wineobjecttypes.xml",
     ["overlaymap"] = "winegameplay.lua",
     ["playerid"] = 1,
     ["script"] = "DrunkShmupMap",
@@ -51,6 +51,7 @@ return {
       tiles = {
         {
           id = 0,
+          type = "Player",
           properties = {
             ["name"] = "forward"
           },
@@ -205,7 +206,20 @@ return {
           }
         },
         {
+          id = 1,
+          type = "Player"
+        },
+        {
+          id = 2,
+          type = "Player"
+        },
+        {
+          id = 3,
+          type = "Player"
+        },
+        {
           id = 4,
+          type = "Player",
           properties = {
             ["name"] = "lefttilt",
             ["nextanim"] = "left"
@@ -230,7 +244,16 @@ return {
           }
         },
         {
+          id = 5,
+          type = "Player"
+        },
+        {
+          id = 6,
+          type = "Player"
+        },
+        {
           id = 7,
+          type = "Player",
           properties = {
             ["name"] = "leftuntilt",
             ["nextanim"] = "forward"
@@ -256,6 +279,7 @@ return {
         },
         {
           id = 8,
+          type = "Player",
           properties = {
             ["name"] = "left"
           },
@@ -279,7 +303,20 @@ return {
           }
         },
         {
+          id = 9,
+          type = "Player"
+        },
+        {
+          id = 10,
+          type = "Player"
+        },
+        {
+          id = 11,
+          type = "Player"
+        },
+        {
           id = 12,
+          type = "Player",
           properties = {
             ["name"] = "righttilt",
             ["nextanim"] = "right"
@@ -304,7 +341,16 @@ return {
           }
         },
         {
+          id = 13,
+          type = "Player"
+        },
+        {
+          id = 14,
+          type = "Player"
+        },
+        {
           id = 15,
+          type = "Player",
           properties = {
             ["name"] = "rightuntilt",
             ["nextanim"] = "forward"
@@ -330,6 +376,7 @@ return {
         },
         {
           id = 16,
+          type = "Player",
           properties = {
             ["name"] = "right"
           },
@@ -353,7 +400,20 @@ return {
           }
         },
         {
+          id = 17,
+          type = "Player"
+        },
+        {
+          id = 18,
+          type = "Player"
+        },
+        {
+          id = 19,
+          type = "Player"
+        },
+        {
           id = 20,
+          type = "Player",
           properties = {
             ["name"] = "bombready",
             ["nextanim"] = "bomblaunch"
@@ -386,7 +446,28 @@ return {
           }
         },
         {
+          id = 21,
+          type = "Player"
+        },
+        {
+          id = 22,
+          type = "Player"
+        },
+        {
+          id = 23,
+          type = "Player"
+        },
+        {
+          id = 24,
+          type = "Player"
+        },
+        {
+          id = 25,
+          type = "Player"
+        },
+        {
           id = 26,
+          type = "Player",
           properties = {
             ["name"] = "bomblaunch",
             ["nextanim"] = "forward"
@@ -401,6 +482,10 @@ return {
               duration = 99
             }
           }
+        },
+        {
+          id = 27,
+          type = "Player"
         }
       }
     },
@@ -4224,7 +4309,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["sensor"] = false
+                }
               }
             }
           },
@@ -4784,7 +4871,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["sensor"] = false
+                }
               }
             }
           },
@@ -5319,25 +5408,25 @@ return {
       name = "emotes",
       firstgid = 847,
       filename = "img/emotes.tsx",
-      tilewidth = 16,
+      tilewidth = 24,
       tileheight = 16,
       spacing = 0,
       margin = 0,
       image = "img/emotes.png",
-      imagewidth = 128,
-      imageheight = 32,
+      imagewidth = 192,
+      imageheight = 48,
       tileoffset = {
-        x = -8,
+        x = -12,
         y = -16
       },
       grid = {
         orientation = "orthogonal",
-        width = 16,
+        width = 24,
         height = 16
       },
       properties = {},
       terrains = {},
-      tilecount = 16,
+      tilecount = 24,
       tiles = {
         {
           id = 0,
@@ -5434,12 +5523,36 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 16,
+          properties = {
+            ["name"] = "stun"
+          },
+          animation = {
+            {
+              tileid = 16,
+              duration = 125
+            },
+            {
+              tileid = 17,
+              duration = 125
+            },
+            {
+              tileid = 18,
+              duration = 125
+            },
+            {
+              tileid = 17,
+              duration = 125
+            }
+          }
         }
       }
     },
     {
       name = "explosion_giant",
-      firstgid = 863,
+      firstgid = 871,
       filename = "img/explosion_giant.tsx",
       tilewidth = 256,
       tileheight = 256,
@@ -5463,6 +5576,7 @@ return {
       tiles = {
         {
           id = 0,
+          type = "Spark",
           animation = {
             {
               tileid = 0,

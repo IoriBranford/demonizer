@@ -46,6 +46,7 @@ return {
       tiles = {
         {
           id = 0,
+          type = "Player",
           properties = {
             ["name"] = "forward"
           },
@@ -200,7 +201,20 @@ return {
           }
         },
         {
+          id = 1,
+          type = "Player"
+        },
+        {
+          id = 2,
+          type = "Player"
+        },
+        {
+          id = 3,
+          type = "Player"
+        },
+        {
           id = 4,
+          type = "Player",
           properties = {
             ["name"] = "lefttilt",
             ["nextanim"] = "left"
@@ -225,7 +239,16 @@ return {
           }
         },
         {
+          id = 5,
+          type = "Player"
+        },
+        {
+          id = 6,
+          type = "Player"
+        },
+        {
           id = 7,
+          type = "Player",
           properties = {
             ["name"] = "leftuntilt",
             ["nextanim"] = "forward"
@@ -251,6 +274,7 @@ return {
         },
         {
           id = 8,
+          type = "Player",
           properties = {
             ["name"] = "left"
           },
@@ -274,7 +298,20 @@ return {
           }
         },
         {
+          id = 9,
+          type = "Player"
+        },
+        {
+          id = 10,
+          type = "Player"
+        },
+        {
+          id = 11,
+          type = "Player"
+        },
+        {
           id = 12,
+          type = "Player",
           properties = {
             ["name"] = "righttilt",
             ["nextanim"] = "right"
@@ -299,7 +336,16 @@ return {
           }
         },
         {
+          id = 13,
+          type = "Player"
+        },
+        {
+          id = 14,
+          type = "Player"
+        },
+        {
           id = 15,
+          type = "Player",
           properties = {
             ["name"] = "rightuntilt",
             ["nextanim"] = "forward"
@@ -325,6 +371,7 @@ return {
         },
         {
           id = 16,
+          type = "Player",
           properties = {
             ["name"] = "right"
           },
@@ -348,7 +395,20 @@ return {
           }
         },
         {
+          id = 17,
+          type = "Player"
+        },
+        {
+          id = 18,
+          type = "Player"
+        },
+        {
+          id = 19,
+          type = "Player"
+        },
+        {
           id = 20,
+          type = "Player",
           properties = {
             ["name"] = "bombready",
             ["nextanim"] = "bomblaunch"
@@ -381,7 +441,28 @@ return {
           }
         },
         {
+          id = 21,
+          type = "Player"
+        },
+        {
+          id = 22,
+          type = "Player"
+        },
+        {
+          id = 23,
+          type = "Player"
+        },
+        {
+          id = 24,
+          type = "Player"
+        },
+        {
+          id = 25,
+          type = "Player"
+        },
+        {
           id = 26,
+          type = "Player",
           properties = {
             ["name"] = "bomblaunch",
             ["nextanim"] = "forward"
@@ -396,6 +477,10 @@ return {
               duration = 99
             }
           }
+        },
+        {
+          id = 27,
+          type = "Player"
         }
       }
     },
@@ -4452,9 +4537,7 @@ return {
           rotation = 0,
           gid = 1,
           visible = true,
-          properties = {
-            ["script"] = "ShmupPlayer"
-          }
+          properties = {}
         }
       }
     },

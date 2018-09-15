@@ -89,7 +89,9 @@ function Rescuer:startRescue(id)
 		local rescueloopsound = self.properties.rescueloopsound
 		if rescueloopsound then
 			self.sound = levity.bank:play(rescueloopsound, nil, true)
-			self.sound:setLooping(true)
+			if self.sound then
+				self.sound:setLooping(true)
+			end
 		end
 	end
 	levity.scripts:broadcast("rescueStarted", id, self.id)
@@ -164,6 +166,16 @@ function Rescuer:enemyDefeated(enemyid)
 		levity.scripts:send(self.id, "defeat")
 	end
 end
+
+function Rescuer:humanGone(humanid, captorid)
+	if self.properties.pathid == humanid then
+		self:returnFromRescue()
+	end
+end
+Rescuer.humanConverted = Rescuer.humanGone
+Rescuer.humanCaptured = Rescuer.humanGone
+Rescuer.humanFled = Rescuer.humanGone
+Rescuer.humanDied = Rescuer.humanGone
 
 function Rescuer:discard()
 	if self.sound then

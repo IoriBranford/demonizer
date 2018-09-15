@@ -654,7 +654,7 @@ return {
         {
           id = 17,
           name = "key_pausemenu",
-          type = "UIInputBind",
+          type = "",
           shape = "text",
           x = 30,
           y = 180,
@@ -662,7 +662,7 @@ return {
           height = 15,
           rotation = 0,
           visible = true,
-          text = "Pause = %s",
+          text = "Pause = escape",
           fontfamily = "Press Start 2P",
           pixelsize = 8,
           wrap = true,

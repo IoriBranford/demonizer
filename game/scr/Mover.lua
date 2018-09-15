@@ -22,27 +22,6 @@ function Mover:_init(object)
 	self.properties = object.properties
 
 	self.prevx, self.prevy = self.body:getPosition()
-	self.riderids = nil
-
-	local tileset = object.tile and levity.map.tilesets[object.tile.tileset]
-	if tileset then
-		for tid = tileset.firstgid, tileset.firstgid+tileset.tilecount do
-			local tile = levity.map.tiles[tid]
-			local tileobjects = tile and tile.objectGroup and tile.objectGroup.objects
-			local seats = tile.properties.rideseats
-			if tileobjects and not seats then
-				for _, seat in pairs(tileobjects) do
-					if seat.properties.faceangle
-					or seat.properties.strafearc
-					then
-						seats = seats or {}
-						tile.properties.rideseats = seats
-						seats[seat.name] = seat
-					end
-				end
-			end
-		end
-	end
 end
 
 local function getCurvePoint(curvepath, odo)
@@ -61,8 +40,10 @@ function Mover:setOffsetX(ox)
 	self.offx = ox
 end
 
-function Mover:setDest(destx, desty)
-	self.destx, self.desty = destx, desty
+function Mover:resetPath()
+	self.path = nil
+	self.destx, self.desty = nil, nil
+	self.curvetraveled = nil
 end
 
 local SpeedFunctions = {}
@@ -103,7 +84,11 @@ function Mover:beginMove(dt)
 		self.orbitangle = self.orbitangle + orbitspeed*dt
 	end
 
+	local playerid = levity.map.properties.playerid
 	local rideid = self.properties.rideid
+	if rideid == "player" then
+		rideid = playerid
+	end
 	local ride = levity.map.objects[rideid]
 	if ride then
 		return
@@ -114,7 +99,7 @@ function Mover:beginMove(dt)
 
 	local pathid = self.properties.pathid
 	if pathid == "player" then
-		pathid = levity.map.properties.playerid
+		pathid = playerid
 	elseif pathid == "mylayer" then
 		pathid = self.object.properties.originallayer or self.object.layer.name
 	end
@@ -183,7 +168,7 @@ function Mover:beginMove(dt)
 		local distsq = math.hypotsq(distx, disty)
 		local dist
 
-		local pathspeed = self.properties.pathspeed or 60
+		local pathspeed = self.properties.pathspeed or 0
 
 		local speedfunc = self.properties.pathspeedfunction
 		speedfunc = speedfunc and SpeedFunctions[speedfunc]
@@ -204,20 +189,22 @@ function Mover:beginMove(dt)
 		local dot = math.dot(distx, disty, vx, vy)
 
 		local path = self.path
-
-		if path and path.curve then
+		local curve = path and path.curve
+		if curve then
 			local curvetraveled = self.curvetraveled or 0
 			curvetraveled = curvetraveled + pathspeed*dt
-			if curvetraveled > path.length then
+			if curvetraveled >= path.length then
 				curvetraveled = path.length
 				self.curvetraveled = nil
 				self.destx, self.desty = nil, nil
+				reacheddest = true
 			else
 				self.curvetraveled = curvetraveled
 			end
 			local curvex, curvey = getCurvePoint(path, curvetraveled)
 			distx = curvex + offx - x
 			disty = curvey + offy - y
+			distsq = math.hypotsq(distx, disty)
 			newvx = distx / dt
 			newvy = disty / dt
 		elseif distsq < pathspeed*pathspeed*dt*dt then
@@ -236,72 +223,25 @@ function Mover:beginMove(dt)
 		end
 	end
 
-	if self.riderids then
-		local vx, vy = self.body:getLinearVelocity()
-		self:updateRidersVelocity(dt, vx, vy)
-	end
+	local vx, vy = self.body:getLinearVelocity()
+	levity.scripts:send(self.id, "updateRidersVelocity", dt, vx, vy)
 
 	if reacheddest then
 		levity.scripts:send(self.id, "reachedDest", destx, desty)
 	end
 end
 
-function Mover:updateRidersVelocity(dt, newvx, newvy)
-	if not self.riderids then
-		return
-	end
-	for _, riderid in pairs(self.riderids) do
-		local rider = levity.map.objects[riderid]
-		if rider and rider.body then
-			local riderx, ridery = rider.body:getPosition()
-			local ridervx, ridervy = newvx, newvy
-			local seat = rider.properties.rideseat
-			local seatx, seaty
-			local seatorbit = seat == "orbit"
-			local tilegid
-
-			if seat then
-				seat, tilegid = self:getRideSeat(seat)
-			end
-
-			if seat then
-				seatx, seaty = levity.map:getTileShapePosition(tilegid, seat)
-				seatx, seaty = self.body:getWorldPoint(seatx, seaty)
-			elseif seatorbit then
-				seatx, seaty = levity.scripts:call(riderid, "getOrbitUnitVector")
-
-				local radius = rider.properties.rideorbitradius or 64
-				local radsq = radius*radius
-				local distsq = math.hypotsq(
-					self.body:getX() - riderx,
-					self.body:getY() - ridery)
-				if distsq < radsq then
-					radius = math.sqrt(distsq) + (60*dt)
-				end
-				seatx = seatx*radius
-				seaty = seaty*radius
-				seatx, seaty = self.body:getWorldPoint(seatx, seaty)
-			end
-
-			if seatx and seaty and dt > 0 then
-				ridervx = ridervx + ((seatx - riderx) / dt)
-				ridervy = ridervy + ((seaty - ridery) / dt)
-			end
-			rider.body:setLinearVelocity(ridervx, ridervy)
-			levity.scripts:send(riderid, "updateRidersVelocity", dt, ridervx, ridervy)
-		end
-	end
-end
-
 function Mover:endMove(dt)
 	local destx, desty = self.destx, self.desty
 	local rideid = self.properties.rideid
+	local playerid = levity.map.properties.playerid
+	if rideid == "player" then
+		rideid = playerid
+	end
 	local ride = levity.map.objects[rideid]
 	if not ride and (not destx or not desty) then
 		self.body:setLinearVelocity(0, 0)
-		if self.riderids then
-			self:updateRidersVelocity(0, 0, 0)
-		end
+		levity.scripts:send(self.id, "updateRidersVelocity", 0, 0, 0)
 	end
 end
 
@@ -314,54 +254,6 @@ end
 
 function Mover:getOrbitUnitVector()
 	return math.cos(self.orbitangle), math.sin(self.orbitangle)
-end
-
-function Mover:getRideSeat(seatname, dt)
-	local tile = self.object.tile
-	local tileset = tile and levity.map.tilesets[tile.tileset]
-	local gid = tileset.firstgid
-	if dt then
-		local nextframetile = tile and self.object:getAnimationUpdate(dt)
-		gid = gid + nextframetile
-		tile = nextframetile and tileset and
-			levity.map.tiles[gid]
-			or tile
-	else
-		gid = gid + tile.id
-	end
-	local seats = tile and tile.properties.rideseats
-	if seats then
-		return seats[seatname], gid
-	end
-end
-
-function Mover:addRider(riderid)
-	if not self.riderids then
-		self.riderids = {}
-	end
-	self.riderids[riderid] = riderid
-	local rider = levity.map.objects[riderid]
-	if rider.properties.rideseat == "orbit" then
-		levity.scripts:send(riderid, "initOrbit", self.id)
-	end
-end
-
-function Mover:hasRiders()
-	return self.riderids and next(self.riderids) ~= nil
-end
-
-function Mover:isRider(riderid)
-	return self.riderids and self.riderids[riderid]
-end
-
-function Mover:removeRider(riderid)
-	if self.riderids then
-		self.riderids[riderid] = nil
-	end
-end
-
-function Mover:releaseRiders()
-	self.riderids = nil
 end
 
 function Mover.pathfind_linear1way(self, paths, prevx, prevy)

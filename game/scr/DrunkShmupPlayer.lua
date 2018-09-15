@@ -61,7 +61,7 @@ function DrunkShmupPlayer:updateFire(dt)
 		end
 		self.firetimer = firetimer
 
-		self:playSound(self.Sounds.Shot)
+		self:playSound(self.properties.shotsound)
 	end
 	self.firetimer = levity:timerCorrectRoundingError(
 				self.firetimer + dt,
@@ -99,11 +99,11 @@ function DrunkShmupPlayer:bombCoroutine(dt)
 	levity.scripts:broadcast("playerBombed")
 	local bombtime = self.bacbase
 	self.bacbase = 0
-	levity.bank:play(ShmupPlayer.Sounds.Bomber)
+	levity.bank:play(self.properties.bombersound)
 	self.shieldtimer = 60
 	self:recenterCoroutine(dt)
 
-	levity.bank:play(ShmupPlayer.Sounds.Bomb)
+	levity.bank:play(self.properties.bombsound)
 	self.bacbase = bombtime
 	self.shieldtimer = self.bacbase
 	local period = 15*math.pi
@@ -137,7 +137,7 @@ function DrunkShmupPlayer:beginContact(myfixture, otherfixture, contact)
 		local numshots = self:getNumShots()
 		self.bacbase = math.min(self.bacbase + alcohol, DrunkShmupPlayer.MaxBAC)
 		if self:getNumShots() > numshots then
-			levity.bank:play(ShmupPlayer.Sounds.Powerup)
+			levity.bank:play(self.properties.powerupsound)
 		end
 	end
 	ShmupPlayer.beginContact(self, myfixture, otherfixture, contact)

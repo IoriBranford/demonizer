@@ -8,7 +8,7 @@
   <property name="playerid" type="int" value="1"/>
  </properties>
  <tileset firstgid="1" source="../img/player.tsx"/>
- <tileset firstgid="29" source="../img/DefenseOrb.tsx"/>
+ <tileset firstgid="29" source="../img/Orb.tsx"/>
  <tileset firstgid="41" source="../img/human/enemy/PriestF.tsx"/>
  <tileset firstgid="53" source="../img/human/enemy/Archer.tsx"/>
  <tileset firstgid="77" source="../img/holyshield.tsx"/>
@@ -70,7 +70,6 @@
   </properties>
   <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
    <properties>
-    <property name="script" value="ShmupPlayer"/>
    </properties>
   </object>
  </objectgroup>

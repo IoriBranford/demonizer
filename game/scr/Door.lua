@@ -11,7 +11,8 @@ Door.Mask = {
 	ShmupCollision.Category_PlayerBomb,
 	ShmupCollision.Category_EnemyShot,
 	ShmupCollision.Category_EnemyCover,
-	ShmupCollision.Category_EnemyBounds
+	ShmupCollision.Category_EnemyBounds,
+	ShmupCollision.Category_BonusMaze
 }
 
 function Door:_init(object)

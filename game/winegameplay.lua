@@ -13,7 +13,6 @@ return {
     ["delayinitobjects"] = true,
     ["losemusic"] = "mus/33 - All Over Tonight.vgz",
     ["script"] = "ShmupMap",
-    ["staticsounds"] = "snd/alarm4.ogg, snd/ballista.ogg, snd/bomber.ogg, snd/bomb.ogg, snd/boom1.ogg,\n  snd/boom2.ogg, snd/boom3.ogg, snd/bonus.ogg, snd/bow.ogg, snd/burst.ogg, snd/buzz.ogg, snd/catapult.ogg, snd/charge.ogg,\nsnd/dragonfire.ogg, snd/equip.ogg, snd/extend.ogg, snd/forcefield.ogg, snd/gallop8.ogg, snd/hit.ogg, snd/hyaa.ogg, snd/item1.ogg,\nsnd/item2.ogg, snd/kick.ogg, snd/knockout.ogg, snd/maxed.ogg, snd/mmph.ogg, snd/nnoooo.ogg, snd/ow.ogg,\nsnd/parry.ogg, snd/pause.ogg, snd/pike.ogg, snd/playershot.ogg, snd/powershot.ogg,\nsnd/powerup.ogg, snd/respawn.ogg, snd/scream.ogg, snd/selfdestruct.ogg,\nsnd/shriek.ogg, snd/slash.ogg, snd/sword.ogg, snd/targetlock.ogg,\nsnd/thankyou.ogg, snd/ting.ogg, snd/turbo.ogg, snd/warp.ogg",
     ["winmusic"] = "mus/07 - Great Job!.vgz"
   },
   tilesets = {
@@ -630,6 +629,7 @@ return {
       tiles = {
         {
           id = 0,
+          type = "Spark",
           properties = {
             ["name"] = "explosion"
           },
@@ -678,6 +678,7 @@ return {
         },
         {
           id = 10,
+          type = "PlayerDeath",
           properties = {
             ["name"] = "playerexplosion"
           },
@@ -1431,20 +1432,20 @@ return {
       name = "item",
       firstgid = 168,
       filename = "img/item.tsx",
-      tilewidth = 24,
+      tilewidth = 48,
       tileheight = 24,
       spacing = 0,
       margin = 0,
       image = "img/item.png",
       imagewidth = 48,
-      imageheight = 24,
+      imageheight = 48,
       tileoffset = {
-        x = -12,
+        x = -24,
         y = 12
       },
       grid = {
         orientation = "orthogonal",
-        width = 24,
+        width = 48,
         height = 24
       },
       properties = {},
@@ -2899,6 +2900,7 @@ return {
       offsety = 0,
       draworder = "topdown",
       properties = {
+        ["pausesound"] = "snd/pause.ogg",
         ["script"] = "MenuPause"
       },
       objects = {

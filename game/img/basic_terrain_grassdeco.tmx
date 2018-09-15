@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.0.1" orientation="orthogonal" renderorder="right-up" width="4" height="4" tilewidth="16" tileheight="16" nextobjectid="1">
- <tileset firstgid="1" source="../img/basic_terrain.tsx"/>
- <tileset firstgid="385" source="../img/forest.tsx"/>
+ <tileset firstgid="1" source="basic_terrain.tsx"/>
+ <tileset firstgid="385" source="forest.tsx"/>
  <layer name="regions_input" width="4" height="4">
   <data encoding="base64" compression="zlib">
    eJyTYoAAKQbyAAAMcAA1

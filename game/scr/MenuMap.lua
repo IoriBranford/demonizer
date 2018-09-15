@@ -2,13 +2,25 @@ local levity = require "levity"
 local UIMenu = require "UIMenu"
 
 local MenuMap = class()
+
+local function getOSSpecificMenu(menuname)
+	local i, j = menuname:find("_pc")
+	if i and j == menuname:len() then
+		local os = love.system.getOS()
+		local ismobile = (os == "Android" or os == "iOS")
+		if ismobile then
+			menuname = menuname:sub(1, i-1).."_mobile"
+		end
+	end
+	return menuname
+end
+
 function MenuMap:_init(map)
 	self.map = map
 	self.properties = self.map.properties
 
 	local music = self.map.properties.music
 	if music then
-		levity.bank:load(music, "emu")
 		levity.bank:play(music)
 	end
 
@@ -41,19 +53,15 @@ function MenuMap:_init(map)
 		end
 	end
 
-	local os = love.system.getOS()
-	local ismobile = (os == "Android" or os == "iOS")
-	if ismobile then
-		local i, j = self.currentmenuid:find("_pc")
-		if i and j == self.currentmenuid:len() then
-			self.map.layers[self.currentmenuid].visible = false
-			self:changeMenu(self.currentmenuid:sub(1, i-1).."_mobile")
-		end
+	local osspecificmenu = self.currentmenuid and getOSSpecificMenu(self.currentmenuid)
+	if self.currentmenuid ~= osspecificmenu then
+		self.map.layers[self.currentmenuid].visible = false
+		self:changeMenu(osspecificmenu)
 	end
 end
 
 function MenuMap:changeMenu(nextmenu)
-	self.nextmenu = nextmenu
+	self.nextmenu = getOSSpecificMenu(nextmenu)
 end
 
 function MenuMap:doChangeMenu(nextmenu)
@@ -101,6 +109,22 @@ function MenuMap:startGame(firstmap)
 	if levity.bank.currentmusic then
 		levity.bank.currentmusic:fade()
 	end
+end
+
+function MenuMap:keypressed_f12()
+	local filename = os.date("shot_%Y-%m-%d_%H-%M-%S")
+	if love.filesystem.exists(filename) then
+		for i = 1, 999 do
+			local newfilename = filename..'_'..i
+			if not love.filesystem.exists(newfilename) then
+				filename = newfilename
+				break
+			end
+		end
+	end
+
+	local screenshotdata = love.graphics.newScreenshot()
+	screenshotdata:encode("png", filename..".png")
 end
 
 return MenuMap

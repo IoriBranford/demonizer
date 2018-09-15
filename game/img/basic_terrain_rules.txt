@@ -1,0 +1,3 @@
+basic_terrain_markoccluded.tmx
+basic_terrain_dirtdeco.tmx
+basic_terrain_grassdeco.tmx

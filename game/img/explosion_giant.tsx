@@ -2,7 +2,7 @@
 <tileset name="explosion_giant" tilewidth="256" tileheight="256" tilecount="16" columns="4">
  <tileoffset x="-128" y="128"/>
  <image source="explosion_giant.png" width="1024" height="1024"/>
- <tile id="0">
+ <tile id="0" type="Spark">
   <animation>
    <frame tileid="0" duration="67"/>
    <frame tileid="1" duration="67"/>

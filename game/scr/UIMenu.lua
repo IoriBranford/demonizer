@@ -68,6 +68,9 @@ function UIMenu:stopBindingInput()
 end
 
 function UIMenu:mousemoved()
+	if not self.layer.visible then
+		return
+	end
 	self:setMouseCursorMode(true)
 end
 

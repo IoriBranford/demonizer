@@ -41,22 +41,26 @@ function ShmupBullet:_init(object)
 					ShmupCollision.Category_PlayerBomb,
 					ShmupCollision.Category_EnemyShot,
 					ShmupCollision.Category_EnemyCover,
-					ShmupCollision.Category_EnemyBounds)
+					ShmupCollision.Category_EnemyBounds,
+					ShmupCollision.Category_BonusMaze
+					)
 		elseif category == ShmupCollision.Category_PlayerBomb then
 			fixture:setMask(ShmupCollision.Category_CameraEdge,
 					ShmupCollision.Category_PlayerTeam,
 					ShmupCollision.Category_PlayerShot,
 					ShmupCollision.Category_PlayerBomb,
 					ShmupCollision.Category_EnemyCover,
-					ShmupCollision.Category_EnemyBounds)
+					ShmupCollision.Category_EnemyBounds,
+					ShmupCollision.Category_BonusMaze
+					)
 		else
 			fixture:setMask(ShmupCollision.Category_CameraEdge,
 					ShmupCollision.Category_PlayerShot,
 					ShmupCollision.Category_EnemyTeam,
 					ShmupCollision.Category_EnemyShot,
-					ShmupCollision.Category_EnemyInCover,
 					ShmupCollision.Category_EnemyCover,
-					ShmupCollision.Category_EnemyBounds)
+					ShmupCollision.Category_EnemyBounds,
+					ShmupCollision.Category_BonusMaze)
 		end
 	end
 
@@ -69,10 +73,10 @@ function ShmupBullet:_init(object)
 	properties.vely = nil
 
 	local co = properties.coroutine
+	if type(co) == "string" then
+		co = ShmupBullet.Coroutines[co]
+	end
 	if co then
-		if type(co) == "string" then
-			co = ShmupBullet.Coroutines[co]
-		end
 		self.coroutine = coroutine.create(co)
 
 		levity.scripts:scriptAddEventFunc(self,
@@ -106,14 +110,18 @@ end
 
 ShmupBullet.MaxTime = 10
 
-function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
+function ShmupBullet:beginContact(myfixture, otherfixture, contact)
 	for i = 1, select("#", otherfixture:getCategory()) do
 		local category = select(i, otherfixture:getCategory())
+
 		if category == ShmupCollision.Category_PlayerTeam
 		or category == ShmupCollision.Category_PlayerBomb
 		or category == ShmupCollision.Category_EnemyTeam
 		then
-			if not self.object.properties.persist then
+			local otherdata = otherfixture:getBody():getUserData()
+			local otherid = otherdata and otherdata.id
+			local otherhascover = otherid and levity.scripts:call(otherid, "hasCover")
+			if not otherhascover and not self.object.properties.persist then
 				levity:discardObject(self.object.id)
 				break
 			end
@@ -121,11 +129,11 @@ function ShmupBullet:beginContact(yourfixture, otherfixture, contact)
 	end
 end
 
-function ShmupBullet:preSolve(yourfixture, otherfixture, contact)
+function ShmupBullet:preSolve(myfixture, otherfixture, contact)
 	contact:setEnabled(false)
 end
 
-function ShmupBullet:endContact(yourfixture, otherfixture, contact)
+function ShmupBullet:endContact(myfixture, otherfixture, contact)
 	for i = 1, select("#", otherfixture:getCategory()) do
 		local category = select(i, otherfixture:getCategory())
 		if category == ShmupCollision.Category_Camera then

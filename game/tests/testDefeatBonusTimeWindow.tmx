@@ -34,7 +34,6 @@
   </properties>
   <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
    <properties>
-    <property name="script" value="ShmupPlayer"/>
    </properties>
   </object>
  </objectgroup>

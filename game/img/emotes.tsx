@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="emotes" tilewidth="16" tileheight="16" tilecount="16" columns="8">
- <tileoffset x="-8" y="-16"/>
- <image source="emotes.png" width="128" height="32"/>
+<tileset name="emotes" tilewidth="24" tileheight="16" tilecount="24" columns="8">
+ <tileoffset x="-12" y="-16"/>
+ <image source="emotes.png" width="192" height="48"/>
  <tile id="0">
   <properties>
    <property name="name" value="drunk"/>
@@ -44,6 +44,17 @@
    <frame tileid="13" duration="125"/>
    <frame tileid="14" duration="125"/>
    <frame tileid="15" duration="125"/>
+  </animation>
+ </tile>
+ <tile id="16">
+  <properties>
+   <property name="name" value="stun"/>
+  </properties>
+  <animation>
+   <frame tileid="16" duration="125"/>
+   <frame tileid="17" duration="125"/>
+   <frame tileid="18" duration="125"/>
+   <frame tileid="17" duration="125"/>
   </animation>
  </tile>
 </tileset>
