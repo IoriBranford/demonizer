@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-up" width="18" height="100" tilewidth="16" tileheight="16" infinite="0" nextobjectid="347">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-up" width="18" height="100" tilewidth="16" tileheight="16" infinite="0" nextlayerid="36" nextobjectid="349">
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="mus/05 - Twilight Express.vgz"/>
@@ -36,27 +36,27 @@
  <tileset firstgid="767" source="img/rocks_wide.tsx"/>
  <tileset firstgid="775" source="img/player.tsx"/>
  <tileset firstgid="803" source="img/friend/arachne.tsx"/>
- <layer name="dirt" width="18" height="100">
+ <layer id="1" name="dirt" width="18" height="100">
   <data encoding="base64" compression="zlib">
    eJyll1uugzAMRLP/XbAL+h9lXbeVsHQ4nUDotRS1POL4MR6b1rJs7zXe6/Ve/fjdjvVUPnv347f0/CJlz/iHjrJnQN+v0o+1/0PHduwfx2//QUf506GndD2xbceq+NR15dCS7C1bPu9vwb4x8cG6Sgdjw9zZ9i2cke7xvF33Cp+Fsdo/wx19LJtLb8de5ib5uuOdF67LlqF7Lyz60HEv2V/PBlbZyZro0F9+l860r87ZdD7f6dLLnJZ+xqfjerRzfhIv1Rkb9jp+jEfXuXs716Nz9mpnPPWgl9jfwzmOF/8T71s753y0MzYZT+eXNrH2rLPfnEEMlf3EQw/LuHe87QOxNdrZl1T3jHXVIs8wtlrIB/HmHkBbmbeS0b7xWjYlYUx4Topz4sUS2jrCfdffTBxj2nPF803vMh/kslR/M3+ISXOie4btbXhGrrYe1y910hbXS+0rIcewJowd989ZLjwT0R7POebNof+u24Zr1qC5lPHjvXq/te+YJR+ZR9cP9e86p+xhbM077iNp1vHcw/7DOcjPvZf1aEx5uR/SRvNTiTHKGDbFjjG2kPsTbzhGV9xCW1335uwrXnF9cP7ivdn8Z9/MmWmOuNJjjJWP7mV33E1Mp5ojzma6iHnPO6xl90zigph0H668ee5Ls1Gq3cT37r+pH9uWmXi+8FzMmfVK2DNY26xh87bFeE95ucNF2cI6S9zjmSXJLK6edRxD++QZwL2RmKVd7meMi7Hj/a9wZpqhU58yn5r7e9BhzkwYd62nWDPexFT6LpgJOYHv04fU25OYY8gtq7VResi9rok7O0rIRa191+qqcF8J87Tik7+tjJG7PFEPMcz+fzerUohV6vK3zooe9nBzWum7E/fENF+siOPsvraSd9aCv5E8i872s25sD7nRGGI8zVXmKfZNxs/zoudin+sZi3XD+PlMz8KeNTfd97zLfHedwZ5kXZ6DzVs9nEt8Ow/mduaGcWAumIfCt3upe4kx4DMtqee4x8/qftd/fy8xPsST64wY51zgvPXw7ErIXa4p1sedeHYiVrnuhNj1bM5auhP3cs9iT/uOfWMNr8psvpnhbiae9T0frgrrlfFe7aW0xzz1JOfUY67y7LAixDTz9MSn1s75Mb8+1eNe+nT2KT3MF/P2RPytRV58ag97I/2byR/exX51
   </data>
  </layer>
- <layer name="dirtdeco" width="18" height="100">
+ <layer id="2" name="dirtdeco" width="18" height="100">
   <data encoding="base64" compression="zlib">
    eJzNWFsOwyAM6/0vR4809aMSipIQxy7DP9uAJSbkBde1B/cmPf8Au7fbfLK4mzLf/w0zNqbvKA8Ww3yqda3krhDpZcc9XhFXT2Zmj+6eERtXdFh5dzDWheUQcRpGt1234uDND2e8shfV/jP7I3ZBuah9qxIXFR7DGavaNuPmnfOKCzqfcWDzlycLkdnNM0reK1TiN4rhjq6qX+20wQNVf+HFUvV/Myo+jcTOzMvm8jdO5/lZP6ITXRchOw/Ej1TY7Y8ZlL6ajbN6Zv9C7Yestz35Ffyu9MlIj7Gqv0ztQtet8gd6pkx9yvqLjo28Nci5doDcJ6pg77KZn9t5BhVfQXVF94cuFOevfltQQnWfUOSgU2qf8pyYPn72G/YOrtgT+p5SQfbG0rnze/OZXTtgc6LtgytcmDzExKbyLShCVqvVeTzrX9C3tS/uHmr7qmrPKbn5wVd9TVcWK/OUvsCrM8wbwyn7eqDipO4vK/gBUE+v7A==
   </data>
  </layer>
- <layer name="grass" width="18" height="100">
+ <layer id="3" name="grass" width="18" height="100">
   <data encoding="base64" compression="zlib">
    eJzlmUFv2zAMhXVLcy58bnpee052bnuN7Wvs/P+/MQvgB78wlGynGzZgAoQ2tvREUuQjJV9SSqepd1Nvp95P/TL1l6m/p9v2Y+qvNu489aub09vzVsbkZz8DjM7mDLZ+L3itve9Ets7hHO3dYPMGwevs2WjPTva7t/fgIEtvYxjfut+6xknWAKexZ4PpzLyzjevlnWLn/3dT/zKcj6nvxbaj/VVdRsHB3oqRdXo3rCfDO9k49oP9wr7o9+zsovZGtqtgIJ/a5Szz8pxPkU2xsWsr//P7angqz5t1fPIY6IPfnEUWbMO6Q7r1yUbG48Ntmvf44mxzTPN+5HHESSO2OaV5/9t0u++6LutdRE71AeyKbbF55DOjsxmyYlPed2Jr3V+wPtP9nvF8n2ZfIU53buyahsyDzffrbcX6zvz/pXkuf6TlGHpeeL9mnez7UX5Z+56W/burjMX/a1ia08A6uPHg5DiN9FcM4rwNxpOz+gKO5jSw4HuNVfJNlFvf0sxzylPkQZ9D4Tv/fExxDsrjfcyD4/GJc95pDox4A5wxxdwEz9FL3INf5PUiO6tcXvfc1I7sw0u6zT80eLzEp+RfcsM53dsJHHg18ld47kn+5u71J5+x32viyDf1Z3j/Esi8BmNncqLDfiNOk+J9/gie1ZofX7OJ1huHytg8LuIL3lHnXtN9/cqYg43LexXpSaxTE/bpfk/zGOI8d+/zKgv1SGdzPD9p3epxiCvihlj1ummteA30btJci6ATNZdfE91KfEHdBz8jXykWIz5oRBZqrlptk9ctxSjxTs1f4iCtR2scRW0Y1Ti6r7U8WKuRfF1M3tjCG2BQs+peRPxaanApOY/9qNkxauQvrcHx1y31Kn6KnyNblJ9qTeNBz7ZbOVWxsgzY5ZEaHKxaLvmbDe6Ncu5Sg7/zfM69tfgotbz/ynFal63F0vjiDIZvI5s/55ZyCbKABXd6niWOonsXYhM/VJ6iRlMcn2/gY+xBzHt5dH09M4OlNRhxzrmfuPU5kTnUFF+Cjy3B0nuEqN6iHtAzC/Gu9iHmo/pW/UzvS5AHrqAe477C52juaohFva9AJ2x6kd/+XBA15TBk0nuqUs0Q4ZAjybd6vvD3UKXm63juwq7pfl+XGljkamz4HS78lzjwT7TfdQ/wyLnCY8BHpbPVWgxq2VLttwYDbtU7zq3nFL2zA3NLLeXvEZRDOEOsqYHgbbhD71r5vRZH7+jhDf1esISj+wwXo4/e1y7ZiDsYrVP5H73QubZvR5mHDvrdgPubNTjKxf6enppjqW7VXKHfUuBpzY9L8pzSLb+r/0R32VHTsxn8jD74N98NSvKw53p3pDU0cpIXS/KgExidzCHWNV+X5CF36bchrTXQlT2o4eBv+p0KGfFD1qnphd9pjaF21lqhJI/6cptuzzvIpbKWYqyR+czFZ34BbVIJSA==
   </data>
  </layer>
- <layer name="grassdeco" width="18" height="100">
+ <layer id="4" name="grassdeco" width="18" height="100">
   <data encoding="base64" compression="zlib">
    eJztmFsKxCAMRe3mBXUWPQjKSDExxlRjx/NZanrzLhpjzOcyS3HI9zFt2DmqDYgAnKF+E8NPjjfkS0RKi0RcnrT3D+wYM4n6Wz2/Dv1gM2l3MN9atfrkbqjZjs8k+ifa4e7x+3uz9+NbsQNxvOeLUyNS+2jnerCpnrFcOEIP5v6C3qPMU5t0hGQHOwPlzqdz4fr5BuWnNQdt0pF7nrMTSn9yjDh155IeV2ji4os470bWrKHntGrQoOv88+6J5rxpmFdlb2F6qFqx/VRD4r5JGxrmFYTmfjgcOLyxpkufuPOE+28+Gw17kIPUnPeEXI/EqKcGWr00okOqT1fWNHav0FsPNVtfN2E7Ng==
   </data>
  </layer>
- <objectgroup name="unused" visible="0">
+ <objectgroup id="5" name="unused" visible="0">
   <object id="131" name="operator" type="CatapultOperator" gid="626" x="224" y="496" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="134"/>
@@ -150,7 +150,7 @@
   <object id="93" name="tree" gid="433" x="176" y="528" width="64" height="64"/>
   <object id="333" name="rock" type="DestructibleCover" gid="767" x="144" y="1032" width="64" height="48"/>
  </objectgroup>
- <objectgroup name="fleepaths">
+ <objectgroup id="6" name="fleepaths">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -164,10 +164,11 @@
    <polyline points="0,0 0,-60 0,-120"/>
   </object>
  </objectgroup>
- <objectgroup name="boss_paths">
+ <objectgroup id="8" name="boss">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
+  <object id="159" name="boss" type="PrincessNormalAttack" gid="689" x="144" y="-16" width="24" height="32"/>
   <object id="160" x="60" y="124">
    <polygon points="-8,-8 44,-76 140,-72 168,12 76,36"/>
   </object>
@@ -180,23 +181,15 @@
   <object id="168" x="228" y="136">
    <polyline points="0,0 -176,-20"/>
   </object>
- </objectgroup>
- <objectgroup name="boss">
-  <object id="153" type="Trigger" x="0" y="0">
+  <object id="347" type="Trigger" x="0" y="-16" width="288" height="16">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
     <property name="cleartowin" type="bool" value="true"/>
     <property name="musicfile" type="file" value="mus/03 - Mighty Gals 2.vgz"/>
    </properties>
-   <polyline points="0,0 288,0"/>
-  </object>
-  <object id="159" name="boss" type="PrincessNormalAttack" gid="689" x="144" y="-16" width="24" height="32">
-   <properties>
-    <property name="pathid" value="boss_paths"/>
-   </properties>
   </object>
  </objectgroup>
- <objectgroup name="preboss">
+ <objectgroup id="9" name="preboss">
   <object id="152" type="Trigger" x="0" y="120">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
@@ -206,7 +199,7 @@
    <polyline points="0,0 288,0"/>
   </object>
  </objectgroup>
- <objectgroup name="bosscover">
+ <objectgroup id="10" name="bosscover">
   <object id="154" name="talltree" gid="436" x="60" y="144" width="48" height="80"/>
   <object id="155" name="talltree" gid="436" x="100" y="72" width="48" height="80"/>
   <object id="156" name="talltree" gid="436" x="184" y="80" width="48" height="80"/>
@@ -252,57 +245,22 @@
   <object id="331" name="tree" gid="433" x="280" y="176" width="64" height="64"/>
   <object id="332" name="tree" gid="433" x="272" y="224" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="pikemen5">
-  <object id="195" name="pikemanleader" type="Pikeman" gid="665" x="336" y="240" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="319"/>
-   </properties>
-  </object>
-  <object id="196" name="pikeman" type="Pikeman" gid="665" x="192" y="240" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="205"/>
-   </properties>
-  </object>
-  <object id="197" name="pikeman" type="Pikeman" gid="665" x="-48" y="240" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="318"/>
-   </properties>
-  </object>
-  <object id="198" name="pikemanleader" type="Pikeman" gid="665" x="96" y="240" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="206"/>
-   </properties>
-  </object>
-  <object id="200" name="pikeman" type="Pikeman" gid="665" x="192" y="200" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="205"/>
-   </properties>
-  </object>
-  <object id="201" name="pikeman" type="Pikeman" gid="665" x="-80" y="208" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="318"/>
-   </properties>
-  </object>
-  <object id="202" name="pikeman" type="Pikeman" gid="665" x="368" y="208" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="319"/>
-   </properties>
-  </object>
-  <object id="203" name="pikeman" type="Pikeman" gid="665" x="96" y="200" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="206"/>
-   </properties>
-  </object>
+ <objectgroup id="11" name="pikemen5">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="195" name="pikemanleader" type="Pikeman" gid="665" x="336" y="240" width="32" height="32"/>
+  <object id="196" name="pikeman" type="Pikeman" gid="665" x="192" y="240" width="32" height="32"/>
+  <object id="197" name="pikeman" type="Pikeman" gid="665" x="-48" y="240" width="32" height="32"/>
+  <object id="198" name="pikemanleader" type="Pikeman" gid="665" x="96" y="240" width="32" height="32"/>
+  <object id="200" name="pikeman" type="Pikeman" gid="665" x="192" y="200" width="32" height="32"/>
+  <object id="201" name="pikeman" type="Pikeman" gid="665" x="-80" y="208" width="32" height="32"/>
+  <object id="202" name="pikeman" type="Pikeman" gid="665" x="368" y="208" width="32" height="32"/>
+  <object id="203" name="pikeman" type="Pikeman" gid="665" x="96" y="200" width="32" height="32"/>
   <object id="205" name="path" x="232" y="104">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="-40,144 -40,544"/>
   </object>
   <object id="206" name="path" x="40" y="104">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="56,144 56,544"/>
   </object>
   <object id="215" type="Trigger" x="0" y="256">
@@ -312,24 +270,20 @@
    <polyline points="0,0 288,0"/>
   </object>
   <object id="318" name="path" x="32" y="152">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="-80,88 64,232 64,552"/>
   </object>
   <object id="319" name="path" x="136" y="152">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="200,88 56,232 56,552"/>
   </object>
  </objectgroup>
- <objectgroup name="catapults3">
+ <objectgroup id="12" name="catapults3">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
   <object id="208" name="catapult" type="Catapult" gid="445" x="168" y="336" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="offscreenshot" type="bool" value="false"/>
-    <property name="pathid" type="int" value="213"/>
    </properties>
   </object>
   <object id="209" name="operator" type="CatapultOperator" gid="626" x="168" y="304" width="24" height="32">
@@ -341,7 +295,6 @@
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="offscreenshot" type="bool" value="false"/>
-    <property name="pathid" type="int" value="212"/>
    </properties>
   </object>
   <object id="211" name="operator" type="CatapultOperator" gid="626" x="120" y="304" width="24" height="32">
@@ -350,15 +303,9 @@
    </properties>
   </object>
   <object id="212" name="path" x="72" y="224">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="48,112 48,160"/>
   </object>
   <object id="213" name="path" x="248" y="224">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="-80,112 -80,160"/>
   </object>
   <object id="214" type="Trigger" x="0" y="352" width="288" height="16">
@@ -367,7 +314,10 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="archerscatapults">
+ <objectgroup id="13" name="archerscatapults">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
   <object id="137" type="Trigger" x="0" y="384" width="288" height="112" visible="0">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
@@ -375,21 +325,18 @@
   </object>
   <object id="57" name="archer" type="Archer" gid="605" x="144" y="512" width="32" height="32">
    <properties>
-    <property name="pathid" type="int" value="54"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeedfunction" value="abscos"/>
    </properties>
   </object>
   <object id="58" name="archer" type="Archer" gid="605" x="256" y="416" width="32" height="32">
    <properties>
-    <property name="pathid" type="int" value="54"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeedfunction" value="abscos"/>
    </properties>
   </object>
   <object id="56" name="archer" type="Archer" gid="605" x="44" y="440" width="32" height="32">
    <properties>
-    <property name="pathid" type="int" value="54"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeedfunction" value="abscos"/>
    </properties>
@@ -409,6 +356,7 @@
    <properties>
     <property name="faceangle" type="float" value="45"/>
     <property name="offscreenshot" type="bool" value="true"/>
+    <property name="pathid" value=""/>
    </properties>
   </object>
   <object id="85" name="operator" type="CatapultOperator" gid="626" x="240" y="400" width="24" height="32">
@@ -420,10 +368,11 @@
    <properties>
     <property name="faceangle" type="float" value="135"/>
     <property name="offscreenshot" type="bool" value="true"/>
+    <property name="pathid" value=""/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="deco3">
+ <objectgroup id="14" name="deco3">
   <object id="193" type="Trigger" x="0" y="384" width="288" height="176">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
@@ -455,7 +404,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="swordsmen4">
+ <objectgroup id="15" name="swordsmen4">
   <object id="129" type="Trigger" x="0" y="560" width="288" height="16">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
@@ -464,23 +413,22 @@
   <object id="142" name="swordsman" type="Swordsman" gid="725" x="304" y="560" width="32" height="32"/>
   <object id="141" name="swordsman" type="Swordsman" gid="725" x="-16" y="560" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="pikemencatapult">
+ <objectgroup id="16" name="pikemencatapult">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
   <object id="140" type="Trigger" x="0" y="624" width="288" height="16">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
   <object id="188" name="path" x="160" y="584">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="-16,16 -16,128"/>
   </object>
   <object id="128" name="catapult" type="Catapult" gid="445" x="144" y="608" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="offscreenshot" type="bool" value="true"/>
-    <property name="pathid" type="int" value="188"/>
    </properties>
   </object>
   <object id="130" name="operator" type="CatapultOperator" gid="626" x="144" y="576" width="24" height="32">
@@ -488,64 +436,34 @@
     <property name="rideid" type="int" value="128"/>
    </properties>
   </object>
-  <object id="20" name="pikeman" type="Pikeman" gid="665" x="216" y="576" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="118"/>
-   </properties>
-  </object>
-  <object id="10" name="pikeman" type="Pikeman" gid="665" x="72" y="576" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="117"/>
-   </properties>
-  </object>
-  <object id="125" name="pikemanleader" type="Pikeman" gid="665" x="216" y="608" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="118"/>
-   </properties>
-  </object>
-  <object id="123" name="pikeman" type="Pikeman" gid="665" x="216" y="544" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="118"/>
-   </properties>
-  </object>
-  <object id="122" name="pikeman" type="Pikeman" gid="665" x="72" y="544" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="117"/>
-   </properties>
-  </object>
-  <object id="120" name="pikemanleader" type="Pikeman" gid="665" x="72" y="608" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="117"/>
-   </properties>
-  </object>
+  <object id="20" name="pikeman" type="Pikeman" gid="665" x="216" y="576" width="32" height="32"/>
+  <object id="10" name="pikeman" type="Pikeman" gid="665" x="72" y="576" width="32" height="32"/>
+  <object id="125" name="pikemanleader" type="Pikeman" gid="665" x="216" y="608" width="32" height="32"/>
+  <object id="123" name="pikeman" type="Pikeman" gid="665" x="216" y="544" width="32" height="32"/>
+  <object id="122" name="pikeman" type="Pikeman" gid="665" x="72" y="544" width="32" height="32"/>
+  <object id="120" name="pikemanleader" type="Pikeman" gid="665" x="72" y="608" width="32" height="32"/>
   <object id="118" name="path" x="216" y="512">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="0,96 0,512"/>
   </object>
   <object id="117" name="path" x="72" y="512">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="0,96 0,512"/>
   </object>
  </objectgroup>
- <objectgroup name="swordsmen3" visible="0">
+ <objectgroup id="17" name="swordsmen3" visible="0">
   <object id="110" type="Trigger" x="0" y="760" width="288" height="16">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="swordsmen2" visible="0">
+ <objectgroup id="18" name="swordsmen2" visible="0">
   <object id="105" type="Trigger" x="0" y="776" width="288" height="16">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="friendswordsmen">
+ <objectgroup id="19" name="friendswordsmen">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -556,14 +474,13 @@
     <property name="soundfile" type="file" value="snd/hyaa.ogg"/>
    </properties>
   </object>
-  <object id="340" type="Friend" gid="503" x="128" y="752" width="32" height="32">
+  <object id="340" gid="503" x="128" y="752" width="32" height="32">
    <properties>
     <property name="emotetileid" value="help"/>
     <property name="emotetileset" value="emotes"/>
     <property name="fleeing" type="bool" value="true"/>
     <property name="health" type="int" value="5"/>
     <property name="pathfinder" value="linearDown"/>
-    <property name="pathid" value="mylayer"/>
    </properties>
   </object>
   <object id="341" x="128" y="752">
@@ -601,20 +518,22 @@
    </properties>
   </object>
   <object id="344" x="160" y="752">
-   <polyline points="0,0 0,112 -8,128 8,144 0,160 0,256"/>
+   <polyline points="0,-16 0,112 -8,128 8,144 0,160 0,256"/>
   </object>
-  <object id="345" type="Friend" gid="527" x="160" y="736" width="32" height="32">
+  <object id="345" gid="527" x="160" y="736" width="32" height="32">
    <properties>
     <property name="emotetileid" value="help"/>
     <property name="emotetileset" value="emotes"/>
     <property name="fleeing" type="bool" value="true"/>
     <property name="health" type="int" value="8"/>
     <property name="pathfinder" value="linearDown"/>
-    <property name="pathid" value="mylayer"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="catapults2">
+ <objectgroup id="20" name="catapults2">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
   <object id="76" type="Trigger" x="0" y="880" width="288" height="16">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
@@ -624,7 +543,6 @@
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="offscreenshot" type="bool" value="true"/>
-    <property name="pathid" type="int" value="91"/>
     <property name="pathspeed" type="float" value="120"/>
    </properties>
   </object>
@@ -632,7 +550,6 @@
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="offscreenshot" type="bool" value="true"/>
-    <property name="pathid" type="int" value="92"/>
     <property name="pathspeed" type="float" value="120"/>
    </properties>
   </object>
@@ -647,47 +564,39 @@
    </properties>
   </object>
   <object id="91" name="path" x="112" y="848">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="-16,16 -16,80"/>
   </object>
   <object id="92" name="path" x="208" y="848">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="-16,16 -16,80"/>
   </object>
  </objectgroup>
- <objectgroup name="catapults1">
+ <objectgroup id="21" name="catapults1">
   <object id="79" type="Trigger" x="0" y="944" width="288" height="16">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="archers2">
+ <objectgroup id="22" name="archers2">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
   <object id="55" type="Trigger" x="0" y="960" width="288" height="96" visible="0">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
   <object id="146" name="path" x="48" y="992">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="16,0 96,32 176,16"/>
   </object>
   <object id="147" name="archer" type="Archer" gid="605" x="64" y="992" width="32" height="32">
    <properties>
-    <property name="pathid" type="int" value="146"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeedfunction" value="abscos"/>
    </properties>
   </object>
   <object id="149" name="archer" type="Archer" gid="605" x="224" y="1008" width="32" height="32">
    <properties>
-    <property name="pathid" type="int" value="146"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeedfunction" value="abscos"/>
    </properties>
@@ -695,31 +604,28 @@
   <object id="189" name="archerf" type="Archer" gid="749" x="144" y="1008" width="32" height="32">
    <properties>
     <property name="defeatitem" value="ItemWingman"/>
-    <property name="pathid" type="int" value="146"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeedfunction" value="abscos"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="archers1">
+ <objectgroup id="23" name="archers1">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
   <object id="50" name="archer" type="Archer" gid="605" x="48" y="1104" width="32" height="32">
    <properties>
-    <property name="pathid" type="int" value="52"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeedfunction" value="abscos"/>
    </properties>
   </object>
   <object id="51" name="archer" type="Archer" gid="605" x="248" y="1096" width="32" height="32">
    <properties>
-    <property name="pathid" type="int" value="52"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeedfunction" value="abscos"/>
    </properties>
   </object>
   <object id="52" name="path" x="96" y="1096">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="-48,8 52,-8 152,8"/>
   </object>
   <object id="53" type="Trigger" x="0" y="1056" width="288" height="80" visible="0">
@@ -729,13 +635,12 @@
   </object>
   <object id="148" name="archer" type="Archer" gid="605" x="148" y="1072" width="32" height="32">
    <properties>
-    <property name="pathid" type="int" value="52"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeedfunction" value="abscos"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="deco2">
+ <objectgroup id="24" name="deco2">
   <object id="47" name="tree" gid="433" x="48" y="1120" width="64" height="64"/>
   <object id="145" name="tree" gid="433" x="224" y="1024" width="64" height="64"/>
   <object id="144" name="tree" gid="433" x="64" y="1008" width="64" height="64"/>
@@ -784,48 +689,27 @@
   </object>
   <object id="143" name="tree" gid="433" x="144" y="1040" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="pikemen3">
+ <objectgroup id="25" name="pikemen3">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
   <object id="25" name="pathfront" x="104" y="1056">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="48,96 48,544"/>
   </object>
-  <object id="26" name="pikeman" type="Pikeman" gid="665" x="328" y="1200" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="317"/>
-   </properties>
-  </object>
-  <object id="27" name="pikeman" type="Pikeman" gid="665" x="152" y="1072" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="25"/>
-   </properties>
-  </object>
-  <object id="28" name="pikeman" type="Pikeman" gid="665" x="288" y="1200" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="317"/>
-   </properties>
-  </object>
-  <object id="32" name="pikeman" type="Pikeman" gid="665" x="152" y="1152" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="25"/>
-   </properties>
-  </object>
+  <object id="26" name="pikeman" type="Pikeman" gid="665" x="328" y="1200" width="32" height="32"/>
+  <object id="27" name="pikeman" type="Pikeman" gid="665" x="152" y="1072" width="32" height="32"/>
+  <object id="28" name="pikeman" type="Pikeman" gid="665" x="288" y="1200" width="32" height="32"/>
+  <object id="32" name="pikeman" type="Pikeman" gid="665" x="152" y="1152" width="32" height="32"/>
   <object id="42" name="trigger" type="Trigger" x="0" y="1152" width="288" height="16">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="31" name="pikeman" type="Pikeman" gid="665" x="152" y="1112" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="25"/>
-   </properties>
-  </object>
-  <object id="29" name="pikeman" type="Pikeman" gid="665" x="368" y="1200" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="317"/>
-   </properties>
-  </object>
+  <object id="31" name="pikeman" type="Pikeman" gid="665" x="152" y="1112" width="32" height="32"/>
+  <object id="29" name="pikeman" type="Pikeman" gid="665" x="368" y="1200" width="32" height="32"/>
   <object id="317" name="pathside" x="240" y="1104">
    <properties>
     <property name="script" value="PathGraph"/>
@@ -833,77 +717,53 @@
    <polyline points="48,96 -48,136 -48,496"/>
   </object>
  </objectgroup>
- <objectgroup name="pikemen2">
+ <objectgroup id="26" name="pikemen2">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
   <object id="5" name="pathside" x="56" y="1216">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="-56,16 40,56 40,416"/>
   </object>
-  <object id="6" name="leader" type="Pikeman" gid="665" x="-40" y="1232" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="5"/>
-   </properties>
-  </object>
-  <object id="12" name="pikeman" type="Pikeman" gid="665" x="0" y="1232" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="5"/>
-   </properties>
-  </object>
+  <object id="6" name="leader" type="Pikeman" gid="665" x="-40" y="1232" width="32" height="32"/>
+  <object id="12" name="pikeman" type="Pikeman" gid="665" x="0" y="1232" width="32" height="32"/>
   <object id="41" name="trigger" type="Trigger" x="0" y="1184" width="288" height="16">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="30" name="pikeman" type="Pikeman" gid="665" x="-80" y="1232" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="5"/>
-   </properties>
-  </object>
-  <object id="16" name="leader" type="Pikeman" gid="665" x="136" y="1144" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="15"/>
-   </properties>
-  </object>
+  <object id="30" name="pikeman" type="Pikeman" gid="665" x="-80" y="1232" width="32" height="32"/>
+  <object id="16" name="leader" type="Pikeman" gid="665" x="136" y="1144" width="32" height="32"/>
   <object id="15" name="pathfront" x="216" y="1384">
    <properties>
     <property name="script" value="PathGraph"/>
    </properties>
    <polyline points="-80,-200 -80,248"/>
   </object>
-  <object id="22" name="pikeman" type="Pikeman" gid="665" x="136" y="1184" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="15"/>
-   </properties>
-  </object>
-  <object id="33" name="pikeman" type="Pikeman" gid="665" x="136" y="1104" width="32" height="32">
-   <properties>
-    <property name="pathid" type="int" value="15"/>
-   </properties>
-  </object>
+  <object id="22" name="pikeman" type="Pikeman" gid="665" x="136" y="1184" width="32" height="32"/>
+  <object id="33" name="pikeman" type="Pikeman" gid="665" x="136" y="1104" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="pikemen1">
+ <objectgroup id="27" name="pikemen1">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
   <object id="35" name="path" x="144" y="1232">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="0,-16 0,368"/>
   </object>
   <object id="36" name="leader" type="Pikeman" gid="665" x="112" y="1216" width="32" height="32">
    <properties>
-    <property name="pathid" type="int" value="35"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
   <object id="37" name="pikeman" type="Pikeman" gid="665" x="176" y="1216" width="32" height="32">
    <properties>
-    <property name="pathid" type="int" value="35"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
   <object id="38" name="pikeman" type="Pikeman" gid="665" x="144" y="1216" width="32" height="32">
    <properties>
-    <property name="pathid" type="int" value="35"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
@@ -913,7 +773,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="deco1">
+ <objectgroup id="28" name="deco1">
   <object id="171" gid="433" x="0" y="1520" width="64" height="64"/>
   <object id="172" gid="433" x="256" y="1592" width="64" height="64"/>
   <object id="173" gid="433" x="16" y="1472" width="64" height="64"/>
@@ -969,11 +829,13 @@
   <object id="281" name="fire" gid="438" x="56" y="1504" width="64" height="64"/>
   <object id="282" name="fire" gid="438" x="56" y="1392" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="friends">
+ <objectgroup id="29" name="friends">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
   <object id="60" type="Friend" gid="467" x="176" y="1232" width="64" height="64">
    <properties>
     <property name="pathfinder" value="linearDown"/>
-    <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" type="float" value="300"/>
    </properties>
@@ -981,7 +843,6 @@
   <object id="61" type="Friend" gid="479" x="128" y="1152" width="32" height="32">
    <properties>
     <property name="pathfinder" value="linearDown"/>
-    <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" type="float" value="240"/>
    </properties>
@@ -989,7 +850,6 @@
   <object id="62" type="Friend" gid="491" x="160" y="1168" width="32" height="32">
    <properties>
     <property name="pathfinder" value="linearDown"/>
-    <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" type="float" value="240"/>
    </properties>
@@ -997,7 +857,6 @@
   <object id="63" type="Friend" gid="803" x="184" y="1144" width="64" height="64">
    <properties>
     <property name="pathfinder" value="linearDown"/>
-    <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" type="float" value="240"/>
    </properties>
@@ -1005,7 +864,6 @@
   <object id="64" type="Friend" gid="515" x="184" y="1192" width="64" height="64">
    <properties>
     <property name="pathfinder" value="linearDown"/>
-    <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" type="float" value="300"/>
    </properties>
@@ -1013,7 +871,6 @@
   <object id="65" type="Friend" gid="527" x="96" y="1168" width="32" height="32">
    <properties>
     <property name="pathfinder" value="linearDown"/>
-    <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" type="float" value="240"/>
    </properties>
@@ -1021,7 +878,6 @@
   <object id="66" type="Friend" gid="539" x="112" y="1232" width="64" height="64">
    <properties>
     <property name="pathfinder" value="linearDown"/>
-    <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" type="float" value="300"/>
    </properties>
@@ -1029,7 +885,6 @@
   <object id="69" type="Friend" gid="551" x="96" y="1200" width="64" height="64">
    <properties>
     <property name="pathfinder" value="linearDown"/>
-    <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" type="float" value="300"/>
    </properties>
@@ -1037,7 +892,6 @@
   <object id="70" type="Friend" gid="563" x="144" y="1216" width="64" height="64">
    <properties>
     <property name="pathfinder" value="linearDown"/>
-    <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" type="float" value="300"/>
    </properties>
@@ -1045,7 +899,6 @@
   <object id="71" type="Friend" gid="575" x="112" y="1184" width="32" height="32">
    <properties>
     <property name="pathfinder" value="linearDown"/>
-    <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" type="float" value="240"/>
    </properties>
@@ -1053,7 +906,6 @@
   <object id="72" type="Friend" gid="587" x="176" y="1200" width="32" height="32">
    <properties>
     <property name="pathfinder" value="linearDown"/>
-    <property name="pathid" type="int" value="74"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" type="float" value="240"/>
    </properties>
@@ -1065,14 +917,11 @@
    </properties>
   </object>
   <object id="74" name="path" x="0" y="1232">
-   <properties>
-    <property name="script" value="PathGraph"/>
-   </properties>
    <polyline points="0,0 0,832"/>
   </object>
  </objectgroup>
- <objectgroup name="ground"/>
- <objectgroup name="boss_chargeparticles">
+ <objectgroup id="30" name="ground"/>
+ <objectgroup id="31" name="boss_chargeparticles">
   <properties>
    <property name="emissionrate" type="float" value="30"/>
    <property name="lifetime" type="float" value="0.25"/>
@@ -1083,7 +932,7 @@
    <property name="tileset" value="particles"/>
   </properties>
  </objectgroup>
- <objectgroup name="camera">
+ <objectgroup id="32" name="camera">
   <object id="1" name="camera" type="Camera" x="24" y="1280" width="240" height="320">
    <properties>
     <property name="pathid" type="int" value="2"/>
@@ -1097,15 +946,12 @@
    <polyline points="0,-1264 0,-1272"/>
   </object>
  </objectgroup>
- <objectgroup name="sparks"/>
- <objectgroup draworder="index" name="playershots"/>
- <objectgroup name="playerteam">
+ <objectgroup id="33" name="sparks"/>
+ <objectgroup draworder="index" id="34" name="playershots"/>
+ <objectgroup id="35" name="playerteam">
   <properties>
    <property name="script" value="PlayerTeam"/>
   </properties>
-  <object id="3" name="player" gid="775" x="144" y="1632" width="64" height="64">
-   <properties>
-   </properties>
-  </object>
+  <object id="3" name="player" gid="775" x="144" y="1632" width="64" height="64"/>
  </objectgroup>
 </map>

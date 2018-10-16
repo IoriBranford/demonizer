@@ -81,14 +81,6 @@ function ShmupStatus:_init(layer)
 	end
 end
 
-local Sounds = {
-	Maxed = "snd/maxed.ogg",
-	BombUp = "snd/thankyou.ogg",
-	Go = "snd/extend.ogg",
-	Countdown = "snd/equip.ogg"
-}
-levity.bank:load(Sounds)
-
 function ShmupStatus:getScoreId()
 	return self.objects.score.id
 end
@@ -100,8 +92,8 @@ function ShmupStatus:addBombPieces(addpieces)
 
 	if math.floor(self.numbombpieces / ShmupStatus.PiecesPerBomb)
 	< math.floor(newpieces / ShmupStatus.PiecesPerBomb) then
-		levity.bank:play(Sounds.Maxed)
-		levity.bank:play(Sounds.BombUp)
+		levity.bank:play(self.properties.maxmultipliersound)
+		levity.bank:play(self.properties.newbombsound)
 	end
 
 	self.numbombpieces = newpieces
@@ -235,12 +227,12 @@ function ShmupStatus:updateTimeLeft(dt)
 			end
 		elseif countdowntimeleft < 1 then
 			Object.setGid(countdown, levity.map:getTileGid("go", 0))
-			levity.bank:play(Sounds.Go)
+			levity.bank:play(self.properties.gosound)
 		else
 			local gid = levity.map:getTileGid("countdown",
 				tostring(math.floor(math.min(countdowntimeleft, ShmupStatus.CountdownSecs))))
 			Object.setGid(countdown, gid)
-			levity.bank:play(Sounds.Countdown)
+			levity.bank:play(self.properties.countdownsound)
 		end
 
 		timeleft = math.min(timeleft + 1, timelimit)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" nextobjectid="9">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="9">
  <properties>
   <property name="cameraid" type="int" value="2"/>
   <property name="music" type="file" value=""/>
@@ -7,19 +7,19 @@
   <property name="overlaymap" type="file" value="../gameplay.lua"/>
   <property name="playerid" type="int" value="1"/>
  </properties>
- <tileset firstgid="1" source="../img/imp.tsx"/>
- <tileset firstgid="4" source="../img/friend/mermaid.tsx"/>
- <tileset firstgid="16" source="cage.tsx"/>
- <objectgroup name="camera" visible="0">
+ <tileset firstgid="1" source="../img/player.tsx"/>
+ <tileset firstgid="29" source="../img/friend/mermaid.tsx"/>
+ <tileset firstgid="41" source="../img/cage.tsx"/>
+ <objectgroup id="1" name="camera" visible="0">
   <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>
- <objectgroup name="mermaid">
-  <object id="3" name="cage" type="Cage" gid="16" x="32" y="120" width="32" height="64">
+ <objectgroup id="2" name="mermaid">
+  <object id="3" name="cage" type="Cage" gid="41" x="32" y="120" width="32" height="64">
    <properties>
     <property name="pathid" value="5"/>
    </properties>
   </object>
-  <object id="4" name="mermaid" type="Mermaid" gid="10" x="32" y="104" width="24" height="32">
+  <object id="4" name="mermaid" type="Mermaid" gid="35" x="32" y="104" width="24" height="32">
    <properties>
     <property name="pathid" value="8"/>
     <property name="rideid" type="int" value="3"/>
@@ -39,14 +39,12 @@
    <polyline points="16,-16 16,-64"/>
   </object>
  </objectgroup>
- <objectgroup name="sparks"/>
- <objectgroup name="playerteam">
+ <objectgroup id="3" name="sparks"/>
+ <objectgroup id="5" name="playershots"/>
+ <objectgroup id="4" name="playerteam">
   <properties>
    <property name="script" value="PlayerTeam"/>
   </properties>
-  <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
-   <properties>
-   </properties>
-  </object>
+  <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64"/>
  </objectgroup>
 </map>

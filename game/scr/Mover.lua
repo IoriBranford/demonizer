@@ -9,6 +9,7 @@
 --@field pathspeedfunction "const" (default), "cos", "ncos", "abssin", "abscos"
 --@field pathspeedmin when using a varying speed function - should be > 0
 --@field pathspeedweighted
+--@field pathstartpointid
 --@table Properties
 
 local levity = require "levity"
@@ -113,7 +114,13 @@ function Mover:beginMove(dt)
 
 		if self.properties.pathmode == "relative"
 		and (not self.offx or not self.offy) then
-			local nearestx, nearesty = levity.scripts:call(pathid, "findNearestPoint", x, y)
+			local startx, starty = x, y
+			local startpointid = self.properties.pathstartpointid
+			local startpoint = startpointid and levity.map.objects[startpointid]
+			if startpoint then
+				startx, starty = startpoint.x, startpoint.y
+			end
+			local nearestx, nearesty = levity.scripts:call(pathid, "findNearestPoint", startx, starty)
 			nearestx = nearestx or (pathobjbody and pathobjbody:getX())
 			nearesty = nearesty or (pathobjbody and pathobjbody:getY())
 			offx = x - nearestx

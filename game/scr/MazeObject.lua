@@ -35,4 +35,8 @@ function MazeObject:endContact(myfixture, otherfixture, contact)
 	end
 end
 
+function MazeObject:mazeCompleted()
+	self.object.visible = true
+end
+
 return MazeObject

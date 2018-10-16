@@ -9,9 +9,13 @@
 --@field firetargetid or "player" for the player character
 --@field firearc Must be facing target within this arc to fire
 --@field firebullet Name of bullet type
---@field firetime Seconds between shots or "animation" for the time of the current animation
+--@field firetime Seconds between shots, "animation" for the time of the current animation, or "defeat" for when defeated
 --@field firefan Number of bullets to fire in a fan
 --@field firefanslice Arc between two bullets in the fan
+--@field firewarningtime Seconds before firing to give warning
+--@field firewarningsound
+--@field firelinecolor Only if warning
+--@field firelinecolor2 Pulse between this and firelinecolor
 --@table Properties
 
 local levity = require "levity"
@@ -44,7 +48,7 @@ function Shooter:getTargetId(targetid)
 			local i = targetid:match("wingman(%d+)")
 			if i then
 				i = tonumber(i)
-				targetid = levity.scripts:call("playerteam", "getWingmanId", i)
+				targetid = levity.scripts:call("playerteam", "getMemberId", i)
 				if not targetid then
 					targetid = levity.map.properties.playerid
 				end
@@ -210,8 +214,19 @@ function Shooter:isAttacking()
 	return state == "attack" or state == "fire"
 end
 
+function Shooter:isWarning()
+	local firetime = self.properties.firetime
+	if type(firetime) == "number" then
+		local firewarningtime = self.properties.firewarningtime
+		if firewarningtime then
+			local timer = self.timer
+			return timer + firewarningtime >= firetime
+		end
+	end
+end
+
 function Shooter:endMove(dt)
-	if self.properties.firetime == "animation"
+	if type(self.properties.firetime) ~= "number"
 	or not levity.scripts:call(self.id, "isOnCamera")
 	or levity.scripts:call(self:getTargetId(self.properties.firetargetid), "isKilled")
 	--or levity.scripts:call(self.id, "isRescuing")
@@ -220,7 +235,11 @@ function Shooter:endMove(dt)
 		return
 	end
 
+	local waswarning = self:isWarning()
 	self.timer = self.timer + dt
+	if not waswarning and self:isWarning() then
+		levity.bank:play(self.properties.firewarningsound)
+	end
 
 	if self:isTimeToFire() and not self:isAttacking() then
 		local animtile = levity.map.tiles[self.object.gid]
@@ -236,7 +255,16 @@ function Shooter:endMove(dt)
 	end
 end
 
+function Shooter:defeat(giveitemtoid, withbomb)
+	if self.properties.firetime == "defeat" then
+		self:fire()
+	end
+end
+
 function Shooter:drawLineOfFire(diry)
+	if not self:isWarning() then
+		return
+	end
 	if not self:hasLineOfFire() or levity.scripts:call(self.id, "hasCover") then
 		return
 	end

@@ -149,6 +149,7 @@ function ShmupMap:_init(map)
 			end
 		end
 	end
+	self.map:loadObjectTypeSounds("PlayerWingman", levity.bank)
 
 	local music = self.map.properties.music
 	if music then

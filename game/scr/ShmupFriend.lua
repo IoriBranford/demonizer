@@ -47,13 +47,6 @@ ShmupFriend.CatchupDistY = 80
 ShmupFriend.CatchupTime = 3
 ShmupFriend.CatchupTimeScale = 4
 
-local Sounds = {
-	Lock = "snd/targetlock.ogg",
-	--HelpMe = "snd/hyaa.ogg",
-	Death = "snd/shriek.ogg"
-}
-levity.bank:load(Sounds)
-
 function ShmupFriend:refreshFixtures(mask)
 	for _, fixture in ipairs(self.object.body:getFixtureList()) do
 		--fixture:setSensor(true)
@@ -83,7 +76,7 @@ end
 
 function ShmupFriend:kill()
 	levity:discardObject(self.object.id)
-	levity.bank:play(Sounds.Death)
+	levity.bank:play(self.properties.deathsound)
 	levity.scripts:broadcast("friendKilled", self.object.id)
 end
 
@@ -131,7 +124,7 @@ function ShmupFriend:updateFiring(dt)
 		local cx, cy = self.object.body:getWorldCenter()
 
 		if self.locktargetid ~= locktargetid then
-			levity.bank:play(Sounds.Lock)
+			levity.bank:play(self.properties.targetlocksound)
 		end
 		self.locktargetid = locktargetid
 		local targetbody = levity.map.objects[locktargetid].body
@@ -257,7 +250,6 @@ function ShmupFriend:electrocuted()
 		return
 	end
 
-	--levity.bank:play(Sounds.HelpMe)
 	self:damage(1)
 	self.electrocutiontimer = ShmupFriend.ElectrocutionTime
 end

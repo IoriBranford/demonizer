@@ -73,7 +73,10 @@ function PlayerTeam:isWingmanActive(wingmanid)
 	end
 end
 
-function PlayerTeam:getWingmanId(i)
+function PlayerTeam:getMemberId(i)
+	if i == PlayerTeam.PlayerIndex then
+		return levity.map.properties.playerid
+	end
 	return self.wingmanids[i]
 end
 

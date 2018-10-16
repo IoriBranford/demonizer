@@ -34,7 +34,7 @@ function MazeLayer:checkPoint(point)
 
 	local mazegoalbonus = point.properties.mazegoalbonus
 	if mazegoalbonus then
-		self:mazeCompleted(mazegoalbonus, point.properties.bonussound)
+		levity.scripts:broadcast("mazeCompleted", mazegoalbonus, point.properties.bonussound)
 	else
 		self.currentpointid = point.properties.nextmazepointid
 	end

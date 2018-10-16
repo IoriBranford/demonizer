@@ -24,7 +24,7 @@ function ShmupWingman:_init(object)
 
 	self.targetlock = levity.scripts:newScript(object.id, "TargetLock", object)
 	self.targetcaptiveid = nil
-	self.health = ShmupWingman.MaxHealth
+	self.health = self.properties.health or ShmupWingman.DefaultMaxHealth
 	self.poweredup = self.properties.poweredup or false
 
 	self.facing = levity.scripts:newScript(object.id, "Facing", self.object)
@@ -41,15 +41,6 @@ function ShmupWingman:initQuery()
 	end
 end
 
-local Sounds = {
-	Cut = "snd/slash.ogg",
-	Maxed = "snd/maxed.ogg",
-	Powerup = "snd/powerup.ogg",
-	--Ouch = "snd/ow.ogg",
-	Death = "snd/shriek.ogg"
-}
-levity.bank:load(Sounds)
-
 ShmupWingman.BaseMask = {
 	ShmupCollision.Category_Default,
 	ShmupCollision.Category_CameraEdge,
@@ -60,22 +51,15 @@ ShmupWingman.BaseMask = {
 	ShmupCollision.Category_BonusMaze
 }
 
-ShmupWingman.Speed = 320
-ShmupWingman.SpeedSq = ShmupWingman.Speed * ShmupWingman.Speed
-ShmupWingman.MaxHealth = 4
+ShmupWingman.DefaultMaxHealth = 4
+ShmupWingman.DefaultConvertTime = 1
 ShmupWingman.DemonizationOffset = 1/64 --to ensure correct draw order for demonization vfx
-ShmupWingman.ConvertTime = 1
 --ShmupWingman.ConvertShake = 4
-ShmupWingman.ConvertDist = 16
 ShmupWingman.LockSearchHalfW = 120
 ShmupWingman.LockSearchHalfH = 160
 ShmupWingman.LockSearchRayLength = 240
-ShmupWingman.UnfocusedHealRate = 1
-ShmupWingman.BombMeleeTime = 2
-ShmupWingman.BombMeleeDPS = 15
 ShmupWingman.BombMeleeSearchHalfW = 240
 ShmupWingman.BombMeleeSearchHalfH = 320
-ShmupWingman.WinBonus = 5000
 
 function ShmupWingman:isConverting()
 	return self.properties.captorid ~= nil
@@ -132,11 +116,12 @@ function ShmupWingman:kill()
 	levity.scripts:broadcast("wingmanKilled", self.object.id)
 
 	local x, y = self.object.body:getWorldCenter()
-	ShmupBullet.create("FriendlyDeath", x, y, 0, 0, "sparks")
+	ShmupBullet.create(self.properties.defeatspark or "FriendlyDeath",
+				x, y, 0, 0, "sparks")
 end
 
 function ShmupWingman:heal(healing)
-	self.health = math.min(self.health + healing, ShmupWingman.MaxHealth)
+	self.health = math.min(self.health + healing, self.properties.health or ShmupWingman.DefaultMaxHealth)
 end
 
 function ShmupWingman:humanCaptured(humanid)
@@ -173,7 +158,7 @@ function ShmupWingman:beginContact_EnemyShot(myfixture, otherfixture, contact)
 		if self.health < 1 then
 			self:kill()
 		end
-		levity.bank:play(Sounds.Cut);
+		levity.bank:play(self.properties.hitsound);
 	end
 end
 
@@ -208,7 +193,7 @@ end
 
 function ShmupWingman:playerBombed()
 	self.bombmeleetimer = 0
-	self.properties.damage = ShmupWingman.BombMeleeDPS
+	self.properties.damage = self.properties.bombmeleedps or 15
 	self:setBombMelee(true)
 	self:setAfterImage(true)
 end
@@ -219,7 +204,9 @@ end
 
 function ShmupWingman:updateDemonization(dt)
 	self.converttimer = self.converttimer + dt
-	if self.converttimer >= ShmupWingman.ConvertTime then
+	local converttime = self.properties.converttime
+				or ShmupWingman.DefaultConvertTime
+	if self.converttimer >= converttime then
 		self.properties.captorid = nil
 		self.converttimer = nil
 		self.object:setGid(levity.map:getTileGid("converted",
@@ -321,8 +308,9 @@ function ShmupWingman:beginMove(dt)
 
 	local scoreid = levity.scripts:call("status", "getScoreId")
 
+	local bombmeleetime = self.properties.bombmeleetime or 2
 	local bombmeleecantarget = self.bombmeleetimer
-		and self.bombmeleetimer < ShmupWingman.BombMeleeTime
+		and self.bombmeleetimer < bombmeleetime
 	local focused = not self.bombmeleetimer and
 		levity.scripts:call(playerid, "isFocused")
 
@@ -342,7 +330,8 @@ function ShmupWingman:beginMove(dt)
 			self.targetcaptiveid = self:findTarget_rectangle("canBeCaptured")
 		end
 	else
-		self:heal(ShmupWingman.UnfocusedHealRate * dt)
+		local healrate = self.properties.unfocusedhealrate or 1
+		self:heal(healrate * dt)
 		self.targetcaptiveid = nil
 	end
 
@@ -373,9 +362,12 @@ function ShmupWingman:beginMove(dt)
 		local captor = levity.map.objects[captorid]
 		if captor then
 			destx, desty = captor.body:getWorldCenter()
+			local converttime = self.properties.converttime
+					or ShmupWingman.DefaultConvertTime
 			local demonizationpct = self.converttimer
-				/ ShmupWingman.ConvertTime
-			desty = desty - ShmupWingman.ConvertDist*(1+demonizationpct)
+				/ converttime
+			local convertdist = self.properties.convertdist or 16
+			desty = desty - convertdist*(1+demonizationpct)
 		end
 	else
 		destx, desty = levity.scripts:call("playerteam",
@@ -392,26 +384,31 @@ function ShmupWingman:beginMove(dt)
 		--and not levity.scripts:call(self.targetcaptiveid, "is_a",
 		--				ShmupWingman))
 
-	local dx, dy = destx - cx, desty - cy
-	local distsq = math.hypotsq(dx, dy)
-	local vx1, vy1
-	if distsq < ShmupWingman.SpeedSq * dt * dt then
-		vx1 = dx / dt
-		vy1 = dy / dt
-	else
-		local speed = ShmupWingman.Speed / math.sqrt(distsq)
-		if self.bombmeleetimer then
-			speed = speed*2
-		end
-		vx1 = dx * speed
-		vy1 = dy * speed
+	local distx, disty = destx - cx, desty - cy
+	local distsq = math.hypotsq(distx, disty)
+	local speed = self.properties.speed or 320
+	if self.bombmeleetimer then
+		speed = speed*2
 	end
-
-	body:setLinearVelocity(vx1, vy1)
+	local speedsq = speed*speed
+	if distsq < speedsq * dt * dt then
+		local vx1 = distx / dt
+		local vy1 = disty / dt
+		body:setLinearVelocity(vx1, vy1)
+	else
+		local vx0, vy0 = body:getLinearVelocity()
+		local dot = math.dot(distx, disty, vx0, vy0)
+		if math.abs(dot*dot - distsq*speedsq) >= 1 then
+			speed = speed / math.sqrt(distsq)
+			local vx1 = distx * speed
+			local vy1 = disty * speed
+			body:setLinearVelocity(vx1, vy1)
+		end
+	end
 
 	if self:isConverting() then
 	elseif captive then
-		self:faceDirectionY(dy)
+		self:faceDirectionY(disty)
 	elseif levity.scripts:call(playerid, "isKilled")
 	or not levity.scripts:call("playerteam", "isWingmanActive", self.object.id)
 	then
@@ -451,14 +448,15 @@ function ShmupWingman:endMove(dt)
 		self.poweredup = levity.scripts:call(scoreid, "isMaxMultiplier",
 							self.object.id)
 		if self.poweredup then
-			levity.bank:play(Sounds.Maxed)
-			levity.bank:play(Sounds.Powerup)
+			levity.bank:play(self.properties.maxmultipliersound)
+			levity.bank:play(self.properties.powerupsound)
 		end
 	end
 
 	if self.bombmeleetimer then
 		self.bombmeleetimer = self.bombmeleetimer + dt
-		if self.bombmeleetimer >= ShmupWingman.BombMeleeTime then
+		local bombmeleetime = self.properties.bombmeleetime or 2
+		if self.bombmeleetimer >= bombmeleetime then
 			--TODO Bomb collision and other continuous collision
 			--responses should switch from using callbacks
 			--to iterating over contacts after world update 
@@ -534,7 +532,8 @@ function ShmupWingman:beginDraw()
 		color[i] = 0xff
 	end
 
-	local healthpercent = self.health / ShmupWingman.MaxHealth
+	local maxhealth = self.properties.health or ShmupWingman.DefaultMaxHealth
+	local healthpercent = self.health / maxhealth
 	local wound = 0xff*healthpercent
 	if self:isConverting() or self.bombmeleetimer then
 		local flashrate = 30 * (self.bombmeleetimer or self.converttimer)
@@ -569,7 +568,8 @@ function ShmupWingman:playerWon()
 end
 
 function ShmupWingman:startWinBonus()
-	levity.scripts:broadcast("pointsScored", ShmupWingman.WinBonus,
+	levity.scripts:broadcast("pointsScored",
+		self.properties.winbonus or 5000,
 		self.object.body:getX(), self.object.body:getY())
 end
 
@@ -596,8 +596,10 @@ function ShmupWingman.create(map, gid, x, y, captorid, captiveid,
 
 	player.layer:addObject(demonization)
 
-	local wingman = --map.objects[captiveid] or
-			{ id = map:newObjectId() }
+	local wingman = {
+		id = map:newObjectId(),
+		type = "PlayerWingman"
+	}
 
 	wingman.properties = {
 		demonizationid = demonizationid,

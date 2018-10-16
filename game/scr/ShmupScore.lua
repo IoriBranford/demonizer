@@ -24,11 +24,6 @@ ShmupScore.MaxMultiplier = 20
 ShmupScore.ExtendInc = 1000000
 ShmupScore.BaseCapturePoints = 100
 
-local Sounds = {
-	Extend = "snd/extend.ogg"
-}
-levity.bank:load(Sounds)
-
 function ShmupScore:givePlayerBonus(bonus, sound)
 	local player = levity.map.objects[levity.map.properties.playerid]
 	self:pointsScored(bonus, player.x, player.y, "BONUS\n%d")
@@ -42,7 +37,7 @@ function ShmupScore:pointsScored(points, cardx, cardy, cardformat)
 		local extendinc = levity.map.properties.extendinc
 					or ShmupScore.ExtendInc
 		self.extendpoints = self.extendpoints + extendinc
-		levity.bank:play(Sounds.Extend)
+		levity.bank:play(self.properties.extendsound)
 		if self.extendpoints > ShmupScore.MaxPoints then
 			self:cancelExtends()
 		end
@@ -85,8 +80,13 @@ function ShmupScore:initMultiplier(memberi)
 end
 
 function ShmupScore:humanCaptured(humanid, captorid)
-	self:multiplierInc(
-		levity.scripts:call("playerteam", "getMemberIndex", captorid))
+	local i = levity.scripts:call("playerteam", "getMemberIndex", captorid)
+	i = self:multiplierInc(i)
+	if i then
+		captorid = levity.scripts:call("playerteam", "getMemberId", i)
+		levity.scripts:broadcast("multiplierUpdated", captorid,
+					self.multipliers[i])
+	end
 
 	local human = levity.map.objects[humanid]
 	local points = human.properties.capturepoints or self:getNextCapturePoints()
@@ -100,18 +100,20 @@ function ShmupScore:humanDied(humanid)
 		self.multipliers[idx] = 0
 	end
 	self.totalmultiplier = 0
+	levity.scripts:broadcast("multiplierUpdated", "all", 0)
 end
 
+-- @return Index of multiplier that was actually increased
 function ShmupScore:multiplierInc(idx)
 	if self.multipliers[idx]
 	and self.multipliers[idx] < ShmupScore.MaxMultiplier then
 		self.multipliers[idx] = self.multipliers[idx] + 1
 		self.totalmultiplier = self.totalmultiplier + 1
+		return idx
 	else
 		for oidx, mult in pairs(self.multipliers) do
 			if mult < ShmupScore.MaxMultiplier then
-				self:multiplierInc(oidx)
-				break
+				return self:multiplierInc(oidx)
 			end
 		end
 	end
@@ -132,6 +134,8 @@ end
 
 function ShmupScore:playerRespawned()
 	self:multiplierLost(PlayerTeam.PlayerIndex)
+	levity.scripts:broadcast("multiplierUpdated",
+				levity.map.properties.playerid, 0)
 end
 --[[
 function ShmupScore:wingmanKilled(id)

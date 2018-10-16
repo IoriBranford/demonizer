@@ -7,17 +7,9 @@ function Lord:_init(object)
 	self:super(object)
 end
 
-function Lord:enemyDefeated(enemyid)
-	Enemy.enemyDefeated(self, enemyid)
-	if enemyid == self.properties.rideid then
-		local angle = levity.scripts:call(self.id, "getFaceAngle")
-		levity.scripts:send(self.id, "faceAngle", angle, "move")
-	end
-end
-
-function Lord:defeat()
-	Enemy.defeat(self)
-	self.coroutine:startCoroutine(Lord.defeatCoroutine, self)
+function Lord:rideDestroyed()
+	local angle = levity.scripts:call(self.id, "getFaceAngle")
+	levity.scripts:send(self.id, "faceAngle", angle, "move")
 end
 
 function Lord:defeatCoroutine(dt)
@@ -29,7 +21,7 @@ function Lord:defeatCoroutine(dt)
 	end
 
 	self:explosionClusterCoroutine("SparkDefeatHuge", 8, 32, "sparks", "defeatparticles", 16, .25)
-	levity.bank:play("snd/nnoooo.ogg")
+	levity.bank:play(self.properties.defeatfinalsound)
 	self:dropDefeatItem(levity.map.properties.playerid)
 	self:discard()
 end

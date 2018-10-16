@@ -3,6 +3,8 @@ local prefs = levity.prefs
 local Object = require "levity.object"
 local UIButton = require "UIButton"
 
+local AxisDeadZone = .5
+
 local UIMenu = class()
 function UIMenu:_init(layer)
 	self.layer = layer
@@ -89,16 +91,16 @@ function UIMenu:joystickaxis(joystick, axis, value)
 	self:setMouseCursorMode(false)
 	local inputstring = "axis"..axis
 	if inputstring == prefs.joy_x then
-		if value < 0 and self.joyaxisx >= 0 then
+		if value < -AxisDeadZone and self.joyaxisx >= -AxisDeadZone then
 			self:changeCursorOption(-1)
-		elseif value > 0 and self.joyaxisx <= 0 then
+		elseif value > AxisDeadZone and self.joyaxisx <= AxisDeadZone then
 			self:changeCursorOption(1)
 		end
 		self.joyaxisx = value
 	elseif inputstring == prefs.joy_y then
-		if value < 0 and self.joyaxisy >= 0 then
+		if value < -AxisDeadZone and self.joyaxisy >= -AxisDeadZone then
 			self:moveCursor(-1, 0)
-		elseif value > 0 and self.joyaxisy <= 0 then
+		elseif value > AxisDeadZone and self.joyaxisy <= AxisDeadZone then
 			self:moveCursor(1, #self.objects + 1)
 		end
 		self.joyaxisy = value
@@ -225,6 +227,11 @@ end
 function UIMenu:changeCursorOption(dir)
 	local button = self.objects[self.cursorpos]
 	local _ = button and levity.scripts:send(button.id, "change", dir)
+end
+
+function UIMenu:drawOver()
+	local button = self.objects[self.cursorpos]
+	local _ = button and levity.scripts:send(button.id, "drawPressedOutline")
 end
 
 return UIMenu

@@ -1,13 +1,14 @@
 return {
-  version = "1.1",
+  version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.1.6",
+  tiledversion = "1.2.0",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 18,
   height = 100,
   tilewidth = 16,
   tileheight = 16,
+  nextlayerid = 37,
   nextobjectid = 254,
   properties = {
     ["blurupdatespeed"] = 1,
@@ -16,7 +17,7 @@ return {
     ["extendpoints"] = 10000,
     ["maxbombs"] = 0,
     ["music"] = "mus/19 - Dancing Hunter.vgz",
-    ["overlaymap"] = "winegameplay.lua",
+    ["overlaymap"] = "gameplay.lua",
     ["playerid"] = 1,
     ["script"] = "DrunkShmupMap",
     ["startbombs"] = 0,
@@ -31,6 +32,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 4,
       image = "img/player.png",
       imagewidth = 256,
       imageheight = 448,
@@ -497,6 +499,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 26,
       image = "img/town04_f.png",
       imagewidth = 416,
       imageheight = 384,
@@ -4263,6 +4266,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 18,
       image = "img/wineguards.png",
       imagewidth = 432,
       imageheight = 160,
@@ -4597,7 +4601,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["sensor"] = false
+                }
               }
             }
           }
@@ -4637,7 +4643,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["sensor"] = false
+                }
               }
             }
           }
@@ -4674,7 +4682,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["sensor"] = false
+                }
               }
             }
           }
@@ -4714,7 +4724,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["sensor"] = false
+                }
               }
             }
           }
@@ -4754,7 +4766,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["sensor"] = false
+                }
               }
             }
           }
@@ -4794,7 +4808,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["sensor"] = false
+                }
               }
             }
           }
@@ -4817,6 +4833,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 24,
       image = "img/winecivilians.png",
       imagewidth = 576,
       imageheight = 128,
@@ -5286,6 +5303,7 @@ return {
       tileheight = 24,
       spacing = 0,
       margin = 0,
+      columns = 4,
       image = "img/wineitems.png",
       imagewidth = 32,
       imageheight = 48,
@@ -5412,6 +5430,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 8,
       image = "img/emotes.png",
       imagewidth = 192,
       imageheight = 48,
@@ -5558,6 +5577,7 @@ return {
       tileheight = 256,
       spacing = 0,
       margin = 0,
+      columns = 4,
       image = "img/explosion_giant.png",
       imagewidth = 1024,
       imageheight = 1024,
@@ -5650,6 +5670,7 @@ return {
   layers = {
     {
       type = "tilelayer",
+      id = 1,
       name = "town04_f_low",
       x = 0,
       y = 0,
@@ -5666,6 +5687,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 2,
       name = "town04_f_mid",
       x = 0,
       y = 0,
@@ -5682,6 +5704,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 3,
       name = "groundobjects",
       visible = true,
       opacity = 1,
@@ -5693,6 +5716,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 4,
       name = "town04_f_high",
       x = 0,
       y = 0,
@@ -5709,6 +5733,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 5,
       name = "highobjects",
       visible = true,
       opacity = 1,
@@ -5720,6 +5745,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 6,
       name = "camera",
       visible = true,
       opacity = 1,
@@ -5767,6 +5793,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 7,
       name = "fleepaths",
       visible = true,
       opacity = 1,
@@ -5976,6 +6003,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 8,
       name = "paths",
       visible = true,
       opacity = 1,
@@ -5989,6 +6017,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 9,
       name = "boss",
       visible = true,
       opacity = 1,
@@ -6099,6 +6128,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 10,
       name = "preboss",
       visible = true,
       opacity = 1,
@@ -6382,6 +6412,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 11,
       name = "prebosspowerup",
       visible = true,
       opacity = 1,
@@ -6451,6 +6482,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 12,
       name = "guard12",
       visible = true,
       opacity = 1,
@@ -6608,6 +6640,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 13,
       name = "guard11",
       visible = true,
       opacity = 1,
@@ -6819,6 +6852,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 14,
       name = "highobj7",
       visible = true,
       opacity = 1,
@@ -6930,6 +6964,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 15,
       name = "guard10",
       visible = true,
       opacity = 1,
@@ -7061,6 +7096,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 16,
       name = "guard9",
       visible = true,
       opacity = 1,
@@ -7254,6 +7290,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 17,
       name = "guard8",
       visible = true,
       opacity = 1,
@@ -7442,6 +7479,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 18,
       name = "highobj6",
       visible = true,
       opacity = 1,
@@ -7483,6 +7521,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 19,
       name = "highobj5",
       visible = true,
       opacity = 1,
@@ -7538,6 +7577,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 20,
       name = "guard7",
       visible = true,
       opacity = 1,
@@ -7745,6 +7785,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 21,
       name = "highobj4",
       visible = true,
       opacity = 1,
@@ -7814,6 +7855,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 22,
       name = "guard6",
       visible = true,
       opacity = 1,
@@ -7917,6 +7959,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 23,
       name = "guard5",
       visible = true,
       opacity = 1,
@@ -8094,6 +8137,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 24,
       name = "guard4",
       visible = true,
       opacity = 1,
@@ -8253,6 +8297,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 25,
       name = "highobj3",
       visible = true,
       opacity = 1,
@@ -8406,6 +8451,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 26,
       name = "guests1",
       visible = true,
       opacity = 1,
@@ -8489,6 +8535,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 27,
       name = "highobj2",
       visible = true,
       opacity = 1,
@@ -8600,6 +8647,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 28,
       name = "highobj1",
       visible = true,
       opacity = 1,
@@ -8711,6 +8759,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 29,
       name = "guard2",
       visible = true,
       opacity = 1,
@@ -8810,6 +8859,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 30,
       name = "guard1",
       visible = true,
       opacity = 1,
@@ -8909,6 +8959,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 31,
       name = "wine1",
       visible = true,
       opacity = 1,
@@ -9286,6 +9337,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 32,
       name = "reception",
       visible = true,
       opacity = 1,
@@ -9689,6 +9741,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 33,
       name = "sparks",
       visible = true,
       opacity = 1,
@@ -9700,6 +9753,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 34,
       name = "playershots",
       visible = true,
       opacity = 1,
@@ -9711,6 +9765,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 35,
       name = "playerteam",
       visible = true,
       opacity = 1,
@@ -9738,6 +9793,21 @@ return {
           }
         }
       }
+    },
+    {
+      type = "objectgroup",
+      id = 36,
+      name = "wineitems",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["itemtileset"] = "wineitems",
+        ["script"] = "ItemsLayer"
+      },
+      objects = {}
     }
   }
 }

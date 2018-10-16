@@ -1,14 +1,15 @@
 return {
-  version = "1.1",
+  version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.1.6",
+  tiledversion = "1.2.0",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 15,
   height = 20,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 126,
+  nextlayerid = 21,
+  nextobjectid = 128,
   properties = {
     ["cameraid"] = 2,
     ["music"] = "mus/04 - Pick Me Up Boy!.vgz",
@@ -26,6 +27,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 4,
       image = "img/player.png",
       imagewidth = 256,
       imageheight = 448,
@@ -492,6 +494,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 12,
       image = "img/basic_terrain.png",
       imagewidth = 192,
       imageheight = 512,
@@ -1636,6 +1639,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/trees.png",
       imagewidth = 192,
       imageheight = 64,
@@ -1692,6 +1696,7 @@ return {
       tileheight = 80,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/trees_tall.png",
       imagewidth = 144,
       imageheight = 80,
@@ -1761,6 +1766,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 8,
       image = "img/forest.png",
       imagewidth = 128,
       imageheight = 64,
@@ -1786,6 +1792,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/bushes.png",
       imagewidth = 96,
       imageheight = 160,
@@ -1811,6 +1818,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/Pikeman.png",
       imagewidth = 192,
       imageheight = 128,
@@ -2092,6 +2100,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/PikemanF.png",
       imagewidth = 192,
       imageheight = 128,
@@ -2373,6 +2382,7 @@ return {
       tileheight = 72,
       spacing = 0,
       margin = 0,
+      columns = 8,
       image = "img/catapult.png",
       imagewidth = 576,
       imageheight = 216,
@@ -2544,6 +2554,7 @@ return {
   layers = {
     {
       type = "tilelayer",
+      id = 1,
       name = "dirt",
       x = 0,
       y = 0,
@@ -2560,6 +2571,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 2,
       name = "dirtdeco",
       x = 0,
       y = 0,
@@ -2576,6 +2588,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 3,
       name = "grass",
       x = 0,
       y = 0,
@@ -2592,6 +2605,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 4,
       name = "grassdeco",
       x = 0,
       y = 0,
@@ -2608,6 +2622,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 5,
       name = "bushes",
       x = 0,
       y = 0,
@@ -2624,6 +2639,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 6,
       name = "camera",
       visible = true,
       opacity = 1,
@@ -2649,7 +2665,57 @@ return {
     },
     {
       type = "objectgroup",
-      name = "enemypath",
+      id = 8,
+      name = "goodluck",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 16,
+          name = "text",
+          type = "",
+          shape = "text",
+          x = 32,
+          y = 16,
+          width = 176,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          text = "OK ! GOOD LUCK !!",
+          fontfamily = "Press Start 2P",
+          pixelsize = 8,
+          wrap = true,
+          color = { 255, 255, 255 },
+          properties = {
+            ["initiallayer"] = "tutorialtext"
+          }
+        },
+        {
+          id = 17,
+          name = "goodluck",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 392,
+          y = 0,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clearobjectlayer"] = "tutorialtext",
+            ["musicfade"] = true
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 9,
+      name = "bomb",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -2660,8 +2726,236 @@ return {
       },
       objects = {
         {
-          id = 23,
-          name = "",
+          id = 10,
+          name = "bomb",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 352,
+          y = 0,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clearobjectlayer"] = "tutorialtext",
+            ["cleartowin"] = true,
+            ["cleartriggerid"] = 17,
+            ["playerrestrictfire"] = "none"
+          }
+        },
+        {
+          id = 15,
+          name = "text",
+          type = "",
+          shape = "text",
+          x = 32,
+          y = 16,
+          width = 176,
+          height = 48,
+          rotation = 0,
+          visible = true,
+          text = "Tap BUTTON 3: BOMB !\nDeals area damage and captures humans\n\nRECHARGE by capturing and holding blue souls",
+          fontfamily = "Press Start 2P",
+          pixelsize = 8,
+          wrap = true,
+          color = { 255, 255, 255 },
+          properties = {
+            ["initiallayer"] = "tutorialtext"
+          }
+        },
+        {
+          id = 92,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 120,
+          y = -24,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 516,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 95,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 72,
+          y = -24,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 516,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 97,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 168,
+          y = -24,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 516,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 99,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 144,
+          y = -80,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 516,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 100,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 192,
+          y = -80,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 516,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 101,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 48,
+          y = -80,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 516,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 102,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 96,
+          y = -80,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 516,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 103,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 120,
+          y = -136,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 516,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 104,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 72,
+          y = -136,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 516,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 105,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 168,
+          y = -136,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 516,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 127,
+          name = "path",
           type = "",
           shape = "polyline",
           x = 120,
@@ -2675,6 +2969,928 @@ return {
             { x = 0, y = 160 }
           },
           properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 10,
+      name = "powergrab",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 36,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 96,
+          y = -40,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 37,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 144,
+          y = -56,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 38,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 144,
+          y = -40,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 39,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 72,
+          y = -40,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 46,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 120,
+          y = -56,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 47,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 48,
+          y = -40,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 50,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 96,
+          y = -56,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 42,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 192,
+          y = -40,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 45,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 120,
+          y = -40,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 43,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 144,
+          y = -24,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 41,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 96,
+          y = -24,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 72,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 48,
+          y = -24,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 73,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 168,
+          y = -40,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 74,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 216,
+          y = -8,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 76,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 24,
+          y = -8,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 77,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 168,
+          y = -56,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 79,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 192,
+          y = -8,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 80,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 120,
+          y = -24,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 81,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 48,
+          y = -8,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 82,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 144,
+          y = -72,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 83,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 72,
+          y = -56,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 85,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 72,
+          y = -24,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 88,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 192,
+          y = -24,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 89,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 168,
+          y = -24,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 90,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 96,
+          y = -72,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 119,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 120,
+          y = -8,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 120,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 144,
+          y = -8,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 121,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 96,
+          y = -8,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 122,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 168,
+          y = -8,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 123,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 72,
+          y = -8,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathmode"] = "relative",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 112,
+          name = "powergrab",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 336,
+          y = 0,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clearitemstriggerid"] = 10,
+            ["clearobjectlayer"] = "tutorialtext",
+            ["playerrestrictmove"] = "x"
+          }
+        },
+        {
+          id = 125,
+          name = "text",
+          type = "",
+          shape = "text",
+          x = 32,
+          y = 16,
+          width = 176,
+          height = 56,
+          rotation = 0,
+          visible = true,
+          text = "Hold BUTTON 2:\nPOWER GRAB humans from long range !\n\n(WARNING: Teammates doing Power Grab are vulnerable)",
+          fontfamily = "Press Start 2P",
+          pixelsize = 8,
+          wrap = true,
+          color = { 255, 255, 255 },
+          properties = {
+            ["initiallayer"] = "tutorialtext"
+          }
+        },
+        {
+          id = 124,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 120,
+          y = -8,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 240 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 12,
+      name = "powerup",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 118,
+          name = "powerup",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 320,
+          y = 0,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clearitemstriggerid"] = 112,
+            ["clearobjectlayer"] = "tutorialtext"
+          }
+        },
+        {
+          id = 117,
+          name = "text",
+          type = "",
+          shape = "text",
+          x = 32,
+          y = 16,
+          width = 176,
+          height = 56,
+          rotation = 0,
+          visible = true,
+          text = "BUTTON 2 also shows BLUE SOUL humans captured\n\nAny team member with full circle of 20 will unlock...",
+          fontfamily = "Press Start 2P",
+          pixelsize = 8,
+          wrap = true,
+          color = { 255, 255, 255 },
+          properties = {
+            ["initiallayer"] = "tutorialtext"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 13,
+      name = "focus",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 7,
+          name = "focus",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 304,
+          y = 0,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clearobjectlayer"] = "tutorialtext",
+            ["cleartriggerid"] = 118,
+            ["playerrestrictfire"] = "focus",
+            ["playerrestrictmove"] = "y",
+            ["wingmenrestrictcapture"] = true
+          }
+        },
+        {
+          id = 13,
+          name = "text",
+          type = "",
+          shape = "text",
+          x = 32,
+          y = 16,
+          width = 176,
+          height = 56,
+          rotation = 0,
+          visible = true,
+          text = "Hold BUTTON 2: FOCUS\n\nFriends LOCK-ON enemy when shooting\n\nMOVE SLOW for precise dodging",
+          fontfamily = "Press Start 2P",
+          pixelsize = 8,
+          wrap = true,
+          color = { 255, 255, 255 },
+          properties = {
+            ["initiallayer"] = "tutorialtext"
+          }
+        },
+        {
+          id = 40,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 0,
+          y = 128,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 49,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 0,
+          y = 264,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 78,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 240,
+          y = 264,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 84,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 0,
+          y = 200,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 86,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 240,
+          y = 200,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 91,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 240,
+          y = 128,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 48,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 0,
+          y = 232,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 44,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 240,
+          y = 168,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 71,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 0,
+          y = 168,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathspeed"] = "360"
+          }
+        },
+        {
+          id = 75,
+          name = "pikeman",
+          type = "Pikeman",
+          shape = "rectangle",
+          x = 240,
+          y = 232,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 472,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90,
+            ["firebullet"] = "",
+            ["pathspeed"] = "360"
+          }
         },
         {
           id = 106,
@@ -2850,954 +4066,8 @@ return {
     },
     {
       type = "objectgroup",
-      name = "goodluck",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 16,
-          name = "text",
-          type = "",
-          shape = "text",
-          x = 32,
-          y = 16,
-          width = 176,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          text = "OK ! GOOD LUCK !!",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
-          wrap = true,
-          color = { 255, 255, 255 },
-          properties = {
-            ["initiallayer"] = "tutorialtext"
-          }
-        },
-        {
-          id = 17,
-          name = "goodluck",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 392,
-          y = 0,
-          width = 8,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["clearobjectlayer"] = "tutorialtext",
-            ["musicfade"] = true
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "bomb",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 10,
-          name = "bomb",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 352,
-          y = 0,
-          width = 8,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["clearobjectlayer"] = "tutorialtext",
-            ["cleartowin"] = true,
-            ["cleartriggerid"] = 17,
-            ["playerrestrictfire"] = "none"
-          }
-        },
-        {
-          id = 15,
-          name = "text",
-          type = "",
-          shape = "text",
-          x = 32,
-          y = 16,
-          width = 176,
-          height = 48,
-          rotation = 0,
-          visible = true,
-          text = "Tap BUTTON 3: BOMB !\nDeals area damage and captures humans\n\nRECHARGE by capturing and holding blue souls",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
-          wrap = true,
-          color = { 255, 255, 255 },
-          properties = {
-            ["initiallayer"] = "tutorialtext"
-          }
-        },
-        {
-          id = 92,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 120,
-          y = -24,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 516,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 95,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 72,
-          y = -24,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 516,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 97,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 168,
-          y = -24,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 516,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 99,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 144,
-          y = -80,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 516,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 100,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 192,
-          y = -80,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 516,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 101,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 48,
-          y = -80,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 516,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 102,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 96,
-          y = -80,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 516,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 103,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 120,
-          y = -136,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 516,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 104,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 72,
-          y = -136,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 516,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 105,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 168,
-          y = -136,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 516,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "powergrab",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 36,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 96,
-          y = -40,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 37,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 144,
-          y = -56,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 38,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 144,
-          y = -40,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 39,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 72,
-          y = -40,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 46,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 120,
-          y = -56,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 47,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 48,
-          y = -40,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 50,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 96,
-          y = -56,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 42,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 192,
-          y = -40,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 45,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 120,
-          y = -40,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 43,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 144,
-          y = -24,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 41,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 96,
-          y = -24,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 72,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 48,
-          y = -24,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 73,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 168,
-          y = -40,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 74,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 216,
-          y = -8,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 76,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 24,
-          y = -8,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 77,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 168,
-          y = -56,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 79,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 192,
-          y = -8,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 80,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 120,
-          y = -24,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 81,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 48,
-          y = -8,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 82,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 144,
-          y = -72,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 83,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 72,
-          y = -56,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 85,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 72,
-          y = -24,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 88,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 192,
-          y = -24,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 89,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 168,
-          y = -24,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 90,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 96,
-          y = -72,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 119,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 120,
-          y = -8,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 120,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 144,
-          y = -8,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 121,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 96,
-          y = -8,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 122,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 168,
-          y = -8,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 123,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 72,
-          y = -8,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "powergrab_path",
-            ["pathmode"] = "relative",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 112,
-          name = "powergrab",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 336,
-          y = 0,
-          width = 8,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["clearitemstriggerid"] = 10,
-            ["clearobjectlayer"] = "tutorialtext",
-            ["playerrestrictmove"] = "x"
-          }
-        },
-        {
-          id = 125,
-          name = "text",
-          type = "",
-          shape = "text",
-          x = 32,
-          y = 16,
-          width = 176,
-          height = 56,
-          rotation = 0,
-          visible = true,
-          text = "Hold BUTTON 2:\nPOWER GRAB humans from long range !\n\n(WARNING: Teammates doing Power Grab are vulnerable)",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
-          wrap = true,
-          color = { 255, 255, 255 },
-          properties = {
-            ["initiallayer"] = "tutorialtext"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "powergrab_path",
+      id = 14,
+      name = "demonize",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -3806,324 +4076,6 @@ return {
       properties = {
         ["script"] = "PathGraph"
       },
-      objects = {
-        {
-          id = 124,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 120,
-          y = -8,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 0, y = 240 }
-          },
-          properties = {}
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "powerup",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 118,
-          name = "powerup",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 320,
-          y = 0,
-          width = 8,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["clearitemstriggerid"] = 112,
-            ["clearobjectlayer"] = "tutorialtext"
-          }
-        },
-        {
-          id = 117,
-          name = "text",
-          type = "",
-          shape = "text",
-          x = 32,
-          y = 16,
-          width = 176,
-          height = 56,
-          rotation = 0,
-          visible = true,
-          text = "BUTTON 2 also shows BLUE SOUL humans captured\n\nAny team member with full circle of 20 will unlock...",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
-          wrap = true,
-          color = { 255, 255, 255 },
-          properties = {
-            ["initiallayer"] = "tutorialtext"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "focus",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 7,
-          name = "focus",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 304,
-          y = 0,
-          width = 8,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["clearobjectlayer"] = "tutorialtext",
-            ["cleartriggerid"] = 118,
-            ["playerrestrictfire"] = "focus",
-            ["playerrestrictmove"] = "y",
-            ["wingmenrestrictcapture"] = true
-          }
-        },
-        {
-          id = 13,
-          name = "text",
-          type = "",
-          shape = "text",
-          x = 32,
-          y = 16,
-          width = 176,
-          height = 56,
-          rotation = 0,
-          visible = true,
-          text = "Hold BUTTON 2: FOCUS\n\nFriends LOCK-ON enemy when shooting\n\nMOVE SLOW for precise dodging",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
-          wrap = true,
-          color = { 255, 255, 255 },
-          properties = {
-            ["initiallayer"] = "tutorialtext"
-          }
-        },
-        {
-          id = 40,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 0,
-          y = 128,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 49,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 0,
-          y = 264,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 78,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 240,
-          y = 264,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 84,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 0,
-          y = 200,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 86,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 240,
-          y = 200,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 91,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 240,
-          y = 128,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 48,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 0,
-          y = 232,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 44,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 240,
-          y = 168,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 71,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 0,
-          y = 168,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathspeed"] = "360"
-          }
-        },
-        {
-          id = 75,
-          name = "pikeman",
-          type = "Pikeman",
-          shape = "rectangle",
-          x = 240,
-          y = 232,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 472,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
-            ["pathid"] = "enemypath",
-            ["pathspeed"] = "360"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "demonize",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
       objects = {
         {
           id = 6,
@@ -4176,7 +4128,6 @@ return {
           properties = {
             ["defeatitem"] = "ItemWingman",
             ["firebullet"] = "",
-            ["pathid"] = "enemypath",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4196,7 +4147,6 @@ return {
           properties = {
             ["defeatitem"] = "ItemWingman",
             ["firebullet"] = "",
-            ["pathid"] = "enemypath",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4215,7 +4165,6 @@ return {
           visible = true,
           properties = {
             ["firebullet"] = "",
-            ["pathid"] = "enemypath",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4234,7 +4183,6 @@ return {
           visible = true,
           properties = {
             ["firebullet"] = "",
-            ["pathid"] = "enemypath",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4253,7 +4201,6 @@ return {
           visible = true,
           properties = {
             ["firebullet"] = "",
-            ["pathid"] = "enemypath",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4272,7 +4219,6 @@ return {
           visible = true,
           properties = {
             ["firebullet"] = "",
-            ["pathid"] = "enemypath",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4291,22 +4237,41 @@ return {
           visible = true,
           properties = {
             ["firebullet"] = "",
-            ["pathid"] = "enemypath",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
+        },
+        {
+          id = 126,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 120,
+          y = -16,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 160 }
+          },
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
+      id = 15,
       name = "shoot_capture",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 5,
@@ -4358,7 +4323,6 @@ return {
           visible = true,
           properties = {
             ["firebullet"] = "",
-            ["pathid"] = "enemypath",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4377,7 +4341,6 @@ return {
           visible = true,
           properties = {
             ["firebullet"] = "",
-            ["pathid"] = "enemypath",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4396,7 +4359,6 @@ return {
           visible = true,
           properties = {
             ["firebullet"] = "",
-            ["pathid"] = "enemypath",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4415,7 +4377,6 @@ return {
           visible = true,
           properties = {
             ["firebullet"] = "",
-            ["pathid"] = "enemypath",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4434,15 +4395,32 @@ return {
           visible = true,
           properties = {
             ["firebullet"] = "",
-            ["pathid"] = "enemypath",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
+        },
+        {
+          id = 23,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 120,
+          y = -16,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 160 }
+          },
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
+      id = 16,
       name = "welcome",
       visible = true,
       opacity = 1,
@@ -4493,6 +4471,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 17,
       name = "sparks",
       visible = true,
       opacity = 1,
@@ -4504,6 +4483,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 18,
       name = "playershots",
       visible = true,
       opacity = 1,
@@ -4515,6 +4495,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 19,
       name = "playerteam",
       visible = true,
       opacity = 1,
@@ -4543,6 +4524,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 20,
       name = "tutorialtext",
       visible = true,
       opacity = 1,

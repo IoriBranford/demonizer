@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-up" width="18" height="100" tilewidth="16" tileheight="16" infinite="0" nextobjectid="254">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-up" width="18" height="100" tilewidth="16" tileheight="16" infinite="0" nextlayerid="37" nextobjectid="254">
  <properties>
   <property name="blurupdatespeed" type="float" value="1"/>
   <property name="cameraid" type="int" value="2"/>
@@ -7,7 +7,7 @@
   <property name="extendpoints" type="int" value="10000"/>
   <property name="maxbombs" type="int" value="0"/>
   <property name="music" type="file" value="mus/19 - Dancing Hunter.vgz"/>
-  <property name="overlaymap" type="file" value="winegameplay.lua"/>
+  <property name="overlaymap" type="file" value="gameplay.lua"/>
   <property name="playerid" type="int" value="1"/>
   <property name="script" value="DrunkShmupMap"/>
   <property name="startbombs" type="int" value="0"/>
@@ -20,24 +20,24 @@
  <tileset firstgid="839" source="img/wineitems.tsx"/>
  <tileset firstgid="847" source="img/emotes.tsx"/>
  <tileset firstgid="871" source="img/explosion_giant.tsx"/>
- <layer name="town04_f_low" width="18" height="100">
+ <layer id="1" name="town04_f_low" width="18" height="100">
   <data encoding="base64" compression="zlib">
    eJztWF1u00AQHpsf8XsAAkJQDhAldkzTcoEkdRwqxA3gETgGIN55QPy1XIAHkJAKR+AFqfQUoS0HgBkyI4+3u2s7jkQQffiU8ezsl51v17vjnQLAD8SzAGDK9lXEvRDgORRBPmqbWvqcQfssYtWw72Of91AE+cw4sVcQNxCbULQ/Ib4aIJ8ZJ/Y5GiuiDUX7GyLA9pBxIpj5zDhtC3qIgXo+iX1/wQyngtw/Qmyw3eXnMHDjsuK54okLVdyy4FKwGKSs04S1G7Pe9Nxhn8TQHAwZ5ItUfMJ9hhw74v4xc3S4f8oxbe7bVf8zhuK8mxjzfyTM1SuJP4YbPZz7BHEzaOZbRUSIvmqfx3fM83/yrNEehBir9ia+ZYM+8zTo/PO1mTx05u3g72eFLzA7/3xtNp5d/P2usKd4XG02nn38PVA4VDyutnnyomc683agWV57zLML8+dVh8eX1z7zVuHx5aVrAuGcJ68668eXV531s0zr8HRgr49agb9N+kv9RLUN1TxU10jdlPCz1FVSS0m9OmFkMDtXFwHaXx8g30PEIyjam7xvunCb+wseY58niKdQtGn/fol4ZcHrIN/nBVvYZxvxDoo28bxBvLDgrYXHhbo8Ln3q8vj02UJ8sOBjDX0mJXOdVdTHla+2q/C48tV2FR5XvtqWWN96rYO/XQ/MUz/Y6oG6oL3Qtu/5IHW+gOp94bG1uXjMdd5XPLa2f4VH6k/BWPHY2nTfsm/dKvNFZ8qghIfOrlYJT8rjyRDXECtGe6L8mfJvGH65F6CzbA1xi591zuKPlT9S/h7nJefoHcRdyO8MZDzi1zxt5e/ymKIa690F0Sbl/xtz7vrd7Kixiz825iflsWudMzVHpv42v9QNsaGznpdE+XX+PeUfcR6Sm+iWqPiO8us8IuVvc1t3ATpnkN/fNUFX8ZBu16G4ps17yLYjNlY8pNs6a6ffUds9pBkrd2JkH2DcIeJnUM5jxmaQr/fzIcAFxMWwnMeMjZlL1sAAqt2vih6i74B5Og6dXTw6NoK8Xu420FnGL+u9ic76XrGJzlLbyzs2ZK3KeCR2qOaJ+qUNdJY7XtJa9od5dJ6wxotazzJfNp31d1fLo3PMc9ZhmHuR6GDqJt9lco7KWCLIv9MyOKqDqZt848lY5FtQeOVsMHUwdRtCfscu34sjKOaiITqYuplIoXgOm9C1nK+Oi0t4dO3kq5v0e9qER7RdxHh851dVnj/7V3gU66Gbp2+JJ/wGNzAXaQ==
   </data>
  </layer>
- <layer name="town04_f_mid" width="18" height="100">
+ <layer id="2" name="town04_f_mid" width="18" height="100">
   <data encoding="base64" compression="zlib">
    eJztlckNwjAQRe10ADcqAKpgvVIBS0NILE0AXbB3ADeWIoA735BDSJzITkzg8J/0pZEnnow9Ho0QhBDye2qeEA0v3RrjMI6rOGMpxFSmWyPmlLx3Lep+PTqemU9H8FsbH/NhPgrVy5OYfk7ykXw5xdg2LKGVxg6yRa130D5jzc/Yf4GuCXFM8nnFMvifi/txRQFnLsqo7RJ1xjLiVmXU/kU+5JMbdIcelj6XDKFZin1zaBQTp4l50oLamrkS9qk4i4A/2ONdvMEe1Ne8xbBvDW1SnMMG1T8Vv4dsfIpBhn7KsjcPjtDBwTpJhvdMCCHfRTdv/30Gk/x5AoToV54=
   </data>
  </layer>
- <objectgroup name="groundobjects"/>
- <layer name="town04_f_high" width="18" height="100">
+ <objectgroup id="3" name="groundobjects"/>
+ <layer id="4" name="town04_f_high" width="18" height="100">
   <data encoding="base64" compression="zlib">
    eJztlU1OAzEMhePugVugMlt6BNYVO8oxQLQcgp97AIsi4AZd8bsHloDgBrArL6IRZvBkUs9oaIU/yWr6XqLx2HXjnGEYhp4+ObdLOo1zCe+KdBrnCd4z6TTOGbz1lk7jXMA/J53GuYN3SzqN8wbvlXQap4N3PiWdxunCvyadxhnCeyGdZqQzpq9ZHkzmebWV5kncJPShbI9/5gify5Pv+Xz8ee+NXHk+Hv87K3pmJ+H8OHc2n08gNZ+Qe57wzin18XtC7lJ9uoIXI6VvsXxi/XJuun6V5VMlV2N22EbsC2vOEXp9jDhpoOcp+cwj74gPYV03C+jREv1e/1U+xjf3iAfE45RenWw53UwdIHYKvDbukxVEJtwrMc+zp8glcFjhbBEZmxc/P4sFMyR5/Oxahf/KKmebYIDo16AbcazOzbCB6CE2a95r/MTq3Az/pc6ZcE9KWhn+vg11CLWY9TvYmF8+AWqSbbk=
   </data>
  </layer>
- <objectgroup name="highobjects"/>
- <objectgroup name="camera">
+ <objectgroup id="5" name="highobjects"/>
+ <objectgroup id="6" name="camera">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -51,7 +51,7 @@
    <polyline points="0,0 0,16"/>
   </object>
  </objectgroup>
- <objectgroup name="fleepaths">
+ <objectgroup id="7" name="fleepaths">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -89,12 +89,12 @@
    <polyline points="0,16 0,32 16,48 72,48"/>
   </object>
  </objectgroup>
- <objectgroup name="paths">
+ <objectgroup id="8" name="paths">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
  </objectgroup>
- <objectgroup name="boss">
+ <objectgroup id="9" name="boss">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -120,7 +120,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="preboss">
+ <objectgroup id="10" name="preboss">
   <object id="126" type="Trigger" x="136" y="72" width="16" height="8">
    <properties>
     <property name="soundfile" type="file" value="snd/alarm4.ogg"/>
@@ -207,7 +207,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="prebosspowerup">
+ <objectgroup id="11" name="prebosspowerup">
   <object id="163" gid="846" x="144" y="256" width="8" height="24"/>
   <object id="162" gid="843" x="64" y="256" width="8" height="24"/>
   <object id="226" gid="843" x="224" y="256" width="8" height="24"/>
@@ -217,7 +217,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="guard12">
+ <objectgroup id="12" name="guard12">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -239,7 +239,7 @@
    <polyline points="0,0 0,80 -16,96 -32,96 -48,80 -48,-96 64,-208"/>
   </object>
  </objectgroup>
- <objectgroup name="guard11">
+ <objectgroup id="13" name="guard11">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -265,7 +265,7 @@
   <object id="239" gid="674" x="120" y="272" width="24" height="32"/>
   <object id="240" gid="674" x="168" y="272" width="24" height="32"/>
  </objectgroup>
- <objectgroup name="highobj7">
+ <objectgroup id="14" name="highobj7">
   <object id="159" name="trigger" type="Trigger" x="136" y="488" width="16" height="104">
    <properties>
     <property name="activateobjectslayer" value="highobjects"/>
@@ -278,7 +278,7 @@
   <object id="166" gid="842" x="184" y="520" width="8" height="24"/>
   <object id="167" gid="842" x="104" y="592" width="8" height="24"/>
  </objectgroup>
- <objectgroup name="guard10">
+ <objectgroup id="15" name="guard10">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -298,7 +298,7 @@
   <object id="199" gid="680" x="40" y="496" width="24" height="32"/>
   <object id="200" gid="680" x="248" y="496" width="24" height="32"/>
  </objectgroup>
- <objectgroup name="guard9">
+ <objectgroup id="16" name="guard9">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -326,7 +326,7 @@
   <object id="179" gid="671" x="136" y="568" width="24" height="32"/>
   <object id="180" gid="671" x="152" y="568" width="24" height="32"/>
  </objectgroup>
- <objectgroup name="guard8">
+ <objectgroup id="17" name="guard8">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -350,7 +350,7 @@
    <polyline points="0,0 -48,48 -168,48 -192,24 -192,-40 -208,-56 -224,-56 -240,-40 -240,288"/>
   </object>
  </objectgroup>
- <objectgroup name="highobj6">
+ <objectgroup id="18" name="highobj6">
   <object id="134" gid="846" x="88" y="720" width="8" height="24"/>
   <object id="146" name="trigger" type="Trigger" x="136" y="696" width="8" height="24">
    <properties>
@@ -358,7 +358,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="highobj5">
+ <objectgroup id="19" name="highobj5">
   <object id="145" name="trigger" type="Trigger" x="136" y="768" width="8" height="24">
    <properties>
     <property name="activateobjectslayer" value="highobjects"/>
@@ -367,7 +367,7 @@
   <object id="129" gid="839" x="40" y="792" width="8" height="24"/>
   <object id="130" gid="842" x="88" y="792" width="8" height="24"/>
  </objectgroup>
- <objectgroup name="guard7">
+ <objectgroup id="20" name="guard7">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -394,7 +394,7 @@
    <polyline points="0,0 -168,0 -192,24 -192,56 -168,80 8,80"/>
   </object>
  </objectgroup>
- <objectgroup name="highobj4">
+ <objectgroup id="21" name="highobj4">
   <object id="127" gid="842" x="184" y="840" width="8" height="24"/>
   <object id="128" gid="839" x="136" y="840" width="8" height="24"/>
   <object id="131" gid="839" x="232" y="840" width="8" height="24"/>
@@ -404,7 +404,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="guard6">
+ <objectgroup id="22" name="guard6">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -422,7 +422,7 @@
    <polyline points="96,304 96,168 144,120 144,0 176,-32 232,-32 264,0 320,0"/>
   </object>
  </objectgroup>
- <objectgroup name="guard5">
+ <objectgroup id="23" name="guard5">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -448,7 +448,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="guard4">
+ <objectgroup id="24" name="guard4">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -474,7 +474,7 @@
    <polyline points="0,0 -104,64 -104,352"/>
   </object>
  </objectgroup>
- <objectgroup name="highobj3">
+ <objectgroup id="25" name="highobj3">
   <object id="87" gid="272" x="80" y="984" width="16" height="16"/>
   <object id="88" gid="246" x="80" y="968" width="16" height="16"/>
   <object id="89" gid="538" x="192" y="984" width="16" height="16"/>
@@ -490,7 +490,7 @@
   <object id="121" gid="842" x="216" y="976" width="8" height="24"/>
   <object id="122" gid="841" x="72" y="992" width="8" height="24"/>
  </objectgroup>
- <objectgroup name="guests1">
+ <objectgroup id="26" name="guests1">
   <object id="102" gid="809" x="104" y="1008" width="24" height="32"/>
   <object id="103" gid="806" x="56" y="992" width="24" height="32"/>
   <object id="104" gid="755" x="232" y="992" width="24" height="32"/>
@@ -501,7 +501,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="highobj2">
+ <objectgroup id="27" name="highobj2">
   <object id="65" gid="38" x="136" y="1080" width="16" height="16"/>
   <object id="72" gid="38" x="232" y="1080" width="16" height="16"/>
   <object id="73" gid="38" x="40" y="1080" width="16" height="16"/>
@@ -514,7 +514,7 @@
   <object id="141" gid="839" x="144" y="1084" width="8" height="24"/>
   <object id="142" gid="840" x="54" y="1082" width="8" height="24"/>
  </objectgroup>
- <objectgroup name="highobj1">
+ <objectgroup id="28" name="highobj1">
   <object id="66" gid="38" x="40" y="1160" width="16" height="16"/>
   <object id="70" gid="38" x="136" y="1160" width="16" height="16"/>
   <object id="71" gid="38" x="232" y="1160" width="16" height="16"/>
@@ -527,7 +527,7 @@
   <object id="138" gid="841" x="244" y="1164" width="8" height="24"/>
   <object id="139" gid="841" x="48" y="1164" width="8" height="24"/>
  </objectgroup>
- <objectgroup name="guard2">
+ <objectgroup id="29" name="guard2">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -545,7 +545,7 @@
    <polyline points="0,0 -80,0 -112,32 -112,224 -80,256 -80,336"/>
   </object>
  </objectgroup>
- <objectgroup name="guard1">
+ <objectgroup id="30" name="guard1">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -563,7 +563,7 @@
    <polyline points="0,0 0,32 -24,80 -24,168 0,208 0,304"/>
   </object>
  </objectgroup>
- <objectgroup name="wine1">
+ <objectgroup id="31" name="wine1">
   <object id="8" type="Trigger" x="136" y="1232" width="16" height="56">
    <properties>
     <property name="activateobjectslayer" value="highobjects"/>
@@ -595,7 +595,7 @@
   <object id="191" gid="38" x="136" y="1472" width="16" height="16"/>
   <object id="192" gid="38" x="224" y="1248" width="16" height="16"/>
  </objectgroup>
- <objectgroup name="reception">
+ <objectgroup id="32" name="reception">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
@@ -737,9 +737,9 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="sparks"/>
- <objectgroup draworder="index" name="playershots"/>
- <objectgroup name="playerteam">
+ <objectgroup id="33" name="sparks"/>
+ <objectgroup draworder="index" id="34" name="playershots"/>
+ <objectgroup id="35" name="playerteam">
   <properties>
    <property name="script" value="PlayerTeam"/>
   </properties>
@@ -748,5 +748,11 @@
     <property name="script" value="DrunkShmupPlayer"/>
    </properties>
   </object>
+ </objectgroup>
+ <objectgroup id="36" name="wineitems">
+  <properties>
+   <property name="itemtileset" value="wineitems"/>
+   <property name="script" value="ItemsLayer"/>
+  </properties>
  </objectgroup>
 </map>

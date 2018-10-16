@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="wineguards" tilewidth="24" tileheight="32" tilecount="90" columns="18">
+<tileset version="1.2" tiledversion="1.2.0" name="wineguards" tilewidth="24" tileheight="32" tilecount="90" columns="18">
  <tileoffset x="-12" y="16"/>
  <properties>
   <property name="colstype" value="state"/>
@@ -88,7 +88,11 @@
    <property name="name" value="kocaptain"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" type="CollisionEnemy" x="0" y="12" width="24" height="16"/>
+   <object id="1" type="CollisionEnemy" x="0" y="12" width="24" height="16">
+    <properties>
+     <property name="sensor" type="bool" value="false"/>
+    </properties>
+   </object>
   </objectgroup>
  </tile>
  <tile id="73" type="WineDefeatedEnemy"/>
@@ -98,14 +102,22 @@
    <property name="name" value="koguard"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" type="CollisionEnemy" x="0" y="13" width="24" height="16"/>
+   <object id="1" type="CollisionEnemy" x="0" y="13" width="24" height="16">
+    <properties>
+     <property name="sensor" type="bool" value="false"/>
+    </properties>
+   </object>
   </objectgroup>
  </tile>
  <tile id="76" type="WineDefeatedEnemy"/>
  <tile id="77" type="WineDefeatedEnemy"/>
  <tile id="78" type="WineDefeatedEnemy">
   <objectgroup draworder="index">
-   <object id="1" type="CollisionEnemy" x="0" y="12" width="24" height="16"/>
+   <object id="1" type="CollisionEnemy" x="0" y="12" width="24" height="16">
+    <properties>
+     <property name="sensor" type="bool" value="false"/>
+    </properties>
+   </object>
   </objectgroup>
  </tile>
  <tile id="79" type="WineDefeatedEnemy"/>
@@ -115,7 +127,11 @@
    <property name="name" value="konun"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="2" type="CollisionEnemy" x="0" y="8" width="24" height="16"/>
+   <object id="2" type="CollisionEnemy" x="0" y="8" width="24" height="16">
+    <properties>
+     <property name="sensor" type="bool" value="false"/>
+    </properties>
+   </object>
   </objectgroup>
  </tile>
  <tile id="82" type="WineDefeatedEnemy"/>
@@ -125,7 +141,11 @@
    <property name="name" value="kohighpriest"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" type="CollisionEnemy" x="0" y="8" width="24" height="16"/>
+   <object id="1" type="CollisionEnemy" x="0" y="8" width="24" height="16">
+    <properties>
+     <property name="sensor" type="bool" value="false"/>
+    </properties>
+   </object>
   </objectgroup>
  </tile>
  <tile id="85" type="WineDefeatedEnemy"/>
@@ -135,7 +155,11 @@
    <property name="name" value="kohighpriestess"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" type="CollisionEnemy" x="0" y="10" width="24" height="16"/>
+   <object id="1" type="CollisionEnemy" x="0" y="10" width="24" height="16">
+    <properties>
+     <property name="sensor" type="bool" value="false"/>
+    </properties>
+   </object>
   </objectgroup>
  </tile>
  <tile id="88" type="WineDefeatedEnemy"/>

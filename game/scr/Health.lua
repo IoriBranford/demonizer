@@ -10,18 +10,13 @@ local ShmupCollision = require "ShmupCollision"
 local Health = class()
 function Health:_init(object)
 	self.id = object.id
+	self.object = object
 	self.properties = object.properties
 	self.body = object.body
 	self.health = object.properties.health or 8
 	self.movedamage = 0
 	self.dps = 0
 end
-
-local Sounds = {
-	Hit = "snd/hit.ogg",
-	Defeat = "snd/knockout.ogg",
-}
-levity.bank:load(Sounds)
 
 local function isDefeated(health)
 	return health < 1
@@ -55,7 +50,8 @@ function Health:createHitFX(sparkx, sparky, angle, sparktype)
 		ShmupBullet.create(sparktype, sparkx, sparky, 0, 0, "sparks")
 	else
 		sparkx, sparky = self.body:getWorldCenter()
-		levity.bank:play(self.properties.hitsound or Sounds.Hit)
+		levity.bank:play(self.properties.hitsound or
+			levity.map.properties.enemyhitsound)
 	end
 
 	local hitparticles = self.properties.hitparticles or "damageparticles"
@@ -68,7 +64,7 @@ function Health:createDefeatFX()
 	levity.scripts:send(self.properties.defeatparticles or "defeatparticles",
 		"emit", 16, sparkx, sparky, 0, 2*math.pi)
 
-	levity.bank:play(Sounds.Defeat)
+	levity.bank:play(levity.map.properties.enemydefeatsound)
 end
 
 function Health:addDPS(dps)
@@ -100,6 +96,7 @@ function Health:endMove(dt)
 				levity.scripts:broadcast("pointsScored", damage*10)
 			end
 		end
+		--self.object.text = health
 	end
 	self.health = health
 end

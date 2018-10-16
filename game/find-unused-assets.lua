@@ -44,6 +44,7 @@ end
 local NonMapFiles = {
 	["conf.lua"] = true,
 	["main.lua"] = true,
+	["gencomic.lua"] = true,
 	["make-game.lua"] = true,
 	["find-unused-assets.lua"] = true,
 	["fix-collision-offsets.lua"] = true

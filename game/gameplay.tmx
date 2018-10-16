@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextobjectid="49">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="54">
  <properties>
   <property name="delayinitobjects" type="bool" value="true"/>
+  <property name="enemydefeatsound" type="file" value="snd/knockout.ogg"/>
+  <property name="enemyhitsound" type="file" value="snd/hit.ogg"/>
   <property name="losemusic" type="file" value="mus/33 - All Over Tonight.vgz"/>
   <property name="script" value="ShmupMap"/>
+  <property name="targetlocksound" type="file" value="snd/targetlock.ogg"/>
   <property name="winmusic" type="file" value="mus/07 - Great Job!.vgz"/>
  </properties>
  <tileset firstgid="1" source="img/bombgauge.tsx"/>
@@ -27,12 +30,13 @@
  <tileset firstgid="341" source="img/countdown.tsx"/>
  <tileset firstgid="344" source="img/go.tsx"/>
  <tileset firstgid="345" source="img/emotes.tsx"/>
- <objectgroup name="items" opacity="0.75">
+ <tileset firstgid="369" source="img/winebomb.tsx"/>
+ <objectgroup id="1" name="items" opacity="0.75">
   <properties>
    <property name="script" value="ItemsLayer"/>
   </properties>
  </objectgroup>
- <objectgroup name="enemyfireparticles">
+ <objectgroup id="2" name="enemyfireparticles">
   <properties>
    <property name="lifetime" type="float" value="0.25"/>
    <property name="script" value="ParticleLayer"/>
@@ -43,7 +47,7 @@
    <property name="tileset" value="particles"/>
   </properties>
  </objectgroup>
- <objectgroup name="defeatparticles">
+ <objectgroup id="3" name="defeatparticles">
   <properties>
    <property name="lifetime" type="float" value="0.5"/>
    <property name="script" value="ParticleLayer"/>
@@ -53,7 +57,7 @@
    <property name="tileset" value="particles"/>
   </properties>
  </objectgroup>
- <objectgroup name="damageparticles">
+ <objectgroup id="4" name="damageparticles">
   <properties>
    <property name="lifetime" type="float" value="0.25"/>
    <property name="script" value="ParticleLayer"/>
@@ -64,7 +68,7 @@
    <property name="tileset" value="particles"/>
   </properties>
  </objectgroup>
- <objectgroup name="guardparticles">
+ <objectgroup id="5" name="guardparticles">
   <properties>
    <property name="lifetime" type="float" value="0.25"/>
    <property name="script" value="ParticleLayer"/>
@@ -75,7 +79,7 @@
    <property name="tileset" value="particles"/>
   </properties>
  </objectgroup>
- <objectgroup name="launchbombparticles">
+ <objectgroup id="6" name="launchbombparticles">
   <properties>
    <property name="lifetime" type="float" value="0.12"/>
    <property name="maxparticles" value="4"/>
@@ -86,7 +90,7 @@
    <property name="tileset" value="playerhitbox"/>
   </properties>
  </objectgroup>
- <objectgroup name="deathparticles">
+ <objectgroup id="7" name="deathparticles">
   <properties>
    <property name="lifetime" type="float" value="0.5"/>
    <property name="script" value="ParticleLayer"/>
@@ -97,9 +101,13 @@
    <property name="tileset" value="particles"/>
   </properties>
  </objectgroup>
- <objectgroup draworder="index" name="npcshots"/>
- <objectgroup draworder="index" name="status">
+ <objectgroup draworder="index" id="8" name="npcshots"/>
+ <objectgroup draworder="index" id="9" name="status">
   <properties>
+   <property name="countdownsound" type="file" value="snd/equip.ogg"/>
+   <property name="gosound" type="file" value="snd/extend.ogg"/>
+   <property name="maxmultipliersound" type="file" value="snd/maxed.ogg"/>
+   <property name="newbombsound" type="file" value="snd/thankyou.ogg"/>
    <property name="script" value="ShmupStatus"/>
   </properties>
   <object id="42" name="countdown" gid="343" x="120" y="168" width="16" height="20"/>
@@ -137,6 +145,7 @@
   </object>
   <object id="29" name="score" x="4" y="4" width="232" height="8">
    <properties>
+    <property name="extendsound" type="file" value="snd/extend.ogg"/>
     <property name="script" value="ShmupScore"/>
     <property name="textformat" value="SCORE %8d  1UP@ %8d"/>
    </properties>
@@ -156,8 +165,33 @@ GOOD LUCK!!!</property>
 
 GOOD LUCK!!!</text>
   </object>
+  <object id="49" name="winebomb1" gid="369" x="8" y="312" width="18" height="12" rotation="-90" visible="0">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="50" name="winebomb2" gid="369" x="24" y="312" width="18" height="12" rotation="-90" visible="0">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="51" name="winebomb3" gid="369" x="40" y="312" width="18" height="12" rotation="-90" visible="0">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="52" name="winebomb4" gid="369" x="56" y="312" width="18" height="12" rotation="-90" visible="0">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="53" name="winebomb5" gid="369" x="72" y="312" width="18" height="12" rotation="-90" visible="0">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="results">
+ <objectgroup id="10" name="results">
   <properties>
    <property name="script" value="ShmupResults"/>
   </properties>
@@ -210,7 +244,7 @@ GOOD LUCK!!!</text>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="right">timetotal</text>
   </object>
  </objectgroup>
- <objectgroup name="pausemenu" visible="0">
+ <objectgroup id="11" name="pausemenu" visible="0">
   <properties>
    <property name="pausesound" type="file" value="snd/pause.ogg"/>
    <property name="script" value="MenuPause"/>
@@ -238,7 +272,7 @@ GOOD LUCK!!!</text>
    <text fontfamily="Lady Radical" wrap="1" color="#ffffff" halign="center" valign="center">PAUSE</text>
   </object>
  </objectgroup>
- <objectgroup name="gameovermenu" visible="0">
+ <objectgroup id="12" name="gameovermenu" visible="0">
   <properties>
    <property name="script" value="MenuGameOver"/>
   </properties>
@@ -257,14 +291,14 @@ GOOD LUCK!!!</text>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">END GAME</text>
   </object>
  </objectgroup>
- <objectgroup name="touchcontrols" visible="0">
+ <objectgroup id="13" name="touchcontrols" visible="0">
   <properties>
    <property name="script" value="ShmupTouchControls"/>
   </properties>
   <object id="22" name="move" gid="21" x="0" y="0" width="64" height="64"/>
   <object id="23" name="focus" gid="22" x="0" y="0" width="64" height="64"/>
  </objectgroup>
- <objectgroup name="curtain">
+ <objectgroup id="14" name="curtain">
   <properties>
    <property name="script" value="Curtain"/>
   </properties>

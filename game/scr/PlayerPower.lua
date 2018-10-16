@@ -62,10 +62,13 @@ function PlayerPower:endMove(dt)
 	if newgid ~= self.object.gid then
 		self.object:setGid(newgid)
 	end
+end
 
-	local scoreid = levity.scripts:call("status", "getScoreId")
-	local mult = levity.scripts:call(scoreid, "getMultiplier", teammemberid)
-		or 0
+function PlayerPower:multiplierUpdated(teammemberid, mult)
+	if teammemberid ~= "all"
+	and teammemberid ~= self.object.properties.teammemberid then
+		return
+	end
 	for i = 1, mult do
 		self:setDotVisible(i, true)
 	end

@@ -1,14 +1,15 @@
 return {
-  version = "1.1",
+  version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.1.6",
+  tiledversion = "1.2.0",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 18,
   height = 100,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 347,
+  nextlayerid = 36,
+  nextobjectid = 349,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/05 - Twilight Express.vgz",
@@ -25,6 +26,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 12,
       image = "img/basic_terrain.png",
       imagewidth = 192,
       imageheight = 512,
@@ -1169,6 +1171,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 8,
       image = "img/forest.png",
       imagewidth = 128,
       imageheight = 64,
@@ -1194,6 +1197,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/bushes.png",
       imagewidth = 96,
       imageheight = 160,
@@ -1219,6 +1223,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/trees.png",
       imagewidth = 192,
       imageheight = 64,
@@ -1275,6 +1280,7 @@ return {
       tileheight = 80,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/trees_tall.png",
       imagewidth = 144,
       imageheight = 80,
@@ -1344,6 +1350,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 5,
       image = "img/fire.png",
       imagewidth = 320,
       imageheight = 64,
@@ -1395,6 +1402,7 @@ return {
       tileheight = 72,
       spacing = 0,
       margin = 0,
+      columns = 8,
       image = "img/catapult.png",
       imagewidth = 576,
       imageheight = 216,
@@ -1570,6 +1578,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/friend/black_harpy.png",
       imagewidth = 192,
       imageheight = 256,
@@ -1651,6 +1660,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/friend/devil_bug.png",
       imagewidth = 96,
       imageheight = 128,
@@ -1732,6 +1742,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/friend/ghost.png",
       imagewidth = 96,
       imageheight = 128,
@@ -1813,6 +1824,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/friend/goblin.png",
       imagewidth = 96,
       imageheight = 128,
@@ -1841,6 +1853,7 @@ return {
       tiles = {
         {
           id = 0,
+          type = "Friend",
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -1887,6 +1900,50 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 1,
+          type = "Friend"
+        },
+        {
+          id = 2,
+          type = "Friend"
+        },
+        {
+          id = 3,
+          type = "Friend"
+        },
+        {
+          id = 4,
+          type = "Friend"
+        },
+        {
+          id = 5,
+          type = "Friend"
+        },
+        {
+          id = 6,
+          type = "Friend"
+        },
+        {
+          id = 7,
+          type = "Friend"
+        },
+        {
+          id = 8,
+          type = "Friend"
+        },
+        {
+          id = 9,
+          type = "Friend"
+        },
+        {
+          id = 10,
+          type = "Friend"
+        },
+        {
+          id = 11,
+          type = "Friend"
         }
       }
     },
@@ -1898,6 +1955,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/friend/harpy.png",
       imagewidth = 192,
       imageheight = 256,
@@ -1979,6 +2037,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/friend/holstaurus.png",
       imagewidth = 96,
       imageheight = 128,
@@ -2004,6 +2063,7 @@ return {
       tiles = {
         {
           id = 0,
+          type = "Friend",
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -2026,7 +2086,8 @@ return {
                 rotation = 0,
                 visible = true,
                 properties = {
-                  ["collidable"] = true
+                  ["collidable"] = true,
+                  ["sensor"] = true
                 }
               }
             }
@@ -2049,6 +2110,50 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 1,
+          type = "Friend"
+        },
+        {
+          id = 2,
+          type = "Friend"
+        },
+        {
+          id = 3,
+          type = "Friend"
+        },
+        {
+          id = 4,
+          type = "Friend"
+        },
+        {
+          id = 5,
+          type = "Friend"
+        },
+        {
+          id = 6,
+          type = "Friend"
+        },
+        {
+          id = 7,
+          type = "Friend"
+        },
+        {
+          id = 8,
+          type = "Friend"
+        },
+        {
+          id = 9,
+          type = "Friend"
+        },
+        {
+          id = 10,
+          type = "Friend"
+        },
+        {
+          id = 11,
+          type = "Friend"
         }
       }
     },
@@ -2060,6 +2165,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/friend/honey_bee.png",
       imagewidth = 192,
       imageheight = 256,
@@ -2141,6 +2247,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/friend/siren.png",
       imagewidth = 192,
       imageheight = 256,
@@ -2222,6 +2329,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/friend/werebat.png",
       imagewidth = 192,
       imageheight = 256,
@@ -2303,6 +2411,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/friend/weresheep.png",
       imagewidth = 96,
       imageheight = 128,
@@ -2384,6 +2493,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/friend/youko.png",
       imagewidth = 96,
       imageheight = 128,
@@ -2465,6 +2575,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/Archer.png",
       imagewidth = 192,
       imageheight = 128,
@@ -2746,6 +2857,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/human/enemy/CatapultOperator.png",
       imagewidth = 72,
       imageheight = 128,
@@ -2871,6 +2983,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/PikemanF.png",
       imagewidth = 192,
       imageheight = 128,
@@ -3152,6 +3265,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/Pikeman.png",
       imagewidth = 192,
       imageheight = 128,
@@ -3433,6 +3547,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/human/enemy/Princess.png",
       imagewidth = 72,
       imageheight = 128,
@@ -3513,6 +3628,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/SwordsmanF.png",
       imagewidth = 192,
       imageheight = 128,
@@ -3794,6 +3910,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/Swordsman.png",
       imagewidth = 192,
       imageheight = 128,
@@ -4075,6 +4192,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/ArcherF.png",
       imagewidth = 192,
       imageheight = 128,
@@ -4356,6 +4474,7 @@ return {
       tileheight = 48,
       spacing = 0,
       margin = 0,
+      columns = 2,
       image = "img/rocks_wide.png",
       imagewidth = 128,
       imageheight = 192,
@@ -4453,6 +4572,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 4,
       image = "img/player.png",
       imagewidth = 256,
       imageheight = 448,
@@ -4919,6 +5039,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/friend/arachne.png",
       imagewidth = 192,
       imageheight = 256,
@@ -4996,6 +5117,7 @@ return {
   layers = {
     {
       type = "tilelayer",
+      id = 1,
       name = "dirt",
       x = 0,
       y = 0,
@@ -5012,6 +5134,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 2,
       name = "dirtdeco",
       x = 0,
       y = 0,
@@ -5028,6 +5151,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 3,
       name = "grass",
       x = 0,
       y = 0,
@@ -5044,6 +5168,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 4,
       name = "grassdeco",
       x = 0,
       y = 0,
@@ -5060,6 +5185,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 5,
       name = "unused",
       visible = false,
       opacity = 1,
@@ -5425,6 +5551,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 6,
       name = "fleepaths",
       visible = true,
       opacity = 1,
@@ -5491,7 +5618,8 @@ return {
     },
     {
       type = "objectgroup",
-      name = "boss_paths",
+      id = 8,
+      name = "boss",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -5501,6 +5629,20 @@ return {
         ["script"] = "PathGraph"
       },
       objects = {
+        {
+          id = 159,
+          name = "boss",
+          type = "PrincessNormalAttack",
+          shape = "rectangle",
+          x = 144,
+          y = -16,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 689,
+          visible = true,
+          properties = {}
+        },
         {
           id = 160,
           name = "",
@@ -5571,60 +5713,29 @@ return {
             { x = -176, y = -20 }
           },
           properties = {}
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "boss",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
+        },
         {
-          id = 153,
+          id = 347,
           name = "",
           type = "Trigger",
-          shape = "polyline",
+          shape = "rectangle",
           x = 0,
-          y = 0,
-          width = 0,
-          height = 0,
+          y = -16,
+          width = 288,
+          height = 16,
           rotation = 0,
           visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 288, y = 0 }
-          },
           properties = {
             ["activateobjectslayer"] = "ground",
             ["cleartowin"] = true,
             ["musicfile"] = "mus/03 - Mighty Gals 2.vgz"
           }
-        },
-        {
-          id = 159,
-          name = "boss",
-          type = "PrincessNormalAttack",
-          shape = "rectangle",
-          x = 144,
-          y = -16,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 689,
-          visible = true,
-          properties = {
-            ["pathid"] = "boss_paths"
-          }
         }
       }
     },
     {
       type = "objectgroup",
+      id = 9,
       name = "preboss",
       visible = true,
       opacity = 1,
@@ -5658,6 +5769,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 10,
       name = "bosscover",
       visible = true,
       opacity = 1,
@@ -6231,13 +6343,16 @@ return {
     },
     {
       type = "objectgroup",
+      id = 11,
       name = "pikemen5",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 195,
@@ -6251,9 +6366,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 319
-          }
+          properties = {}
         },
         {
           id = 196,
@@ -6267,9 +6380,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 205
-          }
+          properties = {}
         },
         {
           id = 197,
@@ -6283,9 +6394,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 318
-          }
+          properties = {}
         },
         {
           id = 198,
@@ -6299,9 +6408,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 206
-          }
+          properties = {}
         },
         {
           id = 200,
@@ -6315,9 +6422,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 205
-          }
+          properties = {}
         },
         {
           id = 201,
@@ -6331,9 +6436,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 318
-          }
+          properties = {}
         },
         {
           id = 202,
@@ -6347,9 +6450,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 319
-          }
+          properties = {}
         },
         {
           id = 203,
@@ -6363,9 +6464,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 206
-          }
+          properties = {}
         },
         {
           id = 205,
@@ -6382,9 +6481,7 @@ return {
             { x = -40, y = 144 },
             { x = -40, y = 544 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 206,
@@ -6401,9 +6498,7 @@ return {
             { x = 56, y = 144 },
             { x = 56, y = 544 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 215,
@@ -6440,9 +6535,7 @@ return {
             { x = 64, y = 232 },
             { x = 64, y = 552 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 319,
@@ -6460,21 +6553,22 @@ return {
             { x = 56, y = 232 },
             { x = 56, y = 552 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
+      id = 12,
       name = "catapults3",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 208,
@@ -6490,8 +6584,7 @@ return {
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["offscreenshot"] = false,
-            ["pathid"] = 213
+            ["offscreenshot"] = false
           }
         },
         {
@@ -6524,8 +6617,7 @@ return {
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["offscreenshot"] = false,
-            ["pathid"] = 212
+            ["offscreenshot"] = false
           }
         },
         {
@@ -6559,9 +6651,7 @@ return {
             { x = 48, y = 112 },
             { x = 48, y = 160 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 213,
@@ -6578,9 +6668,7 @@ return {
             { x = -80, y = 112 },
             { x = -80, y = 160 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 214,
@@ -6601,13 +6689,16 @@ return {
     },
     {
       type = "objectgroup",
+      id = 13,
       name = "archerscatapults",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 137,
@@ -6637,7 +6728,6 @@ return {
           gid = 605,
           visible = true,
           properties = {
-            ["pathid"] = 54,
             ["pathmode"] = "relative",
             ["pathspeedfunction"] = "abscos"
           }
@@ -6655,7 +6745,6 @@ return {
           gid = 605,
           visible = true,
           properties = {
-            ["pathid"] = 54,
             ["pathmode"] = "relative",
             ["pathspeedfunction"] = "abscos"
           }
@@ -6673,7 +6762,6 @@ return {
           gid = 605,
           visible = true,
           properties = {
-            ["pathid"] = 54,
             ["pathmode"] = "relative",
             ["pathspeedfunction"] = "abscos"
           }
@@ -6729,7 +6817,8 @@ return {
           visible = true,
           properties = {
             ["faceangle"] = 45,
-            ["offscreenshot"] = true
+            ["offscreenshot"] = true,
+            ["pathid"] = ""
           }
         },
         {
@@ -6762,13 +6851,15 @@ return {
           visible = true,
           properties = {
             ["faceangle"] = 135,
-            ["offscreenshot"] = true
+            ["offscreenshot"] = true,
+            ["pathid"] = ""
           }
         }
       }
     },
     {
       type = "objectgroup",
+      id = 14,
       name = "deco3",
       visible = true,
       opacity = 1,
@@ -7038,6 +7129,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 15,
       name = "swordsmen4",
       visible = true,
       opacity = 1,
@@ -7093,13 +7185,16 @@ return {
     },
     {
       type = "objectgroup",
+      id = 16,
       name = "pikemencatapult",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 140,
@@ -7131,9 +7226,7 @@ return {
             { x = -16, y = 16 },
             { x = -16, y = 128 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 128,
@@ -7149,8 +7242,7 @@ return {
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["offscreenshot"] = true,
-            ["pathid"] = 188
+            ["offscreenshot"] = true
           }
         },
         {
@@ -7181,9 +7273,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 118
-          }
+          properties = {}
         },
         {
           id = 10,
@@ -7197,9 +7287,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 117
-          }
+          properties = {}
         },
         {
           id = 125,
@@ -7213,9 +7301,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 118
-          }
+          properties = {}
         },
         {
           id = 123,
@@ -7229,9 +7315,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 118
-          }
+          properties = {}
         },
         {
           id = 122,
@@ -7245,9 +7329,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 117
-          }
+          properties = {}
         },
         {
           id = 120,
@@ -7261,9 +7343,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 117
-          }
+          properties = {}
         },
         {
           id = 118,
@@ -7280,9 +7360,7 @@ return {
             { x = 0, y = 96 },
             { x = 0, y = 512 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 117,
@@ -7299,14 +7377,13 @@ return {
             { x = 0, y = 96 },
             { x = 0, y = 512 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
+      id = 17,
       name = "swordsmen3",
       visible = false,
       opacity = 1,
@@ -7334,6 +7411,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 18,
       name = "swordsmen2",
       visible = false,
       opacity = 1,
@@ -7361,6 +7439,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 19,
       name = "friendswordsmen",
       visible = true,
       opacity = 1,
@@ -7391,7 +7470,7 @@ return {
         {
           id = 340,
           name = "",
-          type = "Friend",
+          type = "",
           shape = "rectangle",
           x = 128,
           y = 752,
@@ -7405,8 +7484,7 @@ return {
             ["emotetileset"] = "emotes",
             ["fleeing"] = true,
             ["health"] = 5,
-            ["pathfinder"] = "linearDown",
-            ["pathid"] = "mylayer"
+            ["pathfinder"] = "linearDown"
           }
         },
         {
@@ -7528,7 +7606,7 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 0 },
+            { x = 0, y = -16 },
             { x = 0, y = 112 },
             { x = -8, y = 128 },
             { x = 8, y = 144 },
@@ -7540,7 +7618,7 @@ return {
         {
           id = 345,
           name = "",
-          type = "Friend",
+          type = "",
           shape = "rectangle",
           x = 160,
           y = 736,
@@ -7554,21 +7632,23 @@ return {
             ["emotetileset"] = "emotes",
             ["fleeing"] = true,
             ["health"] = 8,
-            ["pathfinder"] = "linearDown",
-            ["pathid"] = "mylayer"
+            ["pathfinder"] = "linearDown"
           }
         }
       }
     },
     {
       type = "objectgroup",
+      id = 20,
       name = "catapults2",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 76,
@@ -7600,7 +7680,6 @@ return {
           properties = {
             ["faceangle"] = 90,
             ["offscreenshot"] = true,
-            ["pathid"] = 91,
             ["pathspeed"] = 120
           }
         },
@@ -7619,7 +7698,6 @@ return {
           properties = {
             ["faceangle"] = 90,
             ["offscreenshot"] = true,
-            ["pathid"] = 92,
             ["pathspeed"] = 120
           }
         },
@@ -7670,9 +7748,7 @@ return {
             { x = -16, y = 16 },
             { x = -16, y = 80 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 92,
@@ -7689,14 +7765,13 @@ return {
             { x = -16, y = 16 },
             { x = -16, y = 80 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
+      id = 21,
       name = "catapults1",
       visible = true,
       opacity = 1,
@@ -7724,13 +7799,16 @@ return {
     },
     {
       type = "objectgroup",
+      id = 22,
       name = "archers2",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 55,
@@ -7763,9 +7841,7 @@ return {
             { x = 96, y = 32 },
             { x = 176, y = 16 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 147,
@@ -7780,7 +7856,6 @@ return {
           gid = 605,
           visible = true,
           properties = {
-            ["pathid"] = 146,
             ["pathmode"] = "relative",
             ["pathspeedfunction"] = "abscos"
           }
@@ -7798,7 +7873,6 @@ return {
           gid = 605,
           visible = true,
           properties = {
-            ["pathid"] = 146,
             ["pathmode"] = "relative",
             ["pathspeedfunction"] = "abscos"
           }
@@ -7817,7 +7891,6 @@ return {
           visible = true,
           properties = {
             ["defeatitem"] = "ItemWingman",
-            ["pathid"] = 146,
             ["pathmode"] = "relative",
             ["pathspeedfunction"] = "abscos"
           }
@@ -7826,13 +7899,16 @@ return {
     },
     {
       type = "objectgroup",
+      id = 23,
       name = "archers1",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 50,
@@ -7847,7 +7923,6 @@ return {
           gid = 605,
           visible = true,
           properties = {
-            ["pathid"] = 52,
             ["pathmode"] = "relative",
             ["pathspeedfunction"] = "abscos"
           }
@@ -7865,7 +7940,6 @@ return {
           gid = 605,
           visible = true,
           properties = {
-            ["pathid"] = 52,
             ["pathmode"] = "relative",
             ["pathspeedfunction"] = "abscos"
           }
@@ -7886,9 +7960,7 @@ return {
             { x = 52, y = -8 },
             { x = 152, y = 8 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 53,
@@ -7918,7 +7990,6 @@ return {
           gid = 605,
           visible = true,
           properties = {
-            ["pathid"] = 52,
             ["pathmode"] = "relative",
             ["pathspeedfunction"] = "abscos"
           }
@@ -7927,6 +7998,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 24,
       name = "deco2",
       visible = true,
       opacity = 1,
@@ -8488,13 +8560,16 @@ return {
     },
     {
       type = "objectgroup",
+      id = 25,
       name = "pikemen3",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 25,
@@ -8527,9 +8602,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 317
-          }
+          properties = {}
         },
         {
           id = 27,
@@ -8543,9 +8616,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 25
-          }
+          properties = {}
         },
         {
           id = 28,
@@ -8559,9 +8630,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 317
-          }
+          properties = {}
         },
         {
           id = 32,
@@ -8575,9 +8644,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 25
-          }
+          properties = {}
         },
         {
           id = 42,
@@ -8606,9 +8673,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 25
-          }
+          properties = {}
         },
         {
           id = 29,
@@ -8622,9 +8687,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 317
-          }
+          properties = {}
         },
         {
           id = 317,
@@ -8650,13 +8713,16 @@ return {
     },
     {
       type = "objectgroup",
+      id = 26,
       name = "pikemen2",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 5,
@@ -8690,9 +8756,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 5
-          }
+          properties = {}
         },
         {
           id = 12,
@@ -8706,9 +8770,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 5
-          }
+          properties = {}
         },
         {
           id = 41,
@@ -8737,9 +8799,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 5
-          }
+          properties = {}
         },
         {
           id = 16,
@@ -8753,9 +8813,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 15
-          }
+          properties = {}
         },
         {
           id = 15,
@@ -8788,9 +8846,7 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 15
-          }
+          properties = {}
         },
         {
           id = 33,
@@ -8804,21 +8860,22 @@ return {
           rotation = 0,
           gid = 665,
           visible = true,
-          properties = {
-            ["pathid"] = 15
-          }
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
+      id = 27,
       name = "pikemen1",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 35,
@@ -8835,9 +8892,7 @@ return {
             { x = 0, y = -16 },
             { x = 0, y = 368 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 36,
@@ -8852,7 +8907,6 @@ return {
           gid = 665,
           visible = true,
           properties = {
-            ["pathid"] = 35,
             ["pathmode"] = "relative"
           }
         },
@@ -8869,7 +8923,6 @@ return {
           gid = 665,
           visible = true,
           properties = {
-            ["pathid"] = 35,
             ["pathmode"] = "relative"
           }
         },
@@ -8886,7 +8939,6 @@ return {
           gid = 665,
           visible = true,
           properties = {
-            ["pathid"] = 35,
             ["pathmode"] = "relative"
           }
         },
@@ -8909,6 +8961,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 28,
       name = "deco1",
       visible = true,
       opacity = 1,
@@ -9622,13 +9675,16 @@ return {
     },
     {
       type = "objectgroup",
+      id = 29,
       name = "friends",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 60,
@@ -9644,7 +9700,6 @@ return {
           visible = true,
           properties = {
             ["pathfinder"] = "linearDown",
-            ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathspeed"] = 300
           }
@@ -9663,7 +9718,6 @@ return {
           visible = true,
           properties = {
             ["pathfinder"] = "linearDown",
-            ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathspeed"] = 240
           }
@@ -9682,7 +9736,6 @@ return {
           visible = true,
           properties = {
             ["pathfinder"] = "linearDown",
-            ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathspeed"] = 240
           }
@@ -9701,7 +9754,6 @@ return {
           visible = true,
           properties = {
             ["pathfinder"] = "linearDown",
-            ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathspeed"] = 240
           }
@@ -9720,7 +9772,6 @@ return {
           visible = true,
           properties = {
             ["pathfinder"] = "linearDown",
-            ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathspeed"] = 300
           }
@@ -9739,7 +9790,6 @@ return {
           visible = true,
           properties = {
             ["pathfinder"] = "linearDown",
-            ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathspeed"] = 240
           }
@@ -9758,7 +9808,6 @@ return {
           visible = true,
           properties = {
             ["pathfinder"] = "linearDown",
-            ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathspeed"] = 300
           }
@@ -9777,7 +9826,6 @@ return {
           visible = true,
           properties = {
             ["pathfinder"] = "linearDown",
-            ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathspeed"] = 300
           }
@@ -9796,7 +9844,6 @@ return {
           visible = true,
           properties = {
             ["pathfinder"] = "linearDown",
-            ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathspeed"] = 300
           }
@@ -9815,7 +9862,6 @@ return {
           visible = true,
           properties = {
             ["pathfinder"] = "linearDown",
-            ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathspeed"] = 240
           }
@@ -9834,7 +9880,6 @@ return {
           visible = true,
           properties = {
             ["pathfinder"] = "linearDown",
-            ["pathid"] = 74,
             ["pathmode"] = "relative",
             ["pathspeed"] = 240
           }
@@ -9870,14 +9915,13 @@ return {
             { x = 0, y = 0 },
             { x = 0, y = 832 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
+      id = 30,
       name = "ground",
       visible = true,
       opacity = 1,
@@ -9889,6 +9933,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 31,
       name = "boss_chargeparticles",
       visible = true,
       opacity = 1,
@@ -9908,6 +9953,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 32,
       name = "camera",
       visible = true,
       opacity = 1,
@@ -9955,6 +10001,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 33,
       name = "sparks",
       visible = true,
       opacity = 1,
@@ -9966,6 +10013,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 34,
       name = "playershots",
       visible = true,
       opacity = 1,
@@ -9977,6 +10025,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 35,
       name = "playerteam",
       visible = true,
       opacity = 1,

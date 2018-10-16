@@ -1,18 +1,22 @@
 return {
-  version = "1.1",
+  version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.1.6",
+  tiledversion = "1.2.0",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 15,
   height = 20,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 49,
+  nextlayerid = 15,
+  nextobjectid = 54,
   properties = {
     ["delayinitobjects"] = true,
+    ["enemydefeatsound"] = "snd/knockout.ogg",
+    ["enemyhitsound"] = "snd/hit.ogg",
     ["losemusic"] = "mus/33 - All Over Tonight.vgz",
     ["script"] = "ShmupMap",
+    ["targetlocksound"] = "snd/targetlock.ogg",
     ["winmusic"] = "mus/07 - Great Job!.vgz"
   },
   tilesets = {
@@ -24,6 +28,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 8,
       image = "img/bombgauge.png",
       imagewidth = 128,
       imageheight = 64,
@@ -122,6 +127,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 2,
       image = "img/hud_icons.png",
       imagewidth = 32,
       imageheight = 32,
@@ -147,6 +153,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 2,
       image = "img/touchmarkers.png",
       imagewidth = 128,
       imageheight = 64,
@@ -172,6 +179,7 @@ return {
       tileheight = 4,
       spacing = 0,
       margin = 0,
+      columns = 4,
       image = "img/particles.png",
       imagewidth = 16,
       imageheight = 32,
@@ -260,6 +268,7 @@ return {
       tileheight = 8,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "img/playerhitbox.png",
       imagewidth = 8,
       imageheight = 8,
@@ -285,6 +294,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 4,
       image = "img/powergauge.png",
       imagewidth = 128,
       imageheight = 32,
@@ -611,6 +621,7 @@ return {
       tileheight = 96,
       spacing = 0,
       margin = 0,
+      columns = 5,
       image = "img/sparks_huge.png",
       imagewidth = 480,
       imageheight = 384,
@@ -762,6 +773,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/sparks_med.png",
       imagewidth = 192,
       imageheight = 64,
@@ -852,6 +864,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 8,
       image = "img/sparks_small.png",
       imagewidth = 128,
       imageheight = 32,
@@ -926,6 +939,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 4,
       image = "img/demonization.png",
       imagewidth = 256,
       imageheight = 128,
@@ -1052,6 +1066,7 @@ return {
       tileheight = 128,
       spacing = 0,
       margin = 0,
+      columns = 4,
       image = "img/demonbomb.png",
       imagewidth = 512,
       imageheight = 256,
@@ -1143,6 +1158,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "img/demonshots.png",
       imagewidth = 32,
       imageheight = 64,
@@ -1222,6 +1238,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 4,
       image = "img/humanshots.png",
       imagewidth = 128,
       imageheight = 144,
@@ -1411,6 +1428,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 2,
       image = "img/crosshair.png",
       imagewidth = 32,
       imageheight = 32,
@@ -1436,6 +1454,7 @@ return {
       tileheight = 24,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "img/item.png",
       imagewidth = 48,
       imageheight = 48,
@@ -1474,6 +1493,7 @@ return {
       tileheight = 40,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "img/gameover.png",
       imagewidth = 192,
       imageheight = 40,
@@ -1499,6 +1519,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 17,
       image = "img/human/ko.png",
       imagewidth = 408,
       imageheight = 128,
@@ -1892,6 +1913,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/converted.png",
       imagewidth = 144,
       imageheight = 544,
@@ -2076,6 +2098,7 @@ return {
       tileheight = 20,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/countdown.png",
       imagewidth = 48,
       imageheight = 20,
@@ -2120,6 +2143,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "img/go.png",
       imagewidth = 64,
       imageheight = 32,
@@ -2145,6 +2169,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 8,
       image = "img/emotes.png",
       imagewidth = 192,
       imageheight = 48,
@@ -2282,11 +2307,79 @@ return {
           }
         }
       }
+    },
+    {
+      name = "winebomb",
+      firstgid = 369,
+      filename = "img/winebomb.tsx",
+      tilewidth = 18,
+      tileheight = 12,
+      spacing = 0,
+      margin = 0,
+      columns = 1,
+      image = "img/winebomb.png",
+      imagewidth = 18,
+      imageheight = 24,
+      tileoffset = {
+        x = -9,
+        y = 6
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 18,
+        height = 12
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 2,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 6,
+                y = 0,
+                width = 12,
+                height = 12,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 67
+            },
+            {
+              tileid = 1,
+              duration = 67
+            }
+          }
+        }
+      }
     }
   },
   layers = {
     {
       type = "objectgroup",
+      id = 1,
       name = "items",
       visible = true,
       opacity = 0.75,
@@ -2300,6 +2393,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 2,
       name = "enemyfireparticles",
       visible = true,
       opacity = 1,
@@ -2319,6 +2413,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 3,
       name = "defeatparticles",
       visible = true,
       opacity = 1,
@@ -2337,6 +2432,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 4,
       name = "damageparticles",
       visible = true,
       opacity = 1,
@@ -2356,6 +2452,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 5,
       name = "guardparticles",
       visible = true,
       opacity = 1,
@@ -2375,6 +2472,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 6,
       name = "launchbombparticles",
       visible = true,
       opacity = 1,
@@ -2394,6 +2492,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 7,
       name = "deathparticles",
       visible = true,
       opacity = 1,
@@ -2413,6 +2512,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 8,
       name = "npcshots",
       visible = true,
       opacity = 1,
@@ -2424,6 +2524,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 9,
       name = "status",
       visible = true,
       opacity = 1,
@@ -2431,6 +2532,10 @@ return {
       offsety = 0,
       draworder = "index",
       properties = {
+        ["countdownsound"] = "snd/equip.ogg",
+        ["gosound"] = "snd/extend.ogg",
+        ["maxmultipliersound"] = "snd/maxed.ogg",
+        ["newbombsound"] = "snd/thankyou.ogg",
         ["script"] = "ShmupStatus"
       },
       objects = {
@@ -2706,6 +2811,7 @@ return {
           color = { 255, 255, 255 },
           valign = "center",
           properties = {
+            ["extendsound"] = "snd/extend.ogg",
             ["script"] = "ShmupScore",
             ["textformat"] = "SCORE %8d  1UP@ %8d"
           }
@@ -2730,11 +2836,92 @@ return {
           properties = {
             ["textformat"] = "%3d SECONDS\n\n%s BOMBS\n\nGOOD LUCK!!!"
           }
+        },
+        {
+          id = 49,
+          name = "winebomb1",
+          type = "",
+          shape = "rectangle",
+          x = 8,
+          y = 312,
+          width = 18,
+          height = 12,
+          rotation = -90,
+          gid = 369,
+          visible = false,
+          properties = {
+            ["collidable"] = false
+          }
+        },
+        {
+          id = 50,
+          name = "winebomb2",
+          type = "",
+          shape = "rectangle",
+          x = 24,
+          y = 312,
+          width = 18,
+          height = 12,
+          rotation = -90,
+          gid = 369,
+          visible = false,
+          properties = {
+            ["collidable"] = false
+          }
+        },
+        {
+          id = 51,
+          name = "winebomb3",
+          type = "",
+          shape = "rectangle",
+          x = 40,
+          y = 312,
+          width = 18,
+          height = 12,
+          rotation = -90,
+          gid = 369,
+          visible = false,
+          properties = {
+            ["collidable"] = false
+          }
+        },
+        {
+          id = 52,
+          name = "winebomb4",
+          type = "",
+          shape = "rectangle",
+          x = 56,
+          y = 312,
+          width = 18,
+          height = 12,
+          rotation = -90,
+          gid = 369,
+          visible = false,
+          properties = {
+            ["collidable"] = false
+          }
+        },
+        {
+          id = 53,
+          name = "winebomb5",
+          type = "",
+          shape = "rectangle",
+          x = 72,
+          y = 312,
+          width = 18,
+          height = 12,
+          rotation = -90,
+          gid = 369,
+          visible = false,
+          properties = {
+            ["collidable"] = false
+          }
         }
       }
     },
     {
       type = "objectgroup",
+      id = 10,
       name = "results",
       visible = true,
       opacity = 1,
@@ -2913,6 +3100,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 11,
       name = "pausemenu",
       visible = false,
       opacity = 1,
@@ -3014,6 +3202,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 12,
       name = "gameovermenu",
       visible = false,
       opacity = 1,
@@ -3087,6 +3276,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 13,
       name = "touchcontrols",
       visible = false,
       opacity = 1,
@@ -3129,6 +3319,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 14,
       name = "curtain",
       visible = true,
       opacity = 1,

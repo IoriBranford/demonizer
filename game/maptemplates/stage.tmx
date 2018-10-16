@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" nextobjectid="3">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-up" width="18" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="5">
  <properties>
   <property name="cameraid" type="int" value="2"/>
   <property name="music" type="file" value=""/>
@@ -8,18 +8,39 @@
   <property name="playerid" type="int" value="1"/>
  </properties>
  <tileset firstgid="1" source="../img/player.tsx"/>
- <objectgroup name="camera">
-  <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
+ <objectgroup id="6" name="groundobjects"/>
+ <objectgroup id="1" name="camera">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="2" name="camera" type="Camera" x="24" y="64" width="240" height="320">
+   <properties>
+    <property name="pathid" value="mylayer"/>
+   </properties>
+  </object>
+  <object id="4" type="Path" x="24" y="64">
+   <polyline points="0,0 0,-64"/>
+  </object>
  </objectgroup>
- <objectgroup name="sparks"/>
- <objectgroup draworder="index" name="playershots"/>
- <objectgroup name="playerteam">
+ <objectgroup id="2" name="sparks"/>
+ <objectgroup draworder="index" id="3" name="playershots"/>
+ <objectgroup id="4" name="playerteam">
   <properties>
    <property name="script" value="PlayerTeam"/>
   </properties>
-  <object id="1" name="player" gid="1" x="120" y="352" width="64" height="64">
+  <object id="1" name="player" gid="1" x="144" y="416" width="64" height="64">
    <properties>
     <property name="script" value="ShmupPlayer"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="enemygrouptemplate">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="3" name="trigger" type="Trigger" x="24" y="-16" width="240" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="groundobjects"/>
    </properties>
   </object>
  </objectgroup>

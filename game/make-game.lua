@@ -104,6 +104,7 @@ for _, gamefilename in pairs(gamefilelist) do
 			end
 			for _, layer in pairs(map.layers) do
 				findAssetsInTable(assets, layer)
+				findAssetsInTable(assets, layer.properties)
 				local objects = layer.objects
 				if objects then
 					for _, object in pairs(objects) do
@@ -128,11 +129,10 @@ for _, asset in pairs(assets) do
 	os_execute(zipassetcommand)
 end
 
-os_execute('find -name "*.ogg" | '..zipcommand..'-@') -- TEMP until all sound filenames are purged from scripts
 os_execute('find scr -name "*.lua" | '..zipcommand..'-@')
 os_execute('find fnt -name "*.png" -o -name "*.fnt" -o -name "*.ttf" | '..zipcommand..'-@')
 os_execute('find levity -name "examples" -prune -o -name "tests" -prune -o -name "*.lua" | '..zipcommand..'-@')
-os_execute('find levity -name "*.txt" | '..zipcommand..'-@')
+os_execute('find levity/SDL_GameControllerDB -name "*.txt" | '..zipcommand..'-@')
 os_execute('git describe --tags --always > version')
 os_execute(zipcommand..'version')
 

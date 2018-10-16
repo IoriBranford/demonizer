@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="48" height="64" tilewidth="5" tileheight="5" infinite="0" nextlayerid="6" nextobjectid="11">
+ <properties>
+  <property name="music" type="file" value="mus/34 - Deposit Coins.vgz"/>
+  <property name="script" value="MenuMap"/>
+ </properties>
+ <tileset firstgid="1" source="img/title.tsx"/>
+ <tileset firstgid="2" source="img/title_demonization.tsx"/>
+ <tileset firstgid="18" source="img/bg_swirl.tsx"/>
+ <layer id="5" name="Tile Layer 1" width="48" height="64">
+  <data encoding="base64" compression="zlib">
+   eJzt1dc6wgEAhvH/NUTZsvcoW0REZmZGhJAVyrz/3sv4np7v4Hf2nr+hIAga0IgwImhCM1rQijaERLt2dKATUXShGz3oRR/6hbsBDGIIwxjBKMYwjglMCncxxDGFacxgFnOYxwIWhbsElrCMJFawihTWsI60cLeBTWSwhW3sYBd72EdWuDvAIY5wjBOcIocznONCuLtEHle4RgE3uMUdirgX7h7wiBKe8IwXvOINZbwLdx/4RAVVfOEbP/jFH/6FO9Wv+r/+r//r//q//q//q9upftX/9X/9X/+3GPi//q//q9qpftX/9X/9X//X//V//V/dTvWr/q//6//6v/6v/+v/6naqX/V//V//1//1f/3fev5vDeSYEa4=
+  </data>
+ </layer>
+ <objectgroup draworder="index" id="3" name="menu">
+  <properties>
+   <property name="script" value="UIMenu"/>
+  </properties>
+  <object id="10" name="camera" type="Camera" x="0" y="0" width="240" height="320" visible="0"/>
+  <object id="1" name="thanks" x="20" y="70" width="200" height="10">
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">THANKS FOR PLAYING</text>
+  </object>
+  <object id="6" name="eta" x="20" y="150" width="200" height="10">
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">To be completed 2019</text>
+  </object>
+  <object id="7" name="website" type="UIButton" x="25" y="190" width="190" height="20">
+   <properties>
+    <property name="action" value="quitToWebsite"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">GAME WEBSITE</text>
+  </object>
+  <object id="8" name="mainmenu" type="UIButton" x="25" y="210" width="190" height="20">
+   <properties>
+    <property name="action" value="changeMap"/>
+    <property name="nextmap" type="file" value="title.lua"/>
+   </properties>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">MAIN MENU</text>
+  </object>
+  <object id="9" name="quit" x="25" y="230" width="190" height="20">
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">Or Escape key to quit</text>
+  </object>
+ </objectgroup>
+ <objectgroup draworder="index" id="4" name="title">
+  <properties>
+   <property name="script" value="TitleLayer"/>
+  </properties>
+  <object id="3" gid="2" x="12.5" y="115" width="32" height="24"/>
+  <object id="4" gid="3" x="195" y="115" width="32" height="24"/>
+  <object id="5" gid="10" x="115" y="140" width="32" height="24"/>
+  <object id="2" gid="1" x="20" y="140" width="200" height="50"/>
+ </objectgroup>
+ <objectgroup id="2" name="curtain">
+  <properties>
+   <property name="script" value="Curtain"/>
+  </properties>
+ </objectgroup>
+</map>

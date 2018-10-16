@@ -1,13 +1,14 @@
 return {
-  version = "1.1",
+  version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.1.6",
+  tiledversion = "1.2.0",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 48,
   height = 64,
   tilewidth = 5,
   tileheight = 5,
+  nextlayerid = 6,
   nextobjectid = 37,
   properties = {
     ["music"] = "mus/02 - Burning Heart.vgz",
@@ -23,6 +24,7 @@ return {
       tileheight = 5,
       spacing = 0,
       margin = 0,
+      columns = 10,
       image = "img/bg_swirl.png",
       imagewidth = 50,
       imageheight = 50,
@@ -48,6 +50,7 @@ return {
       tileheight = 24,
       spacing = 0,
       margin = 0,
+      columns = 8,
       image = "img/title_demonization.png",
       imagewidth = 256,
       imageheight = 48,
@@ -137,6 +140,7 @@ return {
       tileheight = 50,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "img/title.png",
       imagewidth = 200,
       imageheight = 50,
@@ -158,6 +162,7 @@ return {
   layers = {
     {
       type = "tilelayer",
+      id = 1,
       name = "Tile Layer 1",
       x = 0,
       y = 0,
@@ -174,6 +179,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 2,
       name = "Object Layer 1",
       visible = true,
       opacity = 1,
@@ -289,6 +295,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 3,
       name = "title",
       visible = true,
       opacity = 1,
@@ -359,6 +366,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 4,
       name = "stagemenu",
       visible = true,
       opacity = 1,
@@ -649,6 +657,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 5,
       name = "curtain",
       visible = true,
       opacity = 1,

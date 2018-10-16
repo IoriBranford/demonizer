@@ -1,14 +1,15 @@
 return {
-  version = "1.1",
+  version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.1.6",
+  tiledversion = "1.2.0",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 18,
   height = 245,
   tilewidth = 16,
   tileheight = 16,
-  nextobjectid = 327,
+  nextlayerid = 78,
+  nextobjectid = 328,
   properties = {
     ["cameraid"] = 2,
     ["music"] = "mus/09 - Blue Sky Laundry.vgz",
@@ -25,6 +26,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 12,
       image = "img/basic_terrain.png",
       imagewidth = 192,
       imageheight = 512,
@@ -1169,6 +1171,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 8,
       image = "img/forest.png",
       imagewidth = 128,
       imageheight = 64,
@@ -1194,6 +1197,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 16,
       image = "img/thatched-roof.png",
       imagewidth = 256,
       imageheight = 256,
@@ -1219,6 +1223,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 16,
       image = "img/cottage.png",
       imagewidth = 256,
       imageheight = 256,
@@ -1244,6 +1249,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/fence_alt.png",
       imagewidth = 96,
       imageheight = 192,
@@ -1269,6 +1275,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 7,
       image = "img/crops.png",
       imagewidth = 112,
       imageheight = 160,
@@ -1294,6 +1301,7 @@ return {
       tileheight = 72,
       spacing = 0,
       margin = 0,
+      columns = 8,
       image = "img/catapult.png",
       imagewidth = 576,
       imageheight = 216,
@@ -1469,6 +1477,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/Archer.png",
       imagewidth = 192,
       imageheight = 128,
@@ -1750,6 +1759,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/human/enemy/CatapultOperator.png",
       imagewidth = 72,
       imageheight = 128,
@@ -1875,6 +1885,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/Militia.png",
       imagewidth = 192,
       imageheight = 128,
@@ -2156,6 +2167,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/human/enemy/CatapultOperatorF.png",
       imagewidth = 72,
       imageheight = 128,
@@ -2281,6 +2293,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/HeavyMilitia.png",
       imagewidth = 192,
       imageheight = 128,
@@ -2562,6 +2575,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/ArcherF.png",
       imagewidth = 192,
       imageheight = 128,
@@ -2843,6 +2857,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 5,
       image = "img/doors_opening.png",
       imagewidth = 80,
       imageheight = 96,
@@ -2992,6 +3007,7 @@ return {
       tileheight = 96,
       spacing = 0,
       margin = 0,
+      columns = 5,
       image = "img/sparks_huge.png",
       imagewidth = 480,
       imageheight = 384,
@@ -3143,6 +3159,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/human/civilian/townfolk-adult-f-002.png",
       imagewidth = 72,
       imageheight = 128,
@@ -3268,6 +3285,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/MilitiaCaptain.png",
       imagewidth = 192,
       imageheight = 128,
@@ -3549,6 +3567,7 @@ return {
       tileheight = 48,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/sandbags.png",
       imagewidth = 96,
       imageheight = 48,
@@ -3659,6 +3678,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/human/civilian/townfolk-child-m-001.png",
       imagewidth = 72,
       imageheight = 128,
@@ -3784,6 +3804,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/human/civilian/townfolk-child-m-002.png",
       imagewidth = 72,
       imageheight = 128,
@@ -3909,6 +3930,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/human/civilian/townfolk-adult-f-001.png",
       imagewidth = 72,
       imageheight = 128,
@@ -4034,6 +4056,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/Swordsman.png",
       imagewidth = 192,
       imageheight = 128,
@@ -4315,6 +4338,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 6,
       image = "img/human/enemy/SwordsmanF.png",
       imagewidth = 192,
       imageheight = 128,
@@ -4596,6 +4620,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 12,
       image = "img/house.png",
       imagewidth = 192,
       imageheight = 112,
@@ -4799,6 +4824,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 12,
       image = "img/human/enemy/Lord.png",
       imagewidth = 384,
       imageheight = 128,
@@ -5021,6 +5047,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/armorsuit/armorbody.png",
       imagewidth = 96,
       imageheight = 32,
@@ -5096,6 +5123,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/armorsuit/armorleftarm.png",
       imagewidth = 48,
       imageheight = 32,
@@ -5171,6 +5199,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/armorsuit/armorrightarm.png",
       imagewidth = 48,
       imageheight = 32,
@@ -5246,6 +5275,7 @@ return {
       tileheight = 80,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/trees_tall.png",
       imagewidth = 144,
       imageheight = 80,
@@ -5315,6 +5345,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 3,
       image = "img/trees.png",
       imagewidth = 192,
       imageheight = 64,
@@ -5371,6 +5402,7 @@ return {
       tileheight = 64,
       spacing = 0,
       margin = 0,
+      columns = 4,
       image = "img/player.png",
       imagewidth = 256,
       imageheight = 448,
@@ -5837,6 +5869,7 @@ return {
       tileheight = 256,
       spacing = 0,
       margin = 0,
+      columns = 4,
       image = "img/explosion_giant.png",
       imagewidth = 1024,
       imageheight = 1024,
@@ -5929,6 +5962,7 @@ return {
   layers = {
     {
       type = "objectgroup",
+      id = 1,
       name = "unused",
       visible = false,
       opacity = 1,
@@ -6075,6 +6109,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 2,
       name = "dirt",
       x = 0,
       y = 0,
@@ -6091,6 +6126,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 3,
       name = "dirtdeco",
       x = 0,
       y = 0,
@@ -6107,6 +6143,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 4,
       name = "grass",
       x = 0,
       y = 0,
@@ -6123,6 +6160,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 5,
       name = "grassdeco",
       x = 0,
       y = 0,
@@ -6139,6 +6177,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 6,
       name = "crops",
       x = 0,
       y = 0,
@@ -6155,6 +6194,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 7,
       name = "houses",
       x = 0,
       y = 0,
@@ -6171,6 +6211,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 8,
       name = "housedeco",
       x = 0,
       y = 0,
@@ -6187,6 +6228,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 9,
       name = "ground",
       visible = true,
       opacity = 1,
@@ -6198,6 +6240,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 10,
       name = "fence",
       x = 0,
       y = 0,
@@ -6214,6 +6257,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 11,
       name = "rooftops",
       x = 0,
       y = 0,
@@ -6230,6 +6274,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 12,
       name = "fleepaths",
       visible = true,
       opacity = 1,
@@ -6312,6 +6357,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 13,
       name = "roofobjects",
       visible = true,
       opacity = 1,
@@ -6380,6 +6426,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 14,
       name = "bossbackup_path",
       visible = true,
       opacity = 1,
@@ -6428,6 +6475,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 15,
       name = "boss_swordsmen2",
       visible = true,
       opacity = 1,
@@ -6566,6 +6614,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 16,
       name = "boss_swordsmen1",
       visible = true,
       opacity = 1,
@@ -6669,6 +6718,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 17,
       name = "boss_heavy3",
       visible = true,
       opacity = 1,
@@ -6776,6 +6826,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 18,
       name = "boss_heavy2",
       visible = true,
       opacity = 1,
@@ -6845,6 +6896,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 19,
       name = "boss_heavy1",
       visible = true,
       opacity = 1,
@@ -6914,6 +6966,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 20,
       name = "boss_arms",
       visible = true,
       opacity = 1,
@@ -6974,6 +7027,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 21,
       name = "bossplayertriggers",
       visible = true,
       opacity = 1,
@@ -7025,6 +7079,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 22,
       name = "boss",
       visible = true,
       opacity = 1,
@@ -7091,6 +7146,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 23,
       name = "boss_path",
       visible = true,
       opacity = 1,
@@ -7125,6 +7181,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 24,
       name = "boss_armor_path",
       visible = true,
       opacity = 1,
@@ -7159,6 +7216,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 25,
       name = "bosshouse_doors",
       visible = true,
       opacity = 1,
@@ -7214,6 +7272,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 26,
       name = "preboss",
       visible = true,
       opacity = 1,
@@ -7387,6 +7446,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 27,
       name = "swordsmen4",
       visible = true,
       opacity = 1,
@@ -7458,6 +7518,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 28,
       name = "swordsmen3",
       visible = true,
       opacity = 1,
@@ -7513,6 +7574,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 29,
       name = "swordsmen2",
       visible = true,
       opacity = 1,
@@ -7568,13 +7630,16 @@ return {
     },
     {
       type = "objectgroup",
+      id = 30,
       name = "swordsmenheavy1",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 105,
@@ -7589,7 +7654,6 @@ return {
           gid = 1084,
           visible = true,
           properties = {
-            ["pathid"] = "127",
             ["pathmode"] = "relative"
           }
         },
@@ -7655,9 +7719,7 @@ return {
             { x = -24, y = -248 },
             { x = 8, y = -312 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 254,
@@ -7672,7 +7734,6 @@ return {
           gid = 1084,
           visible = true,
           properties = {
-            ["pathid"] = "127",
             ["pathmode"] = "relative"
           }
         },
@@ -7771,6 +7832,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 31,
       name = "storehouse2ndfloor",
       x = 0,
       y = 0,
@@ -7787,6 +7849,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 32,
       name = "storehouse2ndpaths",
       visible = true,
       opacity = 1,
@@ -7839,6 +7902,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 33,
       name = "storehouse2ndobjects",
       visible = true,
       opacity = 1,
@@ -7945,6 +8009,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 34,
       name = "storehouse2nddestroyed",
       x = 0,
       y = 0,
@@ -7961,6 +8026,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 35,
       name = "storehouse2ndfront",
       x = 0,
       y = 0,
@@ -7977,6 +8043,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 36,
       name = "storehouseroof",
       x = 0,
       y = 0,
@@ -7993,6 +8060,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 37,
       name = "storehouse2nddestruction",
       visible = false,
       opacity = 1,
@@ -8436,6 +8504,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 38,
       name = "model houses",
       x = 0,
       y = 0,
@@ -8452,6 +8521,7 @@ return {
     },
     {
       type = "tilelayer",
+      id = 39,
       name = "model rooftops",
       x = 0,
       y = 0,
@@ -8468,6 +8538,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 40,
       name = "storehouse_doors",
       visible = false,
       opacity = 1,
@@ -8579,6 +8650,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 41,
       name = "postmidboss",
       visible = true,
       opacity = 1,
@@ -8606,6 +8678,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 42,
       name = "midboss_backup",
       visible = true,
       opacity = 1,
@@ -8642,7 +8715,7 @@ return {
           gid = 1012,
           visible = true,
           properties = {
-            ["pathid"] = "midboss_path"
+            ["pathid"] = "midboss"
           }
         },
         {
@@ -8658,7 +8731,7 @@ return {
           gid = 1012,
           visible = true,
           properties = {
-            ["pathid"] = "midboss_path"
+            ["pathid"] = "midboss"
           }
         },
         {
@@ -8674,7 +8747,7 @@ return {
           gid = 1012,
           visible = true,
           properties = {
-            ["pathid"] = "midboss_path"
+            ["pathid"] = "midboss"
           }
         },
         {
@@ -8690,7 +8763,7 @@ return {
           gid = 1012,
           visible = true,
           properties = {
-            ["pathid"] = "midboss_path"
+            ["pathid"] = "midboss"
           }
         },
         {
@@ -8706,7 +8779,7 @@ return {
           gid = 1012,
           visible = true,
           properties = {
-            ["pathid"] = "midboss_path"
+            ["pathid"] = "midboss"
           }
         },
         {
@@ -8722,42 +8795,24 @@ return {
           gid = 1012,
           visible = true,
           properties = {
-            ["pathid"] = "midboss_path"
+            ["pathid"] = "midboss"
           }
         }
       }
     },
     {
       type = "objectgroup",
+      id = 43,
       name = "midboss",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
-        {
-          id = 131,
-          name = "",
-          type = "Trigger",
-          shape = "polyline",
-          x = 0,
-          y = 736,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 288, y = 0 }
-          },
-          properties = {
-            ["activateobjectslayer"] = "ground",
-            ["cameraspeed"] = "0",
-            ["cleartriggerid"] = 325
-          }
-        },
         {
           id = 194,
           name = "heavy",
@@ -8771,8 +8826,7 @@ return {
           gid = 1084,
           visible = true,
           properties = {
-            ["pathfinder"] = "random",
-            ["pathid"] = "midboss_path"
+            ["pathfinder"] = "random"
           }
         },
         {
@@ -8788,8 +8842,7 @@ return {
           gid = 1084,
           visible = true,
           properties = {
-            ["pathfinder"] = "random",
-            ["pathid"] = "midboss_path"
+            ["pathfinder"] = "random"
           }
         },
         {
@@ -8807,8 +8860,7 @@ return {
           properties = {
             ["backuptriggerid"] = 246,
             ["defeatitemlaunch"] = true,
-            ["initiallayer"] = "storehouse2ndobjects",
-            ["pathid"] = "midboss_path"
+            ["initiallayer"] = "storehouse2ndobjects"
           }
         },
         {
@@ -8824,8 +8876,7 @@ return {
           gid = 1012,
           visible = true,
           properties = {
-            ["pathfinder"] = "random",
-            ["pathid"] = "midboss_path"
+            ["pathfinder"] = "random"
           }
         },
         {
@@ -8841,8 +8892,7 @@ return {
           gid = 1012,
           visible = true,
           properties = {
-            ["pathfinder"] = "random",
-            ["pathid"] = "midboss_path"
+            ["pathfinder"] = "random"
           }
         },
         {
@@ -8852,46 +8902,32 @@ return {
           shape = "rectangle",
           x = 144,
           y = 880,
-          width = 24,
+          width = 32,
           height = 32,
           rotation = 0,
           gid = 1012,
           visible = true,
           properties = {
-            ["pathfinder"] = "random",
-            ["pathid"] = "midboss_path"
+            ["pathfinder"] = "random"
           }
-        }
-      }
-    },
-    {
-      type = "tilelayer",
-      name = "midboss_cover",
-      x = 0,
-      y = 0,
-      width = 18,
-      height = 245,
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJzt0KENACAMRUEE+29CWRGBIQWBJOTOVHzVVwoAAADwuqjz9rpv7WKLw/aTSH+eWqxyl9/7AAAAAAAAAAAAAAAAwAsGJ+oIWQ=="
-    },
-    {
-      type = "objectgroup",
-      name = "midboss_path",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["script"] = "PathGraph"
-      },
-      objects = {
+        },
+        {
+          id = 327,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = 728,
+          width = 288,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground",
+            ["cameraspeed"] = "0",
+            ["cleartriggerid"] = 325
+          }
+        },
         {
           id = 205,
           name = "",
@@ -9201,14 +9237,34 @@ return {
       }
     },
     {
+      type = "tilelayer",
+      id = 44,
+      name = "midboss_cover",
+      x = 0,
+      y = 0,
+      width = 18,
+      height = 245,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJzt0KENACAMRUEE+29CWRGBIQWBJOTOVHzVVwoAAADwuqjz9rpv7WKLw/aTSH+eWqxyl9/7AAAAAAAAAAAAAAAAwAsGJ+oIWQ=="
+    },
+    {
       type = "objectgroup",
+      id = 46,
       name = "militia9b",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 140,
@@ -9223,7 +9279,6 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "fields_paths",
             ["pathmode"] = "relative"
           }
         },
@@ -9240,7 +9295,6 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "fields_paths",
             ["pathmode"] = "relative"
           }
         },
@@ -9257,7 +9311,6 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "fields_paths",
             ["pathmode"] = "relative"
           }
         },
@@ -9275,18 +9328,38 @@ return {
           properties = {
             ["activateobjectslayer"] = "ground"
           }
+        },
+        {
+          id = 90,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 256,
+          y = 1216,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 0 },
+            { x = -16, y = 112 }
+          },
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
+      id = 47,
       name = "militia9a",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 148,
@@ -9301,7 +9374,6 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "fields_paths",
             ["pathmode"] = "relative"
           }
         },
@@ -9318,7 +9390,6 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "fields_paths",
             ["pathmode"] = "relative"
           }
         },
@@ -9335,7 +9406,6 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "fields_paths",
             ["pathmode"] = "relative"
           }
         },
@@ -9353,18 +9423,200 @@ return {
           properties = {
             ["activateobjectslayer"] = "ground"
           }
+        },
+        {
+          id = 91,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 40,
+          y = 1248,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 8, y = 16 },
+            { x = 8, y = 80 }
+          },
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
+      id = 49,
+      name = "catapult4",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 25,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 144,
+          y = 1200,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 984,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90
+          }
+        },
+        {
+          id = 26,
+          name = "catapult4",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 128,
+          y = 1088,
+          width = 32,
+          height = 224,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 27,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 144,
+          y = 1200,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 32 },
+            { x = 0, y = -96 },
+            { x = 0, y = 128 }
+          },
+          properties = {}
+        },
+        {
+          id = 123,
+          name = "operator",
+          type = "CatapultOperator",
+          shape = "rectangle",
+          x = 144,
+          y = 1168,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1033,
+          visible = true,
+          properties = {
+            ["rideid"] = 25
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 50,
+      name = "catapult3",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 22,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 144,
+          y = 1440,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 984,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90
+          }
+        },
+        {
+          id = 24,
+          name = "catapult3",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 128,
+          y = 1328,
+          width = 32,
+          height = 224,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 23,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 144,
+          y = 1440,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 32 },
+            { x = 0, y = -96 },
+            { x = 0, y = 128 }
+          },
+          properties = {}
+        },
+        {
+          id = 124,
+          name = "operator",
+          type = "CatapultOperator",
+          shape = "rectangle",
+          x = 144,
+          y = 1408,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1033,
+          visible = true,
+          properties = {
+            ["rideid"] = 22
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 48,
       name = "heavy4",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 28,
@@ -9378,9 +9630,7 @@ return {
           rotation = 0,
           gid = 1084,
           visible = true,
-          properties = {
-            ["pathid"] = "31"
-          }
+          properties = {}
         },
         {
           id = 29,
@@ -9394,9 +9644,7 @@ return {
           rotation = 0,
           gid = 1084,
           visible = true,
-          properties = {
-            ["pathid"] = "30"
-          }
+          properties = {}
         },
         {
           id = 32,
@@ -9432,9 +9680,7 @@ return {
             { x = 224, y = -368 },
             { x = 272, y = -368 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 31,
@@ -9455,176 +9701,13 @@ return {
             { x = -224, y = -368 },
             { x = -272, y = -368 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
-      name = "catapult4",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 25,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 144,
-          y = 1200,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 984,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["pathid"] = "27"
-          }
-        },
-        {
-          id = 26,
-          name = "catapult4",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 128,
-          y = 1088,
-          width = 32,
-          height = 224,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        },
-        {
-          id = 27,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 144,
-          y = 1200,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 0, y = 32 },
-            { x = 0, y = -96 },
-            { x = 0, y = 128 }
-          },
-          properties = {
-            ["script"] = "PathGraph"
-          }
-        },
-        {
-          id = 123,
-          name = "operator",
-          type = "CatapultOperator",
-          shape = "rectangle",
-          x = 144,
-          y = 1168,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 1033,
-          visible = true,
-          properties = {
-            ["rideid"] = 25
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "catapult3",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 22,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 144,
-          y = 1440,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 984,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["pathid"] = "23"
-          }
-        },
-        {
-          id = 24,
-          name = "catapult3",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 128,
-          y = 1328,
-          width = 32,
-          height = 224,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        },
-        {
-          id = 23,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 144,
-          y = 1440,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 0, y = 32 },
-            { x = 0, y = -96 },
-            { x = 0, y = 128 }
-          },
-          properties = {
-            ["script"] = "PathGraph"
-          }
-        },
-        {
-          id = 124,
-          name = "operator",
-          type = "CatapultOperator",
-          shape = "rectangle",
-          x = 144,
-          y = 1408,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 1033,
-          visible = true,
-          properties = {
-            ["rideid"] = 22
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
+      id = 51,
       name = "heavycatapult1_path",
       visible = true,
       opacity = 1,
@@ -9636,13 +9719,16 @@ return {
     },
     {
       type = "objectgroup",
+      id = 52,
       name = "jumpingarcher",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 155,
@@ -9661,7 +9747,6 @@ return {
             ["defeatitemlaunch"] = true,
             ["health"] = 40,
             ["pathfinder"] = "random1way",
-            ["pathid"] = "fields_paths",
             ["pathspeed"] = "180",
             ["score"] = 750,
             ["strafearc"] = 180
@@ -9681,1690 +9766,6 @@ return {
           properties = {
             ["activateobjectslayer"] = "ground"
           }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "militia8b",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 147,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 0,
-          y = 1696,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 150,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 312,
-          y = 1696,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 153,
-          name = "militia8b",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 112,
-          y = 1640,
-          width = 96,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "militia8a",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 145,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 16,
-          y = 1688,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 146,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 296,
-          y = 1688,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 233,
-          name = "militia8a",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 80,
-          y = 1704,
-          width = 96,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "militia7",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 141,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 8,
-          y = 1904,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 139,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 280,
-          y = 1904,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 144,
-          name = "militia7",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 112,
-          y = 1888,
-          width = 64,
-          height = 32,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "heavy3",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 17,
-          name = "heavy",
-          type = "HeavyMilitia",
-          shape = "rectangle",
-          x = -8,
-          y = 2024,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1084,
-          visible = true,
-          properties = {
-            ["pathid"] = "19"
-          }
-        },
-        {
-          id = 18,
-          name = "heavy",
-          type = "HeavyMilitia",
-          shape = "rectangle",
-          x = 296,
-          y = 2024,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1084,
-          visible = true,
-          properties = {
-            ["pathid"] = "20"
-          }
-        },
-        {
-          id = 19,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = -8,
-          y = 2024,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 88, y = 0 },
-            { x = 88, y = -208 },
-            { x = 216, y = -208 },
-            { x = 216, y = -448 },
-            { x = 320, y = -448 }
-          },
-          properties = {
-            ["script"] = "PathGraph"
-          }
-        },
-        {
-          id = 20,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 296,
-          y = 2024,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = -88, y = 0 },
-            { x = -88, y = -224 },
-            { x = -216, y = -224 },
-            { x = -216, y = -448 },
-            { x = -320, y = -448 }
-          },
-          properties = {
-            ["script"] = "PathGraph"
-          }
-        },
-        {
-          id = 21,
-          name = "heavy3",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 128,
-          y = 1568,
-          width = 32,
-          height = 456,
-          rotation = 0,
-          visible = false,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "archers3",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 111,
-          name = "archer",
-          type = "Archer",
-          shape = "rectangle",
-          x = 208,
-          y = 2128,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1012,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 112,
-          name = "archer",
-          type = "Archer",
-          shape = "rectangle",
-          x = 80,
-          y = 2128,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1012,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 122,
-          name = "trigger",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 120,
-          y = 2024,
-          width = 48,
-          height = 160,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        },
-        {
-          id = 97,
-          name = "archer",
-          type = "Archer",
-          shape = "rectangle",
-          x = 176,
-          y = 2168,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1108,
-          visible = true,
-          properties = {
-            ["defeatitem"] = "ItemWingman",
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "archers2",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 119,
-          name = "trigger",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 112,
-          y = 2184,
-          width = 64,
-          height = 104,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        },
-        {
-          id = 109,
-          name = "archer",
-          type = "Archer",
-          shape = "rectangle",
-          x = 80,
-          y = 2200,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1012,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 110,
-          name = "archer",
-          type = "Archer",
-          shape = "rectangle",
-          x = 256,
-          y = 2272,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1012,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "heavy2",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 15,
-          name = "heavy",
-          type = "HeavyMilitia",
-          shape = "rectangle",
-          x = 96,
-          y = 2416,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1084,
-          visible = true,
-          properties = {
-            ["pathid"] = "14"
-          }
-        },
-        {
-          id = 14,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 80,
-          y = 2408,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 16, y = 8 },
-            { x = 16, y = 56 },
-            { x = 16, y = -88 },
-            { x = 112, y = -88 },
-            { x = 112, y = -224 },
-            { x = 16, y = -224 },
-            { x = 16, y = -384 },
-            { x = 112, y = -384 },
-            { x = 112, y = 8 }
-          },
-          properties = {
-            ["script"] = "PathGraph"
-          }
-        },
-        {
-          id = 16,
-          name = "heavy2",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 128,
-          y = 2024,
-          width = 32,
-          height = 408,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "archers1",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 103,
-          name = "archer",
-          type = "Archer",
-          shape = "rectangle",
-          x = 80,
-          y = 2464,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1012,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 106,
-          name = "archer",
-          type = "Archer",
-          shape = "rectangle",
-          x = 208,
-          y = 2480,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1012,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 120,
-          name = "trigger",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 112,
-          y = 2376,
-          width = 64,
-          height = 192,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "militia6",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 94,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 120,
-          y = 2616,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 95,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 168,
-          y = 2616,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 96,
-          name = "trigger",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 112,
-          y = 2608,
-          width = 64,
-          height = 56,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        },
-        {
-          id = 99,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 136,
-          y = 2608,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 100,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 152,
-          y = 2608,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "heavy1",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 8,
-          name = "heavy",
-          type = "HeavyMilitia",
-          shape = "rectangle",
-          x = 96,
-          y = 2744,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1084,
-          visible = true,
-          properties = {
-            ["pathid"] = "9"
-          }
-        },
-        {
-          id = 10,
-          name = "heavy1",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 96,
-          y = 2464,
-          width = 32,
-          height = 304,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        },
-        {
-          id = 9,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 80,
-          y = 2704,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 16, y = 40 },
-            { x = 16, y = 72 },
-            { x = 16, y = -96 },
-            { x = 112, y = -96 },
-            { x = 112, y = -240 },
-            { x = 16, y = -240 },
-            { x = 16, y = 88 }
-          },
-          properties = {
-            ["script"] = "PathGraph"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "catapult2",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 11,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 144,
-          y = 3032,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 984,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90,
-            ["pathid"] = "12"
-          }
-        },
-        {
-          id = 12,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 144,
-          y = 3032,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 0, y = 32 },
-            { x = 0, y = -184 }
-          },
-          properties = {
-            ["script"] = "PathGraph"
-          }
-        },
-        {
-          id = 13,
-          name = "trigger",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 128,
-          y = 2808,
-          width = 32,
-          height = 248,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        },
-        {
-          id = 33,
-          name = "operator",
-          type = "CatapultOperator",
-          shape = "rectangle",
-          x = 144,
-          y = 3000,
-          width = 24,
-          height = 32,
-          rotation = 0,
-          gid = 1069,
-          visible = true,
-          properties = {
-            ["defeatitem"] = "ItemWingman",
-            ["rideid"] = 11
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "militia5",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 71,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 112,
-          y = 2880,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 72,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 176,
-          y = 2880,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 73,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = -8,
-          y = 2896,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 74,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 296,
-          y = 2896,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 77,
-          name = "trigger",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 112,
-          y = 2856,
-          width = 64,
-          height = 40,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        },
-        {
-          id = 230,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 112,
-          y = 2864,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 231,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 176,
-          y = 2864,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "militia4",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 60,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 96,
-          y = 3008,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 61,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 192,
-          y = 3008,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 62,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 96,
-          y = 2992,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 63,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 192,
-          y = 2992,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 68,
-          name = "trigger",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 112,
-          y = 2976,
-          width = 64,
-          height = 40,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "militia3",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 56,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 120,
-          y = 3136,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 57,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 168,
-          y = 3136,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 58,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 104,
-          y = 3152,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 59,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 184,
-          y = 3152,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 67,
-          name = "trigger",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 112,
-          y = 3104,
-          width = 64,
-          height = 64,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        },
-        {
-          id = 75,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 136,
-          y = 3120,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 76,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 152,
-          y = 3120,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "militia2",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
-          id = 48,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 112,
-          y = 3248,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 49,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 192,
-          y = 3256,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 66,
-          name = "trigger",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 112,
-          y = 3240,
-          width = 64,
-          height = 40,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        },
-        {
-          id = 65,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 176,
-          y = 3248,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 64,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 96,
-          y = 3256,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "fields_paths",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["script"] = "PathGraph"
-      },
-      objects = {
-        {
-          id = 50,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 96,
-          y = 3248,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 8 },
-            { x = 0, y = 32 },
-            { x = -24, y = 32 }
-          },
-          properties = {}
-        },
-        {
-          id = 51,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 208,
-          y = 3248,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -16, y = 8 },
-            { x = -16, y = 32 },
-            { x = 8, y = 32 }
-          },
-          properties = {}
-        },
-        {
-          id = 52,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 112,
-          y = 3128,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -40, y = 24 },
-            { x = -8, y = 24 }
-          },
-          properties = {}
-        },
-        {
-          id = 53,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 192,
-          y = 3136,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 24, y = 16 },
-            { x = -8, y = 16 }
-          },
-          properties = {}
-        },
-        {
-          id = 54,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 96,
-          y = 2928,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 80 },
-            { x = 0, y = 104 },
-            { x = -16, y = 104 }
-          },
-          properties = {}
-        },
-        {
-          id = 55,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 208,
-          y = 2928,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -16, y = 80 },
-            { x = -16, y = 104 },
-            { x = 0, y = 104 }
-          },
-          properties = {}
-        },
-        {
-          id = 69,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 184,
-          y = 2896,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -8, y = -16 },
-            { x = -8, y = 8 },
-            { x = 24, y = 8 }
-          },
-          properties = {}
-        },
-        {
-          id = 70,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 112,
-          y = 2848,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 32 },
-            { x = 0, y = 56 },
-            { x = -32, y = 56 }
-          },
-          properties = {}
-        },
-        {
-          id = 78,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 48,
-          y = 2616,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = 16 },
-            { x = 32, y = 16 },
-            { x = 48, y = 0 },
-            { x = 72, y = 0 }
-          },
-          properties = {}
-        },
-        {
-          id = 79,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 200,
-          y = 2616,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -32, y = 0 },
-            { x = -8, y = 0 },
-            { x = 8, y = 16 },
-            { x = 32, y = 16 }
-          },
-          properties = {}
-        },
-        {
-          id = 81,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 0,
-          y = 2216,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 112, y = -48 },
-            { x = 176, y = -48 }
-          },
-          properties = {}
-        },
-        {
-          id = 82,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 88,
-          y = 2416,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -8, y = -32 },
-            { x = -8, y = 144 }
-          },
-          properties = {}
-        },
-        {
-          id = 83,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 232,
-          y = 2368,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -24, y = 16 },
-            { x = -24, y = 192 }
-          },
-          properties = {}
-        },
-        {
-          id = 86,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 248,
-          y = 2184,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -40, y = -24 },
-            { x = -40, y = -144 },
-            { x = 8, y = -144 }
-          },
-          properties = {}
-        },
-        {
-          id = 87,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 96,
-          y = 2160,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -16, y = 0 },
-            { x = -16, y = -120 },
-            { x = -64, y = -120 }
-          },
-          properties = {}
-        },
-        {
-          id = 88,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 0,
-          y = 1904,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = 0 },
-            { x = 64, y = 0 }
-          },
-          properties = {}
-        },
-        {
-          id = 89,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 232,
-          y = 1904,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -8, y = 0 },
-            { x = 48, y = 0 }
-          },
-          properties = {}
-        },
-        {
-          id = 90,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 256,
-          y = 1216,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -16, y = 0 },
-            { x = -16, y = 112 }
-          },
-          properties = {}
-        },
-        {
-          id = 91,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 40,
-          y = 1248,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = 16 },
-            { x = 8, y = 80 }
-          },
-          properties = {}
-        },
-        {
-          id = 92,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 0,
-          y = 1696,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = 0 },
-            { x = 72, y = 0 }
-          },
-          properties = {}
-        },
-        {
-          id = 93,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 232,
-          y = 1696,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -16, y = 0 },
-            { x = 72, y = 0 }
-          },
-          properties = {}
-        },
-        {
-          id = 126,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 272,
-          y = 2272,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -16, y = 0 },
-            { x = -64, y = 0 },
-            { x = -64, y = -72 }
-          },
-          properties = {}
-        },
-        {
-          id = 137,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = -16,
-          y = 2016,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = 0 },
-            { x = 72, y = 0 }
-          },
-          properties = {}
-        },
-        {
-          id = 138,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 248,
-          y = 2016,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -16, y = 0 },
-            { x = 48, y = 0 }
-          },
-          properties = {}
         },
         {
           id = 154,
@@ -11525,6 +9926,1229 @@ return {
           properties = {
             ["beziercurve"] = true
           }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 53,
+      name = "militia8b",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 147,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 0,
+          y = 1696,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathid"] = "militia8a",
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 150,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 312,
+          y = 1696,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathid"] = "militia8a",
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 153,
+          name = "militia8b",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 112,
+          y = 1640,
+          width = 96,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 54,
+      name = "militia8a",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 145,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 16,
+          y = 1688,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 146,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 296,
+          y = 1688,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 233,
+          name = "militia8a",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 80,
+          y = 1704,
+          width = 96,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 92,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 1696,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 8, y = 0 },
+            { x = 72, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 93,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 232,
+          y = 1696,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 0 },
+            { x = 72, y = 0 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 55,
+      name = "militia7",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 141,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 8,
+          y = 1904,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 139,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 280,
+          y = 1904,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 144,
+          name = "militia7",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 112,
+          y = 1888,
+          width = 64,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 88,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 1904,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 8, y = 0 },
+            { x = 64, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 89,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 232,
+          y = 1904,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -8, y = 0 },
+            { x = 48, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 137,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = -16,
+          y = 2016,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 8, y = 0 },
+            { x = 72, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 138,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 248,
+          y = 2016,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 0 },
+            { x = 48, y = 0 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 56,
+      name = "heavy3",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 17,
+          name = "heavy",
+          type = "HeavyMilitia",
+          shape = "rectangle",
+          x = -8,
+          y = 2024,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1084,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 18,
+          name = "heavy",
+          type = "HeavyMilitia",
+          shape = "rectangle",
+          x = 296,
+          y = 2024,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1084,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 19,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = -8,
+          y = 2024,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 88, y = 0 },
+            { x = 88, y = -208 },
+            { x = 216, y = -208 },
+            { x = 216, y = -448 },
+            { x = 320, y = -448 }
+          },
+          properties = {}
+        },
+        {
+          id = 20,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 296,
+          y = 2024,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -88, y = 0 },
+            { x = -88, y = -224 },
+            { x = -216, y = -224 },
+            { x = -216, y = -448 },
+            { x = -320, y = -448 }
+          },
+          properties = {}
+        },
+        {
+          id = 21,
+          name = "heavy3",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 128,
+          y = 1568,
+          width = 32,
+          height = 456,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 57,
+      name = "archers3",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 111,
+          name = "archer",
+          type = "Archer",
+          shape = "rectangle",
+          x = 208,
+          y = 2128,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1012,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 112,
+          name = "archer",
+          type = "Archer",
+          shape = "rectangle",
+          x = 80,
+          y = 2128,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1012,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 122,
+          name = "trigger",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 120,
+          y = 2024,
+          width = 48,
+          height = 160,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 97,
+          name = "archer",
+          type = "Archer",
+          shape = "rectangle",
+          x = 176,
+          y = 2168,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1108,
+          visible = true,
+          properties = {
+            ["defeatitem"] = "ItemWingman",
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 81,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 2216,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 112, y = -48 },
+            { x = 176, y = -48 }
+          },
+          properties = {}
+        },
+        {
+          id = 86,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 248,
+          y = 2184,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -40, y = -24 },
+            { x = -40, y = -144 },
+            { x = 8, y = -144 }
+          },
+          properties = {}
+        },
+        {
+          id = 87,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 96,
+          y = 2160,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 0 },
+            { x = -16, y = -120 },
+            { x = -64, y = -120 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 58,
+      name = "archers2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 119,
+          name = "trigger",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 112,
+          y = 2184,
+          width = 64,
+          height = 104,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 109,
+          name = "archer",
+          type = "Archer",
+          shape = "rectangle",
+          x = 80,
+          y = 2200,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1012,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 110,
+          name = "archer",
+          type = "Archer",
+          shape = "rectangle",
+          x = 256,
+          y = 2272,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1012,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 126,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 272,
+          y = 2272,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 0 },
+            { x = -64, y = 0 },
+            { x = -64, y = -72 }
+          },
+          properties = {}
+        },
+        {
+          id = 232,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 152,
+          y = 2272,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -120, y = 0 },
+            { x = -72, y = 0 },
+            { x = -72, y = -72 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 59,
+      name = "heavy2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 15,
+          name = "heavy",
+          type = "HeavyMilitia",
+          shape = "rectangle",
+          x = 96,
+          y = 2416,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1084,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 14,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 80,
+          y = 2408,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 16, y = 8 },
+            { x = 16, y = 56 },
+            { x = 16, y = -88 },
+            { x = 112, y = -88 },
+            { x = 112, y = -224 },
+            { x = 16, y = -224 },
+            { x = 16, y = -384 },
+            { x = 112, y = -384 },
+            { x = 112, y = 8 }
+          },
+          properties = {}
+        },
+        {
+          id = 16,
+          name = "heavy2",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 128,
+          y = 2024,
+          width = 32,
+          height = 408,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 60,
+      name = "archers1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 103,
+          name = "archer",
+          type = "Archer",
+          shape = "rectangle",
+          x = 80,
+          y = 2464,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1012,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 106,
+          name = "archer",
+          type = "Archer",
+          shape = "rectangle",
+          x = 208,
+          y = 2480,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1012,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 120,
+          name = "trigger",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 112,
+          y = 2376,
+          width = 64,
+          height = 192,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 82,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 88,
+          y = 2416,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -8, y = -32 },
+            { x = -8, y = 144 }
+          },
+          properties = {}
+        },
+        {
+          id = 83,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 232,
+          y = 2368,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -24, y = 16 },
+            { x = -24, y = 192 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 61,
+      name = "militia6",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 94,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 120,
+          y = 2616,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 95,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 168,
+          y = 2616,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 96,
+          name = "trigger",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 112,
+          y = 2608,
+          width = 64,
+          height = 56,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 99,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 136,
+          y = 2608,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 100,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 152,
+          y = 2608,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 78,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 48,
+          y = 2616,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 8, y = 16 },
+            { x = 32, y = 16 },
+            { x = 48, y = 0 },
+            { x = 72, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 79,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 200,
+          y = 2616,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -32, y = 0 },
+            { x = -8, y = 0 },
+            { x = 8, y = 16 },
+            { x = 32, y = 16 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 62,
+      name = "heavy1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 8,
+          name = "heavy",
+          type = "HeavyMilitia",
+          shape = "rectangle",
+          x = 96,
+          y = 2744,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1084,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 10,
+          name = "heavy1",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 96,
+          y = 2464,
+          width = 32,
+          height = 304,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 9,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 80,
+          y = 2704,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 16, y = 40 },
+            { x = 16, y = 72 },
+            { x = 16, y = -96 },
+            { x = 112, y = -96 },
+            { x = 112, y = -240 },
+            { x = 16, y = -240 },
+            { x = 16, y = 88 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 63,
+      name = "catapult2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 11,
+          name = "catapult",
+          type = "Catapult",
+          shape = "rectangle",
+          x = 144,
+          y = 3032,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 984,
+          visible = true,
+          properties = {
+            ["faceangle"] = 90
+          }
+        },
+        {
+          id = 12,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 144,
+          y = 3032,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 32 },
+            { x = 0, y = -184 }
+          },
+          properties = {}
+        },
+        {
+          id = 13,
+          name = "trigger",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 128,
+          y = 2808,
+          width = 32,
+          height = 248,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 33,
+          name = "operator",
+          type = "CatapultOperator",
+          shape = "rectangle",
+          x = 144,
+          y = 3000,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1069,
+          visible = true,
+          properties = {
+            ["defeatitem"] = "ItemWingman",
+            ["rideid"] = 11
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 64,
+      name = "militia5",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 71,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 112,
+          y = 2880,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 72,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 176,
+          y = 2880,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 73,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = -8,
+          y = 2896,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 74,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 296,
+          y = 2896,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 77,
+          name = "trigger",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 112,
+          y = 2856,
+          width = 64,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 230,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 112,
+          y = 2864,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 231,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 176,
+          y = 2864,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 69,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 184,
+          y = 2896,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -8, y = -16 },
+            { x = -8, y = 8 },
+            { x = 24, y = 8 }
+          },
+          properties = {}
+        },
+        {
+          id = 70,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 112,
+          y = 2848,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 32 },
+            { x = 0, y = 56 },
+            { x = -32, y = 56 }
+          },
+          properties = {}
         },
         {
           id = 80,
@@ -11559,22 +11183,134 @@ return {
             { x = 64, y = 0 }
           },
           properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 65,
+      name = "militia4",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 60,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 96,
+          y = 3008,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
         },
         {
-          id = 232,
+          id = 61,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 192,
+          y = 3008,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 62,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 96,
+          y = 2992,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 63,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 192,
+          y = 2992,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 68,
+          name = "trigger",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 112,
+          y = 2976,
+          width = 64,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 54,
           name = "path",
           type = "",
           shape = "polyline",
-          x = 152,
-          y = 2272,
+          x = 96,
+          y = 2928,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -120, y = 0 },
-            { x = -72, y = 0 },
-            { x = -72, y = -72 }
+            { x = 0, y = 80 },
+            { x = 0, y = 104 },
+            { x = -16, y = 104 }
+          },
+          properties = {}
+        },
+        {
+          id = 55,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 208,
+          y = 2928,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 80 },
+            { x = -16, y = 104 },
+            { x = 0, y = 104 }
           },
           properties = {}
         }
@@ -11582,13 +11318,306 @@ return {
     },
     {
       type = "objectgroup",
+      id = 66,
+      name = "militia3",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 56,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 120,
+          y = 3136,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 57,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 168,
+          y = 3136,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 58,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 104,
+          y = 3152,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 59,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 184,
+          y = 3152,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 67,
+          name = "trigger",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 112,
+          y = 3104,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 75,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 136,
+          y = 3120,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 76,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 152,
+          y = 3120,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 52,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 112,
+          y = 3128,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -40, y = 24 },
+            { x = -8, y = 24 }
+          },
+          properties = {}
+        },
+        {
+          id = 53,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 192,
+          y = 3136,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 24, y = 16 },
+            { x = -8, y = 16 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 67,
+      name = "militia2",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 48,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 112,
+          y = 3248,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 49,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 192,
+          y = 3256,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 66,
+          name = "trigger",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 112,
+          y = 3240,
+          width = 64,
+          height = 40,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 65,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 176,
+          y = 3248,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 64,
+          name = "militia",
+          type = "Militia",
+          shape = "rectangle",
+          x = 96,
+          y = 3256,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 50,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 96,
+          y = 3248,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 8 },
+            { x = 0, y = 32 },
+            { x = -24, y = 32 }
+          },
+          properties = {}
+        },
+        {
+          id = 51,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 208,
+          y = 3248,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 8 },
+            { x = -16, y = 32 },
+            { x = 8, y = 32 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 69,
       name = "catapult1",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 5,
@@ -11603,8 +11632,7 @@ return {
           gid = 984,
           visible = true,
           properties = {
-            ["faceangle"] = 90,
-            ["pathid"] = "6"
+            ["faceangle"] = 90
           }
         },
         {
@@ -11623,9 +11651,7 @@ return {
             { x = 0, y = 32 },
             { x = 0, y = -160 }
           },
-          properties = {
-            ["script"] = "PathGraph"
-          }
+          properties = {}
         },
         {
           id = 7,
@@ -11663,6 +11689,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 70,
       name = "militia1b",
       visible = true,
       opacity = 1,
@@ -11684,7 +11711,7 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "militia1_path",
+            ["pathid"] = "militia1a",
             ["pathmode"] = "relative"
           }
         },
@@ -11701,7 +11728,7 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "militia1_path",
+            ["pathid"] = "militia1a",
             ["pathmode"] = "relative"
           }
         },
@@ -11718,7 +11745,7 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "militia1_path",
+            ["pathid"] = "militia1a",
             ["pathmode"] = "relative"
           }
         },
@@ -11735,7 +11762,7 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "militia1_path",
+            ["pathid"] = "militia1a",
             ["pathmode"] = "relative"
           }
         },
@@ -11752,7 +11779,7 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "militia1_path",
+            ["pathid"] = "militia1a",
             ["pathmode"] = "relative"
           }
         },
@@ -11769,7 +11796,7 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "militia1_path",
+            ["pathid"] = "militia1a",
             ["pathmode"] = "relative"
           }
         },
@@ -11792,13 +11819,16 @@ return {
     },
     {
       type = "objectgroup",
+      id = 71,
       name = "militia1a",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 41,
@@ -11813,7 +11843,6 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "militia1_path",
             ["pathmode"] = "relative"
           }
         },
@@ -11830,7 +11859,6 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "militia1_path",
             ["pathmode"] = "relative"
           }
         },
@@ -11847,7 +11875,22 @@ return {
           gid = 1048,
           visible = true,
           properties = {
-            ["pathid"] = "militia1_path",
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 47,
+          name = "",
+          type = "Militia",
+          shape = "rectangle",
+          x = 160,
+          y = 3496,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1048,
+          visible = true,
+          properties = {
             ["pathmode"] = "relative"
           }
         },
@@ -11866,37 +11909,6 @@ return {
             ["activateobjectslayer"] = "ground"
           }
         },
-        {
-          id = 47,
-          name = "",
-          type = "Militia",
-          shape = "rectangle",
-          x = 160,
-          y = 3496,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathid"] = "militia1_path",
-            ["pathmode"] = "relative"
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      name = "militia1_path",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["script"] = "PathGraph"
-      },
-      objects = {
         {
           id = 44,
           name = "path",
@@ -11918,6 +11930,21 @@ return {
     },
     {
       type = "objectgroup",
+      id = 72,
+      name = "militia1_path",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {}
+    },
+    {
+      type = "objectgroup",
+      id = 73,
       name = "camera",
       visible = true,
       opacity = 1,
@@ -11945,6 +11972,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 74,
       name = "camera_path",
       visible = true,
       opacity = 1,
@@ -11976,6 +12004,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 75,
       name = "sparks",
       visible = true,
       opacity = 1,
@@ -11987,6 +12016,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 76,
       name = "playershots",
       visible = true,
       opacity = 1,
@@ -11998,6 +12028,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 77,
       name = "playerteam",
       visible = true,
       opacity = 1,

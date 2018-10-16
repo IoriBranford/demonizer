@@ -113,6 +113,7 @@ function ShmupPlayer:isFiring()
 
 	return not self.killed and not self.exiting
 		and not self.bombbutton and self.firebutton
+		and not self.stuntimer
 end
 
 function ShmupPlayer:isFocused()
@@ -271,13 +272,14 @@ end
 
 function ShmupPlayer:beginContact(myfixture, otherfixture, contact)
 	local otherdata = otherfixture:getBody():getUserData()
+	local otherid = otherdata and otherdata.id
 	local otherproperties = otherdata and otherdata.properties
 	for i = 1, select("#", otherfixture:getCategory()) do
 		local category = select(i, otherfixture:getCategory())
 		if category == ShmupCollision.Category_Default then
-			if self.entranceid == otherdata.id then
-				self.entrancedestid = self.entrancedestid
-					or otherproperties.entrancedestid
+			if otherid and otherproperties
+			and self.entranceid == otherid and not self.entrancedestid then
+				self.entrancedestid = otherproperties.entrancedestid
 			end
 		elseif category == ShmupCollision.Category_EnemyTeam then
 			if otherproperties.meleeknockback then
@@ -481,7 +483,7 @@ function ShmupPlayer:exitCoroutine(dt)
 	if self.won then
 		local nextmap = levity.map.properties.nextmap
 		if not nextmap or not love.filesystem.exists(nextmap) then
-			nextmap = "title.lua"
+			nextmap = "earlyend.lua"
 		end
 		levity:setNextMap(nextmap, {})
 	else
@@ -668,9 +670,9 @@ function ShmupPlayer:endMove(dt)
 	end
 end
 
-function ShmupPlayer:humanConverted(humanid, captorid)
-	local ShmupWingman = require("ShmupWingman")
-	self.shieldtimer = ShmupWingman.ConvertTime
+function ShmupPlayer:wingmanJoined(wingmanid)
+	local wingman = levity.map.objects[wingmanid]
+	self.shieldtimer = wingman.properties.converttime or 1
 end
 
 function ShmupPlayer:beginDraw()

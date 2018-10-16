@@ -72,11 +72,6 @@ function Item.getNumItems()
 	return NumItems
 end
 
-local Sounds = {
-	Convert = "snd/warp.ogg",
-}
-levity.bank:load(Sounds)
-
 function Item:initQuery()
 	local rideid = self.properties.rideid
 	if rideid then
@@ -165,6 +160,11 @@ function Item:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 		return
 	end
 
+	local otherproperties = otherfixture:getBody():getUserData().properties
+	if otherproperties and not otherproperties.picksupitems then
+		return
+	end
+
 	local itemtype = self.properties.itemtype
 
 	local captorid
@@ -187,7 +187,7 @@ function Item:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 		local newwingmanid = ShmupWingman.create(levity.map, gid,
 			cx, cy, captorid, self.id)
 
-		levity.bank:play(Sounds.Convert)
+		levity.bank:play(self.properties.newwingmansound)
 		levity.scripts:broadcast("humanConverted", self.id, captorid)
 	elseif itemtype == "score" then
 		levity.scripts:broadcast("humanCaptured", self.id, captorid)
@@ -265,15 +265,15 @@ function Item:endMove(dt)
 		local itemtile = itemtype
 
 		if not self.itemsprite then
-			self.itemsprite = levity.scripts:call("items", "add",
+			self.itemsprite = levity.scripts:call(self.properties.itemslayer or "items", "add",
 				itemtile, px, py)
 		end
 
-		levity.scripts:send("items", "set", self.itemsprite,
+		levity.scripts:send(self.properties.itemslayer or "items", "set", self.itemsprite,
 				itemtile, px, py)
 	else
 		if self.itemsprite then
-			levity.scripts:send("items", "remove", self.itemsprite)
+			levity.scripts:send(self.properties.itemslayer or "items", "remove", self.itemsprite)
 			self.itemsprite = nil
 		end
 	end
@@ -405,7 +405,7 @@ function Item:discard()
 	levity.scripts:send(self.pulledbyid, "stopPulling")
 
 	if self.itemsprite then
-		levity.scripts:send("items", "remove", self.itemsprite)
+		levity.scripts:send(self.properties.itemslayer or "items", "remove", self.itemsprite)
 		self.itemsprite = nil
 	end
 

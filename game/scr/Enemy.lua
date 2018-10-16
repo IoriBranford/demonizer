@@ -16,12 +16,16 @@
 --@field defeatitemvely
 --@field defeatspark
 --@field faceangle Manually set facing angle (E=0, S=90, W=180, N=270)
+--@field immuneplayertouch
+--@field immuneplayershot
+--@field immuneplayerbomb
 --@table Properties
 
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local ShmupBullet = require "ShmupBullet"
 local Item = require "Item"
+local pl_tablex = require "pl.tablex"
 
 --preload component scripts
 require "Health"
@@ -39,6 +43,14 @@ local Enemy = class()
 
 Enemy.PlayerMeleeDamage = 15
 
+local CollisionCategory = {
+	ShmupCollision.Category_EnemyTeam
+}
+local CollisionMask = {
+	ShmupCollision.Category_EnemyShot,
+	ShmupCollision.Category_BonusMaze
+}
+
 function Enemy:_init(object)
 	self.object = object
 	self.id = object.id
@@ -49,27 +61,35 @@ function Enemy:_init(object)
 	self.oncameraedge = false
 	self.exitedcamera = false -- false until first time going off-camera, then opposite of oncamera
 
-	local category
+	pl_tablex.clear(CollisionCategory, 2)
 	if self.properties.iscover then
-		category = Enemy.CoverCategory
-	else
-		category = Enemy.NonCoverCategory
+		CollisionCategory[#CollisionCategory+1] = ShmupCollision.Category_EnemyCover
 	end
 
-	local mask
+	pl_tablex.clear(CollisionMask, 3)
 	if self.properties.health and self.properties.health >= 1 then
-		mask = self.properties.bombdamageonly and Enemy.NonCombatantMask or Enemy.CombatantMask
+		if self.properties.immuneplayertouch then
+			CollisionMask[#CollisionMask+1] = ShmupCollision.Category_PlayerTeam
+		end
+		if self.properties.immuneplayershot then
+			CollisionMask[#CollisionMask+1] = ShmupCollision.Category_PlayerShot
+		end
+		if self.properties.immuneplayerbomb then
+			CollisionMask[#CollisionMask+1] = ShmupCollision.Category_PlayerBomb
+		end
+
 		self.health = levity.scripts:newScript(self.id, "Health", self.object)
 		if self.properties.takescover then
 			self.cover = levity.scripts:newScript(self.id, "TakingCover", self.object)
 		end
 	else
-		mask = Enemy.NonCombatantMask
+		CollisionMask[#CollisionMask+1] = ShmupCollision.Category_PlayerTeam
+		CollisionMask[#CollisionMask+1] = ShmupCollision.Category_PlayerShot
 	end
 
 	for _, fixture in ipairs(self.body:getFixtureList()) do
-		fixture:setCategory(category)
-		fixture:setMask(mask)
+		fixture:setCategory(CollisionCategory)
+		fixture:setMask(CollisionMask)
 	end
 
 	self.body:setFixedRotation(true)
@@ -114,27 +134,6 @@ function Enemy:_init(object)
 	self.shields = 0
 end
 
-Enemy.CoverCategory = {
-	ShmupCollision.Category_EnemyTeam,
-	ShmupCollision.Category_EnemyCover
-}
-
-Enemy.NonCoverCategory = {
-	ShmupCollision.Category_EnemyTeam
-}
-
-Enemy.CombatantMask = {
-	ShmupCollision.Category_EnemyShot,
-	ShmupCollision.Category_BonusMaze
-}
-
-Enemy.NonCombatantMask = {
-	ShmupCollision.Category_PlayerTeam,
-	ShmupCollision.Category_PlayerShot,
-	ShmupCollision.Category_EnemyShot,
-	ShmupCollision.Category_BonusMaze
-}
-
 Enemy.InvulnerableMask = {
 	ShmupCollision.Category_PlayerTeam,
 	ShmupCollision.Category_PlayerShot,
@@ -174,7 +173,7 @@ end
 function Enemy:canBeLockTarget()
 	return self:canTakeDamage()
 		and self.object.visible
-		and not self.properties.bombdamageonly
+		and not self.properties.immuneplayershot
 end
 
 function Enemy:canBeBombMeleeTarget()
@@ -288,8 +287,10 @@ function Enemy:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 	if self.properties.meleeknockback then
 		levity.bank:play(self.properties.meleesound)
 	end
-	if self.health and otherid == levity.map.properties.playerid then
-		self.health:addDPS(Enemy.PlayerMeleeDamage)
+	if otherid == levity.map.properties.playerid then
+		if self.health then
+			self.health:addDPS(Enemy.PlayerMeleeDamage)
+		end
 	end
 end
 
@@ -358,8 +359,10 @@ end
 
 function Enemy:endContact_PlayerTeam(myfixture, otherfixture, contact)
 	local otherid = otherfixture:getBody():getUserData().id
-	if self.health and otherid == levity.map.properties.playerid then
-		self.health:addDPS(-Enemy.PlayerMeleeDamage)
+	if otherid == levity.map.properties.playerid then
+		if self.health then
+			self.health:addDPS(-Enemy.PlayerMeleeDamage)
+		end
 	end
 end
 
@@ -523,7 +526,9 @@ function Enemy:defeat(giveitemtoid, withbomb)
 	if self.properties.defeated then
 		return
 	end
-	if self.properties.bombdamageonly and not withbomb then
+	if self.properties.immuneplayershot
+	and self.properties.immuneplayertouch
+	and not withbomb then
 		return
 	end
 	self.properties.defeated = true
@@ -531,7 +536,9 @@ function Enemy:defeat(giveitemtoid, withbomb)
 
 	self.properties.rideshield = nil
 	self.properties.pathid = nil
-	self.properties.firebullet = false
+	if self.properties.firetime ~= "defeat" then
+		self.properties.firebullet = false
+	end
 
 	levity.scripts:broadcast("pointsScored", self.properties.score or 100)
 

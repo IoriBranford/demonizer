@@ -121,8 +121,6 @@ function UIButton:beginDraw()
 		if self.pressed then
 			levity.setColorARGB(self.properties.pressfillcolor or "#807359a5")
 			love.graphics.rectangle("fill", x, y, fillwidth, h)
-			levity.setColorARGB(self.properties.presslinecolor or "#ffa478ff")
-			love.graphics.rectangle("line", x, y, w, h)
 		else
 			levity.setColorARGB(self.properties.fillcolor or "#80292042")
 			love.graphics.rectangle("fill", x, y, fillwidth, h)
@@ -131,6 +129,14 @@ function UIButton:beginDraw()
 		end
 	end
 
+	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
+end
+
+function UIButton:drawPressedOutline()
+	local x, y, w, h = self.object.x, self.object.y,
+				self.object.width, self.object.height
+	levity.setColorARGB(self.properties.presslinecolor or "#ffa478ff")
+	love.graphics.rectangle("line", x, y, w, h)
 	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
 end
 
@@ -178,6 +184,11 @@ end
 function UIButton:resetPrefs()
 	levity.prefs.reset()
 	levity.scripts:broadcast("prefsReset")
+end
+
+function UIButton:quitToWebsite()
+	love.system.openURL("https://ioribranford.itch.io/demonizer")
+	love.event.quit()
 end
 
 return UIButton

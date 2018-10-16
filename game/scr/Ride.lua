@@ -58,8 +58,11 @@ function Ride:updateRidersVelocity(dt, newvx, newvy)
 				local distsq = math.hypotsq(
 					self.body:getX() - riderx,
 					self.body:getY() - ridery)
-				if distsq < radsq then
-					radius = math.sqrt(distsq) + (60*dt)
+				if distsq ~= radsq then
+					local dist = math.sqrt(distsq)
+					local dradius = (radius - dist)
+					dradius = math.max(-1, math.min(dradius, 1))
+					radius = dist + dradius
 				end
 				seatx = seatx*radius
 				seaty = seaty*radius

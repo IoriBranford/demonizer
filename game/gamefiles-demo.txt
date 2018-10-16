@@ -1,11 +1,11 @@
 options.lua
 demonrealm.lua
 drunktitle.lua
+earlyend.lua
 gameplay.lua
 title.lua
 tutorial.lua
 village.lua
-winegameplay.lua
 winetasting.lua
 objecttypes.xml
 wineobjecttypes.xml

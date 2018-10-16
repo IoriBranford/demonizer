@@ -5,11 +5,6 @@ TargetLock.CrosshairTileset = nil
 TargetLock.AnimationSize = 32
 TargetLock.AnimationTime = .125
 
-local Sounds = {
-	Lock = "snd/targetlock.ogg"
-}
-levity.bank:load(Sounds)
-
 function TargetLock:_init(object)
 	self.locktargetid = nil
 	self.locktime = 0
@@ -28,7 +23,7 @@ end
 function TargetLock:setLockTargetId(targetid)
 	if self.locktargetid ~= targetid then
 		if targetid then
-			levity.bank:play(Sounds.Lock)
+			levity.bank:play(levity.map.properties.targetlocksound)
 		end
 		self.locktime = 0
 	end

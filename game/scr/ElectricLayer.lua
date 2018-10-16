@@ -3,15 +3,10 @@ local levity = require "levity"
 local ElectricLayer = class()
 function ElectricLayer:_init(layer)
 	self.layer = layer
+	self.properties = layer.properties
 	assert(self.layer.type == "tilelayer")
 	self:setActive(false)
 end
-
-local BuzzRate = 6
-local Sounds = {
-	Buzz = "snd/buzz.ogg"
-}
-levity.bank:load(Sounds)
 
 function ElectricLayer:isActive()
 	return self.layer.visible
@@ -31,14 +26,15 @@ function ElectricLayer:beginMove(dt)
 
 	local newtimer = self.timer + dt
 
-	if math.floor(self.timer * BuzzRate) < math.floor(newtimer * BuzzRate) then
-		levity.bank:play(Sounds.Buzz)
+	local buzzrate = self.properties.buzzrate or 6
+	if math.floor(self.timer * buzzrate) < math.floor(newtimer * buzzrate) then
+		levity.bank:play(self.properties.buzzsound)
 		levity.scripts:broadcast("electrocuted")
 	end
 
 	self.timer = newtimer
 
-	self.layer.opacity = .125*(1 + math.cos(4*math.pi*self.timer*BuzzRate))
+	self.layer.opacity = .125*(1 + math.cos(4*math.pi*self.timer*buzzrate))
 end
 
 return ElectricLayer
