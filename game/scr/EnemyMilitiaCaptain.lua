@@ -1,7 +1,7 @@
 local levity = require "levity"
-local Enemy = require "Enemy"
+local NPC = require "NPC"
 
-local MilitiaCaptain = class(Enemy)
+local MilitiaCaptain = class(NPC)
 function MilitiaCaptain:_init(object)
 	self:super(object)
 

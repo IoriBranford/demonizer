@@ -10,6 +10,7 @@
 --@field pathspeedmin when using a varying speed function - should be > 0
 --@field pathspeedweighted
 --@field pathstartpointid
+--@field pathdistmin When path is object, distance to keep from that object
 --@table Properties
 
 local levity = require "levity"
@@ -163,10 +164,23 @@ function Mover:beginMove(dt)
 
 		if pathobjbody and not levity.scripts:call(pathid, "is_a", PathGraph) then
 			destx, desty = pathobjbody:getPosition()
+
+			local pathdistmin = self.properties.pathdistmin
+
 			if self.properties.pathawayfromobj then
 				destx = x + x - destx
 				desty = y + y - desty
+			else
+				local distx = destx + offx - x
+				local disty = desty + offy - y
+				local distsq = math.hypotsq(distx, disty)
+				if pathdistmin and pathdistmin*pathdistmin > distsq then
+					local dist = math.sqrt(distsq)
+					destx = x + distx - pathdistmin*distx/dist
+					desty = y + disty - pathdistmin*disty/dist
+				end
 			end
+
 			self.destx, self.desty = destx, desty
 		end
 
@@ -190,6 +204,14 @@ function Mover:beginMove(dt)
 
 		if self.path and self.properties.pathspeedweighted then
 			pathspeed = pathspeed / self.path.cost
+		end
+
+		local damagetilelayer = self.properties.damagetilelayer
+		if damagetilelayer then
+			local damagetile = levity.scripts:call(damagetilelayer,
+				"getPositionProperties", self.body:getPosition())
+			local speedfactor = damagetile and damagetile.speedfactor or 1
+			pathspeed = pathspeed * speedfactor
 		end
 
 		local vx, vy = self.body:getLinearVelocity()

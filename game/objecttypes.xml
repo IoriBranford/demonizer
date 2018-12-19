@@ -19,7 +19,7 @@
   <property name="ridedefeat" type="bool" default="true"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="250"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="180"/>
   <property name="takescover" type="bool" default="true"/>
  </objecttype>
@@ -45,18 +45,23 @@
   <property name="health" type="int" default="64"/>
   <property name="iscover" type="bool" default="true"/>
   <property name="pathfinder" type="string" default="linear1way"/>
-  <property name="pathid" type="string" default="paths"/>
+  <property name="pathid" type="string" default="mylayer"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="60"/>
   <property name="pathspeedfunction" type="string" default="ncos"/>
   <property name="pathspeedmin" type="float" default="15"/>
   <property name="score" type="int" default="1500"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="0"/>
+ </objecttype>
+ <objecttype name="Barricade" color="#ff0000">
+  <property name="defeatspark" type="string" default="SparkDefeatHuge"/>
+  <property name="health" type="int" default="64"/>
+  <property name="script" type="string" default="NPC"/>
  </objecttype>
  <objecttype name="Boat" color="#ff0000">
   <property name="defeatspark" type="string" default="SparkDefeatHuge"/>
-  <property name="health" type="int" default="64"/>
+  <property name="health" type="int" default="80"/>
   <property name="pathfinder" type="string" default="linear1way"/>
   <property name="pathid" type="string" default="mylayer"/>
   <property name="pathmode" type="string" default="absolute"/>
@@ -64,7 +69,7 @@
   <property name="pathspeedfunction" type="string" default="ncos"/>
   <property name="pathspeedmin" type="float" default="30"/>
   <property name="score" type="int" default="1000"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
  </objecttype>
  <objecttype name="BombTrigger" color="#ff7f7f">
   <property name="collidable" type="bool" default="true"/>
@@ -75,7 +80,7 @@
   <property name="immuneplayertouch" type="bool" default="true"/>
   <property name="iscover" type="bool" default="false"/>
   <property name="score" type="int" default="1000"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="sensor" type="bool" default="true"/>
  </objecttype>
  <objecttype name="BulletArrow" color="#00aaff">
@@ -86,12 +91,31 @@
   <property name="tileid" type="string" default="arrow"/>
   <property name="tileset" type="string" default="humanshots"/>
  </objecttype>
+ <objecttype name="BulletAxe" color="#00aaff">
+  <property name="category" type="string" default="EnemyShot"/>
+  <property name="lifetime" type="float" default="0.4"/>
+  <property name="script" type="string" default="ShmupBullet"/>
+  <property name="sound" type="file" default="snd/sword.ogg"/>
+  <property name="speed" type="float" default="180"/>
+  <property name="tileid" type="string" default="axe"/>
+  <property name="tileset" type="string" default="humanshots"/>
+ </objecttype>
  <objecttype name="BulletBallista" color="#00aaff">
   <property name="category" type="string" default="EnemyShot"/>
   <property name="script" type="string" default="ShmupBullet"/>
   <property name="sound" type="file" default="snd/ballista.ogg"/>
   <property name="speed" type="float" default="480"/>
   <property name="tileid" type="string" default="ballista"/>
+  <property name="tileset" type="string" default="humanshots"/>
+ </objecttype>
+ <objecttype name="BulletBlood" color="#00aaff">
+  <property name="accelx" type="float" default="0"/>
+  <property name="accely" type="float" default="360"/>
+  <property name="category" type="string" default="EnemyShot"/>
+  <property name="script" type="string" default="ShmupBullet"/>
+  <property name="sound" type="file" default="snd/splat.ogg"/>
+  <property name="speed" type="float" default="180"/>
+  <property name="tileid" type="string" default="blood"/>
   <property name="tileset" type="string" default="humanshots"/>
  </objecttype>
  <objecttype name="BulletCatapult" color="#00aaff">
@@ -118,6 +142,15 @@
   <property name="sound" type="file" default="snd/powershot.ogg"/>
   <property name="speed" type="float" default="240"/>
   <property name="tileid" type="string" default="firearrow"/>
+  <property name="tileset" type="string" default="humanshots"/>
+ </objecttype>
+ <objecttype name="BulletFireBlast" color="#00aaff">
+  <property name="category" type="string" default="EnemyShot"/>
+  <property name="lifetime" type="string" default="animation"/>
+  <property name="script" type="string" default="ShmupBullet"/>
+  <property name="sound" type="file" default="snd/firesmall.ogg"/>
+  <property name="speed" type="float" default="120"/>
+  <property name="tileid" type="string" default="fireblast"/>
   <property name="tileset" type="string" default="humanshots"/>
  </objecttype>
  <objecttype name="BulletHadou" color="#00aaff">
@@ -205,6 +238,15 @@
   <property name="tileid" type="int" default="0"/>
   <property name="tileset" type="string" default="winebomb"/>
  </objecttype>
+ <objecttype name="BulletPoisonGas" color="#00aaff">
+  <property name="category" type="string" default="EnemyShot"/>
+  <property name="lifetime" type="string" default="animation"/>
+  <property name="script" type="string" default="ShmupBullet"/>
+  <property name="sound" type="file" default="snd/splat.ogg"/>
+  <property name="speed" type="float" default="120"/>
+  <property name="tileid" type="string" default="poisongas"/>
+  <property name="tileset" type="string" default="humanshots"/>
+ </objecttype>
  <objecttype name="BulletSpiritFire" color="#00aaff">
   <property name="accelx" type="float" default="0"/>
   <property name="accely" type="float" default="180"/>
@@ -240,6 +282,36 @@
   <property name="tileid" type="string" default="wingman"/>
   <property name="tileset" type="string" default="demonshots"/>
  </objecttype>
+ <objecttype name="Butcher" color="#ff0000">
+  <property name="defeatdroptileset" type="string" default="ko"/>
+  <property name="defeatitemlaunch" type="bool" default="false"/>
+  <property name="defeatspark" type="string" default="SparkDefeatMed"/>
+  <property name="firebullet" type="string" default="BulletAxe"/>
+  <property name="firetargetid" type="string" default="player"/>
+  <property name="firetime" type="float" default="0.25"/>
+  <property name="health" type="int" default="24"/>
+  <property name="nexttype" type="string" default="ButcherFleeing"/>
+  <property name="nexttypeevent" type="string" default="fireTargetGone"/>
+  <property name="pathfinder" type="string" default="linear2way"/>
+  <property name="pathid" type="string" default="mylayer"/>
+  <property name="pathmode" type="string" default="absolute"/>
+  <property name="pathspeed" type="string" default="60"/>
+  <property name="pathspeedfunction" type="string" default="ncos"/>
+  <property name="pathspeedmin" type="float" default="30"/>
+  <property name="ridedefeat" type="bool" default="true"/>
+  <property name="rideid" type="int" default="0"/>
+  <property name="score" type="int" default="500"/>
+  <property name="script" type="string" default="NPC"/>
+  <property name="strafearc" type="float" default="180"/>
+  <property name="takescover" type="bool" default="true"/>
+ </objecttype>
+ <objecttype name="ButcherFleeing" color="#ff0000">
+  <property name="_basetype" type="string" default="Butcher"/>
+  <property name="fleeing" type="bool" default="true"/>
+  <property name="pathid" type="string" default="fleepaths"/>
+  <property name="pathspeed" type="string" default="180"/>
+  <property name="pathspeedfunction" type="string"/>
+ </objecttype>
  <objecttype name="Cage" color="#ff0000">
   <property name="defeatspark" type="string" default="SparkDefeatHuge"/>
   <property name="health" type="int" default="64"/>
@@ -253,7 +325,7 @@
   <property name="ridedefeat" type="bool" default="true"/>
   <property name="rideid" type="string"/>
   <property name="score" type="int" default="1000"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
  </objecttype>
  <objecttype name="Camera" color="#0000ff">
   <property name="collidable" type="bool" default="true"/>
@@ -280,7 +352,7 @@
   <property name="pathspeedfunction" type="string" default="ncos"/>
   <property name="pathspeedmin" type="float" default="15"/>
   <property name="score" type="int" default="1000"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="0"/>
  </objecttype>
  <objecttype name="CatapultOperator" color="#ff0000">
@@ -290,8 +362,16 @@
   <property name="ridedefeat" type="bool" default="true"/>
   <property name="rideid" type="string" default="colliding"/>
   <property name="rideshield" type="bool" default="true"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="takescover" type="bool" default="true"/>
+ </objecttype>
+ <objecttype name="Cauldron" color="#ff0000">
+  <property name="defeatdroptileid" type="string" default="destroyed"/>
+  <property name="defeatspark" type="string" default="SparkDefeatHuge"/>
+  <property name="health" type="int" default="64"/>
+  <property name="ridersdps" type="float" default="6"/>
+  <property name="score" type="int" default="1000"/>
+  <property name="script" type="string" default="NPC"/>
  </objecttype>
  <objecttype name="Cavalier" color="#ff0000">
   <property name="defeatdroptileset" type="string" default="ko"/>
@@ -306,13 +386,13 @@
   <property name="rideid" type="string" default="colliding"/>
   <property name="rideseat" type="string" default="rider"/>
   <property name="score" type="int" default="750"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="90"/>
  </objecttype>
  <objecttype name="CaveMine" color="#ff0000">
-  <property name="defeatspark" type="string" default="SparkDefeatHuge"/>
+  <property name="defeatspark" type="string" default="SparkDefeatMed"/>
   <property name="firearc" type="float" default="180"/>
-  <property name="firebullet" type="string" default="BulletPike"/>
+  <property name="firebullet" type="string" default="BulletFireBlast"/>
   <property name="firefan" type="int" default="7"/>
   <property name="firefanslice" type="float" default="50"/>
   <property name="firetargetid" type="string" default="player"/>
@@ -320,8 +400,24 @@
   <property name="fleeing" type="bool" default="true"/>
   <property name="health" type="int" default="1"/>
   <property name="immuneplayershot" type="bool" default="true"/>
+  <property name="playerteamtouchdps" type="float" default="15"/>
   <property name="score" type="int" default="0"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
+ </objecttype>
+ <objecttype name="Chains" color="#ff0000">
+  <property name="anyriderdefeat" type="bool" default="true"/>
+  <property name="defeatspark" type="string" default="SparkDefeatMed"/>
+  <property name="health" type="int" default="64"/>
+  <property name="pathfinder" type="string" default="linear1way"/>
+  <property name="pathid" type="string" default="mylayer"/>
+  <property name="pathmode" type="string" default="absolute"/>
+  <property name="pathspeed" type="string" default="30"/>
+  <property name="pathspeedfunction" type="string" default="ncos"/>
+  <property name="pathspeedmin" type="float" default="15"/>
+  <property name="ridedefeat" type="bool" default="true"/>
+  <property name="rideid" type="string"/>
+  <property name="score" type="int" default="500"/>
+  <property name="script" type="string" default="NPC"/>
  </objecttype>
  <objecttype name="CollisionCivilian" color="#a0a0a4">
   <property name="collidable" type="bool" default="true"/>
@@ -336,6 +432,10 @@
   <property name="openmusicfade" type="bool" default="false"/>
   <property name="opensound" type="file" default=""/>
   <property name="opentime" type="float" default="1"/>
+ </objecttype>
+ <objecttype name="DamageTileElectric" color="#aa0000">
+  <property name="damage" type="int" default="6"/>
+  <property name="speedfactor" type="float" default="0.25"/>
  </objecttype>
  <objecttype name="Debris" color="#ffaa00">
   <property name="accely" type="float" default="480"/>
@@ -364,9 +464,9 @@
   <property name="defeated" type="bool" default="true"/>
   <property name="emotetileid" type="string" default=""/>
   <property name="emotetileset" type="string" default=""/>
-  <property name="faceangle" type="string"/>
+  <property name="faceangle" type="bool" default="false"/>
   <property name="fleeing" type="bool" default="true"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="static" type="bool" default="true"/>
  </objecttype>
  <objecttype name="FinalBoss" color="#ff0000">
@@ -386,7 +486,7 @@
   <property name="ridedefeat" type="bool" default="false"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="100000"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="180"/>
   <property name="takescover" type="bool" default="true"/>
  </objecttype>
@@ -409,7 +509,7 @@
   <property name="ridedefeat" type="bool" default="true"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="500"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="180"/>
   <property name="takescover" type="bool" default="true"/>
  </objecttype>
@@ -487,31 +587,32 @@
   <property name="pathspeedmin" type="float" default="60"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="2000"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="180"/>
  </objecttype>
  <objecttype name="Friend" color="#ff80ff">
   <property name="defeatparticles" type="string" default="deathparticles"/>
   <property name="defeatspark" type="string" default="FriendlyDeath"/>
   <property name="emotetileid" type="string"/>
-  <property name="emotetileset" type="string"/>
+  <property name="emotetileset" type="string" default="emotes"/>
   <property name="fleeing" type="bool" default="false"/>
   <property name="fleeingkills" type="bool" default="false"/>
   <property name="friendly" type="bool" default="true"/>
   <property name="health" type="int" default="36"/>
   <property name="hitparticles" type="string" default="deathparticles"/>
   <property name="hitsound" type="file" default="snd/slash.ogg"/>
-  <property name="pathfinder" type="string" default="linearUp"/>
+  <property name="pathfinder" type="string" default="linear1way"/>
   <property name="pathid" type="string" default="mylayer"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="90"/>
   <property name="rideid" type="string" default=""/>
-  <property name="script" type="string" default="Friend"/>
+  <property name="script" type="string" default="NPC"/>
  </objecttype>
  <objecttype name="FriendFleeing" color="#ff80ff">
   <property name="_basetype" type="string" default="Friend"/>
   <property name="fleeing" type="bool" default="true"/>
   <property name="pathid" type="string" default="fleepaths"/>
+  <property name="pathspeed" type="float" default="180"/>
  </objecttype>
  <objecttype name="FriendlyDeath" color="#ff80ff">
   <property name="lifetime" type="string" default="animation"/>
@@ -522,6 +623,8 @@
  </objecttype>
  <objecttype name="FriendPrisoner" color="#ff80ff">
   <property name="_basetype" type="string" default="Friend"/>
+  <property name="emotetileid" type="string" default="help"/>
+  <property name="fleeingkills" type="bool" default="false"/>
   <property name="nexttype" type="string" default="FriendFleeing"/>
   <property name="nexttypeevent" type="string" default="rideDestroyed"/>
   <property name="rideid" type="string" default="colliding"/>
@@ -544,7 +647,7 @@
   <property name="ridedefeat" type="bool" default="true"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="750"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="180"/>
   <property name="takescover" type="bool" default="true"/>
  </objecttype>
@@ -666,7 +769,7 @@
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="240"/>
   <property name="riderdefeatedflee" type="bool" default="true"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
  </objecttype>
  <objecttype name="HorseSeat" color="#a0a0a4">
   <property name="strafearc" type="float" default="135"/>
@@ -739,7 +842,7 @@
   <property name="rideid" type="string" default="colliding"/>
   <property name="rideseat" type="string" default="rider"/>
   <property name="score" type="int" default="500"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="0"/>
   <property name="takescover" type="bool" default="true"/>
  </objecttype>
@@ -768,7 +871,7 @@
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="float" default="180"/>
   <property name="score" type="int" default="5000"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
  </objecttype>
  <objecttype name="LordArmorBody" color="#ff0000">
   <property name="defeatspark" type="string" default="SparkDefeatHuge"/>
@@ -780,7 +883,7 @@
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="60"/>
   <property name="score" type="int" default="10000"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="0"/>
  </objecttype>
  <objecttype name="LordArmorBodyAttack" color="#ff0000">
@@ -873,6 +976,24 @@
   <property name="firetime" type="float" default="0.05"/>
   <property name="nexttype" type="string" default="LordUnarmoredAttack1"/>
  </objecttype>
+ <objecttype name="Mage" color="#ff0000">
+  <property name="defeatdroptileset" type="string" default="ko"/>
+  <property name="defeatitemlaunch" type="bool" default="false"/>
+  <property name="defeatspark" type="string" default="SparkDefeatMed"/>
+  <property name="health" type="int" default="64"/>
+  <property name="pathfinder" type="string" default="linear1way"/>
+  <property name="pathid" type="string" default="mylayer"/>
+  <property name="pathmode" type="string" default="absolute"/>
+  <property name="pathspeed" type="string" default="120"/>
+  <property name="score" type="int" default="1000"/>
+  <property name="script" type="string" default="NPC"/>
+  <property name="strafearc" type="float" default="180"/>
+  <property name="takescover" type="bool" default="true"/>
+ </objecttype>
+ <objecttype name="MageDamageLayer" color="#ff0000">
+  <property name="_basetype" type="string" default="Mage"/>
+  <property name="activatedamagelayer" type="string" default=""/>
+ </objecttype>
  <objecttype name="MazeCollision" color="#aa5500">
   <property name="category" type="string" default="BonusMaze"/>
   <property name="collidable" type="bool" default="true"/>
@@ -895,13 +1016,14 @@
   <property name="firearc" type="float" default="45"/>
   <property name="firebullet" type="string" default="BulletWingman"/>
   <property name="firetime" type="float" default="1"/>
+  <property name="friendly" type="string" default="true"/>
   <property name="health" type="int" default="8"/>
   <property name="pathfinder" type="string" default="linearUp"/>
   <property name="pathid" type="string" default="paths"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="90"/>
   <property name="rideid" type="int" default="0"/>
-  <property name="script" type="string" default="Friend"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="0"/>
  </objecttype>
  <objecttype name="Militia" color="#ff0000">
@@ -920,7 +1042,7 @@
   <property name="ridedefeat" type="bool" default="true"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="200"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="180"/>
   <property name="takescover" type="bool" default="true"/>
  </objecttype>
@@ -976,6 +1098,47 @@
   <property name="firetime" type="float" default="0.05"/>
   <property name="nexttype" type="string" default="MilitiaCaptainNormalAttack1"/>
  </objecttype>
+ <objecttype name="Necromancer" color="#ff0000">
+  <property name="defeatdroptileset" type="string" default="ko"/>
+  <property name="defeatitemlaunch" type="bool" default="false"/>
+  <property name="defeatspark" type="string" default="SparkDefeatHuge"/>
+  <property name="firebullet" type="string"/>
+  <property name="firetargetid" type="string" default="player"/>
+  <property name="health" type="int" default="256"/>
+  <property name="pathfinder" type="string" default="linear2way"/>
+  <property name="pathid" type="string" default="mylayer"/>
+  <property name="pathmode" type="string" default="absolute"/>
+  <property name="score" type="int" default="10000"/>
+  <property name="script" type="string" default="NPC"/>
+  <property name="strafearc" type="float" default="180"/>
+  <property name="takescover" type="bool" default="true"/>
+ </objecttype>
+ <objecttype name="Necromancer_Enter" color="#ff0000">
+  <property name="_basetype" type="string" default="Necromancer"/>
+  <property name="faceangle" type="bool" default="false"/>
+  <property name="invulnerable" type="bool" default="true"/>
+ </objecttype>
+ <objecttype name="NecromancerBlood" color="#ff0000">
+  <property name="_basetype" type="string" default="Necromancer"/>
+  <property name="firebullet" type="string" default="BulletBlood"/>
+  <property name="firefan" type="int" default="5"/>
+  <property name="firefanslice" type="float" default="30"/>
+  <property name="firetime" type="float" default="0.5"/>
+  <property name="firetimetotarget" type="float" default="1"/>
+  <property name="pathspeed" type="float" default="180"/>
+  <property name="pathspeedfunction" type="string" default="ncos"/>
+  <property name="pathspeedmin" type="float" default="60"/>
+ </objecttype>
+ <objecttype name="NecromancerPoison" color="#ff0000">
+  <property name="_basetype" type="string" default="Necromancer"/>
+  <property name="firebullet" type="string" default="BulletPoisonGas"/>
+  <property name="firefan" type="int" default="5"/>
+  <property name="firefanslice" type="float" default="30"/>
+  <property name="firetime" type="float" default="0.5"/>
+  <property name="pathspeed" type="float" default="180"/>
+  <property name="pathspeedfunction" type="string" default="ncos"/>
+  <property name="pathspeedmin" type="float" default="60"/>
+ </objecttype>
  <objecttype name="Orb_Defense" color="#ff0000">
   <property name="afterimage" type="bool" default="false"/>
   <property name="defeatspark" type="string" default="SparkDefeatMed"/>
@@ -997,7 +1160,7 @@
   <property name="rideorbitradius" type="float" default="48"/>
   <property name="rideorbitspeed" type="float" default="360"/>
   <property name="rideseat" type="string" default="orbit"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="180"/>
  </objecttype>
  <objecttype name="Orb_HighPriest" color="#ff0000">
@@ -1021,7 +1184,7 @@
   <property name="rideorbitradius" type="float" default="16"/>
   <property name="rideorbitspeed" type="float" default="270"/>
   <property name="rideseat" type="string" default="orbit"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="180"/>
  </objecttype>
  <objecttype name="Orb_HighPriest_Attack" color="#ff0000">
@@ -1057,7 +1220,7 @@
   <property name="rideorbitradius" type="float" default="48"/>
   <property name="rideorbitspeed" type="float" default="360"/>
   <property name="rideseat" type="string" default="orbit"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="180"/>
  </objecttype>
  <objecttype name="Orb_Surround" color="#ff0000">
@@ -1075,7 +1238,7 @@
   <property name="rideorbitradius" type="float" default="80"/>
   <property name="rideorbitspeed" type="float" default="180"/>
   <property name="rideseat" type="string" default="orbit"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
  </objecttype>
  <objecttype name="Path" color="#a0a0a4">
   <property name="beziercurve" type="bool" default="false"/>
@@ -1097,7 +1260,7 @@
   <property name="ridedefeat" type="bool" default="true"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="150"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="0"/>
   <property name="takescover" type="bool" default="true"/>
  </objecttype>
@@ -1117,6 +1280,7 @@
   <property name="script" type="string" default="ShmupPlayer"/>
   <property name="shotbullet" type="string" default="BulletPlayer"/>
   <property name="shotsound" type="file" default="snd/playershot.ogg"/>
+  <property name="touchdps" type="float" default="15"/>
  </objecttype>
  <objecttype name="PlayerDeath" color="#ff80ff">
   <property name="category" type="string" default="PlayerBomb"/>
@@ -1163,7 +1327,7 @@
   <property name="pathspeed" type="string" default="120"/>
   <property name="ridersdestroyedfirebullet" type="string" default="BulletHoly"/>
   <property name="score" type="int" default="500"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="180"/>
   <property name="takescover" type="bool" default="true"/>
  </objecttype>
@@ -1188,7 +1352,7 @@
   <property name="rideid" type="int" default="0"/>
   <property name="ridersdestroyedfirebullet" type="string" default="BulletHoly"/>
   <property name="score" type="int" default="1500"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
  </objecttype>
  <objecttype name="Princess" color="#ff0000">
   <property name="defeatclearenemies" type="bool" default="true"/>
@@ -1211,6 +1375,7 @@
   <property name="nexttype" type="string" default="PrincessChargeAttack"/>
   <property name="nexttypeevent" type="string" default="timePassed"/>
   <property name="nexttypeparam" type="float" default="1.5"/>
+  <property name="particlelayer" type="string" default="boss_chargeparticles"/>
   <property name="pathspeed" type="string" default="0"/>
   <property name="typesound" type="file" default="snd/charge.ogg"/>
  </objecttype>
@@ -1225,6 +1390,7 @@
   <property name="nexttype" type="string" default="PrincessNormalAttack"/>
   <property name="nexttypeevent" type="string" default="shotsFired"/>
   <property name="nexttypeparam" type="int" default="15"/>
+  <property name="particlelayer" type="string" default="boss_chargeparticles"/>
   <property name="pathspeed" type="string" default="75"/>
   <property name="strafearc" type="float" default="180"/>
  </objecttype>
@@ -1316,7 +1482,7 @@
   <property name="pathspeedfunction" type="string" default="ncos"/>
   <property name="pathspeedmin" type="float" default="15"/>
   <property name="score" type="int" default="1000"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="takescover" type="bool" default="true"/>
  </objecttype>
  <objecttype name="StatueReverseSpin1" color="#ff0000">
@@ -1372,14 +1538,14 @@
   <property name="defeatdroptileset" type="string" default="ko"/>
   <property name="defeatitemlaunch" type="bool" default="false"/>
   <property name="defeatspark" type="string" default="SparkDefeatMed"/>
-  <property name="firearc" type="float" default="15"/>
   <property name="firebullet" type="string" default="BulletSword"/>
   <property name="firetargetid" type="string" default="player"/>
   <property name="firetime" type="float" default="0.25"/>
   <property name="health" type="int" default="24"/>
   <property name="nexttype" type="string" default="SwordsmanFleeing"/>
   <property name="nexttypeevent" type="string" default="shotsFired"/>
-  <property name="nexttypeparam" type="int" default="1"/>
+  <property name="nexttypeparam" type="int" default="3"/>
+  <property name="pathdistmin" type="float" default="32"/>
   <property name="pathfinder" type="string" default="linear1way"/>
   <property name="pathid" type="string" default="player"/>
   <property name="pathmode" type="string" default="absolute"/>
@@ -1389,7 +1555,7 @@
   <property name="ridedefeat" type="bool" default="true"/>
   <property name="rideid" type="int" default="0"/>
   <property name="score" type="int" default="500"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="strafearc" type="float" default="180"/>
   <property name="takescover" type="bool" default="true"/>
  </objecttype>
@@ -1405,6 +1571,7 @@
   <property name="nexttype" type="string" default="SwordsmanHorseFleeing"/>
   <property name="nexttypeevent" type="string" default="riderShotsFired"/>
   <property name="nexttypeparam" type="int" default="2"/>
+  <property name="pathdistmin" type="float" default="32"/>
   <property name="pathid" type="string" default="player"/>
   <property name="pathminspeed" type="float" default="60"/>
   <property name="pathspeed" type="float" default="300"/>
@@ -1426,8 +1593,10 @@
   <property name="strafearc" type="float" default="135"/>
  </objecttype>
  <objecttype name="Trigger" color="#00ff00">
+  <property name="activatedbyid" type="string" default="camera"/>
   <property name="activateobjects" type="bool" default="true"/>
   <property name="activateobjectslayer" type="string"/>
+  <property name="activateonce" type="bool" default="true"/>
   <property name="bonussound" type="file" default="snd/bonus.ogg"/>
   <property name="cameraspeed" type="string"/>
   <property name="cameraspeedfunction" type="string"/>
@@ -1442,6 +1611,7 @@
   <property name="defeatenemiesbonus" type="int" default="0"/>
   <property name="defeatenemiesbonustimewindow" type="float" default="60"/>
   <property name="hidelayers" type="string"/>
+  <property name="ischeckpoint" type="bool" default="false"/>
   <property name="musicfade" type="bool" default="false"/>
   <property name="musicfile" type="file" default=""/>
   <property name="playerrestrictfire" type="string" default=""/>
@@ -1499,7 +1669,7 @@
   <property name="pathid" type="string"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="float" default="900"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
  </objecttype>
  <objecttype name="WineCaptain" color="#ff0000">
   <property name="defeatdroptileid" type="string" default="kocaptain"/>
@@ -1533,7 +1703,7 @@
   <property name="pathid" type="string" default="fleepaths"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="float" default="180"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="sparkdamageblunt" type="string" default="SparkDamageBlunt"/>
  </objecttype>
  <objecttype name="WineDefeatedEnemy" color="#a0a0a4">
@@ -1541,9 +1711,9 @@
   <property name="defeated" type="bool" default="true"/>
   <property name="emotetileid" type="string" default="drunk"/>
   <property name="emotetileset" type="string" default="emotes"/>
-  <property name="faceangle" type="string"/>
+  <property name="faceangle" type="bool" default="false"/>
   <property name="fleeing" type="bool" default="true"/>
-  <property name="script" type="string" default="Enemy"/>
+  <property name="script" type="string" default="NPC"/>
   <property name="static" type="bool" default="true"/>
  </objecttype>
  <objecttype name="WineGuard" color="#ff0000">
@@ -1675,5 +1845,48 @@
   <property name="_basetype" type="string" default="WineNun"/>
   <property name="firefan" type="int" default="4"/>
   <property name="nexttype" type="string" default="WineNun"/>
+ </objecttype>
+ <objecttype name="ZombieBloody" color="#ff0000">
+  <property name="defeatspark" type="string" default="SparkDefeatMed"/>
+  <property name="firearc" type="float" default="180"/>
+  <property name="firebullet" type="string" default="BulletBlood"/>
+  <property name="firefan" type="int" default="3"/>
+  <property name="firefanslice" type="float" default="45"/>
+  <property name="firetargetid" type="string" default="player"/>
+  <property name="firetime" type="string" default="defeat"/>
+  <property name="firetimetotarget" type="float" default="1"/>
+  <property name="fleeing" type="bool" default="true"/>
+  <property name="health" type="int" default="8"/>
+  <property name="pathfinder" type="string" default="linear1way"/>
+  <property name="pathid" type="string" default="player"/>
+  <property name="pathmode" type="string" default="absolute"/>
+  <property name="pathspeed" type="string" default="240"/>
+  <property name="pathspeedfunction" type="string" default="ncos"/>
+  <property name="pathspeedmin" type="float" default="30"/>
+  <property name="playerteamtouchdps" type="float" default="15"/>
+  <property name="score" type="int" default="200"/>
+  <property name="script" type="string" default="NPC"/>
+  <property name="strafearc" type="float" default="180"/>
+ </objecttype>
+ <objecttype name="ZombieRotten" color="#ff0000">
+  <property name="defeatspark" type="string" default="SparkDefeatMed"/>
+  <property name="firearc" type="float" default="180"/>
+  <property name="firebullet" type="string" default="BulletPoisonGas"/>
+  <property name="firefan" type="int" default="3"/>
+  <property name="firefanslice" type="float" default="120"/>
+  <property name="firetargetid" type="string" default="player"/>
+  <property name="firetime" type="string" default="defeat"/>
+  <property name="fleeing" type="bool" default="true"/>
+  <property name="health" type="int" default="8"/>
+  <property name="pathfinder" type="string" default="linear1way"/>
+  <property name="pathid" type="string" default="player"/>
+  <property name="pathmode" type="string" default="absolute"/>
+  <property name="pathspeed" type="string" default="180"/>
+  <property name="pathspeedfunction" type="string" default="ncos"/>
+  <property name="pathspeedmin" type="float" default="30"/>
+  <property name="playerteamtouchdps" type="float" default="15"/>
+  <property name="score" type="int" default="200"/>
+  <property name="script" type="string" default="NPC"/>
+  <property name="strafearc" type="float" default="180"/>
  </objecttype>
 </objecttypes>

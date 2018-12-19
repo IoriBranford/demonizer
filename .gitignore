@@ -21,6 +21,7 @@ history.db
 *.AppImage
 squashfs-root
 bin*/
+love-android-sdl2/
 
 **/ignore/**/*
 

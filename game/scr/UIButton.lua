@@ -170,7 +170,7 @@ function UIButton:changeMap()
 end
 
 function UIButton:restartMap()
-	levity:setNextMap(levity.map.name)
+	levity:setNextMap(levity.map.name, {})
 end
 
 function UIButton:toggleMenu()

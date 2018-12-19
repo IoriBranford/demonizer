@@ -35,7 +35,8 @@ function ShmupBullet:_init(object)
 		fixture:setCategory(category)
 
 		if category == ShmupCollision.Category_PlayerShot then
-			fixture:setMask(ShmupCollision.Category_CameraEdge,
+			fixture:setMask(ShmupCollision.Category_Camera,
+					ShmupCollision.Category_CameraEdge,
 					ShmupCollision.Category_PlayerTeam,
 					ShmupCollision.Category_PlayerShot,
 					ShmupCollision.Category_PlayerBomb,
@@ -45,7 +46,8 @@ function ShmupBullet:_init(object)
 					ShmupCollision.Category_BonusMaze
 					)
 		elseif category == ShmupCollision.Category_PlayerBomb then
-			fixture:setMask(ShmupCollision.Category_CameraEdge,
+			fixture:setMask(ShmupCollision.Category_Camera,
+					ShmupCollision.Category_CameraEdge,
 					ShmupCollision.Category_PlayerTeam,
 					ShmupCollision.Category_PlayerShot,
 					ShmupCollision.Category_PlayerBomb,
@@ -54,7 +56,8 @@ function ShmupBullet:_init(object)
 					ShmupCollision.Category_BonusMaze
 					)
 		else
-			fixture:setMask(ShmupCollision.Category_CameraEdge,
+			fixture:setMask(ShmupCollision.Category_Camera,
+					ShmupCollision.Category_CameraEdge,
 					ShmupCollision.Category_PlayerShot,
 					ShmupCollision.Category_EnemyTeam,
 					ShmupCollision.Category_EnemyShot,
@@ -104,8 +107,6 @@ function ShmupBullet:_init(object)
 	else
 		self.time = ShmupBullet.MaxTime
 	end
-
-	self.exitedcamera = false
 end
 
 ShmupBullet.MaxTime = 10
@@ -133,17 +134,12 @@ function ShmupBullet:preSolve(myfixture, otherfixture, contact)
 	contact:setEnabled(false)
 end
 
-function ShmupBullet:endContact(myfixture, otherfixture, contact)
-	for i = 1, select("#", otherfixture:getCategory()) do
-		local category = select(i, otherfixture:getCategory())
-		if category == ShmupCollision.Category_Camera then
-			self.exitedcamera = true
-		end
-	end
-end
-
 function ShmupBullet:endMove(dt)
-	if self.exitedcamera then
+	local x, y = self.object.body:getPosition()
+	local x1, y1 = levity.camera.x, levity.camera.y
+	local x2, y2 = x1 + levity.camera.w, y1 + levity.camera.h
+	y1 = y1 + (y1-y2)/4 -- let bullets with gravity go off the top slightly and come back down
+	if x < x1 or x > x2 or y < y1 or y > y2 then
 		levity:discardObject(self.object.id)
 	elseif type(self.time) == "number" then
 		self.time = self.time - dt

@@ -242,18 +242,7 @@ function Item:endMove(dt)
 	local mapleft = 0
 	local mapright = levity.map.width * levity.map.tilewidth
 
-	local camera = levity.map.objects[levity.map.properties.cameraid]
-	local camleft = math.huge
-	local camtop = math.huge
-	local camright = 0
-	local cambottom = 0
-	for _, fixture in ipairs(camera.body:getFixtureList()) do
-		local l, t, r, b = fixture:getBoundingBox()
-		camleft = math.min(camleft, l)
-		camright = math.max(camright, r)
-		camtop = math.min(camtop, t)
-		cambottom = math.max(cambottom, b)
-	end
+	local camleft, camtop, camright, cambottom = levity.scripts:call(levity.map.properties.cameraid, "getBoundingBox")
 
 	local px, py = self.object.body:getPosition()
 	px = math.max(camleft, math.min(px, camright))
@@ -314,7 +303,7 @@ function Item:rescueStarted(itemid, rescuerid)
 	end
 end
 
-function Item:enemyDefeated(id)
+function Item:npcDefeated(id)
 	if self.rescuerid == id then
 		self.rescuerid = nil
 	end
@@ -323,9 +312,6 @@ function Item:enemyDefeated(id)
 	end
 	if self.properties.rideid == id then
 		self.properties.rideid = nil
-		if self.properties.ridedestroyedko then
-			self:defeat()
-		end
 		levity.scripts:send(self.id, "rideDestroyed")
 	end
 end

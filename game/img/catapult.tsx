@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="catapult" tilewidth="72" tileheight="72" tilecount="24" columns="8">
+<tileset version="1.2" tiledversion="1.2.0" name="catapult" tilewidth="72" tileheight="72" tilecount="24" columns="8">
  <tileoffset x="-36" y="36"/>
  <properties>
   <property name="colstype" value="direction"/>
@@ -13,7 +13,7 @@
  <image source="catapult.png" width="576" height="216"/>
  <tile id="0" type="Catapult">
   <objectgroup draworder="index">
-   <object id="1" x="18" y="18" width="36" height="36">
+   <object id="1" x="16" y="16" width="40" height="40">
     <properties>
      <property name="collidable" type="bool" value="true"/>
     </properties>

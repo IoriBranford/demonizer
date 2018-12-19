@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="54">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="54">
  <properties>
   <property name="delayinitobjects" type="bool" value="true"/>
   <property name="enemydefeatsound" type="file" value="snd/knockout.ogg"/>
@@ -22,15 +22,15 @@
  <tileset firstgid="116" source="img/demonbomb.tsx"/>
  <tileset firstgid="124" source="img/demonshots.tsx"/>
  <tileset firstgid="128" source="img/humanshots.tsx"/>
- <tileset firstgid="164" source="img/crosshair.tsx"/>
- <tileset firstgid="168" source="img/item.tsx"/>
- <tileset firstgid="170" source="img/gameover.tsx"/>
- <tileset firstgid="171" source="img/human/ko.tsx"/>
- <tileset firstgid="239" source="img/human/converted.tsx"/>
- <tileset firstgid="341" source="img/countdown.tsx"/>
- <tileset firstgid="344" source="img/go.tsx"/>
- <tileset firstgid="345" source="img/emotes.tsx"/>
- <tileset firstgid="369" source="img/winebomb.tsx"/>
+ <tileset firstgid="180" source="img/crosshair.tsx"/>
+ <tileset firstgid="184" source="img/item.tsx"/>
+ <tileset firstgid="186" source="img/gameover.tsx"/>
+ <tileset firstgid="187" source="img/human/ko.tsx"/>
+ <tileset firstgid="255" source="img/human/converted.tsx"/>
+ <tileset firstgid="357" source="img/countdown.tsx"/>
+ <tileset firstgid="360" source="img/go.tsx"/>
+ <tileset firstgid="361" source="img/emotes.tsx"/>
+ <tileset firstgid="385" source="img/winebomb.tsx"/>
  <objectgroup id="1" name="items" opacity="0.75">
   <properties>
    <property name="script" value="ItemsLayer"/>
@@ -110,7 +110,7 @@
    <property name="newbombsound" type="file" value="snd/thankyou.ogg"/>
    <property name="script" value="ShmupStatus"/>
   </properties>
-  <object id="42" name="countdown" gid="343" x="120" y="168" width="16" height="20"/>
+  <object id="42" name="countdown" gid="359" x="120" y="168" width="16" height="20"/>
   <object id="41" name="timer" x="4" y="48" width="40" height="8">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">mm:ss</text>
   </object>
@@ -165,27 +165,27 @@ GOOD LUCK!!!</property>
 
 GOOD LUCK!!!</text>
   </object>
-  <object id="49" name="winebomb1" gid="369" x="8" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="49" name="winebomb1" gid="385" x="8" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="50" name="winebomb2" gid="369" x="24" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="50" name="winebomb2" gid="385" x="24" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="51" name="winebomb3" gid="369" x="40" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="51" name="winebomb3" gid="385" x="40" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="52" name="winebomb4" gid="369" x="56" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="52" name="winebomb4" gid="385" x="56" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="53" name="winebomb5" gid="369" x="72" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="53" name="winebomb5" gid="385" x="72" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
@@ -276,7 +276,7 @@ GOOD LUCK!!!</text>
   <properties>
    <property name="script" value="MenuGameOver"/>
   </properties>
-  <object id="38" name="gameover" gid="170" x="120" y="112" width="192" height="40"/>
+  <object id="38" name="gameover" gid="186" x="120" y="112" width="192" height="40"/>
   <object id="39" name="restart" type="UIButton" x="48" y="144" width="144" height="32">
    <properties>
     <property name="action" value="restartMap"/>

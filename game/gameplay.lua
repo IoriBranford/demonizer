@@ -1,7 +1,7 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.0",
+  tiledversion = "1.2.1",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 15,
@@ -1241,7 +1241,7 @@ return {
       columns = 4,
       image = "img/humanshots.png",
       imagewidth = 128,
-      imageheight = 144,
+      imageheight = 208,
       tileoffset = {
         x = -24,
         y = 8
@@ -1255,7 +1255,7 @@ return {
         ["commoncollision"] = 0
       },
       terrains = {},
-      tilecount = 36,
+      tilecount = 52,
       tiles = {
         {
           id = 0,
@@ -1297,47 +1297,99 @@ return {
           }
         },
         {
+          id = 2,
+          properties = {
+            ["name"] = "axe"
+          },
+          animation = {
+            {
+              tileid = 2,
+              duration = 67
+            },
+            {
+              tileid = 3,
+              duration = 67
+            },
+            {
+              tileid = 6,
+              duration = 67
+            },
+            {
+              tileid = 7,
+              duration = 67
+            }
+          }
+        },
+        {
           id = 4,
           properties = {
             ["name"] = "sword"
           }
         },
         {
-          id = 8,
+          id = 5,
           properties = {
             ["name"] = "arrow"
           }
         },
         {
-          id = 9,
-          properties = {
-            ["name"] = "firearrow"
-          },
-          animation = {
-            {
-              tileid = 9,
-              duration = 67
-            },
-            {
-              tileid = 10,
-              duration = 67
-            },
-            {
-              tileid = 11,
-              duration = 67
-            }
-          }
-        },
-        {
-          id = 12,
+          id = 8,
           properties = {
             ["name"] = "magic"
           }
         },
         {
-          id = 16,
+          id = 9,
           properties = {
             ["name"] = "ballista"
+          }
+        },
+        {
+          id = 12,
+          properties = {
+            ["name"] = "water"
+          },
+          animation = {
+            {
+              tileid = 12,
+              duration = 67
+            },
+            {
+              tileid = 13,
+              duration = 67
+            },
+            {
+              tileid = 14,
+              duration = 67
+            },
+            {
+              tileid = 15,
+              duration = 67
+            }
+          }
+        },
+        {
+          id = 16,
+          properties = {
+            ["name"] = "firearrow"
+          },
+          animation = {
+            {
+              tileid = 16,
+              duration = 67
+            },
+            {
+              tileid = 17,
+              duration = 67
+            },
+            {
+              tileid = 18,
+              duration = 67
+            },
+            {
+              tileid = 19,
+              duration = 67
+            }
           }
         },
         {
@@ -1367,7 +1419,25 @@ return {
         {
           id = 24,
           properties = {
-            ["name"] = "water"
+            ["name"] = "blood"
+          },
+          animation = {
+            {
+              tileid = 24,
+              duration = 67
+            },
+            {
+              tileid = 25,
+              duration = 67
+            },
+            {
+              tileid = 26,
+              duration = 67
+            },
+            {
+              tileid = 27,
+              duration = 67
+            }
           }
         },
         {
@@ -1417,12 +1487,92 @@ return {
               duration = 67
             }
           }
+        },
+        {
+          id = 36,
+          properties = {
+            ["name"] = "poisongas"
+          },
+          animation = {
+            {
+              tileid = 36,
+              duration = 67
+            },
+            {
+              tileid = 37,
+              duration = 67
+            },
+            {
+              tileid = 38,
+              duration = 67
+            },
+            {
+              tileid = 39,
+              duration = 67
+            },
+            {
+              tileid = 40,
+              duration = 67
+            },
+            {
+              tileid = 41,
+              duration = 67
+            },
+            {
+              tileid = 42,
+              duration = 67
+            },
+            {
+              tileid = 43,
+              duration = 67
+            }
+          }
+        },
+        {
+          id = 44,
+          properties = {
+            ["name"] = "fireblast"
+          },
+          animation = {
+            {
+              tileid = 44,
+              duration = 67
+            },
+            {
+              tileid = 45,
+              duration = 67
+            },
+            {
+              tileid = 46,
+              duration = 67
+            },
+            {
+              tileid = 47,
+              duration = 67
+            },
+            {
+              tileid = 48,
+              duration = 67
+            },
+            {
+              tileid = 49,
+              duration = 67
+            },
+            {
+              tileid = 50,
+              duration = 67
+            },
+            {
+              tileid = 51,
+              duration = 67
+            }
+          }
         }
       }
     },
     {
       name = "crosshair",
-      firstgid = 164,
+      firstgid = 180,
       filename = "img/crosshair.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1448,7 +1598,7 @@ return {
     },
     {
       name = "item",
-      firstgid = 168,
+      firstgid = 184,
       filename = "img/item.tsx",
       tilewidth = 48,
       tileheight = 24,
@@ -1487,7 +1637,7 @@ return {
     },
     {
       name = "gameover",
-      firstgid = 170,
+      firstgid = 186,
       filename = "img/gameover.tsx",
       tilewidth = 192,
       tileheight = 40,
@@ -1513,7 +1663,7 @@ return {
     },
     {
       name = "ko",
-      firstgid = 171,
+      firstgid = 187,
       filename = "img/human/ko.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1645,7 +1795,10 @@ return {
         },
         {
           id = 11,
-          type = "ItemScore"
+          type = "ItemScore",
+          properties = {
+            ["name"] = "Butcher"
+          }
         },
         {
           id = 12,
@@ -1653,11 +1806,17 @@ return {
         },
         {
           id = 13,
-          type = "ItemScore"
+          type = "ItemScore",
+          properties = {
+            ["name"] = "NecromancerPoison"
+          }
         },
         {
           id = 14,
-          type = "ItemScore"
+          type = "ItemScore",
+          properties = {
+            ["name"] = "NecromancerBlood"
+          }
         },
         {
           id = 15,
@@ -1690,7 +1849,10 @@ return {
         },
         {
           id = 20,
-          type = "ItemWingman"
+          type = "ItemWingman",
+          properties = {
+            ["name"] = "MageF"
+          }
         },
         {
           id = 21,
@@ -1907,7 +2069,7 @@ return {
     },
     {
       name = "converted",
-      firstgid = 239,
+      firstgid = 255,
       filename = "img/human/converted.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -2092,7 +2254,7 @@ return {
     },
     {
       name = "countdown",
-      firstgid = 341,
+      firstgid = 357,
       filename = "img/countdown.tsx",
       tilewidth = 16,
       tileheight = 20,
@@ -2137,7 +2299,7 @@ return {
     },
     {
       name = "go",
-      firstgid = 344,
+      firstgid = 360,
       filename = "img/go.tsx",
       tilewidth = 64,
       tileheight = 32,
@@ -2163,7 +2325,7 @@ return {
     },
     {
       name = "emotes",
-      firstgid = 345,
+      firstgid = 361,
       filename = "img/emotes.tsx",
       tilewidth = 24,
       tileheight = 16,
@@ -2310,7 +2472,7 @@ return {
     },
     {
       name = "winebomb",
-      firstgid = 369,
+      firstgid = 385,
       filename = "img/winebomb.tsx",
       tilewidth = 18,
       tileheight = 12,
@@ -2549,7 +2711,7 @@ return {
           width = 16,
           height = 20,
           rotation = 0,
-          gid = 343,
+          gid = 359,
           visible = true,
           properties = {}
         },
@@ -2847,7 +3009,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 369,
+          gid = 385,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -2863,7 +3025,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 369,
+          gid = 385,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -2879,7 +3041,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 369,
+          gid = 385,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -2895,7 +3057,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 369,
+          gid = 385,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -2911,7 +3073,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 369,
+          gid = 385,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3223,7 +3385,7 @@ return {
           width = 192,
           height = 40,
           rotation = 0,
-          gid = 170,
+          gid = 186,
           visible = true,
           properties = {}
         },

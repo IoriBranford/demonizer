@@ -485,26 +485,28 @@ function ShmupPlayer:exitCoroutine(dt)
 		if not nextmap or not love.filesystem.exists(nextmap) then
 			nextmap = "earlyend.lua"
 		end
-		levity:setNextMap(nextmap, {})
+		levity:setNextMap(nextmap, { playerwon = true })
 	else
-		local cameraid = levity.map.properties.cameraid
-		local destobject = self.entrancedestid
-			and levity.map.objects[self.entrancedestid]
-		if destobject then
-			local camera = levity.map.objects[cameraid]
-			camera.body:setPosition(destobject.x, destobject.y)
-			self.object.body:setPosition(
-				destobject.x + destobject.width/2,
-				destobject.y + destobject.height + self.object.height/2)
-		end
+		self:moveToAndActivate(self.entrancedestid)
 		self.object:setLayer(levity.map.layers["playerteam"])
-		levity.scripts:send(self.entrancedestid, "activate")
 		self.exiting = false
 		self.entranceid = nil
 		self.entrancedestid = nil
 
 		levity.scripts:send("curtain", "beginOpen")
 		self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
+	end
+end
+
+function ShmupPlayer:moveToAndActivate(triggerid)
+	local trigger = triggerid and levity.map.objects[triggerid]
+	if trigger then
+		local cameraid = levity.map.properties.cameraid
+		local camera = levity.map.objects[cameraid]
+		camera.body:setPosition(trigger.x, trigger.y)
+		self.object.body:setPosition(trigger.x + trigger.width/2,
+			trigger.y + trigger.height + self.object.height/2)
+		levity.scripts:send(triggerid, "activate")
 	end
 end
 
@@ -740,7 +742,7 @@ function ShmupPlayer:playerWon()
 end
 
 function ShmupPlayer:nextMap(nextmapfile, nextmapdata)
-	if nextmapdata then
+	if nextmapdata and nextmapdata.playerwon then
 		nextmapdata.player = {
 			poweredup = self.poweredup
 		}

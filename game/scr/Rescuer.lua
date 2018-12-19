@@ -156,12 +156,12 @@ function Rescuer:stopPulling()
 	end
 end
 
-function Rescuer:enemyDefeated(enemyid)
-	if self.id == enemyid then
+function Rescuer:npcDefeated(npcid)
+	if self.id == npcid then
 		return
 	end
-	if enemyid == self.originalrideid
-	or enemyid == self.properties.pathid
+	if npcid == self.originalrideid
+	or npcid == self.properties.pathid
 	then
 		levity.scripts:send(self.id, "defeat")
 	end

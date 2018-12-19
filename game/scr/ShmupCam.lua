@@ -2,21 +2,26 @@ local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local Mover = require "Mover"
 
+local math_huge = math.huge
+local math_min = math.min
+local math_max = math.max
+
 local ShmupCam = class()
 function ShmupCam:_init(object)
 	self.object = object
 	self.properties = self.object.properties
+	self.body = object.body
 
 	self.x0 = self.object.x
 	self.object.visible = false
-	self.object.body:setFixedRotation(true)
+	self.body:setFixedRotation(true)
 
-	for _, fixture in ipairs(self.object.body:getFixtureList()) do
+	for _, fixture in ipairs(self.body:getFixtureList()) do
 		fixture:setFriction(0)
 		fixture:setCategory(ShmupCollision.Category_Camera)
 	end
 
-	local edgefixture = love.physics.newFixture(self.object.body,
+	local edgefixture = love.physics.newFixture(self.body,
 		love.physics.newChainShape(true,
 			0, 0,
 			0, self.object.height,
@@ -28,14 +33,30 @@ function ShmupCam:_init(object)
 		ShmupCollision.Category_EnemyBounds)
 
 	self.camera = levity.camera
-	local cx, cy = self.object.body:getWorldCenter()
+	local cx, cy = self.body:getWorldCenter()
 	self.camera:set(cx, cy,
 		self.object.width, self.object.height)
-		--love.graphics.getWidth(), love.graphics.getHeight())--debug
+		--love.graphics.getWidth(), love.graphics.getHeight()) -- debug offscreen object behavior
 	local mapwidth = (levity.map.width * levity.map.tilewidth)
 	self.mapwidthratio = 1 - (self.object.width / mapwidth)
 
 	self.mover = levity.scripts:newScript(self.object.id, "Mover", self.object)
+end
+
+function ShmupCam:getBoundingBox()
+	local left = math_huge
+	local top = math_huge
+	local right = -math_huge
+	local bottom = -math_huge
+	local fixtures = self.body:getFixtureList()
+	for i = 1, #fixtures do
+		local l, t, r, b = fixtures[i]:getBoundingBox()
+		left = math_min(left, l)
+		right = math_max(right, r)
+		top = math_min(top, t)
+		bottom = math_max(bottom, b)
+	end
+	return left, top, right, bottom
 end
 
 function ShmupCam:startPath(pathid, pathspeed)
@@ -44,7 +65,7 @@ function ShmupCam:startPath(pathid, pathspeed)
 end
 
 function ShmupCam:beginMove(dt)
-	local body = self.object.body
+	local body = self.body
 	local mass = 0x40000000 -- don't let others push it around
 	body:setMass(mass)
 
@@ -54,24 +75,24 @@ function ShmupCam:beginMove(dt)
 end
 
 function ShmupCam:endMove(dt)
-	local cx, cy = self.object.body:getWorldCenter()
+	local cx, cy = self.body:getWorldCenter()
 	self.camera:set(cx, cy)
 end
 
 function ShmupCam:swayWithPlayer(playerx)
 	local x = (playerx * self.mapwidthratio)
-	self.object.body:setX(x)
-	local cx, cy = self.object.body:getWorldCenter()
+	self.body:setX(x)
+	local cx, cy = self.body:getWorldCenter()
 	self.camera:set(cx, cy)
 end
 
 function ShmupCam:getVectorFromCenter(x, y)
-	local cx, cy = self.object.body:getWorldCenter()
+	local cx, cy = self.body:getWorldCenter()
 	return x - cx, y - cy
 end
 
 function ShmupCam:getVelocity()
-	return self.object.body:getLinearVelocity()
+	return self.body:getLinearVelocity()
 end
 
 function ShmupCam:playerLost()

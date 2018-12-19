@@ -1,10 +1,10 @@
 local levity = require "levity"
-local Enemy = require "Enemy"
+local NPC = require "NPC"
 local ShmupBullet = require "ShmupBullet"
 local ShmupCollision = require "ShmupCollision"
 local Item = require "Item"
 
-local EnemyPrincess = class(Enemy)
+local EnemyPrincess = class(NPC)
 function EnemyPrincess:_init(object)
 	self:super(object)
 end
@@ -27,7 +27,7 @@ function EnemyPrincess:defeatCoroutine(dt)
 		local x = l + (r-l)*.5
 		local y = t + (b-t)*.5
 		ShmupBullet.create(defeatspark, x, y, 0, 0, "sparks")
-		fixture:setMask(Enemy.InvulnerableMask)
+		fixture:setMask(NPC.InvulnerableMask)
 	end
 
 	self:explosionClusterCoroutine("SparkDefeatMed", 8, 16, nil, "defeatparticles", 16, .125)

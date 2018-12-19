@@ -112,7 +112,7 @@ function Shooter:hasLineOfFire()
 		end
 		local dist = math.hypot(dx, dy)
 
-		local arc = math.rad(self.properties.firearc or 90)
+		local arc = math.rad(self.properties.firearc or 45)
 		local mindot = math.cos(arc)
 		local dot = math.dot(dx, dy, math.cos(faceangle), math.sin(faceangle))
 		if mindot * dist > dot then
@@ -120,6 +120,13 @@ function Shooter:hasLineOfFire()
 		end
 
 		local lifetime = bullet.lifetime
+		if lifetime == "animation" then
+			local bullettile = levity.map:getTile(bullet.tileset,
+								bullet.tileid)
+			local animation = bullettile.animation
+			lifetime = animation and animation.duration/1000
+				or ShmupBullet.MaxTime
+		end
 		if type(lifetime) == "number" then
 			local bulletdist = speed*lifetime
 				+ getAttackAnimTime(self.object.tile.tileset)

@@ -4,30 +4,50 @@ local ShmupCollision = require "ShmupCollision"
 
 local Trigger = class()
 
+local TriggerMask = {
+	ShmupCollision.Category_Default,
+	ShmupCollision.Category_CameraEdge,
+	ShmupCollision.Category_PlayerShot,
+	ShmupCollision.Category_PlayerBomb,
+	ShmupCollision.Category_EnemyShot,
+	ShmupCollision.Category_EnemyCover,
+	ShmupCollision.Category_EnemyBounds,
+	ShmupCollision.Category_BonusMaze
+}
+
 function Trigger:_init(object)
 	self.id = object.id
 	self.object = object
 	self.properties = object.properties
-	self.activated = nil
+	self.activatedonce = nil
 	self.activatedids = {}
 	self.playerentered = false
 	self.waittriggertimer = nil
 	object.layer.visible = false
+	for _, fixture in pairs(self.object.body:getFixtureList()) do
+		fixture:setMask(TriggerMask)
+	end
 end
 
 function Trigger:activateObjects(num)
-	local n = 0
 	local objects = self.object.layer.objects
-	for i = #objects, 1, -1 do
+	if type(num) ~= "number" then
+		num = #objects
+	end
+
+	local n = 0
+	local i = 1
+	while n < num do
 		local object = objects[i]
 		if object.properties.script ~= "Trigger" then
 			self:activateObject(object)
 			table.remove(objects, i)
-
 			n = n + 1
-			if type(num) == "number" and n >= num then
-				break
-			end
+		else
+			i = i + 1
+		end
+		if i > #objects then
+			break
 		end
 	end
 end
@@ -99,10 +119,12 @@ function Trigger:applyCameraSpeed()
 end
 
 function Trigger:activate()
-	if self.activated then
+	if self.activatedonce then
 		return
 	end
-	self.activated = true
+	if self.properties.activateonce then
+		self.activatedonce = true
+	end
 	local activateobjects = self.properties.activateobjects
 	if activateobjects then
 		self:activateObjects(activateobjects)
@@ -210,6 +232,10 @@ function Trigger:activate()
 	end
 
 	local playerid = levity.map.properties.playerid
+	local ischeckpoint = self.properties.ischeckpoint
+	if ischeckpoint then
+		levity.map.properties.checkpointid = self.id
+	end
 	local playerrestrictmove = self.properties.playerrestrictmove
 	levity.scripts:call(playerid, "restrictMove", playerrestrictmove)
 	local playerrestrictfire = self.properties.playerrestrictfire
@@ -238,16 +264,12 @@ function Trigger:endContact_PlayerTeam(myfixture, otherfixture, contact)
 	end
 end
 
-function Trigger:beginContact_Camera(myfixture, otherfixture, contact)
-	--local triggerleft, triggertop, triggerright, triggerbottom
-	--	= myfixture:getBoundingBox()
-	--local cameraleft, cameratop, cameraright, camerabottom
-	--	= otherfixture:getBoundingBox()
-	--if cameratop >= triggertop
-	--and triggerbottom - cameratop <= levity.map.tileheight
-	--then
-		self:activate()
-	--end
+local function isActivatedById(self, id)
+	local activatedbyid = self.properties.activatedbyid
+	if activatedbyid == "camera" then
+		activatedbyid = levity.map.properties.cameraid
+	end
+	return activatedbyid == id or activatedbyid == "all"
 end
 
 function Trigger:beginContact(myfixture, otherfixture, contact)
@@ -255,9 +277,12 @@ function Trigger:beginContact(myfixture, otherfixture, contact)
 		local category = select(i, otherfixture:getCategory())
 		if category == ShmupCollision.Category_PlayerTeam then
 			self:beginContact_PlayerTeam(myfixture, otherfixture, contact)
-		elseif category == ShmupCollision.Category_Camera then
-			self:beginContact_Camera(myfixture, otherfixture, contact)
 		end
+	end
+
+	local otherid = otherfixture:getBody():getUserData().id
+	if isActivatedById(self, otherid) then
+		self:activate()
 	end
 end
 
@@ -266,9 +291,12 @@ function Trigger:endContact(myfixture, otherfixture, contact)
 		local category = select(i, otherfixture:getCategory())
 		if category == ShmupCollision.Category_PlayerTeam then
 			self:endContact_PlayerTeam(myfixture, otherfixture, contact)
-		elseif category == ShmupCollision.Category_Camera then
-			self:deactivate()
 		end
+	end
+
+	local otherid = otherfixture:getBody():getUserData().id
+	if isActivatedById(self, otherid) and self.activatedonce then
+		self:deactivate()
 	end
 end
 
@@ -309,7 +337,7 @@ function Trigger:isAnyFriendDefeated()
 end
 
 function Trigger:isCleared()
-	if not self.activated then
+	if not self.activatedonce then
 		return false
 	end
 	for _, id in pairs(self.activatedids) do
@@ -446,11 +474,13 @@ function Trigger:someoneDiscarded(id)
 		levity.scripts:send(cleartriggerid, "activate")
 	end
 
+	if levity.scripts:call(levity.map.name, "hasPlayerLost") then
+		return
+	end
+
 	local cleartowin = self.properties.cleartowin
 	if cleartowin then
-		if not levity.scripts:call(levity.map.name, "hasPlayerLost") then
-			levity.scripts:broadcast("playerWon")
-		end
+		levity.scripts:broadcast("playerWon")
 	end
 
 	local cleartoenterid = self.properties.cleartoenterid

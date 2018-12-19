@@ -306,7 +306,7 @@ ShmupStatus.beginPlayerWin = ShmupStatus.playerWon
 ShmupStatus.playerLost = ShmupStatus.playerWon
 
 function ShmupStatus:nextMap(nextmapfile, nextmapdata)
-	if nextmapdata
+	if nextmapdata and nextmapdata.playerwon
 	and not levity.scripts:call(levity.map.name, "isTutorial") then
 		nextmapdata.status = {
 			numlives = self.numlives,

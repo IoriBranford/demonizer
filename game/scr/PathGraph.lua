@@ -129,6 +129,10 @@ function PathGraph:getPaths(x, y, createnode)
 end
 
 function PathGraph:findNearestPoint(x, y)
+	local paths = self:getPaths(x, y)
+	if paths then
+		return x, y
+	end
 	local nearestx, nearesty
 	local nearestdistsq = math.huge
 	for ni, paths in pairs(self.nodegrid) do
@@ -323,67 +327,6 @@ function Walker:getVelocity(dt, speed, x, y)
 	end
 
 	return vx, vy
-end
-
---- Init state of a journey through a PathGraph.
--- Paths can be considered one of:
--- 	absolute positions - get on and stay on line
--- 	relative positions - move in line direction, not necessarily on line
--- @param pickNextPath function(graphid, paths, prevx, prevy, userdata) returns desired path from paths
--- @param x starting position
--- @param y starting position
--- @param mode "absolute" or "relative"
--- @param userdata
--- @return new walker
-function PathGraph:newWalker(pickNextPath, x, y, mode, userdata)
-	return Walker(self, pickNextPath, x, y, mode, userdata)
-end
-
-function PathGraph.pickNextPath_linear1way(graphid, paths, prevx, prevy, userdata)
-	for i = 1, #paths do
-		local path = paths[i]
-		if path.destx ~= prevx or path.desty ~= prevy then
-			return path
-		end
-	end
-end
-
-function PathGraph.pickNextPath_linearUp(graphid, paths, prevx, prevy, userdata)
-	for i = 1, #paths do
-		local path = paths[i]
-		if path.desty < prevy then
-			return path
-		end
-	end
-end
-
-function PathGraph.pickNextPath_linearDown(graphid, paths, prevx, prevy, userdata)
-	for i = 1, #paths do
-		local path = paths[i]
-		if path.desty > prevy then
-			return path
-		end
-	end
-end
-
-function PathGraph.pickNextPath_linear2way(graphid, paths, prevx, prevy, userdata)
-	if #paths == 1 then
-		return paths[1]
-	end
-	return PathGraph.pickNextPath_linear1way(graphid, paths, prevx, prevy, userdata)
-end
-
-function PathGraph.pickNextPath_random1way(graphid, paths, prevx, prevy, userdata)
-	if #paths == 1 then
-		return paths[1]
-	end
-
-	local path
-	repeat
-		path = paths[love.math.random(1, #paths)]
-	until path.destx ~= prevx or path.desty ~= prevy
-
-	return path
 end
 
 return PathGraph

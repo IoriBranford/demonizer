@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="ko" tilewidth="24" tileheight="32" tilecount="68" columns="17">
+<tileset version="1.2" tiledversion="1.2.1" name="ko" tilewidth="24" tileheight="32" tilecount="68" columns="17">
  <tileoffset x="-12" y="16"/>
  <properties>
   <property name="commoncollision" type="int" value="0"/>
@@ -69,10 +69,22 @@
    <property name="name" value="FireArcher"/>
   </properties>
  </tile>
- <tile id="11" type="ItemScore"/>
+ <tile id="11" type="ItemScore">
+  <properties>
+   <property name="name" value="Butcher"/>
+  </properties>
+ </tile>
  <tile id="12" type="ItemScore"/>
- <tile id="13" type="ItemScore"/>
- <tile id="14" type="ItemScore"/>
+ <tile id="13" type="ItemScore">
+  <properties>
+   <property name="name" value="NecromancerPoison"/>
+  </properties>
+ </tile>
+ <tile id="14" type="ItemScore">
+  <properties>
+   <property name="name" value="NecromancerBlood"/>
+  </properties>
+ </tile>
  <tile id="15" type="ItemScore"/>
  <tile id="16" type="ItemScore"/>
  <tile id="17" type="ItemWingman">
@@ -90,7 +102,11 @@
    <property name="name" value="PriestF"/>
   </properties>
  </tile>
- <tile id="20" type="ItemWingman"/>
+ <tile id="20" type="ItemWingman">
+  <properties>
+   <property name="name" value="MageF"/>
+  </properties>
+ </tile>
  <tile id="21" type="ItemWingman">
   <properties>
    <property name="name" value="ArcherF"/>

@@ -6,8 +6,8 @@ GAME_TYPE=${GAME_TYPE:=demo}
 GAME_ASSET=${GAME_ASSET:=${GAME_TYPE}.love}
 PROJECT_TITLE=${PROJECT_TITLE:=${PROJECT}-${GAME_TYPE}}
 LOVE_ANDROID_ASSET_PATH="love-android-sdl2/app/src/main/assets"
-LOVE_ANDROID_DEBUG_APK="love-android-sdl2/app/build/outputs/apk/app-debug.apk"
-LOVE_ANDROID_RELEASE_APK="love-android-sdl2/app/build/outputs/apk/app-release.apk"
+LOVE_ANDROID_DEBUG_APK="love-android-sdl2/app/build/outputs/apk/debug/app-debug.apk"
+LOVE_ANDROID_RELEASE_APK="love-android-sdl2/app/build/outputs/apk/release/app-release.apk"
 GAME_APK=${GAME_APK:="${PROJECT_TITLE_NOSPACE}.apk"}
 
 if [ ! -f ${GAME_ASSET} ]

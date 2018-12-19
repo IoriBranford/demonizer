@@ -24,9 +24,8 @@ function PlayerPower:_init(object)
 	for i, pos in ipairs(PlayerPower.DotPositions) do
 		local si = levity.map:addBatchSprite(self.dotsprites, dotgid,
 						pos[1], pos[2])
-		assert(si == i)
-		self:setDotVisible(i, false)
 	end
+	self:updateDots(self.object.properties.initmult or 0)
 end
 
 PlayerPower.DotPositions = nil
@@ -65,10 +64,13 @@ function PlayerPower:endMove(dt)
 end
 
 function PlayerPower:multiplierUpdated(teammemberid, mult)
-	if teammemberid ~= "all"
-	and teammemberid ~= self.object.properties.teammemberid then
-		return
+	if teammemberid == "all"
+	or teammemberid == self.object.properties.teammemberid then
+		self:updateDots(mult)
 	end
+end
+
+function PlayerPower:updateDots(mult)
 	for i = 1, mult do
 		self:setDotVisible(i, true)
 	end
@@ -86,12 +88,13 @@ function PlayerPower:endDraw()
 	love.graphics.draw(self.dotsprites, self.object.body:getPosition())
 end
 
-function PlayerPower.create(teammemberid, layer)
+function PlayerPower.create(teammemberid, layer, initmult)
 	local powergauge = {
 		id = levity.map:newObjectId(),
 		gid = levity.map:getTileGid("powergauge", "notfull"),
 		properties = {
 			teammemberid = teammemberid,
+			initmult = initmult,
 			script = "PlayerPower"
 		}
 	}

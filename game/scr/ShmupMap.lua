@@ -169,6 +169,14 @@ function ShmupMap:_init(map)
 	self.properties.blurdirx = 0
 	self.properties.blurdiry = 0
 	self.screeneffect = levity.scripts:newScript(self.map.name, "ScreenEffectDrunk", map)
+
+	local nextmapdata = levity.nextmapdata or {}
+	local checkpointid = nextmapdata.checkpointid
+	if checkpointid then
+		local playerid = self.properties.playerid
+		levity.scripts:send(playerid, "moveToAndActivate", checkpointid)
+		self.properties.checkpointid = checkpointid
+	end
 end
 
 function ShmupMap:endMove(dt)
@@ -216,10 +224,15 @@ function ShmupMap:keypressed_f12()
 end
 
 function ShmupMap:playerWon()
+	self.playerwon = true
 	if self:isTutorial() then
 	else
 		levity.bank:changeMusic(self.properties.winmusic, "emu")
 	end
+end
+
+function ShmupMap:hasPlayerWon()
+	return self.playerwon
 end
 
 function ShmupMap:hasPlayerLost()
@@ -234,6 +247,12 @@ end
 
 function ShmupMap:getPlayer()
 	return self.map.objects[self.properties.playerid]
+end
+
+function ShmupMap:nextMap(nextmapfile, nextmapdata)
+	if nextmapdata and not nextmapdata.playerwon then
+		nextmapdata.checkpointid = self.properties.checkpointid
+	end
 end
 
 return ShmupMap

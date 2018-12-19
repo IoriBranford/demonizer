@@ -78,7 +78,17 @@ end
 function Health:endMove(dt)
 	local damage = 0
 	if levity.scripts:call(self.id, "canTakeDamage") ~= false then
-		damage = self.movedamage + (self.dps * dt)
+		local dps = self.dps
+
+		local damagetilelayer = self.properties.damagetilelayer
+		if damagetilelayer then
+			local damagetile = levity.scripts:call(damagetilelayer,
+				"getPositionProperties", self.body:getPosition())
+			local tiledamage = damagetile and damagetile.damage or 0
+			dps = dps + tiledamage
+		end
+
+		damage = self.movedamage + (dps * dt)
 	end
 
 	local health = self.health - damage

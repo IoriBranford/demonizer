@@ -1,8 +1,8 @@
 local levity = require "levity"
-local Enemy = require "Enemy"
+local NPC = require "NPC"
 local ShmupBullet = require "ShmupBullet"
 
-local Lord = class(Enemy)
+local Lord = class(NPC)
 function Lord:_init(object)
 	self:super(object)
 end
@@ -17,7 +17,7 @@ function Lord:defeatCoroutine(dt)
 	self.typechanger:setType("Lord")
 
 	for _, fixture in ipairs(self.body:getFixtureList()) do
-		fixture:setMask(Enemy.InvulnerableMask)
+		fixture:setMask(NPC.InvulnerableMask)
 	end
 
 	self:explosionClusterCoroutine("SparkDefeatHuge", 8, 32, "sparks", "defeatparticles", 16, .25)

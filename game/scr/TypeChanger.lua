@@ -4,7 +4,7 @@
 
 --- Properties
 --@field nexttype
---@field nexttypeevent "timePassed", "shotsFired", "coverUpdated", "rideDestroyed", "allRidersDestroyed", "triggerActivated", "playerEnteredTrigger", "playerExitedTrigger", "triggerEnemiesCleared", "reachedDest"
+--@field nexttypeevent "timePassed", "shotsFired", "coverUpdated", "rideDestroyed", "allRidersDestroyed", "triggerActivated", "playerEnteredTrigger", "playerExitedTrigger", "triggerEnemiesCleared", "reachedDest", "fireTargetGone"
 --@field nexttypeparam time, number of shots fired, number of cover objects, trigger ID, dest X
 --@field nexttypeparam2 dest Y
 --@field typesound Sound file to play on changing to this type
@@ -35,6 +35,11 @@ function TypeChanger:changeIfEqual(param)
 		self:setType(self.properties.nexttype)
 	end
 end
+function TypeChanger:changeIfNilOrEqual(param1)
+	if not self.properties.nexttypeparam or param1 == self.properties.nexttypeparam then
+		self:setType(self.properties.nexttype)
+	end
+end
 function TypeChanger:changeIfNilOrEqual2(param1, param2)
 	if not self.properties.nexttypeparam and not self.properties.nexttypeparam2
 	or param1 == self.properties.nexttypeparam and param2 == self.properties.nexttypeparam2
@@ -62,6 +67,7 @@ AddEventFunction("playerEnteredTrigger", TypeChanger.changeIfEqual)
 AddEventFunction("playerExitedTrigger", TypeChanger.changeIfEqual)
 AddEventFunction("triggerEnemiesCleared", TypeChanger.changeIfEqual)
 AddEventFunction("reachedDest", TypeChanger.changeIfNilOrEqual2)
+AddEventFunction("fireTargetGone", TypeChanger.changeState)
 
 function TypeChanger:endMove(dt)
 	if self.timePassed then

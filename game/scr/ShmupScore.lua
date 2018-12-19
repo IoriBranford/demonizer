@@ -77,6 +77,7 @@ function ShmupScore:initMultiplier(memberi)
 	if not self.multipliers[memberi] then
 		self.multipliers[memberi] = 0
 	end
+	return self.multipliers[memberi]
 end
 
 function ShmupScore:humanCaptured(humanid, captorid)
@@ -173,7 +174,7 @@ function ShmupScore:beginDraw()
 end
 
 function ShmupScore:nextMap(nextmapfile, nextmapdata)
-	if nextmapdata
+	if nextmapdata and nextmapdata.playerwon
 	and not levity.scripts:call(levity.map.name, "isTutorial") then
 		nextmapdata.score = {
 			points = self.points,

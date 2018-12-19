@@ -1,7 +1,7 @@
 local levity = require "levity"
-local Enemy = require "Enemy"
+local NPC = require "NPC"
 
-local EnemyHighPriest = class(Enemy)
+local EnemyHighPriest = class(NPC)
 
 function EnemyHighPriest:_init(object)
 	self:super(object)
@@ -64,7 +64,7 @@ function EnemyHighPriest:defeatCoroutine(dt)
 	self.health:createDefeatFX()
 
 	for _, fixture in ipairs(self.body:getFixtureList()) do
-		fixture:setMask(Enemy.InvulnerableMask)
+		fixture:setMask(NPC.InvulnerableMask)
 	end
 
 	while not self.reachedfleestartpoint do

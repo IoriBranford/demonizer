@@ -12,10 +12,6 @@ function PlayerTeam:_init(layer)
 	self.layer = layer
 	self.playerid = levity.map.properties.playerid
 	self.wingmanids = {}
-	self.powergaugeids = {
-		[PlayerTeam.PlayerIndex] =
-			PlayerPower.create(self.playerid, self.layer)
-	}
 
 	local player = levity.map.objects[self.playerid]
 
@@ -42,6 +38,19 @@ function PlayerTeam:_init(layer)
 	self.captivegids = levity.map:tileNamesToGids(nextmapcaptivenames) or {}
 end
 
+function PlayerTeam:initQuery()
+	local mult
+	local scoreid = levity.scripts:call("status", "getScoreId")
+	if scoreid then
+		mult = levity.scripts:call(scoreid, "getMultiplier", self.playerid)
+	end
+
+	self.powergaugeids = {
+		[PlayerTeam.PlayerIndex] =
+			PlayerPower.create(self.playerid, self.layer, mult)
+	}
+end
+
 PlayerTeam.PlayerIndex = "player"
 PlayerTeam.MaxWingmen = 4
 PlayerTeam.WingmanFleeDistance = 360
@@ -58,11 +67,13 @@ function PlayerTeam:wingmanJoined(wingmanid)
 	local i = #self.wingmanids + 1
 	self.wingmanids[i] = wingmanid
 	if isActiveWingmanIndex(i) then
-		self.powergaugeids[i] = PlayerPower.create(wingmanid, self.layer)
+		local initmult
 		local scoreid = levity.scripts:call("status", "getScoreId")
 		if scoreid then
-			levity.scripts:call(scoreid, "initMultiplier", i)
+			initmult = levity.scripts:call(scoreid, "initMultiplier", i)
 		end
+		local powergaugeid = PlayerPower.create(wingmanid, self.layer, initmult)
+		self.powergaugeids[i] = powergaugeid
 	end
 end
 
@@ -212,13 +223,13 @@ function PlayerTeam:humanCaptured(humanid)
 end
 
 function PlayerTeam:nextMap(nextmapfile, nextmapdata)
-	local wingmen = {}
-	for i, id in ipairs(self.wingmanids) do
-		wingmen[i] = levity.scripts:call(id, "getNextMapData")
-	end
+	if nextmapdata and nextmapdata.playerwon then
+		local wingmen = {}
+		for i, id in ipairs(self.wingmanids) do
+			wingmen[i] = levity.scripts:call(id, "getNextMapData")
+		end
 
-	local istutorial = levity.scripts:call(levity.map.name, "isTutorial")
-	if nextmapdata then
+		local istutorial = levity.scripts:call(levity.map.name, "isTutorial")
 		nextmapdata.playerteam = {
 			wingmen = wingmen,
 			captivenames = istutorial and nil or

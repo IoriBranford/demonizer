@@ -30,7 +30,7 @@ function TargetLock:setLockTargetId(targetid)
 	self.locktargetid = targetid
 end
 
-function TargetLock:enemyDefeated(id)
+function TargetLock:npcDefeated(id)
 	if self.locktargetid == id then
 		self:setLockTargetId(nil)
 	end

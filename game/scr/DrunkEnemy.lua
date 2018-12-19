@@ -1,7 +1,7 @@
 local levity = require "levity"
-local Enemy = require "Enemy"
+local NPC = require "NPC"
 
-local DrunkEnemy = class(Enemy)
+local DrunkEnemy = class(NPC)
 function DrunkEnemy:_init(object)
 	self:super(object)
 	if self.mover then
@@ -17,7 +17,7 @@ function DrunkEnemy:getBAC()
 end
 
 function DrunkEnemy:beginContact(myfixture, otherfixture, contact)
-	Enemy.beginContact(self, myfixture, otherfixture, contact)
+	NPC.beginContact(self, myfixture, otherfixture, contact)
 
 	if not myfixture:isSensor() and not otherfixture:isSensor() then
 		local bac = self:getBAC() or 0
@@ -39,7 +39,7 @@ function DrunkEnemy:beginContact(myfixture, otherfixture, contact)
 end
 
 function DrunkEnemy:preSolve(myfixture, otherfixture, contact)
-	Enemy.beginContact(self, myfixture, otherfixture, contact)
+	NPC.beginContact(self, myfixture, otherfixture, contact)
 	if not myfixture:isSensor() and not otherfixture:isSensor() then
 		local bac = self:getBAC() or 0
 		if bac <= 0 then
@@ -55,11 +55,11 @@ function DrunkEnemy:endTrigger()
 		self:defeat()
 		return true
 	end
-	return Enemy.endTrigger(self)
+	return NPC.endTrigger(self)
 end
 
 function DrunkEnemy:endMove(dt)
-	Enemy.endMove(self, dt)
+	NPC.endMove(self, dt)
 	local bac = self:getBAC() or 0
 	if bac > 0 then
 		self.object.anitimescale = 1 - bac

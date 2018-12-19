@@ -42,7 +42,7 @@ function ParticleLayer:emit(numparticles, x, y, direction, spread)
 		oldspread = self.particles:getSpread()
 		self.particles:setSpread(spread)
 	end
-	self.particles:setPosition(x, y)
+	self.particles:moveTo(x, y)
 	self.particles:setDirection(direction)
 	self.particles:start()
 	self.particles:emit(numparticles)

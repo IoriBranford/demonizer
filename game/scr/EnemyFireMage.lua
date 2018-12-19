@@ -1,7 +1,7 @@
 local levity = require "levity"
-local Enemy = require "Enemy"
+local NPC = require "NPC"
 
-local EnemyFireMage = class(Enemy)
+local EnemyFireMage = class(NPC)
 function EnemyFireMage:_init(object)
 	self:super(object)
 end
@@ -11,7 +11,7 @@ function EnemyFireMage:defeatCoroutine(dt)
 	self.typechanger:setType("FireMage")
 
 	for _, fixture in ipairs(self.body:getFixtureList()) do
-		fixture:setMask(Enemy.InvulnerableMask)
+		fixture:setMask(NPC.InvulnerableMask)
 	end
 
 	self:explosionClusterCoroutine(self.properties.defeatspark2, 8, 16, self.object.layer, "defeatparticles", 16, .125)

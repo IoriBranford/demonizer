@@ -9,6 +9,7 @@ variables:
         COPYRIGHT: "© 2018 IoriBranford"
         APPLICATION_ID_BASE: "io.itch.ioribranford.demonizer"
         LOVE_VERSION: "0.10.2"
+        SCREEN_ORIENTATION: "sensorPortrait"
         GAME_TYPE: full
         VERSION: "${CI_COMMIT_REF_NAME}"
         GIT_DEPTH: "1"
@@ -131,7 +132,7 @@ before_script:
 .build-android: &build-android
         <<: *debian
         stage: build
-        image: snowdream/android-ndk:r14
+        image: lakoo/android-ndk:26-28.0.2-r17b
         variables:
                 APPLICATION_ID: "${APPLICATION_ID_BASE}"
         script:

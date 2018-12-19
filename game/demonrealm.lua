@@ -1,7 +1,7 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.0",
+  tiledversion = "1.2.1",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 18,
@@ -1445,10 +1445,10 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = 18,
-                y = 18,
-                width = 36,
-                height = 36,
+                x = 16,
+                y = 16,
+                width = 40,
+                height = 40,
                 rotation = 0,
                 visible = true,
                 properties = {
@@ -1686,6 +1686,7 @@ return {
       tiles = {
         {
           id = 0,
+          type = "Friend",
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -1708,7 +1709,8 @@ return {
                 rotation = 0,
                 visible = true,
                 properties = {
-                  ["collidable"] = true
+                  ["collidable"] = true,
+                  ["sensor"] = true
                 }
               }
             }
@@ -1731,6 +1733,50 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 1,
+          type = "Friend"
+        },
+        {
+          id = 2,
+          type = "Friend"
+        },
+        {
+          id = 3,
+          type = "Friend"
+        },
+        {
+          id = 4,
+          type = "Friend"
+        },
+        {
+          id = 5,
+          type = "Friend"
+        },
+        {
+          id = 6,
+          type = "Friend"
+        },
+        {
+          id = 7,
+          type = "Friend"
+        },
+        {
+          id = 8,
+          type = "Friend"
+        },
+        {
+          id = 9,
+          type = "Friend"
+        },
+        {
+          id = 10,
+          type = "Friend"
+        },
+        {
+          id = 11,
+          type = "Friend"
         }
       }
     },
@@ -1768,6 +1814,7 @@ return {
       tiles = {
         {
           id = 0,
+          type = "Friend",
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -1790,7 +1837,8 @@ return {
                 rotation = 0,
                 visible = true,
                 properties = {
-                  ["collidable"] = true
+                  ["collidable"] = true,
+                  ["sensor"] = true
                 }
               }
             }
@@ -1813,6 +1861,50 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 1,
+          type = "Friend"
+        },
+        {
+          id = 2,
+          type = "Friend"
+        },
+        {
+          id = 3,
+          type = "Friend"
+        },
+        {
+          id = 4,
+          type = "Friend"
+        },
+        {
+          id = 5,
+          type = "Friend"
+        },
+        {
+          id = 6,
+          type = "Friend"
+        },
+        {
+          id = 7,
+          type = "Friend"
+        },
+        {
+          id = 8,
+          type = "Friend"
+        },
+        {
+          id = 9,
+          type = "Friend"
+        },
+        {
+          id = 10,
+          type = "Friend"
+        },
+        {
+          id = 11,
+          type = "Friend"
         }
       }
     },
@@ -2437,6 +2529,7 @@ return {
       tiles = {
         {
           id = 0,
+          type = "Friend",
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -2482,6 +2575,50 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 1,
+          type = "Friend"
+        },
+        {
+          id = 2,
+          type = "Friend"
+        },
+        {
+          id = 3,
+          type = "Friend"
+        },
+        {
+          id = 4,
+          type = "Friend"
+        },
+        {
+          id = 5,
+          type = "Friend"
+        },
+        {
+          id = 6,
+          type = "Friend"
+        },
+        {
+          id = 7,
+          type = "Friend"
+        },
+        {
+          id = 8,
+          type = "Friend"
+        },
+        {
+          id = 9,
+          type = "Friend"
+        },
+        {
+          id = 10,
+          type = "Friend"
+        },
+        {
+          id = 11,
+          type = "Friend"
         }
       }
     },
@@ -2519,6 +2656,7 @@ return {
       tiles = {
         {
           id = 0,
+          type = "Friend",
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -2541,7 +2679,8 @@ return {
                 rotation = 0,
                 visible = true,
                 properties = {
-                  ["collidable"] = true
+                  ["collidable"] = true,
+                  ["sensor"] = true
                 }
               }
             }
@@ -2564,6 +2703,50 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 1,
+          type = "Friend"
+        },
+        {
+          id = 2,
+          type = "Friend"
+        },
+        {
+          id = 3,
+          type = "Friend"
+        },
+        {
+          id = 4,
+          type = "Friend"
+        },
+        {
+          id = 5,
+          type = "Friend"
+        },
+        {
+          id = 6,
+          type = "Friend"
+        },
+        {
+          id = 7,
+          type = "Friend"
+        },
+        {
+          id = 8,
+          type = "Friend"
+        },
+        {
+          id = 9,
+          type = "Friend"
+        },
+        {
+          id = 10,
+          type = "Friend"
+        },
+        {
+          id = 11,
+          type = "Friend"
         }
       }
     },
