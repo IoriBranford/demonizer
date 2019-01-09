@@ -77,6 +77,10 @@ for filename in lfs.dir(lfs.currentdir()) do
 					if music then musicfiles[music] = nil end
 				end
 			end
+			local image = layer.image
+			if image then
+				tilesetfiles[image] = nil
+			end
 		end
 	end
 end

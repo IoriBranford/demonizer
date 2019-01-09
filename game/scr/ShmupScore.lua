@@ -37,7 +37,6 @@ function ShmupScore:pointsScored(points, cardx, cardy, cardformat)
 		local extendinc = levity.map.properties.extendinc
 					or ShmupScore.ExtendInc
 		self.extendpoints = self.extendpoints + extendinc
-		levity.bank:play(self.properties.extendsound)
 		if self.extendpoints > ShmupScore.MaxPoints then
 			self:cancelExtends()
 		end

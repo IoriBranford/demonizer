@@ -1,13 +1,14 @@
 return {
-  version = "1.1",
+  version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.1.6",
+  tiledversion = "1.2.1",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 48,
   height = 64,
   tilewidth = 5,
   tileheight = 5,
+  nextlayerid = 6,
   nextobjectid = 44,
   properties = {
     ["blurupdatespeed"] = 1,
@@ -24,6 +25,7 @@ return {
       tileheight = 5,
       spacing = 0,
       margin = 0,
+      columns = 10,
       image = "img/bg_swirl.png",
       imagewidth = 50,
       imageheight = 50,
@@ -49,6 +51,7 @@ return {
       tileheight = 24,
       spacing = 0,
       margin = 0,
+      columns = 8,
       image = "img/title_demonization.png",
       imagewidth = 256,
       imageheight = 48,
@@ -138,6 +141,7 @@ return {
       tileheight = 50,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "img/title.png",
       imagewidth = 200,
       imageheight = 50,
@@ -163,6 +167,7 @@ return {
       tileheight = 24,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "img/winetitle.png",
       imagewidth = 160,
       imageheight = 24,
@@ -188,6 +193,7 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
+      columns = 8,
       image = "img/emotes.png",
       imagewidth = 192,
       imageheight = 48,
@@ -260,15 +266,15 @@ return {
           animation = {
             {
               tileid = 8,
-              duration = 67
+              duration = 66
             },
             {
               tileid = 9,
-              duration = 67
+              duration = 66
             },
             {
               tileid = 10,
-              duration = 67
+              duration = 66
             }
           }
         },
@@ -323,6 +329,32 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 19,
+          properties = {
+            ["name"] = "hostile"
+          }
+        },
+        {
+          id = 20,
+          properties = {
+            ["name"] = "angry"
+          },
+          animation = {
+            {
+              tileid = 20,
+              duration = 125
+            },
+            {
+              tileid = 21,
+              duration = 125
+            },
+            {
+              tileid = 22,
+              duration = 125
+            }
+          }
         }
       }
     },
@@ -334,6 +366,7 @@ return {
       tileheight = 12,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "img/winebomb.png",
       imagewidth = 18,
       imageheight = 24,
@@ -396,6 +429,7 @@ return {
   layers = {
     {
       type = "tilelayer",
+      id = 1,
       name = "Tile Layer 1",
       x = 0,
       y = 0,
@@ -412,6 +446,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 2,
       name = "title",
       visible = true,
       opacity = 1,
@@ -552,6 +587,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 3,
       name = "Object Layer 1",
       visible = true,
       opacity = 1,
@@ -662,6 +698,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 4,
       name = "stagemenu",
       visible = true,
       opacity = 1,
@@ -699,6 +736,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 5,
       name = "curtain",
       visible = true,
       opacity = 1,

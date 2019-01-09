@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.0" name="goblin" tilewidth="32" tileheight="32" tilecount="12" columns="3">
+<tileset version="1.2" tiledversion="1.2.1" name="goblin" tilewidth="32" tileheight="32" tilecount="12" columns="3">
  <tileoffset x="-16" y="16"/>
  <properties>
+  <property name="colstype" value="state"/>
   <property name="commonanimation" type="int" value="0"/>
   <property name="commoncollision" type="int" value="0"/>
   <property name="directionangle0" type="float" value="90"/>
   <property name="numdirections" type="int" value="4"/>
-  <property name="rowname0" value="down"/>
-  <property name="rowname1" value="left"/>
-  <property name="rowname2" value="right"/>
-  <property name="rowname3" value="up"/>
   <property name="rowstype" value="direction"/>
  </properties>
  <image source="goblin.png" width="96" height="128"/>

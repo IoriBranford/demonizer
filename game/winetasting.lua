@@ -1,7 +1,7 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.0",
+  tiledversion = "1.2.1",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 18,
@@ -5503,15 +5503,15 @@ return {
           animation = {
             {
               tileid = 8,
-              duration = 67
+              duration = 66
             },
             {
               tileid = 9,
-              duration = 67
+              duration = 66
             },
             {
               tileid = 10,
-              duration = 67
+              duration = 66
             }
           }
         },
@@ -5563,6 +5563,32 @@ return {
             },
             {
               tileid = 17,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 19,
+          properties = {
+            ["name"] = "hostile"
+          }
+        },
+        {
+          id = 20,
+          properties = {
+            ["name"] = "angry"
+          },
+          animation = {
+            {
+              tileid = 20,
+              duration = 125
+            },
+            {
+              tileid = 21,
+              duration = 125
+            },
+            {
+              tileid = 22,
               duration = 125
             }
           }

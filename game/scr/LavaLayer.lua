@@ -17,11 +17,9 @@ function LavaLayer:setScrolling(scroll)
 end
 
 function LavaLayer:beginMove(dt)
-	local timescale = 1
 	if self.active then
 		self.timer = self.timer + dt*math.pi
 		self.layer.offsety = self.a + self.b*math.sin(self.timer)/self.timer
-		timescale = 1.5
 	end
 end
 

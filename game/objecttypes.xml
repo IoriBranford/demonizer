@@ -126,6 +126,15 @@
   <property name="tileid" type="string" default="catapult"/>
   <property name="tileset" type="string" default="humanshots"/>
  </objecttype>
+ <objecttype name="BulletElectric" color="#00aaff">
+  <property name="category" type="string" default="EnemyShot"/>
+  <property name="lifetime" type="float" default="1"/>
+  <property name="script" type="string" default="ShmupBullet"/>
+  <property name="sound" type="file" default="snd/buzz.ogg"/>
+  <property name="speed" type="float" default="60"/>
+  <property name="tileid" type="string" default="electric"/>
+  <property name="tileset" type="string" default="humanshots"/>
+ </objecttype>
  <objecttype name="BulletFire" color="#00aaff">
   <property name="category" type="string" default="EnemyShot"/>
   <property name="script" type="string" default="ShmupBullet"/>
@@ -151,6 +160,15 @@
   <property name="sound" type="file" default="snd/firesmall.ogg"/>
   <property name="speed" type="float" default="120"/>
   <property name="tileid" type="string" default="fireblast"/>
+  <property name="tileset" type="string" default="humanshots"/>
+ </objecttype>
+ <objecttype name="BulletFriendFire" color="#ff80ff">
+  <property name="category" type="string" default="PlayerShot"/>
+  <property name="damage" type="float" default="3"/>
+  <property name="script" type="string" default="ShmupBullet"/>
+  <property name="sound" type="file" default="snd/firesmall.ogg"/>
+  <property name="speed" type="float" default="480"/>
+  <property name="tileid" type="string" default="fire"/>
   <property name="tileset" type="string" default="humanshots"/>
  </objecttype>
  <objecttype name="BulletHadou" color="#00aaff">
@@ -257,6 +275,17 @@
   <property name="tileid" type="string" default="spiritfire"/>
   <property name="tileset" type="string" default="humanshots"/>
  </objecttype>
+ <objecttype name="BulletWurmLaser" color="#ffaaff">
+  <property name="category" type="string" default="PlayerBomb"/>
+  <property name="damage" type="int" default="240"/>
+  <property name="lifetime" type="string" default="animation"/>
+  <property name="persist" type="bool" default="true"/>
+  <property name="script" type="string" default="ShmupBullet"/>
+  <property name="sound" type="file" default="snd/laserbig.ogg"/>
+  <property name="speed" type="float" default="0"/>
+  <property name="tileid" type="int" default="0"/>
+  <property name="tileset" type="string" default="superfirelaser"/>
+ </objecttype>
  <objecttype name="BulletSword" color="#00aaff">
   <property name="category" type="string" default="EnemyShot"/>
   <property name="lifetime" type="float" default="0.4"/>
@@ -320,7 +349,6 @@
   <property name="pathid" type="string" default="mylayer"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="30"/>
-  <property name="pathspeedfunction" type="string" default="ncos"/>
   <property name="pathspeedmin" type="float" default="15"/>
   <property name="ridedefeat" type="bool" default="true"/>
   <property name="rideid" type="string"/>
@@ -443,6 +471,15 @@
   <property name="script" type="string" default="ShmupBullet"/>
   <property name="velx" type="float" default="0"/>
   <property name="vely" type="float" default="-120"/>
+ </objecttype>
+ <objecttype name="Demonsterizer" color="#ff0000">
+  <property name="anyriderdefeat" type="bool" default="true"/>
+  <property name="defeatspark" type="string" default="SparkDefeatHuge"/>
+  <property name="health" type="int" default="96"/>
+  <property name="iscover" type="bool" default="true"/>
+  <property name="ridersdps" type="float" default="12"/>
+  <property name="score" type="int" default="2000"/>
+  <property name="script" type="string" default="NPC"/>
  </objecttype>
  <objecttype name="Door" color="#a0a0a4">
   <property name="entrancedestid" type="int" default="0"/>
@@ -592,21 +629,36 @@
  </objecttype>
  <objecttype name="Friend" color="#ff80ff">
   <property name="defeatparticles" type="string" default="deathparticles"/>
-  <property name="defeatspark" type="string" default="FriendlyDeath"/>
+  <property name="defeatspark" type="string" default="SparkFriendlyDeath"/>
   <property name="emotetileid" type="string"/>
   <property name="emotetileset" type="string" default="emotes"/>
+  <property name="firebullet" type="string"/>
+  <property name="firerequiretarget" type="bool" default="true"/>
+  <property name="firetargetid" type="string" default=""/>
+  <property name="firetime" type="float" default="1"/>
   <property name="fleeing" type="bool" default="false"/>
   <property name="fleeingkills" type="bool" default="false"/>
   <property name="friendly" type="bool" default="true"/>
   <property name="health" type="int" default="36"/>
   <property name="hitparticles" type="string" default="deathparticles"/>
-  <property name="hitsound" type="file" default="snd/slash.ogg"/>
+  <property name="hitspark" type="string" default="SparkDamageFriendly"/>
   <property name="pathfinder" type="string" default="linear1way"/>
   <property name="pathid" type="string" default="mylayer"/>
   <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="90"/>
+  <property name="playertouchheal" type="float" default="6"/>
   <property name="rideid" type="string" default=""/>
+  <property name="score" type="int" default="0"/>
   <property name="script" type="string" default="NPC"/>
+  <property name="shadow" type="bool" default="true"/>
+ </objecttype>
+ <objecttype name="FriendDemonsterizing" color="#ff80ff">
+  <property name="_basetype" type="string" default="FriendPrisoner"/>
+  <property name="defeatdroptileid" type="string" default="enter"/>
+  <property name="defeatdroptileset" type="string" default="ZombieBloody"/>
+  <property name="defeatspark" type="string" default="SparkFriendToZombie"/>
+  <property name="emoteoffsetx" type="float" default="20"/>
+  <property name="takescover" type="bool" default="true"/>
  </objecttype>
  <objecttype name="FriendFleeing" color="#ff80ff">
   <property name="_basetype" type="string" default="Friend"/>
@@ -614,12 +666,58 @@
   <property name="pathid" type="string" default="fleepaths"/>
   <property name="pathspeed" type="float" default="180"/>
  </objecttype>
- <objecttype name="FriendlyDeath" color="#ff80ff">
-  <property name="lifetime" type="string" default="animation"/>
-  <property name="script" type="string" default="ShmupBullet"/>
-  <property name="sound" type="file" default="snd/shriek.ogg"/>
-  <property name="tileid" type="string" default="wingmanexplosion"/>
-  <property name="tileset" type="string" default="sparks_med"/>
+ <objecttype name="FriendHypnotized" color="#ff80ff">
+  <property name="_basetype" type="string" default="Friend"/>
+  <property name="emotetileid" type="string" default="hostile"/>
+  <property name="firearc" type="float" default="45"/>
+  <property name="firetargetid" type="string" default="player"/>
+  <property name="friendly" type="bool" default="false"/>
+  <property name="hypnotistid" type="int" default="0"/>
+  <property name="particlelayer" type="string" default="hypnoparticles"/>
+  <property name="ridedefeat" type="bool" default="true"/>
+  <property name="strafearc" type="float" default="180"/>
+ </objecttype>
+ <objecttype name="FriendHypnotized_Flee" color="#ff55ff">
+  <property name="_basetype" type="string" default="FriendHypnotized"/>
+  <property name="fleeing" type="bool" default="true"/>
+  <property name="pathid" type="string" default="fleepaths"/>
+  <property name="pathspeed" type="float" default="180"/>
+ </objecttype>
+ <objecttype name="FriendHypnotized_Orbit" color="#ff80ff">
+  <property name="_basetype" type="string" default="FriendHypnotized"/>
+  <property name="firebullet" type="string" default="BulletPike"/>
+  <property name="firetime" type="float" default="0.5"/>
+  <property name="rideid" type="string" default="player"/>
+  <property name="rideorbitradius" type="float" default="80"/>
+  <property name="rideorbitspeed" type="float" default="90"/>
+  <property name="rideseat" type="string" default="orbit"/>
+ </objecttype>
+ <objecttype name="FriendHypnotized_Rush" color="#ff80ff">
+  <property name="_basetype" type="string" default="FriendHypnotized"/>
+  <property name="firebullet" type="string" default="BulletSword"/>
+  <property name="firetime" type="float" default="0.25"/>
+  <property name="nexttype" type="string" default="FriendHypnotized_Flee"/>
+  <property name="nexttypeevent" type="string" default="shotsFired"/>
+  <property name="nexttypeparam" type="int" default="10"/>
+  <property name="pathdistmin" type="float" default="64"/>
+  <property name="pathfinder" type="string" default="linear1way"/>
+  <property name="pathid" type="string" default="player"/>
+  <property name="pathmode" type="string" default="absolute"/>
+  <property name="pathspeed" type="string" default="300"/>
+  <property name="pathspeedfunction" type="string" default="ncos"/>
+  <property name="pathspeedmin" type="float" default="30"/>
+ </objecttype>
+ <objecttype name="FriendHypnotizing" color="#ff80ff">
+  <property name="_basetype" type="string" default="Friend"/>
+  <property name="emotetileid" type="string" default="hostile"/>
+  <property name="initiallayer" type="string" default="playerteam"/>
+  <property name="nexttype" type="string" default="FriendHypnotized"/>
+  <property name="nexttypeevent" type="string" default="timePassed"/>
+  <property name="nexttypeparam" type="float" default="1"/>
+  <property name="particlelayer" type="string" default="hypnoparticles"/>
+  <property name="particletargetid" type="int" default="0"/>
+  <property name="pathspeedfunction" type="string" default="ncos"/>
+  <property name="pathspeedmin" type="float" default="30"/>
  </objecttype>
  <objecttype name="FriendPrisoner" color="#ff80ff">
   <property name="_basetype" type="string" default="Friend"/>
@@ -628,6 +726,56 @@
   <property name="nexttype" type="string" default="FriendFleeing"/>
   <property name="nexttypeevent" type="string" default="rideDestroyed"/>
   <property name="rideid" type="string" default="colliding"/>
+ </objecttype>
+ <objecttype name="FriendWurm" color="#ff80ff">
+  <property name="_basetype" type="string" default="Friend"/>
+  <property name="emoteoffsety" type="float" default="-8"/>
+  <property name="health" type="int" default="72"/>
+  <property name="pathspeed" type="string" default="30"/>
+  <property name="pathspeedweighted" type="bool" default="true"/>
+  <property name="strafearc" type="float" default="90"/>
+ </objecttype>
+ <objecttype name="FriendWurm_Escaping" color="#ff80ff">
+  <property name="_basetype" type="string" default="FriendWurm"/>
+  <property name="emotetileid" type="string" default="angry"/>
+  <property name="firebullet" type="string" default="BulletFriendFire"/>
+  <property name="firefan" type="int" default="3"/>
+  <property name="firefanslice" type="float" default="5"/>
+  <property name="firetargetid" type="string" default="randomEnemy"/>
+  <property name="firetime" type="float" default="0.1"/>
+  <property name="nexttype" type="string" default="FriendWurm_Laser"/>
+  <property name="nexttypeevent" type="string" default="triggerActivated"/>
+  <property name="nexttypeparam" type="int" default="1008"/>
+  <property name="pathid" type="string" default="wurm_escapepath"/>
+ </objecttype>
+ <objecttype name="FriendWurm_Laser" color="#ff80ff">
+  <property name="_basetype" type="string" default="FriendWurm"/>
+  <property name="faceangle" type="float" default="270"/>
+  <property name="firebullet" type="string" default="BulletWurmLaser"/>
+  <property name="firerequiretarget" type="bool" default="false"/>
+  <property name="firetime" type="float" default="1.5"/>
+  <property name="nexttype" type="string" default="FriendFleeing"/>
+  <property name="nexttypeevent" type="string" default="timePassed"/>
+  <property name="nexttypeparam" type="float" default="2.5"/>
+  <property name="particleangle" type="float" default="0"/>
+  <property name="particlelayer" type="string" default="wurm_chargeparticles"/>
+  <property name="pathid" type="string" default="wurm_escapepath"/>
+  <property name="pathspeed" type="string" default="0"/>
+  <property name="typesound" type="file" default="snd/charge.ogg"/>
+ </objecttype>
+ <objecttype name="FriendWurm_Trapped" color="#ff80ff">
+  <property name="_basetype" type="string" default="FriendWurm"/>
+  <property name="emotetileid" type="string" default="sweat"/>
+  <property name="firebullet" type="string" default="BulletFriendFire"/>
+  <property name="firefan" type="int" default="3"/>
+  <property name="firefanslice" type="float" default="5"/>
+  <property name="firetargetid" type="string" default="randomEnemy"/>
+  <property name="firetime" type="float" default="0.1"/>
+  <property name="fleeing" type="bool" default="true"/>
+  <property name="fleeingkills" type="bool" default="true"/>
+  <property name="nexttype" type="string" default="FriendWurm_Escaping"/>
+  <property name="nexttypeevent" type="string" default="triggerEnemiesCleared"/>
+  <property name="nexttypeparam" type="float" default="841"/>
  </objecttype>
  <objecttype name="HeavyMilitia" color="#ff0000">
   <property name="defeatdroptileset" type="string" default="ko"/>
@@ -773,6 +921,10 @@
  </objecttype>
  <objecttype name="HorseSeat" color="#a0a0a4">
   <property name="strafearc" type="float" default="135"/>
+ </objecttype>
+ <objecttype name="ItemExtend" color="#00ffff">
+  <property name="itemtype" type="string" default="extend"/>
+  <property name="script" type="string" default="Item"/>
  </objecttype>
  <objecttype name="ItemLiquor" color="#00ffff">
   <property name="alcohol" type="float" default="0.01"/>
@@ -990,9 +1142,17 @@
   <property name="strafearc" type="float" default="180"/>
   <property name="takescover" type="bool" default="true"/>
  </objecttype>
- <objecttype name="MageDamageLayer" color="#ff0000">
+ <objecttype name="MageElectric" color="#ff0000">
   <property name="_basetype" type="string" default="Mage"/>
-  <property name="activatedamagelayer" type="string" default=""/>
+  <property name="activatedamagelayers" type="string" default=""/>
+  <property name="firebullet" type="string" default="BulletElectric"/>
+  <property name="firetargetid" type="string" default="player"/>
+  <property name="firetilelayer" type="string"/>
+  <property name="firetime" type="float" default="0.1"/>
+ </objecttype>
+ <objecttype name="MageHypnotist" color="#ff0000">
+  <property name="_basetype" type="string" default="Mage"/>
+  <property name="health" type="int" default="128"/>
  </objecttype>
  <objecttype name="MazeCollision" color="#aa5500">
   <property name="category" type="string" default="BonusMaze"/>
@@ -1110,6 +1270,7 @@
   <property name="pathmode" type="string" default="absolute"/>
   <property name="score" type="int" default="10000"/>
   <property name="script" type="string" default="NPC"/>
+  <property name="shadow" type="bool" default="true"/>
   <property name="strafearc" type="float" default="180"/>
   <property name="takescover" type="bool" default="true"/>
  </objecttype>
@@ -1125,9 +1286,10 @@
   <property name="firefanslice" type="float" default="30"/>
   <property name="firetime" type="float" default="0.5"/>
   <property name="firetimetotarget" type="float" default="1"/>
+  <property name="pathid" type="string" default="necrobloodpaths"/>
   <property name="pathspeed" type="float" default="180"/>
   <property name="pathspeedfunction" type="string" default="ncos"/>
-  <property name="pathspeedmin" type="float" default="60"/>
+  <property name="pathspeedmin" type="float" default="15"/>
  </objecttype>
  <objecttype name="NecromancerPoison" color="#ff0000">
   <property name="_basetype" type="string" default="Necromancer"/>
@@ -1135,9 +1297,10 @@
   <property name="firefan" type="int" default="5"/>
   <property name="firefanslice" type="float" default="30"/>
   <property name="firetime" type="float" default="0.5"/>
+  <property name="pathid" type="string" default="necropoisonpaths"/>
   <property name="pathspeed" type="float" default="180"/>
   <property name="pathspeedfunction" type="string" default="ncos"/>
-  <property name="pathspeedmin" type="float" default="60"/>
+  <property name="pathspeedmin" type="float" default="15"/>
  </objecttype>
  <objecttype name="Orb_Defense" color="#ff0000">
   <property name="afterimage" type="bool" default="false"/>
@@ -1297,7 +1460,7 @@
   <property name="bombmeleetime" type="float" default="2"/>
   <property name="convertdist" type="float" default="16"/>
   <property name="converttime" type="float" default="1"/>
-  <property name="defeatspark" type="string" default="FriendlyDeath"/>
+  <property name="defeatspark" type="string" default="SparkFriendlyDeath"/>
   <property name="health" type="int" default="4"/>
   <property name="hitsound" type="file" default="snd/slash.ogg"/>
   <property name="maxmultipliersound" type="file" default="snd/maxed.ogg"/>
@@ -1375,6 +1538,7 @@
   <property name="nexttype" type="string" default="PrincessChargeAttack"/>
   <property name="nexttypeevent" type="string" default="timePassed"/>
   <property name="nexttypeparam" type="float" default="1.5"/>
+  <property name="particleangle" type="float" default="0"/>
   <property name="particlelayer" type="string" default="boss_chargeparticles"/>
   <property name="pathspeed" type="string" default="0"/>
   <property name="typesound" type="file" default="snd/charge.ogg"/>
@@ -1390,6 +1554,7 @@
   <property name="nexttype" type="string" default="PrincessNormalAttack"/>
   <property name="nexttypeevent" type="string" default="shotsFired"/>
   <property name="nexttypeparam" type="int" default="15"/>
+  <property name="particleangle" type="float" default="0"/>
   <property name="particlelayer" type="string" default="boss_chargeparticles"/>
   <property name="pathspeed" type="string" default="75"/>
   <property name="strafearc" type="float" default="180"/>
@@ -1424,6 +1589,10 @@
   <property name="pathspeed" type="string" default="150"/>
   <property name="strafearc" type="float" default="135"/>
  </objecttype>
+ <objecttype name="ShadowTile" color="#a0a0a4">
+  <property name="shadowtileid" type="string"/>
+  <property name="shadowtileset" type="string"/>
+ </objecttype>
  <objecttype name="Spark" color="#ffaa00">
   <property name="lifetime" type="string" default="animation"/>
   <property name="script" type="string" default="ShmupBullet"/>
@@ -1439,6 +1608,13 @@
   <property name="lifetime" type="string" default="animation"/>
   <property name="script" type="string" default="ShmupBullet"/>
   <property name="sound" type="file" default="snd/kick.ogg"/>
+  <property name="tileid" type="string" default="enemydamage"/>
+  <property name="tileset" type="string" default="sparks_small"/>
+ </objecttype>
+ <objecttype name="SparkDamageFriendly" color="#ffaa00">
+  <property name="lifetime" type="string" default="animation"/>
+  <property name="script" type="string" default="ShmupBullet"/>
+  <property name="sound" type="file" default="snd/slash.ogg"/>
   <property name="tileid" type="string" default="enemydamage"/>
   <property name="tileset" type="string" default="sparks_small"/>
  </objecttype>
@@ -1461,6 +1637,20 @@
   <property name="script" type="string" default="ShmupBullet"/>
   <property name="sound" type="file" default="snd/boom1.ogg"/>
   <property name="tileid" type="string" default="explosion"/>
+  <property name="tileset" type="string" default="sparks_med"/>
+ </objecttype>
+ <objecttype name="SparkFriendlyDeath" color="#ffaa00">
+  <property name="lifetime" type="string" default="animation"/>
+  <property name="script" type="string" default="ShmupBullet"/>
+  <property name="sound" type="file" default="snd/shriek.ogg"/>
+  <property name="tileid" type="string" default="wingmanexplosion"/>
+  <property name="tileset" type="string" default="sparks_med"/>
+ </objecttype>
+ <objecttype name="SparkFriendToZombie" color="#ffaa00">
+  <property name="lifetime" type="string" default="animation"/>
+  <property name="script" type="string" default="ShmupBullet"/>
+  <property name="sound" type="file" default="snd/mmuh.ogg"/>
+  <property name="tileid" type="string" default="wingmanexplosion"/>
   <property name="tileset" type="string" default="sparks_med"/>
  </objecttype>
  <objecttype name="SparkGuard" color="#ffaa00">
@@ -1846,47 +2036,51 @@
   <property name="firefan" type="int" default="4"/>
   <property name="nexttype" type="string" default="WineNun"/>
  </objecttype>
- <objecttype name="ZombieBloody" color="#ff0000">
+ <objecttype name="Zombie" color="#ff0000">
   <property name="defeatspark" type="string" default="SparkDefeatMed"/>
   <property name="firearc" type="float" default="180"/>
+  <property name="firebullet" type="string"/>
+  <property name="firetargetid" type="string" default="player"/>
+  <property name="firetime" type="string" default="defeat"/>
+  <property name="fleeing" type="bool" default="true"/>
+  <property name="health" type="int" default="8"/>
+  <property name="pathfinder" type="string" default="linear1way"/>
+  <property name="pathid" type="string" default="player"/>
+  <property name="pathmode" type="string" default="absolute"/>
+  <property name="playerteamtouchdps" type="float" default="15"/>
+  <property name="score" type="int" default="200"/>
+  <property name="script" type="string" default="NPC"/>
+  <property name="shadow" type="bool" default="true"/>
+  <property name="strafearc" type="float" default="180"/>
+ </objecttype>
+ <objecttype name="Zombie_Enter" color="#ff0000">
+  <property name="_basetype" type="string" default="Zombie"/>
+  <property name="faceangle" type="bool" default="false"/>
+  <property name="invulnerable" type="bool" default="true"/>
+ </objecttype>
+ <objecttype name="ZombieBloody" color="#ff0000">
+  <property name="_basetype" type="string" default="Zombie"/>
+  <property name="coverdefeat" type="bool" default="true"/>
+  <property name="enemyboundsdefeat" type="bool" default="true"/>
+  <property name="enemytouchdefeat" type="bool" default="true"/>
   <property name="firebullet" type="string" default="BulletBlood"/>
   <property name="firefan" type="int" default="3"/>
   <property name="firefanslice" type="float" default="45"/>
-  <property name="firetargetid" type="string" default="player"/>
-  <property name="firetime" type="string" default="defeat"/>
   <property name="firetimetotarget" type="float" default="1"/>
-  <property name="fleeing" type="bool" default="true"/>
-  <property name="health" type="int" default="8"/>
-  <property name="pathfinder" type="string" default="linear1way"/>
-  <property name="pathid" type="string" default="player"/>
-  <property name="pathmode" type="string" default="absolute"/>
-  <property name="pathspeed" type="string" default="240"/>
-  <property name="pathspeedfunction" type="string" default="ncos"/>
-  <property name="pathspeedmin" type="float" default="30"/>
-  <property name="playerteamtouchdps" type="float" default="15"/>
-  <property name="score" type="int" default="200"/>
-  <property name="script" type="string" default="NPC"/>
-  <property name="strafearc" type="float" default="180"/>
- </objecttype>
- <objecttype name="ZombieRotten" color="#ff0000">
-  <property name="defeatspark" type="string" default="SparkDefeatMed"/>
-  <property name="firearc" type="float" default="180"/>
-  <property name="firebullet" type="string" default="BulletPoisonGas"/>
-  <property name="firefan" type="int" default="3"/>
-  <property name="firefanslice" type="float" default="120"/>
-  <property name="firetargetid" type="string" default="player"/>
-  <property name="firetime" type="string" default="defeat"/>
-  <property name="fleeing" type="bool" default="true"/>
-  <property name="health" type="int" default="8"/>
-  <property name="pathfinder" type="string" default="linear1way"/>
-  <property name="pathid" type="string" default="player"/>
-  <property name="pathmode" type="string" default="absolute"/>
   <property name="pathspeed" type="string" default="180"/>
   <property name="pathspeedfunction" type="string" default="ncos"/>
   <property name="pathspeedmin" type="float" default="30"/>
-  <property name="playerteamtouchdps" type="float" default="15"/>
-  <property name="score" type="int" default="200"/>
-  <property name="script" type="string" default="NPC"/>
-  <property name="strafearc" type="float" default="180"/>
+ </objecttype>
+ <objecttype name="ZombieRotten" color="#ff0000">
+  <property name="_basetype" type="string" default="Zombie"/>
+  <property name="coverdefeat" type="bool" default="true"/>
+  <property name="enemyboundsdefeat" type="bool" default="true"/>
+  <property name="enemytouchdefeat" type="bool" default="true"/>
+  <property name="firebullet" type="string" default="BulletPoisonGas"/>
+  <property name="firefan" type="int" default="5"/>
+  <property name="firefanslice" type="float" default="72"/>
+  <property name="pathspeed" type="string" default="180"/>
+  <property name="pathspeedfunction" type="string" default="ncos"/>
+  <property name="pathspeedmin" type="float" default="30"/>
  </objecttype>
 </objecttypes>

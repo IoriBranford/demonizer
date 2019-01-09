@@ -126,6 +126,7 @@ function ShmupStatus:getTimeLeft()
 end
 
 function ShmupStatus:extendEarned()
+	levity.bank:play(self.properties.extendsound)
 	self.numlives = self.numlives + 1
 	self:updateLives()
 end

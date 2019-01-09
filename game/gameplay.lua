@@ -8,7 +8,7 @@ return {
   height = 20,
   tilewidth = 16,
   tileheight = 16,
-  nextlayerid = 15,
+  nextlayerid = 16,
   nextobjectid = 54,
   properties = {
     ["delayinitobjects"] = true,
@@ -179,9 +179,9 @@ return {
       tileheight = 4,
       spacing = 0,
       margin = 0,
-      columns = 4,
+      columns = 8,
       image = "img/particles.png",
-      imagewidth = 16,
+      imagewidth = 32,
       imageheight = 32,
       tileoffset = {
         x = 0,
@@ -196,7 +196,7 @@ return {
         ["commonanimation"] = 0
       },
       terrains = {},
-      tilecount = 32,
+      tilecount = 64,
       tiles = {
         {
           id = 0,
@@ -225,44 +225,56 @@ return {
         {
           id = 4,
           properties = {
-            ["name"] = "guard"
+            ["name"] = "hypno"
           }
         },
         {
           id = 8,
           properties = {
-            ["name"] = "powerdot"
-          }
-        },
-        {
-          id = 12,
-          properties = {
-            ["name"] = "charge"
+            ["name"] = "guard"
           }
         },
         {
           id = 16,
           properties = {
-            ["name"] = "defeat"
-          }
-        },
-        {
-          id = 20,
-          properties = {
-            ["name"] = "death"
+            ["name"] = "powerdot"
           }
         },
         {
           id = 24,
           properties = {
+            ["name"] = "charge"
+          }
+        },
+        {
+          id = 32,
+          properties = {
+            ["name"] = "defeat"
+          }
+        },
+        {
+          id = 40,
+          properties = {
+            ["name"] = "death"
+          }
+        },
+        {
+          id = 48,
+          properties = {
             ["name"] = "enemyfire"
+          }
+        },
+        {
+          id = 56,
+          properties = {
+            ["name"] = "heal"
           }
         }
       }
     },
     {
       name = "playerhitbox",
-      firstgid = 55,
+      firstgid = 87,
       filename = "img/playerhitbox.tsx",
       tilewidth = 8,
       tileheight = 8,
@@ -288,7 +300,7 @@ return {
     },
     {
       name = "powergauge",
-      firstgid = 56,
+      firstgid = 88,
       filename = "img/powergauge.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -615,7 +627,7 @@ return {
     },
     {
       name = "sparks_huge",
-      firstgid = 60,
+      firstgid = 92,
       filename = "img/sparks_huge.tsx",
       tilewidth = 96,
       tileheight = 96,
@@ -767,7 +779,7 @@ return {
     },
     {
       name = "sparks_med",
-      firstgid = 80,
+      firstgid = 112,
       filename = "img/sparks_med.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -858,7 +870,7 @@ return {
     },
     {
       name = "sparks_small",
-      firstgid = 92,
+      firstgid = 124,
       filename = "img/sparks_small.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -933,7 +945,7 @@ return {
     },
     {
       name = "demonization",
-      firstgid = 108,
+      firstgid = 140,
       filename = "img/demonization.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1060,7 +1072,7 @@ return {
     },
     {
       name = "demonbomb",
-      firstgid = 116,
+      firstgid = 148,
       filename = "img/demonbomb.tsx",
       tilewidth = 128,
       tileheight = 128,
@@ -1072,7 +1084,7 @@ return {
       imageheight = 256,
       tileoffset = {
         x = -64,
-        y = 128
+        y = 0
       },
       grid = {
         orientation = "orthogonal",
@@ -1152,7 +1164,7 @@ return {
     },
     {
       name = "demonshots",
-      firstgid = 124,
+      firstgid = 156,
       filename = "img/demonshots.tsx",
       tilewidth = 32,
       tileheight = 16,
@@ -1232,7 +1244,7 @@ return {
     },
     {
       name = "humanshots",
-      firstgid = 128,
+      firstgid = 160,
       filename = "img/humanshots.tsx",
       tilewidth = 32,
       tileheight = 16,
@@ -1342,6 +1354,22 @@ return {
           id = 9,
           properties = {
             ["name"] = "ballista"
+          }
+        },
+        {
+          id = 10,
+          properties = {
+            ["name"] = "electric"
+          },
+          animation = {
+            {
+              tileid = 10,
+              duration = 66
+            },
+            {
+              tileid = 11,
+              duration = 66
+            }
           }
         },
         {
@@ -1572,7 +1600,7 @@ return {
     },
     {
       name = "crosshair",
-      firstgid = 180,
+      firstgid = 212,
       filename = "img/crosshair.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1598,7 +1626,7 @@ return {
     },
     {
       name = "item",
-      firstgid = 184,
+      firstgid = 216,
       filename = "img/item.tsx",
       tilewidth = 48,
       tileheight = 24,
@@ -1607,7 +1635,7 @@ return {
       columns = 1,
       image = "img/item.png",
       imagewidth = 48,
-      imageheight = 48,
+      imageheight = 72,
       tileoffset = {
         x = -24,
         y = 12
@@ -1619,7 +1647,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 2,
+      tilecount = 3,
       tiles = {
         {
           id = 0,
@@ -1632,12 +1660,47 @@ return {
           properties = {
             ["name"] = "wingman"
           }
+        },
+        {
+          id = 2,
+          type = "ItemExtend",
+          properties = {
+            ["name"] = "extend"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 2,
+                name = "",
+                type = "",
+                shape = "rectangle",
+                x = 0,
+                y = 0,
+                width = 48,
+                height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true,
+                  ["sensor"] = true
+                }
+              }
+            }
+          }
         }
       }
     },
     {
       name = "gameover",
-      firstgid = 186,
+      firstgid = 219,
       filename = "img/gameover.tsx",
       tilewidth = 192,
       tileheight = 40,
@@ -1663,7 +1726,7 @@ return {
     },
     {
       name = "ko",
-      firstgid = 187,
+      firstgid = 220,
       filename = "img/human/ko.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -2069,7 +2132,7 @@ return {
     },
     {
       name = "converted",
-      firstgid = 255,
+      firstgid = 288,
       filename = "img/human/converted.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -2254,7 +2317,7 @@ return {
     },
     {
       name = "countdown",
-      firstgid = 357,
+      firstgid = 390,
       filename = "img/countdown.tsx",
       tilewidth = 16,
       tileheight = 20,
@@ -2299,7 +2362,7 @@ return {
     },
     {
       name = "go",
-      firstgid = 360,
+      firstgid = 393,
       filename = "img/go.tsx",
       tilewidth = 64,
       tileheight = 32,
@@ -2325,7 +2388,7 @@ return {
     },
     {
       name = "emotes",
-      firstgid = 361,
+      firstgid = 394,
       filename = "img/emotes.tsx",
       tilewidth = 24,
       tileheight = 16,
@@ -2404,15 +2467,15 @@ return {
           animation = {
             {
               tileid = 8,
-              duration = 67
+              duration = 66
             },
             {
               tileid = 9,
-              duration = 67
+              duration = 66
             },
             {
               tileid = 10,
-              duration = 67
+              duration = 66
             }
           }
         },
@@ -2467,12 +2530,38 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 19,
+          properties = {
+            ["name"] = "hostile"
+          }
+        },
+        {
+          id = 20,
+          properties = {
+            ["name"] = "angry"
+          },
+          animation = {
+            {
+              tileid = 20,
+              duration = 125
+            },
+            {
+              tileid = 21,
+              duration = 125
+            },
+            {
+              tileid = 22,
+              duration = 125
+            }
+          }
         }
       }
     },
     {
       name = "winebomb",
-      firstgid = 385,
+      firstgid = 418,
       filename = "img/winebomb.tsx",
       tilewidth = 18,
       tileheight = 12,
@@ -2550,6 +2639,28 @@ return {
       draworder = "topdown",
       properties = {
         ["script"] = "ItemsLayer"
+      },
+      objects = {}
+    },
+    {
+      type = "objectgroup",
+      id = 15,
+      name = "healparticles",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["areaspreadh"] = 16,
+        ["areaspreadw"] = 16,
+        ["lifetime"] = 0.25,
+        ["script"] = "ParticleLayer",
+        ["speedmax"] = 60,
+        ["speedmin"] = 60,
+        ["spread"] = 0,
+        ["tileid"] = "heal",
+        ["tileset"] = "particles"
       },
       objects = {}
     },
@@ -2695,6 +2806,7 @@ return {
       draworder = "index",
       properties = {
         ["countdownsound"] = "snd/equip.ogg",
+        ["extendsound"] = "snd/extend.ogg",
         ["gosound"] = "snd/extend.ogg",
         ["maxmultipliersound"] = "snd/maxed.ogg",
         ["newbombsound"] = "snd/thankyou.ogg",
@@ -2711,7 +2823,7 @@ return {
           width = 16,
           height = 20,
           rotation = 0,
-          gid = 359,
+          gid = 392,
           visible = true,
           properties = {}
         },
@@ -2973,7 +3085,6 @@ return {
           color = { 255, 255, 255 },
           valign = "center",
           properties = {
-            ["extendsound"] = "snd/extend.ogg",
             ["script"] = "ShmupScore",
             ["textformat"] = "SCORE %8d  1UP@ %8d"
           }
@@ -3009,7 +3120,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 385,
+          gid = 418,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3025,7 +3136,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 385,
+          gid = 418,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3041,7 +3152,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 385,
+          gid = 418,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3057,7 +3168,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 385,
+          gid = 418,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3073,7 +3184,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 385,
+          gid = 418,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3385,7 +3496,7 @@ return {
           width = 192,
           height = 40,
           rotation = 0,
-          gid = 186,
+          gid = 219,
           visible = true,
           properties = {}
         },

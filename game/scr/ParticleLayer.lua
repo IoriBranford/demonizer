@@ -15,26 +15,30 @@ function ParticleLayer:_init(layer)
 		or tileset.firstgid
 
 	self.particles = levity.map:newParticleSystem(gid,
-				properties.maxparticles)
+				properties.maxparticles or 256)
 
 	self.particles:setParticleLifetime(properties.lifetime or 1)
 	self.particles:setEmissionRate(properties.emissionrate or 0)
 	self.particles:setSpread(math.rad(properties.spread or 360))
-	self.particles:setSpeed(properties.speedmin or 60, properties.speedmax)
+	self.particles:setOffset(tileset.tilewidth/2, tileset.tileheight/2)
+	self.particles:setAreaSpread(
+		self.properties.areaspreadtype or "ellipse",
+		self.properties.areaspreadw or tileset.tilewidth,
+		self.properties.areaspreadh or tileset.tileheight)
 	self.particles:stop()
 end
 
-function ParticleLayer:setPosition(x, y)
-	self.particles:setPosition(x, y)
-end
-
-function ParticleLayer:startEmit()
-	self.particles:start()
-end
-
-function ParticleLayer:stopEmit()
-	self.particles:stop()
-end
+--function ParticleLayer:setPosition(x, y)
+--	self.particles:setPosition(x, y)
+--end
+--
+--function ParticleLayer:startEmit()
+--	self.particles:start()
+--end
+--
+--function ParticleLayer:stopEmit()
+--	self.particles:stop()
+--end
 
 function ParticleLayer:emit(numparticles, x, y, direction, spread)
 	local oldspread
@@ -43,6 +47,7 @@ function ParticleLayer:emit(numparticles, x, y, direction, spread)
 		self.particles:setSpread(spread)
 	end
 	self.particles:moveTo(x, y)
+	self.particles:setSpeed(self.properties.speedmin or 60, self.properties.speedmax)
 	self.particles:setDirection(direction)
 	self.particles:start()
 	self.particles:emit(numparticles)

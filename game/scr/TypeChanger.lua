@@ -76,6 +76,7 @@ function TypeChanger:endMove(dt)
 end
 
 function TypeChanger:setType(newtype)
+	local oldtypeproperties = levity.map.objecttypes[self.object.type]
 	local newtypeproperties = levity.map.objecttypes[newtype]
 	if newtypeproperties then
 		local typelayer = self.properties.typelayer
@@ -83,15 +84,12 @@ function TypeChanger:setType(newtype)
 		if typelayer then
 			self.object:setLayer(typelayer)
 		end
-		if not rawget(self.properties, "pathid") then
-			local pathid = self.properties.pathid
-			if pathid ~= newtypeproperties.pathid then
-				levity.scripts:send(self.id, "resetPath")
-			end
-		end
 	end
+	levity.scripts:send(self.id, "preTypeChange", oldtypeproperties, newtypeproperties)
+
 	self.object.type = newtype
 	self.changecounter = 0
+	levity.scripts:send(self.id, "postTypeChange", oldtypeproperties, newtypeproperties)
 
 	local event = self.properties.nexttypeevent
 

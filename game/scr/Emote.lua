@@ -16,6 +16,13 @@ function Emote:setEmote(tileset, tileid)
 	end
 end
 
+function Emote:preTypeChange(oldtype, newtype)
+	if not oldtype then
+		return
+	end
+	self:setEmote(newtype.emotetileset, newtype.emotetileid)
+end
+
 function Emote:forceEmote(tileset, tileid)
 	self.properties.emotetileset, self.properties.emotetileid = tileset, tileid
 	local gid = tileset and tileid and levity.map:getTileGid(tileset, tileid)
@@ -43,7 +50,10 @@ function Emote:endMove(dt)
 	local emoteid = self.emoteid
 	local emote = emoteid and levity:getObject(emoteid)
 	if emote then
-		emote.body:setPosition(self.object.body:getPosition())
+		local offx = self.properties.emoteoffsetx or 0
+		local offy = self.properties.emoteoffsety or 0
+		local x, y = self.object.body:getPosition()
+		emote.body:setPosition(x + offx, y + offy)
 	end
 end
 

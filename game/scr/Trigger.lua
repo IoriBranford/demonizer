@@ -88,7 +88,6 @@ function Trigger:deactivate()
 			levity:discardObject(id)
 		end
 	end
-	levity:discardObject(self.id)
 end
 
 function Trigger:beginMove(dt)
@@ -361,6 +360,7 @@ function Trigger:enemyDefeated(enemyid)
 	local cancelondefeatedid = self.properties.cancelondefeatedid
 	if cancelondefeatedid == enemyid then
 		self:deactivate()
+		levity:discardObject(self.id)
 	end
 
 	if not self.enemyidsdefeated then
@@ -391,11 +391,11 @@ function Trigger:enemyDefeated(enemyid)
 		return
 	end
 
-	if self.friendstates then
-		for id, _ in pairs(self.friendstates) do
-			levity.scripts:send(id, "allFriendsSaved")
-		end
-	end
+	--if self.friendstates then
+	--	for id, _ in pairs(self.friendstates) do
+	--		levity.scripts:send(id, "allFriendsSaved")
+	--	end
+	--end
 
 	local bonus = self.properties.defeatenemiesbonus or 0
 	if bonus > 0 then
@@ -427,11 +427,11 @@ function Trigger:friendSaved(friendid)
 		return
 	end
 
-	if self.friendstates then
-		for id, _ in pairs(self.friendstates) do
-			levity.scripts:send(id, "allFriendsSaved")
-		end
-	end
+	--if self.friendstates then
+	--	for id, _ in pairs(self.friendstates) do
+	--		levity.scripts:send(id, "allFriendsSaved")
+	--	end
+	--end
 
 	local bonus = self.properties.savefriendsbonus or 0
 	if bonus > 0 then
@@ -455,6 +455,12 @@ function Trigger:friendKilled(friendid)
 	local state = self.friendstates[friendid]
 	if state and state ~= "dead" then
 		self.friendstates[friendid] = "dead"
+
+		local cancelondefeatedid = self.properties.cancelondefeatedid
+		if cancelondefeatedid == friendid then
+			self:deactivate()
+			levity:discardObject(self.id)
+		end
 	end
 end
 

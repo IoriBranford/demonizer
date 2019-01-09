@@ -7,8 +7,8 @@ local function beginMove(self, dt)
 		assert(coroutine.resume(self.coroutine, self, dt))
 	end
 
-	local body = self.object.body
-	local properties = self.object.properties
+	local body = self.body
+	local properties = self.properties
 	local ax = properties.accelx
 	local ay = properties.accely
 	if ax and ay then
@@ -27,17 +27,19 @@ end
 local ShmupBullet = class()
 function ShmupBullet:_init(object)
 	self.object = object
-	self.object.body:setBullet(true)
-	self.object.body:setFixedRotation(true)
-	for _, fixture in ipairs(self.object.body:getFixtureList()) do
+	self.properties = object.properties
+	self.body = object.body
+	self.body:setBullet(true)
+	self.body:setFixedRotation(true)
+	for _, fixture in ipairs(self.body:getFixtureList()) do
 		fixture:setSensor(true)
-		local category = self.object.properties.category
+		local category = self.properties.category
 		fixture:setCategory(category)
 
 		if category == ShmupCollision.Category_PlayerShot then
 			fixture:setMask(ShmupCollision.Category_Camera,
 					ShmupCollision.Category_CameraEdge,
-					ShmupCollision.Category_PlayerTeam,
+					--ShmupCollision.Category_PlayerTeam, -- allow friendly fire of hypnotized friends
 					ShmupCollision.Category_PlayerShot,
 					ShmupCollision.Category_PlayerBomb,
 					ShmupCollision.Category_EnemyShot,
@@ -67,9 +69,9 @@ function ShmupBullet:_init(object)
 		end
 	end
 
-	local properties = self.object.properties
+	local properties = self.properties
 
-	self.object.body:setLinearVelocity(
+	self.body:setLinearVelocity(
 		properties.velx or 0,
 		properties.vely or 0)
 	properties.velx = nil
@@ -121,8 +123,16 @@ function ShmupBullet:beginContact(myfixture, otherfixture, contact)
 		then
 			local otherdata = otherfixture:getBody():getUserData()
 			local otherid = otherdata and otherdata.id
+			local otherproperties = otherdata and otherdata.properties
 			local otherhascover = otherid and levity.scripts:call(otherid, "hasCover")
-			if not otherhascover and not self.object.properties.persist then
+			local otherhypnotized = otherproperties and otherproperties.hypnotistid
+			local passhypnotized = self.properties.category == ShmupCollision.Category_EnemyShot
+			local otherfriendly = otherproperties and otherproperties.friendly
+			local passfriendly = self.properties.category == ShmupCollision.Category_PlayerShot
+			if not otherhascover and not self.properties.persist
+			and not (otherhypnotized and passhypnotized)
+			and not (otherfriendly and passfriendly)
+			then
 				levity:discardObject(self.object.id)
 				break
 			end
@@ -135,7 +145,7 @@ function ShmupBullet:preSolve(myfixture, otherfixture, contact)
 end
 
 function ShmupBullet:endMove(dt)
-	local x, y = self.object.body:getPosition()
+	local x, y = self.body:getPosition()
 	local x1, y1 = levity.camera.x, levity.camera.y
 	local x2, y2 = x1 + levity.camera.w, y1 + levity.camera.h
 	y1 = y1 + (y1-y2)/4 -- let bullets with gravity go off the top slightly and come back down
@@ -183,7 +193,10 @@ function ShmupBullet.fireOverTime(params, x, y, velx, vely, layer, time, interva
 		velx = speed*velx
 		vely = speed*vely
 	end
-	local rotation = math.deg(math.atan2(vely, velx))
+	local rotation = 0
+	if velx ~= 0 or vely ~= 0 then
+		rotation = math.deg(math.atan2(vely, velx))
+	end
 	if keepupwithcamera then
 		local camvelx, camvely = levity.scripts:call(
 				levity.map.properties.cameraid, "getVelocity")
@@ -246,7 +259,7 @@ function Coroutines.PlayerBomb_FireShrapnel(self)
 	local BurstShrapnel = 8
 	local angle = 0
 	while true do
-		local x, y = self.object.body:getWorldCenter()
+		local x, y = self.body:getWorldCenter()
 		for i = 1, BurstShrapnel do
 			ShmupBullet.create("BulletPlayerBombShrapnel",
 			x, y, math.cos(angle), math.sin(angle), "playershots")

@@ -10,7 +10,7 @@
  <tileset firstgid="117" source="img/title.tsx"/>
  <layer id="1" name="Tile Layer 1" width="48" height="64">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3VVVZCAQBF0fdERQzEwsICu0WxFRMTEwtbnP8YPKNw3cW6H/vv/J8wCIIaRFCLOtQjigbE0IhQtGtCM1oQRysSaEM7OtAp3HUhiW70oBd96EcKAxgU7oYwjBGkkcEoxjCOCUwKd1OYxgxmMYd5LGARS8gKd8tYQQ6rWMM6NrCJLWwLdzvYRR572McBDnGEYxSEuxOc4gznuMAlirjCNW6Eu1vc4R4lPOART3jGC8rC3Sve8I4PfOIL3/hBBb/CnepX/V//1//1f/1f/9f/1e1Uv+r/+r/+r//r//q//q9up/pV/9f/9X/9X//X//V/dTvVr/q//u9/dKpf9X/9X//X//V//V//V7dT/ar/6//6v9X/3z8EBwieADAAAA==
+   H4sIAAAAAAAAA+3VVVZCAQBF0fdERQzEwsICu0WxFRMTEwtbnP8YPKNw3cW6H/vv/J8wCIIaRFCLOtQjigbE0IhQtGtCM1oQRysSaEM7OtAp3HUhiW70oBd96EcKAxgU7oYwjBGkkcEoxjCOCUwKd1OYxgxmMYd5LGARS8gKd8tYQQ6rWMM6NrCJLWwLdzvYRR572McBDnGEYxSEuxOc4gznuMAlirjCNW6Eu1vc4R4lPOART3jGC8rC3Sve8I4PfOIL3/hBBb/CnepX/V//1//1f/1f/9f/1e1Uv+r/+r/+r//r//q//q9up/pV/9f/9X/9X//X//V/dTvVr/q//u9/dKpf9X/9X//X//V//V//V7dT/ar/6//6v9X/3z8EBwieADAAAA==
   </data>
  </layer>
  <objectgroup draworder="index" id="2" name="info">
@@ -31,7 +31,7 @@ C key: BOMB</text>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">PRESS Z TO START</text>
   </object>
   <object id="19" name="copyright" x="0" y="288" width="240" height="30">
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">© 2018 IoriBranford
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">© 2019 IoriBranford
 
 ioribranford.itch.io</text>
   </object>
@@ -138,7 +138,7 @@ ioribranford.itch.io</text>
   </object>
  </objectgroup>
  <imagelayer id="6" name="qr" visible="0" offsetx="190" offsety="270">
-  <image source="img/qr-website.png"/>
+  <image source="img/qr-website.png" width="50" height="50"/>
  </imagelayer>
  <objectgroup id="5" name="curtain">
   <properties>

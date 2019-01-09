@@ -1592,18 +1592,19 @@ return {
         height = 64
       },
       properties = {
+        ["colstype"] = "state",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
+        ["directionangle0"] = 90,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
       },
       terrains = {},
       tilecount = 12,
       tiles = {
         {
           id = 0,
+          type = "Friend",
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -1626,7 +1627,8 @@ return {
                 rotation = 0,
                 visible = true,
                 properties = {
-                  ["collidable"] = true
+                  ["collidable"] = true,
+                  ["sensor"] = true
                 }
               }
             }
@@ -1649,6 +1651,50 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 1,
+          type = "Friend"
+        },
+        {
+          id = 2,
+          type = "Friend"
+        },
+        {
+          id = 3,
+          type = "Friend"
+        },
+        {
+          id = 4,
+          type = "Friend"
+        },
+        {
+          id = 5,
+          type = "Friend"
+        },
+        {
+          id = 6,
+          type = "Friend"
+        },
+        {
+          id = 7,
+          type = "Friend"
+        },
+        {
+          id = 8,
+          type = "Friend"
+        },
+        {
+          id = 9,
+          type = "Friend"
+        },
+        {
+          id = 10,
+          type = "Friend"
+        },
+        {
+          id = 11,
+          type = "Friend"
         }
       }
     },
@@ -1674,12 +1720,12 @@ return {
         height = 32
       },
       properties = {
+        ["colstype"] = "state",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
+        ["directionangle0"] = 90,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
       },
       terrains = {},
       tilecount = 12,
@@ -1802,12 +1848,12 @@ return {
         height = 32
       },
       properties = {
+        ["colstype"] = "state",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
+        ["directionangle0"] = 90,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
       },
       terrains = {},
       tilecount = 12,
@@ -1930,14 +1976,11 @@ return {
         height = 32
       },
       properties = {
+        ["colstype"] = "state",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
         ["directionangle0"] = 90,
         ["numdirections"] = 4,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up",
         ["rowstype"] = "direction"
       },
       terrains = {},
@@ -2061,18 +2104,19 @@ return {
         height = 64
       },
       properties = {
+        ["colstype"] = "state",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
+        ["directionangle0"] = 90,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
       },
       terrains = {},
       tilecount = 12,
       tiles = {
         {
           id = 0,
+          type = "Friend",
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -2095,7 +2139,8 @@ return {
                 rotation = 0,
                 visible = true,
                 properties = {
-                  ["collidable"] = true
+                  ["collidable"] = true,
+                  ["sensor"] = true
                 }
               }
             }
@@ -2118,6 +2163,50 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 1,
+          type = "Friend"
+        },
+        {
+          id = 2,
+          type = "Friend"
+        },
+        {
+          id = 3,
+          type = "Friend"
+        },
+        {
+          id = 4,
+          type = "Friend"
+        },
+        {
+          id = 5,
+          type = "Friend"
+        },
+        {
+          id = 6,
+          type = "Friend"
+        },
+        {
+          id = 7,
+          type = "Friend"
+        },
+        {
+          id = 8,
+          type = "Friend"
+        },
+        {
+          id = 9,
+          type = "Friend"
+        },
+        {
+          id = 10,
+          type = "Friend"
+        },
+        {
+          id = 11,
+          type = "Friend"
         }
       }
     },
@@ -2143,12 +2232,12 @@ return {
         height = 32
       },
       properties = {
+        ["colstype"] = "state",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
+        ["directionangle0"] = 90,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
       },
       terrains = {},
       tilecount = 12,
@@ -2271,18 +2360,19 @@ return {
         height = 64
       },
       properties = {
+        ["colstype"] = "state",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
+        ["directionangle0"] = 90,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
       },
       terrains = {},
       tilecount = 12,
       tiles = {
         {
           id = 0,
+          type = "Friend",
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -2305,7 +2395,8 @@ return {
                 rotation = 0,
                 visible = true,
                 properties = {
-                  ["collidable"] = true
+                  ["collidable"] = true,
+                  ["sensor"] = true
                 }
               }
             }
@@ -2328,6 +2419,50 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 1,
+          type = "Friend"
+        },
+        {
+          id = 2,
+          type = "Friend"
+        },
+        {
+          id = 3,
+          type = "Friend"
+        },
+        {
+          id = 4,
+          type = "Friend"
+        },
+        {
+          id = 5,
+          type = "Friend"
+        },
+        {
+          id = 6,
+          type = "Friend"
+        },
+        {
+          id = 7,
+          type = "Friend"
+        },
+        {
+          id = 8,
+          type = "Friend"
+        },
+        {
+          id = 9,
+          type = "Friend"
+        },
+        {
+          id = 10,
+          type = "Friend"
+        },
+        {
+          id = 11,
+          type = "Friend"
         }
       }
     },
@@ -2353,18 +2488,19 @@ return {
         height = 64
       },
       properties = {
+        ["colstype"] = "state",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
+        ["directionangle0"] = 90,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
       },
       terrains = {},
       tilecount = 12,
       tiles = {
         {
           id = 0,
+          type = "Friend",
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -2387,7 +2523,8 @@ return {
                 rotation = 0,
                 visible = true,
                 properties = {
-                  ["collidable"] = true
+                  ["collidable"] = true,
+                  ["sensor"] = true
                 }
               }
             }
@@ -2410,6 +2547,50 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 1,
+          type = "Friend"
+        },
+        {
+          id = 2,
+          type = "Friend"
+        },
+        {
+          id = 3,
+          type = "Friend"
+        },
+        {
+          id = 4,
+          type = "Friend"
+        },
+        {
+          id = 5,
+          type = "Friend"
+        },
+        {
+          id = 6,
+          type = "Friend"
+        },
+        {
+          id = 7,
+          type = "Friend"
+        },
+        {
+          id = 8,
+          type = "Friend"
+        },
+        {
+          id = 9,
+          type = "Friend"
+        },
+        {
+          id = 10,
+          type = "Friend"
+        },
+        {
+          id = 11,
+          type = "Friend"
         }
       }
     },
@@ -2435,18 +2616,19 @@ return {
         height = 64
       },
       properties = {
+        ["colstype"] = "state",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
+        ["directionangle0"] = 90,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
       },
       terrains = {},
       tilecount = 12,
       tiles = {
         {
           id = 0,
+          type = "Friend",
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -2469,7 +2651,8 @@ return {
                 rotation = 0,
                 visible = true,
                 properties = {
-                  ["collidable"] = true
+                  ["collidable"] = true,
+                  ["sensor"] = true
                 }
               }
             }
@@ -2492,6 +2675,50 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 1,
+          type = "Friend"
+        },
+        {
+          id = 2,
+          type = "Friend"
+        },
+        {
+          id = 3,
+          type = "Friend"
+        },
+        {
+          id = 4,
+          type = "Friend"
+        },
+        {
+          id = 5,
+          type = "Friend"
+        },
+        {
+          id = 6,
+          type = "Friend"
+        },
+        {
+          id = 7,
+          type = "Friend"
+        },
+        {
+          id = 8,
+          type = "Friend"
+        },
+        {
+          id = 9,
+          type = "Friend"
+        },
+        {
+          id = 10,
+          type = "Friend"
+        },
+        {
+          id = 11,
+          type = "Friend"
         }
       }
     },
@@ -2517,12 +2744,12 @@ return {
         height = 32
       },
       properties = {
+        ["colstype"] = "state",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
+        ["directionangle0"] = 90,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
       },
       terrains = {},
       tilecount = 12,
@@ -2552,7 +2779,8 @@ return {
                 rotation = 0,
                 visible = true,
                 properties = {
-                  ["collidable"] = true
+                  ["collidable"] = true,
+                  ["sensor"] = true
                 }
               }
             }
@@ -2644,12 +2872,12 @@ return {
         height = 32
       },
       properties = {
+        ["colstype"] = "state",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
+        ["directionangle0"] = 90,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
       },
       terrains = {},
       tilecount = 12,
@@ -5236,18 +5464,19 @@ return {
         height = 64
       },
       properties = {
+        ["colstype"] = "state",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["rowname0"] = "down",
-        ["rowname1"] = "left",
-        ["rowname2"] = "right",
-        ["rowname3"] = "up"
+        ["directionangle0"] = 90,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
       },
       terrains = {},
       tilecount = 12,
       tiles = {
         {
           id = 0,
+          type = "Friend",
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -5270,7 +5499,8 @@ return {
                 rotation = 0,
                 visible = true,
                 properties = {
-                  ["collidable"] = true
+                  ["collidable"] = true,
+                  ["sensor"] = true
                 }
               }
             }
@@ -5293,6 +5523,50 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 1,
+          type = "Friend"
+        },
+        {
+          id = 2,
+          type = "Friend"
+        },
+        {
+          id = 3,
+          type = "Friend"
+        },
+        {
+          id = 4,
+          type = "Friend"
+        },
+        {
+          id = 5,
+          type = "Friend"
+        },
+        {
+          id = 6,
+          type = "Friend"
+        },
+        {
+          id = 7,
+          type = "Friend"
+        },
+        {
+          id = 8,
+          type = "Friend"
+        },
+        {
+          id = 9,
+          type = "Friend"
+        },
+        {
+          id = 10,
+          type = "Friend"
+        },
+        {
+          id = 11,
+          type = "Friend"
         }
       }
     }
@@ -7001,7 +7275,9 @@ return {
           properties = {
             ["faceangle"] = 45,
             ["offscreenshot"] = true,
-            ["pathid"] = ""
+            ["pathspeed"] = "0",
+            ["pathspeedfunction"] = "",
+            ["pathspeedmin"] = 0
           }
         },
         {
@@ -7035,7 +7311,9 @@ return {
           properties = {
             ["faceangle"] = 135,
             ["offscreenshot"] = true,
-            ["pathid"] = ""
+            ["pathspeed"] = "0",
+            ["pathspeedfunction"] = "",
+            ["pathspeedmin"] = 0
           }
         }
       }

@@ -2,9 +2,10 @@ local levity = require "levity"
 local prefs = levity.prefs
 local ShmupCollision = require "ShmupCollision"
 local ShmupBullet = require("ShmupBullet")
+local Targeting = require "Targeting"
+local IsMobile = (love.system.getOS() == "Android" or love.system.getOS() == "iOS")
 
 local PlayMask = {
-	ShmupCollision.Category_PlayerTeam,
 	ShmupCollision.Category_PlayerShot,
 	ShmupCollision.Category_PlayerBomb,
 	ShmupCollision.Category_EnemyBounds
@@ -112,8 +113,10 @@ function ShmupPlayer:isFiring()
 	end
 
 	return not self.killed and not self.exiting
-		and not self.bombbutton and self.firebutton
+		and not self.bombbutton
+		and (self.firebutton or self.focusbutton)
 		and not self.stuntimer
+		and not self.friendinfront
 end
 
 function ShmupPlayer:isFocused()
@@ -188,6 +191,24 @@ function ShmupPlayer:joystickhat(joystick, hat, value)
 		else
 			self.inputy = 0
 		end
+	end
+end
+
+local dpadhat = require("dpadhat")
+
+function ShmupPlayer:gamepadpressed(joystick, button)
+	if button:find("^dp") then
+		self:joystickhat(joystick, "dpad", dpadhat(joystick))
+	else
+		self:joystickpressed(joystick, button)
+	end
+end
+
+function ShmupPlayer:gamepadreleased(joystick, button)
+	if button:find("^dp") then
+		self:joystickhat(joystick, "dpad", dpadhat(joystick))
+	else
+		self:joystickreleased(joystick, button)
 	end
 end
 
@@ -589,7 +610,22 @@ function ShmupPlayer:updateFire(dt)
 				ShmupPlayer.BulletInterval)
 end
 
+local checkFriendlyFire_halfw = 8
+local checkFriendlyFire_height = 240
+function ShmupPlayer:checkFriendlyFire()
+	local cx, cy = self.object.body:getWorldCenter()
+	local lx = cx - checkFriendlyFire_halfw
+	local rx = cx + checkFriendlyFire_halfw
+	local y1, y2 = cy, cy - checkFriendlyFire_height
+	local id1 = Targeting.queryRay("canTakeDamage", lx, y1, lx, y2)
+	local id2 = Targeting.queryRay("canTakeDamage", rx, y1, rx, y2)
+	return levity.scripts:call(id1, "isHypnotized")
+		or levity.scripts:call(id2, "isHypnotized")
+end
+
 function ShmupPlayer:endMove(dt)
+	self.friendinfront = IsMobile and self:checkFriendlyFire()
+
 	local scoreid = levity.scripts:call("status", "getScoreId")
 	if scoreid and not self.poweredup and not self.killed then
 		self.poweredup = levity.scripts:call(scoreid, "isMaxMultiplier",
@@ -716,7 +752,7 @@ function ShmupPlayer:loopedAnimation()
 			4, x, y, -math.pi/2)
 	elseif animname == "bomblaunch" then
 		local x, y = self.object.body:getWorldCenter()
-		ShmupBullet.create("BulletPlayerBomb", x, y-128, 0, 0, "playershots", true)
+		ShmupBullet.create("BulletPlayerBomb", x, y, 0, 0, "playershots", true)
 		levity.scripts:broadcast("playerBombed")
 		self.bombbutton = false
 	end

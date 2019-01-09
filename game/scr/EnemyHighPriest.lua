@@ -76,6 +76,7 @@ function EnemyHighPriest:defeatCoroutine(dt)
 	levity.scripts:send(openexittriggerid, "activate")
 	local covertriggerid = self.properties.covertriggerid
 	levity.scripts:send(covertriggerid, "deactivate")
+	levity:discardObject(covertriggerid)
 	self.coroutine:waitTime(self.properties.exitopenedwaittime or 2)
 
 	self.typechanger:setType("HighPriest_Flee")

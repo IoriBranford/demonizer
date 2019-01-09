@@ -1,7 +1,7 @@
 --@module Item
 
 --- Item properties
---@field itemtype "score" or "wingman"
+--@field itemtype "score" or "wingman" or "extend"
 --@field rideid Other moving object to ride on
 --@field rideshield Does ride block capture?
 --@field launched into the air (if not, then stationary)
@@ -191,6 +191,8 @@ function Item:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 		levity.scripts:broadcast("humanConverted", self.id, captorid)
 	elseif itemtype == "score" then
 		levity.scripts:broadcast("humanCaptured", self.id, captorid)
+	elseif itemtype == "extend" then
+		levity.scripts:broadcast("extendEarned")
 	end
 
 	local capturesound = self.properties.capturesound
@@ -378,7 +380,7 @@ function Item:die(bloodangle)
 end
 
 function Item:endTrigger()
-	self:discard()
+	--self:discard()
 	return true
 end
 

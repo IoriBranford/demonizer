@@ -356,7 +356,9 @@
    <properties>
     <property name="faceangle" type="float" value="45"/>
     <property name="offscreenshot" type="bool" value="true"/>
-    <property name="pathid" value=""/>
+    <property name="pathspeed" value="0"/>
+    <property name="pathspeedfunction" value=""/>
+    <property name="pathspeedmin" type="float" value="0"/>
    </properties>
   </object>
   <object id="85" name="operator" type="CatapultOperator" gid="626" x="240" y="400" width="24" height="32">
@@ -368,7 +370,9 @@
    <properties>
     <property name="faceangle" type="float" value="135"/>
     <property name="offscreenshot" type="bool" value="true"/>
-    <property name="pathid" value=""/>
+    <property name="pathspeed" value="0"/>
+    <property name="pathspeedfunction" value=""/>
+    <property name="pathspeedmin" type="float" value="0"/>
    </properties>
   </object>
  </objectgroup>

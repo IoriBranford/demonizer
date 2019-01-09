@@ -48,6 +48,17 @@ function Mover:resetPath()
 	self.curvetraveled = nil
 end
 
+function Mover:preTypeChange(oldtype, newtype)
+	if not oldtype then
+		return
+	end
+	if not rawget(self.properties, "pathid") then
+		if oldtype.pathid ~= newtype.pathid then
+			self:resetPath()
+		end
+	end
+end
+
 local SpeedFunctions = {}
 
 function SpeedFunctions.cos(t, min, max)
@@ -80,6 +91,18 @@ function SpeedFunctions.halfabssin(t, min, max)
 	return SpeedFunctions.abssin(t/2, min, max)
 end
 
+function Mover:getPathId(pathid)
+	if type(pathid) == "string" then
+		if pathid == "player" then
+			pathid = levity.map.properties.playerid
+		elseif pathid == "mylayer" then
+			pathid = self.object.properties.originallayer
+				or self.object.layer.name
+		end
+	end
+	return tonumber(pathid) or pathid
+end
+
 function Mover:beginMove(dt)
 	if self.orbitangle then
 		local orbitspeed = math.rad(self.properties.rideorbitspeed or 360)
@@ -99,14 +122,7 @@ function Mover:beginMove(dt)
 	local destx, desty = self.destx, self.desty
 	local offx, offy = self.offx or 0, self.offy or 0
 
-	local pathid = self.properties.pathid
-	if pathid == "player" then
-		pathid = playerid
-	elseif pathid == "mylayer" then
-		pathid = self.object.properties.originallayer or self.object.layer.name
-	end
-	pathid = tonumber(pathid) or pathid
-
+	local pathid = self:getPathId(self.properties.pathid)
 	local pathobjbody = levity.map.objects[pathid] or levity.map.layers[pathid]
 	pathobjbody = pathobjbody and pathobjbody.body
 
@@ -271,6 +287,13 @@ function Mover:endMove(dt)
 	if not ride and (not destx or not desty) then
 		self.body:setLinearVelocity(0, 0)
 		levity.scripts:send(self.id, "updateRidersVelocity", 0, 0, 0)
+	end
+
+	local pathid = self:getPathId(self.properties.pathid)
+	local pathobj = levity.map.objects[pathid] or levity.map.layers[pathid]
+	if pathid and not pathobj then
+		self.properties.pathid = nil
+		self:resetPath()
 	end
 end
 

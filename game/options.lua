@@ -1,13 +1,14 @@
 return {
-  version = "1.1",
+  version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.1.6",
+  tiledversion = "1.2.1",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 48,
   height = 64,
   tilewidth = 5,
   tileheight = 5,
+  nextlayerid = 9,
   nextobjectid = 43,
   properties = {
     ["prevmap"] = "title.lua",
@@ -22,6 +23,7 @@ return {
       tileheight = 5,
       spacing = 0,
       margin = 0,
+      columns = 10,
       image = "img/bg_swirl.png",
       imagewidth = 50,
       imageheight = 50,
@@ -43,6 +45,7 @@ return {
   layers = {
     {
       type = "tilelayer",
+      id = 1,
       name = "Tile Layer 1",
       x = 0,
       y = 0,
@@ -59,6 +62,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 2,
       name = "Object Layer 3",
       visible = false,
       opacity = 1,
@@ -84,6 +88,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 3,
       name = "options_pc",
       visible = true,
       opacity = 1,
@@ -344,6 +349,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 4,
       name = "options_mobile",
       visible = false,
       opacity = 1,
@@ -493,6 +499,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 5,
       name = "options_keyboard",
       visible = false,
       opacity = 1,
@@ -620,14 +627,14 @@ return {
           height = 15,
           rotation = 0,
           visible = true,
-          text = "Focus = %s",
+          text = "Alt Fire = %s",
           fontfamily = "Press Start 2P",
           pixelsize = 8,
           wrap = true,
           color = { 255, 255, 255 },
           valign = "center",
           properties = {
-            ["textformat"] = "Focus = %s"
+            ["textformat"] = "Alt Fire = %s"
           }
         },
         {
@@ -739,6 +746,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 6,
       name = "options_controller",
       visible = false,
       opacity = 1,
@@ -827,7 +835,7 @@ return {
           height = 15,
           rotation = 0,
           visible = true,
-          text = "Focus = button%s",
+          text = "Alt Fire = button%s",
           fontfamily = "Press Start 2P",
           pixelsize = 8,
           wrap = true,
@@ -835,7 +843,7 @@ return {
           valign = "center",
           properties = {
             ["inputtype"] = "button",
-            ["textformat"] = "Focus = button%s"
+            ["textformat"] = "Alt Fire = button%s"
           }
         },
         {
@@ -949,6 +957,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 7,
       name = "inputbind_instructions",
       visible = true,
       opacity = 1,
@@ -981,6 +990,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 8,
       name = "curtain",
       visible = true,
       opacity = 1,

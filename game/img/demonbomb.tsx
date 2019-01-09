@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="demonbomb" tilewidth="128" tileheight="128" tilecount="8" columns="4">
- <tileoffset x="-64" y="128"/>
+<tileset version="1.2" tiledversion="1.2.1" name="demonbomb" tilewidth="128" tileheight="128" tilecount="8" columns="4">
+ <tileoffset x="-64" y="0"/>
  <image source="demonbomb.png" width="512" height="256"/>
  <tile id="0">
   <objectgroup draworder="index">

@@ -16,10 +16,15 @@ function Health:_init(object)
 	self.health = object.properties.health or 8
 	self.movedamage = 0
 	self.dps = 0
+	self.ishealing = false
 end
 
 local function isDefeated(health)
 	return health < 1
+end
+
+function Health:isHealing()
+	return self.ishealing
 end
 
 function Health:isDefeated()
@@ -59,6 +64,13 @@ function Health:createHitFX(sparkx, sparky, angle, sparktype)
 		4, sparkx, sparky, angle or 2*math.pi*love.math.random())
 end
 
+function Health:createHealFX()
+	local cx, cy = self.body:getWorldCenter()
+	local hitparticles = self.properties.healparticles or "healparticles"
+	levity.scripts:send(hitparticles, "emit",
+		1, cx, cy, math.pi*1.5)
+end
+
 function Health:createDefeatFX()
 	local sparkx, sparky = self.body:getWorldCenter()
 	levity.scripts:send(self.properties.defeatparticles or "defeatparticles",
@@ -77,7 +89,9 @@ end
 
 function Health:endMove(dt)
 	local damage = 0
-	if levity.scripts:call(self.id, "canTakeDamage") ~= false then
+	local cantakedamage = levity.scripts:call(self.id, "canTakeDamage")
+
+	if cantakedamage ~= false then
 		local dps = self.dps
 
 		local damagetilelayer = self.properties.damagetilelayer
@@ -91,10 +105,16 @@ function Health:endMove(dt)
 		damage = self.movedamage + (dps * dt)
 	end
 
+	damage = math.max(damage, self.health - self.properties.health)
+	self.ishealing = damage < 0
+
 	local health = self.health - damage
 	if self.dps > 0 then
 		self:createHitFX()
+	elseif damage < 0 then
+		self:createHealFX()
 	end
+
 	if damage > 0 then
 		if isDefeated(health) then
 			if not self.properties.friendly then

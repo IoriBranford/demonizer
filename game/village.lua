@@ -1,7 +1,7 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.0",
+  tiledversion = "1.2.1",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 18,
@@ -1344,10 +1344,10 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = 18,
-                y = 18,
-                width = 36,
-                height = 36,
+                x = 16,
+                y = 16,
+                width = 40,
+                height = 40,
                 rotation = 0,
                 visible = true,
                 properties = {

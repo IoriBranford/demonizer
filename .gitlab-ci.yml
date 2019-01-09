@@ -6,7 +6,7 @@ variables:
         PROJECT_TITLE: Demonizer
         PROJECT_TITLE_NOSPACE: Demonizer
         DESCRIPTION: "Demonic corruption fantasy shmup"
-        COPYRIGHT: "© 2018 IoriBranford"
+        COPYRIGHT: "© 2019 IoriBranford"
         APPLICATION_ID_BASE: "io.itch.ioribranford.demonizer"
         LOVE_VERSION: "0.10.2"
         SCREEN_ORIENTATION: "sensorPortrait"

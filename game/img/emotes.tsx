@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="emotes" tilewidth="24" tileheight="16" tilecount="24" columns="8">
+<tileset version="1.2" tiledversion="1.2.1" name="emotes" tilewidth="24" tileheight="16" tilecount="24" columns="8">
  <tileoffset x="-12" y="-16"/>
  <image source="emotes.png" width="192" height="48"/>
  <tile id="0">
@@ -29,9 +29,9 @@
    <property name="name" value="sweat"/>
   </properties>
   <animation>
-   <frame tileid="8" duration="67"/>
-   <frame tileid="9" duration="67"/>
-   <frame tileid="10" duration="67"/>
+   <frame tileid="8" duration="66"/>
+   <frame tileid="9" duration="66"/>
+   <frame tileid="10" duration="66"/>
   </animation>
  </tile>
  <tile id="11">
@@ -55,6 +55,21 @@
    <frame tileid="17" duration="125"/>
    <frame tileid="18" duration="125"/>
    <frame tileid="17" duration="125"/>
+  </animation>
+ </tile>
+ <tile id="19">
+  <properties>
+   <property name="name" value="hostile"/>
+  </properties>
+ </tile>
+ <tile id="20">
+  <properties>
+   <property name="name" value="angry"/>
+  </properties>
+  <animation>
+   <frame tileid="20" duration="125"/>
+   <frame tileid="21" duration="125"/>
+   <frame tileid="22" duration="125"/>
   </animation>
  </tile>
 </tileset>

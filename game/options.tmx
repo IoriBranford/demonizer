@@ -171,9 +171,9 @@
   </object>
   <object id="15" name="key_focus" type="UIInputBind" x="30" y="140" width="180" height="15">
    <properties>
-    <property name="textformat" value="Focus = %s"/>
+    <property name="textformat" value="Alt Fire = %s"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Focus = %s</text>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Alt Fire = %s</text>
   </object>
   <object id="16" name="key_bomb" type="UIInputBind" x="30" y="160" width="180" height="15">
    <properties>
@@ -232,9 +232,9 @@
   <object id="27" name="joy_focus" type="UIInputBind" x="30" y="100" width="180" height="15">
    <properties>
     <property name="inputtype" value="button"/>
-    <property name="textformat" value="Focus = button%s"/>
+    <property name="textformat" value="Alt Fire = button%s"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Focus = button%s</text>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Alt Fire = button%s</text>
   </object>
   <object id="28" name="joy_bomb" type="UIInputBind" x="30" y="120" width="180" height="15">
    <properties>

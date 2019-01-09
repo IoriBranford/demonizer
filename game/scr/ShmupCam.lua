@@ -1,6 +1,7 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 local Mover = require "Mover"
+local Targeting = require "Targeting"
 
 local math_huge = math.huge
 local math_min = math.min
@@ -97,6 +98,14 @@ end
 
 function ShmupCam:playerLost()
 	self.properties.pathspeed = 0
+end
+
+function ShmupCam:findTarget_rectangle(canbetargetfuncname)
+	local x1 = self.camera.x
+	local y1 = self.camera.y
+	local x2 = x1 + self.camera.w
+	local y2 = y1 + self.camera.h
+	return Targeting.queryRectangle(canbetargetfuncname, x1, y1, x2, y2)
 end
 
 return ShmupCam

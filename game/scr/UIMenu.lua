@@ -89,22 +89,18 @@ function UIMenu:joystickaxis(joystick, axis, value)
 		return
 	end
 	self:setMouseCursorMode(false)
-	local inputstring = "axis"..axis
-	if inputstring == prefs.joy_x then
-		if value < -AxisDeadZone and self.joyaxisx >= -AxisDeadZone then
-			self:changeCursorOption(-1)
-		elseif value > AxisDeadZone and self.joyaxisx <= AxisDeadZone then
-			self:changeCursorOption(1)
-		end
-		self.joyaxisx = value
-	elseif inputstring == prefs.joy_y then
-		if value < -AxisDeadZone and self.joyaxisy >= -AxisDeadZone then
-			self:moveCursor(-1, 0)
-		elseif value > AxisDeadZone and self.joyaxisy <= AxisDeadZone then
-			self:moveCursor(1, #self.objects + 1)
-		end
-		self.joyaxisy = value
+	if value < -AxisDeadZone and self.joyaxisx >= -AxisDeadZone then
+		self:changeCursorOption(-1)
+	elseif value > AxisDeadZone and self.joyaxisx <= AxisDeadZone then
+		self:changeCursorOption(1)
 	end
+	self.joyaxisx = value
+	if value < -AxisDeadZone and self.joyaxisy >= -AxisDeadZone then
+		self:moveCursor(-1, 0)
+	elseif value > AxisDeadZone and self.joyaxisy <= AxisDeadZone then
+		self:moveCursor(1, #self.objects + 1)
+	end
+	self.joyaxisy = value
 end
 
 function UIMenu:joystickhat(joystick, hat, value)
@@ -118,20 +114,27 @@ function UIMenu:joystickhat(joystick, hat, value)
 		end
 		return
 	end
-	local inputstring = "hat"..hat
-	if inputstring == prefs.joy_x then
-		if value:find("l") then
-			self:changeCursorOption(-1)
-		elseif value:find("r") then
-			self:changeCursorOption(1)
-		end
+
+	if value:find("l") then
+		self:changeCursorOption(-1)
+	elseif value:find("r") then
+		self:changeCursorOption(1)
 	end
-	if inputstring == prefs.joy_y then
-		if value:find("u") then
-			self:moveCursor(-1, 0)
-		elseif value:find("d") then
-			self:moveCursor(1, #self.objects + 1)
-		end
+
+	if value:find("u") then
+		self:moveCursor(-1, 0)
+	elseif value:find("d") then
+		self:moveCursor(1, #self.objects + 1)
+	end
+end
+
+local dpadhat = require("dpadhat")
+
+function UIMenu:gamepadpressed(joystick, button)
+	if button:find("^dp") then
+		self:joystickhat(joystick, "dpad", dpadhat(joystick))
+	else
+		self:joystickpressed(joystick, button)
 	end
 end
 

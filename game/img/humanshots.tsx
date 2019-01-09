@@ -54,6 +54,15 @@
    <property name="name" value="ballista"/>
   </properties>
  </tile>
+ <tile id="10">
+  <properties>
+   <property name="name" value="electric"/>
+  </properties>
+  <animation>
+   <frame tileid="10" duration="66"/>
+   <frame tileid="11" duration="66"/>
+  </animation>
+ </tile>
  <tile id="12">
   <properties>
    <property name="name" value="water"/>
