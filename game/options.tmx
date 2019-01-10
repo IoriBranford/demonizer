@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="48" height="64" tilewidth="5" tileheight="5" infinite="0" nextobjectid="43">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="48" height="64" tilewidth="5" tileheight="5" infinite="0" nextlayerid="9" nextobjectid="43">
  <properties>
   <property name="prevmap" type="file" value="title.lua"/>
   <property name="script" value="MenuMap"/>
  </properties>
  <tileset firstgid="1" source="img/bg_swirl.tsx"/>
- <layer name="Tile Layer 1" width="48" height="64">
+ <layer id="1" name="Tile Layer 1" width="48" height="64">
   <data encoding="base64" compression="zlib">
    eJzt1VVWQgEARdH3REUMxMLCArtFsRUTExMLW5z/GDyjcN3Fuh/77/yfMAiCGkRQizrUI4oGxNCIULRrQjNaEEcrEmhDOzrQKdx1IYlu9KAXfehHCgMYFO6GMIwRpJHBKMYwjglMCndTmMYMZjGHeSxgEUvICnfLWEEOq1jDOjawiS1sC3c72EUee9jHAQ5xhGMUhLsTnOIM57jAJYq4wjVuhLtb3OEeJTzgEU94xgvKwt0r3vCOD3ziC9/4QQW/wp3qV/1f/9f/9X/9X//X/9XtVL/q//q//q//6//6v/6vbqf6Vf/X//V//V//1//1f3U71a/6v/7vf3SqX/V//V//1//1f/1f/1e3U/2q/+v/+r/V/98/LZpFnw==
   </data>
  </layer>
- <objectgroup name="Object Layer 3" visible="0">
+ <objectgroup id="2" name="Object Layer 3" visible="0">
   <object id="4" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>
- <objectgroup name="options_pc">
+ <objectgroup id="3" name="options_pc">
   <properties>
    <property name="script" value="MenuPrefs"/>
   </properties>
@@ -89,7 +89,7 @@
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">OPTIONS</text>
   </object>
  </objectgroup>
- <objectgroup name="options_mobile" visible="0">
+ <objectgroup id="4" name="options_mobile" visible="0">
   <properties>
    <property name="script" value="MenuPrefs"/>
   </properties>
@@ -134,7 +134,7 @@
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">Controller</text>
   </object>
  </objectgroup>
- <objectgroup name="options_keyboard" visible="0">
+ <objectgroup id="5" name="options_keyboard" visible="0">
   <properties>
    <property name="prevmenu" value="options_pc"/>
    <property name="script" value="UIMenu"/>
@@ -203,58 +203,52 @@
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">KEYBOARD</text>
   </object>
  </objectgroup>
- <objectgroup name="options_controller" visible="0">
+ <objectgroup id="6" name="options_controller" visible="0">
   <properties>
    <property name="prevmenu" value="options_pc"/>
    <property name="script" value="UIMenu"/>
   </properties>
-  <object id="24" name="joy_x" type="UIInputBind" x="30" y="40" width="180" height="15">
+  <object id="24" name="joy_x" type="UIInputBind" x="20" y="40" width="200" height="15">
    <properties>
     <property name="inputtype" value="axis"/>
     <property name="textformat" value="Left/Right = %s"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Left/Right = %s</text>
   </object>
-  <object id="25" name="joy_y" type="UIInputBind" x="30" y="60" width="180" height="15">
+  <object id="25" name="joy_y" type="UIInputBind" x="20" y="60" width="200" height="15">
    <properties>
     <property name="inputtype" value="axis"/>
     <property name="textformat" value="Up/Down = %s"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Up/Down = %s</text>
   </object>
-  <object id="26" name="joy_fire" type="UIInputBind" x="30" y="80" width="180" height="15">
+  <object id="26" name="joy_fire" type="UIInputBind" x="20" y="80" width="200" height="15">
    <properties>
     <property name="inputtype" value="button"/>
-    <property name="textformat" value="Fire = button%s"/>
+    <property name="textformat" value="Fire = %s"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Fire = button%s</text>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Fire = %s</text>
   </object>
-  <object id="27" name="joy_focus" type="UIInputBind" x="30" y="100" width="180" height="15">
+  <object id="27" name="joy_focus" type="UIInputBind" x="20" y="100" width="200" height="15">
    <properties>
     <property name="inputtype" value="button"/>
-    <property name="textformat" value="Alt Fire = button%s"/>
+    <property name="textformat" value="Alt Fire = %s"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Alt Fire = button%s</text>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Alt Fire = %s</text>
   </object>
-  <object id="28" name="joy_bomb" type="UIInputBind" x="30" y="120" width="180" height="15">
+  <object id="28" name="joy_bomb" type="UIInputBind" x="20" y="120" width="200" height="15">
    <properties>
     <property name="inputtype" value="button"/>
-    <property name="textformat" value="Bomb = button%s"/>
+    <property name="textformat" value="Bomb = %s"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Bomb = button%s</text>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Bomb = %s</text>
   </object>
-  <object id="29" name="joy_pausemenu" type="UIInputBind" x="30" y="140" width="180" height="15">
+  <object id="29" name="joy_pausemenu" type="UIInputBind" x="20" y="140" width="200" height="15">
    <properties>
     <property name="inputtype" value="button"/>
-    <property name="textformat" value="Pause = button%s"/>
+    <property name="textformat" value="Pause = %s"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Pause = button%s</text>
-  </object>
-  <object id="31" name="joy_pause" type="UIInputBind" x="30" y="180" width="180" height="15" visible="0">
-   <properties>
-    <property name="inputtype" value="joybutton"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">pause</text>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Pause = %s</text>
   </object>
   <object id="30" name="back" type="UIButton" x="30" y="280" width="180" height="15">
    <properties>
@@ -266,7 +260,7 @@
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">CONTROLLER</text>
   </object>
  </objectgroup>
- <objectgroup name="inputbind_instructions">
+ <objectgroup id="7" name="inputbind_instructions">
   <object id="40" x="30" y="220" width="180" height="60" visible="0">
    <properties>
     <property name="textformat">Press new %s to assign
@@ -278,7 +272,7 @@ Or Escape key to cancel</property>
 Or Escape key to cancel</text>
   </object>
  </objectgroup>
- <objectgroup name="curtain">
+ <objectgroup id="8" name="curtain">
   <properties>
    <property name="script" value="Curtain"/>
   </properties>

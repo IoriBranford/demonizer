@@ -30,13 +30,15 @@ C key: BOMB</text>
   <object id="18" name="pressstart" x="0" y="260" width="240" height="10" visible="0">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">PRESS Z TO START</text>
   </object>
-  <object id="19" name="copyright" x="0" y="288" width="240" height="30">
+  <object id="19" name="copyright" x="0" y="296" width="240" height="32">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">© 2019 IoriBranford
 
 ioribranford.itch.io</text>
   </object>
-  <object id="26" name="instructions_joystick" x="0" y="272" width="240" height="8">
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">JOY:SELECT  BTN1:START</text>
+  <object id="26" name="instructions_joystick" x="0" y="264" width="240" height="24">
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">SELECT WITH ↑/↓
+
+PRESS ANY BUTTON TO START</text>
   </object>
  </objectgroup>
  <objectgroup id="3" name="title">

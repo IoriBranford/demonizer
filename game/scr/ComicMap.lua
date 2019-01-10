@@ -94,6 +94,7 @@ end
 function ComicMap:joystickpressed(joystick, button)
 	self:skip(button == levity.prefs.joy_pausemenu)
 end
+ComicMap.gamepadpressed = ComicMap.joystickpressed
 
 function ComicMap:touchpressed()
 	self.timer = 0

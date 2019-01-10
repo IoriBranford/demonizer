@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="21" nextobjectid="130">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="21" nextobjectid="133">
  <properties>
   <property name="cameraid" type="int" value="2"/>
   <property name="music" type="file" value="mus/04 - Pick Me Up Boy!.vgz"/>
@@ -75,7 +75,7 @@
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Tap BUTTON 3: BOMB !
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Bomb = ${joy_bomb}
 Deals area damage and captures humans
 
 RECHARGE by capturing and holding blue souls</text>
@@ -425,8 +425,7 @@ RECHARGE by capturing and holding blue souls</text>
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Hold BUTTON 2:
-POWER GRAB humans from long range !
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">POWER GRAB during alt fire ! (${joy_focus})
 
 (WARNING: Teammates doing Power Grab are vulnerable)</text>
   </object>
@@ -448,8 +447,7 @@ POWER GRAB humans from long range !
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Hold BUTTON 2:
-VIEW POWER CIRCLES
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Your POWER CIRCLES appear during alt fire (${joy_focus})
 
 Any team member with full power circle will unlock...</text>
   </object>
@@ -470,8 +468,7 @@ Any team member with full power circle will unlock...</text>
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Hold BUTTON 2:
-ALT FIRE
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Alt Fire = ${joy_focus}
 
 Friends LOCK-ON enemy
 
@@ -661,12 +658,13 @@ Up to 4 teammates can shoot and capture with you</text>
     <property name="clearobjectlayer" value="tutorialtext"/>
    </properties>
   </object>
-  <object id="11" name="text" x="32" y="16" width="176" height="48">
+  <object id="11" name="text" x="32" y="16" width="176" height="64">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Move JOYSTICK: MOVE
-Hold BUTTON 1: FIRE
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">←/→ = ${joy_x}
+↑/↓ = ${joy_y}
+Fire = ${joy_fire}
 
 SHOOT enemy then move to CAPTURE humans for points towards 1UP</text>
   </object>
@@ -725,7 +723,7 @@ SHOOT enemy then move to CAPTURE humans for points towards 1UP</text>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="17" name="sparks" visible="0"/>
+ <objectgroup id="17" name="sparks"/>
  <objectgroup draworder="index" id="18" name="playershots"/>
  <objectgroup id="19" name="playerteam">
   <properties>

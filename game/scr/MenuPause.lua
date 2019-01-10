@@ -57,8 +57,8 @@ function MenuPause:joystickpressed(joystick, button)
 	end
 	if button == prefs.joy_pausemenu then
 		self:toggleMenu()
-	elseif button == prefs.joy_pause then
-		self:togglePauseOnly()
+	--elseif button == prefs.joy_pause then
+	--	self:togglePauseOnly()
 	else
 		UIMenu.joystickpressed(self, joystick, button)
 	end

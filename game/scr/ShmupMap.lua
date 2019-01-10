@@ -87,13 +87,11 @@ function ShmupMap:_init(map)
 	sparklayer.draworder = "manual"
 
 	for _, layer in ipairs(self.map.layers) do
-		if layer.type == "dynamiclayer"
-		or layer.type == "objectgroup"
-			then
+		if layer.type == "dynamiclayer" or layer.type == "objectgroup" then
 			for _, object in ipairs(layer.objects) do
-				if not object.gid
-				and not object.text
-				then
+				if object.text then
+					object.text = levity.prefs.string_gsub(object.text)
+				elseif not object.gid then
 					object.visible = false
 				end
 				--if object.body then

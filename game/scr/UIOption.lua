@@ -54,6 +54,14 @@ function UIOption:updateValue(value)
 		value = math.max(min, math.min(value, max))
 		local percent = (value - min) / (max - min)
 		self.properties.fillwidth = self.object.width * percent
+		local inputtype = self.properties.inputtype
+		if inputtype == "axis" then
+			value = "axis"..value
+		elseif inputtype == "button" then
+			value = "button"..value
+		elseif inputtype == "hat" then
+			value = "hat"..value
+		end
 		text = textformat and textformat:format(
 			self.properties.units == "percent" and value*100 or value)
 	elseif valuetype == "boolean" then

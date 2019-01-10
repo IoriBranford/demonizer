@@ -763,9 +763,9 @@ return {
           name = "joy_x",
           type = "UIInputBind",
           shape = "text",
-          x = 30,
+          x = 20,
           y = 40,
-          width = 180,
+          width = 200,
           height = 15,
           rotation = 0,
           visible = true,
@@ -785,9 +785,9 @@ return {
           name = "joy_y",
           type = "UIInputBind",
           shape = "text",
-          x = 30,
+          x = 20,
           y = 60,
-          width = 180,
+          width = 200,
           height = 15,
           rotation = 0,
           visible = true,
@@ -807,13 +807,13 @@ return {
           name = "joy_fire",
           type = "UIInputBind",
           shape = "text",
-          x = 30,
+          x = 20,
           y = 80,
-          width = 180,
+          width = 200,
           height = 15,
           rotation = 0,
           visible = true,
-          text = "Fire = button%s",
+          text = "Fire = %s",
           fontfamily = "Press Start 2P",
           pixelsize = 8,
           wrap = true,
@@ -821,7 +821,7 @@ return {
           valign = "center",
           properties = {
             ["inputtype"] = "button",
-            ["textformat"] = "Fire = button%s"
+            ["textformat"] = "Fire = %s"
           }
         },
         {
@@ -829,13 +829,13 @@ return {
           name = "joy_focus",
           type = "UIInputBind",
           shape = "text",
-          x = 30,
+          x = 20,
           y = 100,
-          width = 180,
+          width = 200,
           height = 15,
           rotation = 0,
           visible = true,
-          text = "Alt Fire = button%s",
+          text = "Alt Fire = %s",
           fontfamily = "Press Start 2P",
           pixelsize = 8,
           wrap = true,
@@ -843,7 +843,7 @@ return {
           valign = "center",
           properties = {
             ["inputtype"] = "button",
-            ["textformat"] = "Alt Fire = button%s"
+            ["textformat"] = "Alt Fire = %s"
           }
         },
         {
@@ -851,13 +851,13 @@ return {
           name = "joy_bomb",
           type = "UIInputBind",
           shape = "text",
-          x = 30,
+          x = 20,
           y = 120,
-          width = 180,
+          width = 200,
           height = 15,
           rotation = 0,
           visible = true,
-          text = "Bomb = button%s",
+          text = "Bomb = %s",
           fontfamily = "Press Start 2P",
           pixelsize = 8,
           wrap = true,
@@ -865,7 +865,7 @@ return {
           valign = "center",
           properties = {
             ["inputtype"] = "button",
-            ["textformat"] = "Bomb = button%s"
+            ["textformat"] = "Bomb = %s"
           }
         },
         {
@@ -873,13 +873,13 @@ return {
           name = "joy_pausemenu",
           type = "UIInputBind",
           shape = "text",
-          x = 30,
+          x = 20,
           y = 140,
-          width = 180,
+          width = 200,
           height = 15,
           rotation = 0,
           visible = true,
-          text = "Pause = button%s",
+          text = "Pause = %s",
           fontfamily = "Press Start 2P",
           pixelsize = 8,
           wrap = true,
@@ -887,28 +887,7 @@ return {
           valign = "center",
           properties = {
             ["inputtype"] = "button",
-            ["textformat"] = "Pause = button%s"
-          }
-        },
-        {
-          id = 31,
-          name = "joy_pause",
-          type = "UIInputBind",
-          shape = "text",
-          x = 30,
-          y = 180,
-          width = 180,
-          height = 15,
-          rotation = 0,
-          visible = false,
-          text = "pause",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
-          wrap = true,
-          color = { 255, 255, 255 },
-          valign = "center",
-          properties = {
-            ["inputtype"] = "joybutton"
+            ["textformat"] = "Pause = %s"
           }
         },
         {

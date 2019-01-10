@@ -81,10 +81,11 @@ function UIMenu:joystickaxis(joystick, axis, value)
 		return
 	end
 	if self.bindinginputtype then
-		if self.bindinginputtype == "axis"
-		and math.abs(value) > .25
-		then
-			self:bindInput("axis"..axis)
+		if math.abs(value) > AxisDeadZone then
+			axis = type(axis)=="number" and "axis"..axis or axis
+			if self.bindinginputtype == "axis" then
+				self:bindInput(axis)
+			end
 		end
 		return
 	end
@@ -103,6 +104,8 @@ function UIMenu:joystickaxis(joystick, axis, value)
 	self.joyaxisy = value
 end
 
+UIMenu.gamepadaxis = UIMenu.joystickaxis
+
 function UIMenu:joystickhat(joystick, hat, value)
 	if not self.layer.visible then
 		return
@@ -110,7 +113,8 @@ function UIMenu:joystickhat(joystick, hat, value)
 	if self.bindinginputtype then
 		if self.bindinginputtype == "axis"
 		and value ~= "c" then
-			self:bindInput("hat"..hat)
+			hat = type(hat)=="number" and "hat"..hat or hat
+			self:bindInput(hat)
 		end
 		return
 	end
@@ -133,6 +137,8 @@ local dpadhat = require("dpadhat")
 function UIMenu:gamepadpressed(joystick, button)
 	if button:find("^dp") then
 		self:joystickhat(joystick, "dpad", dpadhat(joystick))
+	elseif button == "back" then
+		levity.scripts:send(levity.mapfile, "goBack")
 	else
 		self:joystickpressed(joystick, button)
 	end
@@ -149,9 +155,7 @@ function UIMenu:joystickpressed(joystick, button)
 		return
 	end
 	self:setMouseCursorMode(false)
-	if button == prefs.joy_fire then
-		self:activateCursorButton()
-	end
+	self:activateCursorButton()
 end
 
 function UIMenu:keypressed(key)
@@ -169,15 +173,15 @@ function UIMenu:keypressed(key)
 	self:setMouseCursorMode(false)
 	if key == "escape" then
 		levity.scripts:send(levity.mapfile, "goBack")
-	elseif key == prefs.key_up then
+	elseif key == prefs.key_up or key == "up" then
 		self:moveCursor(-1, 0)
-	elseif key == prefs.key_down then
+	elseif key == prefs.key_down or key == "down" then
 		self:moveCursor(1, #self.objects + 1)
-	elseif key == prefs.key_left then
+	elseif key == prefs.key_left or key == "left" then
 		self:changeCursorOption(-1)
-	elseif key == prefs.key_right then
+	elseif key == prefs.key_right or key == "right" then
 		self:changeCursorOption(1)
-	elseif key == prefs.key_fire then
+	elseif key == prefs.key_fire or key == "return" then
 		self:activateCursorButton()
 	end
 end

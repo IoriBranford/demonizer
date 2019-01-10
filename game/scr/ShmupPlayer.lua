@@ -162,9 +162,11 @@ function ShmupPlayer:getDistanceSq(fromx, fromy)
 end
 
 function ShmupPlayer:joystickaxis(joystick, axis, value)
-	value = math.floor(value + .5)
+	if math.abs(value) < .25 then
+		value = 0
+	end
 
-	local inputstring = "axis"..axis
+	local inputstring = type(axis)=="number" and "axis"..axis or axis
 	if inputstring == prefs.joy_x then
 		self.inputx = value
 	elseif inputstring == prefs.joy_y then
@@ -172,8 +174,10 @@ function ShmupPlayer:joystickaxis(joystick, axis, value)
 	end
 end
 
+ShmupPlayer.gamepadaxis = ShmupPlayer.joystickaxis
+
 function ShmupPlayer:joystickhat(joystick, hat, value)
-	local inputstring = "hat"..hat
+	local inputstring = type(hat)=="number" and "hat"..hat or hat
 	if inputstring == prefs.joy_x then
 		if value:find("l") then
 			self.inputx = -1
@@ -218,6 +222,7 @@ function ShmupPlayer:buttonchanged(button, pressed)
 		self.firetimer = ShmupPlayer.BulletInterval
 	elseif button == ShmupPlayer.Button_Focus and self.focusbutton ~= pressed then
 		self.focusbutton = pressed
+		self.firetimer = ShmupPlayer.BulletInterval
 	elseif button == ShmupPlayer.Button_Bomb and pressed
 	and not self.coroutine and not levity.map.paused
 	and levity.scripts:call("status", "hasBombs") ~= false then
