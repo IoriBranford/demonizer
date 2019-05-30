@@ -47,11 +47,12 @@ local NonMapFiles = {
 	["gencomic.lua"] = true,
 	["make-game.lua"] = true,
 	["find-unused-assets.lua"] = true,
-	["fix-collision-offsets.lua"] = true
+	["fix-collision-offsets.lua"] = true,
+	["tmxgettext.lua"] = true
 }
 
 local tilesetfiles = findAssets("img", {".png", ".tsx"}) or {}
-local musicfiles = findAssets("mus", {".vgz"}) or {}
+local musicfiles = findAssets("mus", {".vgm", ".vgz"}) or {}
 
 for filename in lfs.dir(lfs.currentdir()) do
 	local i, j = filename:find(".lua")
