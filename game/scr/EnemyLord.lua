@@ -8,8 +8,8 @@ function Lord:_init(object)
 end
 
 function Lord:rideDestroyed()
-	local angle = levity.scripts:call(self.id, "getFaceAngle")
-	levity.scripts:send(self.id, "faceAngle", angle, "move")
+	local angle = self:call(self.id, "getFaceAngle")
+	self:send(self.id, "faceAngle", angle, "move")
 end
 
 function Lord:defeatCoroutine(dt)

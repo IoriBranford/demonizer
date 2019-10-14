@@ -9,7 +9,8 @@
 --@field firetargetid ID number or "player" or "randomEnemy" or "randomWingman" or "wingman[1-4]"
 --@field firearc Must be facing target within this arc to fire
 --@field firebullet Name of bullet type
---@field firetime Seconds between shots, "animation" for the time of the current animation, or "defeat" for when defeated
+--@field firetime Seconds between shots, or "defeat" for when defeated
+--@field firetimeconstant Fire timer not affected by cover, off-camera, killed player
 --@field firefan Number of bullets to fire in a fan
 --@field firefanslice Arc between two bullets in the fan
 --@field firewarningtime Seconds before firing to give warning
@@ -17,13 +18,14 @@
 --@field firelinecolor Only if warning
 --@field firelinecolor2 Pulse between this and firelinecolor
 --@field firerequiretarget
+--@field firesilent
 --@table Properties
 
 local levity = require "levity"
 local ShmupBullet = require "ShmupBullet"
 local ShmupCollision = require "ShmupCollision"
 
-local Shooter = class()
+local Shooter = class(require("Script"))
 function Shooter:_init(object)
 	self.id = object.id
 	self.object = object
@@ -55,15 +57,15 @@ function Shooter:getTargetId(targetid)
 		if targetid == "player" then
 			targetid = levity.map.properties.playerid
 		elseif targetid == "randomWingman" then
-			targetid = levity.scripts:call("playerteam", "getRandomWingmanId")
+			targetid = self:call("playerteam", "getRandomWingmanId")
 		elseif targetid == "randomEnemy" then
-			targetid = levity.scripts:call(levity.map.properties.cameraid, "findTarget_rectangle", "canBeLockTarget")
+			targetid = self:call(levity.map.properties.cameraid, "findTarget_rectangle", "canBeLockTarget")
 			self.properties.firetargetid = targetid
 		else
 			local i = targetid:match("wingman(%d+)")
 			if i then
 				i = tonumber(i)
-				targetid = levity.scripts:call("playerteam", "getMemberId", i)
+				targetid = self:call("playerteam", "getMemberId", i)
 				if not targetid then
 					targetid = levity.map.properties.playerid
 				end
@@ -93,9 +95,9 @@ end
 
 function Shooter:canFire()
 	return self:isTimeToFire()
-	and levity.scripts:call(self.id, "isOnCamera")
-	--and not levity.scripts:call(self.id, "isRescuing")
-	and not levity.scripts:call(self.id, "hasCover")
+	and self:call(self.id, "isOnCamera")
+	--and not self:call(self.id, "isRescuing")
+	and not self:call(self.id, "hasCover")
 	and self:hasLineOfFire()
 	and (not self.properties.firerequiretarget
 		or self:getTargetObject(self.properties.firetargetid))
@@ -103,16 +105,16 @@ end
 
 function Shooter:hasLineOfFire()
 	local bullet = levity.map.objecttypes[self.properties.firebullet]
-	local faceangle = levity.scripts:call(self.id, "getFaceAngle")
-	if not bullet or not faceangle then
+	if not bullet then
 		return false
 	end
 	local tilelayer = self.properties.firetilelayer
 	if tilelayer then
-		return levity.scripts:call(tilelayer, "isDamageActive")
+		return self:call(tilelayer, "isDamageActive")
 	end
 	local target = self:getTargetObject(self.properties.firetargetid)
-	if target then
+	local faceangle = self:call(self.id, "getFaceAngle")
+	if target and faceangle then
 		local cx, cy = self.object.body:getWorldCenter()
 		local tx, ty = target.body:getWorldCenter()
 		local dx, dy = tx - cx, ty - cy
@@ -160,24 +162,40 @@ function Shooter:hasLineOfFire()
 	return true
 end
 
-function Shooter:fire()
+function Shooter:fire(ox, oy, fireangle)
 	local bullet = levity.map.objecttypes[self.properties.firebullet]
 	if not bullet then
 		return
 	end
-	local faceangle = levity.scripts:call(self.id, "getFaceAngle")
+
+	local firepoints = self.properties.firepoints
+	if firepoints and not (ox and oy) then
+		for firepoint in firepoints:gmatch("([^%s]+)%s*") do
+			ox, oy = levity.map:getTileShapePosition(self.object.gid, firepoint)
+			local basetile = levity.map.tiles[self.object.gid]
+			local og = basetile and basetile.objectGroup
+			local fp = og and og.objects[firepoint]
+			fireangle = fp and fp.properties.angle
+			fireangle = fireangle and math.rad(fireangle)
+			self:fire(ox, oy, fireangle)
+		end
+		return
+	end
 
 	local cx, cy = self.object.body:getWorldCenter()
+	cx = cx + (ox or 0)
+	cy = cy + (oy or 0)
+
 	local tilelayer = self.properties.firetilelayer
 	if tilelayer then
-		local c, r = levity.scripts:call(tilelayer, "getRandomTile")
+		local c, r = self:call(tilelayer, "getRandomTile")
 		if c and r then
 			c = c + .5
 			r = r + .5
 			cx, cy = levity.map:convertTileToPixel(c, r)
 		end
 	end
-	local fireangle = faceangle
+	fireangle = fireangle or self:call(self.id, "getFaceAngle")
 	local speed = 1
 	local target = self:getTargetObject(self.properties.firetargetid)
 	if target and target.body then
@@ -204,8 +222,8 @@ function Shooter:fire()
 	while i <= fansize do
 		ShmupBullet.create(self.properties.firebullet, cx, cy,
 			speed*math.cos(fireangle), speed*math.sin(fireangle),
-			"npcshots", keepupwithcamera)
-		levity.scripts:send("enemyfireparticles", "emit", 8, cx, cy,
+			"npcshots", keepupwithcamera, self.properties.firesilent)
+		self:send("enemyfireparticles", "emit", 8, cx, cy,
 			fireangle)
 		fireangle = fireangle + fanslice
 		i = i + 1
@@ -215,31 +233,24 @@ function Shooter:fire()
 		self.timer = 0
 	end
 
-	levity.scripts:send(self.id, "shotsFired", fansize)
+	self:send(self.id, "shotsFired", fansize)
 	local rideid = self.properties.rideid
 	if rideid then
-		levity.scripts:send(rideid, "riderShotsFired", fansize)
+		self:send(rideid, "riderShotsFired", fansize)
 	end
 end
 
 function Shooter:loopedAnimation()
-	if self.properties.firetime == "animation" then
-		self:fire()
-		return
-	end
-
-	local animtile = levity.map.tiles[self.object.gid]
-	local nextanim = animtile.properties.nextanim
-	local nextgid = nextanim and levity.map:getTileGid(self.object.tile.tileset, nextanim)
-	local nextstate = nextgid and levity.map:getTileLineName(nextgid, "state")
-
-	if nextstate == "fire" then
+	local gid = self.object.gid
+	local state = levity.map:getTileLineName(gid, "state")
+	if state == "attack" then
 		if self:canFire() then
 			self:fire()
-		else
-			nextgid = nil
 		end
 	end
+
+	local nextanim = self.properties.nextanim
+	local nextgid = nextanim and levity.map:getTileGid(self.object.tile.tileset, nextanim)
 
 	if nextgid then
 		self.object:setGid(nextgid)
@@ -253,23 +264,31 @@ end
 
 function Shooter:isWarning()
 	local firetime = self.properties.firetime
-	if type(firetime) == "number" then
-		local firewarningtime = self.properties.firewarningtime
-		if firewarningtime then
-			local timer = self.timer
-			return timer + firewarningtime >= firetime
-		end
+	local bullet = levity.map.objecttypes[self.properties.firebullet]
+	if bullet and type(firetime) == "number" then
+		local firewarningtime = self.properties.firewarningtime or firetime/3
+		return self.timer + firewarningtime >= firetime
 	end
 end
 
 function Shooter:endMove(dt)
-	if type(self.properties.firetime) ~= "number"
-	or not levity.scripts:call(self.id, "isOnCamera")
-	or levity.scripts:call(self:getTargetId(self.properties.firetargetid), "isKilled")
-	--or levity.scripts:call(self.id, "isRescuing")
+	if self:call(levity.map.properties.playerid, "isInDialogue")
+	or type(self.properties.firetime) ~= "number"
+	or not self.properties.firetimeconstant
+		and not self:call(self.id, "isOnCamera")
+	--or self:call(self.id, "isRescuing")
 	then
 		self.timer = 0
 		return
+	end
+
+	local targetid = self.properties.firetargetid
+	if targetid == "player" or targetid == "none" then
+		if self:call(levity.map.properties.playerid, "isKilled")
+		then
+			self.timer = 0
+			return
+		end
 	end
 
 	local waswarning = self:isWarning()
@@ -284,22 +303,27 @@ function Shooter:endMove(dt)
 		local attackline = tileset.properties.column_attack
 			or tileset.properties.row_attack
 		if attackline then
-			local angle = levity.scripts:call(self.id, "getFaceAngle")
-			levity.scripts:send(self.id, "faceAngle", angle, "attack")
+			local angle = self:call(self.id, "getFaceAngle")
+			self:send(self.id, "faceAngle", angle, "attack")
 		elseif self:canFire() then
 			self:fire()
 		end
+		if self.properties.firetimeconstant then
+			self.timer = 0
+		end
 	end
 
-	local targetid = self.properties.firetargetid
 	local target = self:getTargetObject(targetid)
 	if targetid and not target then
-		levity.scripts:send(self.id, "fireTargetGone")
+		self:send(self.id, "fireTargetGone")
 		self.properties.firetargetid = nil
 	end
 end
 
-function Shooter:defeat(giveitemtoid, withbomb)
+function Shooter:defeat(withwhat, giveitemtoid, withbomb)
+	if withwhat == "clear" then
+		return
+	end
 	if self.properties.firetime == "defeat" then
 		self:fire()
 	end
@@ -309,7 +333,7 @@ function Shooter:drawLineOfFire(diry)
 	if not self:isWarning() then
 		return
 	end
-	if not self:hasLineOfFire() or levity.scripts:call(self.id, "hasCover") then
+	if not self:hasLineOfFire() or self:call(self.id, "hasCover") then
 		return
 	end
 	local firelinecolor = self.properties.firelinecolor
@@ -320,11 +344,19 @@ function Shooter:drawLineOfFire(diry)
 	local targetid = self.properties.firetargetid
 	local target = self:getTargetObject(targetid)
 	local targetbody = target and target.body
-	if not targetbody then
-		return
+	local tx, ty
+	if targetbody then
+		tx, ty = targetbody:getWorldCenter()
+	else
+		local faceangle = self:call(self.id, "getFaceAngle")
+		if faceangle then
+			tx = cx + math.cos(faceangle)*360
+			ty = cy + math.sin(faceangle)*360
+		else
+			return
+		end
 	end
 
-	local tx, ty = targetbody:getWorldCenter()
 	if diry * (ty - cy) < 0 then
 		return
 	end

@@ -1,7 +1,7 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 
-local MazeObject = class()
+local MazeObject = class(require("Script"))
 function MazeObject:_init(object)
 	self.object = object
 	self.id = object.id

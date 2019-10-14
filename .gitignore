@@ -18,6 +18,8 @@ history.db
 
 *.zip
 *.love
+*.exe
+*.dll
 *.AppImage
 squashfs-root
 bin*/

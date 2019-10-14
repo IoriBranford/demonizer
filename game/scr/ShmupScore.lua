@@ -1,7 +1,7 @@
 local levity = require "levity"
 local PlayerTeam = require("PlayerTeam")
 
-local ShmupScore = class()
+local ShmupScore = class(require("Script"))
 function ShmupScore:_init(object)
 	self.object = object
 	self.properties = self.object.properties
@@ -11,7 +11,7 @@ function ShmupScore:_init(object)
 	self.points = nextmapscore.points or 0
 	self.extendpoints = nextmapscore.extendpoints
 		or levity.map.properties.extendpoints
-		or 1000000
+		or 2000000
 	self.multipliers = nextmapscore.multipliers or {
 		[PlayerTeam.PlayerIndex] = 0
 	}
@@ -21,7 +21,7 @@ end
 
 ShmupScore.MaxPoints = 999999999
 ShmupScore.MaxMultiplier = 20
-ShmupScore.ExtendInc = 1000000
+ShmupScore.ExtendInc = 3000000
 ShmupScore.BaseCapturePoints = 100
 
 function ShmupScore:givePlayerBonus(bonus, sound)
@@ -33,7 +33,7 @@ end
 function ShmupScore:pointsScored(points, cardx, cardy, cardformat)
 	self.points = math.min(self.points + points, ShmupScore.MaxPoints)
 	if self.extendpoints and self.points >= self.extendpoints then
-		levity.scripts:broadcast("extendEarned")
+		self:broadcast("extendEarned")
 		local extendinc = levity.map.properties.extendinc
 					or ShmupScore.ExtendInc
 		self.extendpoints = self.extendpoints + extendinc
@@ -49,22 +49,19 @@ function ShmupScore:pointsScored(points, cardx, cardy, cardformat)
 		local text = cardformat and cardformat:format(points)
 			or tostring(points)
 
-		local pointsobject = {
-			x = cardx-32,
-			y = cardy-8,
-			text = text,
-			halign = "center",
-			width = 64,
-			height = 16,
-			fontfamily = "Press Start 2P",
-			pixelsize = 8,
-			properties = {
-				lifetime = 1,
-				vely = camvy - 30,
-				script = "ShmupBullet",
-			}
-		}
-		sparks:addObject(pointsobject)
+		local pointsobject = levity.map:newObject(sparks)
+		pointsobject.x = math.floor(cardx)-32
+		pointsobject.y = math.floor(cardy)-8
+		pointsobject.text = text
+		pointsobject.halign = "center"
+		pointsobject.width = 64
+		pointsobject.height = 16
+		pointsobject.fontfamily = "Press Start 2P"
+		pointsobject.pixelsize = 8
+		pointsobject.properties.lifetime = 1
+		pointsobject.properties.vely = camvy - 120
+		pointsobject.properties.accely = 240
+		pointsobject.properties.script = "ShmupBullet"
 	end
 end
 
@@ -80,18 +77,18 @@ function ShmupScore:initMultiplier(memberi)
 end
 
 function ShmupScore:humanCaptured(humanid, captorid)
-	local i = levity.scripts:call("playerteam", "getMemberIndex", captorid)
+	local i = self:call("playerteam", "getMemberIndex", captorid)
 	i = self:multiplierInc(i)
 	if i then
-		captorid = levity.scripts:call("playerteam", "getMemberId", i)
-		levity.scripts:broadcast("multiplierUpdated", captorid,
+		captorid = self:call("playerteam", "getMemberId", i)
+		self:broadcast("multiplierUpdated", captorid,
 					self.multipliers[i])
 	end
 
 	local human = levity.map.objects[humanid]
 	local points = human.properties.capturepoints or self:getNextCapturePoints()
 	if points > 0 then
-		self:pointsScored(points, human.body:getX(), human.body:getY())
+		self:broadcast("pointsScored", points, human.body:getX(), human.body:getY())
 	end
 end
 
@@ -100,7 +97,7 @@ function ShmupScore:humanDied(humanid)
 		self.multipliers[idx] = 0
 	end
 	self.totalmultiplier = 0
-	levity.scripts:broadcast("multiplierUpdated", "all", 0)
+	self:broadcast("multiplierUpdated", "all", 0)
 end
 
 -- @return Index of multiplier that was actually increased
@@ -133,17 +130,25 @@ function ShmupScore:multiplierLost(idx)
 end
 
 function ShmupScore:playerRespawned()
+	local istutorial = self:call(levity.mapfile, "isTutorial")
+	if istutorial then
+		return
+	end
 	self:multiplierLost(PlayerTeam.PlayerIndex)
-	levity.scripts:broadcast("multiplierUpdated",
+	self:broadcast("multiplierUpdated",
 				levity.map.properties.playerid, 0)
 end
 --[[
 function ShmupScore:wingmanKilled(id)
 	self:multiplierLost(
-		levity.scripts:call("playerteam", "getMemberIndex", id))
+		self:call("playerteam", "getMemberIndex", id))
 end
 ]]
 function ShmupScore:friendKilled(id)
+	local object = levity.map.objects[id]
+	if not object or not object.properties.defeatlosemultiplier then
+		return
+	end
 	for idx, mult in pairs(self.multipliers) do
 		self.multipliers[idx] = 0
 	end
@@ -152,7 +157,7 @@ end
 
 function ShmupScore:getMultiplier(id)
 	return self.multipliers[
-		levity.scripts:call("playerteam", "getMemberIndex", id)]
+		self:call("playerteam", "getMemberIndex", id)]
 end
 
 function ShmupScore:getTotalMultiplier()
@@ -174,7 +179,7 @@ end
 
 function ShmupScore:nextMap(nextmapfile, nextmapdata)
 	if nextmapdata and nextmapdata.playerwon
-	and not levity.scripts:call(levity.map.name, "isTutorial") then
+	and not self:call(levity.map.name, "isTutorial") then
 		nextmapdata.score = {
 			points = self.points,
 			extendpoints = self.extendpoints,

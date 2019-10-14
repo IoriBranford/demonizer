@@ -98,6 +98,7 @@ before_script:
                 key: "${PROJECT}-win${ARCH_BITS}"
                 paths:
                         - "love-${LOVE_VERSION}-win${ARCH_BITS}.zip"
+                        - "libgme_0.6.2_msvc12.zip"
                         - "resource_hacker.zip"
         artifacts:
                 name: "${PROJECT}-${VERSION}-win${ARCH_BITS}"
@@ -105,10 +106,27 @@ before_script:
                         - "${PROJECT_TITLE}"
                 expire_in: 1 week
 
+.build-dev-windows: &build-dev-windows
+        stage: build
+        variables:
+                ARCH_BITS: "64"
+        script:
+                - apk add wget
+                - ./make-dev-windows.sh
+        cache:
+                key: "${PROJECT}-win${ARCH_BITS}"
+                paths:
+                        - "love-${LOVE_VERSION}-win${ARCH_BITS}.zip"
+                        - "libgme_0.6.2_msvc12.zip"
+        artifacts:
+                name: "${PROJECT}-dev-win${ARCH_BITS}"
+                paths:
+                        - "${PROJECT_TITLE}"
+
 .build-macosx: &build-macosx
         <<: *debian
         stage: build
-        image: andrewd/osxcross
+        image: fzwoch/osxcross
         variables:
                 CFBundleIdentifier: "${APPLICATION_ID_BASE}"
                 <<: &build-macosx-variables
@@ -234,3 +252,13 @@ demo-android:
         variables:
                 <<: *demo-variables
                 APPLICATION_ID: "${APPLICATION_ID_BASE}demo"
+
+dev-win64:
+        <<: *build-dev-windows
+        <<: *full
+
+dev-win32:
+        <<: *build-dev-windows
+        <<: *full
+        variables:
+                ARCH_BITS: "32"

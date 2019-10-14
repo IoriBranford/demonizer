@@ -52,7 +52,7 @@ function DrunkEnemy:endTrigger()
 	local bac = self:getBAC() or 0
 	if self:isOnCamera() and bac > 0 then
 		self.properties.defeatspark = ""
-		self:defeat()
+		self:call(self.id, "defeat", "endTrigger")
 		return true
 	end
 	return NPC.endTrigger(self)

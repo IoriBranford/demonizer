@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local Curtain = class()
+local Curtain = class(require("Script"))
 function Curtain:_init(layer)
 	self.layer = layer
 	self:beginOpen()
@@ -11,6 +11,7 @@ Curtain.CloseTimeout = 2
 
 function Curtain:beginMove(dt)
 	if self:finishedOpening() then
+		self.direction = 0
 		return
 	end
 
@@ -31,6 +32,10 @@ function Curtain:drawOver()
 	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
 end
 
+function Curtain:isOpeningOrClosing()
+	return self.direction ~= 0
+end
+
 function Curtain:isClosing()
 	return self.direction == -1
 end
@@ -40,7 +45,8 @@ function Curtain:finishedOpening()
 end
 
 function Curtain:finishedClosing()
-	return self.openwidth < -Curtain.CloseTimeout*Curtain.Speed
+	local closetime = self.closetime or Curtain.CloseTimeout
+	return self.openwidth < closetime*-Curtain.Speed
 end
 
 function Curtain:beginOpen()
@@ -48,9 +54,10 @@ function Curtain:beginOpen()
 	self.direction = 1
 end
 
-function Curtain:beginClose()
+function Curtain:beginClose(closetime)
 	self.openwidth = levity.camera.w
 	self.direction = -1
+	self.closetime = closetime
 end
 
 return Curtain

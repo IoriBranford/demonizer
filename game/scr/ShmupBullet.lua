@@ -24,7 +24,7 @@ local function loopedAnimation(self)
 	levity:discardObject(self.object.id)
 end
 
-local ShmupBullet = class()
+local ShmupBullet = class(require("Script"))
 function ShmupBullet:_init(object)
 	self.object = object
 	self.properties = object.properties
@@ -124,7 +124,7 @@ function ShmupBullet:beginContact(myfixture, otherfixture, contact)
 			local otherdata = otherfixture:getBody():getUserData()
 			local otherid = otherdata and otherdata.id
 			local otherproperties = otherdata and otherdata.properties
-			local otherhascover = otherid and levity.scripts:call(otherid, "hasCover")
+			local otherhascover = otherid and self:call(otherid, "fixtureHasCover", otherfixture)
 			local otherhypnotized = otherproperties and otherproperties.hypnotistid
 			local passhypnotized = self.properties.category == ShmupCollision.Category_EnemyShot
 			local otherfriendly = otherproperties and otherproperties.friendly
@@ -159,6 +159,10 @@ function ShmupBullet:endMove(dt)
 	end
 end
 
+function ShmupBullet:allBulletsCleared()
+	levity:discardObject(self.object.id)
+end
+
 --- Bullet params
 -- @field damage
 -- @field speed in px/sec
@@ -175,12 +179,12 @@ end
 -- @field collidable
 -- @table BulletParams
 
-function ShmupBullet.create(params, x, y, vx, vy, layer, keepupwithcamera)
-	ShmupBullet.fireOverTime(params, x, y, vx, vy, layer, 1, 1, keepupwithcamera)
+function ShmupBullet.create(params, x, y, vx, vy, layer, keepupwithcamera, silent)
+	ShmupBullet.fireOverTime(params, x, y, vx, vy, layer, 1, 1, keepupwithcamera, silent)
 end
 
 local NewBulletProperties = {}
-function ShmupBullet.fireOverTime(params, x, y, velx, vely, layer, time, interval, keepupwithcamera)
+function ShmupBullet.fireOverTime(params, x, y, velx, vely, layer, time, interval, keepupwithcamera, silent)
 	local bullettype
 
 	if type(params) == "string" then
@@ -234,17 +238,17 @@ function ShmupBullet.fireOverTime(params, x, y, velx, vely, layer, time, interva
 	while time >= interval do
 		time = time - interval
 
-		local shot = {
-			type = bullettype,
-			x = x + velx * time,
-			y = y + vely * time,
-			rotation = rotation,
-			gid = gid,
-			properties = tablex.copy(NewBulletProperties)
-		}
-		layer:addObject(shot)
+		local shot = levity.map:newObject(layer)
+		shot.type = bullettype
+		shot.x = x + velx * time
+		shot.y = y + vely * time
+		shot.rotation = rotation
+		shot.gid = gid
+		for k,v in pairs(NewBulletProperties) do
+			shot.properties[k] = v
+		end
 
-		if params.sound then
+		if not silent then
 			levity.bank:play(params.sound)
 		end
 	end
@@ -271,6 +275,50 @@ function Coroutines.PlayerBomb_FireShrapnel(self)
 		while t > 0 do
 			local _, dt = coroutine.yield()
 			t = t - dt
+		end
+	end
+end
+
+function ShmupBullet.explodeTileLayer(tilelayer, debrislayer, explosioncenterx, explosioncentery)
+	local map = levity.map
+	debrislayer = debrislayer or "sparks"
+	if type(debrislayer) ~= "table" then
+		debrislayer = map.layers[debrislayer]
+	end
+	tilelayer.visible = false
+	local tw = levity.map.tilewidth
+	local th = levity.map.tileheight
+	local camera = levity.camera
+	local tlox = tilelayer.offsetx
+	local tloy = tilelayer.offsety
+	local cw = levity.camera.w
+	local ch = levity.camera.h
+	explosioncenterx = explosioncenterx or cw/2
+	explosioncentery = explosioncentery or ch
+	local cx = levity.camera.x + explosioncenterx
+	local cy = levity.camera.y + explosioncentery
+	for r, row in pairs(tilelayer.data) do
+		local y = r * th + tloy
+		for c, tile in pairs(row) do
+			local debris = map:newObject(debrislayer)
+			local x = c * tw + tlox - tw
+			debris.type = "Debris"
+			debris.gid = tile.gid
+			local ox = -tile.width/2
+			local oy = tile.height/2
+			debris.tileoffsetx = ox
+			debris.tileoffsety = oy
+			debris.x = x - ox
+			debris.y = y - oy
+			local velx = (x - cx)*1.5
+			local vely = (y - cy)*4
+			debris.properties.velx = velx
+			debris.properties.vely = vely
+			local particles = tile.properties.explodeparticles
+			if particles then
+				levity.scripts:send(particles, "emit", 4,
+					x - ox, y - oy, math.atan2(vely, velx))
+			end
 		end
 	end
 end

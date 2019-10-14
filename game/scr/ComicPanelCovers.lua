@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local ComicPanelCovers = class()
+local ComicPanelCovers = class(require("Script"))
 function ComicPanelCovers:_init(layer)
 	self.objects = layer.objects
 	local polygons = {}

@@ -1,22 +1,24 @@
 --@module Mover
 
---@field pathid Path object id, path layer name, "player" for player, or "mylayer" for original layer
+--@field pathid Path object id, path layer name, "player" for player, "mylayer" for original layer, "warninglayer" to derive from original layer's name "*warning"
 --@field pathfinder
 --@field pathmode "absolute" = get on and follow path, "relative" = treat path as movement from current pos
---@field pathoffsetx
---@field pathoffsety
+--@field pathoffsetx Optionally force a specific offset
+--@field pathoffsety Optionally force a specific offset
 --@field pathspeed
 --@field pathspeedfunction "const" (default), "cos", "ncos", "abssin", "abscos"
 --@field pathspeedmin when using a varying speed function - should be > 0
 --@field pathspeedweighted
---@field pathstartpointid
+--@field pathstartpointname
 --@field pathdistmin When path is object, distance to keep from that object
+--@field pathdefeat When path is object, defeat when that object is defeated
 --@table Properties
 
 local levity = require "levity"
 local PathGraph = require "PathGraph"
+local ShmupCollision = require "ShmupCollision"
 
-local Mover = class()
+local Mover = class(require("Script"))
 function Mover:_init(object)
 	self.object = object
 	self.id = object.id
@@ -61,6 +63,16 @@ end
 
 local SpeedFunctions = {}
 
+function SpeedFunctions.linearaccel(t, min, max)
+	local a = (max - min)
+	return min + a*t
+end
+
+function SpeedFunctions.lineardecel(t, min, max)
+	local a = (min - max)
+	return max + a*t
+end
+
 function SpeedFunctions.cos(t, min, max)
 	local amp = (max - min)/2
 	local mid = min + amp
@@ -98,9 +110,39 @@ function Mover:getPathId(pathid)
 		elseif pathid == "mylayer" then
 			pathid = self.object.properties.originallayer
 				or self.object.layer.name
+		elseif pathid == "warninglayer" then
+			pathid = self.object.properties.originallayer
+				or self.object.layer.name
+			pathid = pathid:match("(%g+)warning")
 		end
 	end
 	return tonumber(pathid) or pathid
+end
+
+function Mover:beginContact_EnemyTeam(myfixture, otherfixture, contact)
+	local otherdata = otherfixture:getBody():getUserData()
+	local otherid = otherdata and otherdata.id
+	if otherid then
+		local pathid = self.properties.pathid
+		if pathid == "collidingtop" then
+			local x1, y1, x2, y2 = myfixture:getBoundingBox()
+			local x3, y3, x4, y4 = otherfixture:getBoundingBox()
+			if y2 > y4 then
+				self.properties.pathid = otherid
+				self.offx, self.offy = self.properties.pathoffsetx,
+							self.properties.pathoffsety
+			end
+		end
+	end
+end
+
+function Mover:beginContact(myfixture, otherfixture, contact)
+	for i = 1, select("#", otherfixture:getCategory()) do
+		local category = select(i, otherfixture:getCategory())
+		if category == ShmupCollision.Category_EnemyTeam then
+			self:beginContact_EnemyTeam(myfixture, otherfixture, contact)
+		end
+	end
 end
 
 function Mover:beginMove(dt)
@@ -128,43 +170,45 @@ function Mover:beginMove(dt)
 
 	if not destx or not desty then -- Choose dest
 		local x, y = self.body:getPosition()
+		local startx, starty = x, y
+		local nearestx, nearesty = x - offx, y - offy
 
-		if self.properties.pathmode == "relative"
-		and (not self.offx or not self.offy) then
-			local startx, starty = x, y
-			local startpointid = self.properties.pathstartpointid
-			local startpoint = startpointid and levity.map.objects[startpointid]
-			if startpoint then
-				startx, starty = startpoint.x, startpoint.y
+		local paths = self:call(pathid, "getPaths", nearestx, nearesty)
+		if not paths then
+			startx, starty = self:call(pathid, "getNamedPoint", self.properties.pathstartpointname)
+			startx = startx or x
+			starty = starty or y
+
+			nearestx, nearesty = self:call(pathid, "findNearestPoint", startx - offx, starty - offy)
+			nearestx = nearestx or (pathobjbody and pathobjbody:getX()) or x
+			nearesty = nearesty or (pathobjbody and pathobjbody:getY()) or y
+
+			if self.properties.pathmode == "relative"
+			and (not self.offx or not self.offy) then
+				offx = self.properties.pathoffsetx or (startx - nearestx)
+				offy = self.properties.pathoffsety or (starty - nearesty)
+				self.offx, self.offy = offx, offy
 			end
-			local nearestx, nearesty = levity.scripts:call(pathid, "findNearestPoint", startx, starty)
-			nearestx = nearestx or (pathobjbody and pathobjbody:getX())
-			nearesty = nearesty or (pathobjbody and pathobjbody:getY())
-			offx = x - nearestx
-			offy = y - nearesty
-			self.offx, self.offy = offx, offy
+
+			paths = self:call(pathid, "getPaths", startx - offx, starty - offy)
 		end
 
-		local pathx, pathy = math.floor(x - offx), math.floor(y - offy)
+		destx, desty = nearestx, nearesty
 
-		local paths = pathid and levity.scripts:call(pathid, "getPaths", pathx, pathy)
 		local pathfinder = self.properties.pathfinder
 		pathfinder = pathfinder and Mover["pathfind_"..pathfinder]
-
 		if pathfinder and paths then
 			local prevx = self.prevx
 			local prevy = self.prevy
 			local path = pathfinder(self, paths, prevx, prevy)
-			destx = path and path.destx
-			desty = path and path.desty
 			if path then
-				self.path = path
-				self.prevx, self.prevy = pathx, pathy
+				self.prevx = math.floor(startx - offx)
+				self.prevy = math.floor(starty - offy)
+				destx = path.destx
+				desty = path.desty
+				self.curvetraveled = nil
 			end
-		else
-			destx, desty = levity.scripts:call(pathid, "findNearestPoint", pathx, pathy)
-			destx = destx or (pathobjbody and pathobjbody:getX())
-			desty = desty or (pathobjbody and pathobjbody:getY())
+			self.path = path
 		end
 
 		self.destx, self.desty = destx, desty
@@ -175,10 +219,11 @@ function Mover:beginMove(dt)
 	if destx and desty then -- Correct for situation changes or arrival
 		local newvx, newvy
 		local path = self.path
+		local movetype = path and path.properties.movetype
 
 		local x, y = self.body:getPosition()
 
-		if pathobjbody and not levity.scripts:call(pathid, "is_a", PathGraph) then
+		if pathobjbody and not self:call(pathid, "is_a", PathGraph) then
 			destx, desty = pathobjbody:getPosition()
 
 			local pathdistmin = self.properties.pathdistmin
@@ -210,21 +255,22 @@ function Mover:beginMove(dt)
 		local speedfunc = self.properties.pathspeedfunction
 		speedfunc = speedfunc and SpeedFunctions[speedfunc]
 		local prevx, prevy = self.prevx, self.prevy
-		if speedfunc and prevx and prevy then
+		if speedfunc and prevx and prevy and movetype ~= "jump" then
 			local length = path and path.length
 				or math.hypot(destx - prevx, desty - prevy)
-			local speedmin = self.properties.pathspeedmin or 15
+			local speedmin = self.properties.pathspeedmin or 0
 			dist = dist or math.sqrt(distsq)
-			pathspeed = speedfunc(dist / length, speedmin, pathspeed)
+			pathspeed = speedfunc(1 - (dist / length), speedmin, pathspeed)
 		end
 
 		if self.path and self.properties.pathspeedweighted then
-			pathspeed = pathspeed / self.path.cost
+			local cost = self.path.properties.cost or 1
+			pathspeed = pathspeed / cost
 		end
 
 		local damagetilelayer = self.properties.damagetilelayer
 		if damagetilelayer then
-			local damagetile = levity.scripts:call(damagetilelayer,
+			local damagetile = self:call(damagetilelayer,
 				"getPositionProperties", self.body:getPosition())
 			local speedfactor = damagetile and damagetile.speedfactor or 1
 			pathspeed = pathspeed * speedfactor
@@ -235,17 +281,51 @@ function Mover:beginMove(dt)
 
 		local path = self.path
 		local curve = path and path.curve
-		if curve then
+		if movetype == "jump" then
+			local jumpgravity = path.properties.jumpgravity or 480
+			if not self.jumpz then
+				self.jumpx = x
+				self.jumpy = y
+				self.jumpz = 0
+				dist = dist or math.sqrt(distsq)
+				local t = dist / pathspeed
+				self.jumpvx = distx / t
+				self.jumpvy = disty / t
+				-- p1 = 0.5*a*t^2 + v0*t + p0
+				-- 0 = 0.5*a*t^2 + v0*t + 0
+				-- 0.5*a*t^2 = -v0*t
+				-- 0.5*a*t = -v0
+				-- -0.5*a*t = v0
+				self.jumpvz = -0.5 * jumpgravity * t
+			end
+			self.jumpvz = self.jumpvz + jumpgravity * dt
+			self.jumpx = self.jumpx + self.jumpvx * dt
+			self.jumpy = self.jumpy + self.jumpvy * dt
+			self.jumpz = self.jumpz + self.jumpvz * dt
+			if self.jumpz < 0 then
+				distx = self.jumpx - x
+				disty = self.jumpy + self.jumpz - y
+			else
+				self.destx, self.desty = nil, nil
+				self.jumpx = nil
+				self.jumpy = nil
+				self.jumpz = nil
+				self.jumpvx = nil
+				self.jumpvy = nil
+				self.jumpvz = nil
+				reacheddest = true
+			end
+			newvx = distx / dt
+			newvy = disty / dt
+		elseif curve then
 			local curvetraveled = self.curvetraveled or 0
 			curvetraveled = curvetraveled + pathspeed*dt
 			if curvetraveled >= path.length then
 				curvetraveled = path.length
-				self.curvetraveled = nil
 				self.destx, self.desty = nil, nil
 				reacheddest = true
-			else
-				self.curvetraveled = curvetraveled
 			end
+			self.curvetraveled = curvetraveled
 			local curvex, curvey = getCurvePoint(path, curvetraveled)
 			distx = curvex + offx - x
 			disty = curvey + offy - y
@@ -269,10 +349,10 @@ function Mover:beginMove(dt)
 	end
 
 	local vx, vy = self.body:getLinearVelocity()
-	levity.scripts:send(self.id, "updateRidersVelocity", dt, vx, vy)
+	self:send(self.id, "updateRidersVelocity", dt, vx, vy)
 
 	if reacheddest then
-		levity.scripts:send(self.id, "reachedDest", destx, desty)
+		self:send(self.id, "reachedDest", destx, desty)
 	end
 end
 
@@ -286,7 +366,7 @@ function Mover:endMove(dt)
 	local ride = levity.map.objects[rideid]
 	if not ride and (not destx or not desty) then
 		self.body:setLinearVelocity(0, 0)
-		levity.scripts:send(self.id, "updateRidersVelocity", 0, 0, 0)
+		self:send(self.id, "updateRidersVelocity", 0, 0, 0)
 	end
 
 	local pathid = self:getPathId(self.properties.pathid)

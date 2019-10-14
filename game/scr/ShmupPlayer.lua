@@ -8,29 +8,40 @@ local IsMobile = (love.system.getOS() == "Android" or love.system.getOS() == "iO
 local PlayMask = {
 	ShmupCollision.Category_PlayerShot,
 	ShmupCollision.Category_PlayerBomb,
+	ShmupCollision.Category_EnemyCover,
 	ShmupCollision.Category_EnemyBounds
 }
 
 local NonPlayMask = {
+	ShmupCollision.Category_CameraEdge,
+	ShmupCollision.Category_PlayerShot,
+	ShmupCollision.Category_PlayerBomb,
+	ShmupCollision.Category_EnemyShot,
+	ShmupCollision.Category_EnemyCover,
+	ShmupCollision.Category_EnemyBounds
+}
+
+local DeadMask = {
 	ShmupCollision.Category_CameraEdge,
 	ShmupCollision.Category_PlayerTeam,
 	ShmupCollision.Category_PlayerShot,
 	ShmupCollision.Category_PlayerBomb,
 	ShmupCollision.Category_EnemyTeam,
 	ShmupCollision.Category_EnemyShot,
-	ShmupCollision.Category_EnemyBounds
+	ShmupCollision.Category_EnemyCover,
+	ShmupCollision.Category_EnemyBounds,
+	ShmupCollision.Category_BonusMaze
 }
 
 local WinMask = {
-	ShmupCollision.Category_CameraEdge,
-	ShmupCollision.Category_PlayerTeam,
 	ShmupCollision.Category_PlayerShot,
 	ShmupCollision.Category_PlayerBomb,
 	ShmupCollision.Category_EnemyShot,
+	ShmupCollision.Category_EnemyCover,
 	ShmupCollision.Category_EnemyBounds
 }
 
-local ShmupPlayer = class()
+local ShmupPlayer = class(require("Script"))
 function ShmupPlayer:_init(object)
 	self.object = object
 	self.id = object.id
@@ -49,11 +60,12 @@ function ShmupPlayer:_init(object)
 
 	self.killed = false
 
-	self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
+	local co = self[self.properties.coroutine] or ShmupPlayer.spawnCoroutine
+	self.coroutine = coroutine.create(co)
 
 	self.shieldtimer = 0
 
-	self.exiting = false
+	self.exitphase = nil
 	self.exittimer = 0
 
 	local nextmapdata = levity.nextmapdata or {}
@@ -90,7 +102,7 @@ ShmupPlayer.Button_Fire = 1
 ShmupPlayer.Button_Focus = 2
 ShmupPlayer.Button_Bomb = 3
 ShmupPlayer.TutorialExitWaitTime = 2
-ShmupPlayer.ExitWaitTime = 8
+ShmupPlayer.ExitWaitTime = 3
 ShmupPlayer.ExitSpeed = ShmupPlayer.Speed * 2
 
 function ShmupPlayer:playSound(soundfile)
@@ -112,7 +124,7 @@ function ShmupPlayer:isFiring()
 		return false
 	end
 
-	return not self.killed and not self.exiting
+	return not self.killed and not self.exitphase
 		and not self.bombbutton
 		and (self.firebutton or self.focusbutton)
 		and not self.stuntimer
@@ -120,7 +132,7 @@ function ShmupPlayer:isFiring()
 end
 
 function ShmupPlayer:isFocused()
-	return not self.killed and not self.exiting and self.focusbutton
+	return not self.killed and not self.exitphase and self.focusbutton
 end
 
 function ShmupPlayer:isKilled()
@@ -225,7 +237,7 @@ function ShmupPlayer:buttonchanged(button, pressed)
 		self.firetimer = ShmupPlayer.BulletInterval
 	elseif button == ShmupPlayer.Button_Bomb and pressed
 	and not self.coroutine and not levity.map.paused
-	and levity.scripts:call("status", "hasBombs") ~= false then
+	and self:call("status", "hasBombs") ~= false then
 		self.bombbutton = true
 	end
 end
@@ -287,12 +299,20 @@ function ShmupPlayer:mousereleased(x, y, button)
 	self:buttonchanged(button, false)
 end
 
+local MouseMoveCap = 120
 function ShmupPlayer:mousemoved(x, y, dx, dy)
-	if not levity.map.paused then
+	if not levity.map.paused and not self.coroutine then
 		local scale = levity.camera.scale
-		self.inputx = self.inputx + (dx / scale)
-		self.inputy = self.inputy + (dy / scale)
-		self.didmousemove = true
+		dx = (dx / scale)
+		dy = (dy / scale)
+		if math.abs(dx) <= MouseMoveCap then
+			self.inputx = self.inputx + dx
+			self.didmousemove = true
+		end
+		if math.abs(dy) <= MouseMoveCap then
+			self.inputy = self.inputy + dy
+			self.didmousemove = true
+		end
 	end
 end
 
@@ -346,14 +366,18 @@ function ShmupPlayer:deathCoroutine(dt)
 
 	self.killed = true
 	self.object.visible = false
-	self.poweredup = false
+
+	local istutorial = self:call(levity.mapfile, "isTutorial")
+	if not istutorial then
+		self.poweredup = false
+	end
 
 	-- capturing not allowed while player killed
 	local fixtures = self.object.body:getUserData().fixtures
 	local bodyfixture = fixtures["body"]
-	bodyfixture:setMask(NonPlayMask)
+	bodyfixture:setMask(DeadMask)
 
-	levity.scripts:broadcast("playerKilled")
+	self:broadcast("playerKilled")
 
 	self:playSound(self.properties.deathsound)
 	self:playSound(self.properties.screamsound)
@@ -366,17 +390,17 @@ function ShmupPlayer:deathCoroutine(dt)
 		self.object.body:setLinearVelocity(camvx, camvy)
 
 		local cx, cy = self.object.body:getWorldCenter()
-		levity.scripts:send("deathparticles", "emit",
+		self:send("deathparticles", "emit",
 			4, cx, cy, 2*math.pi*love.math.random())
 
 		t = t + dt
 		self, dt = coroutine.yield()
 	end
 
-	if levity.scripts:call("status", "getNumLives") ~= 0 then
+	if self:call("status", "getNumLives") ~= 0 then
 		self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
 	else
-		levity.scripts:broadcast("playerLost")
+		self:broadcast("playerLost")
 		self.object.body:setLinearVelocity(0, 0)
 		while true do
 			coroutine.yield()
@@ -420,6 +444,9 @@ function ShmupPlayer:recenterCoroutine(dt)
 		vx, vy = self:getRecenterVelocity(dt)
 		self.object.body:setLinearVelocity(vx, vy)
 		_, dt = coroutine.yield()
+		if vx == 0 and vy == 0 then
+			self.object.body:setPosition(self:getSpawnPosition())
+		end
 	until vx == 0 and vy == 0 and not self.stuntimer
 end
 
@@ -436,11 +463,98 @@ function ShmupPlayer:spawnCoroutine(dt)
 
 	if self.killed then
 		self.killed = false
-		levity.scripts:broadcast("playerRespawned")
+		self:broadcast("playerRespawned")
 		self:playSound(self.properties.respawnsound)
 		self.object.visible = true
 		self.object:setGid(
 			levity.map:getTileGid(self.object.tile.tileset, "forward"))
+	end
+end
+
+function ShmupPlayer:startDialogue(dialoguetriggerid)
+	if not self.coroutine then
+		self.dialoguetriggerid = dialoguetriggerid
+		self.coroutine = coroutine.create(ShmupPlayer.dialogueCoroutine)
+	else
+		self.pendingdialoguetriggerid = dialoguetriggerid
+	end
+end
+
+function ShmupPlayer:isInDialogue()
+	return self.exitphase == "dialogue"
+end
+
+function ShmupPlayer:skipDialogue()
+	self.skipdialogue = true
+end
+
+function ShmupPlayer:skipDialogueObjects(objects)
+	for i = #objects, 1, -1 do
+		local object = objects[i]
+		if object.type == "Polygon" or object.text then
+			object.visible = false
+		end
+	end
+end
+
+function ShmupPlayer:dialogueCoroutine(dt)
+	self:broadcast("allItemsPulled")
+	self.exitphase = "dialogue"
+	local fixtures = self.object.body:getUserData().fixtures
+	local bodyfixture = fixtures["body"]
+	if bodyfixture then
+		bodyfixture:setMask(NonPlayMask)
+	end
+	self:broadcast("dialogueStarted")
+	self:recenterCoroutine(dt)
+	local trigger = levity.map.objects[self.dialoguetriggerid]
+	local dialoguenexttriggerid = trigger and trigger.properties.dialoguenexttriggerid
+	local waittriggerid = trigger and trigger.properties.waittriggerid
+	local nexttrigger
+	local islastdialogue = true
+	if trigger.properties.timelinespeed == 0 then
+		nexttrigger = levity.map.objects[dialoguenexttriggerid]
+		islastdialogue = not nexttrigger or not nexttrigger.properties.dialogue
+		if self.skipdialogue then
+			if not islastdialogue then
+				self:skipDialogueObjects(nexttrigger.layer.objects)
+			end
+		else
+			self:send("status", "setPrompt", "continueprompt", not islastdialogue)
+			self:send("status", "setPrompt", "battleprompt", islastdialogue)
+			self.firebutton = false
+		end
+		while not self.firebutton and not self.skipdialogue do
+			coroutine.yield()
+		end
+		self:send(trigger.id, "deactivate")
+		if islastdialogue or self.skipdialogue then
+			self:send("status", "setPrompt", "continueprompt", false)
+			self:send("status", "setPrompt", "battleprompt", false)
+		end
+		self:send(dialoguenexttriggerid, "activate")
+	elseif waittriggerid then
+		nexttrigger = levity.map.objects[waittriggerid]
+		islastdialogue = not nexttrigger or not nexttrigger.properties.dialogue
+		if self.skipdialogue then
+			if not islastdialogue then
+				self:skipDialogueObjects(nexttrigger.layer.objects)
+			end
+		end
+		while self:call(trigger.id, "isWaitingToTrigger") do
+			coroutine.yield()
+		end
+	end
+
+	if islastdialogue then
+		self.skipdialogue = nil
+		self.exitphase = nil
+		self.dialoguetriggerid = nil
+		if bodyfixture then
+			bodyfixture:setMask(PlayMask)
+		end
+		self.shieldtimer = ShmupPlayer.RespawnShieldTime
+		self:broadcast("dialogueFinished")
 	end
 end
 
@@ -450,28 +564,44 @@ function ShmupPlayer:startEntrance(entranceid)
 		self.entranceid = entranceid
 		self.object:setLayer(entrance.layer)
 	end
-	self.coroutine = coroutine.create(ShmupPlayer.exitCoroutine)
+	self.coroutine = coroutine.create(ShmupPlayer.exitRecenterCoroutine)
 end
 
-function ShmupPlayer:exitCoroutine(dt)
+function ShmupPlayer:isExiting()
+	return self.exitphase == "exit", self.entranceid
+end
+
+function ShmupPlayer:waitCoroutine()
+	self.exitphase = "waiting"
+	while true do
+		coroutine.yield()
+	end
+end
+
+function ShmupPlayer:startExit()
+	self.won = true
+	self.coroutine = coroutine.create(self.exitCoroutine)
+end
+
+function ShmupPlayer:exitRecenterCoroutine(dt)
 	self.killed = false
 	self.object.visible = true
-	self.exiting = true
+	self.exitphase = "recenter"
 
 	local fixtures = self.object.body:getUserData().fixtures
 	local bodyfixture = fixtures["body"]
 	if bodyfixture then
-		bodyfixture:setMask(WinMask)
+		bodyfixture:setMask(NonPlayMask)
 	end
 
-	levity.scripts:broadcast("playerEntering", self.entranceid)
+	self:broadcast("playerEntering", self.entranceid)
 
 	self:recenterCoroutine(dt)
 
-	local istutorial = levity.scripts:call(levity.map.name, "isTutorial")
+	local istutorial = self:call(levity.map.name, "isTutorial")
 	local exitwaittime
 	if self.won and not istutorial then
-		levity.scripts:broadcast("startWinBonus")
+		self:broadcast("startWinBonus")
 		exitwaittime = ShmupPlayer.ExitWaitTime
 	else
 		exitwaittime = ShmupPlayer.TutorialExitWaitTime
@@ -483,13 +613,18 @@ function ShmupPlayer:exitCoroutine(dt)
 		t = t+dt
 	until t >= exitwaittime
 
+	self.coroutine = coroutine.create(ShmupPlayer.exitCoroutine)
+end
+
+function ShmupPlayer:exitCoroutine(dt)
 	if self.won then
 		self:playSound(self.properties.exitsound)
 	end
 
 	self.object.body:setLinearVelocity(0, -ShmupPlayer.ExitSpeed)
+	self.exitphase = "exit"
 
-	t = 0
+	local t = 0
 	repeat
 		self, dt = coroutine.yield()
 		t = t+dt
@@ -498,7 +633,7 @@ function ShmupPlayer:exitCoroutine(dt)
 		self.object.body:setLinearVelocity(0, 0)
 	end
 
-	levity.scripts:send("curtain", "beginClose")
+	self:send("curtain", "beginClose")
 
 	t = 0
 	repeat
@@ -511,15 +646,16 @@ function ShmupPlayer:exitCoroutine(dt)
 		if not nextmap or not love.filesystem.exists(nextmap) then
 			nextmap = "earlyend.lua"
 		end
-		levity:setNextMap(nextmap, { playerwon = true })
+		levity:setNextMap(nextmap, { playerwon = self.won })
 	else
+		self:broadcast("allBulletsCleared")
 		self:moveToAndActivate(self.entrancedestid)
 		self.object:setLayer(levity.map.layers["playerteam"])
-		self.exiting = false
+		self.exitphase = false
 		self.entranceid = nil
 		self.entrancedestid = nil
 
-		levity.scripts:send("curtain", "beginOpen")
+		self:send("curtain", "beginOpen")
 		self.coroutine = coroutine.create(ShmupPlayer.spawnCoroutine)
 	end
 end
@@ -532,7 +668,7 @@ function ShmupPlayer:moveToAndActivate(triggerid)
 		camera.body:setPosition(trigger.x, trigger.y)
 		self.object.body:setPosition(trigger.x + trigger.width/2,
 			trigger.y + trigger.height + self.object.height/2)
-		levity.scripts:send(triggerid, "activate")
+		self:send(triggerid, "activate")
 	end
 end
 
@@ -549,6 +685,12 @@ function ShmupPlayer:beginMove(dt)
 			self.ride:updateRidersVelocity(dt, vx, vy)
 			return
 		end
+	end
+
+	if self.pendingdialoguetriggerid then
+		self:startDialogue(self.pendingdialoguetriggerid)
+		self.pendingdialoguetriggerid = nil
+		return
 	end
 
 	local body = self.object.body
@@ -584,7 +726,7 @@ function ShmupPlayer:beginMove(dt)
 		vy = vy * speed
 	end
 
-	local camvx, camvy = levity.scripts:call(cameraid, "getVelocity")
+	local camvx, camvy = self:call(cameraid, "getVelocity")
 	if camvy then
 		vy = vy + camvy
 	end
@@ -624,16 +766,16 @@ function ShmupPlayer:checkFriendlyFire()
 	local y1, y2 = cy, cy - checkFriendlyFire_height
 	local id1 = Targeting.queryRay("canTakeDamage", lx, y1, lx, y2)
 	local id2 = Targeting.queryRay("canTakeDamage", rx, y1, rx, y2)
-	return levity.scripts:call(id1, "isHypnotized")
-		or levity.scripts:call(id2, "isHypnotized")
+	return self:call(id1, "isHypnotized")
+		or self:call(id2, "isHypnotized")
 end
 
 function ShmupPlayer:endMove(dt)
 	self.friendinfront = IsMobile and self:checkFriendlyFire()
 
-	local scoreid = levity.scripts:call("status", "getScoreId")
+	local scoreid = self:call("status", "getScoreId")
 	if scoreid and not self.poweredup and not self.killed then
-		self.poweredup = levity.scripts:call(scoreid, "isMaxMultiplier",
+		self.poweredup = self:call(scoreid, "isMaxMultiplier",
 							self.id)
 		if self.poweredup then
 			levity.bank:play(self.properties.maxedsound)
@@ -648,16 +790,13 @@ function ShmupPlayer:endMove(dt)
 	end
 	if camera then
 		local cx, cy = self.object.body:getWorldCenter()
-		levity.scripts:call(cameraid, "swayWithPlayer", cx)
+		self:call(cameraid, "swayWithPlayer", cx)
 	end
 
 	if not self.hitbox then
-		self.hitbox = {
-			gid = levity.map:getTileGid("playerhitbox", 0, 0)
-		}
+		self.hitbox = levity.map:newObject(self.object.layer)
+		self.hitbox.gid = levity.map:getTileGid("playerhitbox", 0, 0)
 		self.hitbox.x, self.hitbox.y = self.object.body:getWorldCenter()
-
-		self.object.layer:addObject(self.hitbox)
 	end
 	self.hitbox.visible = self:isFocused()
 	if self.hitbox.body then
@@ -753,12 +892,12 @@ function ShmupPlayer:loopedAnimation()
 
 	if animname == "bombready" then
 		local x, y = self.object.body:getWorldCenter()
-		levity.scripts:send("launchbombparticles", "emit",
+		self:send("launchbombparticles", "emit",
 			4, x, y, -math.pi/2)
 	elseif animname == "bomblaunch" then
 		local x, y = self.object.body:getWorldCenter()
 		ShmupBullet.create("BulletPlayerBomb", x, y, 0, 0, "playershots", true)
-		levity.scripts:broadcast("playerBombed")
+		self:broadcast("playerBombed")
 		self.bombbutton = false
 	end
 
@@ -777,6 +916,11 @@ function ShmupPlayer:beginPlayerWin()
 end
 
 function ShmupPlayer:playerWon()
+	local fixtures = self.object.body:getUserData().fixtures
+	local bodyfixture = fixtures["body"]
+	if bodyfixture then
+		bodyfixture:setMask(NonPlayMask)
+	end
 	self.won = true
 	local exitid = levity.map.properties.exitid
 	self:startEntrance(exitid)

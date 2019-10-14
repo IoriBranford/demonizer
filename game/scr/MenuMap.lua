@@ -1,7 +1,7 @@
 local levity = require "levity"
 local UIMenu = require "UIMenu"
 
-local MenuMap = class()
+local MenuMap = class(require("Script"))
 
 local function getOSSpecificMenu(menuname)
 	local i, j = menuname:find("_pc")
@@ -75,7 +75,7 @@ function MenuMap:doChangeMenu(nextmenu)
 	end
 	nextmenu.visible = true
 	self.currentmenuid = nextmenu.name
-	levity.scripts:send(self.currentmenuid, "initCursor")
+	self:send(self.currentmenuid, "initCursor")
 	self.nextmenu = nil
 end
 
@@ -95,19 +95,22 @@ end
 function MenuMap:endMove(dt)
 	self:doChangeMenu(self.nextmenu)
 
-	if levity.scripts:call("curtain", "finishedClosing") then
+	if self:call("curtain", "finishedClosing") then
 		levity:setNextMap(self.properties.nextmap)
 	end
 end
 
 function MenuMap:startGame(firstmap)
-	if levity.scripts:call("curtain", "isClosing") then
+	if self:call("curtain", "isClosing") then
 		return
 	end
 	self.properties.nextmap = firstmap
-	levity.scripts:send("curtain", "beginClose")
+	levity.bank:play(self.properties.startgamesound)
 	if levity.bank.currentmusic then
+		self:send("curtain", "beginClose")
 		levity.bank.currentmusic:fade()
+	else
+		self:send("curtain", "beginClose", 1.5)
 	end
 end
 

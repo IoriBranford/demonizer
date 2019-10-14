@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local PathGraphTester = class()
+local PathGraphTester = class(require("Script"))
 function PathGraphTester:_init(object)
 	self.object = object
 	self.walker = nil
@@ -14,7 +14,8 @@ function PathGraphTester.pickNextPath(graphid, paths, prevx, prevy, self)
 	for i = 1, #paths do
 		local path = paths[i]
 		if path.destx ~= prevx or path.desty ~= prevy then
-			self.speed = 60 / path.cost
+			local cost = path.properties.cost or 1
+			self.speed = 60 / cost
 			return path
 		end
 	end
@@ -24,7 +25,7 @@ function PathGraphTester:beginMove(dt)
 	local x, y = self.object.body:getPosition()
 
 	if not self.walker then
-		self.walker = levity.scripts:call(
+		self.walker = self:call(
 			self.object.properties.pathgraphid, "newWalker",
 			PathGraphTester.pickNextPath, x, y, "absolute", self)
 	end

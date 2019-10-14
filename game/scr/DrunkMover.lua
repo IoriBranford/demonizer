@@ -8,7 +8,7 @@ function DrunkMover:_init(object)
 end
 
 function DrunkMover:beginMove(dt)
-	local bac = levity.scripts:call(self.id, "getBAC") or 0
+	local bac = self:call(self.id, "getBAC") or 0
 	self.time = self.time + dt
 	local cost = math.cos(self.time*math.pi)
 	local sint = math.sin(self.time*math.pi)

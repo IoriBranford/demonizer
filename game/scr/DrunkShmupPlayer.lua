@@ -96,7 +96,7 @@ function DrunkShmupPlayer:buttonchanged(button, pressed)
 end
 
 function DrunkShmupPlayer:bombCoroutine(dt)
-	levity.scripts:broadcast("playerBombed")
+	self:broadcast("playerBombed")
 	local bombtime = self.bacbase
 	self.bacbase = 0
 	levity.bank:play(self.properties.bombersound)

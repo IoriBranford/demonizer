@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.1" name="humanshots" tilewidth="32" tileheight="16" tilecount="52" columns="4">
+<tileset version="1.2" tiledversion="1.2.4" name="humanshots" tilewidth="32" tileheight="16" tilecount="56" columns="4">
  <tileoffset x="-24" y="8"/>
  <properties>
   <property name="commoncollision" type="int" value="0"/>
  </properties>
- <image source="humanshots.png" width="128" height="208"/>
+ <image source="humanshots.png" width="128" height="224"/>
  <tile id="0">
   <properties>
    <property name="name" value="pike"/>
   </properties>
   <objectgroup draworder="index">
-   <object id="1" x="23" y="7" width="2" height="2">
+   <object id="1" x="23.5" y="7.5" width="1" height="1">
     <properties>
      <property name="collidable" type="bool" value="true"/>
     </properties>
@@ -158,5 +158,19 @@
    <frame tileid="50" duration="67"/>
    <frame tileid="51" duration="67"/>
   </animation>
+ </tile>
+ <tile id="52">
+  <properties>
+   <property name="name" value="kunai"/>
+  </properties>
+  <objectgroup draworder="index">
+   <object id="1" x="16" y="0" width="16" height="16">
+    <properties>
+     <property name="collidable" type="bool" value="true"/>
+     <property name="sensor" type="bool" value="true"/>
+    </properties>
+    <ellipse/>
+   </object>
+  </objectgroup>
  </tile>
 </tileset>

@@ -1,20 +1,31 @@
 local levity = require "levity"
 local UIButton = require "UIButton"
 
+local MaxValueStrings = 16
+
 local UIOption = class(UIButton)
 function UIOption:_init(object)
 	self:super(object)
 	self.properties.fillwidth = object.width
+	local valuestrings
+	for i = 1, MaxValueStrings do
+		local valuestr = self.properties["valuestr"..i]
+		if not valuestr then
+			break
+		end
+		valuestrings = valuestrings or {}
+		valuestrings[i] = valuestr
+	end
+	self.valuestrings = valuestrings
 end
 
 function UIOption:initQuery()
-	self:prefsReset()
+	self:refreshValue()
 end
 
-function UIOption:prefsReset()
-	--local menuid = self.object.layer.name
-	self:updateValue(levity.prefs[self.object.name])
-	--levity.scripts:call(menuid, "getPref", self.object.name))
+function UIOption:set(value)
+	levity.prefs.set(self.object.name, value)
+	self:broadcast("refreshValue")
 end
 
 function UIOption:change(dir)
@@ -39,43 +50,44 @@ function UIOption:change(dir)
 		end
 	elseif valuetype == "boolean" then
 		value = not value
+	elseif valuetype == "string" then
+		local newvalue
+		for i = 1, #self.valuestrings do
+			if value == self.valuestrings[i] then
+				local j = i + dir
+				if j > #self.valuestrings then
+					j = 1
+				elseif j < 1 then
+					j = #self.valuestrings
+				end
+				newvalue = self.valuestrings[j]
+				break
+			end
+		end
+		if not newvalue then
+			local valuestrdefault = self.properties.valuestrdefault or 1
+			newvalue = self.valuestrings[valuestrdefault]
+		end
+		value = newvalue or value
 	end
-	self:updateValue(value)
+	self:set(value)
 	self:playChangeSound()
 end
 
-function UIOption:updateValue(value)
+function UIOption:refreshValue()
+	local value = levity.prefs[self.object.name]
 	local valuetype = type(value)
-	local textformat = self.properties.textformat or self.object.name.."\t%s"
-	local text
 	if valuetype == "number" then
 		local min = self.properties.min
 		local max = self.properties.max
 		value = math.max(min, math.min(value, max))
 		local percent = (value - min) / (max - min)
 		self.properties.fillwidth = self.object.width * percent
-		local inputtype = self.properties.inputtype
-		if inputtype == "axis" then
-			value = "axis"..value
-		elseif inputtype == "button" then
-			value = "button"..value
-		elseif inputtype == "hat" then
-			value = "hat"..value
-		end
-		text = textformat and textformat:format(
-			self.properties.units == "percent" and value*100 or value)
 	elseif valuetype == "boolean" then
 		self.properties.fillwidth = value and self.object.width or 0
-		text = textformat and textformat:format(value and "on" or "off")
-	else
-		text = textformat and textformat:format(value)
 	end
-	if text then
-		self.object.text = text
-	end
-
-	levity.prefs.set(self.object.name, value)
 end
+UIOption.prefsReset = UIOption.refreshValue
 
 function UIOption:playChangeSound()
 	local changesound = self.properties.changesound
@@ -89,9 +101,7 @@ function UIOption:increment()
 end
 
 function UIOption:bindInput()
-	local textformat = self.properties.textformat or self.object.name.."\t%s"
-	self.object.text = textformat and textformat:format("???")
-	levity.scripts:send(self.object.layer.name, "startBindingInput",
+	self:send(self.object.layer.name, "startBindingInput",
 		self.object.id, self.properties.inputtype)
 end
 

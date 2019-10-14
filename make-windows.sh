@@ -10,11 +10,9 @@ GAME_DIR=${GAME_DIR:="${PROJECT_TITLE}"}
 
 ARCH_BITS=${ARCH_BITS:=64}
 if [ ${ARCH_BITS} = 64 ]; then
-	ARCH=x86_64
-	EH_SYSTEM=seh
+	ARCH=x64
 else
-	ARCH=i686
-	EH_SYSTEM=dw2
+	ARCH=x86
 fi
 
 if [ ! -f ${GAME_ASSET} ]
@@ -26,6 +24,11 @@ LOVE_DIR=love-${LOVE_VERSION}-win${ARCH_BITS}
 LOVE_ZIP=${LOVE_DIR}.zip
 LOVE_URL=https://bitbucket.org/rude/love/downloads/${LOVE_ZIP}
 
+GME_VERSION=0.6.2
+GME_MSVC=msvc12
+GME_ZIP=libgme_${GME_VERSION}_${GME_MSVC}.zip
+GME_URL=https://github.com/ShiftMediaProject/game-music-emu/releases/download/${GME_VERSION}/${GME_ZIP}
+
 RESHACK_ZIP=resource_hacker.zip
 RESHACK_URL=http://www.angusj.com/resourcehacker/${RESHACK_ZIP}
 
@@ -35,9 +38,10 @@ getZip () {
 	if [ ! -f ${ZIP} ]
 	then wget -N ${URL}
 	fi
-	unzip ${ZIP} -d .
+	unzip -o ${ZIP} -d .
 }
 getZip ${LOVE_ZIP} ${LOVE_URL}
+getZip ${GME_ZIP} ${GME_URL}
 getZip ${RESHACK_ZIP} ${RESHACK_URL}
 
 cat ${LOVE_DIR}/love.exe ${GAME_ASSET} > ${LOVE_DIR}/${PROJECT}.exe
@@ -50,23 +54,7 @@ resHack () {
 resHack -action delete -mask ICONGROUP,,
 resHack -action add -res appicon.ico -mask ICONGROUP,MAINICON,
 
-getMSYS2dll () {
-	PKG_TAR_XZ=mingw-w64-$ARCH-$1-any.pkg.tar.xz
-	PKG_URL=https://downloads.sourceforge.net/project/msys2/REPOS/MINGW/$ARCH/${PKG_TAR_XZ}
-	if [ ! -f ${PKG_TAR_XZ} ]
-	then wget -N ${PKG_URL}
-	fi
-	tar -Jxf ${PKG_TAR_XZ} mingw${ARCH_BITS}/bin
-}
-
-getMSYS2dll gcc-libs-7.3.0-2
-mv mingw${ARCH_BITS}/bin/libgcc_s_${EH_SYSTEM}-1.dll ${LOVE_DIR}
-mv mingw${ARCH_BITS}/bin/libstdc++-6.dll ${LOVE_DIR}
-getMSYS2dll libwinpthread-git-6.0.0.5134.2416de71-1
-mv mingw${ARCH_BITS}/bin/libwinpthread-1.dll ${LOVE_DIR}
-
-getMSYS2dll libgme-0.6.2-1
-mv mingw${ARCH_BITS}/bin/libgme.dll ${LOVE_DIR}
+mv bin/${ARCH}/gme.dll ${LOVE_DIR}
 
 cp README.md ${LOVE_DIR}
 

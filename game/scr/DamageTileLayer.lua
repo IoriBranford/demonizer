@@ -1,7 +1,7 @@
 local levity = require "levity"
 local math_floor = math.floor
 
-local DamageTileLayer = class()
+local DamageTileLayer = class(require("Script"))
 function DamageTileLayer:_init(layer)
 	assert(layer.type == "tilelayer")
 	self.layer = layer

@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local Emote = class()
+local Emote = class(require("Script"))
 function Emote:_init(object)
 	self.id = object.id
 	self.object = object
@@ -31,11 +31,8 @@ function Emote:forceEmote(tileset, tileid)
 	local emote = emoteid and levity:getObject(emoteid)
 	if not emote then
 		if gid then
-			emote = {
-				id = levity.map:newObjectId(),
-				gid = gid
-			}
-			self.object.layer:addObject(emote)
+			emote = levity.map:newObject(self.object.layer)
+			emote.gid = gid
 			self.emoteid = emote.id
 		end
 	else

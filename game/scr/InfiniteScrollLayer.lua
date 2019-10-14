@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local InfiniteScrollLayer = class()
+local InfiniteScrollLayer = class(require("Script"))
 
 function InfiniteScrollLayer:_init(layer)
 	assert(layer.type == "tilelayer")
@@ -15,7 +15,7 @@ function InfiniteScrollLayer:_init(layer)
 	self.width = cols * levity.map.tilewidth
 	self.height = rows * levity.map.tileheight
 
-	self:setScrolling(nil)
+	self:setScrolling(self.properties.scrolling)
 end
 
 ---
@@ -46,7 +46,7 @@ function InfiniteScrollLayer:endMove(dt)
 		x = x + (vx or 0)*dt
 		y = y + (vy or 0)*dt
 		if y >= self.height and self.scroll == false then
-			levity.scripts:send(self.stoptriggerid, "applyCameraSpeed")
+			self:send(self.stoptriggerid, "applyCameraSpeed")
 			self:setScrolling(nil)
 			x = 0
 			y = 0

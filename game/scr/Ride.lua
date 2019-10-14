@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local Ride = class()
+local Ride = class(require("Script"))
 function Ride:_init(object)
 	self.object = object
 	self.id = object.id
@@ -57,7 +57,7 @@ function Ride:updateRiderVelocity(dt, newvx, newvy, rider)
 		seatx, seaty = levity.map:getTileShapePosition(tilegid, seat)
 		seatx, seaty = self.body:getWorldPoint(seatx, seaty)
 	elseif seatorbit then
-		seatx, seaty = levity.scripts:call(rider.id, "getOrbitUnitVector")
+		seatx, seaty = self:call(rider.id, "getOrbitUnitVector")
 
 		local radius = rider.properties.rideorbitradius or 64
 		local radsq = radius*radius
@@ -80,13 +80,16 @@ function Ride:updateRiderVelocity(dt, newvx, newvy, rider)
 		ridervy = ridervy + ((seaty - ridery) / dt)
 	end
 	rider.body:setLinearVelocity(ridervx, ridervy)
-	levity.scripts:send(rider.id, "updateRidersVelocity", dt, ridervx, ridervy)
+	self:send(rider.id, "updateRidersVelocity", dt, ridervx, ridervy)
 end
 
 function Ride:getRideSeat(seatname, dt)
 	local tile = self.object.tile
 	local tileset = tile and levity.map.tilesets[tile.tileset]
-	local gid = tileset.firstgid
+	local gid = tileset and tileset.firstgid
+	if not gid then
+		return
+	end
 	if dt then
 		local nextframetile = tile and self.object:getAnimationUpdate(dt)
 		gid = gid + nextframetile
@@ -109,10 +112,10 @@ function Ride:addRider(riderid)
 	self.riderids[riderid] = riderid
 	local rider = levity.map.objects[riderid]
 	if rider.properties.rideseat == "orbit" then
-		levity.scripts:send(riderid, "initOrbit", self.id)
+		self:send(riderid, "initOrbit", self.id)
 	end
 	if self.properties.ridersdps then
-		levity.scripts:send(riderid, "addDPS", self.properties.ridersdps)
+		self:send(riderid, "addDPS", self.id, self.properties.ridersdps)
 	end
 end
 
@@ -130,11 +133,11 @@ function Ride:removeRider(riderid)
 	end
 
 	if self.properties.ridersdps then
-		levity.scripts:send(riderid, "addDPS", -self.properties.ridersdps)
+		self:send(riderid, "removeDPS", self.id)
 	end
 
 	if not self:hasRiders() then
-		levity.scripts:send(self.id, "allRidersDestroyed")
+		self:send(self.id, "allRidersDestroyed")
 	end
 end
 

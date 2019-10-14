@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="48" height="64" tilewidth="5" tileheight="5" infinite="0" nextlayerid="9" nextobjectid="43">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="10" tileheight="10" infinite="0" nextlayerid="11" nextobjectid="49">
  <properties>
-  <property name="prevmap" type="file" value="title.lua"/>
+  <property name="music" type="file" value="mus/submenu.vgm"/>
+  <property name="prevmap" type="file" value="mainmenu.lua"/>
   <property name="script" value="MenuMap"/>
  </properties>
  <tileset firstgid="1" source="img/bg_swirl.tsx"/>
- <layer id="1" name="Tile Layer 1" width="48" height="64">
+ <layer id="9" name="Tile Layer 1" width="24" height="32">
+  <properties>
+   <property name="script" value="InfiniteScrollLayer"/>
+   <property name="scrolling" type="bool" value="true"/>
+   <property name="scrollvelx" type="float" value="60"/>
+   <property name="scrollvely" type="float" value="60"/>
+   <property name="tilewrap" type="bool" value="true"/>
+  </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1VVWQgEARdH3REUMxMLCArtFsRUTExMLW5z/GDyjcN3Fuh/77/yfMAiCGkRQizrUI4oGxNCIULRrQjNaEEcrEmhDOzrQKdx1IYlu9KAXfehHCgMYFO6GMIwRpJHBKMYwjglMCndTmMYMZjGHeSxgEUvICnfLWEEOq1jDOjawiS1sC3c72EUee9jHAQ5xhGMUhLsTnOIM57jAJYq4wjVuhLtb3OEeJTzgEU94xgvKwt0r3vCOD3ziC9/4QQW/wp3qV/1f/9f/9X/9X//X/9XtVL/q//q//q//6//6v/6vbqf6Vf/X//V//V//1//1f3U71a/6v/7vf3SqX/V//V//1//1f/1f/1e3U/2q/+v/+r/V/98/LZpFnw==
+   eJzt0TcSgEAQA8HDew5v/v9RJl7CLYikqk6UTgj/LEGKDDkK52dXokKNBq3zs+vQY8CI6PzsJsxYsGJzfnY7Dpy4cDs/O/VVX/VVX/VVX/V9T33V19P3qz1GYh55
   </data>
  </layer>
  <objectgroup id="2" name="Object Layer 3" visible="0">
@@ -17,121 +25,122 @@
   <properties>
    <property name="script" value="MenuPrefs"/>
   </properties>
-  <object id="2" name="cancel" type="UIButton" x="30" y="264" width="180" height="16" visible="0">
+  <object id="2" name="cancel" type="UIButton" x="30" y="264" width="180" height="20" visible="0">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">cancel</text>
   </object>
-  <object id="1" name="fullscreen" type="UIBoolean" x="30" y="20" width="180" height="15" visible="0">
-   <properties>
-    <property name="textformat" value="fullscreen = %s"/>
-   </properties>
+  <object id="1" name="fullscreen" type="UIBoolean" x="30" y="20" width="180" height="20" visible="0">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">fullscreen</text>
   </object>
-  <object id="3" name="vsync" type="UIBoolean" x="30" y="40" width="180" height="15" visible="0">
-   <properties>
-    <property name="textformat" value="vsync = %s"/>
-   </properties>
+  <object id="3" name="vsync" type="UIBoolean" x="30" y="40" width="180" height="20" visible="0">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">vsync</text>
   </object>
-  <object id="5" name="volume" type="UIOption" x="30" y="140" width="180" height="15">
+  <object id="5" name="volume" type="UIOption" x="20" y="200" width="200" height="20">
    <properties>
     <property name="increment" type="float" value="0.25"/>
     <property name="max" type="float" value="1"/>
-    <property name="textformat" value="Volume %d"/>
     <property name="units" value="percent"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Volume %d</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Volume ${volume}</text>
   </object>
-  <object id="6" name="canvasscale" type="UIOption" x="30" y="100" width="180" height="15">
+  <object id="6" name="canvasscale" type="UIOption" x="20" y="110" width="200" height="20">
    <properties>
     <property name="increment" type="float" value="1"/>
     <property name="max" type="float" value="6"/>
     <property name="min" type="float" value="1"/>
-    <property name="textformat" value="Max pixel scale %d"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Max pixel scale %d</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Max pixel scale ${canvasscale}</text>
   </object>
-  <object id="9" name="rotation" type="UIOption" x="30" y="120" width="180" height="15">
+  <object id="9" name="rotation" type="UIOption" x="20" y="170" width="200" height="20">
    <properties>
     <property name="increment" type="float" value="90"/>
     <property name="max" type="float" value="270"/>
     <property name="min" type="float" value="0"/>
-    <property name="textformat" value="Rotation (cw) %d"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Rotation (cw) %d</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Rotation (cw) ${rotation}</text>
   </object>
-  <object id="7" name="back" type="UIButton" x="30" y="280" width="180" height="15">
+  <object id="7" name="back" type="UIButton" x="20" y="280" width="200" height="20">
    <properties>
     <property name="action" value="goBack"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">Back</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Back</text>
   </object>
-  <object id="8" name="default" type="UIButton" x="30" y="260" width="180" height="15">
+  <object id="8" name="default" type="UIButton" x="20" y="260" width="200" height="20">
    <properties>
     <property name="action" value="resetPrefs"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">Reset defaults</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Reset defaults</text>
   </object>
-  <object id="19" name="controller" type="UIButton" x="30" y="40" width="180" height="15">
+  <object id="19" name="controller" type="UIButton" x="20" y="80" width="200" height="20">
    <properties>
     <property name="action" value="changeMenu"/>
     <property name="nextmenu" value="options_controller"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">Controller</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Controller</text>
   </object>
-  <object id="20" name="keyboard" type="UIButton" x="30" y="60" width="180" height="15">
+  <object id="20" name="keyboard" type="UIButton" x="20" y="60" width="200" height="20">
    <properties>
     <property name="action" value="changeMenu"/>
     <property name="nextmenu" value="options_keyboard"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">Keyboard</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Keyboard</text>
   </object>
-  <object id="32" name="menutitle" x="30" y="20" width="180" height="15">
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">OPTIONS</text>
+  <object id="32" name="menutitle" x="30" y="20" width="180" height="20">
+   <text fontfamily="Lady Radical" wrap="1" color="#ffffff" halign="center" valign="center">OPTIONS</text>
+  </object>
+  <object id="44" name="canvasscaleint" type="UIBoolean" x="20" y="130" width="200" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Integer scale ${canvasscaleint}</text>
+  </object>
+  <object id="45" name="canvasscalesoft" type="UIBoolean" x="20" y="150" width="200" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Soft scale ${canvasscalesoft}</text>
   </object>
  </objectgroup>
  <objectgroup id="4" name="options_mobile" visible="0">
   <properties>
    <property name="script" value="MenuPrefs"/>
   </properties>
-  <object id="35" name="menutitle" x="30" y="20" width="180" height="15">
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">OPTIONS</text>
+  <object id="35" name="menutitle" x="30" y="20" width="180" height="20">
+   <text fontfamily="Lady Radical" wrap="1" color="#ffffff" halign="center" valign="center">OPTIONS</text>
   </object>
-  <object id="36" name="default" type="UIButton" x="30" y="260" width="180" height="15">
+  <object id="36" name="default" type="UIButton" x="20" y="260" width="200" height="20">
    <properties>
     <property name="action" value="resetPrefs"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">Reset defaults</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Reset defaults</text>
   </object>
-  <object id="37" name="back" type="UIButton" x="30" y="280" width="180" height="15">
+  <object id="37" name="back" type="UIButton" x="20" y="280" width="200" height="20">
    <properties>
     <property name="action" value="goBack"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">Back</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Back</text>
   </object>
-  <object id="38" name="canvasscale" type="UIOption" x="30" y="100" width="180" height="15">
+  <object id="38" name="canvasscale" type="UIOption" x="20" y="110" width="200" height="20">
    <properties>
     <property name="increment" type="float" value="1"/>
     <property name="max" type="float" value="6"/>
     <property name="min" type="float" value="1"/>
-    <property name="textformat" value="Max pixel scale %d"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Max pixel scale %d</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Max pixel scale ${canvasscale}</text>
   </object>
-  <object id="39" name="volume" type="UIOption" x="30" y="140" width="180" height="15">
+  <object id="39" name="volume" type="UIOption" x="20" y="200" width="200" height="20">
    <properties>
     <property name="increment" type="float" value="0.25"/>
     <property name="max" type="float" value="1"/>
-    <property name="textformat" value="Volume %d"/>
     <property name="units" value="percent"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Volume %d</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Volume ${volume}</text>
   </object>
-  <object id="42" name="controller" type="UIButton" x="30" y="60" width="180" height="15">
+  <object id="42" name="controller" type="UIButton" x="20" y="80" width="200" height="20">
    <properties>
     <property name="action" value="changeMenu"/>
     <property name="nextmenu" value="options_controller"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">Controller</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Controller</text>
+  </object>
+  <object id="46" name="canvasscaleint" type="UIBoolean" x="20" y="130" width="200" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Integer scale ${canvasscaleint}</text>
+  </object>
+  <object id="47" name="canvasscalesoft" type="UIBoolean" x="20" y="150" width="200" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Soft scale ${canvasscalesoft}</text>
   </object>
  </objectgroup>
  <objectgroup id="5" name="options_keyboard" visible="0">
@@ -139,68 +148,41 @@
    <property name="prevmenu" value="options_pc"/>
    <property name="script" value="UIMenu"/>
   </properties>
-  <object id="10" name="key_left" type="UIInputBind" x="30" y="40" width="180" height="15">
-   <properties>
-    <property name="textformat" value="Left = %s"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Left = %s</text>
+  <object id="10" name="key_left" type="UIInputBind" x="20" y="60" width="200" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Left = ${key_left}</text>
   </object>
-  <object id="11" name="key_right" type="UIInputBind" x="30" y="60" width="180" height="15">
-   <properties>
-    <property name="textformat" value="Right = %s"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Right = %s</text>
+  <object id="11" name="key_right" type="UIInputBind" x="20" y="80" width="200" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Right = ${key_right}</text>
   </object>
-  <object id="12" name="key_up" type="UIInputBind" x="30" y="80" width="180" height="15">
-   <properties>
-    <property name="textformat" value="Up = %s"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Up = %s</text>
+  <object id="12" name="key_up" type="UIInputBind" x="20" y="100" width="200" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Up = ${key_up}</text>
   </object>
-  <object id="13" name="key_down" type="UIInputBind" x="30" y="100" width="180" height="15">
-   <properties>
-    <property name="textformat" value="Down = %s"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Down = %s</text>
+  <object id="13" name="key_down" type="UIInputBind" x="20" y="120" width="200" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Down = ${key_down}</text>
   </object>
-  <object id="14" name="key_fire" type="UIInputBind" x="30" y="120" width="180" height="15">
-   <properties>
-    <property name="textformat" value="Fire = %s"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Fire = %s</text>
+  <object id="14" name="key_fire" type="UIInputBind" x="20" y="140" width="200" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Fire = ${key_fire}</text>
   </object>
-  <object id="15" name="key_focus" type="UIInputBind" x="30" y="140" width="180" height="15">
-   <properties>
-    <property name="textformat" value="Alt Fire = %s"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Alt Fire = %s</text>
+  <object id="15" name="key_focus" type="UIInputBind" x="20" y="160" width="200" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Alt Fire = ${key_focus}</text>
   </object>
-  <object id="16" name="key_bomb" type="UIInputBind" x="30" y="160" width="180" height="15">
-   <properties>
-    <property name="textformat" value="Bomb = %s"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Bomb = %s</text>
+  <object id="16" name="key_bomb" type="UIInputBind" x="20" y="180" width="200" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Bomb = ${key_bomb}</text>
   </object>
-  <object id="17" name="key_pausemenu" x="30" y="180" width="180" height="15">
-   <properties>
-    <property name="textformat" value="Pause = %s"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Pause = escape</text>
+  <object id="17" name="key_pausemenu" x="20" y="200" width="200" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Pause = ${key_pausemenu}</text>
   </object>
   <object id="21" name="key_pause" type="UIInputBind" x="30" y="180" width="180" height="15" visible="0">
-   <properties>
-    <property name="textformat" value="pause = %s"/>
-   </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">pause</text>
   </object>
-  <object id="18" name="back" type="UIButton" x="30" y="280" width="180" height="15">
+  <object id="18" name="back" type="UIButton" x="20" y="280" width="200" height="20">
    <properties>
     <property name="action" value="goBack"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">Back</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Back</text>
   </object>
-  <object id="33" name="menutitle" x="30" y="20" width="180" height="15">
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">KEYBOARD</text>
+  <object id="33" name="menutitle" x="30" y="20" width="180" height="20">
+   <text fontfamily="Lady Radical" wrap="1" color="#ffffff" halign="center" valign="center">KEYBOARD</text>
   </object>
  </objectgroup>
  <objectgroup id="6" name="options_controller" visible="0">
@@ -208,68 +190,70 @@
    <property name="prevmenu" value="options_pc"/>
    <property name="script" value="UIMenu"/>
   </properties>
-  <object id="24" name="joy_x" type="UIInputBind" x="20" y="40" width="200" height="15">
+  <object id="24" name="joy_x" type="UIInputBind" x="20" y="100" width="200" height="20">
    <properties>
     <property name="inputtype" value="axis"/>
-    <property name="textformat" value="Left/Right = %s"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Left/Right = %s</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Move⟷ = ${joy_x}</text>
   </object>
-  <object id="25" name="joy_y" type="UIInputBind" x="20" y="60" width="200" height="15">
+  <object id="25" name="joy_y" type="UIInputBind" x="20" y="120" width="200" height="20">
    <properties>
     <property name="inputtype" value="axis"/>
-    <property name="textformat" value="Up/Down = %s"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Up/Down = %s</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Move↕  = ${joy_y}</text>
   </object>
-  <object id="26" name="joy_fire" type="UIInputBind" x="20" y="80" width="200" height="15">
+  <object id="26" name="joy_fire" type="UIInputBind" x="20" y="140" width="200" height="20">
    <properties>
     <property name="inputtype" value="button"/>
-    <property name="textformat" value="Fire = %s"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Fire = %s</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Fire = ${joy_fire}</text>
   </object>
-  <object id="27" name="joy_focus" type="UIInputBind" x="20" y="100" width="200" height="15">
+  <object id="27" name="joy_focus" type="UIInputBind" x="20" y="160" width="200" height="20">
    <properties>
     <property name="inputtype" value="button"/>
-    <property name="textformat" value="Alt Fire = %s"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Alt Fire = %s</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Alt Fire = ${joy_focus}</text>
   </object>
-  <object id="28" name="joy_bomb" type="UIInputBind" x="20" y="120" width="200" height="15">
+  <object id="28" name="joy_bomb" type="UIInputBind" x="20" y="180" width="200" height="20">
    <properties>
     <property name="inputtype" value="button"/>
-    <property name="textformat" value="Bomb = %s"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Bomb = %s</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Bomb = ${joy_bomb}</text>
   </object>
-  <object id="29" name="joy_pausemenu" type="UIInputBind" x="20" y="140" width="200" height="15">
+  <object id="29" name="joy_pausemenu" type="UIInputBind" x="20" y="200" width="200" height="20">
    <properties>
     <property name="inputtype" value="button"/>
-    <property name="textformat" value="Pause = %s"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">Pause = %s</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Pause = ${joy_pausemenu}</text>
   </object>
-  <object id="30" name="back" type="UIButton" x="30" y="280" width="180" height="15">
+  <object id="30" name="back" type="UIButton" x="20" y="280" width="200" height="20">
    <properties>
     <property name="action" value="goBack"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">Back</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Back</text>
   </object>
-  <object id="34" name="menutitle" x="30" y="20" width="180" height="15">
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">CONTROLLER</text>
+  <object id="34" name="menutitle" x="30" y="20" width="180" height="20">
+   <text fontfamily="Lady Radical" wrap="1" color="#ffffff" halign="center" valign="center">CONTROLLER</text>
+  </object>
+  <object id="48" name="joy_namingscheme" type="UIOption" x="20" y="60" width="200" height="20">
+   <properties>
+    <property name="max" type="float" value="4"/>
+    <property name="min" type="float" value="1"/>
+    <property name="valuestr1" value="XBOX"/>
+    <property name="valuestr2" value="PS4"/>
+    <property name="valuestr3" value="PS3"/>
+    <property name="valuestr4" value="SWITCH"/>
+    <property name="valuestr5" value="OTHER"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Controller Type = ${joy_namingscheme}</text>
   </object>
  </objectgroup>
- <objectgroup id="7" name="inputbind_instructions">
-  <object id="40" x="30" y="220" width="180" height="60" visible="0">
+ <objectgroup id="7" name="inputbind_instructions" visible="0">
+  <object id="40" x="20" y="220" width="200" height="60">
    <properties>
-    <property name="textformat">Press new %s to assign
-
-Or Escape key to cancel</property>
+    <property name="textformat" value="Press new %s to assign, or Escape or ${joy_pause} to cancel"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Press new %s to assign
-
-Or Escape key to cancel</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">Press new %s to assign, or ${key_pausemenu} or ${joy_pause} to cancel</text>
   </object>
  </objectgroup>
  <objectgroup id="8" name="curtain">

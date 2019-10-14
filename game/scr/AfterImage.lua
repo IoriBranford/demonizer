@@ -1,7 +1,7 @@
 local levity = require "levity"
 local ShmupBullet = require "ShmupBullet"
 
-local AfterImage = class()
+local AfterImage = class(require("Script"))
 function AfterImage:_init(object)
 	self.object = object
 	self.properties = object.properties

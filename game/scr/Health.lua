@@ -7,7 +7,7 @@ local levity = require "levity"
 local ShmupBullet = require "ShmupBullet"
 local ShmupCollision = require "ShmupCollision"
 
-local Health = class()
+local Health = class(require("Script"))
 function Health:_init(object)
 	self.id = object.id
 	self.object = object
@@ -15,8 +15,11 @@ function Health:_init(object)
 	self.body = object.body
 	self.health = object.properties.health or 8
 	self.movedamage = 0
-	self.dps = 0
 	self.ishealing = false
+	local healthleak = self.properties.healthleak
+	if healthleak then
+		self:addDPS(self.id, healthleak)
+	end
 end
 
 local function isDefeated(health)
@@ -60,56 +63,116 @@ function Health:createHitFX(sparkx, sparky, angle, sparktype)
 	end
 
 	local hitparticles = self.properties.hitparticles or "damageparticles"
-	levity.scripts:send(hitparticles, "emit",
+	self:send(hitparticles, "emit",
 		4, sparkx, sparky, angle or 2*math.pi*love.math.random())
 end
 
 function Health:createHealFX()
 	local cx, cy = self.body:getWorldCenter()
 	local hitparticles = self.properties.healparticles or "healparticles"
-	levity.scripts:send(hitparticles, "emit",
+	self:send(hitparticles, "emit",
 		1, cx, cy, math.pi*1.5)
 end
 
 function Health:createDefeatFX()
 	local sparkx, sparky = self.body:getWorldCenter()
-	levity.scripts:send(self.properties.defeatparticles or "defeatparticles",
+	self:send(self.properties.defeatparticles or "defeatparticles",
 		"emit", 16, sparkx, sparky, 0, 2*math.pi)
 
-	levity.bank:play(levity.map.properties.enemydefeatsound)
+	levity.bank:play(self.properties.defeatsound
+		or levity.map.properties.enemydefeatsound)
 end
 
-function Health:addDPS(dps)
-	self.dps = self.dps + dps
+function Health:addDPS(id, dps)
+	self.dpssources = self.dpssources or {}
+	self.dpssources[id] = dps
+end
+
+function Health:removeDPS(id)
+	self.dpssources = self.dpssources or {}
+	self.dpssources[id] = nil
 end
 
 function Health:addDamage(damage, sparkx, sparky, angle)
 	self.movedamage = self.movedamage + damage
 end
 
+function Health:damageFromContact(contact)
+	local fix1, fix2 = contact:getFixtures()
+	local myfix, otherfix = fix1, fix2
+	if fix1:getBody() ~= self.body then
+		myfix = fix2
+		otherfix = fix1
+	end
+
+	local otherdata = otherfix:getBody():getUserData()
+	local otherproperties = otherdata and otherdata.properties
+	local damage = otherproperties and otherproperties.damage
+	if not damage then
+		return 0
+	end
+
+	local immuneplayerbomb = self.properties.immuneplayerbomb
+	local immuneplayershot = self.properties.immuneplayershot
+	local immuneplayertouch = self.properties.immuneplayertouch
+	local immuneplayertouchincover = self.properties.immuneplayertouchincover
+
+	local hascover = self:call(self.id, "fixtureHasCover", myfix)
+
+	for i = 1, select("#", otherfixture:getCategory()) do
+		local category = select(i, otherfixture:getCategory())
+		if category == ShmupCollision.Category_PlayerTeam then
+			if immuneplayertouch
+			or hascover and immuneplayertouchincover
+			then
+				return 0
+			end
+		elseif category == ShmupCollision.Category_PlayerShot then
+			if immuneplayershot or hascover then
+				return 0
+			end
+		elseif category == ShmupCollision.Category_EnemyShot then
+			if hascover then
+				return 0
+			end
+		elseif category == ShmupCollision.Category_PlayerBomb then
+			if immuneplayerbomb then
+				return 0
+			end
+		end
+	end
+
+	return damage
+end
+
 function Health:endMove(dt)
 	local damage = 0
-	local cantakedamage = levity.scripts:call(self.id, "canTakeDamage")
+	local cantakedamage = self:call(self.id, "canTakeDamage")
 
+	local totaldps = 0
 	if cantakedamage ~= false then
-		local dps = self.dps
+		if self.dpssources then
+			for id, dps in pairs(self.dpssources) do
+				totaldps = totaldps + dps
+			end
+		end
 
 		local damagetilelayer = self.properties.damagetilelayer
 		if damagetilelayer then
-			local damagetile = levity.scripts:call(damagetilelayer,
+			local damagetile = self:call(damagetilelayer,
 				"getPositionProperties", self.body:getPosition())
 			local tiledamage = damagetile and damagetile.damage or 0
-			dps = dps + tiledamage
+			totaldps = totaldps + tiledamage
 		end
 
-		damage = self.movedamage + (dps * dt)
+		damage = self.movedamage + (totaldps * dt)
 	end
 
 	damage = math.max(damage, self.health - self.properties.health)
 	self.ishealing = damage < 0
 
 	local health = self.health - damage
-	if self.dps > 0 then
+	if damage > 0 and totaldps > 0 then
 		self:createHitFX()
 	elseif damage < 0 then
 		self:createHealFX()
@@ -118,12 +181,18 @@ function Health:endMove(dt)
 	if damage > 0 then
 		if isDefeated(health) then
 			if not self.properties.friendly then
-				levity.scripts:broadcast("pointsScored", self.health*10)
+				self:broadcast("pointsScored", self.health*10)
 			end
-			levity.scripts:send(self.id, "defeat", nil, self.dps > 0)
+			local defeatwith
+			if totaldps > 0 then
+				defeatwith = "bomb"
+			else
+				defeatwith = "hit"
+			end
+			self:send(self.id, "defeat", defeatwith)
 		else
 			if not self.properties.friendly then
-				levity.scripts:broadcast("pointsScored", damage*10)
+				self:broadcast("pointsScored", damage*10)
 			end
 		end
 		--self.object.text = health

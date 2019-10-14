@@ -9,7 +9,7 @@ local levity = require "levity"
 local Targeting = require "Targeting"
 local ShmupBullet = require "ShmupBullet"
 
-local Rescuer = class()
+local Rescuer = class(require("Script"))
 function Rescuer:_init(object)
 	self.id = object.id
 	self.body = object.body
@@ -24,8 +24,12 @@ function Rescuer:canMoveToRescue()
 end
 
 function Rescuer:canRescue()
-	return not levity.scripts:call(self.id, "canBeCaptured")
+	return not self:call(self.id, "canBeCaptured")
 	and self.numrescued < (self.properties.rescuehumans or 5)
+end
+
+function Rescuer:isMovingOrReturning()
+	return self.properties.pathid
 end
 
 function Rescuer:isRescuing()
@@ -34,15 +38,11 @@ end
 
 --[[
 function Rescuer:createShield(x, y)
-	local shield = {
-		id = levity.map:newObjectId(),
-		x = x,
-		y = y,
-		type = "HolyShield",
-		gid = levity.map:getTileGid("holyshield", "active")
-	}
-
-	levity.map.layers["playerteam"]:addObject(shield)
+	local shield = levity.map:newObject("playerteam")
+	shield.x = x
+	shield.y = y
+	shield.type = "HolyShield"
+	shield.gid = levity.map:getTileGid("holyshield", "active")
 	levity.bank:play("snd/forcefield.ogg")
 	return shield.id
 end
@@ -59,13 +59,17 @@ function Rescuer:beginMove(dt)
 		if nextrescueid then
 			self:startRescue(nextrescueid)
 		end
+	elseif self:isMovingOrReturning() then
+		if self.sound and not self.sound:isPlaying() then
+			self.sound:play()
+		end
 	end
 end
 
 function Rescuer:reachedDest(destx, desty)
 	local pathid = self.properties.pathid
 	-- rescuing someone
-	if levity.scripts:call(pathid, "isBeingRescuedBy", self.id) then
+	if self:call(pathid, "isBeingRescuedBy", self.id) then
 		self:rescue(pathid)
 	-- returned to ride
 	elseif self.originalrideid and pathid == self.originalrideid then
@@ -77,24 +81,22 @@ end
 
 function Rescuer:startRescue(id)
 	if not self.originalrideid then
-		levity.scripts:send(self.properties.rideid, "removeRider", self.id)
+		self:send(self.properties.rideid, "removeRider", self.id)
 		self.originalrideid = self.properties.rideid
 		self.properties.rideid = nil
 	end
 	self.properties.pathid = id
 	self.properties.afterimage = true
-	if self.sound then
-		self.sound:play()
-	else
+	if not self.sound then
 		local rescueloopsound = self.properties.rescueloopsound
 		if rescueloopsound then
 			self.sound = levity.bank:play(rescueloopsound, nil, true)
-			if self.sound then
-				self.sound:setLooping(true)
-			end
 		end
 	end
-	levity.scripts:broadcast("rescueStarted", id, self.id)
+	if self.sound then
+		self.sound:play()
+	end
+	self:broadcast("rescueStarted", id, self.id)
 end
 
 function Rescuer:rescueStarted(id, rescuerid)
@@ -119,7 +121,7 @@ end
 
 function Rescuer:rescue(id)
 	self.numrescued = self.numrescued + 1
-	levity.scripts:send(id, "pullTo", self.id)
+	self:send(id, "pullTo", self.id)
 	self:returnFromRescue()
 
 	self:incProperty("firetime")
@@ -132,17 +134,14 @@ function Rescuer:rescue(id)
 		self.properties.firebullet = rescuefirebullet
 		self.properties.originalfirebullet = firebullet
 	end
-	--levity.scripts:broadcast("humanRescued", id, self.id)
+	--self:broadcast("humanRescued", id, self.id)
 end
 
 function Rescuer:finishReturn()
-	levity.scripts:send(self.originalrideid, "addRider", self.id)
+	self:send(self.originalrideid, "addRider", self.id)
 	self.properties.rideid = self.originalrideid
 	self.originalrideid = nil
 	self.properties.pathid = nil
-	if self.sound then
-		self.sound:stop()
-	end
 end
 
 function Rescuer:stopPulling()
@@ -163,7 +162,7 @@ function Rescuer:npcDefeated(npcid)
 	if npcid == self.originalrideid
 	or npcid == self.properties.pathid
 	then
-		levity.scripts:send(self.id, "defeat")
+		self:send(self.id, "defeat", "npcDefeated")
 	end
 end
 
@@ -176,11 +175,5 @@ Rescuer.humanConverted = Rescuer.humanGone
 Rescuer.humanCaptured = Rescuer.humanGone
 Rescuer.humanFled = Rescuer.humanGone
 Rescuer.humanDied = Rescuer.humanGone
-
-function Rescuer:discard()
-	if self.sound then
-		self.sound:stop()
-	end
-end
 
 return Rescuer

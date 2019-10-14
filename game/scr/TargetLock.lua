@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local TargetLock = class()
+local TargetLock = class(require("Script"))
 TargetLock.CrosshairTileset = nil
 TargetLock.AnimationSize = 32
 TargetLock.AnimationTime = .125

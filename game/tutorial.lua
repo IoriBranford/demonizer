@@ -1,22 +1,22 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.1",
+  tiledversion = "1.2.4",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 15,
   height = 20,
   tilewidth = 16,
   tileheight = 16,
-  nextlayerid = 21,
-  nextobjectid = 133,
+  nextlayerid = 22,
+  nextobjectid = 135,
   properties = {
     ["cameraid"] = 2,
-    ["music"] = "mus/04 - Pick Me Up Boy!.vgz",
+    ["music"] = "mus/tutorial.vgm",
     ["nextmap"] = "demonrealm.lua",
     ["overlaymap"] = "gameplay.lua",
     ["playerid"] = 1,
-    ["startbombs"] = 0
+    ["startbombs"] = 0.6
   },
   tilesets = {
     {
@@ -1769,7 +1769,7 @@ return {
       columns = 8,
       image = "img/forest.png",
       imagewidth = 128,
-      imageheight = 64,
+      imageheight = 128,
       tileoffset = {
         x = 0,
         y = 0
@@ -1781,12 +1781,85 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 32,
-      tiles = {}
+      tilecount = 64,
+      tiles = {
+        {
+          id = 37,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 3,
+                name = "",
+                type = "EnemyCover",
+                shape = "rectangle",
+                x = 8,
+                y = 0,
+                width = 8,
+                height = 16,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 38,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 3,
+                name = "",
+                type = "EnemyCover",
+                shape = "rectangle",
+                x = 0,
+                y = 0,
+                width = 8,
+                height = 16,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 41,
+          type = "EnemyCover"
+        },
+        {
+          id = 42,
+          type = "EnemyCover"
+        },
+        {
+          id = 45,
+          type = "EnemyCover"
+        },
+        {
+          id = 46,
+          type = "EnemyCover"
+        }
+      }
     },
     {
       name = "bushes",
-      firstgid = 451,
+      firstgid = 483,
       filename = "img/bushes.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -1812,7 +1885,7 @@ return {
     },
     {
       name = "Pikeman",
-      firstgid = 466,
+      firstgid = 498,
       filename = "img/human/enemy/Pikeman.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2094,7 +2167,7 @@ return {
     },
     {
       name = "PikemanF",
-      firstgid = 490,
+      firstgid = 522,
       filename = "img/human/enemy/PikemanF.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2376,7 +2449,7 @@ return {
     },
     {
       name = "catapult",
-      firstgid = 514,
+      firstgid = 546,
       filename = "img/catapult.tsx",
       tilewidth = 72,
       tileheight = 72,
@@ -2399,10 +2472,11 @@ return {
         ["colstype"] = "direction",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["direction_east"] = 0,
         ["numdirections"] = 8,
-        ["row_empty"] = 2,
-        ["row_windup"] = 0
+        ["row_attack"] = 1,
+        ["row_fire"] = 2,
+        ["row_move"] = 0,
+        ["rowstype"] = "state"
       },
       terrains = {},
       tilecount = 24,
@@ -2410,6 +2484,10 @@ return {
         {
           id = 0,
           type = "Catapult",
+          properties = {
+            ["faceangle"] = 0,
+            ["name"] = "e"
+          },
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -2439,114 +2517,202 @@ return {
           },
           animation = {
             {
-              tileid = 16,
-              duration = 467
-            },
-            {
               tileid = 0,
               duration = 250
-            },
-            {
-              tileid = 8,
-              duration = 250
-            },
-            {
-              tileid = 0,
-              duration = 33
             }
           }
         },
         {
           id = 1,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 45,
+            ["name"] = "se"
+          }
         },
         {
           id = 2,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 90,
+            ["name"] = "s"
+          }
         },
         {
           id = 3,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 135,
+            ["name"] = "sw"
+          }
         },
         {
           id = 4,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 180,
+            ["name"] = "w"
+          }
         },
         {
           id = 5,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 225,
+            ["name"] = "nw"
+          }
         },
         {
           id = 6,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 270,
+            ["name"] = "n"
+          }
         },
         {
           id = 7,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 315,
+            ["name"] = "ne"
+          }
         },
         {
           id = 8,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 0,
+            ["nextanim"] = "fire_e"
+          }
         },
         {
           id = 9,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 45,
+            ["nextanim"] = "fire_se"
+          }
         },
         {
           id = 10,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 90,
+            ["nextanim"] = "fire_s"
+          }
         },
         {
           id = 11,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 135,
+            ["nextanim"] = "fire_sw"
+          }
         },
         {
           id = 12,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 180,
+            ["nextanim"] = "fire_w"
+          }
         },
         {
           id = 13,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 225,
+            ["nextanim"] = "fire_nw"
+          }
         },
         {
           id = 14,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 270,
+            ["nextanim"] = "fire_n"
+          }
         },
         {
           id = 15,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 315,
+            ["nextanim"] = "fire_ne"
+          }
         },
         {
           id = 16,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 0,
+            ["name"] = "fire_e",
+            ["nextanim"] = "e"
+          }
         },
         {
           id = 17,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 45,
+            ["name"] = "fire_se",
+            ["nextanim"] = "se"
+          }
         },
         {
           id = 18,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 90,
+            ["name"] = "fire_s",
+            ["nextanim"] = "s"
+          }
         },
         {
           id = 19,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 135,
+            ["name"] = "fire_sw",
+            ["nextanim"] = "sw"
+          }
         },
         {
           id = 20,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 180,
+            ["name"] = "fire_w",
+            ["nextanim"] = "w"
+          }
         },
         {
           id = 21,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 225,
+            ["name"] = "fire_nw",
+            ["nextanim"] = "nw"
+          }
         },
         {
           id = 22,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 270,
+            ["name"] = "fire_n",
+            ["nextanim"] = "n"
+          }
         },
         {
           id = 23,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 315,
+            ["name"] = "fire_ne",
+            ["nextanim"] = "ne"
+          }
         }
       }
     }
@@ -2635,7 +2801,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYCAfnGWkQDOZ4NQA2AkDF8i0m1x9QxWA4ujICPIzKB8MRF6gFJAaR+jqYen6OAnmYMu/yOaiy6PnHQBocAy3"
+      data = "eJxjYCAfvGWkQDOZ4NUA2AkDH8i0m1x9QxWA4ujJCPIzKB8MRF6gFJAaR+jqYen6OQnmYMu/yOaiy6PnHQCYnQ63"
     },
     {
       type = "objectgroup",
@@ -2682,12 +2848,11 @@ return {
           x = 32,
           y = 16,
           width = 176,
-          height = 8,
+          height = 32,
           rotation = 0,
           visible = true,
-          text = "OK ! GOOD LUCK !!",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          text = "OK! GOOD LUCK!!!",
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
@@ -2751,12 +2916,11 @@ return {
           x = 32,
           y = 16,
           width = 176,
-          height = 48,
+          height = 96,
           rotation = 0,
           visible = true,
-          text = "Bomb = ${joy_bomb}\nDeals area damage and captures humans\n\nRECHARGE by capturing and holding blue souls",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          text = "${joy_bomb} = BOMB\n\nBlows away enemies AND bullets!\nKeep capturing blue souls to refill!",
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
@@ -2773,7 +2937,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 516,
+          gid = 548,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -2792,7 +2956,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 516,
+          gid = 548,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -2811,7 +2975,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 516,
+          gid = 548,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -2830,7 +2994,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 516,
+          gid = 548,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -2849,7 +3013,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 516,
+          gid = 548,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -2868,7 +3032,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 516,
+          gid = 548,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -2887,7 +3051,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 516,
+          gid = 548,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -2906,7 +3070,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 516,
+          gid = 548,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -2925,7 +3089,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 516,
+          gid = 548,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -2944,7 +3108,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 516,
+          gid = 548,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -2969,26 +3133,6 @@ return {
             { x = 0, y = 160 }
           },
           properties = {}
-        },
-        {
-          id = 129,
-          name = "bomblabel",
-          type = "",
-          shape = "text",
-          x = 0,
-          y = 272,
-          width = 104,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          text = "BOMBS (MAX 3)",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
-          wrap = true,
-          color = { 255, 255, 255 },
-          properties = {
-            ["initiallayer"] = "tutorialtext"
-          }
         }
       }
     },
@@ -3015,11 +3159,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3034,11 +3177,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3053,11 +3195,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3072,11 +3213,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3091,11 +3231,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3110,11 +3249,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3129,11 +3267,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3148,11 +3285,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3167,11 +3303,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3186,11 +3321,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3205,11 +3339,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3224,11 +3357,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3243,11 +3375,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3262,11 +3393,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3281,11 +3411,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3300,11 +3429,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3319,11 +3447,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3338,11 +3465,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3357,11 +3483,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3376,11 +3501,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3395,11 +3519,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3414,11 +3537,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3433,11 +3555,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3452,11 +3573,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3471,11 +3591,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3490,11 +3609,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3509,11 +3627,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3528,11 +3645,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3547,11 +3663,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3566,11 +3681,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
             ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -3600,12 +3714,11 @@ return {
           x = 32,
           y = 16,
           width = 176,
-          height = 56,
+          height = 96,
           rotation = 0,
           visible = true,
           text = "POWER GRAB during alt fire ! (${joy_focus})\n\n(WARNING: Teammates doing Power Grab are vulnerable)",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
@@ -3683,12 +3796,59 @@ return {
           x = 32,
           y = 16,
           width = 176,
-          height = 56,
+          height = 96,
           rotation = 0,
           visible = true,
           text = "Your POWER CIRCLES appear during alt fire (${joy_focus})\n\nAny team member with full power circle will unlock...",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          fontfamily = "Unifont",
+          wrap = true,
+          color = { 255, 255, 255 },
+          properties = {
+            ["initiallayer"] = "tutorialtext"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 21,
+      name = "fillbomb",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 133,
+          name = "fillbomb",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 320,
+          y = 16,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["clearitemstriggerid"] = 10,
+            ["clearobjectlayer"] = "tutorialtext"
+          }
+        },
+        {
+          id = 134,
+          name = "text",
+          type = "",
+          shape = "text",
+          x = 32,
+          y = 16,
+          width = 176,
+          height = 96,
+          rotation = 0,
+          visible = true,
+          text = "Capture enough blue souls to fill a meter and make a BOMB!",
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
@@ -3723,8 +3883,7 @@ return {
           visible = true,
           properties = {
             ["clearobjectlayer"] = "tutorialtext",
-            ["cleartriggerid"] = 118,
-            ["playerrestrictmove"] = "y",
+            ["cleartriggerid"] = 133,
             ["wingmenrestrictcapture"] = true
           }
         },
@@ -3736,12 +3895,11 @@ return {
           x = 32,
           y = 16,
           width = 176,
-          height = 56,
+          height = 152,
           rotation = 0,
           visible = true,
-          text = "Alt Fire = ${joy_focus}\n\nFriends LOCK-ON enemy\n\nMOVE SLOW for precise dodging",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          text = "${joy_focus} = ALT FIRE\n\nYour team will LOCK-ON to enemies.\nSlows your movement to help you dodge through tight bullet gaps.",
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
@@ -3753,16 +3911,14 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = -24,
-          y = 64,
+          x = 0,
+          y = 96,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathspeed"] = "360"
           }
         },
@@ -3772,15 +3928,13 @@ return {
           type = "Pikeman",
           shape = "rectangle",
           x = -24,
-          y = 200,
+          y = 232,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathspeed"] = "360"
           }
         },
@@ -3790,15 +3944,13 @@ return {
           type = "Pikeman",
           shape = "rectangle",
           x = 264,
-          y = 200,
+          y = 232,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathspeed"] = "360"
           }
         },
@@ -3807,16 +3959,14 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = -24,
-          y = 136,
+          x = -16,
+          y = 168,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathspeed"] = "360"
           }
         },
@@ -3825,16 +3975,14 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 264,
-          y = 136,
+          x = 256,
+          y = 168,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathspeed"] = "360"
           }
         },
@@ -3843,16 +3991,14 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 264,
-          y = 64,
+          x = 240,
+          y = 96,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathspeed"] = "360"
           }
         },
@@ -3862,15 +4008,13 @@ return {
           type = "Pikeman",
           shape = "rectangle",
           x = -24,
-          y = 168,
+          y = 200,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathspeed"] = "360"
           }
         },
@@ -3879,16 +4023,14 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = 264,
-          y = 104,
+          x = 248,
+          y = 136,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathspeed"] = "360"
           }
         },
@@ -3897,16 +4039,14 @@ return {
           name = "pikeman",
           type = "Pikeman",
           shape = "rectangle",
-          x = -24,
-          y = 104,
+          x = -8,
+          y = 136,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathspeed"] = "360"
           }
         },
@@ -3916,15 +4056,13 @@ return {
           type = "Pikeman",
           shape = "rectangle",
           x = 264,
-          y = 168,
+          y = 200,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["faceangle"] = 90,
-            ["firebullet"] = "",
             ["pathspeed"] = "360"
           }
         },
@@ -3933,8 +4071,8 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = -24,
-          y = 64,
+          x = 0,
+          y = 96,
           width = 0,
           height = 0,
           rotation = 0,
@@ -3950,8 +4088,8 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = -24,
-          y = 144,
+          x = -16,
+          y = 176,
           width = 0,
           height = 0,
           rotation = 0,
@@ -3968,7 +4106,7 @@ return {
           type = "",
           shape = "polyline",
           x = -24,
-          y = 184,
+          y = 216,
           width = 0,
           height = 0,
           rotation = 0,
@@ -3984,8 +4122,8 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 264,
-          y = 64,
+          x = 240,
+          y = 96,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4001,8 +4139,8 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 264,
-          y = 144,
+          x = 256,
+          y = 176,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4019,7 +4157,7 @@ return {
           type = "",
           shape = "polyline",
           x = 264,
-          y = 200,
+          y = 232,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4035,8 +4173,8 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = -24,
-          y = 104,
+          x = -8,
+          y = 136,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4053,7 +4191,7 @@ return {
           type = "",
           shape = "polyline",
           x = -24,
-          y = 168,
+          y = 200,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4069,8 +4207,8 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 264,
-          y = 104,
+          x = 248,
+          y = 136,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4087,7 +4225,7 @@ return {
           type = "",
           shape = "polyline",
           x = 264,
-          y = 168,
+          y = 200,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4137,12 +4275,11 @@ return {
           x = 32,
           y = 16,
           width = 176,
-          height = 48,
+          height = 136,
           rotation = 0,
           visible = true,
-          text = "Capture RED SOUL humans to DEMONIZE !\n\nUp to 4 teammates can shoot and capture with you",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          text = "Capture RED SOUL humans to DEMONIZE and bring them to your side!",
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
@@ -4159,11 +4296,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 496,
+          gid = 528,
           visible = true,
           properties = {
             ["defeatitem"] = "ItemWingman",
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4178,11 +4314,10 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 496,
+          gid = 528,
           visible = true,
           properties = {
             ["defeatitem"] = "ItemWingman",
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4197,10 +4332,9 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4215,10 +4349,9 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4233,10 +4366,9 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4251,10 +4383,9 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4269,10 +4400,9 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4333,12 +4463,11 @@ return {
           x = 32,
           y = 16,
           width = 176,
-          height = 64,
+          height = 136,
           rotation = 0,
           visible = true,
-          text = "←/→ = ${joy_x}\n↑/↓ = ${joy_y}\nFire = ${joy_fire}\n\nSHOOT enemy then move to CAPTURE humans for points towards 1UP",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          text = "Using the controller:\n${joy_x} = MOVE\n${joy_fire} = FIRE\n\nSHOOT enemies before they shoot you!\nKnock them out and pick them up!",
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           properties = {
@@ -4355,10 +4484,9 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4373,10 +4501,9 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4391,10 +4518,9 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4409,10 +4535,9 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4427,10 +4552,9 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 472,
+          gid = 504,
           visible = true,
           properties = {
-            ["firebullet"] = "",
             ["pathmode"] = "relative",
             ["pathspeed"] = "360"
           }
@@ -4448,7 +4572,7 @@ return {
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 0, y = 160 }
+            { x = 0, y = 176 }
           },
           properties = {}
         }
@@ -4476,9 +4600,8 @@ return {
           height = 24,
           rotation = 0,
           visible = true,
-          text = "Welcome to DEMONIZER !",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          text = "Welcome to DEMONIZER!",
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           properties = {

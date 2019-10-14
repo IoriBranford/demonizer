@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="10" tileheight="10" infinite="0" nextlayerid="9" nextobjectid="40">
+ <properties>
+  <property name="music" type="file" value="mus/mainmenu.vgm"/>
+  <property name="nextmap" type="file" value="demonrealm.lua"/>
+  <property name="prevmap" type="file" value="title.lua"/>
+  <property name="script" value="MenuMap"/>
+ </properties>
+ <tileset firstgid="1" source="img/bg_swirl.tsx"/>
+ <tileset firstgid="26" source="img/title_demonization.tsx"/>
+ <tileset firstgid="42" source="img/title.tsx"/>
+ <layer id="7" name="Tile Layer 1" width="24" height="32">
+  <properties>
+   <property name="script" value="InfiniteScrollLayer"/>
+   <property name="scrolling" type="bool" value="true"/>
+   <property name="scrollvelx" type="float" value="60"/>
+   <property name="scrollvely" type="float" value="60"/>
+   <property name="tilewrap" type="bool" value="true"/>
+  </properties>
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3RNxKAQBADwcN7Dm/+/1EmXsItiKSqTpROCP8sQYoMOQrnZ1eiQo0GrfOz69BjwIjo/OwmzFiwYnN+djsOnLhwOz879VVf9VVf9VVf9X1PfdXX0/erPd/SQyoADAAA
+  </data>
+ </layer>
+ <objectgroup draworder="index" id="2" name="info">
+  <object id="3" name="hiscore" x="0" y="5" width="240" height="10" visible="0">
+   <properties>
+    <property name="text" value="HI SCORE 0"/>
+   </properties>
+  </object>
+  <object id="11" name="camera" type="Camera" x="0" y="0" width="240" height="320" visible="0"/>
+  <object id="17" name="instructions" x="70" y="200" width="100" height="40" visible="0">
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Z key: FIRE
+
+X key: FOCUS
+
+C key: BOMB</text>
+  </object>
+  <object id="18" name="pressstart" x="0" y="260" width="240" height="10" visible="0">
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">PRESS Z TO START</text>
+  </object>
+  <object id="19" name="copyright" x="0" y="320" width="240" height="40" visible="0">
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">© 2019 IoriBranford
+
+ioribranford.itch.io</text>
+  </object>
+  <object id="26" name="instructions_joystick" x="0" y="296" width="240" height="40">
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="right">↑/↓ = SELECT
+
+ENTER OR BUTTON = START</text>
+  </object>
+ </objectgroup>
+ <objectgroup id="3" name="title">
+  <object id="37" x="10" y="10" width="220" height="25">
+   <text fontfamily="Lady Radical" wrap="1" color="#ffffff" halign="center" valign="center">STAGE SELECT</text>
+  </object>
+ </objectgroup>
+ <objectgroup id="4" name="stagemenu">
+  <properties>
+   <property name="script" value="UIMenu"/>
+  </properties>
+  <object id="20" name="tutorial" type="UIButton" x="20" y="40" width="120" height="20">
+   <properties>
+    <property name="action" value="startGame"/>
+    <property name="nextmap" type="file" value="tutorial.lua"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">0.Tutorial</text>
+  </object>
+  <object id="15" name="stage0" type="UIButton" x="20" y="60" width="120" height="20">
+   <properties>
+    <property name="action" value="startGame"/>
+    <property name="nextmap" type="file" value="demonrealm.lua"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">1.Demon Realm</text>
+  </object>
+  <object id="16" name="stage1" type="UIButton" x="20" y="80" width="120" height="20">
+   <properties>
+    <property name="action" value="startGame"/>
+    <property name="nextmap" type="file" value="village.lua"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">2.Village</text>
+  </object>
+  <object id="27" name="stage2" type="UIButton" x="20" y="100" width="120" height="20">
+   <properties>
+    <property name="action" value="startGame"/>
+    <property name="nextmap" type="file" value="chapel.lua"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">3.Chapel</text>
+  </object>
+  <object id="29" name="stage3" type="UIButton" x="20" y="120" width="120" height="20">
+   <properties>
+    <property name="action" value="startGame"/>
+    <property name="nextmap" type="file" value="cave.lua"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">4.Underground</text>
+  </object>
+  <object id="30" name="stage4" type="UIButton" x="20" y="140" width="120" height="20">
+   <properties>
+    <property name="action" value="startGame"/>
+    <property name="nextmap" type="file" value="highway.lua"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">5.Highway</text>
+  </object>
+  <object id="32" name="stage5" type="UIButton" x="20" y="160" width="120" height="20">
+   <properties>
+    <property name="action" value="startGame"/>
+    <property name="nextmap" type="file" value="capital.lua"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">6.Capital City</text>
+  </object>
+  <object id="33" name="stage6" type="UIButton" x="20" y="180" width="120" height="20">
+   <properties>
+    <property name="action" value="startGame"/>
+    <property name="nextmap" type="file" value="castle.lua"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">7.Castle</text>
+  </object>
+  <object id="31" name="caravan" type="UIButton" x="20" y="220" width="120" height="20">
+   <properties>
+    <property name="action" value="startGame"/>
+    <property name="nextmap" type="file" value="caravan.lua"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">150s Challenge</text>
+  </object>
+  <object id="34" name="final" type="UIButton" x="20" y="200" width="120" height="20">
+   <properties>
+    <property name="action" value="startGame"/>
+    <property name="nextmap" type="file" value="final.lua"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">8.Final</text>
+  </object>
+  <object id="35" name="caravan" type="UIButton" x="20" y="240" width="120" height="20">
+   <properties>
+    <property name="action" value="startGame"/>
+    <property name="nextmap" type="file" value="drunktitle.lua"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Inebriator</text>
+  </object>
+  <object id="36" name="options" type="UIButton" x="20" y="260" width="120" height="20">
+   <properties>
+    <property name="action" value="startGame"/>
+    <property name="nextmap" type="file" value="options.lua"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Options</text>
+  </object>
+ </objectgroup>
+ <imagelayer id="6" name="qr" visible="0" offsetx="190" offsety="270">
+  <image source="img/qr-website.png" width="50" height="50"/>
+ </imagelayer>
+ <objectgroup id="5" name="curtain">
+  <properties>
+   <property name="script" value="Curtain"/>
+  </properties>
+ </objectgroup>
+</map>

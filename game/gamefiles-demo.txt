@@ -4,6 +4,7 @@ drunktitle.lua
 earlyend.lua
 gameplay.lua
 title.lua
+mainmenu.lua
 tutorial.lua
 village.lua
 winetasting.lua

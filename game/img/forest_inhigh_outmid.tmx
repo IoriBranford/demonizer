@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="16" tileheight="16" infinite="1" nextlayerid="5" nextobjectid="1">
+ <tileset firstgid="1" source="forest.tsx"/>
+ <layer id="1" name="regions_output" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjYKAMsFNIU2rOKBgFo4B8AAB1TwBq
+  </chunk>
+  </data>
+ </layer>
+ <layer id="2" name="regions_input" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJxjZYAAVjLpUTAKRsHQBQCfoAAp
+  </chunk>
+  </data>
+ </layer>
+ <layer id="4" name="output_forest_mid" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJztzqkRACAQBMFLiZ/izz8qzBiQYG9Mu60V+cugRYceA0ZMmK+dghUbdhw4cT181TTtbAOcpQNQ
+  </chunk>
+  </data>
+ </layer>
+ <layer id="3" name="input_forest_high" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJzTZIAALSitDaV1oLQulNaD0vpQ2oBhFIyCUTDUAQBsCwFl
+  </chunk>
+  </data>
+ </layer>
+</map>

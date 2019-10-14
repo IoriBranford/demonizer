@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local ScreenEffectDrunk = class()
+local ScreenEffectDrunk = class(require("Script"))
 
 local ShaderCode = [[
 /*

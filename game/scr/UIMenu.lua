@@ -4,14 +4,21 @@ local Object = require "levity.object"
 local UIButton = require "UIButton"
 
 local AxisDeadZone = .5
+local HorizontalAxes = {
+	[1] = true,
+	leftx = true,
+}
+local VerticalAxes = {
+	[2] = true,
+	lefty = true,
+}
 
-local UIMenu = class()
+local UIMenu = class(require("Script"))
 function UIMenu:_init(layer)
 	self.layer = layer
 	self.objects = layer.objects
 	self.cursorpos = nil
-	self.joyaxisx = 0
-	self.joyaxisy = 0
+	self.joyaxes = {}
 	self.bindinginputtype = nil
 end
 
@@ -36,26 +43,27 @@ function UIMenu:startBindingInput(inputbindid, inputtype)
 	self.inputbindid = inputbindid
 	self.bindinginputtype = inputtype
 	local instructions = levity.map.layers["inputbind_instructions"]
-	instructions = instructions and instructions.objects[1]
 	if instructions then
 		instructions.visible = true
-		local textformat = instructions.properties.textformat
+		local instruction = instructions.objects[1]
+		local textformat = instruction.properties.textformat
 		if textformat then
-			instructions.text = textformat:format(inputtype)
+			textformat = levity.prefs.string_gsub(textformat)
+			instruction.text = textformat:format(inputtype)
 		end
 	end
 end
 
 function UIMenu:bindInput(input)
-	levity.scripts:send(self.inputbindid, "updateValue", input)
-	levity.scripts:send(self.inputbindid, "playChangeSound")
+	self:send(self.inputbindid, "set", input)
+	self:send(self.inputbindid, "playChangeSound")
 	self:stopBindingInput()
 end
 
 function UIMenu:cancelBindingInput()
 	local inputbind = levity.map.objects[self.inputbindid]
 	local input = inputbind and levity.prefs[inputbind.name]
-	levity.scripts:send(self.inputbindid, "updateValue", input)
+	self:send(self.inputbindid, "set", input)
 	self:stopBindingInput()
 end
 
@@ -63,7 +71,6 @@ function UIMenu:stopBindingInput()
 	self.bindinginputtype = nil
 	self.inputbindid = nil
 	local instructions = levity.map.layers["inputbind_instructions"]
-	instructions = instructions and instructions.objects[1]
 	if instructions then
 		instructions.visible = false
 	end
@@ -90,18 +97,23 @@ function UIMenu:joystickaxis(joystick, axis, value)
 		return
 	end
 	self:setMouseCursorMode(false)
-	if value < -AxisDeadZone and self.joyaxisx >= -AxisDeadZone then
-		self:changeCursorOption(-1)
-	elseif value > AxisDeadZone and self.joyaxisx <= AxisDeadZone then
-		self:changeCursorOption(1)
+	if HorizontalAxes[axis] then
+		local prevvalue = self.joyaxes[axis] or 0
+		if value < -AxisDeadZone and prevvalue >= -AxisDeadZone then
+			self:changeCursorOption(-1)
+		elseif value > AxisDeadZone and prevvalue <= AxisDeadZone then
+			self:changeCursorOption(1)
+		end
+		self.joyaxes[axis] = value
+	elseif VerticalAxes[axis] then
+		local prevvalue = self.joyaxes[axis] or 0
+		if value < -AxisDeadZone and prevvalue >= -AxisDeadZone then
+			self:moveCursor(-1, 0)
+		elseif value > AxisDeadZone and prevvalue <= AxisDeadZone then
+			self:moveCursor(1, #self.objects + 1)
+		end
+		self.joyaxes[axis] = value
 	end
-	self.joyaxisx = value
-	if value < -AxisDeadZone and self.joyaxisy >= -AxisDeadZone then
-		self:moveCursor(-1, 0)
-	elseif value > AxisDeadZone and self.joyaxisy <= AxisDeadZone then
-		self:moveCursor(1, #self.objects + 1)
-	end
-	self.joyaxisy = value
 end
 
 UIMenu.gamepadaxis = UIMenu.joystickaxis
@@ -138,7 +150,12 @@ function UIMenu:gamepadpressed(joystick, button)
 	if button:find("^dp") then
 		self:joystickhat(joystick, "dpad", dpadhat(joystick))
 	elseif button == "back" then
-		levity.scripts:send(levity.mapfile, "goBack")
+		if self.bindinginputtype then
+			self:cancelBindingInput()
+			return
+		else
+			self:send(levity.mapfile, "goBack")
+		end
 	else
 		self:joystickpressed(joystick, button)
 	end
@@ -163,7 +180,7 @@ function UIMenu:keypressed(key)
 		return
 	end
 	if self.bindinginputtype then
-		if key == "escape" then
+		if key == prefs.key_pausemenu then
 			self:cancelBindingInput()
 		elseif self.bindinginputtype == "key" then
 			self:bindInput(key)
@@ -171,8 +188,8 @@ function UIMenu:keypressed(key)
 		return
 	end
 	self:setMouseCursorMode(false)
-	if key == "escape" then
-		levity.scripts:send(levity.mapfile, "goBack")
+	if key == prefs.key_pausemenu then
+		self:send(levity.mapfile, "goBack")
 	elseif key == prefs.key_up or key == "up" then
 		self:moveCursor(-1, 0)
 	elseif key == prefs.key_down or key == "down" then
@@ -209,36 +226,36 @@ function UIMenu:moveCursor(dir, limit)
 		end
 		newcursorobject = self.objects[cursorpos]
 		isbutton = newcursorobject and
-			levity.scripts:call(newcursorobject.id, "isPressable")
+			self:call(newcursorobject.id, "isPressable")
 		i = i + 1
 	until cursorpos == self.cursorpos or isbutton or i > #self.objects
 
 	if newcursorobject then
 		local oldcursorobject = self.objects[self.cursorpos]
 		if oldcursorobject then
-			levity.scripts:send(oldcursorobject.id, "unpress")
+			self:send(oldcursorobject.id, "unpress")
 		end
 		if self.cursorpos and self.cursorpos ~= cursorpos then
-			levity.scripts:send(newcursorobject.id, "playPressSound")
+			self:send(newcursorobject.id, "playPressSound")
 		end
-		levity.scripts:send(newcursorobject.id, "press")
+		self:send(newcursorobject.id, "press")
 	end
 	self.cursorpos = cursorpos
 end
 
 function UIMenu:activateCursorButton()
 	local button = self.objects[self.cursorpos]
-	local _ = button and levity.scripts:send(button.id, "activate")
+	local _ = button and self:send(button.id, "activate")
 end
 
 function UIMenu:changeCursorOption(dir)
 	local button = self.objects[self.cursorpos]
-	local _ = button and levity.scripts:send(button.id, "change", dir)
+	local _ = button and self:send(button.id, "change", dir)
 end
 
 function UIMenu:drawOver()
 	local button = self.objects[self.cursorpos]
-	local _ = button and levity.scripts:send(button.id, "drawPressedOutline")
+	local _ = button and self:send(button.id, "drawPressedOutline")
 end
 
 return UIMenu

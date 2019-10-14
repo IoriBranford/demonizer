@@ -4,7 +4,7 @@
 
 --- Properties
 --@field nexttype
---@field nexttypeevent "timePassed", "shotsFired", "coverUpdated", "rideDestroyed", "allRidersDestroyed", "triggerActivated", "playerEnteredTrigger", "playerExitedTrigger", "triggerEnemiesCleared", "reachedDest", "fireTargetGone"
+--@field nexttypeevent "timePassed", "shotsFired", "coverUpdated", "rideDestroyed", "riderDestroyed", "allRidersDestroyed", "triggerActivated", "playerEnteredTrigger", "playerExitedTrigger", "triggerEnemiesCleared", "reachedDest", "fireTargetGone", "playerBehind", "playerInFront", "dialogueFinished"
 --@field nexttypeparam time, number of shots fired, number of cover objects, trigger ID, dest X
 --@field nexttypeparam2 dest Y
 --@field typesound Sound file to play on changing to this type
@@ -12,7 +12,7 @@
 
 local levity = require "levity"
 
-local TypeChanger = class()
+local TypeChanger = class(require("Script"))
 function TypeChanger:_init(object)
 	self.id = object.id
 	self.object = object
@@ -59,6 +59,8 @@ end
 AddEventFunction("timePassed", TypeChanger.incChangeCounter)
 AddEventFunction("coverUpdated", TypeChanger.changeIfEqual)
 AddEventFunction("rideDestroyed", TypeChanger.changeState)
+AddEventFunction("enemyDefeated", TypeChanger.changeIfNilOrEqual)
+AddEventFunction("riderDestroyed", TypeChanger.changeIfNilOrEqual)
 AddEventFunction("allRidersDestroyed", TypeChanger.changeState)
 AddEventFunction("shotsFired", TypeChanger.incChangeCounter)
 AddEventFunction("riderShotsFired", TypeChanger.incChangeCounter)
@@ -68,10 +70,20 @@ AddEventFunction("playerExitedTrigger", TypeChanger.changeIfEqual)
 AddEventFunction("triggerEnemiesCleared", TypeChanger.changeIfEqual)
 AddEventFunction("reachedDest", TypeChanger.changeIfNilOrEqual2)
 AddEventFunction("fireTargetGone", TypeChanger.changeState)
+AddEventFunction("playerBehind", TypeChanger.changeState)
+AddEventFunction("playerInFront", TypeChanger.changeState)
+AddEventFunction("dialogueFinished", TypeChanger.changeState)
 
 function TypeChanger:endMove(dt)
-	if self.timePassed then
-		self:timePassed(dt)
+	self:timePassed(dt)
+
+	local player = levity.map.objects[levity.map.properties.playerid]
+	local px, py = player.body:getPosition()
+	local x, y = self.object.body:getPosition()
+	if py < y then
+		self:playerBehind()
+	else
+		self:playerInFront()
 	end
 end
 
@@ -79,22 +91,22 @@ function TypeChanger:setType(newtype)
 	local oldtypeproperties = levity.map.objecttypes[self.object.type]
 	local newtypeproperties = levity.map.objecttypes[newtype]
 	if newtypeproperties then
-		local typelayer = self.properties.typelayer
+		local typelayer = newtypeproperties.typelayer
 		typelayer = typelayer and levity.map.layers[typelayer]
 		if typelayer then
 			self.object:setLayer(typelayer)
 		end
 	end
-	levity.scripts:send(self.id, "preTypeChange", oldtypeproperties, newtypeproperties)
+	self:send(self.id, "preTypeChange", oldtypeproperties, newtypeproperties)
 
 	self.object.type = newtype
 	self.changecounter = 0
-	levity.scripts:send(self.id, "postTypeChange", oldtypeproperties, newtypeproperties)
+	self:send(self.id, "postTypeChange", oldtypeproperties, newtypeproperties)
 
 	local event = self.properties.nexttypeevent
 
 	if event == "playerEnteredTrigger" or event == "playerExitedTrigger" then
-		local playerentered = levity.scripts:call(self.properties.nexttypeparam, "isPlayerIn")
+		local playerentered = self:call(self.properties.nexttypeparam, "isPlayerIn")
 		if (playerentered and event == "playerEnteredTrigger")
 		or (not playerentered and event == "playerExitedTrigger")
 		then

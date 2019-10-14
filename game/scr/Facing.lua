@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local Facing = class()
+local Facing = class(require("Script"))
 function Facing:_init(object)
 	self.object = object
 	self.angle = math.pi*.5

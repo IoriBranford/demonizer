@@ -1,18 +1,18 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.1",
+  tiledversion = "1.2.5",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 18,
-  height = 245,
+  height = 270,
   tilewidth = 16,
   tileheight = 16,
-  nextlayerid = 78,
-  nextobjectid = 328,
+  nextlayerid = 229,
+  nextobjectid = 564,
   properties = {
     ["cameraid"] = 2,
-    ["music"] = "mus/09 - Blue Sky Laundry.vgz",
+    ["music"] = "mus/village.vgm",
     ["nextmap"] = "chapel.lua",
     ["overlaymap"] = "gameplay.lua",
     ["playerid"] = 1
@@ -1174,7 +1174,7 @@ return {
       columns = 8,
       image = "img/forest.png",
       imagewidth = 128,
-      imageheight = 64,
+      imageheight = 128,
       tileoffset = {
         x = 0,
         y = 0
@@ -1186,12 +1186,85 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 32,
-      tiles = {}
+      tilecount = 64,
+      tiles = {
+        {
+          id = 37,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 3,
+                name = "",
+                type = "EnemyCover",
+                shape = "rectangle",
+                x = 8,
+                y = 0,
+                width = 8,
+                height = 16,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 38,
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 3,
+                name = "",
+                type = "EnemyCover",
+                shape = "rectangle",
+                x = 0,
+                y = 0,
+                width = 8,
+                height = 16,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
+            }
+          }
+        },
+        {
+          id = 41,
+          type = "EnemyCover"
+        },
+        {
+          id = 42,
+          type = "EnemyCover"
+        },
+        {
+          id = 45,
+          type = "EnemyCover"
+        },
+        {
+          id = 46,
+          type = "EnemyCover"
+        }
+      }
     },
     {
       name = "thatched-roof",
-      firstgid = 417,
+      firstgid = 449,
       filename = "img/thatched-roof.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1211,13 +1284,211 @@ return {
         height = 16
       },
       properties = {},
-      terrains = {},
+      terrains = {
+        {
+          name = "Brown",
+          tile = 199,
+          properties = {}
+        },
+        {
+          name = "Yellow",
+          tile = 87,
+          properties = {}
+        }
+      },
       tilecount = 256,
-      tiles = {}
+      tiles = {
+        {
+          id = 19,
+          type = "EnemyCover"
+        },
+        {
+          id = 20,
+          type = "EnemyCover"
+        },
+        {
+          id = 21,
+          type = "EnemyCover"
+        },
+        {
+          id = 35,
+          type = "EnemyCover"
+        },
+        {
+          id = 36,
+          type = "EnemyCover"
+        },
+        {
+          id = 37,
+          type = "EnemyCover"
+        },
+        {
+          id = 64,
+          terrain = { 1, 1, 1, 1 }
+        },
+        {
+          id = 65,
+          terrain = { 1, 1, 1, 1 }
+        },
+        {
+          id = 70,
+          type = "EnemyCover",
+          terrain = { -1, -1, -1, 1 }
+        },
+        {
+          id = 71,
+          type = "EnemyCover",
+          terrain = { -1, -1, 1, 1 }
+        },
+        {
+          id = 72,
+          type = "EnemyCover",
+          terrain = { -1, -1, 1, -1 }
+        },
+        {
+          id = 80,
+          terrain = { 1, 1, 1, -1 }
+        },
+        {
+          id = 81,
+          terrain = { 1, 1, -1, 1 }
+        },
+        {
+          id = 86,
+          type = "EnemyCover",
+          terrain = { -1, 1, -1, 1 }
+        },
+        {
+          id = 87,
+          type = "EnemyCover",
+          terrain = { 1, 1, 1, 1 }
+        },
+        {
+          id = 88,
+          type = "EnemyCover",
+          terrain = { 1, -1, 1, -1 }
+        },
+        {
+          id = 96,
+          terrain = { 1, -1, 1, 1 }
+        },
+        {
+          id = 97,
+          terrain = { -1, 1, 1, 1 }
+        },
+        {
+          id = 102,
+          type = "EnemyCover",
+          terrain = { -1, 1, -1, -1 }
+        },
+        {
+          id = 103,
+          type = "EnemyCover",
+          terrain = { 1, 1, -1, -1 }
+        },
+        {
+          id = 104,
+          type = "EnemyCover",
+          terrain = { 1, -1, -1, -1 }
+        },
+        {
+          id = 131,
+          type = "EnemyCover"
+        },
+        {
+          id = 132,
+          type = "EnemyCover"
+        },
+        {
+          id = 133,
+          type = "EnemyCover"
+        },
+        {
+          id = 147,
+          type = "EnemyCover"
+        },
+        {
+          id = 148,
+          type = "EnemyCover"
+        },
+        {
+          id = 149,
+          type = "EnemyCover"
+        },
+        {
+          id = 176,
+          terrain = { 0, 0, 0, 0 }
+        },
+        {
+          id = 177,
+          terrain = { 0, 0, 0, 0 }
+        },
+        {
+          id = 182,
+          type = "EnemyCover",
+          terrain = { -1, -1, -1, 0 }
+        },
+        {
+          id = 183,
+          type = "EnemyCover",
+          terrain = { -1, -1, 0, 0 }
+        },
+        {
+          id = 184,
+          type = "EnemyCover",
+          terrain = { -1, -1, 0, -1 }
+        },
+        {
+          id = 192,
+          terrain = { 0, 0, 0, -1 }
+        },
+        {
+          id = 193,
+          terrain = { 0, 0, -1, 0 }
+        },
+        {
+          id = 198,
+          type = "EnemyCover",
+          terrain = { -1, 0, -1, 0 }
+        },
+        {
+          id = 199,
+          type = "EnemyCover",
+          terrain = { 0, 0, 0, 0 }
+        },
+        {
+          id = 200,
+          type = "EnemyCover",
+          terrain = { 0, -1, 0, -1 }
+        },
+        {
+          id = 208,
+          terrain = { 0, -1, 0, 0 }
+        },
+        {
+          id = 209,
+          terrain = { -1, 0, 0, 0 }
+        },
+        {
+          id = 214,
+          type = "EnemyCover",
+          terrain = { -1, 0, -1, -1 }
+        },
+        {
+          id = 215,
+          type = "EnemyCover",
+          terrain = { 0, 0, -1, -1 }
+        },
+        {
+          id = 216,
+          type = "EnemyCover",
+          terrain = { 0, -1, -1, -1 }
+        }
+      }
     },
     {
       name = "cottage",
-      firstgid = 673,
+      firstgid = 705,
       filename = "img/cottage.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1237,13 +1508,138 @@ return {
         height = 16
       },
       properties = {},
-      terrains = {},
+      terrains = {
+        {
+          name = "Beige",
+          tile = 17,
+          properties = {}
+        },
+        {
+          name = "White",
+          tile = 81,
+          properties = {}
+        },
+        {
+          name = "Brick",
+          tile = 145,
+          properties = {}
+        }
+      },
       tilecount = 256,
-      tiles = {}
+      tiles = {
+        {
+          id = 0,
+          terrain = { -1, -1, -1, 0 }
+        },
+        {
+          id = 1,
+          terrain = { -1, -1, 0, 0 }
+        },
+        {
+          id = 2,
+          terrain = { -1, -1, 0, -1 }
+        },
+        {
+          id = 16,
+          terrain = { -1, 0, -1, 0 }
+        },
+        {
+          id = 17,
+          terrain = { 0, 0, 0, 0 }
+        },
+        {
+          id = 18,
+          terrain = { 0, -1, 0, -1 }
+        },
+        {
+          id = 32,
+          terrain = { -1, 0, -1, -1 }
+        },
+        {
+          id = 33,
+          terrain = { 0, 0, -1, -1 }
+        },
+        {
+          id = 34,
+          terrain = { 0, -1, -1, -1 }
+        },
+        {
+          id = 64,
+          terrain = { -1, -1, -1, 1 }
+        },
+        {
+          id = 65,
+          terrain = { -1, -1, 1, 1 }
+        },
+        {
+          id = 66,
+          terrain = { -1, -1, 1, -1 }
+        },
+        {
+          id = 80,
+          terrain = { -1, 1, -1, 1 }
+        },
+        {
+          id = 81,
+          terrain = { 1, 1, 1, 1 }
+        },
+        {
+          id = 82,
+          terrain = { 1, -1, 1, -1 }
+        },
+        {
+          id = 96,
+          terrain = { -1, 1, -1, -1 }
+        },
+        {
+          id = 97,
+          terrain = { 1, 1, -1, -1 }
+        },
+        {
+          id = 98,
+          terrain = { 1, -1, -1, -1 }
+        },
+        {
+          id = 128,
+          terrain = { -1, -1, -1, 2 }
+        },
+        {
+          id = 129,
+          terrain = { -1, -1, 2, 2 }
+        },
+        {
+          id = 130,
+          terrain = { -1, -1, 2, -1 }
+        },
+        {
+          id = 144,
+          terrain = { -1, 2, -1, 2 }
+        },
+        {
+          id = 145,
+          terrain = { 2, 2, 2, 2 }
+        },
+        {
+          id = 146,
+          terrain = { 2, -1, 2, -1 }
+        },
+        {
+          id = 160,
+          terrain = { -1, 2, -1, -1 }
+        },
+        {
+          id = 161,
+          terrain = { 2, 2, -1, -1 }
+        },
+        {
+          id = 162,
+          terrain = { 2, -1, -1, -1 }
+        }
+      }
     },
     {
       name = "fence_alt",
-      firstgid = 929,
+      firstgid = 961,
       filename = "img/fence_alt.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -1269,7 +1665,7 @@ return {
     },
     {
       name = "crops",
-      firstgid = 947,
+      firstgid = 979,
       filename = "img/crops.tsx",
       tilewidth = 16,
       tileheight = 32,
@@ -1295,7 +1691,7 @@ return {
     },
     {
       name = "catapult",
-      firstgid = 982,
+      firstgid = 1014,
       filename = "img/catapult.tsx",
       tilewidth = 72,
       tileheight = 72,
@@ -1318,10 +1714,11 @@ return {
         ["colstype"] = "direction",
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
-        ["direction_east"] = 0,
         ["numdirections"] = 8,
-        ["row_empty"] = 2,
-        ["row_windup"] = 0
+        ["row_attack"] = 1,
+        ["row_fire"] = 2,
+        ["row_move"] = 0,
+        ["rowstype"] = "state"
       },
       terrains = {},
       tilecount = 24,
@@ -1329,6 +1726,10 @@ return {
         {
           id = 0,
           type = "Catapult",
+          properties = {
+            ["faceangle"] = 0,
+            ["name"] = "e"
+          },
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -1358,120 +1759,208 @@ return {
           },
           animation = {
             {
-              tileid = 16,
-              duration = 467
-            },
-            {
               tileid = 0,
               duration = 250
-            },
-            {
-              tileid = 8,
-              duration = 250
-            },
-            {
-              tileid = 0,
-              duration = 33
             }
           }
         },
         {
           id = 1,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 45,
+            ["name"] = "se"
+          }
         },
         {
           id = 2,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 90,
+            ["name"] = "s"
+          }
         },
         {
           id = 3,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 135,
+            ["name"] = "sw"
+          }
         },
         {
           id = 4,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 180,
+            ["name"] = "w"
+          }
         },
         {
           id = 5,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 225,
+            ["name"] = "nw"
+          }
         },
         {
           id = 6,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 270,
+            ["name"] = "n"
+          }
         },
         {
           id = 7,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 315,
+            ["name"] = "ne"
+          }
         },
         {
           id = 8,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 0,
+            ["nextanim"] = "fire_e"
+          }
         },
         {
           id = 9,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 45,
+            ["nextanim"] = "fire_se"
+          }
         },
         {
           id = 10,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 90,
+            ["nextanim"] = "fire_s"
+          }
         },
         {
           id = 11,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 135,
+            ["nextanim"] = "fire_sw"
+          }
         },
         {
           id = 12,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 180,
+            ["nextanim"] = "fire_w"
+          }
         },
         {
           id = 13,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 225,
+            ["nextanim"] = "fire_nw"
+          }
         },
         {
           id = 14,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 270,
+            ["nextanim"] = "fire_n"
+          }
         },
         {
           id = 15,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 315,
+            ["nextanim"] = "fire_ne"
+          }
         },
         {
           id = 16,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 0,
+            ["name"] = "fire_e",
+            ["nextanim"] = "e"
+          }
         },
         {
           id = 17,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 45,
+            ["name"] = "fire_se",
+            ["nextanim"] = "se"
+          }
         },
         {
           id = 18,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 90,
+            ["name"] = "fire_s",
+            ["nextanim"] = "s"
+          }
         },
         {
           id = 19,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 135,
+            ["name"] = "fire_sw",
+            ["nextanim"] = "sw"
+          }
         },
         {
           id = 20,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 180,
+            ["name"] = "fire_w",
+            ["nextanim"] = "w"
+          }
         },
         {
           id = 21,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 225,
+            ["name"] = "fire_nw",
+            ["nextanim"] = "nw"
+          }
         },
         {
           id = 22,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 270,
+            ["name"] = "fire_n",
+            ["nextanim"] = "n"
+          }
         },
         {
           id = 23,
-          type = "Catapult"
+          type = "Catapult",
+          properties = {
+            ["faceangle"] = 315,
+            ["name"] = "fire_ne",
+            ["nextanim"] = "ne"
+          }
         }
       }
     },
     {
       name = "Archer",
-      firstgid = 1006,
+      firstgid = 1038,
       filename = "img/human/enemy/Archer.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -1492,8 +1981,6 @@ return {
       },
       properties = {
         ["colstype"] = "state",
-        ["column_attack"] = 3,
-        ["column_fire"] = 5,
         ["column_move"] = 0,
         ["commonanimation"] = 0,
         ["commoncollision"] = 0,
@@ -1753,7 +2240,7 @@ return {
     },
     {
       name = "CatapultOperator",
-      firstgid = 1030,
+      firstgid = 1062,
       filename = "img/human/enemy/CatapultOperator.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -1879,7 +2366,7 @@ return {
     },
     {
       name = "Militia",
-      firstgid = 1042,
+      firstgid = 1074,
       filename = "img/human/enemy/Militia.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2161,7 +2648,7 @@ return {
     },
     {
       name = "CatapultOperatorF",
-      firstgid = 1066,
+      firstgid = 1098,
       filename = "img/human/enemy/CatapultOperatorF.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -2287,7 +2774,7 @@ return {
     },
     {
       name = "HeavyMilitia",
-      firstgid = 1078,
+      firstgid = 1110,
       filename = "img/human/enemy/HeavyMilitia.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2569,7 +3056,7 @@ return {
     },
     {
       name = "ArcherF",
-      firstgid = 1102,
+      firstgid = 1134,
       filename = "img/human/enemy/ArcherF.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2851,7 +3338,7 @@ return {
     },
     {
       name = "doors_opening",
-      firstgid = 1126,
+      firstgid = 1158,
       filename = "img/doors_opening.tsx",
       tilewidth = 16,
       tileheight = 32,
@@ -3001,7 +3488,7 @@ return {
     },
     {
       name = "sparks_huge",
-      firstgid = 1141,
+      firstgid = 1173,
       filename = "img/sparks_huge.tsx",
       tilewidth = 96,
       tileheight = 96,
@@ -3153,7 +3640,7 @@ return {
     },
     {
       name = "townfolk-adult-f-002",
-      firstgid = 1161,
+      firstgid = 1193,
       filename = "img/human/civilian/townfolk-adult-f-002.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -3279,7 +3766,7 @@ return {
     },
     {
       name = "MilitiaCaptain",
-      firstgid = 1173,
+      firstgid = 1205,
       filename = "img/human/enemy/MilitiaCaptain.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -3381,11 +3868,11 @@ return {
           animation = {
             {
               tileid = 3,
-              duration = 125
+              duration = 33
             },
             {
               tileid = 4,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -3403,7 +3890,7 @@ return {
           animation = {
             {
               tileid = 5,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -3431,11 +3918,11 @@ return {
           animation = {
             {
               tileid = 9,
-              duration = 125
+              duration = 33
             },
             {
               tileid = 10,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -3453,7 +3940,7 @@ return {
           animation = {
             {
               tileid = 11,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -3481,11 +3968,11 @@ return {
           animation = {
             {
               tileid = 15,
-              duration = 125
+              duration = 33
             },
             {
               tileid = 16,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -3503,7 +3990,7 @@ return {
           animation = {
             {
               tileid = 17,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -3531,11 +4018,11 @@ return {
           animation = {
             {
               tileid = 21,
-              duration = 125
+              duration = 33
             },
             {
               tileid = 22,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -3553,7 +4040,7 @@ return {
           animation = {
             {
               tileid = 23,
-              duration = 125
+              duration = 33
             }
           }
         }
@@ -3561,13 +4048,13 @@ return {
     },
     {
       name = "sandbags",
-      firstgid = 1197,
+      firstgid = 1229,
       filename = "img/sandbags.tsx",
-      tilewidth = 32,
-      tileheight = 48,
+      tilewidth = 16,
+      tileheight = 16,
       spacing = 0,
       margin = 0,
-      columns = 3,
+      columns = 6,
       image = "img/sandbags.png",
       imagewidth = 96,
       imageheight = 48,
@@ -3577,102 +4064,34 @@ return {
       },
       grid = {
         orientation = "orthogonal",
-        width = 32,
-        height = 48
+        width = 16,
+        height = 16
       },
       properties = {},
       terrains = {},
-      tilecount = 3,
+      tilecount = 18,
       tiles = {
         {
-          id = 0,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "EnemyCover",
-                shape = "rectangle",
-                x = 16,
-                y = 16,
-                width = 16,
-                height = 16,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              }
-            }
-          }
+          id = 7,
+          type = "EnemyCover"
         },
         {
-          id = 1,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "EnemyCover",
-                shape = "rectangle",
-                x = 0,
-                y = 16,
-                width = 32,
-                height = 16,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              }
-            }
-          }
+          id = 8,
+          type = "EnemyCover"
         },
         {
-          id = 2,
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "EnemyCover",
-                shape = "rectangle",
-                x = 0,
-                y = 16,
-                width = 16,
-                height = 16,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              }
-            }
-          }
+          id = 9,
+          type = "EnemyCover"
+        },
+        {
+          id = 10,
+          type = "EnemyCover"
         }
       }
     },
     {
       name = "townfolk-child-m-001",
-      firstgid = 1200,
+      firstgid = 1247,
       filename = "img/human/civilian/townfolk-child-m-001.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -3798,7 +4217,7 @@ return {
     },
     {
       name = "townfolk-child-m-002",
-      firstgid = 1212,
+      firstgid = 1259,
       filename = "img/human/civilian/townfolk-child-m-002.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -3924,7 +4343,7 @@ return {
     },
     {
       name = "townfolk-adult-f-001",
-      firstgid = 1224,
+      firstgid = 1271,
       filename = "img/human/civilian/townfolk-adult-f-001.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -4050,7 +4469,7 @@ return {
     },
     {
       name = "Swordsman",
-      firstgid = 1236,
+      firstgid = 1283,
       filename = "img/human/enemy/Swordsman.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -4332,7 +4751,7 @@ return {
     },
     {
       name = "SwordsmanF",
-      firstgid = 1260,
+      firstgid = 1307,
       filename = "img/human/enemy/SwordsmanF.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -4614,7 +5033,7 @@ return {
     },
     {
       name = "house",
-      firstgid = 1284,
+      firstgid = 1331,
       filename = "img/house.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -4818,7 +5237,7 @@ return {
     },
     {
       name = "Lord",
-      firstgid = 1368,
+      firstgid = 1415,
       filename = "img/human/enemy/Lord.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -4911,11 +5330,11 @@ return {
           animation = {
             {
               tileid = 3,
-              duration = 125
+              duration = 33
             },
             {
               tileid = 4,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -4928,7 +5347,7 @@ return {
           animation = {
             {
               tileid = 5,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -4946,11 +5365,11 @@ return {
           animation = {
             {
               tileid = 15,
-              duration = 125
+              duration = 33
             },
             {
               tileid = 16,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -4963,7 +5382,7 @@ return {
           animation = {
             {
               tileid = 17,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -4981,11 +5400,11 @@ return {
           animation = {
             {
               tileid = 27,
-              duration = 125
+              duration = 33
             },
             {
               tileid = 28,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -4998,7 +5417,7 @@ return {
           animation = {
             {
               tileid = 29,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -5016,11 +5435,11 @@ return {
           animation = {
             {
               tileid = 39,
-              duration = 125
+              duration = 33
             },
             {
               tileid = 40,
-              duration = 125
+              duration = 33
             }
           }
         },
@@ -5033,7 +5452,7 @@ return {
           animation = {
             {
               tileid = 41,
-              duration = 125
+              duration = 33
             }
           }
         }
@@ -5041,7 +5460,7 @@ return {
     },
     {
       name = "armorbody",
-      firstgid = 1416,
+      firstgid = 1463,
       filename = "img/armorsuit/armorbody.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -5117,7 +5536,7 @@ return {
     },
     {
       name = "armorleftarm",
-      firstgid = 1419,
+      firstgid = 1466,
       filename = "img/armorsuit/armorleftarm.tsx",
       tilewidth = 16,
       tileheight = 32,
@@ -5193,7 +5612,7 @@ return {
     },
     {
       name = "armorrightarm",
-      firstgid = 1422,
+      firstgid = 1469,
       filename = "img/armorsuit/armorrightarm.tsx",
       tilewidth = 16,
       tileheight = 32,
@@ -5269,7 +5688,7 @@ return {
     },
     {
       name = "trees_tall",
-      firstgid = 1425,
+      firstgid = 1472,
       filename = "img/trees_tall.tsx",
       tilewidth = 48,
       tileheight = 80,
@@ -5339,7 +5758,7 @@ return {
     },
     {
       name = "trees",
-      firstgid = 1428,
+      firstgid = 1475,
       filename = "img/trees.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -5396,7 +5815,7 @@ return {
     },
     {
       name = "player",
-      firstgid = 1431,
+      firstgid = 1478,
       filename = "img/player.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -5863,7 +6282,7 @@ return {
     },
     {
       name = "explosion_giant",
-      firstgid = 1459,
+      firstgid = 1506,
       filename = "img/explosion_giant.tsx",
       tilewidth = 256,
       tileheight = 256,
@@ -5957,164 +6376,735 @@ return {
           }
         }
       }
-    }
-  },
-  layers = {
+    },
     {
-      type = "objectgroup",
-      id = 1,
-      name = "unused",
-      visible = false,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
+      name = "Pikeman",
+      firstgid = 1522,
+      filename = "img/human/enemy/Pikeman.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 6,
+      image = "img/human/enemy/Pikeman.png",
+      imagewidth = 192,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {
+        ["colstype"] = "state",
+        ["column_attack"] = 3,
+        ["column_fire"] = 5,
+        ["column_move"] = 0,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
+      },
+      terrains = {},
+      tilecount = 24,
+      tiles = {
         {
-          id = 125,
-          name = "",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 0,
-          y = -48,
-          width = 16,
-          height = 16,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 85,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 0,
-          y = 2272,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -8, y = 0 },
-            { x = 48, y = 0 }
-          },
-          properties = {}
-        },
-        {
-          id = 84,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 248,
-          y = 2272,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -8, y = 0 },
-            { x = 48, y = 0 }
-          },
-          properties = {}
-        },
-        {
-          id = 101,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 0,
-          y = 2400,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1045,
-          visible = true,
+          id = 0,
+          type = "Pikeman",
           properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
+            ["name"] = "east"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 6,
+                y = 8,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true,
+                  ["sensor"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
           }
         },
         {
-          id = 102,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = -32,
-          y = 2400,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1045,
-          visible = true,
+          id = 1,
+          type = "Pikeman"
+        },
+        {
+          id = 2,
+          type = "Pikeman"
+        },
+        {
+          id = 3,
+          type = "Pikeman",
           properties = {
-            ["pathid"] = "fields_paths",
-            ["pathmode"] = "relative"
+            ["nextanim"] = "fire_east"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
           }
         },
         {
           id = 4,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = -56,
-          y = 392,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 336 },
-            { x = 0, y = -400 }
-          },
-          properties = {}
+          type = "Pikeman"
         },
         {
-          id = 276,
-          name = "heavy",
-          type = "HeavyMilitia",
-          shape = "rectangle",
-          x = 56,
-          y = -16,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1081,
-          visible = true,
+          id = 5,
+          type = "Pikeman",
           properties = {
-            ["defeatitemlaunch"] = true,
-            ["pathid"] = "277",
-            ["pathmode"] = "relative"
+            ["name"] = "fire_east",
+            ["nextanim"] = "east"
+          },
+          animation = {
+            {
+              tileid = 5,
+              duration = 125
+            }
           }
         },
         {
-          id = 275,
-          name = "heavy",
-          type = "HeavyMilitia",
-          shape = "rectangle",
-          x = 232,
-          y = -16,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1081,
-          visible = true,
+          id = 6,
+          type = "Pikeman",
           properties = {
-            ["defeatitemlaunch"] = true,
-            ["pathid"] = "277",
-            ["pathmode"] = "relative"
+            ["name"] = "south"
+          }
+        },
+        {
+          id = 7,
+          type = "Pikeman"
+        },
+        {
+          id = 8,
+          type = "Pikeman"
+        },
+        {
+          id = 9,
+          type = "Pikeman",
+          properties = {
+            ["nextanim"] = "fire_south"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 10,
+          type = "Pikeman"
+        },
+        {
+          id = 11,
+          type = "Pikeman",
+          properties = {
+            ["name"] = "fire_south",
+            ["nextanim"] = "south"
+          },
+          animation = {
+            {
+              tileid = 11,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          type = "Pikeman",
+          properties = {
+            ["name"] = "west"
+          }
+        },
+        {
+          id = 13,
+          type = "Pikeman"
+        },
+        {
+          id = 14,
+          type = "Pikeman"
+        },
+        {
+          id = 15,
+          type = "Pikeman",
+          properties = {
+            ["nextanim"] = "fire_west"
+          },
+          animation = {
+            {
+              tileid = 15,
+              duration = 125
+            },
+            {
+              tileid = 16,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 16,
+          type = "Pikeman"
+        },
+        {
+          id = 17,
+          type = "Pikeman",
+          properties = {
+            ["name"] = "fire_west",
+            ["nextanim"] = "west"
+          },
+          animation = {
+            {
+              tileid = 17,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 18,
+          type = "Pikeman",
+          properties = {
+            ["name"] = "north"
+          }
+        },
+        {
+          id = 19,
+          type = "Pikeman"
+        },
+        {
+          id = 20,
+          type = "Pikeman"
+        },
+        {
+          id = 21,
+          type = "Pikeman",
+          properties = {
+            ["nextanim"] = "fire_north"
+          },
+          animation = {
+            {
+              tileid = 21,
+              duration = 125
+            },
+            {
+              tileid = 22,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 22,
+          type = "Pikeman"
+        },
+        {
+          id = 23,
+          type = "Pikeman",
+          properties = {
+            ["name"] = "fire_north",
+            ["nextanim"] = "north"
+          },
+          animation = {
+            {
+              tileid = 23,
+              duration = 125
+            }
           }
         }
       }
     },
     {
+      name = "PikemanF",
+      firstgid = 1546,
+      filename = "img/human/enemy/PikemanF.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 6,
+      image = "img/human/enemy/PikemanF.png",
+      imagewidth = 192,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {
+        ["colstype"] = "state",
+        ["column_attack"] = 3,
+        ["column_fire"] = 5,
+        ["column_move"] = 0,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
+      },
+      terrains = {},
+      tilecount = 24,
+      tiles = {
+        {
+          id = 0,
+          type = "Pikeman",
+          properties = {
+            ["name"] = "east"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 6,
+                y = 8,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true,
+                  ["sensor"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 1,
+          type = "Pikeman"
+        },
+        {
+          id = 2,
+          type = "Pikeman"
+        },
+        {
+          id = 3,
+          type = "Pikeman",
+          properties = {
+            ["nextanim"] = "fire_east"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 4,
+          type = "Pikeman"
+        },
+        {
+          id = 5,
+          type = "Pikeman",
+          properties = {
+            ["name"] = "fire_east",
+            ["nextanim"] = "east"
+          },
+          animation = {
+            {
+              tileid = 5,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 6,
+          type = "Pikeman",
+          properties = {
+            ["name"] = "south"
+          }
+        },
+        {
+          id = 7,
+          type = "Pikeman"
+        },
+        {
+          id = 8,
+          type = "Pikeman"
+        },
+        {
+          id = 9,
+          type = "Pikeman",
+          properties = {
+            ["nextanim"] = "fire_south"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 10,
+          type = "Pikeman"
+        },
+        {
+          id = 11,
+          type = "Pikeman",
+          properties = {
+            ["name"] = "fire_south",
+            ["nextanim"] = "south"
+          },
+          animation = {
+            {
+              tileid = 11,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          type = "Pikeman",
+          properties = {
+            ["name"] = "west"
+          }
+        },
+        {
+          id = 13,
+          type = "Pikeman"
+        },
+        {
+          id = 14,
+          type = "Pikeman"
+        },
+        {
+          id = 15,
+          type = "Pikeman",
+          properties = {
+            ["nextanim"] = "fire_west"
+          },
+          animation = {
+            {
+              tileid = 15,
+              duration = 125
+            },
+            {
+              tileid = 16,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 16,
+          type = "Pikeman"
+        },
+        {
+          id = 17,
+          type = "Pikeman",
+          properties = {
+            ["name"] = "fire_west",
+            ["nextanim"] = "west"
+          },
+          animation = {
+            {
+              tileid = 17,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 18,
+          type = "Pikeman",
+          properties = {
+            ["name"] = "north"
+          }
+        },
+        {
+          id = 19,
+          type = "Pikeman"
+        },
+        {
+          id = 20,
+          type = "Pikeman"
+        },
+        {
+          id = 21,
+          type = "Pikeman",
+          properties = {
+            ["nextanim"] = "fire_north"
+          },
+          animation = {
+            {
+              tileid = 21,
+              duration = 125
+            },
+            {
+              tileid = 22,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 22,
+          type = "Pikeman"
+        },
+        {
+          id = 23,
+          type = "Pikeman",
+          properties = {
+            ["name"] = "fire_north",
+            ["nextanim"] = "north"
+          },
+          animation = {
+            {
+              tileid = 23,
+              duration = 125
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "kappa",
+      firstgid = 1570,
+      filename = "img/friend/kappa.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 3,
+      image = "img/friend/kappa.png",
+      imagewidth = 96,
+      imageheight = 128,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {
+        ["colstype"] = "state",
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["directionangle0"] = 90,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
+      },
+      terrains = {},
+      tilecount = 12,
+      tiles = {
+        {
+          id = 0,
+          type = "Friend",
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 4,
+                y = 4,
+                width = 24,
+                height = 24,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true,
+                  ["sensor"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 1,
+          type = "Friend"
+        },
+        {
+          id = 2,
+          type = "Friend"
+        },
+        {
+          id = 3,
+          type = "Friend"
+        },
+        {
+          id = 4,
+          type = "Friend"
+        },
+        {
+          id = 5,
+          type = "Friend"
+        },
+        {
+          id = 6,
+          type = "Friend"
+        },
+        {
+          id = 7,
+          type = "Friend"
+        },
+        {
+          id = 8,
+          type = "Friend"
+        },
+        {
+          id = 9,
+          type = "Friend"
+        },
+        {
+          id = 10,
+          type = "Friend"
+        },
+        {
+          id = 11,
+          type = "Friend"
+        }
+      }
+    },
+    {
+      name = "well_with_grate",
+      firstgid = 1582,
+      filename = "img/well_with_grate.tsx",
+      tilewidth = 16,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      columns = 8,
+      image = "img/well_with_grate.png",
+      imagewidth = 128,
+      imageheight = 48,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 16,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 24,
+      tiles = {}
+    }
+  },
+  layers = {
+    {
       type = "tilelayer",
-      id = 2,
+      id = 164,
       name = "dirt",
       x = 0,
       y = 0,
       width = 18,
-      height = 245,
+      height = 270,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -6122,16 +7112,16 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "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"
+      data = "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"
     },
     {
       type = "tilelayer",
-      id = 3,
+      id = 165,
       name = "dirtdeco",
       x = 0,
       y = 0,
       width = 18,
-      height = 245,
+      height = 270,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -6139,16 +7129,16 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztWlmOwzAIzf3vlpypykc0CAFmecQomidV02ligzFgFh/HH07y/TpkXIvnFviYU/l9NQcfdyrvcjpV8Hk0/j3rupTvz/+UlsW/RIPu0Uq21p7TdVj8RsHXp73D+UBBmi9CI/ru/aEy1MZrcvXqAqXn4ctDW9KhlW/QsNJHiW+vDUUQ0a2T/ZVoevWhajceOo9tIWymym9lHir3KWvh+hvlSzs/nrlXYz325X1O5UvXlZVTxEdpY6Q56O8e3jTakdjGAsomsnNJcor4hSw/9ByzxkVtQhubtXltnW/4sseONPrWcwuZODkKj3/h73vH8DM0QkP7ncdS3hglwocWD6+Q1T8rr1npXSRf6NIjhP0igcohvHmUlsd5YtiVrkXPfoT8kX5UWqfFo6b7li/kOapGk8c8HkT8i4bVeqX40KM7SFuTzqfzkPnTUM2v6fseO4jENZUY0kvD2kcqR0nHM/65qw7G7Sey/6taBioWQNvhCpYf8PIy5ZzsrltIOp9F5XyL1k+tdzpqyZ1xvUW3OkbzxSgZvW3b0hyS3qH2C+UDUaBnv7emkHlmvVORbSa31iDlt1H50HG7dEZDpK7fCU/PIzpPVYeqeKNeMwWZNU6Xy5T4bCqQsUs2H0DCysci46XzJyofrUeE6l8h0NFLi6AqYzrPVF9knWda3KTF41PXmMEUf2z1cnejst+dvTMUUPHd7nWhezG713MDbQcT1sQxkacp6NDnbD0e3ReZAjQvCH/ase+VunM1bp4UK9+YlpN+2b5uTMm3OuSC2rs36tErmh39mMq8nXqMyJeR/ZlJqKwJVc/K9ss5/vfn/XmnnD9d/qwyHt1TQ6F6TweNaT2+Cnbv03TQuiq63jYB6PgeAYRP+9qZvPu+Tcc8XbKecsYjsOs+nSVDrZfrqcVk79h57hpb71TqRJn7ntIcz8fb10Tci8v2eai8Mnd3tP4L6i5SZ94+/Z6mB3TfvuQPJ2DK+SkBUeOYri8Wfz/19nvI"
+      data = "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"
     },
     {
       type = "tilelayer",
-      id = 4,
+      id = 166,
       name = "grass",
       x = 0,
       y = 0,
       width = 18,
-      height = 245,
+      height = 270,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -6156,16 +7146,16 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "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"
+      data = "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"
     },
     {
       type = "tilelayer",
-      id = 5,
+      id = 167,
       name = "grassdeco",
       x = 0,
       y = 0,
       width = 18,
-      height = 245,
+      height = 270,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -6173,16 +7163,16 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt3EEKwjAQheH26Kb1ALrT09qAwaHUUPueOMj/QTdixmQyGbqJw6CbxhwxqmKKM4++WG4nYV51rDI+mg1x6lwccXp7dR5fT++zvWMd30UutX5cPcghngnHvIrQz0roGa7eoaypmOfiou7T1nhlzxzanBw92u0b+T4iw5lwiuddidGosdZ5UWtxSvxul4HzrGfsG/hf7neCLD0ZAAAAAAAAAAAAAAAAAAAAAACgR73D47wfd1meqyHebYlxN9xBdXDekTqSa+d/Jmx9pqxvfnMv+5OYvZrZs/b2++uaablWarI881NjqTUZ7bm3FHO4tYYj+7Zewy/Pa9zbBzDDNYE="
+      data = "eJzt3N8OgiAUx3F9dNEeoO7qaZMtFmNIyvktib6fzZsmRw7/wgscBrtptMdYBDG8WRTHjbo6qVna25dV9JfnBHF8DEWflfrqMr6v0m+5uu2570hM/IdW1w6l3nJUrYst6jm3M5T++85q697mY0qx30BZa/veuC6q/WZtflNUVjXHLXvfULa1eWGtT658bTu11jY9U717q+IEtWPACd6V47XGmleah3Wd9vVhfmxjz4xf1coaCgAAAAAAAAAAAAAAAAAAAAAA8E3WMxCqMxn+XNJ1vW6CePc1xsP4PRkV5RmTmrNxqufn+nkxniVcNr6Tc6TOpTGzJ064Jx0zoa0tY3J+tY9/hnVMpnE/icdKLoeasZTmcOZ8jfv2Cf+uOA0="
     },
     {
       type = "tilelayer",
-      id = 6,
+      id = 168,
       name = "crops",
       x = 0,
       y = 0,
       width = 18,
-      height = 245,
+      height = 270,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -6190,16 +7180,16 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztkulqxDAMBhf0/i/Uk17QbkufqZSyxEejtbRJ7Ghn4PthJI2JlcMBAAAAAAAAAAAAYF2Okp+/ZUrJXO1DxvO09p6rRfWMtq+19g455Tt/yZSSudp/++rtae09V4vqGW1fa+0dcj5lSsrv26XvV57L2aieOVo8LfTyHGWK1ZPO7sXTwiWza3P67kv+jTIp7/KXufPonjlaPC308pzqZU+LJ52N6gGdN8njreFpr5VYepfCe6flfZbyvEqePXk0NI+FHh7vneXcnjwvkmcLj4bmsWDxaL2W2hYey3eM5tF4ljxeLB6t11K7Ro/GUrvswZPk2cKj9VpqUT2g8yh1PDN4dE9UHqSOZwaP7onKvdTxzODRPVG5kzqeGTy6Jyq3Usczg0f3ROVG6nhm8OgeAACAa+YHdPvyHQ=="
+      data = "eJztmIFy2jAMhnvn93+6lnYHND26rSWB7RnGzvjQNEv6FbuwZvrudIHU/iw5SXF8dxcEQRAEQRAEQRAEQRAEQRAEQRDcgveUQ+J7yoF4fnbyaPkcb5CP5vmdz7FTPqjHul6IZ6nsUw6JHymHxc7wvKUciGfXydMjn33HfHp4rOt17bqWymvKIfE15UA845U8E+AZDc/UKZ8JzMeaZ9QzAtcL8QQfw6Ey99I1k85/Szk40j0knZc80rPh9UjPhuapIc2D9cyg7a1nuAfI/xLE0ePZ7emp1SX9Nku/tVIu0lrBWkP8S57a/aZ5avMmPY+9PF6s3xiUHg4N6X67xnWvzb/X472+0nltHrx59ho3uA7ae33Zy9D2Io6kjbTvUTza3gjaho4n5XPsNJa1j0Md/+veCLrfpfW3rpcnD+0+LOvQQ5LXksi9UTzSupZ6NA4kn9q6H4XW1Oqx6upNa8695vAA3BsIyByWvQNtDwGZF+ppWa+XdXrruh+py5uP5ZnAdto4U2P9fP5a8uHXtKUuq29Z73vfkzmv6c9o8dCc0LYcq66R5avtr2j58Lrn7hPQMcYGT0sOt6TsByDvXbtkv7chf98n+/3Geu+iYXmQcax21r5JvDfZvJzm6AsLC97+hQQ9h3j4+NyB5MP71BzeuiQHmg/PY6kMp9qeWFjw9gM5DuT7nLGfmAv1SK7BURfPf2jweOf0s/KY/g6L53SJWv/H89+QsZ9Zn9rR66nlgtYlObx18ZyWyirl2J5jBdRa+tC+9LhyeLZK/3LOotaP+xCPlM+WBerxjP1ZeUiX2JyPFhvWnn7eODx07FoU11zPhn1HPbwfr3eOZ6msT7Xdk1gDta7TJe4r/ctnC9pnXfns9dTyoL45nprXUxfaJwiCIAiWzC/QuHYd"
     },
     {
       type = "tilelayer",
-      id = 7,
+      id = 169,
       name = "houses",
       x = 0,
       y = 0,
       width = 18,
-      height = 245,
+      height = 270,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -6207,16 +7197,16 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt1cEKgkAQgOFFs3N16VJBL+A7WA8ZHaNDRKfoENEDSfgAEl5ycRcW0VXcApP/g8Flmx1wnCUh8M+mgRBBQ8icOiMjR8bcWFftydxxRb1JKS9Uz7UKc0/XnNXUkXnLUug65f2wps5C/b6yvHuXXKCNxBPi5XU/H3tFjSyPt0OdVNXY+EJs/e51Ir+oMSSnvC8XFYnX/Zvd8zNPFZnDN9M93qmn6zfrEz3PstfnL8yz7PXDoU7U0x67zGFszLHLHKbGeZcemT0eGuYZaOdg/M82xdFyB67qnuz9Imzrm6WOvis637bmLgEAAAAAAAAAAAAAAAAAAAAAAADAb30AM4NMNg=="
+      data = "eJzt1z9Lw0AYx/F4QUQ6qYNIJ/UlqLNWwUUFrXMH9ZWIr0B8NY7VwcGpOjg4qW/EO3JHzofkkjtQEvl+4EdD+uShvT9pmmXos735LNtuiKmps+XVmBx6x1XnTO1ORb9dUTexr6c2/jnXc1TTx9Qdi7g+8vykps+Rff8k8N1TaoG/tJ//zEHefM2crlEiY5HzFn2WdM2yyKXIVYs+67pmQ6RrHlSRRxV33UjMz4sq8hrZ50zMz6cq8hXZ50LMT9fErmWjaT23WctG03pus5aNPqxnN055wmebqnI/uHFaSegzU+V+cOO0mdDnQ5X7Af0y0PO9aOf8JmLur23tQl70GOqs2XN3EX1ube2q7eHv85Q+7v76H7gxftL76tlmkMfPmRubN339u80wYc7kGFfdm2PmDED3yWfomGdDn3yGjnk29IXuP0Cqqfc725TQ/9CZ/Y29z4uEjkP/Q906d/WhY9Y/AAAAAAAAAAAAAAAAAAAAAAAAAPyubx3UYCs="
     },
     {
       type = "tilelayer",
-      id = 8,
+      id = 170,
       name = "housedeco",
       x = 0,
       y = 0,
       width = 18,
-      height = 245,
+      height = 270,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -6224,7 +7214,41 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzLEKwjAUBdAOPhFcSnHoZhfddbf//1kmJMMbqnRykHPgkXDzcoeBf7DEvuzT32PfPZfzVuba5x4tqw7xvbPuTf19Lucj7T6jZdWYOrfMqad6lfupz5ryMXXudYk2AAAAAAAAAAAAAAAAAAAAAPzWGyEZA5A="
+      data = "eJztzLEKwjAUBdAu74ukCC6lOHSri+662/9fTUiGN6h0cpBz4JFw83KHgX9wiX3Zp79j3z2V81pm7XOLllWH+N5Z9+b+vpTznnYf0bJqSp3vLKmnepb7sc+W8il17nWONgAAAAAAAAAAAAAAAAAAAAAAAL/yAoFXCRI="
+    },
+    {
+      type = "tilelayer",
+      id = 205,
+      name = "well",
+      x = 0,
+      y = 0,
+      width = 18,
+      height = 270,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJztzLcRgEAUQ8EfXTmYBJNg+m8K1cBFMLszL5SqAADgm4ZWNaYpze39z5Ltmra0d/wc2Z7pSnfHDwAAAAAAAAAAAAAAAAAAAPAvDy1NAuM="
+    },
+    {
+      type = "tilelayer",
+      id = 171,
+      name = "midbosscover_mid",
+      x = 0,
+      y = 0,
+      width = 18,
+      height = 270,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJzt0DEKgDAMBdAMuf/9bNWzmK1jLTgUeQ8+hJ9MiQAAAAAAgH31jDgrV+XO0R81t3y//7PZL1bvAAAAAAAAAAAAAAAAgG89XzgWtA=="
     },
     {
       type = "objectgroup",
@@ -6240,12 +7264,46 @@ return {
     },
     {
       type = "tilelayer",
-      id = 10,
+      id = 172,
+      name = "midbosscover_high",
+      x = 0,
+      y = 0,
+      width = 18,
+      height = 270,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJzt0DkKwDAMBEAV/v/TcpDzOVGXQArbnYsZWBDsVooAAAAAAIDXXCKWzFr+3VTa+yNzZq7M/dluee8d/ahqv2jZ1X7RuwMAAAAAAAAAAAAAAADG9AA1vCT3"
+    },
+    {
+      type = "tilelayer",
+      id = 206,
+      name = "wellfront",
+      x = 0,
+      y = 0,
+      width = 18,
+      height = 270,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJztzLcRgEAUQ8EfXUGYBJNg+m8J1cBFMLszL5SqAADgm4ZWNaYpze39z5Ltmra0d/wc2Z7pSnfHDwAAAAAAAAAAAAAAAAAAAPAvD1YhAxM="
+    },
+    {
+      type = "tilelayer",
+      id = 173,
       name = "fence",
       x = 0,
       y = 0,
       width = 18,
-      height = 245,
+      height = 270,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -6253,16 +7311,16 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztyqERACAMALHesf8STABMiGkdaBCJefMRAAAAAAAAAAAAAAAAAAAA8F5v547szK7LVwXgTxvUCwX7"
+      data = "eJztyqERACAMALHesf9STABMhGkdaBCJefMRAAAAAAAAAAAAAAAAAAAAAAC81Nu5Izuz6/JVAfjTBlx8Bxs="
     },
     {
       type = "tilelayer",
-      id = 11,
+      id = 174,
       name = "rooftops",
       x = 0,
       y = 0,
       width = 18,
-      height = 245,
+      height = 270,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -6270,7 +7328,37 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt1FsuBEEUxvHqTiZ4dInLM2EBxngd5uLR5QUrwXoICyAsgGEBDEvALnyd6UpKxaSnz0yQzP+XfOlJus7JpPpUOddTrTh3oNQqvd+7yl6U/eC9Xxsblz4NpRmlNWCfdv6urmz1yXbl+9pYPVhXpMxa4Dd9Js5dKldJ+dpz1Vwo78pU6tytnneGPtequVEm1KOj56PyZOhzr5qHpNejq7wqb4Y+z6p5yXv8tVntyZxyqBwpH4ntmy2rdkU5UU6VydT2zdZVU1U28nQS2zdrqLaptPJ0h/xmoxDO87H+07yykJbvE87zmbKqrBn6hPOc7XVN2TT0Cec52+u2smPoE7LOod9jX2+dQ7/Hvt46h+Ee+3vDMofhHv+HeyMT3h3DzHN4dwwzz/HdYZ3n+O4YxTxjvE1rfmZKzNCi1i79sN6flUH1O0vxWSlKv7MUn5WicJYAAAAAAAAAAAAAAAAAAAAAAAAAYLx8AQ/uaDQ="
+      data = "eJzt1tsuQ0EUBuBtJw2eRF06xOGa8ACUB6hyWS2ibhyu8ATa5yE8AOEBnB7A6dY/aSdWV/e0M7VV1P8lfyLp6krNrJm9o6gun4miI6SQqf+9jxyoHIrPba32X/qUkS2Vbc8+O43PisimI6VMc61WFHWdhNQS/UWV+Ct7yBQyHbvrzwei6AIZRM2QSFWkhiwgi236XKPHDTKCmqxITmUFWW3T5x49HpBHlULcnHVko02fF3znFXlTSYvv+koTqJtEdsUe+a6vNIe6eeRM7JHv+kpLqFtW++O7vlIedWtqf9ISMstGp3n2XWufefZZa5959lnrn55ns0bDyCV6XgX01TNt1mgUuUWPu4A+eqbtOj0hzwF99EzbdXpHPgL66Jmm3rDnNWQW7ZmX5z3bxSzaMy/PuzyzvrOYdOblmfWdxaQz/1uSnl0Vdcf67FnSs6uq7lifPUt6duXi1nu2054lPbsKces9G3p/UG918z5myLk23y8jp4HvY4ad6+PG909S6pPW7yn16f/13T7mHqrF3b2HG657KOQ93HDdQyHv4dQ/xrDn4wH7PoPa2YR6O+e+XPPvmnNXXPPvmnNXOP9ERERERERERERERERERERERERERERERERERP/LJ3LC2Zo="
+    },
+    {
+      type = "objectgroup",
+      id = 215,
+      name = "enemygrouptemplate",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 505,
+          name = "trigger",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 176,
+          y = 4328,
+          width = 112,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        }
+      }
     },
     {
       type = "objectgroup",
@@ -6290,8 +7378,8 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 72,
-          y = 696,
+          x = 88,
+          y = 1096,
           width = 0,
           height = 0,
           rotation = 0,
@@ -6308,7 +7396,7 @@ return {
           type = "",
           shape = "polyline",
           x = 208,
-          y = 696,
+          y = 1096,
           width = 0,
           height = 0,
           rotation = 0,
@@ -6325,7 +7413,7 @@ return {
           type = "",
           shape = "polyline",
           x = 48,
-          y = 224,
+          y = 624,
           width = 0,
           height = 0,
           rotation = 0,
@@ -6341,8 +7429,8 @@ return {
           name = "",
           type = "",
           shape = "polyline",
-          x = 248,
-          y = 224,
+          x = 240,
+          y = 624,
           width = 0,
           height = 0,
           rotation = 0,
@@ -6350,6 +7438,76 @@ return {
           polyline = {
             { x = 0, y = 0 },
             { x = 88, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 440,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 64,
+          y = 880,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -96, y = -8 }
+          },
+          properties = {}
+        },
+        {
+          id = 441,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 224,
+          y = 880,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 96, y = -8 }
+          },
+          properties = {}
+        },
+        {
+          id = 471,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 376,
+          y = 232,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -32, y = 0 },
+            { x = -120, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 472,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = -104,
+          y = 232,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 40, y = 0 },
+            { x = 136, y = 0 }
           },
           properties = {}
         }
@@ -6376,7 +7534,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 1302,
+          gid = 1349,
           visible = true,
           properties = {}
         },
@@ -6390,7 +7548,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 1290,
+          gid = 1337,
           visible = true,
           properties = {}
         },
@@ -6404,7 +7562,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 1290,
+          gid = 1337,
           visible = true,
           properties = {}
         },
@@ -6418,7 +7576,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 1302,
+          gid = 1349,
           visible = true,
           properties = {}
         }
@@ -6490,7 +7648,7 @@ return {
           type = "Trigger",
           shape = "polyline",
           x = 0,
-          y = -80,
+          y = -104,
           width = 0,
           height = 0,
           rotation = 0,
@@ -6507,14 +7665,14 @@ return {
         {
           id = 310,
           name = "swordsman",
-          type = "Swordsman",
+          type = "",
           shape = "rectangle",
           x = 152,
           y = 144,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1239,
+          gid = 1286,
           visible = true,
           properties = {
             ["initiallayer"] = "ground"
@@ -6523,14 +7681,14 @@ return {
         {
           id = 311,
           name = "swordsman",
-          type = "Swordsman",
+          type = "",
           shape = "rectangle",
           x = 136,
           y = 144,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1239,
+          gid = 1286,
           visible = true,
           properties = {
             ["initiallayer"] = "ground"
@@ -6539,14 +7697,14 @@ return {
         {
           id = 312,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 232,
           y = -120,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6558,14 +7716,14 @@ return {
         {
           id = 313,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 56,
           y = -120,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6577,14 +7735,14 @@ return {
         {
           id = 314,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
           x = 56,
           y = -16,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6595,14 +7753,14 @@ return {
         {
           id = 315,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
           x = 232,
           y = -16,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6629,7 +7787,7 @@ return {
           type = "Trigger",
           shape = "polyline",
           x = 0,
-          y = -64,
+          y = -88,
           width = 0,
           height = 0,
           rotation = 0,
@@ -6647,14 +7805,14 @@ return {
         {
           id = 306,
           name = "swordsman",
-          type = "Swordsman",
+          type = "",
           shape = "rectangle",
           x = 136,
           y = 144,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1239,
+          gid = 1286,
           visible = true,
           properties = {
             ["initiallayer"] = "ground"
@@ -6663,14 +7821,14 @@ return {
         {
           id = 307,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 232,
           y = -120,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6682,14 +7840,14 @@ return {
         {
           id = 308,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 56,
           y = -120,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6701,14 +7859,14 @@ return {
         {
           id = 305,
           name = "swordsman",
-          type = "Swordsman",
+          type = "",
           shape = "rectangle",
           x = 152,
           y = 144,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1239,
+          gid = 1286,
           visible = true,
           properties = {
             ["initiallayer"] = "ground"
@@ -6730,14 +7888,14 @@ return {
         {
           id = 285,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
           x = 232,
           y = -16,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6748,14 +7906,14 @@ return {
         {
           id = 286,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
           x = 56,
           y = -16,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6769,7 +7927,7 @@ return {
           type = "Trigger",
           shape = "polyline",
           x = 0,
-          y = -48,
+          y = -72,
           width = 0,
           height = 0,
           rotation = 0,
@@ -6787,14 +7945,14 @@ return {
         {
           id = 288,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 56,
           y = -120,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6806,14 +7964,14 @@ return {
         {
           id = 287,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 232,
           y = -120,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6838,14 +7996,14 @@ return {
         {
           id = 284,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
           x = 56,
           y = -16,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6856,14 +8014,14 @@ return {
         {
           id = 283,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
           x = 232,
           y = -16,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6877,7 +8035,7 @@ return {
           type = "Trigger",
           shape = "polyline",
           x = 0,
-          y = -32,
+          y = -56,
           width = 0,
           height = 0,
           rotation = 0,
@@ -6911,7 +8069,7 @@ return {
           type = "Trigger",
           shape = "polyline",
           x = 0,
-          y = -16,
+          y = -40,
           width = 0,
           height = 0,
           rotation = 0,
@@ -6929,14 +8087,14 @@ return {
         {
           id = 281,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
           x = 232,
           y = -16,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6947,14 +8105,14 @@ return {
         {
           id = 282,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
           x = 56,
           y = -16,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {
             ["defeatitemlaunch"] = true,
@@ -6985,7 +8143,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 1419,
+          gid = 1466,
           visible = true,
           properties = {}
         },
@@ -6999,7 +8157,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 1422,
+          gid = 1469,
           visible = true,
           properties = {}
         },
@@ -7079,6 +8237,62 @@ return {
     },
     {
       type = "objectgroup",
+      id = 25,
+      name = "bosshouse_doors",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 261,
+          name = "door",
+          type = "",
+          shape = "rectangle",
+          x = 136,
+          y = 144,
+          width = 16,
+          height = 32,
+          rotation = 0,
+          gid = 1168,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 262,
+          name = "door",
+          type = "",
+          shape = "rectangle",
+          x = 152,
+          y = 144,
+          width = 16,
+          height = 32,
+          rotation = 0,
+          gid = 2147484816,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 263,
+          name = "storehouse_doors",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 128,
+          y = 128,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
       id = 22,
       name = "boss",
       visible = true,
@@ -7089,27 +8303,6 @@ return {
       properties = {},
       objects = {
         {
-          id = 265,
-          name = "boss_trigger",
-          type = "Trigger",
-          shape = "polyline",
-          x = 0,
-          y = 0,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 288, y = 0 }
-          },
-          properties = {
-            ["activateobjectslayer"] = "roofobjects",
-            ["cleartowin"] = true,
-            ["musicfile"] = "mus/10 - Creeping Thing.vgz"
-          }
-        },
-        {
           id = 267,
           name = "boss",
           type = "LordArmored",
@@ -7119,7 +8312,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1386,
+          gid = 1433,
           visible = true,
           properties = {
             ["pathid"] = "boss_path",
@@ -7129,18 +8322,409 @@ return {
         {
           id = 269,
           name = "armor_body",
-          type = "LordArmorBodyAttack",
+          type = "LordArmorBodyEnter",
           shape = "rectangle",
           x = 144,
           y = -10,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1416,
+          gid = 1463,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 482,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 0,
+          y = -16,
+          width = 336,
+          height = 16,
+          rotation = 0,
           visible = true,
           properties = {
-            ["pathid"] = "boss_armor_path"
+            ["activateobjectslayer"] = "roofobjects",
+            ["cleartowin"] = true,
+            ["dialogue"] = true,
+            ["timelinespeed"] = 16
           }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 208,
+      name = "bosstalk1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 483,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 328,
+          y = 0,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["dialogue"] = true,
+            ["timelinespeed"] = 0
+          }
+        },
+        {
+          id = 485,
+          name = "bubble",
+          type = "Polygon",
+          shape = "polygon",
+          x = 64,
+          y = 88,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = -8 },
+            { x = -16, y = 8 },
+            { x = -16, y = 88 },
+            { x = 0, y = 104 },
+            { x = 96, y = 104 },
+            { x = 104, y = 104 },
+            { x = 112, y = 104 },
+            { x = 160, y = 104 },
+            { x = 176, y = 88 },
+            { x = 176, y = 8 },
+            { x = 160, y = -8 },
+            { x = 64, y = -8 },
+            { x = 72, y = -32 },
+            { x = 48, y = -8 }
+          },
+          properties = {}
+        },
+        {
+          id = 486,
+          name = "text",
+          type = "",
+          shape = "text",
+          x = 56,
+          y = 96,
+          width = 176,
+          height = 88,
+          rotation = 0,
+          visible = true,
+          text = "Guess I'll be needing a new hunting party...\nBut that bounty on your head will buy a hunting army.",
+          fontfamily = "Unifont",
+          wrap = true,
+          color = { 255, 255, 255 },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 212,
+      name = "Copy of bosstalk1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 494,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 328,
+          y = 8,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["dialogue"] = true,
+            ["timelinespeed"] = 0
+          }
+        },
+        {
+          id = 495,
+          name = "bubble",
+          type = "Polygon",
+          shape = "polygon",
+          x = 64,
+          y = 88,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = -8 },
+            { x = -16, y = 8 },
+            { x = -16, y = 88 },
+            { x = 0, y = 104 },
+            { x = 96, y = 104 },
+            { x = 88, y = 136 },
+            { x = 112, y = 104 },
+            { x = 160, y = 104 },
+            { x = 176, y = 88 },
+            { x = 176, y = 8 },
+            { x = 160, y = -8 },
+            { x = 64, y = -8 },
+            { x = 56, y = -8 },
+            { x = 48, y = -8 }
+          },
+          properties = {}
+        },
+        {
+          id = 496,
+          name = "text",
+          type = "",
+          shape = "text",
+          x = 56,
+          y = 96,
+          width = 176,
+          height = 88,
+          rotation = 0,
+          visible = true,
+          text = "Why does some stupid money make you want to hurt us?\nI don't understand it!",
+          fontfamily = "Unifont",
+          wrap = true,
+          color = { 255, 255, 255 },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 214,
+      name = "Copy of Copy of bosstalk1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 500,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 328,
+          y = 16,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["dialogue"] = true,
+            ["timelinespeed"] = 0
+          }
+        },
+        {
+          id = 501,
+          name = "bubble",
+          type = "Polygon",
+          shape = "polygon",
+          x = 64,
+          y = 88,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = -8 },
+            { x = -16, y = 8 },
+            { x = -16, y = 88 },
+            { x = 0, y = 104 },
+            { x = 96, y = 104 },
+            { x = 88, y = 136 },
+            { x = 112, y = 104 },
+            { x = 160, y = 104 },
+            { x = 176, y = 88 },
+            { x = 176, y = 8 },
+            { x = 160, y = -8 },
+            { x = 64, y = -8 },
+            { x = 56, y = -8 },
+            { x = 48, y = -8 }
+          },
+          properties = {}
+        },
+        {
+          id = 502,
+          name = "text",
+          type = "",
+          shape = "text",
+          x = 56,
+          y = 96,
+          width = 176,
+          height = 88,
+          rotation = 0,
+          visible = true,
+          text = "We could have been friends.\nWe had so many nice things we could have shared with you!",
+          fontfamily = "Unifont",
+          wrap = true,
+          color = { 255, 255, 255 },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 211,
+      name = "Copy of bosstalk1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 491,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 328,
+          y = 24,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["dialogue"] = true,
+            ["timelinespeed"] = 0
+          }
+        },
+        {
+          id = 492,
+          name = "bubble",
+          type = "Polygon",
+          shape = "polygon",
+          x = 64,
+          y = 88,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = -8 },
+            { x = -16, y = 8 },
+            { x = -16, y = 88 },
+            { x = 0, y = 104 },
+            { x = 96, y = 104 },
+            { x = 104, y = 104 },
+            { x = 112, y = 104 },
+            { x = 160, y = 104 },
+            { x = 176, y = 88 },
+            { x = 176, y = 8 },
+            { x = 160, y = -8 },
+            { x = 64, y = -8 },
+            { x = 72, y = -32 },
+            { x = 48, y = -8 }
+          },
+          properties = {}
+        },
+        {
+          id = 493,
+          name = "text",
+          type = "",
+          shape = "text",
+          x = 56,
+          y = 96,
+          width = 176,
+          height = 88,
+          rotation = 0,
+          visible = true,
+          text = "Charity from a monster?\n\nGod forbid a man sink so low!",
+          fontfamily = "Unifont",
+          wrap = true,
+          color = { 255, 255, 255 },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 210,
+      name = "Copy of bosstalk1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 488,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 328,
+          y = 32,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["dialogue"] = true,
+            ["timelinespeed"] = 0
+          }
+        },
+        {
+          id = 489,
+          name = "bubble",
+          type = "Polygon",
+          shape = "polygon",
+          x = 64,
+          y = 88,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = -8 },
+            { x = -16, y = 8 },
+            { x = -16, y = 88 },
+            { x = 0, y = 104 },
+            { x = 96, y = 104 },
+            { x = 104, y = 104 },
+            { x = 112, y = 104 },
+            { x = 160, y = 104 },
+            { x = 176, y = 88 },
+            { x = 176, y = 8 },
+            { x = 160, y = -8 },
+            { x = 64, y = -8 },
+            { x = 72, y = -32 },
+            { x = 48, y = -8 }
+          },
+          properties = {}
+        },
+        {
+          id = 490,
+          name = "text",
+          type = "",
+          shape = "text",
+          x = 56,
+          y = 96,
+          width = 176,
+          height = 88,
+          rotation = 0,
+          visible = true,
+          text = "It's His will that we fight for what's ours!\nThe only nice thing I need is your corpse for that bounty!",
+          fontfamily = "Unifont",
+          wrap = true,
+          color = { 255, 255, 255 },
+          properties = {}
         }
       }
     },
@@ -7216,57 +8800,33 @@ return {
     },
     {
       type = "objectgroup",
-      id = 25,
-      name = "bosshouse_doors",
+      id = 209,
+      name = "bossenter",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
-          id = 261,
-          name = "door",
+          id = 484,
+          name = "",
           type = "",
-          shape = "rectangle",
-          x = 136,
-          y = 144,
-          width = 16,
-          height = 32,
+          shape = "polyline",
+          x = 144,
+          y = -8,
+          width = 0,
+          height = 0,
           rotation = 0,
-          gid = 1136,
           visible = true,
+          polyline = {
+            { x = 0, y = 16 },
+            { x = 0, y = 48 }
+          },
           properties = {}
-        },
-        {
-          id = 262,
-          name = "door",
-          type = "",
-          shape = "rectangle",
-          x = 152,
-          y = 144,
-          width = 16,
-          height = 32,
-          rotation = 0,
-          gid = 2147484784,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 263,
-          name = "storehouse_doors",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 128,
-          y = 128,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
         }
       }
     },
@@ -7283,11 +8843,11 @@ return {
       objects = {
         {
           id = 264,
-          name = "preboss",
+          name = "bossmusic",
           type = "Trigger",
           shape = "polyline",
           x = 0,
-          y = 208,
+          y = 48,
           width = 0,
           height = 0,
           rotation = 0,
@@ -7297,9 +8857,8 @@ return {
             { x = 288, y = 0 }
           },
           properties = {
-            ["activateobjectslayer"] = "ground",
-            ["musicfade"] = true,
-            ["soundfile"] = "snd/alarm4.ogg"
+            ["activateobjects"] = false,
+            ["musicfile"] = "mus/Big_Armor.vgm"
           }
         },
         {
@@ -7312,7 +8871,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1428,
+          gid = 1475,
           visible = true,
           properties = {}
         },
@@ -7326,7 +8885,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1428,
+          gid = 1475,
           visible = true,
           properties = {}
         },
@@ -7340,7 +8899,7 @@ return {
           width = 48,
           height = 80,
           rotation = 0,
-          gid = 1425,
+          gid = 1472,
           visible = true,
           properties = {}
         },
@@ -7354,7 +8913,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1428,
+          gid = 1475,
           visible = true,
           properties = {}
         },
@@ -7368,7 +8927,7 @@ return {
           width = 48,
           height = 80,
           rotation = 0,
-          gid = 1425,
+          gid = 1472,
           visible = true,
           properties = {}
         },
@@ -7382,7 +8941,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1428,
+          gid = 1475,
           visible = true,
           properties = {}
         },
@@ -7396,7 +8955,7 @@ return {
           width = 48,
           height = 80,
           rotation = 0,
-          gid = 1425,
+          gid = 1472,
           visible = true,
           properties = {}
         },
@@ -7410,7 +8969,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1428,
+          gid = 1475,
           visible = true,
           properties = {}
         },
@@ -7424,7 +8983,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1428,
+          gid = 1475,
           visible = true,
           properties = {}
         },
@@ -7438,16 +8997,37 @@ return {
           width = 48,
           height = 80,
           rotation = 0,
-          gid = 1425,
+          gid = 1472,
           visible = true,
           properties = {}
+        },
+        {
+          id = 481,
+          name = "warning",
+          type = "Trigger",
+          shape = "polyline",
+          x = 0,
+          y = 240,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 288, y = 0 }
+          },
+          properties = {
+            ["activateobjectslayer"] = "ground",
+            ["musicfade"] = true,
+            ["soundfile"] = "snd/alarm4.ogg"
+          }
         }
       }
     },
     {
       type = "objectgroup",
-      id = 27,
-      name = "swordsmen4",
+      id = 188,
+      name = "swordsmenbounds",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -7456,42 +9036,435 @@ return {
       properties = {},
       objects = {
         {
-          id = 256,
-          name = "swordsman",
-          type = "Swordsman",
-          shape = "rectangle",
-          x = 216,
-          y = 240,
-          width = 32,
-          height = 32,
+          id = 469,
+          name = "",
+          type = "EnemyBounds",
+          shape = "polygon",
+          x = -8,
+          y = 592,
+          width = 0,
+          height = 0,
           rotation = 0,
-          gid = 1239,
           visible = true,
+          polygon = {
+            { x = 0, y = 8 },
+            { x = 56, y = 8 },
+            { x = 72, y = -64 },
+            { x = 72, y = -128 },
+            { x = 56, y = -160 },
+            { x = 56, y = -200 },
+            { x = 88, y = -224 },
+            { x = 88, y = -304 },
+            { x = 0, y = -304 }
+          },
           properties = {}
         },
         {
-          id = 118,
-          name = "swordsman",
-          type = "Swordsman",
+          id = 470,
+          name = "",
+          type = "EnemyBounds",
+          shape = "polygon",
+          x = 296,
+          y = 280,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 8 },
+            { x = -88, y = 8 },
+            { x = -88, y = 88 },
+            { x = -72, y = 120 },
+            { x = -72, y = 168 },
+            { x = -88, y = 200 },
+            { x = -88, y = 248 },
+            { x = -56, y = 264 },
+            { x = -56, y = 320 },
+            { x = 0, y = 320 }
+          },
+          properties = {}
+        },
+        {
+          id = 320,
+          name = "bounds",
+          type = "EnemyBounds",
+          shape = "polygon",
+          x = 160,
+          y = 496,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 160, y = 160 },
+            { x = 96, y = 160 },
+            { x = 96, y = 240 },
+            { x = 80, y = 288 },
+            { x = 80, y = 328 },
+            { x = 160, y = 336 }
+          },
+          properties = {}
+        },
+        {
+          id = 439,
+          name = "bounds",
+          type = "EnemyBounds",
+          shape = "polygon",
+          x = 160,
+          y = 496,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 136, y = 400 },
+            { x = 80, y = 416 },
+            { x = 80, y = 592 },
+            { x = 136, y = 592 }
+          },
+          properties = {}
+        },
+        {
+          id = 316,
+          name = "bounds",
+          type = "EnemyBounds",
+          shape = "polygon",
+          x = 160,
+          y = 496,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = -168, y = 608 },
+            { x = -112, y = 608 },
+            { x = -112, y = 416 },
+            { x = -168, y = 400 }
+          },
+          properties = {}
+        },
+        {
+          id = 438,
+          name = "bounds",
+          type = "EnemyBounds",
+          shape = "polygon",
+          x = 160,
+          y = 496,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = -184, y = 352 },
+            { x = -112, y = 344 },
+            { x = -112, y = 272 },
+            { x = -128, y = 208 },
+            { x = -128, y = 160 },
+            { x = -184, y = 160 }
+          },
+          properties = {}
+        },
+        {
+          id = 473,
+          name = "",
+          type = "EnemyBounds",
+          shape = "polygon",
+          x = 112,
+          y = 632,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = -16 },
+            { x = 0, y = 24 },
+            { x = 16, y = 32 },
+            { x = 48, y = 32 },
+            { x = 64, y = 24 },
+            { x = 64, y = -16 },
+            { x = 48, y = -24 },
+            { x = 16, y = -24 }
+          },
+          properties = {}
+        },
+        {
+          id = 319,
+          name = "bounds",
+          type = "EnemyBounds",
+          shape = "polyline",
+          x = 160,
+          y = 96,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -184, y = 104 },
+            { x = -128, y = 96 },
+            { x = -80, y = 96 },
+            { x = -32, y = 80 },
+            { x = -32, y = 32 },
+            { x = 0, y = 32 },
+            { x = 0, y = 80 },
+            { x = 48, y = 96 },
+            { x = 96, y = 96 },
+            { x = 152, y = 112 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 187,
+      name = "archers4",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 456,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 80,
+          y = 520,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -104, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 457,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 312,
+          y = 520,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -120, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 458,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = -24,
+          y = 440,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 112, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 459,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 312,
+          y = 440,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -88, y = 0 },
+            { x = -112, y = -24 }
+          },
+          properties = {}
+        },
+        {
+          id = 460,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = -16,
+          y = 360,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 88, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 461,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 312,
+          y = 360,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -112, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 462,
+          name = "",
+          type = "",
           shape = "rectangle",
-          x = 72,
-          y = 240,
+          x = 48,
+          y = 520,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1239,
+          gid = 1044,
           visible = true,
-          properties = {}
+          properties = {
+            ["pathspeedfunction"] = "ncos"
+          }
         },
+        {
+          id = 463,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 312,
+          y = 520,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1044,
+          visible = true,
+          properties = {
+            ["pathspeedfunction"] = "ncos"
+          }
+        },
+        {
+          id = 464,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 440,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1044,
+          visible = true,
+          properties = {
+            ["pathspeedfunction"] = "ncos"
+          }
+        },
+        {
+          id = 465,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 8,
+          y = 440,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1044,
+          visible = true,
+          properties = {
+            ["pathspeedfunction"] = "ncos"
+          }
+        },
+        {
+          id = 466,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 24,
+          y = 360,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1044,
+          visible = true,
+          properties = {
+            ["pathspeedfunction"] = "ncos"
+          }
+        },
+        {
+          id = 467,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 280,
+          y = 360,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1044,
+          visible = true,
+          properties = {
+            ["pathspeedfunction"] = "ncos"
+          }
+        },
+        {
+          id = 468,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 128,
+          y = 336,
+          width = 32,
+          height = 256,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 27,
+      name = "pikemen1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
         {
           id = 257,
-          name = "swordsmen4",
+          name = "phalanx",
           type = "Trigger",
           shape = "rectangle",
           x = 112,
-          y = 152,
+          y = 800,
           width = 64,
-          height = 104,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -7499,19 +9472,450 @@ return {
           }
         },
         {
-          id = 258,
-          name = "swordswoman",
-          type = "Swordsman",
+          id = 416,
+          name = "",
+          type = "",
           shape = "rectangle",
-          x = 144,
-          y = 208,
+          x = 0,
+          y = 864,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1263,
+          gid = 1528,
           visible = true,
           properties = {
-            ["defeatitem"] = "ItemWingman"
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 417,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -24,
+          y = 864,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 418,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -48,
+          y = 864,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 419,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -72,
+          y = 864,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 420,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -96,
+          y = 864,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 421,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 456,
+          y = 832,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 422,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 432,
+          y = 832,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 423,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 408,
+          y = 832,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 424,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 384,
+          y = 832,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 425,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 360,
+          y = 832,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 426,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = -8,
+          y = 864,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 8, y = 0 },
+            { x = 144, y = 24 },
+            { x = 328, y = 336 }
+          },
+          properties = {}
+        },
+        {
+          id = 427,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 288,
+          y = 848,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 72, y = -16 },
+            { x = -136, y = 24 },
+            { x = -320, y = 368 }
+          },
+          properties = {}
+        },
+        {
+          id = 428,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -8,
+          y = 848,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 429,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -32,
+          y = 848,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 430,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -56,
+          y = 848,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1552,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 431,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -80,
+          y = 848,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 432,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -104,
+          y = 848,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 433,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 464,
+          y = 816,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 434,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 440,
+          y = 816,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 435,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 416,
+          y = 816,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1552,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 436,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 392,
+          y = 816,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 437,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 368,
+          y = 816,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1528,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 207,
+      name = "wellprisoner",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 475,
+          name = "",
+          type = "FriendPrisoner",
+          shape = "rectangle",
+          x = 136,
+          y = 632,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1570,
+          visible = true,
+          properties = {
+            ["rideshield"] = true
+          }
+        },
+        {
+          id = 477,
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 104,
+          y = 648,
+          width = 80,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground",
+            ["savefriendsbonus"] = 20000
+          }
+        },
+        {
+          id = 478,
+          name = "destroywell",
+          type = "Trigger",
+          shape = "rectangle",
+          x = -16,
+          y = 632,
+          width = 8,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["explodetilelayers"] = "well\nwellfront"
+          }
+        },
+        {
+          id = 479,
+          name = "",
+          type = "BombTrigger",
+          shape = "rectangle",
+          x = 120,
+          y = 616,
+          width = 48,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["defeattriggerid"] = 478
+          }
+        },
+        {
+          id = 480,
+          name = "",
+          type = "FriendPrisoner",
+          shape = "rectangle",
+          x = 152,
+          y = 632,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1570,
+          visible = true,
+          properties = {
+            ["rideshield"] = true
           }
         }
       }
@@ -7530,28 +9934,28 @@ return {
         {
           id = 251,
           name = "swordsman",
-          type = "Swordsman",
+          type = "",
           shape = "rectangle",
-          x = 200,
-          y = 336,
+          x = 224,
+          y = 696,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1239,
+          gid = 1289,
           visible = true,
           properties = {}
         },
         {
           id = 252,
           name = "swordsman",
-          type = "Swordsman",
+          type = "",
           shape = "rectangle",
-          x = 232,
-          y = 336,
+          x = 208,
+          y = 776,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1239,
+          gid = 1289,
           visible = true,
           properties = {}
         },
@@ -7561,9 +9965,9 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 160,
-          y = 232,
+          y = 688,
           width = 72,
-          height = 120,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -7586,14 +9990,14 @@ return {
         {
           id = 104,
           name = "swordsman",
-          type = "Swordsman",
+          type = "",
           shape = "rectangle",
-          x = 88,
-          y = 400,
+          x = 80,
+          y = 792,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1239,
+          gid = 1289,
           visible = true,
           properties = {}
         },
@@ -7603,9 +10007,9 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 56,
-          y = 232,
+          y = 752,
           width = 72,
-          height = 184,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -7615,14 +10019,14 @@ return {
         {
           id = 255,
           name = "swordsman",
-          type = "Swordsman",
+          type = "",
           shape = "rectangle",
-          x = 56,
-          y = 400,
+          x = 64,
+          y = 696,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1239,
+          gid = 1289,
           visible = true,
           properties = {}
         }
@@ -7631,7 +10035,7 @@ return {
     {
       type = "objectgroup",
       id = 30,
-      name = "swordsmenheavy1",
+      name = "heavy7",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -7644,56 +10048,28 @@ return {
         {
           id = 105,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
           x = 120,
-          y = 504,
+          y = 904,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
           }
         },
         {
-          id = 115,
-          name = "swordsman",
-          type = "Swordsman",
-          shape = "rectangle",
-          x = 152,
-          y = 504,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1239,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 117,
-          name = "swordsman",
-          type = "Swordsman",
-          shape = "rectangle",
-          x = 136,
-          y = 504,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1239,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 143,
           name = "swordsmenheavy1",
           type = "Trigger",
           shape = "rectangle",
-          x = 128,
-          y = 152,
-          width = 32,
-          height = 368,
+          x = 136,
+          y = 656,
+          width = 16,
+          height = 264,
           rotation = 0,
           visible = true,
           properties = {
@@ -7706,125 +10082,141 @@ return {
           type = "",
           shape = "polyline",
           x = 136,
-          y = 504,
+          y = 904,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 8, y = 0 },
-            { x = 8, y = 64 },
+            { x = 8, y = 48 },
             { x = 8, y = -56 },
-            { x = 40, y = -120 },
-            { x = -24, y = -248 },
-            { x = 8, y = -312 }
+            { x = 24, y = -88 },
+            { x = -8, y = -152 },
+            { x = 8, y = -184 },
+            { x = 8, y = 112 }
           },
           properties = {}
         },
         {
           id = 254,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
           x = 168,
-          y = 504,
+          y = 904,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 228,
+      name = "heavy8",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 558,
+          name = "heavy",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 608,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1116,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
           }
         },
         {
-          id = 266,
-          name = "bounds",
-          type = "EnemyBounds",
+          id = 559,
+          name = "swordsmenheavy1",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 136,
+          y = 288,
+          width = 16,
+          height = 264,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 561,
+          name = "heavy",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 608,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1116,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 562,
+          name = "",
+          type = "",
           shape = "polyline",
-          x = 160,
-          y = 96,
+          x = 120,
+          y = 536,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 32 },
-            { x = 0, y = 80 },
-            { x = 96, y = 80 },
-            { x = 152, y = 112 }
+            { x = -120, y = 80 },
+            { x = -56, y = 80 },
+            { x = -8, y = -8 },
+            { x = -16, y = -136 },
+            { x = -8, y = -240 },
+            { x = -40, y = -280 },
+            { x = -168, y = -288 }
           },
           properties = {}
         },
         {
-          id = 320,
-          name = "bounds",
-          type = "EnemyBounds",
+          id = 563,
+          name = "",
+          type = "",
           shape = "polyline",
-          x = 160,
-          y = 96,
+          x = 168,
+          y = 536,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 160, y = 160 },
-            { x = 96, y = 160 },
-            { x = 96, y = 240 },
-            { x = 80, y = 288 },
-            { x = 80, y = 336 },
-            { x = 96, y = 368 },
-            { x = 96, y = 400 },
-            { x = 80, y = 432 },
-            { x = 80, y = 496 },
-            { x = 96, y = 576 },
-            { x = 184, y = 688 }
-          },
-          properties = {}
-        },
-        {
-          id = 316,
-          name = "bounds",
-          type = "EnemyBounds",
-          shape = "polyline",
-          x = 160,
-          y = 96,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -184, y = 688 },
-            { x = -128, y = 592 },
-            { x = -128, y = 528 },
-            { x = -112, y = 496 },
-            { x = -112, y = 416 },
-            { x = -128, y = 384 },
-            { x = -112, y = 352 },
-            { x = -112, y = 272 },
-            { x = -128, y = 208 },
-            { x = -128, y = 160 },
-            { x = -184, y = 160 }
-          },
-          properties = {}
-        },
-        {
-          id = 319,
-          name = "bounds",
-          type = "EnemyBounds",
-          shape = "polyline",
-          x = 160,
-          y = 96,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -184, y = 104 },
-            { x = -128, y = 80 },
-            { x = -32, y = 80 },
-            { x = -32, y = 32 },
-            { x = 0, y = 32 }
+            { x = 120, y = 80 },
+            { x = 56, y = 80 },
+            { x = 8, y = -8 },
+            { x = 16, y = -136 },
+            { x = 8, y = -240 },
+            { x = 40, y = -280 },
+            { x = 160, y = -280 }
           },
           properties = {}
         }
@@ -7832,12 +10224,12 @@ return {
     },
     {
       type = "tilelayer",
-      id = 31,
+      id = 175,
       name = "storehouse2ndfloor",
       x = 0,
       y = 0,
       width = 18,
-      height = 245,
+      height = 270,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -7845,7 +10237,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzMEJwCAQBMDDdG4V2k4qS0QEf+rLzwwsB8uxEQAAAJx6U0R++p3TtH5H+f/qImVja7UxAgAAAAAAAAAAAAAAAAA3fWlqEQ0="
+      data = "eJztzLEJgEAMBdCg+y/hBndi4TpOch5aBKt0Nu/BJ/BJEgEAAAAAUHctEdv6zJxp9hXt3usp55vc7YVf/XNzpOQeAAAAAAAAAAAAAAAAAP40ACjwE/o="
     },
     {
       type = "objectgroup",
@@ -7866,7 +10258,7 @@ return {
           type = "",
           shape = "polyline",
           x = -24,
-          y = 768,
+          y = 1168,
           width = 0,
           height = 0,
           rotation = 0,
@@ -7885,7 +10277,7 @@ return {
           type = "",
           shape = "polyline",
           x = 336,
-          y = 776,
+          y = 1176,
           width = 0,
           height = 0,
           rotation = 0,
@@ -7917,11 +10309,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 112,
-          y = 768,
+          y = 1168,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1164,
+          gid = 1196,
           visible = true,
           properties = {
             ["rideid"] = 136
@@ -7933,11 +10325,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 176,
-          y = 768,
+          y = 1168,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1227,
+          gid = 1274,
           visible = true,
           properties = {
             ["rideid"] = 136
@@ -7949,7 +10341,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 72,
-          y = 752,
+          y = 1152,
           width = 144,
           height = 32,
           rotation = 0,
@@ -7962,11 +10354,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 96,
-          y = 768,
+          y = 1168,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1203,
+          gid = 1250,
           visible = true,
           properties = {
             ["rideid"] = 136
@@ -7978,11 +10370,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 192,
-          y = 768,
+          y = 1168,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1215,
+          gid = 1262,
           visible = true,
           properties = {
             ["rideid"] = 136
@@ -7994,7 +10386,7 @@ return {
           type = "BombTrigger",
           shape = "rectangle",
           x = 80,
-          y = 784,
+          y = 1184,
           width = 128,
           height = 8,
           rotation = 0,
@@ -8009,29 +10401,29 @@ return {
     },
     {
       type = "tilelayer",
-      id = 34,
+      id = 176,
       name = "storehouse2nddestroyed",
       x = 0,
       y = 0,
       width = 18,
-      height = 245,
-      visible = false,
+      height = 270,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztyrEJACAQBEHhO7MjsQMr10ARTDQzmYELDjYlAAAAfihxb+pDk0fTZtdibzk/AAAAAAAAAAAAAAAAAPzQARVgBE4="
+      data = "eJztykEKABAARFHlpm4kN3BSFqRsWLF5r2Yx9UMAAAAAAHgrx3NTLprUmzq6Gtem/QMAAAAAAAAAAAAAAADADw0QigVu"
     },
     {
       type = "tilelayer",
-      id = 35,
+      id = 177,
       name = "storehouse2ndfront",
       x = 0,
       y = 0,
       width = 18,
-      height = 245,
+      height = 270,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -8039,16 +10431,16 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzsEJgEAMBMBgOrMftZLT3qxIxfPvoSDCDOxzN4kAAAD4l7U788bGk62jN2TEWDNl+9Z1v+zduWbJtr/6vBcAAAAAAAAAAAAAAAAA+NIGBkEQqw=="
+      data = "eJztzsEJgEAMBMBgOrUftZLT3qxAxfPvoSDCDOxzN4kAAAAAAP5i7c68sfFk6+gNGTHWTNm+dd0ve3euWbLtrz7vBQAAAAAAAAAAAAAAAAC+tAG56hRr"
     },
     {
       type = "tilelayer",
-      id = 36,
+      id = 178,
       name = "storehouseroof",
       x = 0,
       y = 0,
       width = 18,
-      height = 245,
+      height = 270,
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -8056,7 +10448,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt0cEJgDAQRcEl7YgNKFqAov2XYy5CEInEXGfg35Z32QgAAIC6IUWMqb8x5y0drbux5x0/W2Xj1tp6a7S2pkrj2VorN9tHo2ydnT8EAAAAAAAAAAAAAAAAgB4X+48IXQ=="
+      data = "eJzt0TEKgDAQRcGQ64kXUPQAit6/NE0giEZi2hn43fKaDQEAAAAAeDPEEMbY35jTlo5Wbuxpx89W2chaW0+N1tZUadxba+Vm+2iUrbPzhwAAAAAAAAAAAAAAAADQ4wIECQyd"
     },
     {
       type = "objectgroup",
@@ -8075,11 +10467,11 @@ return {
           type = "Spark",
           shape = "rectangle",
           x = 144,
-          y = 776,
+          y = 1176,
           width = 256,
           height = 256,
           rotation = 0,
-          gid = 1459,
+          gid = 1506,
           visible = true,
           properties = {}
         },
@@ -8089,11 +10481,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 88,
-          y = 784,
+          y = 1184,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 834,
+          gid = 866,
           visible = true,
           properties = {
             ["velx"] = -180
@@ -8105,11 +10497,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 104,
-          y = 768,
+          y = 1168,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 834,
+          gid = 866,
           visible = true,
           properties = {
             ["velx"] = -120,
@@ -8122,11 +10514,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 136,
-          y = 768,
+          y = 1168,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 834,
+          gid = 866,
           visible = true,
           properties = {
             ["vely"] = -160
@@ -8138,11 +10530,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 120,
-          y = 784,
+          y = 1184,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 887,
+          gid = 919,
           visible = true,
           properties = {
             ["velx"] = -60
@@ -8154,11 +10546,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 168,
-          y = 768,
+          y = 1168,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 834,
+          gid = 866,
           visible = true,
           properties = {
             ["velx"] = 120,
@@ -8171,11 +10563,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 152,
-          y = 784,
+          y = 1184,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 889,
+          gid = 921,
           visible = true,
           properties = {
             ["velx"] = 60
@@ -8187,11 +10579,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 120,
-          y = 752,
+          y = 1152,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 722,
+          gid = 754,
           visible = true,
           properties = {
             ["velx"] = -60,
@@ -8204,11 +10596,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 184,
-          y = 784,
+          y = 1184,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 834,
+          gid = 866,
           visible = true,
           properties = {
             ["velx"] = 180
@@ -8220,11 +10612,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 152,
-          y = 752,
+          y = 1152,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 722,
+          gid = 754,
           visible = true,
           properties = {
             ["velx"] = 60,
@@ -8237,11 +10629,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 104,
-          y = 736,
+          y = 1136,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 555,
+          gid = 587,
           visible = true,
           properties = {
             ["velx"] = -120,
@@ -8254,11 +10646,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 88,
-          y = 752,
+          y = 1152,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 555,
+          gid = 587,
           visible = true,
           properties = {
             ["velx"] = -180,
@@ -8271,11 +10663,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 72,
-          y = 768,
+          y = 1168,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 555,
+          gid = 587,
           visible = true,
           properties = {
             ["velx"] = -240,
@@ -8288,11 +10680,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 88,
-          y = 768,
+          y = 1168,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 587,
+          gid = 619,
           visible = true,
           properties = {
             ["velx"] = -180,
@@ -8305,11 +10697,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 104,
-          y = 752,
+          y = 1152,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 587,
+          gid = 619,
           visible = true,
           properties = {
             ["velx"] = -120,
@@ -8322,11 +10714,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 120,
-          y = 768,
+          y = 1168,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 871,
+          gid = 903,
           visible = true,
           properties = {
             ["velx"] = -60,
@@ -8339,11 +10731,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 152,
-          y = 768,
+          y = 1168,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 873,
+          gid = 905,
           visible = true,
           properties = {
             ["velx"] = 60,
@@ -8356,11 +10748,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 72,
-          y = 784,
+          y = 1184,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 587,
+          gid = 619,
           visible = true,
           properties = {
             ["velx"] = -240
@@ -8372,11 +10764,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 168,
-          y = 736,
+          y = 1136,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 557,
+          gid = 589,
           visible = true,
           properties = {
             ["velx"] = 120,
@@ -8389,11 +10781,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 168,
-          y = 752,
+          y = 1152,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 589,
+          gid = 621,
           visible = true,
           properties = {
             ["velx"] = 120,
@@ -8406,11 +10798,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 184,
-          y = 768,
+          y = 1168,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 589,
+          gid = 621,
           visible = true,
           properties = {
             ["velx"] = 180,
@@ -8423,11 +10815,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 184,
-          y = 752,
+          y = 1152,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 557,
+          gid = 589,
           visible = true,
           properties = {
             ["velx"] = 180,
@@ -8440,11 +10832,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 200,
-          y = 784,
+          y = 1184,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 589,
+          gid = 621,
           visible = true,
           properties = {
             ["velx"] = 240
@@ -8456,11 +10848,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 200,
-          y = 768,
+          y = 1168,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 557,
+          gid = 589,
           visible = true,
           properties = {
             ["velx"] = 240,
@@ -8473,11 +10865,11 @@ return {
           type = "Debris",
           shape = "rectangle",
           x = 136,
-          y = 736,
+          y = 1136,
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 572,
+          gid = 604,
           visible = true,
           properties = {
             ["vely"] = -240
@@ -8489,7 +10881,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = -24,
-          y = 752,
+          y = 1152,
           width = 16,
           height = 32,
           rotation = 0,
@@ -8503,44 +10895,10 @@ return {
       }
     },
     {
-      type = "tilelayer",
-      id = 38,
-      name = "model houses",
-      x = 0,
-      y = 0,
-      width = 18,
-      height = 245,
-      visible = false,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJzt0jEKwkAQBdAhOVn0kB4hBA8g4oFEcoAgNm4TGHCzbGfzHvxm+N38CAAAAODIc4hYU17Db2cut2vKUuls5fZJeVc6t3J7pNwrnWmMOKWcx+POpdGhX+u/PfvYtf7bs49dawM9+wAAAAAAAAAAAAAAAIB/+QI51ibS"
-    },
-    {
-      type = "tilelayer",
-      id = 39,
-      name = "model rooftops",
-      x = 0,
-      y = 0,
-      width = 18,
-      height = 245,
-      visible = false,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJzt0M9NAkEYQPHZuaBnCBQgkQIQKEDQEtAKhArEejRaAAQKELAA/5WgViDeeMfNCpvsnkx8v+Qlk/m+zGFCkCRJkiT9V7dJCHf0QZ/0Rff0kBTbmXKe0Tdt6IfmtCi5U4khHNBhLLfzyHlJq1Rreiq488z5hV5TvdF7wZ2/rMr/1WhIF3RJdWrE/FnWEXdNuqIRjemYWjF/tu+da5rQzY53ds2y2tydUCdVl3oxf5Z1yl2fBqnO6DzmzyRJkiRJkiRJkiRJkiRJkiRJkiT9tgUl6kQh"
-    },
-    {
       type = "objectgroup",
       id = 40,
       name = "storehouse_doors",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -8553,11 +10911,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 88,
-          y = 848,
+          y = 1248,
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 1137,
+          gid = 1169,
           visible = true,
           properties = {}
         },
@@ -8567,11 +10925,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 104,
-          y = 848,
+          y = 1248,
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 2147484785,
+          gid = 2147484817,
           visible = true,
           properties = {}
         },
@@ -8581,7 +10939,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 72,
-          y = 832,
+          y = 1232,
           width = 144,
           height = 32,
           rotation = 0,
@@ -8596,11 +10954,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 200,
-          y = 848,
+          y = 1248,
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 2147484785,
+          gid = 2147484817,
           visible = true,
           properties = {}
         },
@@ -8610,11 +10968,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 184,
-          y = 848,
+          y = 1248,
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 1137,
+          gid = 1169,
           visible = true,
           properties = {}
         },
@@ -8624,11 +10982,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 136,
-          y = 848,
+          y = 1248,
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 1137,
+          gid = 1169,
           visible = true,
           properties = {}
         },
@@ -8638,11 +10996,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 152,
-          y = 848,
+          y = 1248,
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 2147484785,
+          gid = 2147484817,
           visible = true,
           properties = {}
         }
@@ -8665,7 +11023,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 296,
-          y = 736,
+          y = 1136,
           width = 8,
           height = 8,
           rotation = 0,
@@ -8693,7 +11051,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = -24,
-          y = 800,
+          y = 1200,
           width = 16,
           height = 32,
           rotation = 0,
@@ -8705,14 +11063,14 @@ return {
         {
           id = 108,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 96,
-          y = 848,
+          y = 1248,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["pathid"] = "midboss"
@@ -8721,14 +11079,14 @@ return {
         {
           id = 107,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 192,
-          y = 848,
+          y = 1248,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["pathid"] = "midboss"
@@ -8737,14 +11095,14 @@ return {
         {
           id = 116,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 144,
-          y = 848,
+          y = 1248,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["pathid"] = "midboss"
@@ -8753,14 +11111,14 @@ return {
         {
           id = 247,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 144,
-          y = 848,
+          y = 1248,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["pathid"] = "midboss"
@@ -8769,14 +11127,14 @@ return {
         {
           id = 248,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 192,
-          y = 848,
+          y = 1248,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["pathid"] = "midboss"
@@ -8785,18 +11143,247 @@ return {
         {
           id = 249,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 96,
-          y = 848,
+          y = 1248,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["pathid"] = "midboss"
           }
+        },
+        {
+          id = 449,
+          name = "archer",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 1248,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1044,
+          visible = true,
+          properties = {
+            ["pathid"] = "midboss"
+          }
+        },
+        {
+          id = 450,
+          name = "archer",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 1248,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1044,
+          visible = true,
+          properties = {
+            ["pathid"] = "midboss"
+          }
+        },
+        {
+          id = 451,
+          name = "archer",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1248,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1044,
+          visible = true,
+          properties = {
+            ["pathid"] = "midboss"
+          }
+        },
+        {
+          id = 452,
+          name = "archer",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 1248,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1044,
+          visible = true,
+          properties = {
+            ["pathid"] = "midboss"
+          }
+        },
+        {
+          id = 453,
+          name = "archer",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 1248,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1044,
+          visible = true,
+          properties = {
+            ["pathid"] = "midboss"
+          }
+        },
+        {
+          id = 454,
+          name = "archer",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 1248,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1044,
+          visible = true,
+          properties = {
+            ["pathid"] = "midboss"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 126,
+      name = "midbossgroundpath",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 444,
+          name = "",
+          type = "",
+          shape = "polygon",
+          x = 48,
+          y = 1336,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 8, y = 0 },
+            { x = 40, y = -64 },
+            { x = 96, y = -64 },
+            { x = 152, y = -64 },
+            { x = 184, y = 0 },
+            { x = 96, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 446,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 88,
+          y = 1272,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -72, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 447,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 200,
+          y = 1272,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 72, y = 0 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 125,
+      name = "midbossdescentpath",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 442,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 136,
+          y = 1168,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 8, y = 80 },
+            { x = 8, y = 0 },
+            { x = -40, y = 80 }
+          },
+          properties = {}
+        },
+        {
+          id = 443,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 136,
+          y = 1168,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 8, y = 0 },
+            { x = 56, y = 80 }
+          },
+          properties = {}
+        },
+        {
+          id = 448,
+          name = "descentcover",
+          type = "EnemyCover",
+          shape = "rectangle",
+          x = 80,
+          y = 1200,
+          width = 128,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -8814,66 +11401,33 @@ return {
       },
       objects = {
         {
-          id = 194,
-          name = "heavy",
-          type = "HeavyMilitia",
-          shape = "rectangle",
-          x = 64,
-          y = 936,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1084,
-          visible = true,
-          properties = {
-            ["pathfinder"] = "random"
-          }
-        },
-        {
-          id = 195,
-          name = "heavy",
-          type = "HeavyMilitia",
-          shape = "rectangle",
-          x = 224,
-          y = 936,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1084,
-          visible = true,
-          properties = {
-            ["pathfinder"] = "random"
-          }
-        },
-        {
           id = 202,
           name = "midboss",
           type = "MilitiaCaptainNormalAttack1",
           shape = "rectangle",
           x = 96,
-          y = 784,
+          y = 1184,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1179,
+          gid = 1211,
           visible = true,
           properties = {
             ["backuptriggerid"] = 246,
-            ["defeatitemlaunch"] = true,
             ["initiallayer"] = "storehouse2ndobjects"
           }
         },
         {
           id = 98,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 272,
-          y = 872,
+          y = 1272,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["pathfinder"] = "random"
@@ -8882,14 +11436,14 @@ return {
         {
           id = 113,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 16,
-          y = 872,
+          y = 1272,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["pathfinder"] = "random"
@@ -8898,14 +11452,14 @@ return {
         {
           id = 114,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
           x = 144,
-          y = 880,
+          y = 1280,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
             ["pathfinder"] = "random"
@@ -8917,7 +11471,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 728,
+          y = 1128,
           width = 288,
           height = 8,
           rotation = 0,
@@ -8934,7 +11488,7 @@ return {
           type = "",
           shape = "polyline",
           x = 240,
-          y = 880,
+          y = 1280,
           width = 0,
           height = 0,
           rotation = 0,
@@ -8951,7 +11505,7 @@ return {
           type = "",
           shape = "polyline",
           x = 144,
-          y = 880,
+          y = 1280,
           width = 0,
           height = 0,
           rotation = 0,
@@ -8968,14 +11522,14 @@ return {
           type = "",
           shape = "polyline",
           x = 56,
-          y = 944,
+          y = 1336,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 8, y = 0 },
-            { x = 24, y = -48 }
+            { x = 24, y = -40 }
           },
           properties = {}
         },
@@ -8985,14 +11539,14 @@ return {
           type = "",
           shape = "polyline",
           x = 56,
-          y = 944,
+          y = 1336,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 8, y = 0 },
-            { x = 72, y = 0 }
+            { x = 64, y = -8 }
           },
           properties = {}
         },
@@ -9002,14 +11556,14 @@ return {
           type = "",
           shape = "polyline",
           x = 232,
-          y = 944,
+          y = 1336,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = -8, y = 0 },
-            { x = -72, y = 0 }
+            { x = -64, y = -8 }
           },
           properties = {}
         },
@@ -9019,14 +11573,14 @@ return {
           type = "",
           shape = "polyline",
           x = 232,
-          y = 944,
+          y = 1336,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = -8, y = 0 },
-            { x = -24, y = -48 }
+            { x = -24, y = -40 }
           },
           properties = {}
         },
@@ -9036,7 +11590,7 @@ return {
           type = "",
           shape = "polyline",
           x = 72,
-          y = 880,
+          y = 1280,
           width = 0,
           height = 0,
           rotation = 0,
@@ -9053,7 +11607,7 @@ return {
           type = "",
           shape = "polyline",
           x = 216,
-          y = 880,
+          y = 1280,
           width = 0,
           height = 0,
           rotation = 0,
@@ -9065,29 +11619,12 @@ return {
           properties = {}
         },
         {
-          id = 227,
-          name = "",
-          type = "",
-          shape = "polyline",
-          x = -16,
-          y = 880,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 0, y = 48 }
-          },
-          properties = {}
-        },
-        {
           id = 228,
           name = "",
           type = "",
           shape = "polyline",
           x = 304,
-          y = 880,
+          y = 1280,
           width = 0,
           height = 0,
           rotation = 0,
@@ -9104,7 +11641,7 @@ return {
           type = "",
           shape = "polyline",
           x = 176,
-          y = 784,
+          y = 1184,
           width = 0,
           height = 0,
           rotation = 0,
@@ -9121,7 +11658,7 @@ return {
           type = "",
           shape = "polyline",
           x = 160,
-          y = 784,
+          y = 1184,
           width = 0,
           height = 0,
           rotation = 0,
@@ -9138,7 +11675,7 @@ return {
           type = "",
           shape = "polyline",
           x = 152,
-          y = 784,
+          y = 1184,
           width = 0,
           height = 0,
           rotation = 0,
@@ -9155,7 +11692,7 @@ return {
           type = "",
           shape = "polyline",
           x = 184,
-          y = 792,
+          y = 1192,
           width = 0,
           height = 0,
           rotation = 0,
@@ -9172,7 +11709,7 @@ return {
           type = "",
           shape = "polyline",
           x = 192,
-          y = 768,
+          y = 1168,
           width = 0,
           height = 0,
           rotation = 0,
@@ -9189,7 +11726,7 @@ return {
           type = "",
           shape = "polyline",
           x = 168,
-          y = 752,
+          y = 1152,
           width = 0,
           height = 0,
           rotation = 0,
@@ -9206,7 +11743,7 @@ return {
           type = "",
           shape = "polyline",
           x = 208,
-          y = 776,
+          y = 1176,
           width = 0,
           height = 0,
           rotation = 0,
@@ -9223,7 +11760,7 @@ return {
           type = "",
           shape = "polyline",
           x = 184,
-          y = 752,
+          y = 1152,
           width = 0,
           height = 0,
           rotation = 0,
@@ -9237,26 +11774,286 @@ return {
       }
     },
     {
-      type = "tilelayer",
-      id = 44,
-      name = "midboss_cover",
-      x = 0,
-      y = 0,
-      width = 18,
-      height = 245,
+      type = "objectgroup",
+      id = 226,
+      name = "heavy6b",
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJzt0KENACAMRUEE+29CWRGBIQWBJOTOVHzVVwoAAADwuqjz9rpv7WKLw/aTSH+eWqxyl9/7AAAAAAAAAAAAAAAAwAsGJ+oIWQ=="
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 544,
+          name = "trigger",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 88,
+          y = 1320,
+          width = 112,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 194,
+          name = "heavy",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 1336,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1116,
+          visible = true,
+          properties = {
+            ["pathfinder"] = "random",
+            ["pathid"] = "midboss"
+          }
+        },
+        {
+          id = 195,
+          name = "heavy",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 1336,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1116,
+          visible = true,
+          properties = {
+            ["pathfinder"] = "random",
+            ["pathid"] = "midboss"
+          }
+        }
+      }
     },
     {
       type = "objectgroup",
-      id = 46,
-      name = "militia9b",
+      id = 124,
+      name = "heavy6",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 411,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 1576,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1116,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 412,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 256,
+          y = 1576,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1116,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 413,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 32,
+          y = 1576,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 40 },
+            { x = 32, y = 8 },
+            { x = 64, y = 8 },
+            { x = 80, y = -8 },
+            { x = 80, y = -120 },
+            { x = 64, y = -136 },
+            { x = -56, y = -136 }
+          },
+          properties = {}
+        },
+        {
+          id = 414,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 256,
+          y = 1576,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 40 },
+            { x = -32, y = 8 },
+            { x = -64, y = 8 },
+            { x = -80, y = -8 },
+            { x = -80, y = -120 },
+            { x = -64, y = -136 },
+            { x = 56, y = -136 }
+          },
+          properties = {}
+        },
+        {
+          id = 415,
+          name = "heavy6",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 64,
+          y = 1576,
+          width = 160,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 49,
+      name = "catapult5",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 25,
+          name = "catapult",
+          type = "",
+          shape = "rectangle",
+          x = 160,
+          y = 1576,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 1016,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 26,
+          name = "catapult4",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 88,
+          y = 1640,
+          width = 112,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 27,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 144,
+          y = 1600,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 72 },
+            { x = 0, y = -96 },
+            { x = 0, y = 160 }
+          },
+          properties = {}
+        },
+        {
+          id = 123,
+          name = "operator",
+          type = "",
+          shape = "rectangle",
+          x = 160,
+          y = 1544,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1065,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 404,
+          name = "catapult",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 1624,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 1016,
+          visible = true,
+          properties = {
+            ["pathmode"] = "relative"
+          }
+        },
+        {
+          id = 405,
+          name = "operator",
+          type = "",
+          shape = "rectangle",
+          x = 128,
+          y = 1592,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1065,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 123,
+      name = "militia9",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -9269,153 +12066,94 @@ return {
         {
           id = 140,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 240,
-          y = 1192,
+          x = 320,
+          y = 1824,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 152,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 240,
-          y = 1168,
+          x = 312,
+          y = 1688,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 151,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 240,
-          y = 1216,
+          x = 288,
+          y = 1688,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 235,
-          name = "militia9b",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 128,
-          y = 1224,
-          width = 96,
-          height = 8,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        },
-        {
-          id = 90,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 256,
-          y = 1216,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -16, y = 0 },
-            { x = -16, y = 112 }
-          },
           properties = {}
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      id = 47,
-      name = "militia9a",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["script"] = "PathGraph"
-      },
-      objects = {
+        },
         {
           id = 148,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 48,
-          y = 1264,
+          x = -56,
+          y = 1688,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 149,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 48,
-          y = 1240,
+          x = 0,
+          y = 1824,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 142,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 48,
-          y = 1216,
+          x = -32,
+          y = 1688,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 234,
-          name = "militia9a",
+          name = "militia9",
           type = "Trigger",
           shape = "rectangle",
-          x = 88,
-          y = 1272,
+          x = 96,
+          y = 1696,
           width = 96,
           height = 8,
           rotation = 0,
@@ -9429,105 +12167,115 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = 40,
-          y = 1248,
+          x = -8,
+          y = 1672,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 8, y = 16 },
-            { x = 8, y = 80 }
+            { x = 72, y = 80 },
+            { x = 104, y = 80 },
+            { x = 128, y = 104 },
+            { x = 128, y = 312 }
           },
           properties = {}
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      id = 49,
-      name = "catapult4",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {
-        ["script"] = "PathGraph"
-      },
-      objects = {
-        {
-          id = 25,
-          name = "catapult",
-          type = "Catapult",
-          shape = "rectangle",
-          x = 144,
-          y = 1200,
-          width = 72,
-          height = 72,
-          rotation = 0,
-          gid = 984,
-          visible = true,
-          properties = {
-            ["faceangle"] = 90
-          }
         },
         {
-          id = 26,
-          name = "catapult4",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 128,
-          y = 1088,
-          width = 32,
-          height = 224,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        },
-        {
-          id = 27,
-          name = "path",
+          id = 406,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 144,
-          y = 1200,
+          x = 288,
+          y = 1688,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 0, y = 32 },
-            { x = 0, y = -96 },
-            { x = 0, y = 128 }
+            { x = -64, y = 64 },
+            { x = -96, y = 64 },
+            { x = -120, y = 88 },
+            { x = -120, y = 296 }
           },
           properties = {}
         },
         {
-          id = 123,
-          name = "operator",
-          type = "CatapultOperator",
+          id = 407,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 1824,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 64, y = -56 },
+            { x = 96, y = -56 },
+            { x = 120, y = -32 },
+            { x = 120, y = 176 }
+          },
+          properties = {}
+        },
+        {
+          id = 408,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 288,
+          y = 1824,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -56, y = -56 },
+            { x = -96, y = -56 },
+            { x = -120, y = -32 },
+            { x = -120, y = 176 }
+          },
+          properties = {}
+        },
+        {
+          id = 409,
+          name = "militia",
+          type = "",
           shape = "rectangle",
-          x = 144,
-          y = 1168,
-          width = 24,
+          x = 344,
+          y = 1824,
+          width = 32,
           height = 32,
           rotation = 0,
-          gid = 1033,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["rideid"] = 25
-          }
+          properties = {}
+        },
+        {
+          id = 410,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = -24,
+          y = 1824,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
       id = 50,
-      name = "catapult3",
+      name = "catapult4",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -9540,33 +12288,16 @@ return {
         {
           id = 22,
           name = "catapult",
-          type = "Catapult",
+          type = "",
           shape = "rectangle",
           x = 144,
-          y = 1440,
+          y = 1824,
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 984,
+          gid = 1016,
           visible = true,
-          properties = {
-            ["faceangle"] = 90
-          }
-        },
-        {
-          id = 24,
-          name = "catapult3",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 128,
-          y = 1328,
-          width = 32,
-          height = 224,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
+          properties = {}
         },
         {
           id = 23,
@@ -9574,7 +12305,7 @@ return {
           type = "",
           shape = "polyline",
           x = 144,
-          y = 1440,
+          y = 1824,
           width = 0,
           height = 0,
           rotation = 0,
@@ -9590,17 +12321,120 @@ return {
         {
           id = 124,
           name = "operator",
-          type = "CatapultOperator",
+          type = "",
           shape = "rectangle",
           x = 144,
-          y = 1408,
+          y = 1792,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1033,
+          gid = 1101,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 398,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -16,
+          y = 1936,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 1022,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 399,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 304,
+          y = 1936,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 1018,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 400,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -40,
+          y = 1936,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1062,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 401,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 328,
+          y = 1936,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1068,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 402,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = -16,
+          y = 1936,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 96, y = 16 }
+          },
+          properties = {}
+        },
+        {
+          id = 403,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 304,
+          y = 1936,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -96, y = 16 }
+          },
+          properties = {}
+        },
+        {
+          id = 474,
+          name = "heavy4",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 128,
+          y = 1768,
+          width = 32,
+          height = 104,
+          rotation = 0,
           visible = true,
           properties = {
-            ["rideid"] = 22
+            ["activateobjectslayer"] = "ground"
           }
         }
       }
@@ -9608,7 +12442,7 @@ return {
     {
       type = "objectgroup",
       id = 48,
-      name = "heavy4",
+      name = "heavy5",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -9621,28 +12455,28 @@ return {
         {
           id = 28,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
-          x = 256,
-          y = 1504,
+          x = 240,
+          y = 1904,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {}
         },
         {
           id = 29,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
-          x = 32,
-          y = 1504,
+          x = 48,
+          y = 1904,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {}
         },
@@ -9651,10 +12485,10 @@ return {
           name = "heavy4",
           type = "Trigger",
           shape = "rectangle",
-          x = 72,
-          y = 1120,
-          width = 32,
-          height = 464,
+          x = 112,
+          y = 1912,
+          width = 64,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -9662,44 +12496,60 @@ return {
           }
         },
         {
-          id = 30,
-          name = "path",
+          id = 394,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 32,
-          y = 1504,
+          x = 48,
+          y = 1904,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 0, y = 64 },
-            { x = 0, y = -144 },
-            { x = 224, y = -144 },
-            { x = 224, y = -368 },
-            { x = 272, y = -368 }
+            { x = 16, y = 16 },
+            { x = 64, y = 16 },
+            { x = 88, y = -8 },
+            { x = 64, y = -32 },
+            { x = 64, y = -112 },
+            { x = 48, y = -128 },
+            { x = 16, y = -128 },
+            { x = 0, y = -112 },
+            { x = 0, y = -32.6667 },
+            { x = -16, y = -16 },
+            { x = -16, y = 72 },
+            { x = 0, y = 88 },
+            { x = 0, y = 128 }
           },
           properties = {}
         },
         {
-          id = 31,
-          name = "path",
+          id = 396,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 256,
-          y = 1504,
+          x = 240,
+          y = 1904,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 0, y = 64 },
-            { x = 0, y = -160 },
-            { x = -224, y = -160 },
-            { x = -224, y = -368 },
-            { x = -272, y = -368 }
+            { x = -16, y = 16 },
+            { x = -64, y = 16 },
+            { x = -88, y = -8 },
+            { x = -64, y = -32 },
+            { x = -64, y = -112 },
+            { x = -48, y = -128 },
+            { x = -16, y = -128 },
+            { x = 0, y = -112 },
+            { x = 0, y = -32 },
+            { x = 16, y = -16 },
+            { x = 16, y = 72 },
+            { x = 0, y = 88 },
+            { x = 0, y = 128 }
           },
           properties = {}
         }
@@ -9707,20 +12557,8 @@ return {
     },
     {
       type = "objectgroup",
-      id = 51,
-      name = "heavycatapult1_path",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {}
-    },
-    {
-      type = "objectgroup",
-      id = 52,
-      name = "jumpingarcher",
+      id = 120,
+      name = "militia8b",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -9731,256 +12569,68 @@ return {
       },
       objects = {
         {
-          id = 155,
-          name = "archer",
-          type = "Archer",
-          shape = "rectangle",
-          x = 144,
-          y = 1704,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1108,
-          visible = true,
-          properties = {
-            ["defeatitem"] = "ItemWingman",
-            ["defeatitemlaunch"] = true,
-            ["health"] = 40,
-            ["pathfinder"] = "random1way",
-            ["pathspeed"] = "180",
-            ["score"] = 750,
-            ["strafearc"] = 180
-          }
-        },
-        {
-          id = 157,
-          name = "jumpingarcher",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 112,
-          y = 1600,
-          width = 64,
-          height = 120,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["activateobjectslayer"] = "ground"
-          }
-        },
-        {
-          id = 154,
-          name = "jump",
-          type = "",
-          shape = "polyline",
-          x = 56,
-          y = 1664,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = 0 },
-            { x = 40, y = -48 },
-            { x = 88, y = -32 }
-          },
-          properties = {
-            ["beziercurve"] = true
-          }
-        },
-        {
-          id = 156,
-          name = "jump",
-          type = "",
-          shape = "polyline",
-          x = 136,
-          y = 1664,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = -32 },
-            { x = 56, y = -48 },
-            { x = 88, y = 0 }
-          },
-          properties = {
-            ["beziercurve"] = true
-          }
-        },
-        {
-          id = 158,
-          name = "jump",
-          type = "",
-          shape = "polyline",
-          x = 136,
-          y = 1736,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = -32 },
-            { x = 48, y = -72 },
-            { x = 88, y = -72 }
-          },
-          properties = {
-            ["beziercurve"] = true
-          }
-        },
-        {
-          id = 159,
-          name = "jump",
-          type = "",
-          shape = "polyline",
-          x = 56,
-          y = 1736,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = -72 },
-            { x = 48, y = -72 },
-            { x = 88, y = -32 }
-          },
-          properties = {
-            ["beziercurve"] = true
-          }
-        },
-        {
-          id = 160,
-          name = "jump",
-          type = "",
-          shape = "polyline",
-          x = 136,
-          y = 1736,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = -32 },
-            { x = 56, y = -48 },
-            { x = 88, y = 0 }
-          },
-          properties = {
-            ["beziercurve"] = true
-          }
-        },
-        {
-          id = 161,
-          name = "jump",
-          type = "",
-          shape = "polyline",
-          x = 56,
-          y = 1808,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = -72 },
-            { x = 48, y = -72 },
-            { x = 88, y = -32 }
-          },
-          properties = {
-            ["beziercurve"] = true
-          }
-        },
-        {
-          id = 162,
-          name = "jump",
-          type = "",
-          shape = "polyline",
-          x = 56,
-          y = 1736,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = 0 },
-            { x = 40, y = -48 },
-            { x = 88, y = -32 }
-          },
-          properties = {
-            ["beziercurve"] = true
-          }
-        },
-        {
-          id = 163,
-          name = "jump",
-          type = "",
-          shape = "polyline",
-          x = 136,
-          y = 1808,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = -32 },
-            { x = 48, y = -72 },
-            { x = 88, y = -72 }
-          },
-          properties = {
-            ["beziercurve"] = true
-          }
-        }
-      }
-    },
-    {
-      type = "objectgroup",
-      id = 53,
-      name = "militia8b",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      draworder = "topdown",
-      properties = {},
-      objects = {
-        {
           id = 147,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
           x = 0,
-          y = 1696,
+          y = 2056,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathid"] = "militia8a",
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 150,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 312,
-          y = 1696,
+          x = 224,
+          y = 2040,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathid"] = "militia8a",
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
-          id = 153,
-          name = "militia8b",
+          id = 365,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 2056,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 145,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 2040,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 233,
+          name = "militia8a",
           type = "Trigger",
           shape = "rectangle",
-          x = 112,
-          y = 1640,
+          x = 96,
+          y = 2048,
           width = 96,
           height = 8,
           rotation = 0,
@@ -9988,12 +12638,268 @@ return {
           properties = {
             ["activateobjectslayer"] = "ground"
           }
+        },
+        {
+          id = 366,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 2056,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 48, y = 32 },
+            { x = 48, y = 56 },
+            { x = 64, y = 72 },
+            { x = 112, y = 72 },
+            { x = 128, y = 88 },
+            { x = 128, y = 264 }
+          },
+          properties = {}
+        },
+        {
+          id = 367,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 288,
+          y = 2048,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 8 },
+            { x = -48, y = 40 },
+            { x = -48, y = 64 },
+            { x = -64, y = 80 },
+            { x = -112, y = 80 },
+            { x = -128, y = 96 },
+            { x = -128, y = 272 }
+          },
+          properties = {}
+        },
+        {
+          id = 368,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 48,
+          y = 1984,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 16, y = 56 },
+            { x = 16, y = 112 },
+            { x = 32, y = 128 },
+            { x = 72, y = 128 },
+            { x = 88, y = 144 },
+            { x = 88, y = 328 }
+          },
+          properties = {}
+        },
+        {
+          id = 369,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 240,
+          y = 1984,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -16, y = 56 },
+            { x = -16, y = 112 },
+            { x = -32, y = 128 },
+            { x = -72, y = 128 },
+            { x = -88, y = 144 },
+            { x = -88, y = 328 }
+          },
+          properties = {}
+        },
+        {
+          id = 382,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 2184,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 16, y = 0 },
+            { x = 32, y = -16 },
+            { x = 32, y = -88 },
+            { x = 64, y = -120 },
+            { x = 64, y = -184 },
+            { x = 32, y = -216 },
+            { x = -24, y = -216 }
+          },
+          properties = {}
+        },
+        {
+          id = 383,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 288,
+          y = 2184,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -16, y = 0 },
+            { x = -32, y = -16 },
+            { x = -32, y = -88 },
+            { x = -64, y = -120 },
+            { x = -64, y = -184 },
+            { x = -32, y = -216 },
+            { x = 24, y = -216 }
+          },
+          properties = {}
+        },
+        {
+          id = 384,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 2184,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 385,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 2184,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 390,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 136,
+          y = 2048,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 391,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 152,
+          y = 2048,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 392,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 136,
+          y = 2048,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -8, y = 32 },
+            { x = -8, y = 80 },
+            { x = 0, y = 88 },
+            { x = 0, y = 280 }
+          },
+          properties = {}
+        },
+        {
+          id = 393,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 152,
+          y = 2048,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 8, y = 32 },
+            { x = 8, y = 80 },
+            { x = 0, y = 88 },
+            { x = 0, y = 280 }
+          },
+          properties = {}
+        },
+        {
+          id = 551,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 136,
+          y = 2016,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 552,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 152,
+          y = 2016,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
-      id = 54,
+      id = 227,
       name = "militia8a",
       visible = true,
       opacity = 1,
@@ -10005,45 +12911,13 @@ return {
       },
       objects = {
         {
-          id = 145,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 16,
-          y = 1688,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 146,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 296,
-          y = 1688,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 233,
-          name = "militia8a",
+          id = 545,
+          name = "trigger",
           type = "Trigger",
           shape = "rectangle",
-          x = 80,
-          y = 1704,
-          width = 96,
+          x = 88,
+          y = 2240,
+          width = 112,
           height = 8,
           rotation = 0,
           visible = true,
@@ -10052,45 +12926,171 @@ return {
           }
         },
         {
-          id = 92,
-          name = "path",
+          id = 388,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 2280,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 389,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 2296,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 546,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 0,
-          y = 1696,
+          x = 16,
+          y = 2312,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 8, y = 0 },
-            { x = 72, y = 0 }
+            { x = -112, y = -16 },
+            { x = 16, y = -16 },
+            { x = 56, y = -56 },
+            { x = 200, y = -56 },
+            { x = 240, y = -16 },
+            { x = 272, y = -16 },
+            { x = 296, y = -16 },
+            { x = 320, y = -16 },
+            { x = 344, y = -16 }
           },
           properties = {}
         },
         {
-          id = 93,
-          name = "path",
+          id = 547,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 232,
-          y = 1696,
+          x = 288,
+          y = 2280,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -16, y = 0 },
-            { x = 72, y = 0 }
+            { x = 72, y = 0 },
+            { x = -24, y = 0 },
+            { x = -64, y = -40 },
+            { x = -224, y = -40 },
+            { x = -264, y = 0 },
+            { x = -288, y = 0 },
+            { x = -320, y = 0 },
+            { x = -352, y = 0 },
+            { x = -384, y = 0 }
           },
+          properties = {}
+        },
+        {
+          id = 548,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -32,
+          y = 2280,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 549,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -64,
+          y = 2280,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 550,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -96,
+          y = 2280,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 553,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 312,
+          y = 2296,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 554,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 336,
+          y = 2296,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 555,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 360,
+          y = 2296,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
           properties = {}
         }
       }
     },
     {
       type = "objectgroup",
-      id = 55,
-      name = "militia7",
+      id = 122,
+      name = "catapult3",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -10101,126 +13101,116 @@ return {
       },
       objects = {
         {
-          id = 141,
-          name = "militia",
-          type = "Militia",
+          id = 372,
+          name = "",
+          type = "",
           shape = "rectangle",
-          x = 8,
-          y = 1904,
-          width = 32,
-          height = 32,
+          x = -16,
+          y = 2424,
+          width = 72,
+          height = 72,
           rotation = 0,
-          gid = 1048,
+          gid = 1014,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
-          id = 139,
-          name = "militia",
-          type = "Militia",
+          id = 373,
+          name = "",
+          type = "",
           shape = "rectangle",
-          x = 280,
-          y = 1904,
-          width = 32,
-          height = 32,
+          x = 304,
+          y = 2424,
+          width = 72,
+          height = 72,
           rotation = 0,
-          gid = 1048,
+          gid = 1018,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
-          id = 144,
-          name = "militia7",
+          id = 374,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -40,
+          y = 2416,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1062,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 375,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 328,
+          y = 2416,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1068,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 376,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = -16,
+          y = 2424,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 80, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 377,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 304,
+          y = 2424,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -80, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 381,
+          name = "trigger",
           type = "Trigger",
           shape = "rectangle",
-          x = 112,
-          y = 1888,
-          width = 64,
-          height = 32,
+          x = 128,
+          y = 2344,
+          width = 32,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
             ["activateobjectslayer"] = "ground"
           }
-        },
-        {
-          id = 88,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 0,
-          y = 1904,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = 0 },
-            { x = 64, y = 0 }
-          },
-          properties = {}
-        },
-        {
-          id = 89,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 232,
-          y = 1904,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -8, y = 0 },
-            { x = 48, y = 0 }
-          },
-          properties = {}
-        },
-        {
-          id = 137,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = -16,
-          y = 2016,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 8, y = 0 },
-            { x = 72, y = 0 }
-          },
-          properties = {}
-        },
-        {
-          id = 138,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 248,
-          y = 2016,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -16, y = 0 },
-            { x = 48, y = 0 }
-          },
-          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
-      id = 56,
-      name = "heavy3",
+      id = 121,
+      name = "heavy4",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -10231,84 +13221,94 @@ return {
       },
       objects = {
         {
-          id = 17,
-          name = "heavy",
-          type = "HeavyMilitia",
+          id = 146,
+          name = "",
+          type = "",
           shape = "rectangle",
-          x = -8,
-          y = 2024,
+          x = 152,
+          y = 2376,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {}
         },
         {
-          id = 18,
-          name = "heavy",
-          type = "HeavyMilitia",
+          id = 371,
+          name = "",
+          type = "",
           shape = "rectangle",
-          x = 296,
-          y = 2024,
+          x = 136,
+          y = 2376,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {}
         },
         {
-          id = 19,
-          name = "path",
+          id = 378,
+          name = "",
           type = "",
           shape = "polyline",
-          x = -8,
-          y = 2024,
+          x = 136,
+          y = 2376,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = 0, y = 0 },
-            { x = 88, y = 0 },
-            { x = 88, y = -208 },
-            { x = 216, y = -208 },
-            { x = 216, y = -448 },
-            { x = 320, y = -448 }
+            { x = -16, y = 16 },
+            { x = -64, y = 16 },
+            { x = -80, y = 0 },
+            { x = -80, y = -88 },
+            { x = -64, y = -104 },
+            { x = -16, y = -104 },
+            { x = 0, y = -88 },
+            { x = 0, y = 24 },
+            { x = -48, y = 72 },
+            { x = -48, y = 184 }
           },
           properties = {}
         },
         {
-          id = 20,
-          name = "path",
+          id = 379,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 296,
-          y = 2024,
+          x = 152,
+          y = 2344,
           width = 0,
           height = 0,
-          rotation = 0,
+          rotation = 180,
           visible = true,
           polyline = {
-            { x = 0, y = 0 },
-            { x = -88, y = 0 },
-            { x = -88, y = -224 },
-            { x = -216, y = -224 },
-            { x = -216, y = -448 },
-            { x = -320, y = -448 }
+            { x = 0, y = -32 },
+            { x = -16, y = -48 },
+            { x = -64, y = -48 },
+            { x = -80, y = -32 },
+            { x = -80, y = 56 },
+            { x = -64, y = 72 },
+            { x = -16, y = 72 },
+            { x = 0, y = 56 },
+            { x = 0, y = -56 },
+            { x = -48, y = -104 },
+            { x = -48, y = -216 }
           },
           properties = {}
         },
         {
-          id = 21,
-          name = "heavy3",
+          id = 380,
+          name = "heavy4",
           type = "Trigger",
           shape = "rectangle",
           x = 128,
-          y = 1568,
+          y = 2352,
           width = 32,
-          height = 456,
+          height = 32,
           rotation = 0,
           visible = true,
           properties = {
@@ -10333,33 +13333,33 @@ return {
         {
           id = 111,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
-          x = 208,
-          y = 2128,
+          x = 312,
+          y = 2560,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
-            ["pathmode"] = "relative"
+            ["pathspeedfunction"] = "ncos"
           }
         },
         {
           id = 112,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
-          x = 80,
-          y = 2128,
+          x = -24,
+          y = 2560,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
-            ["pathmode"] = "relative"
+            ["pathspeedfunction"] = "ncos"
           }
         },
         {
@@ -10367,10 +13367,10 @@ return {
           name = "trigger",
           type = "Trigger",
           shape = "rectangle",
-          x = 120,
-          y = 2024,
-          width = 48,
-          height = 160,
+          x = 144,
+          y = 2440,
+          width = 16,
+          height = 104,
           rotation = 0,
           visible = true,
           properties = {
@@ -10380,18 +13380,17 @@ return {
         {
           id = 97,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
-          x = 176,
-          y = 2168,
+          x = 192,
+          y = 2536,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1108,
+          gid = 1140,
           visible = true,
           properties = {
-            ["defeatitem"] = "ItemWingman",
-            ["pathmode"] = "relative"
+            ["pathspeedfunction"] = "ncos"
           }
         },
         {
@@ -10400,7 +13399,7 @@ return {
           type = "",
           shape = "polyline",
           x = 0,
-          y = 2216,
+          y = 2616,
           width = 0,
           height = 0,
           rotation = 0,
@@ -10416,16 +13415,17 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = 248,
-          y = 2184,
+          x = 352,
+          y = 2584,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
             { x = -40, y = -24 },
-            { x = -40, y = -144 },
-            { x = 8, y = -144 }
+            { x = -128, y = -24 },
+            { x = -128, y = -136 },
+            { x = -40, y = -136 }
           },
           properties = {}
         },
@@ -10434,16 +13434,367 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = 96,
-          y = 2160,
+          x = -32,
+          y = 2560,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -16, y = 0 },
-            { x = -16, y = -120 },
-            { x = -64, y = -120 }
+            { x = 8, y = 0 },
+            { x = 96, y = 0 },
+            { x = 96, y = -112 },
+            { x = 8, y = -112 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 56,
+      name = "heavy3",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 17,
+          name = "heavy",
+          type = "",
+          shape = "rectangle",
+          x = 64,
+          y = 2664,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1116,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 18,
+          name = "heavy",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 2664,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1116,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 19,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = -8,
+          y = 2672,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 88, y = 8 },
+            { x = 88, y = -48 },
+            { x = 104, y = -64 },
+            { x = 200, y = -64 },
+            { x = 216, y = -80 },
+            { x = 216, y = -224 },
+            { x = 232, y = -240 },
+            { x = 320, y = -240 }
+          },
+          properties = {}
+        },
+        {
+          id = 20,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 296,
+          y = 2672,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = -88, y = 8 },
+            { x = -88, y = -64 },
+            { x = -104, y = -80 },
+            { x = -200, y = -80 },
+            { x = -216, y = -96 },
+            { x = -216, y = -224 },
+            { x = -232, y = -240 },
+            { x = -320, y = -240 }
+          },
+          properties = {}
+        },
+        {
+          id = 21,
+          name = "heavy3",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 128,
+          y = 2440,
+          width = 16,
+          height = 216,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 55,
+      name = "militia7",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 141,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 2816,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 139,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = -32,
+          y = 2816,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 144,
+          name = "militia7",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 112,
+          y = 2752,
+          width = 32,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 364,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = -64,
+          y = 2816,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 526,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = -96,
+          y = 2816,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 527,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = -128,
+          y = 2816,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 543,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 2816,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 64, y = 0 },
+            { x = 80, y = -16 },
+            { x = 80, y = -56 },
+            { x = 96, y = -72 },
+            { x = 192, y = -72 },
+            { x = 248, y = -16 },
+            { x = 344, y = -16 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 225,
+      name = "militia7b",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 535,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 424,
+          y = 2696,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 536,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 392,
+          y = 2696,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 537,
+          name = "militia7",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 128,
+          y = 2664,
+          width = 32,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 539,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 360,
+          y = 2696,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 540,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 328,
+          y = 2696,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 541,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 296,
+          y = 2696,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 542,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 296,
+          y = 2696,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -56, y = 0 },
+            { x = -80, y = 24 },
+            { x = -200, y = 24 },
+            { x = -232, y = 56 },
+            { x = -232, y = 96 },
+            { x = -256, y = 120 },
+            { x = -336, y = 120 }
           },
           properties = {}
         }
@@ -10467,10 +13818,10 @@ return {
           name = "trigger",
           type = "Trigger",
           shape = "rectangle",
-          x = 112,
-          y = 2184,
-          width = 64,
-          height = 104,
+          x = 144,
+          y = 2776,
+          width = 32,
+          height = 88,
           rotation = 0,
           visible = true,
           properties = {
@@ -10480,69 +13831,196 @@ return {
         {
           id = 109,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
-          x = 80,
-          y = 2200,
+          x = -72,
+          y = 2928,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1140,
           visible = true,
           properties = {
-            ["pathmode"] = "relative"
+            ["pathspeedfunction"] = "ncos"
           }
         },
         {
           id = 110,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
-          x = 256,
-          y = 2272,
+          x = -32,
+          y = 2928,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
-            ["pathmode"] = "relative"
+            ["pathspeedfunction"] = "ncos"
           }
         },
         {
-          id = 126,
-          name = "path",
+          id = 525,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 272,
-          y = 2272,
+          x = -8,
+          y = 2928,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -16, y = 0 },
-            { x = -64, y = 0 },
-            { x = -64, y = -72 }
+            { x = -24, y = 0 },
+            { x = 56, y = 0 },
+            { x = 72, y = -16 },
+            { x = 72, y = -80 },
+            { x = 56, y = -96 },
+            { x = -24, y = -96 }
+          },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 119,
+      name = "militia6",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {
+        ["script"] = "PathGraph"
+      },
+      objects = {
+        {
+          id = 356,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 2896,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 357,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 216,
+          y = 2840,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 359,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 216,
+          y = 2872,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 361,
+          name = "militia6",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 144,
+          y = 2888,
+          width = 16,
+          height = 8,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["activateobjectslayer"] = "ground"
+          }
+        },
+        {
+          id = 362,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 168,
+          y = 2896,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 24, y = 0 },
+            { x = 48, y = -24 },
+            { x = 48, y = -56 },
+            { x = 72, y = -80 },
+            { x = 104, y = -80 }
           },
           properties = {}
         },
         {
-          id = 232,
-          name = "path",
+          id = 363,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 152,
-          y = 2272,
+          x = -24,
+          y = 2816,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -120, y = 0 },
-            { x = -72, y = 0 },
-            { x = -72, y = -72 }
+            { x = 360, y = 224 },
+            { x = 136, y = 224 },
+            { x = 104, y = 192 },
+            { x = 104, y = 96 },
+            { x = 120, y = 80 },
+            { x = 192, y = 80 }
           },
+          properties = {}
+        },
+        {
+          id = 523,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 2816,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 524,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 2816,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
           properties = {}
         }
       }
@@ -10563,39 +14041,15 @@ return {
         {
           id = 15,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
-          x = 96,
-          y = 2416,
+          x = 200,
+          y = 2864,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
-          properties = {}
-        },
-        {
-          id = 14,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 80,
-          y = 2408,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 16, y = 8 },
-            { x = 16, y = 56 },
-            { x = 16, y = -88 },
-            { x = 112, y = -88 },
-            { x = 112, y = -224 },
-            { x = 16, y = -224 },
-            { x = 16, y = -384 },
-            { x = 112, y = -384 },
-            { x = 112, y = 8 }
-          },
           properties = {}
         },
         {
@@ -10604,14 +14058,36 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 128,
-          y = 2024,
-          width = 32,
-          height = 408,
+          y = 2888,
+          width = 16,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
             ["activateobjectslayer"] = "ground"
           }
+        },
+        {
+          id = 355,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 200,
+          y = 2864,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -16, y = 16 },
+            { x = -96, y = 16 },
+            { x = -112, y = 0 },
+            { x = -112, y = -48 },
+            { x = -128, y = -64 },
+            { x = -224, y = -64 }
+          },
+          properties = {}
         }
       }
     },
@@ -10631,33 +14107,33 @@ return {
         {
           id = 103,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
-          x = 80,
-          y = 2464,
+          x = 352,
+          y = 3048,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1140,
           visible = true,
           properties = {
-            ["pathmode"] = "relative"
+            ["pathspeedfunction"] = "ncos"
           }
         },
         {
           id = 106,
           name = "archer",
-          type = "Archer",
+          type = "",
           shape = "rectangle",
-          x = 208,
-          y = 2480,
+          x = 320,
+          y = 3048,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1012,
+          gid = 1044,
           visible = true,
           properties = {
-            ["pathmode"] = "relative"
+            ["pathspeedfunction"] = "ncos"
           }
         },
         {
@@ -10666,9 +14142,9 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 112,
-          y = 2376,
+          y = 3064,
           width = 64,
-          height = 192,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -10676,36 +14152,21 @@ return {
           }
         },
         {
-          id = 82,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 88,
-          y = 2416,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -8, y = -32 },
-            { x = -8, y = 144 }
-          },
-          properties = {}
-        },
-        {
           id = 83,
           name = "path",
           type = "",
           shape = "polyline",
-          x = 232,
-          y = 2368,
+          x = 328,
+          y = 3040,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -24, y = 16 },
-            { x = -24, y = 192 }
+            { x = -8, y = 8 },
+            { x = -112, y = 8 },
+            { x = -112, y = 112 },
+            { x = -8, y = 112 }
           },
           properties = {}
         }
@@ -10713,8 +14174,8 @@ return {
     },
     {
       type = "objectgroup",
-      id = 61,
-      name = "militia6",
+      id = 118,
+      name = "militia5",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -10725,46 +14186,14 @@ return {
       },
       objects = {
         {
-          id = 94,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 120,
-          y = 2616,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 95,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 168,
-          y = 2616,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
-        },
-        {
           id = 96,
           name = "trigger",
           type = "Trigger",
           shape = "rectangle",
           x = 112,
-          y = 2608,
+          y = 3072,
           width = 64,
-          height = 56,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -10772,73 +14201,187 @@ return {
           }
         },
         {
-          id = 99,
+          id = 94,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 136,
-          y = 2608,
+          x = 200,
+          y = 3056,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
+        },
+        {
+          id = 95,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 200,
+          y = 2992,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 99,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 200,
+          y = 3024,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
         },
         {
           id = 100,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 152,
-          y = 2608,
+          x = -64,
+          y = 3168,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
-          id = 78,
-          name = "path",
+          id = 353,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 48,
-          y = 2616,
+          x = 0,
+          y = 3056,
           width = 0,
           height = 0,
-          rotation = 0,
+          rotation = 180,
           visible = true,
           polyline = {
-            { x = 8, y = 16 },
-            { x = 32, y = 16 },
-            { x = 48, y = 0 },
-            { x = 72, y = 0 }
+            { x = 0, y = -112 },
+            { x = -192, y = -112 },
+            { x = -216, y = -88 },
+            { x = -216, y = -24 },
+            { x = -232, y = -8 },
+            { x = -312, y = -8 }
           },
           properties = {}
         },
         {
-          id = 79,
-          name = "path",
+          id = 354,
+          name = "",
           type = "",
           shape = "polyline",
           x = 200,
-          y = 2616,
+          y = 3096,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -32, y = 0 },
-            { x = -8, y = 0 },
-            { x = 8, y = 16 },
-            { x = 32, y = 16 }
+            { x = 0, y = -40 },
+            { x = 0, y = 32 },
+            { x = -24, y = 56 },
+            { x = -88, y = 56 },
+            { x = -112, y = 32 },
+            { x = -112, y = -24 },
+            { x = -128, y = -40 },
+            { x = -232, y = -40 }
           },
+          properties = {}
+        },
+        {
+          id = 71,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 3168,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 74,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = -32,
+          y = 3168,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 519,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = -96,
+          y = 3168,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 520,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = -128,
+          y = 3168,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 521,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 200,
+          y = 2960,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 522,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 200,
+          y = 2928,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
           properties = {}
         }
       }
@@ -10859,14 +14402,14 @@ return {
         {
           id = 8,
           name = "heavy",
-          type = "HeavyMilitia",
+          type = "",
           shape = "rectangle",
-          x = 96,
-          y = 2744,
+          x = 88,
+          y = 3144,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1084,
+          gid = 1116,
           visible = true,
           properties = {}
         },
@@ -10875,10 +14418,10 @@ return {
           name = "heavy1",
           type = "Trigger",
           shape = "rectangle",
-          x = 96,
-          y = 2464,
+          x = 128,
+          y = 3144,
           width = 32,
-          height = 304,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -10890,8 +14433,8 @@ return {
           name = "path",
           type = "",
           shape = "polyline",
-          x = 80,
-          y = 2704,
+          x = 72,
+          y = 3104,
           width = 0,
           height = 0,
           rotation = 0,
@@ -10899,11 +14442,13 @@ return {
           polyline = {
             { x = 16, y = 40 },
             { x = 16, y = 72 },
-            { x = 16, y = -96 },
-            { x = 112, y = -96 },
-            { x = 112, y = -240 },
-            { x = 16, y = -240 },
-            { x = 16, y = 88 }
+            { x = 16, y = -48 },
+            { x = 32, y = -64 },
+            { x = 112, y = -64 },
+            { x = 128, y = -48 },
+            { x = 128, y = 32 },
+            { x = 160, y = 64 },
+            { x = 232, y = 64 }
           },
           properties = {}
         }
@@ -10925,26 +14470,24 @@ return {
         {
           id = 11,
           name = "catapult",
-          type = "Catapult",
+          type = "",
           shape = "rectangle",
-          x = 144,
-          y = 3032,
+          x = 136,
+          y = 3384,
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 984,
+          gid = 1016,
           visible = true,
-          properties = {
-            ["faceangle"] = 90
-          }
+          properties = {}
         },
         {
           id = 12,
           name = "path",
           type = "",
           shape = "polyline",
-          x = 144,
-          y = 3032,
+          x = 136,
+          y = 3384,
           width = 0,
           height = 0,
           rotation = 0,
@@ -10962,9 +14505,9 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 128,
-          y = 2808,
+          y = 3256,
           width = 32,
-          height = 248,
+          height = 216,
           rotation = 0,
           visible = true,
           properties = {
@@ -10974,26 +14517,69 @@ return {
         {
           id = 33,
           name = "operator",
-          type = "CatapultOperator",
+          type = "",
           shape = "rectangle",
-          x = 144,
-          y = 3000,
+          x = 136,
+          y = 3352,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1069,
+          gid = 1101,
           visible = true,
-          properties = {
-            ["defeatitem"] = "ItemWingman",
-            ["rideid"] = 11
-          }
+          properties = {}
+        },
+        {
+          id = 350,
+          name = "catapult",
+          type = "",
+          shape = "rectangle",
+          x = 152,
+          y = 3448,
+          width = 72,
+          height = 72,
+          rotation = 0,
+          gid = 1016,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 351,
+          name = "path",
+          type = "",
+          shape = "polyline",
+          x = 152,
+          y = 3448,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 0, y = 32 },
+            { x = 0, y = -184 }
+          },
+          properties = {}
+        },
+        {
+          id = 352,
+          name = "operator",
+          type = "",
+          shape = "rectangle",
+          x = 152,
+          y = 3416,
+          width = 24,
+          height = 32,
+          rotation = 0,
+          gid = 1065,
+          visible = true,
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
-      id = 64,
-      name = "militia5",
+      id = 216,
+      name = "Copy of enemygrouptemplate",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -11004,78 +14590,14 @@ return {
       },
       objects = {
         {
-          id = 71,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 112,
-          y = 2880,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 72,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 176,
-          y = 2880,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 73,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = -8,
-          y = 2896,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 74,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 296,
-          y = 2896,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 77,
+          id = 506,
           name = "trigger",
           type = "Trigger",
           shape = "rectangle",
-          x = 112,
-          y = 2856,
-          width = 64,
-          height = 40,
+          x = 88,
+          y = 3536,
+          width = 112,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -11083,104 +14605,226 @@ return {
           }
         },
         {
-          id = 230,
-          name = "militia",
-          type = "Militia",
+          id = 348,
+          name = "",
+          type = "",
           shape = "rectangle",
           x = 112,
-          y = 2864,
+          y = 3528,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
-          id = 231,
-          name = "militia",
-          type = "Militia",
+          id = 349,
+          name = "",
+          type = "",
           shape = "rectangle",
           x = 176,
-          y = 2864,
+          y = 3464,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 69,
-          name = "path",
-          type = "",
-          shape = "polyline",
-          x = 184,
-          y = 2896,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = -8, y = -16 },
-            { x = -8, y = 8 },
-            { x = 24, y = 8 }
-          },
           properties = {}
         },
         {
-          id = 70,
-          name = "path",
+          id = 507,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 112,
+          y = 3496,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 508,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 3432,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 509,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 328,
+          y = 3560,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 510,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 3560,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 511,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -24,
+          y = 3560,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 512,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 352,
+          y = 3560,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 513,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 376,
+          y = 3560,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 514,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -48,
+          y = 3560,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 515,
+          name = "",
           type = "",
           shape = "polyline",
           x = 112,
-          y = 2848,
+          y = 3528,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 32 },
-            { x = 0, y = 56 },
-            { x = -32, y = 56 }
+            { x = 0, y = 0 },
+            { x = 0, y = 48 },
+            { x = 64, y = 64 },
+            { x = 64, y = 120 },
+            { x = 96, y = 152 },
+            { x = 232, y = 152 }
           },
           properties = {}
         },
         {
-          id = 80,
-          name = "path",
+          id = 516,
+          name = "",
           type = "",
           shape = "polyline",
           x = 0,
-          y = 2896,
+          y = 3560,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -8, y = 0 },
-            { x = 64, y = 0 }
+            { x = 0, y = 0 },
+            { x = 80, y = 0 },
+            { x = 96, y = 16 },
+            { x = 96, y = 104 },
+            { x = 80, y = 120 },
+            { x = -56, y = 120 }
           },
           properties = {}
         },
         {
-          id = 229,
-          name = "path",
+          id = 517,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 232,
-          y = 2896,
+          x = 176,
+          y = 3464,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -8, y = 0 },
-            { x = 64, y = 0 }
+            { x = 0, y = 0 },
+            { x = 0, y = 112 },
+            { x = -64, y = 128 },
+            { x = -64, y = 216 },
+            { x = -80, y = 232 },
+            { x = -232, y = 232 }
+          },
+          properties = {}
+        },
+        {
+          id = 518,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 304,
+          y = 3560,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 24, y = 0 },
+            { x = -96, y = 0 },
+            { x = -112, y = 16 },
+            { x = -112, y = 104 },
+            { x = -96, y = 120 },
+            { x = 48, y = 120 }
           },
           properties = {}
         }
@@ -11202,76 +14846,68 @@ return {
         {
           id = 60,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 96,
-          y = 3008,
+          x = -32,
+          y = 3296,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 61,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 192,
-          y = 3008,
+          x = 328,
+          y = 3296,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 62,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 96,
-          y = 2992,
+          x = -8,
+          y = 3296,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 63,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 192,
-          y = 2992,
+          x = 352,
+          y = 3296,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 68,
           name = "trigger",
           type = "Trigger",
           shape = "rectangle",
-          x = 112,
-          y = 2976,
-          width = 64,
-          height = 40,
+          x = 88,
+          y = 3320,
+          width = 112,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -11279,39 +14915,143 @@ return {
           }
         },
         {
-          id = 54,
-          name = "path",
+          id = 338,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 96,
-          y = 2928,
+          x = -8,
+          y = 3296,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 80 },
-            { x = 0, y = 104 },
-            { x = -16, y = 104 }
+            { x = 0, y = 0 },
+            { x = 88, y = 0 },
+            { x = 104, y = 16 },
+            { x = 104, y = 104 },
+            { x = 88, y = 120 },
+            { x = -192, y = 120 }
           },
           properties = {}
         },
         {
-          id = 55,
-          name = "path",
+          id = 339,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 208,
-          y = 2928,
+          x = 296,
+          y = 3296,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -16, y = 80 },
-            { x = -16, y = 104 },
-            { x = 0, y = 104 }
+            { x = 0, y = 0 },
+            { x = -88, y = 0 },
+            { x = -104, y = 16 },
+            { x = -104, y = 104 },
+            { x = -88, y = 120 },
+            { x = 208, y = 120 }
           },
+          properties = {}
+        },
+        {
+          id = 340,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 0,
+          y = 3424,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 96, y = 0 },
+            { x = 112, y = -16 },
+            { x = 112, y = -120 },
+            { x = 96, y = -136 },
+            { x = -200, y = -136 }
+          },
+          properties = {}
+        },
+        {
+          id = 342,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -32,
+          y = 3424,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 343,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 3424,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 344,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 288,
+          y = 3424,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = -96, y = 0 },
+            { x = -112, y = -16 },
+            { x = -112, y = -120 },
+            { x = -96, y = -136 },
+            { x = 216, y = -136 }
+          },
+          properties = {}
+        },
+        {
+          id = 345,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -56,
+          y = 3424,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 346,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 312,
+          y = 3424,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
           properties = {}
         }
       }
@@ -11332,76 +15072,96 @@ return {
         {
           id = 56,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 120,
-          y = 3136,
+          x = 112,
+          y = 3632,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 57,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 168,
-          y = 3136,
+          x = 176,
+          y = 3680,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 58,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 104,
-          y = 3152,
+          x = 112,
+          y = 3664,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 59,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 184,
-          y = 3152,
+          x = 176,
+          y = 3648,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
+        },
+        {
+          id = 75,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 3680,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 76,
+          name = "militia",
+          type = "",
+          shape = "rectangle",
+          x = 304,
+          y = 3680,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 1080,
+          visible = true,
+          properties = {}
         },
         {
           id = 67,
           name = "trigger",
           type = "Trigger",
           shape = "rectangle",
-          x = 112,
-          y = 3104,
-          width = 64,
-          height = 64,
+          x = 88,
+          y = 3688,
+          width = 112,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -11409,68 +15169,82 @@ return {
           }
         },
         {
-          id = 75,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 136,
-          y = 3120,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 76,
-          name = "militia",
-          type = "Militia",
-          shape = "rectangle",
-          x = 152,
-          y = 3120,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 1048,
-          visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
-        },
-        {
-          id = 52,
-          name = "path",
+          id = 332,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 112,
-          y = 3128,
+          x = 0,
+          y = 3680,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -40, y = 24 },
-            { x = -8, y = 24 }
+            { x = 0, y = 0 },
+            { x = 80, y = 0 },
+            { x = 96, y = 16 },
+            { x = 96, y = 112 },
+            { x = 80, y = 128 },
+            { x = -96, y = 128 }
           },
           properties = {}
         },
         {
-          id = 53,
-          name = "path",
+          id = 333,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 192,
-          y = 3136,
+          x = 288,
+          y = 3680,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 24, y = 16 },
-            { x = -8, y = 16 }
+            { x = 0, y = 0 },
+            { x = -80, y = 0 },
+            { x = -96, y = 16 },
+            { x = -96, y = 112 },
+            { x = -80, y = 128 },
+            { x = 72, y = 128 }
+          },
+          properties = {}
+        },
+        {
+          id = 336,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 112,
+          y = 3648,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 32 },
+            { x = 0, y = 160 },
+            { x = -16, y = 176 },
+            { x = -192, y = 176 }
+          },
+          properties = {}
+        },
+        {
+          id = 337,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 176,
+          y = 3648,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 32 },
+            { x = 0, y = 160 },
+            { x = 16, y = 176 },
+            { x = 168, y = 176 }
           },
           properties = {}
         }
@@ -11492,44 +15266,40 @@ return {
         {
           id = 48,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
           x = 112,
-          y = 3248,
+          y = 3792,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 49,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 192,
-          y = 3256,
+          x = 176,
+          y = 3744,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 66,
           name = "trigger",
           type = "Trigger",
           shape = "rectangle",
-          x = 112,
-          y = 3240,
-          width = 64,
-          height = 40,
+          x = 88,
+          y = 3800,
+          width = 112,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -11539,68 +15309,67 @@ return {
         {
           id = 65,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
           x = 176,
-          y = 3248,
+          y = 3776,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
           id = 64,
           name = "militia",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 96,
-          y = 3256,
+          x = 112,
+          y = 3760,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
-          properties = {
-            ["pathmode"] = "relative"
-          }
+          properties = {}
         },
         {
-          id = 50,
-          name = "path",
+          id = 503,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 96,
-          y = 3248,
+          x = 112,
+          y = 3792,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 8 },
-            { x = 0, y = 32 },
-            { x = -24, y = 32 }
+            { x = 0, y = 0 },
+            { x = 0, y = 72 },
+            { x = 88, y = 136 },
+            { x = 240, y = 136 }
           },
           properties = {}
         },
         {
-          id = 51,
-          name = "path",
+          id = 504,
+          name = "",
           type = "",
           shape = "polyline",
-          x = 208,
-          y = 3248,
+          x = 176,
+          y = 3792,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = -16, y = 8 },
-            { x = -16, y = 32 },
-            { x = 8, y = 32 }
+            { x = 0, y = 0 },
+            { x = 0, y = 40 },
+            { x = -64, y = 128 },
+            { x = -112, y = 144 },
+            { x = -256, y = 144 }
           },
           properties = {}
         }
@@ -11622,18 +15391,16 @@ return {
         {
           id = 5,
           name = "catapult",
-          type = "Catapult",
+          type = "",
           shape = "rectangle",
           x = 144,
-          y = 3352,
+          y = 3776,
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 984,
+          gid = 1016,
           visible = true,
-          properties = {
-            ["faceangle"] = 90
-          }
+          properties = {}
         },
         {
           id = 6,
@@ -11641,7 +15408,7 @@ return {
           type = "",
           shape = "polyline",
           x = 144,
-          y = 3352,
+          y = 3776,
           width = 0,
           height = 0,
           rotation = 0,
@@ -11649,7 +15416,7 @@ return {
           polyline = {
             { x = 0, y = 0 },
             { x = 0, y = 32 },
-            { x = 0, y = -160 }
+            { x = 0, y = -144 }
           },
           properties = {}
         },
@@ -11659,9 +15426,9 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 128,
-          y = 3152,
+          y = 3608,
           width = 32,
-          height = 224,
+          height = 192,
           rotation = 0,
           visible = true,
           properties = {
@@ -11671,19 +15438,16 @@ return {
         {
           id = 34,
           name = "operator",
-          type = "CatapultOperator",
+          type = "",
           shape = "rectangle",
           x = 144,
-          y = 3320,
+          y = 3744,
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1069,
+          gid = 1101,
           visible = true,
-          properties = {
-            ["defeatitem"] = "ItemWingman",
-            ["rideid"] = 5
-          }
+          properties = {}
         }
       }
     },
@@ -11696,107 +15460,103 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "PathGraph"
+      },
       objects = {
         {
           id = 39,
           name = "",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 168,
-          y = 3432,
+          x = 160,
+          y = 3856,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
           properties = {
-            ["pathid"] = "militia1a",
             ["pathmode"] = "relative"
           }
         },
         {
           id = 40,
           name = "",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 160,
-          y = 3456,
+          x = 176,
+          y = 3864,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
           properties = {
-            ["pathid"] = "militia1a",
             ["pathmode"] = "relative"
           }
         },
         {
           id = 38,
           name = "",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
           x = 192,
-          y = 3456,
+          y = 3872,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
           properties = {
-            ["pathid"] = "militia1a",
             ["pathmode"] = "relative"
           }
         },
         {
           id = 36,
           name = "",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 120,
-          y = 3432,
+          x = 128,
+          y = 3856,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
           properties = {
-            ["pathid"] = "militia1a",
             ["pathmode"] = "relative"
           }
         },
         {
           id = 37,
           name = "",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
-          x = 128,
-          y = 3456,
+          x = 112,
+          y = 3864,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
           properties = {
-            ["pathid"] = "militia1a",
             ["pathmode"] = "relative"
           }
         },
         {
           id = 35,
           name = "",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
           x = 96,
-          y = 3456,
+          y = 3872,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
           properties = {
-            ["pathid"] = "militia1a",
             ["pathmode"] = "relative"
           }
         },
@@ -11805,15 +15565,51 @@ return {
           name = "trigger",
           type = "Trigger",
           shape = "rectangle",
-          x = 88,
-          y = 3448,
-          width = 112,
-          height = 32,
+          x = 64,
+          y = 3880,
+          width = 160,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
             ["activateobjectslayer"] = "ground"
           }
+        },
+        {
+          id = 328,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 112,
+          y = 3840,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 24 },
+            { x = 0, y = 88 },
+            { x = -48, y = 112 }
+          },
+          properties = {}
+        },
+        {
+          id = 329,
+          name = "",
+          type = "",
+          shape = "polyline",
+          x = 176,
+          y = 3840,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 24 },
+            { x = 0, y = 88 },
+            { x = 48, y = 112 }
+          },
+          properties = {}
         }
       }
     },
@@ -11833,14 +15629,14 @@ return {
         {
           id = 41,
           name = "",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
           x = 184,
-          y = 3480,
+          y = 3904,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -11849,14 +15645,14 @@ return {
         {
           id = 42,
           name = "",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
           x = 104,
-          y = 3480,
+          y = 3904,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -11865,14 +15661,14 @@ return {
         {
           id = 43,
           name = "",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
           x = 128,
-          y = 3496,
+          y = 3896,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -11881,14 +15677,14 @@ return {
         {
           id = 47,
           name = "",
-          type = "Militia",
+          type = "",
           shape = "rectangle",
           x = 160,
-          y = 3496,
+          y = 3896,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1048,
+          gid = 1080,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -11899,10 +15695,10 @@ return {
           name = "trigger",
           type = "Trigger",
           shape = "rectangle",
-          x = 112,
-          y = 3480,
-          width = 64,
-          height = 32,
+          x = 64,
+          y = 3904,
+          width = 160,
+          height = 8,
           rotation = 0,
           visible = true,
           properties = {
@@ -11915,14 +15711,14 @@ return {
           type = "",
           shape = "polyline",
           x = 144,
-          y = 3520,
+          y = 3920,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = -24 },
-            { x = 0, y = 24 }
+            { x = 0, y = 0 },
+            { x = 0, y = 56 }
           },
           properties = {}
         }
@@ -11959,7 +15755,7 @@ return {
           type = "Camera",
           shape = "rectangle",
           x = 24,
-          y = 3600,
+          y = 4000,
           width = 240,
           height = 320,
           rotation = 0,
@@ -11995,7 +15791,7 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
-            { x = 0, y = 320 },
+            { x = 0, y = -3272 },
             { x = 0, y = -3280 }
           },
           properties = {}
@@ -12045,11 +15841,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 144,
-          y = 3952,
+          y = 4352,
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1431,
+          gid = 1478,
           visible = true,
           properties = {}
         }

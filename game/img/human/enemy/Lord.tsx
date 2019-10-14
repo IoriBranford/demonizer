@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="Lord" tilewidth="32" tileheight="32" tilecount="48" columns="12">
+<tileset version="1.2" tiledversion="1.2.4" name="Lord" tilewidth="32" tileheight="32" tilecount="48" columns="12">
  <tileoffset x="-16" y="16"/>
  <properties>
   <property name="colstype" value="state"/>
@@ -38,8 +38,8 @@
    <property name="nextanim" value="fire_east"/>
   </properties>
   <animation>
-   <frame tileid="3" duration="125"/>
-   <frame tileid="4" duration="125"/>
+   <frame tileid="3" duration="33"/>
+   <frame tileid="4" duration="33"/>
   </animation>
  </tile>
  <tile id="5">
@@ -48,7 +48,7 @@
    <property name="nextanim" value="east"/>
   </properties>
   <animation>
-   <frame tileid="5" duration="125"/>
+   <frame tileid="5" duration="33"/>
   </animation>
  </tile>
  <tile id="12">
@@ -61,8 +61,8 @@
    <property name="nextanim" value="fire_south"/>
   </properties>
   <animation>
-   <frame tileid="15" duration="125"/>
-   <frame tileid="16" duration="125"/>
+   <frame tileid="15" duration="33"/>
+   <frame tileid="16" duration="33"/>
   </animation>
  </tile>
  <tile id="17">
@@ -71,7 +71,7 @@
    <property name="nextanim" value="south"/>
   </properties>
   <animation>
-   <frame tileid="17" duration="125"/>
+   <frame tileid="17" duration="33"/>
   </animation>
  </tile>
  <tile id="24">
@@ -84,8 +84,8 @@
    <property name="nextanim" value="fire_west"/>
   </properties>
   <animation>
-   <frame tileid="27" duration="125"/>
-   <frame tileid="28" duration="125"/>
+   <frame tileid="27" duration="33"/>
+   <frame tileid="28" duration="33"/>
   </animation>
  </tile>
  <tile id="29">
@@ -94,7 +94,7 @@
    <property name="nextanim" value="west"/>
   </properties>
   <animation>
-   <frame tileid="29" duration="125"/>
+   <frame tileid="29" duration="33"/>
   </animation>
  </tile>
  <tile id="36">
@@ -107,8 +107,8 @@
    <property name="nextanim" value="fire_north"/>
   </properties>
   <animation>
-   <frame tileid="39" duration="125"/>
-   <frame tileid="40" duration="125"/>
+   <frame tileid="39" duration="33"/>
+   <frame tileid="40" duration="33"/>
   </animation>
  </tile>
  <tile id="41">
@@ -117,7 +117,7 @@
    <property name="nextanim" value="north"/>
   </properties>
   <animation>
-   <frame tileid="41" duration="125"/>
+   <frame tileid="41" duration="33"/>
   </animation>
  </tile>
 </tileset>

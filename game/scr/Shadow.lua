@@ -1,8 +1,18 @@
---- Shadow or other sprite under character based on the tile under their feet
+--- Generate shadow or other sprite under character, set directly or based on the tile under their feet
+--@module Shadow
+
+--- Shadow generation properties
+--@field shadowlayer Which layer holds the shadow tile object (default same layer as self)
+--@field shadowtilelayer Which tilelayer determines the shadow tile
+--@field shadowtileset Directly set shadow tileset (overridden by shadowtilelayer)
+--@field shadowtileid Directly set shadow tile id (overridden by shadowtilelayer)
+--@field shadowoffsetx Default 0
+--@field shadowoffsety Default -1/64
+--@table Properties
 
 local levity = require "levity"
 
-local Shadow = class()
+local Shadow = class(require("Script"))
 function Shadow:_init(object)
 	self.id = object.id
 	self.object = object
@@ -27,11 +37,10 @@ function Shadow:forceShadow(tileset, tileid)
 	local shadow = shadowid and levity:getObject(shadowid)
 	if not shadow then
 		if gid then
-			shadow = {
-				id = levity.map:newObjectId(),
-				gid = gid
-			}
-			self.object.layer:addObject(shadow)
+			shadow = levity.map:newObject(
+				self.properties.shadowlayer
+				or self.object.layer)
+			shadow.gid = gid
 			self.shadowid = shadow.id
 		end
 	else
@@ -44,7 +53,8 @@ function Shadow:forceShadow(tileset, tileid)
 end
 
 function Shadow:endMove(dt)
-	local shadowtileset, shadowtileid
+	local shadowtileset = self.properties.shadowtileset
+	local shadowtileid = self.properties.shadowtileid
 	local layer = self.object.layer
 	local shadowtilelayer = levity.map.layers[layer.properties.shadowtilelayer]
 	if shadowtilelayer then

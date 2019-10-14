@@ -1,3 +1,5 @@
+img/crops_varygrowth.tmx
+img/forest_rules.txt
 img/road02_a_rules.txt
 img/town02_a_rules.txt
 img/town03_a_rules.txt

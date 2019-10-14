@@ -7,10 +7,10 @@ function DrunkShmupMap:_init(map)
 end
 
 function DrunkShmupMap:endMove(dt)
-	--local player = levity.scripts:call(self.map.name, "getPlayer")
+	--local player = self:call(self.map.name, "getPlayer")
 	--local dirx, diry = player.body:getLinearVelocity()
 	local playerid = self.properties.playerid
-	local blur = 8 * levity.scripts:call(playerid, "getBAC")
+	local blur = 8 * self:call(playerid, "getBAC")
 
 	local sint = math.sin(love.timer.getTime()*math.pi)
 	self.properties.blurdirx = sint*blur/levity.camera.w

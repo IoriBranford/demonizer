@@ -16,7 +16,7 @@ return {
     ["extendinc"] = 15000,
     ["extendpoints"] = 10000,
     ["maxbombs"] = 0,
-    ["music"] = "mus/19 - Dancing Hunter.vgz",
+    ["music"] = "mus/caravan.vgm",
     ["overlaymap"] = "gameplay.lua",
     ["playerid"] = 1,
     ["script"] = "DrunkShmupMap",

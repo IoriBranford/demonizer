@@ -1,23 +1,23 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.1",
+  tiledversion = "1.2.5",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 15,
   height = 20,
   tilewidth = 16,
   tileheight = 16,
-  nextlayerid = 16,
-  nextobjectid = 54,
+  nextlayerid = 18,
+  nextobjectid = 57,
   properties = {
     ["delayinitobjects"] = true,
     ["enemydefeatsound"] = "snd/knockout.ogg",
     ["enemyhitsound"] = "snd/hit.ogg",
-    ["losemusic"] = "mus/33 - All Over Tonight.vgz",
+    ["losemusic"] = "mus/gameover.vgm",
     ["script"] = "ShmupMap",
     ["targetlocksound"] = "snd/targetlock.ogg",
-    ["winmusic"] = "mus/07 - Great Job!.vgz"
+    ["winmusic"] = "mus/clear.vgm"
   },
   tilesets = {
     {
@@ -1253,7 +1253,7 @@ return {
       columns = 4,
       image = "img/humanshots.png",
       imagewidth = 128,
-      imageheight = 208,
+      imageheight = 224,
       tileoffset = {
         x = -24,
         y = 8
@@ -1267,7 +1267,7 @@ return {
         ["commoncollision"] = 0
       },
       terrains = {},
-      tilecount = 52,
+      tilecount = 56,
       tiles = {
         {
           id = 0,
@@ -1289,10 +1289,10 @@ return {
                 name = "",
                 type = "",
                 shape = "ellipse",
-                x = 23,
-                y = 7,
-                width = 2,
-                height = 2,
+                x = 23.5,
+                y = 7.5,
+                width = 1,
+                height = 1,
                 rotation = 0,
                 visible = true,
                 properties = {
@@ -1595,12 +1595,46 @@ return {
               duration = 67
             }
           }
+        },
+        {
+          id = 52,
+          properties = {
+            ["name"] = "kunai"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 16,
+                y = 0,
+                width = 16,
+                height = 16,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true,
+                  ["sensor"] = true
+                }
+              }
+            }
+          }
         }
       }
     },
     {
       name = "crosshair",
-      firstgid = 212,
+      firstgid = 216,
       filename = "img/crosshair.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1626,7 +1660,7 @@ return {
     },
     {
       name = "item",
-      firstgid = 216,
+      firstgid = 220,
       filename = "img/item.tsx",
       tilewidth = 48,
       tileheight = 24,
@@ -1700,7 +1734,7 @@ return {
     },
     {
       name = "gameover",
-      firstgid = 219,
+      firstgid = 223,
       filename = "img/gameover.tsx",
       tilewidth = 192,
       tileheight = 40,
@@ -1726,15 +1760,15 @@ return {
     },
     {
       name = "ko",
-      firstgid = 220,
+      firstgid = 224,
       filename = "img/human/ko.tsx",
       tilewidth = 24,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      columns = 17,
+      columns = 18,
       image = "img/human/ko.png",
-      imagewidth = 408,
+      imagewidth = 432,
       imageheight = 128,
       tileoffset = {
         x = -12,
@@ -1749,7 +1783,7 @@ return {
         ["commoncollision"] = 0
       },
       terrains = {},
-      tilecount = 68,
+      tilecount = 72,
       tiles = {
         {
           id = 0,
@@ -1865,7 +1899,10 @@ return {
         },
         {
           id = 12,
-          type = "ItemScore"
+          type = "ItemScore",
+          properties = {
+            ["name"] = "Pilot"
+          }
         },
         {
           id = 13,
@@ -1891,49 +1928,52 @@ return {
         },
         {
           id = 17,
-          type = "ItemWingman",
+          type = "ItemScore",
           properties = {
-            ["name"] = "PikemanF"
+            ["name"] = "Assassin"
           }
         },
         {
           id = 18,
           type = "ItemWingman",
           properties = {
-            ["name"] = "SwordsmanF"
+            ["name"] = "PikemanF"
           }
         },
         {
           id = 19,
           type = "ItemWingman",
           properties = {
-            ["name"] = "PriestF"
+            ["name"] = "SwordsmanF"
           }
         },
         {
           id = 20,
           type = "ItemWingman",
           properties = {
-            ["name"] = "MageF"
+            ["name"] = "PriestF"
           }
         },
         {
           id = 21,
           type = "ItemWingman",
           properties = {
-            ["name"] = "ArcherF"
+            ["name"] = "MageF"
           }
         },
         {
           id = 22,
           type = "ItemWingman",
           properties = {
-            ["name"] = "CatapultOperatorF"
+            ["name"] = "ArcherF"
           }
         },
         {
           id = 23,
-          type = "ItemWingman"
+          type = "ItemWingman",
+          properties = {
+            ["name"] = "CatapultOperatorF"
+          }
         },
         {
           id = 24,
@@ -1944,21 +1984,18 @@ return {
           type = "ItemWingman"
         },
         {
-          id = 26,
+          id = 27,
+          type = "ItemWingman",
           properties = {
             ["name"] = "Princess"
           }
         },
         {
-          id = 27,
+          id = 28,
           type = "ItemWingman",
           properties = {
             ["name"] = "FireArcherF"
           }
-        },
-        {
-          id = 28,
-          type = "ItemWingman"
         },
         {
           id = 29,
@@ -1982,25 +2019,31 @@ return {
         },
         {
           id = 34,
+          type = "ItemWingman",
+          properties = {
+            ["name"] = "SailorF"
+          }
+        },
+        {
+          id = 35,
+          type = "ItemWingman",
+          properties = {
+            ["name"] = "AssassinF"
+          }
+        },
+        {
+          id = 36,
           type = "ItemScore",
           properties = {
             ["name"] = "townfolk-child-m-001"
           }
         },
         {
-          id = 35,
+          id = 37,
           type = "ItemScore",
           properties = {
             ["name"] = "townfolk-child-m-002"
           }
-        },
-        {
-          id = 36,
-          type = "ItemScore"
-        },
-        {
-          id = 37,
-          type = "ItemScore"
         },
         {
           id = 38,
@@ -2028,7 +2071,10 @@ return {
         },
         {
           id = 44,
-          type = "ItemScore"
+          type = "ItemScore",
+          properties = {
+            ["name"] = "Sailor"
+          }
         },
         {
           id = 45,
@@ -2056,29 +2102,32 @@ return {
         },
         {
           id = 51,
+          type = "ItemScore",
+          properties = {
+            ["name"] = "HighPriest"
+          }
+        },
+        {
+          id = 52,
+          type = "ItemScore"
+        },
+        {
+          id = 53,
+          type = "ItemScore"
+        },
+        {
+          id = 54,
           type = "ItemWingman",
           properties = {
             ["name"] = "townfolk-adult-f-001"
           }
         },
         {
-          id = 52,
+          id = 55,
           type = "ItemWingman",
           properties = {
             ["name"] = "townfolk-adult-f-002"
           }
-        },
-        {
-          id = 53,
-          type = "ItemWingman"
-        },
-        {
-          id = 54,
-          type = "ItemWingman"
-        },
-        {
-          id = 55,
-          type = "ItemWingman"
         },
         {
           id = 56,
@@ -2132,7 +2181,7 @@ return {
     },
     {
       name = "converted",
-      firstgid = 288,
+      firstgid = 296,
       filename = "img/human/converted.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -2141,7 +2190,7 @@ return {
       columns = 6,
       image = "img/human/converted.png",
       imagewidth = 144,
-      imageheight = 544,
+      imageheight = 576,
       tileoffset = {
         x = -12,
         y = 16
@@ -2167,6 +2216,7 @@ return {
         ["rowname14"] = "townfolk-adult-f-005",
         ["rowname15"] = "townfolk-adult-f-006",
         ["rowname16"] = "FireArcherF",
+        ["rowname17"] = "AssassinF",
         ["rowname2"] = "DancerF",
         ["rowname3"] = "MageF",
         ["rowname4"] = "PikemanF",
@@ -2178,10 +2228,11 @@ return {
         ["rowstype"] = "state"
       },
       terrains = {},
-      tilecount = 102,
+      tilecount = 108,
       tiles = {
         {
           id = 0,
+          type = "PlayerWingman",
           objectGroup = {
             type = "objectgroup",
             name = "",
@@ -2230,7 +2281,52 @@ return {
           }
         },
         {
+          id = 1,
+          type = "PlayerWingman"
+        },
+        {
+          id = 2,
+          type = "PlayerWingman"
+        },
+        {
+          id = 3,
+          type = "PlayerWingman"
+        },
+        {
+          id = 4,
+          type = "PlayerWingman"
+        },
+        {
+          id = 5,
+          type = "PlayerWingman"
+        },
+        {
+          id = 6,
+          type = "PlayerWingman"
+        },
+        {
+          id = 7,
+          type = "PlayerWingman"
+        },
+        {
+          id = 8,
+          type = "PlayerWingman"
+        },
+        {
+          id = 9,
+          type = "PlayerWingman"
+        },
+        {
+          id = 10,
+          type = "PlayerWingman"
+        },
+        {
+          id = 11,
+          type = "PlayerWingman"
+        },
+        {
           id = 12,
+          type = "PlayerWingman",
           animation = {
             {
               tileid = 13,
@@ -2251,7 +2347,160 @@ return {
           }
         },
         {
+          id = 13,
+          type = "PlayerWingman"
+        },
+        {
+          id = 14,
+          type = "PlayerWingman"
+        },
+        {
+          id = 15,
+          type = "PlayerWingman"
+        },
+        {
+          id = 16,
+          type = "PlayerWingman"
+        },
+        {
+          id = 17,
+          type = "PlayerWingman"
+        },
+        {
+          id = 18,
+          type = "PlayerWingman"
+        },
+        {
+          id = 19,
+          type = "PlayerWingman"
+        },
+        {
+          id = 20,
+          type = "PlayerWingman"
+        },
+        {
+          id = 21,
+          type = "PlayerWingman"
+        },
+        {
+          id = 22,
+          type = "PlayerWingman"
+        },
+        {
+          id = 23,
+          type = "PlayerWingman"
+        },
+        {
+          id = 24,
+          type = "PlayerWingman"
+        },
+        {
+          id = 25,
+          type = "PlayerWingman"
+        },
+        {
+          id = 26,
+          type = "PlayerWingman"
+        },
+        {
+          id = 27,
+          type = "PlayerWingman"
+        },
+        {
+          id = 28,
+          type = "PlayerWingman"
+        },
+        {
+          id = 29,
+          type = "PlayerWingman"
+        },
+        {
+          id = 30,
+          type = "PlayerWingman"
+        },
+        {
+          id = 31,
+          type = "PlayerWingman"
+        },
+        {
+          id = 32,
+          type = "PlayerWingman"
+        },
+        {
+          id = 33,
+          type = "PlayerWingman"
+        },
+        {
+          id = 34,
+          type = "PlayerWingman"
+        },
+        {
+          id = 35,
+          type = "PlayerWingman"
+        },
+        {
+          id = 36,
+          type = "PlayerWingman"
+        },
+        {
+          id = 37,
+          type = "PlayerWingman"
+        },
+        {
+          id = 38,
+          type = "PlayerWingman"
+        },
+        {
+          id = 39,
+          type = "PlayerWingman"
+        },
+        {
+          id = 40,
+          type = "PlayerWingman"
+        },
+        {
+          id = 41,
+          type = "PlayerWingman"
+        },
+        {
+          id = 42,
+          type = "PlayerWingman"
+        },
+        {
+          id = 43,
+          type = "PlayerWingman"
+        },
+        {
+          id = 44,
+          type = "PlayerWingman"
+        },
+        {
+          id = 45,
+          type = "PlayerWingman"
+        },
+        {
+          id = 46,
+          type = "PlayerWingman"
+        },
+        {
+          id = 47,
+          type = "PlayerWingman"
+        },
+        {
+          id = 48,
+          type = "PlayerWingman"
+        },
+        {
+          id = 49,
+          type = "PlayerWingman"
+        },
+        {
+          id = 50,
+          type = "PlayerWingman"
+        },
+        {
           id = 51,
+          type = "PlayerWingman",
           animation = {
             {
               tileid = 52,
@@ -2272,7 +2521,40 @@ return {
           }
         },
         {
+          id = 52,
+          type = "PlayerWingman"
+        },
+        {
+          id = 53,
+          type = "PlayerWingman"
+        },
+        {
+          id = 54,
+          type = "PlayerWingman"
+        },
+        {
+          id = 55,
+          type = "PlayerWingman"
+        },
+        {
+          id = 56,
+          type = "PlayerWingman"
+        },
+        {
+          id = 57,
+          type = "PlayerWingman"
+        },
+        {
+          id = 58,
+          type = "PlayerWingman"
+        },
+        {
+          id = 59,
+          type = "PlayerWingman"
+        },
+        {
           id = 60,
+          type = "PlayerWingman",
           animation = {
             {
               tileid = 61,
@@ -2293,7 +2575,64 @@ return {
           }
         },
         {
+          id = 61,
+          type = "PlayerWingman"
+        },
+        {
+          id = 62,
+          type = "PlayerWingman"
+        },
+        {
+          id = 63,
+          type = "PlayerWingman"
+        },
+        {
+          id = 64,
+          type = "PlayerWingman"
+        },
+        {
+          id = 65,
+          type = "PlayerWingman"
+        },
+        {
+          id = 66,
+          type = "PlayerWingman"
+        },
+        {
+          id = 67,
+          type = "PlayerWingman"
+        },
+        {
+          id = 68,
+          type = "PlayerWingman"
+        },
+        {
+          id = 69,
+          type = "PlayerWingman"
+        },
+        {
+          id = 70,
+          type = "PlayerWingman"
+        },
+        {
+          id = 71,
+          type = "PlayerWingman"
+        },
+        {
+          id = 72,
+          type = "PlayerWingman"
+        },
+        {
+          id = 73,
+          type = "PlayerWingman"
+        },
+        {
+          id = 74,
+          type = "PlayerWingman"
+        },
+        {
           id = 75,
+          type = "PlayerWingman",
           animation = {
             {
               tileid = 76,
@@ -2312,12 +2651,116 @@ return {
               duration = 150
             }
           }
+        },
+        {
+          id = 76,
+          type = "PlayerWingman"
+        },
+        {
+          id = 77,
+          type = "PlayerWingman"
+        },
+        {
+          id = 78,
+          type = "PlayerWingman"
+        },
+        {
+          id = 79,
+          type = "PlayerWingman"
+        },
+        {
+          id = 80,
+          type = "PlayerWingman"
+        },
+        {
+          id = 81,
+          type = "PlayerWingman"
+        },
+        {
+          id = 82,
+          type = "PlayerWingman"
+        },
+        {
+          id = 83,
+          type = "PlayerWingman"
+        },
+        {
+          id = 84,
+          type = "PlayerWingman"
+        },
+        {
+          id = 85,
+          type = "PlayerWingman"
+        },
+        {
+          id = 86,
+          type = "PlayerWingman"
+        },
+        {
+          id = 87,
+          type = "PlayerWingman"
+        },
+        {
+          id = 88,
+          type = "PlayerWingman"
+        },
+        {
+          id = 89,
+          type = "PlayerWingman"
+        },
+        {
+          id = 90,
+          type = "PlayerWingman"
+        },
+        {
+          id = 91,
+          type = "PlayerWingman"
+        },
+        {
+          id = 92,
+          type = "PlayerWingman"
+        },
+        {
+          id = 93,
+          type = "PlayerWingman"
+        },
+        {
+          id = 94,
+          type = "PlayerWingman"
+        },
+        {
+          id = 95,
+          type = "PlayerWingman"
+        },
+        {
+          id = 96,
+          type = "PlayerWingman"
+        },
+        {
+          id = 97,
+          type = "PlayerWingman"
+        },
+        {
+          id = 98,
+          type = "PlayerWingman"
+        },
+        {
+          id = 99,
+          type = "PlayerWingman"
+        },
+        {
+          id = 100,
+          type = "PlayerWingman"
+        },
+        {
+          id = 101,
+          type = "PlayerWingman"
         }
       }
     },
     {
       name = "countdown",
-      firstgid = 390,
+      firstgid = 404,
       filename = "img/countdown.tsx",
       tilewidth = 16,
       tileheight = 20,
@@ -2362,7 +2805,7 @@ return {
     },
     {
       name = "go",
-      firstgid = 393,
+      firstgid = 407,
       filename = "img/go.tsx",
       tilewidth = 64,
       tileheight = 32,
@@ -2388,7 +2831,7 @@ return {
     },
     {
       name = "emotes",
-      firstgid = 394,
+      firstgid = 408,
       filename = "img/emotes.tsx",
       tilewidth = 24,
       tileheight = 16,
@@ -2561,7 +3004,7 @@ return {
     },
     {
       name = "winebomb",
-      firstgid = 418,
+      firstgid = 432,
       filename = "img/winebomb.tsx",
       tilewidth = 18,
       tileheight = 12,
@@ -2792,7 +3235,12 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "index",
-      properties = {},
+      properties = {
+        ["glowcolor"] = "#ff00ffff",
+        ["glowspeed"] = 8,
+        ["glowstrength"] = 1,
+        ["script"] = "BulletLayer"
+      },
       objects = {}
     },
     {
@@ -2823,7 +3271,7 @@ return {
           width = 16,
           height = 20,
           rotation = 0,
-          gid = 392,
+          gid = 406,
           visible = true,
           properties = {}
         },
@@ -3078,7 +3526,7 @@ return {
           height = 8,
           rotation = 0,
           visible = true,
-          text = "SCORE 00000000  1UP@ 01000000",
+          text = "SCORE 00000000 EXTRA@01000000",
           fontfamily = "Press Start 2P",
           pixelsize = 8,
           wrap = true,
@@ -3086,7 +3534,7 @@ return {
           valign = "center",
           properties = {
             ["script"] = "ShmupScore",
-            ["textformat"] = "SCORE %8d  1UP@ %8d"
+            ["textformat"] = "SCORE %8d EXTRA@%8d"
           }
         },
         {
@@ -3097,17 +3545,16 @@ return {
           x = 64,
           y = 64,
           width = 112,
-          height = 64,
+          height = 80,
           rotation = 0,
           visible = true,
-          text = "%3d SECONDS\n\n%s BOMBS\n\nGOOD LUCK!!!",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          text = "%3d SECONDS\n%s BOMBS\n\nGOOD LUCK!!!",
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           halign = "center",
           properties = {
-            ["textformat"] = "%3d SECONDS\n\n%s BOMBS\n\nGOOD LUCK!!!"
+            ["textformat"] = "%3d SECONDS\n%s BOMBS\n\nGOOD LUCK!!!"
           }
         },
         {
@@ -3120,7 +3567,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 418,
+          gid = 432,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3136,7 +3583,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 418,
+          gid = 432,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3152,7 +3599,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 418,
+          gid = 432,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3168,7 +3615,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 418,
+          gid = 432,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3184,11 +3631,69 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 418,
+          gid = 432,
           visible = false,
           properties = {
             ["collidable"] = false
           }
+        },
+        {
+          id = 54,
+          name = "activetriggers",
+          type = "",
+          shape = "text",
+          x = 0,
+          y = 272,
+          width = 240,
+          height = 48,
+          rotation = 0,
+          visible = false,
+          text = "activetriggers",
+          fontfamily = "Press Start 2P",
+          pixelsize = 8,
+          wrap = true,
+          color = { 255, 255, 255 },
+          halign = "right",
+          valign = "bottom",
+          properties = {}
+        },
+        {
+          id = 55,
+          name = "continueprompt",
+          type = "",
+          shape = "text",
+          x = 56,
+          y = 280,
+          width = 176,
+          height = 32,
+          rotation = 0,
+          visible = false,
+          text = "PRESS ${joy_fire} TO CONTINUE\n${joy_pausemenu} TO SKIP",
+          fontfamily = "Unifont",
+          wrap = true,
+          color = { 255, 255, 255 },
+          halign = "right",
+          valign = "bottom",
+          properties = {}
+        },
+        {
+          id = 56,
+          name = "battleprompt",
+          type = "",
+          shape = "text",
+          x = 8,
+          y = 280,
+          width = 224,
+          height = 32,
+          rotation = 0,
+          visible = false,
+          text = "PRESS ${joy_fire} OR ${joy_pausemenu}\nTO START BATTLE",
+          fontfamily = "Unifont",
+          wrap = true,
+          color = { 255, 255, 255 },
+          halign = "right",
+          valign = "bottom",
+          properties = {}
         }
       }
     },
@@ -3256,7 +3761,7 @@ return {
           width = 56,
           height = 8,
           rotation = 0,
-          visible = true,
+          visible = false,
           text = "xbombpt",
           fontfamily = "Press Start 2P",
           pixelsize = 8,
@@ -3276,7 +3781,7 @@ return {
           width = 72,
           height = 8,
           rotation = 0,
-          visible = true,
+          visible = false,
           text = "bombtotal",
           fontfamily = "Press Start 2P",
           pixelsize = 8,
@@ -3397,15 +3902,14 @@ return {
           rotation = 0,
           visible = true,
           text = "END GAME",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           halign = "center",
           valign = "center",
           properties = {
             ["action"] = "changeMap",
-            ["nextmap"] = "title.lua"
+            ["nextmap"] = "mainmenu.lua"
           }
         },
         {
@@ -3420,8 +3924,7 @@ return {
           rotation = 0,
           visible = true,
           text = "RESTART",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           halign = "center",
@@ -3442,14 +3945,13 @@ return {
           rotation = 0,
           visible = true,
           text = "RESUME",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           halign = "center",
           valign = "center",
           properties = {
-            ["action"] = "toggleMenu"
+            ["action"] = "togglePause"
           }
         },
         {
@@ -3496,7 +3998,7 @@ return {
           width = 192,
           height = 40,
           rotation = 0,
-          gid = 219,
+          gid = 223,
           visible = true,
           properties = {}
         },
@@ -3512,8 +4014,7 @@ return {
           rotation = 0,
           visible = true,
           text = "RESTART",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           halign = "center",
@@ -3534,15 +4035,14 @@ return {
           rotation = 0,
           visible = true,
           text = "END GAME",
-          fontfamily = "Press Start 2P",
-          pixelsize = 8,
+          fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
           halign = "center",
           valign = "center",
           properties = {
             ["action"] = "changeMap",
-            ["nextmap"] = "title.lua"
+            ["nextmap"] = "mainmenu.lua"
           }
         }
       }

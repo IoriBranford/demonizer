@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local ComicMap = class()
+local ComicMap = class(require("Script"))
 
 function ComicMap:_init(map)
 	self.properties = map.properties
@@ -20,8 +20,8 @@ function ComicMap:_init(map)
 end
 
 function ComicMap:beginMove(dt)
-	if levity.scripts:call("curtain", "isClosing") then
-		if levity.scripts:call("curtain", "finishedClosing") then
+	if self:call("curtain", "isClosing") then
+		if self:call("curtain", "finishedClosing") then
 			levity:setNextMap(self.properties.nextmap, levity.nextmapdata)
 		end
 		return
@@ -70,9 +70,9 @@ function ComicMap:beginMove(dt)
 end
 
 function ComicMap:endMap()
-	if not levity.scripts:call("curtain", "isClosing") then
+	if not self:call("curtain", "isClosing") then
 		self.layers["curtain"].visible = true
-		levity.scripts:send("curtain", "beginClose")
+		self:send("curtain", "beginClose")
 		if levity.bank.currentmusic then
 			levity.bank.currentmusic:fade()
 		end

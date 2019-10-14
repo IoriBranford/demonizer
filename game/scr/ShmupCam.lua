@@ -7,7 +7,7 @@ local math_huge = math.huge
 local math_min = math.min
 local math_max = math.max
 
-local ShmupCam = class()
+local ShmupCam = class(require("Script"))
 function ShmupCam:_init(object)
 	self.object = object
 	self.properties = self.object.properties

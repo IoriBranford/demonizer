@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="48" height="64" tilewidth="5" tileheight="5" infinite="0" nextlayerid="7" nextobjectid="37">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="10" tileheight="10" infinite="0" nextlayerid="17" nextobjectid="51">
  <properties>
-  <property name="music" type="file" value="mus/02 - Burning Heart.vgz"/>
-  <property name="nextmap" type="file" value="demonrealm.lua"/>
+  <property name="cameraid" type="int" value="11"/>
+  <property name="nextmap" type="file" value="mainmenu.lua"/>
+  <property name="playerid" type="int" value="42"/>
   <property name="script" value="MenuMap"/>
  </properties>
  <tileset firstgid="1" source="img/bg_swirl.tsx"/>
- <tileset firstgid="101" source="img/title_demonization.tsx"/>
- <tileset firstgid="117" source="img/title.tsx"/>
- <layer id="1" name="Tile Layer 1" width="48" height="64">
+ <tileset firstgid="26" source="img/title_demonization.tsx"/>
+ <tileset firstgid="42" source="img/title.tsx"/>
+ <tileset firstgid="43" source="img/player.tsx"/>
+ <tileset firstgid="71" source="img/human/converted.tsx"/>
+ <tileset firstgid="173" source="img/demonization.tsx"/>
+ <tileset firstgid="181" source="img/powergauge.tsx"/>
+ <tileset firstgid="185" source="img/playerhitbox.tsx"/>
+ <tileset firstgid="186" source="img/crosshair.tsx"/>
+ <tileset firstgid="190" source="img/particles.tsx"/>
+ <layer id="8" name="Tile Layer 1" width="24" height="32">
+  <properties>
+   <property name="script" value="InfiniteScrollLayer"/>
+   <property name="scrolling" type="bool" value="true"/>
+   <property name="scrollvelx" type="float" value="60"/>
+   <property name="scrollvely" type="float" value="60"/>
+   <property name="tilewrap" type="bool" value="true"/>
+  </properties>
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA+3VVVZCAQBF0fdERQzEwsICu0WxFRMTEwtbnP8YPKNw3cW6H/vv/J8wCIIaRFCLOtQjigbE0IhQtGtCM1oQRysSaEM7OtAp3HUhiW70oBd96EcKAxgU7oYwjBGkkcEoxjCOCUwKd1OYxgxmMYd5LGARS8gKd8tYQQ6rWMM6NrCJLWwLdzvYRR572McBDnGEYxSEuxOc4gznuMAlirjCNW6Eu1vc4R4lPOART3jGC8rC3Sve8I4PfOIL3/hBBb/CnepX/V//1//1f/1f/9f/1e1Uv+r/+r/+r//r//q//q9up/pV/9f/9X/9X//X//V/dTvVr/q//u9/dKpf9X/9X//X//V//V//V7dT/ar/6//6v9X/3z8EBwieADAAAA==
+   H4sIAAAAAAAACu3RNxKAQBADwcN7Dm/+/1EmXsItiKSqTpROCP8sQYoMOQrnZ1eiQo0GrfOz69BjwIjo/OwmzFiwYnN+djsOnLhwOz879VVf9VVf9VVf9X1PfdXX0/erPd/SQyoADAAA
   </data>
  </layer>
  <objectgroup draworder="index" id="2" name="info">
@@ -30,119 +45,73 @@ C key: BOMB</text>
   <object id="18" name="pressstart" x="0" y="260" width="240" height="10" visible="0">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">PRESS Z TO START</text>
   </object>
-  <object id="19" name="copyright" x="0" y="296" width="240" height="32">
+  <object id="19" name="copyright" x="0" y="270" width="240" height="40">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">© 2019 IoriBranford
 
 ioribranford.itch.io</text>
   </object>
-  <object id="26" name="instructions_joystick" x="0" y="264" width="240" height="24">
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">SELECT WITH ↑/↓
-
-PRESS ANY BUTTON TO START</text>
+ </objectgroup>
+ <objectgroup id="10" name="startbutton">
+  <properties>
+   <property name="script" value="UIMenu"/>
+  </properties>
+  <object id="26" name="start" type="UIButton" x="30" y="180" width="180" height="40">
+   <properties>
+    <property name="action" value="playerExit"/>
+    <property name="presssound" type="file" value=""/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">PRESS ENTER OR BUTTON</text>
   </object>
  </objectgroup>
  <objectgroup id="3" name="title">
   <properties>
    <property name="script" value="TitleLayer"/>
   </properties>
-  <object id="21" gid="101" x="12.5" y="35" width="32" height="24"/>
-  <object id="22" gid="102" x="192.5" y="35" width="32" height="24"/>
-  <object id="23" gid="109" x="115" y="60" width="32" height="24"/>
-  <object id="25" gid="117" x="20" y="60" width="200" height="50"/>
+  <object id="21" gid="26" x="12.5" y="125" width="32" height="24"/>
+  <object id="22" gid="27" x="197.5" y="125" width="32" height="24"/>
+  <object id="23" gid="34" x="115" y="150" width="32" height="24"/>
+  <object id="25" gid="42" x="20" y="150" width="200" height="50"/>
  </objectgroup>
- <objectgroup id="4" name="stagemenu">
+ <objectgroup id="15" name="sparks"/>
+ <objectgroup id="14" name="playershots"/>
+ <objectgroup id="11" name="playerteam">
   <properties>
-   <property name="script" value="UIMenu"/>
+   <property name="script" value="PlayerTeam"/>
   </properties>
-  <object id="20" name="tutorial" type="UIButton" x="60" y="65" width="120" height="15">
+  <object id="42" gid="43" x="120" y="360" width="64" height="64">
    <properties>
-    <property name="action" value="startGame"/>
-    <property name="nextmap" type="file" value="tutorial.lua"/>
+    <property name="coroutine" value="waitCoroutine"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">tutorial</text>
   </object>
-  <object id="15" name="stage0" type="UIButton" x="60" y="80" width="120" height="15">
+  <object id="43" gid="86" x="170" y="370" width="24" height="32">
    <properties>
-    <property name="action" value="startGame"/>
-    <property name="nextmap" type="file" value="demonrealm.lua"/>
+    <property name="demonizationid" type="int" value="50"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">demonrealm</text>
   </object>
-  <object id="16" name="stage1" type="UIButton" x="60" y="95" width="120" height="15">
+  <object id="44" gid="146" x="75" y="370" width="24" height="32">
    <properties>
-    <property name="action" value="startGame"/>
-    <property name="nextmap" type="file" value="village.lua"/>
+    <property name="demonizationid" type="int" value="47"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">village</text>
   </object>
-  <object id="27" name="stage2" type="UIButton" x="60" y="110" width="120" height="15">
+  <object id="45" gid="122" x="80" y="405" width="24" height="32">
    <properties>
-    <property name="action" value="startGame"/>
-    <property name="nextmap" type="file" value="chapel.lua"/>
+    <property name="demonizationid" type="int" value="48"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">chapel</text>
   </object>
-  <object id="29" name="stage3" type="UIButton" x="60" y="125" width="120" height="15">
+  <object id="46" gid="140" x="155" y="405" width="24" height="32">
    <properties>
-    <property name="action" value="startGame"/>
-    <property name="nextmap" type="file" value="cave.lua"/>
+    <property name="demonizationid" type="int" value="49"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">cave</text>
   </object>
-  <object id="30" name="stage4" type="UIButton" x="60" y="140" width="120" height="15">
-   <properties>
-    <property name="action" value="startGame"/>
-    <property name="nextmap" type="file" value="highway.lua"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">highway</text>
-  </object>
-  <object id="32" name="stage5" type="UIButton" x="60" y="155" width="120" height="15">
-   <properties>
-    <property name="action" value="startGame"/>
-    <property name="nextmap" type="file" value="capital.lua"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">capital</text>
-  </object>
-  <object id="33" name="stage6" type="UIButton" x="60" y="170" width="120" height="15">
-   <properties>
-    <property name="action" value="startGame"/>
-    <property name="nextmap" type="file" value="castle.lua"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">castle</text>
-  </object>
-  <object id="31" name="caravan" type="UIButton" x="60" y="205" width="120" height="15">
-   <properties>
-    <property name="action" value="startGame"/>
-    <property name="nextmap" type="file" value="caravan.lua"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">150s challenge</text>
-  </object>
-  <object id="34" name="final" type="UIButton" x="60" y="185" width="120" height="15">
-   <properties>
-    <property name="action" value="startGame"/>
-    <property name="nextmap" type="file" value="final.lua"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">final</text>
-  </object>
-  <object id="35" name="caravan" type="UIButton" x="60" y="220" width="120" height="15">
-   <properties>
-    <property name="action" value="startGame"/>
-    <property name="nextmap" type="file" value="drunktitle.lua"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">inebriator</text>
-  </object>
-  <object id="36" name="options" type="UIButton" x="60" y="240" width="120" height="15">
-   <properties>
-    <property name="action" value="startGame"/>
-    <property name="nextmap" type="file" value="options.lua"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">options</text>
-  </object>
+  <object id="47" gid="177" x="75" y="450" width="64" height="64"/>
+  <object id="48" gid="177" x="80" y="485" width="64" height="64"/>
+  <object id="49" gid="177" x="155" y="485" width="64" height="64"/>
+  <object id="50" gid="177" x="170" y="450" width="64" height="64"/>
  </objectgroup>
  <imagelayer id="6" name="qr" visible="0" offsetx="190" offsety="270">
   <image source="img/qr-website.png" width="50" height="50"/>
  </imagelayer>
- <objectgroup id="5" name="curtain">
+ <objectgroup id="16" name="curtain">
   <properties>
    <property name="script" value="Curtain"/>
   </properties>

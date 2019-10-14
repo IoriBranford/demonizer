@@ -4,7 +4,7 @@
 
 local levity = require "levity"
 
-local Coroutine = class()
+local Coroutine = class(require("Script"))
 Coroutine.DefaultWaitTimeout = 5
 
 function Coroutine:_init(object, func, param)

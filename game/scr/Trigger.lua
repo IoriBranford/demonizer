@@ -1,11 +1,12 @@
 local levity = require "levity"
 local maputil = require "levity.maputil"
 local ShmupCollision = require "ShmupCollision"
+local ShmupBullet = require "ShmupBullet"
 
-local Trigger = class()
+local Trigger = class(require("Script"))
 
 local TriggerMask = {
-	ShmupCollision.Category_Default,
+	--ShmupCollision.Category_Default,
 	ShmupCollision.Category_CameraEdge,
 	ShmupCollision.Category_PlayerShot,
 	ShmupCollision.Category_PlayerBomb,
@@ -50,13 +51,15 @@ function Trigger:activateObjects(num)
 			break
 		end
 	end
+	return n
 end
 
-function Trigger:addNewObject(object)
+function Trigger:newObject()
+	local object = levity.map:newObject()
 	maputil.setObjectDefaultProperties(object, levity.map.objecttypes)
 	object.layer = self.object.layer
-	object.id = object.id or levity.map:newObjectId()
 	self:activateObject(object)
+	return object
 end
 
 function Trigger:activateObject(object)
@@ -72,6 +75,10 @@ function Trigger:activateObject(object)
 	self.activatedids[object.id] = object.id
 end
 
+function Trigger:hasActivatedIds()
+	return next(self.activatedids) ~= nil
+end
+
 function Trigger:addFriend(friendid)
 	self.friendstates = self.friendstates or {}
 	self.friendstates[friendid] = "active"
@@ -84,10 +91,14 @@ end
 
 function Trigger:deactivate()
 	for _, id in pairs(self.activatedids) do
-		if not levity.scripts:call(id, "endTrigger") then
+		if not self:call(id, "endTrigger") then
 			levity:discardObject(id)
 		end
 	end
+end
+
+function Trigger:isWaitingToTrigger()
+	return self.waittriggertimer
 end
 
 function Trigger:beginMove(dt)
@@ -95,7 +106,7 @@ function Trigger:beginMove(dt)
 		self.waittriggertimer = self.waittriggertimer + dt
 		if self.waittriggertimer >= self.properties.waittriggertime then
 			local waittriggerid = self.properties.waittriggerid
-			levity.scripts:send(waittriggerid, "activate")
+			self:send(waittriggerid, "activate")
 			self.waittriggertimer = nil
 		end
 	end
@@ -121,6 +132,10 @@ function Trigger:activate()
 	if self.activatedonce then
 		return
 	end
+	if self:call(levity.map.name, "hasPlayerLost") then
+		return
+	end
+
 	if self.properties.activateonce then
 		self.activatedonce = true
 	end
@@ -171,7 +186,7 @@ function Trigger:activate()
 	if startinfinitescrolllayers then
 		for layer in startinfinitescrolllayers:gmatch(LayerPattern) do
 			if maplayers[layer] then
-				levity.scripts:call(maplayers[layer].name,
+				self:call(maplayers[layer].name,
 					"setScrolling", true)
 			end
 		end
@@ -183,8 +198,38 @@ function Trigger:activate()
 			local layer = maplayers[layername]
 			if layer then
 				numstopinfinitescrolllayers = numstopinfinitescrolllayers + 1
-				levity.scripts:send(layername, "setScrolling", false, stoptriggerid)
+				self:send(layername, "setScrolling", false, stoptriggerid)
 				stoptriggerid = nil
+			end
+		end
+	end
+
+	local explodetilelayers = self.properties.explodetilelayers
+		and self.properties.explodetilelayers..'\n'
+	if explodetilelayers then
+		for layer in explodetilelayers:gmatch(LayerPattern) do
+			layer = maplayers[layer]
+			if layer and layer.type == "tilelayer" then
+				local cx = self.properties.explodetilelayercenterx
+				local cy = self.properties.explodetilelayercentery
+				ShmupBullet.explodeTileLayer(layer, "sparks",
+								cx, cy)
+			end
+		end
+	end
+
+	for _, contact in pairs(self.object.body:getContactList()) do
+		-- contact does not mean they are touching,
+		-- only that they are close enough for detailed collision check
+		if contact:isTouching() then
+			local myfix, otherfix = contact:getFixtures()
+			if myfix:getBody() ~= self.object.body then
+				otherfix, myfix = contact:getFixtures()
+			end
+			local otherdata = otherfix:getBody():getUserData()
+			local otherobject = otherdata and otherdata.object
+			if otherobject and otherobject.properties then
+				self:queueNextTrigger(otherdata.object)
 			end
 		end
 	end
@@ -210,37 +255,50 @@ function Trigger:activate()
 		self:applyCameraSpeed()
 	end
 
-	local sequencetriggerids = self.properties.sequencetriggerids
-	if sequencetriggerids then
-		local sequence = {}
-		for line in sequencetriggerids:gmatch("%d+") do
-			sequence[#sequence+1] = tonumber(line)
-		end
-
-		local allobjects = levity.map.objects
-		for i = 1, #sequence-1 do
-			local triggerid = sequence[i]
-			local trigger = allobjects[triggerid]
-			if trigger and trigger.properties.script=="Trigger" then
-				local properties = trigger.properties
-				properties.cleartriggerid = sequence[i+1]
-			end
-		end
-
-		levity.scripts:send(sequence[1], "activate")
-	end
-
 	local playerid = levity.map.properties.playerid
 	local ischeckpoint = self.properties.ischeckpoint
 	if ischeckpoint then
 		levity.map.properties.checkpointid = self.id
 	end
 	local playerrestrictmove = self.properties.playerrestrictmove
-	levity.scripts:call(playerid, "restrictMove", playerrestrictmove)
+	self:call(playerid, "restrictMove", playerrestrictmove)
 	local playerrestrictfire = self.properties.playerrestrictfire
-	levity.scripts:call(playerid, "restrictFire", playerrestrictfire)
+	self:call(playerid, "restrictFire", playerrestrictfire)
 
-	levity.scripts:broadcast("triggerActivated", self.id)
+	local dialogue = self.properties.dialogue
+	if dialogue then
+		self:send(playerid, "startDialogue", self.id)
+	end
+
+	self:broadcast("triggerActivated", self.id)
+end
+
+function Trigger:queueNextTrigger(nexttrigger)
+	if nexttrigger.properties.script ~= "Trigger" then
+		return
+	end
+	if self.properties.timelinespeed < 0
+	or nexttrigger.properties.timelinespeed < 0
+	then
+		return
+	end
+	local x1, y1, w1, h1 = self.object.x, self.object.y, self.object.width, self.object.height
+	local x2, y2, w2, h2 = nexttrigger.x, nexttrigger.y, nexttrigger.width, nexttrigger.height
+
+	if y1 < y2 and y1 + h1 >= y2 then
+		local timelinespeed = self.properties.timelinespeed
+		if timelinespeed == 0 then
+			if self.properties.dialogue then
+				self.properties.dialoguenexttriggerid = nexttrigger.id
+			else
+				self.properties.cleartriggerid = nexttrigger.id
+			end
+		else
+			self.properties.waittriggerid = nexttrigger.id
+			local time = (y2-y1) / timelinespeed
+			self.properties.waittriggertime = time
+		end
+	end
 end
 
 function Trigger:isPlayerIn()
@@ -251,7 +309,7 @@ function Trigger:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 	local playerid = otherfixture:getBody():getUserData().id
 	if playerid == levity.map.properties.playerid then
 		self.playerentered = true
-		levity.scripts:broadcast("playerEnteredTrigger", self.id)
+		self:broadcast("playerEnteredTrigger", self.id)
 	end
 end
 
@@ -259,7 +317,7 @@ function Trigger:endContact_PlayerTeam(myfixture, otherfixture, contact)
 	local playerid = otherfixture:getBody():getUserData().id
 	if playerid == levity.map.properties.playerid then
 		self.playerentered = false
-		levity.scripts:broadcast("playerExitedTrigger", self.id)
+		self:broadcast("playerExitedTrigger", self.id)
 	end
 end
 
@@ -279,7 +337,8 @@ function Trigger:beginContact(myfixture, otherfixture, contact)
 		end
 	end
 
-	local otherid = otherfixture:getBody():getUserData().id
+	local otherdata = otherfixture:getBody():getUserData()
+	local otherid = otherdata and otherdata.id
 	if isActivatedById(self, otherid) then
 		self:activate()
 	end
@@ -294,7 +353,7 @@ function Trigger:endContact(myfixture, otherfixture, contact)
 	end
 
 	local otherid = otherfixture:getBody():getUserData().id
-	if isActivatedById(self, otherid) and self.activatedonce then
+	if otherid and isActivatedById(self, otherid) and self.activatedonce then
 		self:deactivate()
 	end
 end
@@ -380,11 +439,11 @@ function Trigger:enemyDefeated(enemyid)
 		return
 	end
 
-	levity.scripts:broadcast("triggerEnemiesCleared", self.id)
+	self:broadcast("triggerEnemiesCleared", self.id)
 
 	local cleartowin = self.properties.cleartowin
 	if cleartowin then
-		levity.scripts:broadcast("beginPlayerWin")
+		self:broadcast("beginPlayerWin")
 	end
 
 	if self:isAnyFriendDefeated() then
@@ -393,7 +452,7 @@ function Trigger:enemyDefeated(enemyid)
 
 	--if self.friendstates then
 	--	for id, _ in pairs(self.friendstates) do
-	--		levity.scripts:send(id, "allFriendsSaved")
+	--		self:send(id, "allFriendsSaved")
 	--	end
 	--end
 
@@ -402,7 +461,7 @@ function Trigger:enemyDefeated(enemyid)
 		local defeatenemiesbonustimewindow = self.properties.defeatenemiesbonustimewindow or math.huge
 		local cleartime = love.timer.getTime() - self.firstdefeattime
 		if cleartime <= defeatenemiesbonustimewindow then
-			levity.scripts:broadcast("givePlayerBonus", bonus,
+			self:broadcast("givePlayerBonus", bonus,
 						self.properties.bonussound)
 			self.properties.defeatenemiesbonus = 0
 		end
@@ -429,7 +488,7 @@ function Trigger:friendSaved(friendid)
 
 	--if self.friendstates then
 	--	for id, _ in pairs(self.friendstates) do
-	--		levity.scripts:send(id, "allFriendsSaved")
+	--		self:send(id, "allFriendsSaved")
 	--	end
 	--end
 
@@ -442,7 +501,7 @@ end
 
 function Trigger:giveBonus(bonus)
 	local player = levity.map.objects[levity.map.properties.playerid]
-	levity.scripts:broadcast("pointsScored", bonus,
+	self:broadcast("pointsScored", bonus,
 		player.x, player.y, "BONUS\n%d")
 	levity.bank:play(self.properties.bonussound)
 end
@@ -475,24 +534,26 @@ function Trigger:someoneDiscarded(id)
 		return
 	end
 
+	self:broadcast("triggerCleared", self.id)
+
 	local cleartriggerid = self.properties.cleartriggerid
 	if levity:getObject(cleartriggerid) then
-		levity.scripts:send(cleartriggerid, "activate")
+		self:send(cleartriggerid, "activate")
 	end
 
-	if levity.scripts:call(levity.map.name, "hasPlayerLost") then
+	if self:call(levity.map.name, "hasPlayerLost") then
 		return
 	end
 
 	local cleartowin = self.properties.cleartowin
 	if cleartowin then
-		levity.scripts:broadcast("playerWon")
+		self:broadcast("playerWon")
 	end
 
 	local cleartoenterid = self.properties.cleartoenterid
 	if cleartoenterid then
 		local playerid = levity.map.properties.playerid
-		levity.scripts:send(playerid, "startEntrance", cleartoenterid)
+		self:send(playerid, "startEntrance", cleartoenterid)
 	end
 end
 
@@ -503,13 +564,13 @@ function Trigger:allItemsCleared()
 
 	local clearitemstriggerid = self.properties.clearitemstriggerid
 	if levity:getObject(clearitemstriggerid) then
-		levity.scripts:send(clearitemstriggerid, "activate")
+		self:send(clearitemstriggerid, "activate")
 	end
 
 	local clearitemstowin = self.properties.clearitemstowin
 	if clearitemstowin then
-		if not levity.scripts:call(levity.map.name, "hasPlayerLost") then
-			levity.scripts:broadcast("playerWon")
+		if not self:call(levity.map.name, "hasPlayerLost") then
+			self:broadcast("playerWon")
 		end
 	end
 end

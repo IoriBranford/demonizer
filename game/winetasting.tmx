@@ -6,7 +6,7 @@
   <property name="extendinc" type="int" value="15000"/>
   <property name="extendpoints" type="int" value="10000"/>
   <property name="maxbombs" type="int" value="0"/>
-  <property name="music" type="file" value="mus/19 - Dancing Hunter.vgz"/>
+  <property name="music" type="file" value="mus/caravan.vgm"/>
   <property name="overlaymap" type="file" value="gameplay.lua"/>
   <property name="playerid" type="int" value="1"/>
   <property name="script" value="DrunkShmupMap"/>

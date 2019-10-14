@@ -12,53 +12,56 @@ function MenuPause:_init(layer)
 	layer.visible = false
 end
 
-function MenuPause:togglePauseOnly()
-	local pause = not levity.map.paused
+function MenuPause:togglePause(withmenu)
+	local pause = not levity.map.paused and self:canPause()
 	levity.map.paused = pause
-
-	if pause then
-		levity.bank:play(self.layer.properties.pausesound)
-	end
-end
-
-function MenuPause:toggleMenu()
-	local pause = not levity.map.paused
-	levity.map.paused = pause
-	self.layer.visible = pause
+	self.layer.visible = pause and withmenu
 
 	if pause then
 		levity.bank:play(self.layer.properties.pausesound)
 		self:moveCursor(1, #self.objects + 1)
 	else
+		if self:call(levity.map.properties.playerid, "isInDialogue") then
+			self:send(levity.map.properties.playerid, "skipDialogue")
+		end
 		self:setMouseCursorMode(false)
 		self.cursorpos = nil
 		for _, button in ipairs(self.objects) do
-			levity.scripts:call(button.id, "unpress")
+			self:call(button.id, "unpress")
 		end
 	end
 end
 
-function MenuPause:keypressed(k)
+function MenuPause:canPause()
 	if levity.map.layers["gameovermenu"].visible then
-		return
+		return false
 	end
+	if self:call("curtain", "isOpeningOrClosing") then
+		return false
+	end
+	if self:call(levity.map.properties.playerid, "isInDialogue") then
+		return false
+	end
+	return true
+end
+
+function MenuPause:keypressed(k)
 	if k == prefs.key_pausemenu then
-		self:toggleMenu()
-	elseif k == prefs.key_pause then
-		self:togglePauseOnly()
+		self:togglePause(true)
+	elseif k == prefs.key_pause
+	or levity.map.paused and not self.layer.visible then
+		self:togglePause(false)
 	else
 		UIMenu.keypressed(self, k)
 	end
 end
 
 function MenuPause:joystickpressed(joystick, button)
-	if levity.map.layers["gameovermenu"].visible then
-		return
-	end
 	if button == prefs.joy_pausemenu then
-		self:toggleMenu()
+		self:togglePause(true)
 	--elseif button == prefs.joy_pause then
-	--	self:togglePauseOnly()
+	elseif levity.map.paused and not self.layer.visible then
+		self:togglePause(false)
 	else
 		UIMenu.joystickpressed(self, joystick, button)
 	end

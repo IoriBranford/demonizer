@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local UIButton = class()
+local UIButton = class(require("Script"))
 function UIButton:_init(object)
 	self.object = object
 	self.pressed = false
@@ -54,7 +54,7 @@ function UIButton:touchpressed(touch, x, y, dx, dy, pressure)
 		then
 			self:playPressSound()
 			self:press()
-			levity.scripts:call(self.object.layer.name,
+			self:call(self.object.layer.name,
 				"setCursorButton", self.object.id)
 		else
 			self:unpress()
@@ -150,8 +150,22 @@ function UIButton:initLock_changeMenu()
 	end
 end
 
+UIButton.joystickadded = UIButton.initLock_changeMenu
+UIButton.joystickremoved = UIButton.initLock_changeMenu
+
+function UIButton:playerExit()
+	self:send(levity.map.properties.playerid, "startExit")
+
+	local menu = self.object.layer
+	if menu then
+		for _, object in pairs(menu.objects) do
+			levity:discardObject(object.id)
+		end
+	end
+end
+
 function UIButton:startGame()
-	levity.scripts:send(levity.mapfile, "startGame", self.properties.nextmap)
+	self:send(levity.mapfile, "startGame", self.properties.nextmap)
 
 	local menu = self.object.layer
 	if menu then
@@ -162,7 +176,7 @@ function UIButton:startGame()
 end
 
 function UIButton:goBack()
-	levity.scripts:send(levity.mapfile, "goBack")
+	self:send(levity.mapfile, "goBack")
 end
 
 function UIButton:changeMap()
@@ -173,17 +187,17 @@ function UIButton:restartMap()
 	levity:setNextMap(levity.map.name, {})
 end
 
-function UIButton:toggleMenu()
-	levity.scripts:send(self.object.layer.name, "toggleMenu")
+function UIButton:togglePause()
+	self:send(self.object.layer.name, "togglePause")
 end
 
 function UIButton:changeMenu()
-	levity.scripts:send(levity.mapfile, "changeMenu", self.properties.nextmenu)
+	self:send(levity.mapfile, "changeMenu", self.properties.nextmenu)
 end
 
 function UIButton:resetPrefs()
 	levity.prefs.reset()
-	levity.scripts:broadcast("prefsReset")
+	self:broadcast("prefsReset")
 end
 
 function UIButton:quitToWebsite()

@@ -1,17 +1,17 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.1",
+  tiledversion = "1.2.4",
   orientation = "orthogonal",
   renderorder = "right-down",
-  width = 48,
-  height = 64,
-  tilewidth = 5,
-  tileheight = 5,
-  nextlayerid = 7,
+  width = 24,
+  height = 32,
+  tilewidth = 10,
+  tileheight = 10,
+  nextlayerid = 8,
   nextobjectid = 11,
   properties = {
-    ["music"] = "mus/34 - Deposit Coins.vgz",
+    ["music"] = "mus/end.vgm",
     ["script"] = "MenuMap"
   },
   tilesets = {
@@ -135,11 +135,11 @@ return {
       name = "bg_swirl",
       firstgid = 18,
       filename = "img/bg_swirl.tsx",
-      tilewidth = 5,
-      tileheight = 5,
+      tilewidth = 10,
+      tileheight = 10,
       spacing = 0,
       margin = 0,
-      columns = 10,
+      columns = 5,
       image = "img/bg_swirl.png",
       imagewidth = 50,
       imageheight = 50,
@@ -154,27 +154,33 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 100,
+      tilecount = 25,
       tiles = {}
     }
   },
   layers = {
     {
       type = "tilelayer",
-      id = 5,
+      id = 7,
       name = "Tile Layer 1",
       x = 0,
       y = 0,
-      width = 48,
-      height = 64,
+      width = 24,
+      height = 32,
       visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
-      properties = {},
+      properties = {
+        ["script"] = "InfiniteScrollLayer",
+        ["scrolling"] = true,
+        ["scrollvelx"] = 60,
+        ["scrollvely"] = 60,
+        ["tilewrap"] = true
+      },
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt1dc6wgEAhvH/NUTZsvcoW0REZmZGhJAVyrz/3sv4np7v4Hf2nr+hIAga0IgwImhCM1rQijaERLt2dKATUXShGz3oRR/6hbsBDGIIwxjBKMYwjglMCncxxDGFacxgFnOYxwIWhbsElrCMJFawihTWsI60cLeBTWSwhW3sYBd72EdWuDvAIY5wjBOcIocznONCuLtEHle4RgE3uMUdirgX7h7wiBKe8IwXvOINZbwLdx/4RAVVfOEbP/jFH/6FO9Wv+r/+r//r//q//q//q9upftX/9X/9X/+3GPi//q//q9qpftX/9X/9X//X//V//V/dTvWr/q//6//6v/6v/+v/6naqX/V//V//1//1f/3fev5vDeSYEa4="
+      data = "eJzt0TcSgEAQA8F7A95zePP/BzLxEm5BJFV1onRC+GcJUmTIUTg/uxIVajRonZ9dhx4DRkTnZzdhxoIVm/Oz23HgxIXb+dmpr/qqr/qqr/qq73vqq76evl/tAbQTRlE="
     },
     {
       type = "objectgroup",
@@ -232,7 +238,7 @@ return {
           height = 10,
           rotation = 0,
           visible = true,
-          text = "To be completed 2019",
+          text = "To be completed 2020",
           fontfamily = "Press Start 2P",
           pixelsize = 8,
           wrap = true,
@@ -260,7 +266,7 @@ return {
           valign = "center",
           properties = {
             ["action"] = "changeMap",
-            ["nextmap"] = "title.lua"
+            ["nextmap"] = "mainmenu.lua"
           }
         },
         {

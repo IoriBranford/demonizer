@@ -22,16 +22,12 @@ function EnemyHighPriest:spawnOrbsOnPlayer(dt)
 	local orbgid = levity.map:getTileGid("Orb", 0)
 	local x, y = self.body:getPosition()
 	for i = 1, 4 do
-		local orb = {
-			type = "Orb_Surround",
-			gid = orbgid,
-			x = x,
-			y = y,
-			properties = {
-				rideorbitspeed = 180 * (-1)^i
-			}
-		}
-		levity.scripts:send(triggerid, "addNewObject", orb)
+		local orb = self:call(triggerid, "newObject")
+		orb.type = "Orb_Surround"
+		orb.gid = orbgid
+		orb.x = x
+		orb.y = y
+		orb.properties.rideorbitspeed = 180 * (-1)^i
 		levity.bank:play(self.properties.spawnorbsound)
 		self.coroutine:waitTime(.25)
 	end
@@ -66,6 +62,7 @@ function EnemyHighPriest:defeatCoroutine(dt)
 	for _, fixture in ipairs(self.body:getFixtureList()) do
 		fixture:setMask(NPC.InvulnerableMask)
 	end
+	self.properties.takescover = false
 
 	while not self.reachedfleestartpoint do
 		self:explosionClusterCoroutine("SparkDefeatHuge", 1, 0,
@@ -73,9 +70,9 @@ function EnemyHighPriest:defeatCoroutine(dt)
 	end
 
 	local openexittriggerid = self.properties.openexittriggerid
-	levity.scripts:send(openexittriggerid, "activate")
+	self:send(openexittriggerid, "activate")
 	local covertriggerid = self.properties.covertriggerid
-	levity.scripts:send(covertriggerid, "deactivate")
+	self:send(covertriggerid, "deactivate")
 	levity:discardObject(covertriggerid)
 	self.coroutine:waitTime(self.properties.exitopenedwaittime or 2)
 

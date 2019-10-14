@@ -5,8 +5,8 @@
 --@field rideid Other moving object to ride on
 --@field rideshield Does ride block capture?
 --@field launched into the air (if not, then stationary)
---@field launchvelx defaults to 0
---@field launchvely defaults to Item.LaunchVelY
+--@field velx defaults to 0
+--@field vely defaults to Item.LaunchVelY
 --@field capturesound
 --@field lostsound
 --@table Properties
@@ -17,7 +17,7 @@ local ShmupWingman = require "ShmupWingman"
 
 local NumItems = 0
 
-local Item = class()
+local Item = class(require("Script"))
 function Item:_init(object)
 	self.object = object
 	self.id = object.id
@@ -75,11 +75,11 @@ end
 function Item:initQuery()
 	local rideid = self.properties.rideid
 	if rideid then
-		levity.scripts:send(rideid, "addRider", self.id)
+		self:send(rideid, "addRider", self.id)
 	end
 	local itemtype = self.properties.itemtype
 	if itemtype == "score" or itemtype == "wingman" then
-		levity.scripts:broadcast("humanKnockedOut", self.id)
+		self:broadcast("humanKnockedOut", self.id)
 	end
 end
 
@@ -105,14 +105,14 @@ function Item:beginMove(dt)
 	local playerdsq = math.hypotsq(playerdx, playerdy)
 
 	if self.pulledbyid then
-		if levity.scripts:call(self.pulledbyid, "isKilled") then
+		if self:call(self.pulledbyid, "isKilled") then
 			self:cancelPull()
 		end
 	else
 		local capturepulldistsq
 
-		if levity.scripts:call(playerid, "isFocused")
-		and levity.scripts:call(playerid, "isPoweredUp")
+		if self:call(playerid, "isFocused")
+		and self:call(playerid, "isPoweredUp")
 		then
 			capturepulldistsq = Item.EnhancedCapturePullDistSq
 		else
@@ -121,7 +121,7 @@ function Item:beginMove(dt)
 
 		if self:canBeCaptured()
 		and playerdsq < capturepulldistsq
-		and not levity.scripts:call(playerid, "isKilled") then
+		and not self:call(playerid, "isKilled") then
 			self:pullTo(levity.map.properties.playerid)
 		end
 	end
@@ -148,6 +148,9 @@ function Item:beginMove(dt)
 end
 
 function Item:beginContact_PlayerBomb(myfixture, otherfixture, contact)
+	if self:call(levity.map.name, "isTutorial") then
+		return
+	end
 	local bulletproperties = otherfixture:getBody():getUserData().properties
 	local damage = bulletproperties.damage or 1
 	if damage > 0 then
@@ -168,7 +171,7 @@ function Item:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 	local itemtype = self.properties.itemtype
 
 	local captorid
-	if levity.scripts:call(levity.map.name, "isTutorial")
+	if self:call(levity.map.name, "isTutorial")
 	or itemtype == "wingman" then
 		captorid = levity.map.properties.playerid
 	else
@@ -188,11 +191,11 @@ function Item:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 			cx, cy, captorid, self.id)
 
 		levity.bank:play(self.properties.newwingmansound)
-		levity.scripts:broadcast("humanConverted", self.id, captorid)
+		self:broadcast("humanConverted", self.id, captorid)
 	elseif itemtype == "score" then
-		levity.scripts:broadcast("humanCaptured", self.id, captorid)
+		self:broadcast("humanCaptured", self.id, captorid)
 	elseif itemtype == "extend" then
-		levity.scripts:broadcast("extendEarned")
+		self:broadcast("extendEarned")
 	end
 
 	local capturesound = self.properties.capturesound
@@ -244,7 +247,7 @@ function Item:endMove(dt)
 	local mapleft = 0
 	local mapright = levity.map.width * levity.map.tilewidth
 
-	local camleft, camtop, camright, cambottom = levity.scripts:call(levity.map.properties.cameraid, "getBoundingBox")
+	local camleft, camtop, camright, cambottom = self:call(levity.map.properties.cameraid, "getBoundingBox")
 
 	local px, py = self.object.body:getPosition()
 	px = math.max(camleft, math.min(px, camright))
@@ -256,15 +259,15 @@ function Item:endMove(dt)
 		local itemtile = itemtype
 
 		if not self.itemsprite then
-			self.itemsprite = levity.scripts:call(self.properties.itemslayer or "items", "add",
+			self.itemsprite = self:call(self.properties.itemslayer or "items", "add",
 				itemtile, px, py)
 		end
 
-		levity.scripts:send(self.properties.itemslayer or "items", "set", self.itemsprite,
+		self:send(self.properties.itemslayer or "items", "set", self.itemsprite,
 				itemtile, px, py)
 	else
 		if self.itemsprite then
-			levity.scripts:send(self.properties.itemslayer or "items", "remove", self.itemsprite)
+			self:send(self.properties.itemslayer or "items", "remove", self.itemsprite)
 			self.itemsprite = nil
 		end
 	end
@@ -289,8 +292,8 @@ function Item:endMove(dt)
 
 	if offbottom or offleft or offright then
 		if itemtype == "score" or itemtype == "wingman" then
-			if self:isPulledByRescuer() then
-				levity.scripts:broadcast("humanFled", self.id)
+			if not self:canBeCaptured() then
+				self:broadcast("humanFled", self.id)
 			else
 				self:die(bloodangle)
 			end
@@ -314,13 +317,13 @@ function Item:npcDefeated(id)
 	end
 	if self.properties.rideid == id then
 		self.properties.rideid = nil
-		levity.scripts:send(self.id, "rideDestroyed")
+		self:send(self.id, "rideDestroyed")
 	end
 end
 
 function Item:launch()
-	local vx = self.properties.launchvelx or 0
-	local vy = self.properties.launchvely or Item.LaunchVelY
+	local vx = self.properties.velx or 0
+	local vy = self.properties.vely or Item.LaunchVelY
 	self.body:setLinearVelocity(vx, vy)
 	self.object:setLayer(levity.map.layers["playerteam"])
 	self.accely = Item.Gravity
@@ -351,10 +354,10 @@ function Item:pullTo(pullerid)
 end
 
 function Item:cancelPull()
-	levity.scripts:send(self.pulledbyid, "stopPulling")
+	self:send(self.pulledbyid, "stopPulling")
 	self.pulledbyid = nil
-	self.properties.launchvelx = love.math.random(-16, 16)
-	self.properties.launchvely = love.math.random(Item.ReleaseLaunchVelY,
+	self.properties.velx = love.math.random(-16, 16)
+	self.properties.vely = love.math.random(Item.ReleaseLaunchVelY,
 					Item.ReleaseLaunchVelY - 64)
 	self:launch()
 end
@@ -367,7 +370,7 @@ end
 
 function Item:die(bloodangle)
 	local x, y = self.object.body:getWorldCenter()
-	levity.scripts:send("deathparticles", "emit", 16, x, y,
+	self:send("deathparticles", "emit", 16, x, y,
 				bloodangle or math.pi*1.5)
 
 	local lostsound = self.properties.lostsound
@@ -376,7 +379,7 @@ function Item:die(bloodangle)
 	end
 
 	self:discard()
-	levity.scripts:broadcast("humanDied", self.id)
+	self:broadcast("humanDied", self.id)
 end
 
 function Item:endTrigger()
@@ -390,25 +393,25 @@ function Item:discard()
 	end
 	self.discarded = true
 
-	levity.scripts:send(self.pulledbyid, "stopPulling")
+	self:send(self.pulledbyid, "stopPulling")
 
 	if self.itemsprite then
-		levity.scripts:send(self.properties.itemslayer or "items", "remove", self.itemsprite)
+		self:send(self.properties.itemslayer or "items", "remove", self.itemsprite)
 		self.itemsprite = nil
 	end
 
 	local rideid = self.properties.rideid
 	if rideid then
-		levity.scripts:send(rideid, "removeRider", self.id)
+		self:send(rideid, "removeRider", self.id)
 	end
 	local triggerid = self.properties.triggerid
 	if triggerid then
-		levity.scripts:send(triggerid, "someoneDiscarded", self.id)
+		self:send(triggerid, "someoneDiscarded", self.id)
 	end
 	levity:discardObject(self.id)
 	NumItems = NumItems - 1
 	if NumItems < 1 then
-		levity.scripts:broadcast("allItemsCleared")
+		self:broadcast("allItemsCleared")
 	end
 end
 
@@ -423,27 +426,23 @@ function Item:playerEntering(entranceid)
 end
 
 function Item.releaseCaptives(captivegids, captives, x, y, layer)
-	captives = math.min(captives, Item.MaxReleasedCaptives)
+	captives = captives or Item.MaxReleasedCaptives
 	captives = math.min(captives, #captivegids)
 	local i0 = 1 + #captivegids - captives
 
 	for i = #captivegids, i0, -1 do
-		local launchvelx = love.math.random(-16, 16)
-		local launchvely = love.math.random(Item.ReleaseLaunchVelY,
+		local velx = love.math.random(-16, 16)
+		local vely = love.math.random(Item.ReleaseLaunchVelY,
 						Item.ReleaseLaunchVelY - 64)
-		local item = {
-			type = "ItemScore",
-			gid = captivegids[i],
-			x = x,
-			y = y,
-			properties = {
-				launched = true,
-				launchvelx = launchvelx,
-				launchvely = launchvely,
-				capturepoints = 0,
-			}
-		}
-		layer:addObject(item)
+		local item = levity.map:newObject(layer)
+		item.type = "ItemScore"
+		item.gid = captivegids[i]
+		item.x = x
+		item.y = y
+		item.properties.launched = true
+		item.properties.velx = velx
+		item.properties.vely = vely
+		item.properties.capturepoints = 0
 		captivegids[i] = nil
 	end
 end

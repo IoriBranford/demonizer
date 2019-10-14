@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local ItemsLayer = class()
+local ItemsLayer = class(require("Script"))
 
 function ItemsLayer:_init(layer)
 	self.layer = layer

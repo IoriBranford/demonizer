@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="sandbags" tilewidth="32" tileheight="48" tilecount="3" columns="3">
+<tileset version="1.2" tiledversion="1.2.4" name="sandbags" tilewidth="16" tileheight="16" tilecount="18" columns="6">
  <image source="sandbags.png" width="96" height="48"/>
- <tile id="0">
-  <objectgroup draworder="index">
-   <object id="1" type="EnemyCover" x="16" y="16" width="16" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="1">
-  <objectgroup draworder="index">
-   <object id="1" type="EnemyCover" x="0" y="16" width="32" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="2">
-  <objectgroup draworder="index">
-   <object id="1" type="EnemyCover" x="0" y="16" width="16" height="16"/>
-  </objectgroup>
- </tile>
+ <tile id="7" type="EnemyCover"/>
+ <tile id="8" type="EnemyCover"/>
+ <tile id="9" type="EnemyCover"/>
+ <tile id="10" type="EnemyCover"/>
 </tileset>

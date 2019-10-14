@@ -2,7 +2,7 @@ local levity = require "levity"
 local Tiles = require "levity.tiles"
 local ShmupCollision = require "ShmupCollision"
 
-local Door = class()
+local Door = class(require("Script"))
 Door.Mask = {
 	ShmupCollision.Category_Default,
 	ShmupCollision.Category_Camera,

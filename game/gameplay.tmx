@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="54">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="57">
  <properties>
   <property name="delayinitobjects" type="bool" value="true"/>
   <property name="enemydefeatsound" type="file" value="snd/knockout.ogg"/>
   <property name="enemyhitsound" type="file" value="snd/hit.ogg"/>
-  <property name="losemusic" type="file" value="mus/33 - All Over Tonight.vgz"/>
+  <property name="losemusic" type="file" value="mus/gameover.vgm"/>
   <property name="script" value="ShmupMap"/>
   <property name="targetlocksound" type="file" value="snd/targetlock.ogg"/>
-  <property name="winmusic" type="file" value="mus/07 - Great Job!.vgz"/>
+  <property name="winmusic" type="file" value="mus/clear.vgm"/>
  </properties>
  <tileset firstgid="1" source="img/bombgauge.tsx"/>
  <tileset firstgid="17" source="img/hud_icons.tsx"/>
@@ -22,15 +22,15 @@
  <tileset firstgid="148" source="img/demonbomb.tsx"/>
  <tileset firstgid="156" source="img/demonshots.tsx"/>
  <tileset firstgid="160" source="img/humanshots.tsx"/>
- <tileset firstgid="212" source="img/crosshair.tsx"/>
- <tileset firstgid="216" source="img/item.tsx"/>
- <tileset firstgid="219" source="img/gameover.tsx"/>
- <tileset firstgid="220" source="img/human/ko.tsx"/>
- <tileset firstgid="288" source="img/human/converted.tsx"/>
- <tileset firstgid="390" source="img/countdown.tsx"/>
- <tileset firstgid="393" source="img/go.tsx"/>
- <tileset firstgid="394" source="img/emotes.tsx"/>
- <tileset firstgid="418" source="img/winebomb.tsx"/>
+ <tileset firstgid="216" source="img/crosshair.tsx"/>
+ <tileset firstgid="220" source="img/item.tsx"/>
+ <tileset firstgid="223" source="img/gameover.tsx"/>
+ <tileset firstgid="224" source="img/human/ko.tsx"/>
+ <tileset firstgid="296" source="img/human/converted.tsx"/>
+ <tileset firstgid="404" source="img/countdown.tsx"/>
+ <tileset firstgid="407" source="img/go.tsx"/>
+ <tileset firstgid="408" source="img/emotes.tsx"/>
+ <tileset firstgid="432" source="img/winebomb.tsx"/>
  <objectgroup id="1" name="items" opacity="0.75">
   <properties>
    <property name="script" value="ItemsLayer"/>
@@ -114,7 +114,14 @@
    <property name="tileset" value="particles"/>
   </properties>
  </objectgroup>
- <objectgroup draworder="index" id="8" name="npcshots"/>
+ <objectgroup draworder="index" id="8" name="npcshots">
+  <properties>
+   <property name="glowcolor" type="color" value="#ff00ffff"/>
+   <property name="glowspeed" type="float" value="8"/>
+   <property name="glowstrength" type="float" value="1"/>
+   <property name="script" value="BulletLayer"/>
+  </properties>
+ </objectgroup>
  <objectgroup draworder="index" id="9" name="status">
   <properties>
    <property name="countdownsound" type="file" value="snd/equip.ogg"/>
@@ -124,7 +131,7 @@
    <property name="newbombsound" type="file" value="snd/thankyou.ogg"/>
    <property name="script" value="ShmupStatus"/>
   </properties>
-  <object id="42" name="countdown" gid="392" x="120" y="168" width="16" height="20"/>
+  <object id="42" name="countdown" gid="406" x="120" y="168" width="16" height="20"/>
   <object id="41" name="timer" x="4" y="48" width="40" height="8">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">mm:ss</text>
   </object>
@@ -160,48 +167,57 @@
   <object id="29" name="score" x="4" y="4" width="232" height="8">
    <properties>
     <property name="script" value="ShmupScore"/>
-    <property name="textformat" value="SCORE %8d  1UP@ %8d"/>
+    <property name="textformat" value="SCORE %8d EXTRA@%8d"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">SCORE 00000000  1UP@ 01000000</text>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" valign="center">SCORE 00000000 EXTRA@01000000</text>
   </object>
-  <object id="48" name="caravanrules" x="64" y="64" width="112" height="64">
+  <object id="48" name="caravanrules" x="64" y="64" width="112" height="80">
    <properties>
     <property name="textformat">%3d SECONDS
-
 %s BOMBS
 
 GOOD LUCK!!!</property>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">%3d SECONDS
-
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center">%3d SECONDS
 %s BOMBS
 
 GOOD LUCK!!!</text>
   </object>
-  <object id="49" name="winebomb1" gid="418" x="8" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="49" name="winebomb1" gid="432" x="8" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="50" name="winebomb2" gid="418" x="24" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="50" name="winebomb2" gid="432" x="24" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="51" name="winebomb3" gid="418" x="40" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="51" name="winebomb3" gid="432" x="40" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="52" name="winebomb4" gid="418" x="56" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="52" name="winebomb4" gid="432" x="56" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="53" name="winebomb5" gid="418" x="72" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="53" name="winebomb5" gid="432" x="72" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
+  </object>
+  <object id="54" name="activetriggers" x="0" y="272" width="240" height="48" visible="0">
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="right" valign="bottom">activetriggers</text>
+  </object>
+  <object id="55" name="continueprompt" x="56" y="280" width="176" height="32" visible="0">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="right" valign="bottom">PRESS ${joy_fire} TO CONTINUE
+${joy_pausemenu} TO SKIP</text>
+  </object>
+  <object id="56" name="battleprompt" x="8" y="280" width="224" height="32" visible="0">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="right" valign="bottom">PRESS ${joy_fire} OR ${joy_pausemenu}
+TO START BATTLE</text>
   </object>
  </objectgroup>
  <objectgroup id="10" name="results">
@@ -220,13 +236,13 @@ GOOD LUCK!!!</text>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="right">rsrvtotal</text>
   </object>
-  <object id="32" name="bombpoints" x="56" y="304" width="56" height="8">
+  <object id="32" name="bombpoints" x="56" y="304" width="56" height="8" visible="0">
    <properties>
     <property name="textformat" value="x %d"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">xbombpt</text>
   </object>
-  <object id="33" name="bombtotal" x="120" y="304" width="72" height="8">
+  <object id="33" name="bombtotal" x="120" y="304" width="72" height="8" visible="0">
    <properties>
     <property name="textformat" value="%d pts"/>
    </properties>
@@ -265,21 +281,21 @@ GOOD LUCK!!!</text>
   <object id="37" name="title" type="UIButton" x="48" y="192" width="144" height="32">
    <properties>
     <property name="action" value="changeMap"/>
-    <property name="nextmap" type="file" value="title.lua"/>
+    <property name="nextmap" type="file" value="mainmenu.lua"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">END GAME</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">END GAME</text>
   </object>
   <object id="36" name="restart" type="UIButton" x="48" y="144" width="144" height="32">
    <properties>
     <property name="action" value="restartMap"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">RESTART</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">RESTART</text>
   </object>
   <object id="35" name="resume" type="UIButton" x="48" y="96" width="144" height="32">
    <properties>
-    <property name="action" value="toggleMenu"/>
+    <property name="action" value="togglePause"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">RESUME</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">RESUME</text>
   </object>
   <object id="34" name="pause" x="0" y="64" width="240" height="16">
    <text fontfamily="Lady Radical" wrap="1" color="#ffffff" halign="center" valign="center">PAUSE</text>
@@ -289,19 +305,19 @@ GOOD LUCK!!!</text>
   <properties>
    <property name="script" value="MenuGameOver"/>
   </properties>
-  <object id="38" name="gameover" gid="219" x="120" y="112" width="192" height="40"/>
+  <object id="38" name="gameover" gid="223" x="120" y="112" width="192" height="40"/>
   <object id="39" name="restart" type="UIButton" x="48" y="144" width="144" height="32">
    <properties>
     <property name="action" value="restartMap"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">RESTART</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">RESTART</text>
   </object>
   <object id="40" name="title" type="UIButton" x="48" y="192" width="144" height="32">
    <properties>
     <property name="action" value="changeMap"/>
-    <property name="nextmap" type="file" value="title.lua"/>
+    <property name="nextmap" type="file" value="mainmenu.lua"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">END GAME</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">END GAME</text>
   </object>
  </objectgroup>
  <objectgroup id="13" name="touchcontrols" visible="0">

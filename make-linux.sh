@@ -29,7 +29,7 @@ GAME_APPDIR=${PROJECT_TITLE_NOSPACE}.AppDir
 GAME_DESKTOPFILE=${PROJECT_TITLE_NOSPACE}.desktop
 GAME_APPIMAGE=${GAME_APPIMAGE:="${PROJECT_TITLE_NOSPACE}-${ARCH}.AppImage"}
 
-LIBGME_VERSION=0.5.5-2+deb7u1
+LIBGME_VERSION=0.5.5-2+deb8u1
 LIBGME_DEB=libgme0_${LIBGME_VERSION}_${DEB_ARCH}.deb
 LIBGME_DEV_DEB=libgme-dev_${LIBGME_VERSION}_${DEB_ARCH}.deb
 LIBGME_URL=http://security.debian.org/debian-security/pool/updates/main/g/game-music-emu

@@ -1,7 +1,7 @@
 local levity = require "levity"
 local ShmupScore
 
-local PlayerPower = class()
+local PlayerPower = class(require("Script"))
 function PlayerPower:_init(object)
 	self.object = object
 	ShmupScore = require "ShmupScore"
@@ -53,7 +53,7 @@ function PlayerPower:endMove(dt)
 	self.object.body:setPosition(x, y + 1/64)
 
 	local newgid
-	if levity.scripts:call(teammemberid, "isPoweredUp") then
+	if self:call(teammemberid, "isPoweredUp") then
 		newgid = levity.map:getTileGid("powergauge", "full")
 	else
 		newgid = levity.map:getTileGid("powergauge", "notfull")
@@ -89,17 +89,11 @@ function PlayerPower:endDraw()
 end
 
 function PlayerPower.create(teammemberid, layer, initmult)
-	local powergauge = {
-		id = levity.map:newObjectId(),
-		gid = levity.map:getTileGid("powergauge", "notfull"),
-		properties = {
-			teammemberid = teammemberid,
-			initmult = initmult,
-			script = "PlayerPower"
-		}
-	}
-
-	layer:addObject(powergauge)
+	local powergauge = levity.map:newObject(layer)
+	powergauge.gid = levity.map:getTileGid("powergauge", "notfull")
+	powergauge.properties.teammemberid = teammemberid
+	powergauge.properties.initmult = initmult
+	powergauge.properties.script = "PlayerPower"
 
 	return powergauge.id
 end

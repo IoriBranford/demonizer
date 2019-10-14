@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="Archer" tilewidth="32" tileheight="32" tilecount="24" columns="6">
+<tileset version="1.2" tiledversion="1.2.4" name="Archer" tilewidth="32" tileheight="32" tilecount="24" columns="6">
  <tileoffset x="-16" y="16"/>
  <properties>
   <property name="colstype" value="state"/>
-  <property name="column_attack" type="int" value="3"/>
-  <property name="column_fire" type="int" value="5"/>
   <property name="column_move" type="int" value="0"/>
   <property name="commonanimation" type="int" value="0"/>
   <property name="commoncollision" type="int" value="0"/>

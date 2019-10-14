@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="48" height="64" tilewidth="5" tileheight="5" infinite="0" nextlayerid="7" nextobjectid="11">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="10" tileheight="10" infinite="0" nextlayerid="8" nextobjectid="11">
  <properties>
-  <property name="music" type="file" value="mus/34 - Deposit Coins.vgz"/>
+  <property name="music" type="file" value="mus/end.vgm"/>
   <property name="script" value="MenuMap"/>
  </properties>
  <tileset firstgid="1" source="img/title.tsx"/>
  <tileset firstgid="2" source="img/title_demonization.tsx"/>
  <tileset firstgid="18" source="img/bg_swirl.tsx"/>
- <layer id="5" name="Tile Layer 1" width="48" height="64">
+ <layer id="7" name="Tile Layer 1" width="24" height="32">
+  <properties>
+   <property name="script" value="InfiniteScrollLayer"/>
+   <property name="scrolling" type="bool" value="true"/>
+   <property name="scrollvelx" type="float" value="60"/>
+   <property name="scrollvely" type="float" value="60"/>
+   <property name="tilewrap" type="bool" value="true"/>
+  </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1dc6wgEAhvH/NUTZsvcoW0REZmZGhJAVyrz/3sv4np7v4Hf2nr+hIAga0IgwImhCM1rQijaERLt2dKATUXShGz3oRR/6hbsBDGIIwxjBKMYwjglMCncxxDGFacxgFnOYxwIWhbsElrCMJFawihTWsI60cLeBTWSwhW3sYBd72EdWuDvAIY5wjBOcIocznONCuLtEHle4RgE3uMUdirgX7h7wiBKe8IwXvOINZbwLdx/4RAVVfOEbP/jFH/6FO9Wv+r/+r//r//q//q//q9upftX/9X/9X/+3GPi//q//q9qpftX/9X/9X//X//V//V/dTvWr/q//6//6v/6v/+v/6naqX/V//V//1//1f/3fev5vDeSYEa4=
+   eJzt0TcSgEAQA8F7A95zePP/BzLxEm5BJFV1onRC+GcJUmTIUTg/uxIVajRonZ9dhx4DRkTnZzdhxoIVm/Oz23HgxIXb+dmpr/qqr/qqr/qq73vqq76evl/tAbQTRlE=
   </data>
  </layer>
  <objectgroup draworder="index" id="3" name="menu">
@@ -21,12 +28,12 @@
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">THANKS FOR PLAYING</text>
   </object>
   <object id="6" name="eta" x="20" y="115" width="200" height="10">
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">To be completed 2019</text>
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">To be completed 2020</text>
   </object>
   <object id="8" name="mainmenu" type="UIButton" x="60" y="145" width="120" height="20">
    <properties>
     <property name="action" value="changeMap"/>
-    <property name="nextmap" type="file" value="title.lua"/>
+    <property name="nextmap" type="file" value="mainmenu.lua"/>
    </properties>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">MAIN MENU</text>
   </object>

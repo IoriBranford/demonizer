@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="16" tileheight="16" infinite="1" nextlayerid="5" nextobjectid="1">
+ <tileset firstgid="1" source="crops.tsx"/>
+ <layer id="1" name="regions" width="24" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJyTY4AAORJpagFS7R21fxSMAuoBAF/WA0k=
+  </chunk>
+  </data>
+ </layer>
+ <layer id="2" name="input_crops" width="24" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJztzbcBwkAAwMB3wBFwjrD/nBTcCN/Zaq5UEv6lzJjzwYJliFvFmg1bPvniO/K/Y8+BIyfOXCL/V27cefDkh9/I/7tr9wOHrAGX
+  </chunk>
+  </data>
+ </layer>
+ <layer id="3" name="output1_crops" width="24" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJztzbcBwkAAwMB3wBFwjrD/nBTcCN/Zaq5UEv6lzJjzwYJliFvFmg1bPvniO/K/Y8+BIyfOXCL/V27cefDkh9/I/7tr9wOHrAGX
+  </chunk>
+  </data>
+ </layer>
+ <layer id="4" name="output2_crops" width="24" height="32">
+  <data encoding="base64" compression="zlib">
+   <chunk x="0" y="0" width="16" height="16">
+   eJztzbcBwkAAwMB3wBFwjrD/nBTcCN/Zaq5UFf7VbNjyyRffIW4JU2bM+WDBMvJ/5cadB09++I3879hz4MiJM5fI/7tr9wO4rAGX
+  </chunk>
+  </data>
+ </layer>
+</map>

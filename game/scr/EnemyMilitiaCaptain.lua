@@ -17,7 +17,22 @@ function MilitiaCaptain:enemyDefeated(humanid)
 	NormalAttackBase.firetime = math.max(0.5, NormalAttackBase.firetime - 1/16)
 
 	local backuptriggerid = self.properties.backuptriggerid
-	levity.scripts:send(backuptriggerid, "activateObjects", 1)
+	local numobjects = self:call(backuptriggerid, "activateObjects", 1)
+	if numobjects <= 0 and self.object.layer.name ~= "ground" then
+		self.typechanger:setType("MilitiaCaptain_Descend")
+	end
+end
+
+function MilitiaCaptain:reachedDest(destx, desty)
+	if self.object.type == "MilitiaCaptain_Descend" then
+		local starteddescent = not self.object.visible
+		if starteddescent then
+			self.object.visible = true
+			self.typechanger:setType("MilitiaCaptainGroundAttack1")
+		else
+			self.object.visible = false
+		end
+	end
 end
 
 return MilitiaCaptain

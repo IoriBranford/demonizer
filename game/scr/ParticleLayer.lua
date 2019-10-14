@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local ParticleLayer = class()
+local ParticleLayer = class(require("Script"))
 function ParticleLayer:_init(layer)
 	local properties = layer.properties
 	self.properties = properties

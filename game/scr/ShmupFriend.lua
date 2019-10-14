@@ -6,7 +6,7 @@ local PathGraph = require "PathGraph"
 
 local MaxHealth = 32
 
-local ShmupFriend = class()
+local ShmupFriend = class(require("Script"))
 function ShmupFriend:_init(object)
 	self.object = object
 	self.properties = self.object.properties
@@ -77,7 +77,7 @@ end
 function ShmupFriend:kill()
 	levity:discardObject(self.object.id)
 	levity.bank:play(self.properties.deathsound)
-	levity.scripts:broadcast("friendKilled", self.object.id)
+	self:broadcast("friendKilled", self.object.id)
 end
 
 function ShmupFriend:damage(damage)
@@ -189,13 +189,13 @@ function ShmupFriend:beginMove(dt)
 			local pickNextPath = self.properties.pathpicker or "linearUp"
 			pickNextPath = PathGraph["pickNextPath_"..pickNextPath]
 
-			self.pathwalker = levity.scripts:call(pathid, "newWalker",
+			self.pathwalker = self:call(pathid, "newWalker",
 						pickNextPath, body:getX(), body:getY(),
 						self.properties.pathmode, self)
 
 			local pathtime = self.properties.pathtime
 			if not self.properties.pathspeed and pathtime then
-				local pathlength = levity.scripts:call(
+				local pathlength = self:call(
 						pathid, "findTripLength",
 						pickNextPath,
 						body:getX(), body:getY())
@@ -204,7 +204,7 @@ function ShmupFriend:beginMove(dt)
 			end
 		end
 
-		local fromccx, fromccy = levity.scripts:call(
+		local fromccx, fromccy = self:call(
 						levity.map.properties.cameraid,
 						"getVectorFromCenter",
 						body:getWorldCenter())
@@ -238,7 +238,7 @@ end
 function ShmupFriend:endMove(dt)
 	local cx, cy = self.object.body:getWorldCenter()
 	local playerid = levity.map.properties.playerid
-	local distsq = levity.scripts:call(playerid, "getDistanceSq", cx, cy)
+	local distsq = self:call(playerid, "getDistanceSq", cx, cy)
 
 	if distsq <= ShmupFriend.HealDistSq then
 		self:heal(dt*ShmupFriend.PlayerTouchHealRate)
@@ -267,7 +267,7 @@ function ShmupFriend:beginDraw()
 	if healthpercent < 1 then
 		local cx, cy = self.object.body:getWorldCenter()
 		local playerid = levity.map.properties.playerid
-		local distsq = levity.scripts:call(playerid, "getDistanceSq",
+		local distsq = self:call(playerid, "getDistanceSq",
 							cx, cy)
 
 		local wound = 0xff * healthpercent

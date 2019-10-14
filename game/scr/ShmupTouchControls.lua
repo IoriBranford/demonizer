@@ -2,7 +2,7 @@ local levity = require "levity"
 local Object = require "levity.object"
 local ShmupPlayer = require("ShmupPlayer")
 
-local ShmupTouchControls = class()
+local ShmupTouchControls = class(require("Script"))
 function ShmupTouchControls:_init(layer)
 	self.layer = layer
 	self.playerid = levity.map.properties.playerid
@@ -45,46 +45,46 @@ function ShmupTouchControls:touchpressed(touch, x, y, dx, dy)
 	self.numtouches = self.numtouches + 1
 
 	if self.numtouches == 1 then
-		levity.scripts:call(self.playerid, "buttonchanged",
+		self:call(self.playerid, "buttonchanged",
 					ShmupPlayer.Button_Fire, true)
-		levity.scripts:call(self.playerid, "buttonchanged",
+		self:call(self.playerid, "buttonchanged",
 					ShmupPlayer.Button_Focus, true)
 	end
 
 	if self.numtouches == 2 then
---		local focused = levity.scripts:call(self.playerid, "isFocused")
---		levity.scripts:call(self.playerid, "buttonchanged",
+--		local focused = self:call(self.playerid, "isFocused")
+--		self:call(self.playerid, "buttonchanged",
 --					ShmupPlayer.Button_Focus, not focused)
 --	end
 --
 --	if self.numtouches == 3 then
-		levity.scripts:call(self.playerid, "buttonchanged",
+		self:call(self.playerid, "buttonchanged",
 					ShmupPlayer.Button_Bomb, true)
 	end
 
 --	if not self.movetouch then
 --		self.movetouch = touch
---		levity.scripts:call(self.playerid, "buttonchanged",
+--		self:call(self.playerid, "buttonchanged",
 --					ShmupPlayer.Button_Fire, true)
 --		self.movemarker.visible = true
 --		self:updateMarker(self.movemarker, x, y)
 --	elseif not self.focustouch then
 --		self.focustouch = touch
---		levity.scripts:call(self.playerid, "buttonchanged",
+--		self:call(self.playerid, "buttonchanged",
 --					ShmupPlayer.Button_Focus, true)
 --		self.focusmarker.visible = true
 --		self:updateMarker(self.focusmarker, x, y)
 --	elseif not self.bombtouch then
 --		self.bombtouch = touch
---		levity.scripts:call(self.playerid, "buttonchanged",
+--		self:call(self.playerid, "buttonchanged",
 --					ShmupPlayer.Button_Bomb, true)
 --	end
 end
 
 function ShmupTouchControls:touchmoved(touch, x, y, dx, dy)
-	levity.scripts:call(self.playerid, "mousemoved", x, y, dx, dy)
+	self:call(self.playerid, "mousemoved", x, y, dx, dy)
 --	if touch == self.movetouch then
---		levity.scripts:call(self.playerid, "mousemoved", x, y, dx, dy)
+--		self:call(self.playerid, "mousemoved", x, y, dx, dy)
 --		self:updateMarker(self.movemarker, x, y, dx, dy)
 --	elseif touch == self.focustouch then
 --		self:updateMarker(self.focusmarker, x, y)
@@ -95,25 +95,25 @@ function ShmupTouchControls:touchreleased(touch, x, y, dx, dy)
 	self.numtouches = self.numtouches - 1
 
 	if self.numtouches == 0 then
-		levity.scripts:call(self.playerid, "buttonchanged",
+		self:call(self.playerid, "buttonchanged",
 					ShmupPlayer.Button_Fire, false)
-		levity.scripts:call(self.playerid, "buttonchanged",
+		self:call(self.playerid, "buttonchanged",
 					ShmupPlayer.Button_Focus, false)
 	end
 
 --	if touch == self.bombtouch then
---		levity.scripts:call(self.playerid, "buttonchanged",
+--		self:call(self.playerid, "buttonchanged",
 --					ShmupPlayer.Button_Bomb, false)
 --		self.bombtouch = nil
 --	elseif touch == self.focustouch then
---		levity.scripts:call(self.playerid, "buttonchanged",
+--		self:call(self.playerid, "buttonchanged",
 --					ShmupPlayer.Button_Focus, false)
 --		self.focustouch = nil
 --		self.focusmarker.visible = false
 --	elseif touch == self.movetouch then
---		levity.scripts:call(self.playerid, "buttonchanged",
+--		self:call(self.playerid, "buttonchanged",
 --					ShmupPlayer.Button_Fire, false)
---		levity.scripts:call(self.playerid, "mousemoved", x, y, dx, dy)
+--		self:call(self.playerid, "mousemoved", x, y, dx, dy)
 --		self.movetouch = nil
 --		self.movemarker.visible = false
 --	end

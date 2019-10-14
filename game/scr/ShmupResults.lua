@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local ShmupResults = class()
+local ShmupResults = class(require("Script"))
 
 ShmupResults.PerReserveBonus = 2500
 ShmupResults.PerBombBonus = 200
@@ -27,7 +27,7 @@ function ShmupResults:startWinBonus()
 end
 
 function ShmupResults:tallyBonus(bonustype, bonuspoints, amount, tallytime)
-	local scoreid = levity.scripts:call("status", "getScoreId")
+	local scoreid = self:call("status", "getScoreId")
 
 	assert(bonuspoints, "No bonus for "..bonustype)
 	local bonuspointstext = self.elements[bonustype.."points"]
@@ -50,25 +50,25 @@ function ShmupResults:tallyBonus(bonustype, bonuspoints, amount, tallytime)
 	end
 
 	if bonustotal > 0 then
-		levity.scripts:send(scoreid, "pointsScored", bonustotal)
+		self:send(scoreid, "pointsScored", bonustotal)
 	end
 	self.coroutine:waitTime(1)
 end
 
 function ShmupResults:tallyCoroutine()
-	local reserves = levity.scripts:call("status", "getNumReserves")
+	local reserves = self:call("status", "getNumReserves")
 	if reserves > 0 then
 		self:tallyBonus("reserve", ShmupResults.PerReserveBonus,
 				reserves, levity.movedt*6)
 	end
 
-	local timeleft = math.ceil(levity.scripts:call("status", "getTimeLeft") or 0)
+	local timeleft = math.ceil(self:call("status", "getTimeLeft") or 0)
 	if timeleft > 0 then
 		self:tallyBonus("time", ShmupResults.PerSecondBonus, timeleft,
 				levity.movedt)
 	end
 
-	local numshots = levity.scripts:call(levity.map.properties.playerid,
+	local numshots = self:call(levity.map.properties.playerid,
 		"getNumShots") or 1
 	numshots = numshots - 1
 	if numshots > 0 then
@@ -76,14 +76,14 @@ function ShmupResults:tallyCoroutine()
 	end
 
 	--self:tallyBonus("bomb", ShmupResults.PerBombBonus,
-	--		levity.scripts:call("status", "getNumBombPieces"),
+	--		self:call("status", "getNumBombPieces"),
 	--		levity.movedt)
 
-	local lives = levity.scripts:call("status", "getNumLives") or 0
+	local lives = self:call("status", "getNumLives") or 0
 	local livesbonus = levity.map.properties.winlivesbonus or 0
 	if livesbonus > 0 and lives > 0 then
-		levity.scripts:broadcast("cancelExtends")
-		local livesright = levity.scripts:call("status", "getLivesRightEdge")
+		self:broadcast("cancelExtends")
+		local livesright = self:call("status", "getLivesRightEdge")
 		self.elements["livespoints"].body:setX(livesright)
 		self.elements["livestotal"].body:setX(livesright)
 		self:tallyBonus("lives", livesbonus, lives, levity.movedt*6)

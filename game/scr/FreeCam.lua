@@ -1,7 +1,7 @@
 local levity = require "levity"
 local ShmupCollision = require "ShmupCollision"
 
-local FreeCam = class()
+local FreeCam = class(require("Script"))
 function FreeCam:_init(object)
 	self.object = object
 	self.object.visible = false

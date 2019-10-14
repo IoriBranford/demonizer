@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local MazeLayer = class()
+local MazeLayer = class(require("Script"))
 function MazeLayer:_init(layer)
 	layer.draworder = "manual"
 	local objects = layer.objects
@@ -18,7 +18,7 @@ function MazeLayer:mazeCompleted(bonus, sound)
 	if not self.completedtimer then
 		self.currentpointid = nil
 		self.completedtimer = 1
-		levity.scripts:broadcast("givePlayerBonus", bonus, sound)
+		self:broadcast("givePlayerBonus", bonus, sound)
 	end
 end
 
@@ -34,7 +34,7 @@ function MazeLayer:checkPoint(point)
 
 	local mazegoalbonus = point.properties.mazegoalbonus
 	if mazegoalbonus then
-		levity.scripts:broadcast("mazeCompleted", mazegoalbonus, point.properties.bonussound)
+		self:broadcast("mazeCompleted", mazegoalbonus, point.properties.bonussound)
 	else
 		self.currentpointid = point.properties.nextmazepointid
 	end

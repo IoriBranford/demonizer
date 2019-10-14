@@ -8,7 +8,7 @@ local ShmupCollision = require "ShmupCollision"
 
 local InitialRank = .25
 
-local ShmupMap = class()
+local ShmupMap = class(require("Script"))
 
 local function setFilterFromProperties(body)
 	for _, fixture in ipairs(body:getFixtureList()) do
@@ -43,6 +43,9 @@ local function setFilterFromProperties(body)
 end
 
 local function loadBulletSounds(properties)
+	if not properties then
+		return
+	end
 	for name, value in pairs(properties) do
 		if type(value) == "string" then
 			if name:find("bullet") or name:find("spark") then
@@ -68,7 +71,7 @@ local function loadSoundsInObjectTypeChain(inittype)
 		levity.map:loadObjectTypeSounds(typ, levity.bank)
 		local objecttype = objecttypes[typ]
 		loadBulletSounds(objecttype, levity.bank)
-		typ = objecttype.nexttype or inittype
+		typ = objecttype and objecttype.nexttype or inittype
 	until typ == inittype or visitedtypes[typ]
 	pl_tablex.clear(visitedtypes)
 end
@@ -85,13 +88,11 @@ function ShmupMap:_init(map)
 				Layer(self.map, "sparks")
 	npcshotslayer.draworder = "manual"
 	sparklayer.draworder = "manual"
-
+--[[
 	for _, layer in ipairs(self.map.layers) do
 		if layer.type == "dynamiclayer" or layer.type == "objectgroup" then
 			for _, object in ipairs(layer.objects) do
-				if object.text then
-					object.text = levity.prefs.string_gsub(object.text)
-				elseif not object.gid then
+				if not Object.isDrawable(object) then
 					object.visible = false
 				end
 				--if object.body then
@@ -100,8 +101,10 @@ function ShmupMap:_init(map)
 			end
 		end
 	end
-
+]]
 	--setFilterFromProperties(self.map.box2d_collision)
+
+	self:replaceJoystickWithKeyboard()
 
 	self.rank = InitialRank
 
@@ -124,7 +127,7 @@ function ShmupMap:_init(map)
 					Object.init(object, layer, map)
 				end
 				for _, object in ipairs(layer.objects) do
-					levity.scripts:send(object.id, "initQuery")
+					self:send(object.id, "initQuery")
 				end
 			end
 		end
@@ -142,6 +145,15 @@ function ShmupMap:_init(map)
 					objecttype = map.objecttypes[object.tile.type]
 					if objecttype then
 						loadBulletSounds(objecttype)
+					end
+
+					loadBulletSounds(object.tile.properties)
+
+					local objectgroup = object.tile.objectGroup
+					if objectgroup then
+						for _, object in pairs(objectgroup.objects) do
+							loadBulletSounds(object.properties)
+						end
 					end
 				end
 			end
@@ -172,15 +184,56 @@ function ShmupMap:_init(map)
 	local checkpointid = nextmapdata.checkpointid
 	if checkpointid then
 		local playerid = self.properties.playerid
-		levity.scripts:send(playerid, "moveToAndActivate", checkpointid)
+		self:send(playerid, "moveToAndActivate", checkpointid)
 		self.properties.checkpointid = checkpointid
 	end
 end
 
+function ShmupMap:replaceJoystickWithKeyboard()
+	if love.joystick.getJoystickCount() > 0 then
+		return
+	end
+	for _, layer in ipairs(self.map.layers) do
+		if layer.objects then
+			for _, object in ipairs(layer.objects) do
+				local text = object.text
+				if text then
+					text = text:gsub("${joy_x}", "${key_up} ${key_down} ${key_left} ${key_right}")
+					text = text:gsub("${joy_", "${key_")
+					text = text:gsub("controller", "keyboard")
+					object.text = text
+				end
+			end
+		end
+	end
+end
+
+function ShmupMap:replaceKeyboardWithJoystick()
+	if love.joystick.getJoystickCount() == 0 then
+		return
+	end
+	for _, layer in ipairs(self.map.layers) do
+		if layer.objects then
+			for _, object in ipairs(layer.objects) do
+				local text = object.text
+				if text then
+					text = text:gsub("${key_up} ${key_down} ${key_left} ${key_right}", "${joy_x}")
+					text = text:gsub("${key_", "${joy_")
+					text = text:gsub("keyboard", "controller")
+					object.text = text
+				end
+			end
+		end
+	end
+end
+
+ShmupMap.joystickadded = ShmupMap.replaceKeyboardWithJoystick
+ShmupMap.joystickremoved = ShmupMap.replaceJoystickWithKeyboard
+
 function ShmupMap:endMove(dt)
 	local playerid = self.properties.playerid
-	--self.rank = levity.scripts:call(playerid, "rankFactor")
-	local playerstuntime = levity.scripts:call(playerid, "getStunTime") or 0
+	--self.rank = self:call(playerid, "rankFactor")
+	local playerstuntime = self:call(playerid, "getStunTime") or 0
 	local blur = playerstuntime * playerstuntime
 	blur = 16*blur*blur
 	self.properties.blurdirx = blur/levity.camera.w
@@ -191,11 +244,18 @@ function ShmupMap.isTutorial()
 	return levity.map.name:find("tutorial")
 end
 
+local DumbUILayers = {
+	"tutorialtext",
+	"talk",
+}
+
 function ShmupMap:beginDraw()
-	local tutoriallayer = self.map.layers["tutorialtext"]
-	if self:isTutorial() and tutoriallayer then
-		tutoriallayer.offsetx = levity.camera.x
-		tutoriallayer.offsety = levity.camera.y
+	for _, layername in pairs(DumbUILayers) do
+		local layer = self.map.layers[layername]
+		if layer then
+			layer.offsetx = levity.camera.x
+			layer.offsety = levity.camera.y
+		end
 	end
 end
 
@@ -234,8 +294,8 @@ function ShmupMap:hasPlayerWon()
 end
 
 function ShmupMap:hasPlayerLost()
-	local playerkilled = levity.scripts:call(self.properties.playerid, "isKilled")
-	local lives = levity.scripts:call("status", "getNumLives")
+	local playerkilled = self:call(self.properties.playerid, "isKilled")
+	local lives = self:call("status", "getNumLives")
 	return playerkilled and lives == 0
 end
 

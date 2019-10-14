@@ -1,84 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="48" height="64" tilewidth="5" tileheight="5" infinite="0" nextobjectid="44">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="10" tileheight="10" infinite="0" nextlayerid="7" nextobjectid="44">
  <properties>
   <property name="blurupdatespeed" type="float" value="1"/>
-  <property name="music" type="file" value="mus/08 - Curry and Rice.vgz"/>
-  <property name="nextmap" type="file" value="demonrealm.lua"/>
+  <property name="music" type="file" value="mus/tutorial.vgm"/>
+  <property name="prevmap" type="file" value="mainmenu.lua"/>
   <property name="script" value="DrunkTitleMap"/>
  </properties>
  <tileset firstgid="1" source="img/bg_swirl.tsx"/>
- <tileset firstgid="101" source="img/title_demonization.tsx"/>
- <tileset firstgid="117" source="img/title.tsx"/>
- <tileset firstgid="118" source="img/winetitle.tsx"/>
- <tileset firstgid="119" source="img/emotes.tsx"/>
- <tileset firstgid="143" source="img/winebomb.tsx"/>
- <layer name="Tile Layer 1" width="48" height="64">
+ <tileset firstgid="26" source="img/title_demonization.tsx"/>
+ <tileset firstgid="42" source="img/title.tsx"/>
+ <tileset firstgid="43" source="img/winetitle.tsx"/>
+ <tileset firstgid="44" source="img/emotes.tsx"/>
+ <tileset firstgid="68" source="img/winebomb.tsx"/>
+ <layer id="6" name="Tile Layer 1" width="24" height="32">
+  <properties>
+   <property name="script" value="InfiniteScrollLayer"/>
+   <property name="scrolling" type="bool" value="true"/>
+   <property name="scrollvelx" type="float" value="60"/>
+   <property name="scrollvely" type="float" value="60"/>
+   <property name="tilewrap" type="bool" value="true"/>
+  </properties>
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA+3VVVZCAQBF0fdERQzEwsICu0WxFRMTEwtbnP8YPKNw3cW6H/vv/J8wCIIaRFCLOtQjigbE0IhQtGtCM1oQRysSaEM7OtAp3HUhiW70oBd96EcKAxgU7oYwjBGkkcEoxjCOCUwKd1OYxgxmMYd5LGARS8gKd8tYQQ6rWMM6NrCJLWwLdzvYRR572McBDnGEYxSEuxOc4gznuMAlirjCNW6Eu1vc4R4lPOART3jGC8rC3Sve8I4PfOIL3/hBBb/CnepX/V//1//1f/1f/9f/1e1Uv+r/+r/+r//r//q//q9up/pV/9f/9X/9X//X//V/dTvVr/q//u9/dKpf9X/9X//X//V//V//V7dT/ar/6//6v9X/3z8EBwieADAAAA==
+   H4sIAAAAAAAACu3RNxKAQBADwcN7Dm/+/1EmXsItiKSqTpROCP8sQYoMOQrnZ1eiQo0GrfOz69BjwIjo/OwmzFiwYnN+djsOnLhwOz879VVf9VVf9VVf9X1PfdXX0/erPd/SQyoADAAA
   </data>
  </layer>
- <objectgroup draworder="index" name="title">
+ <objectgroup draworder="index" id="2" name="title">
   <properties>
    <property name="script" value="DrunkTitleLayer"/>
   </properties>
-  <object id="25" gid="118" x="40" y="50" width="160" height="24"/>
-  <object id="35" gid="119" x="75" y="60" width="16" height="16"/>
-  <object id="36" gid="119" x="57.5" y="65" width="16" height="16"/>
-  <object id="37" gid="119" x="92.5" y="62.5" width="16" height="16"/>
-  <object id="38" gid="119" x="127.5" y="60" width="16" height="16"/>
-  <object id="39" gid="119" x="110" y="60" width="16" height="16"/>
-  <object id="40" gid="119" x="145" y="62.5" width="16" height="16"/>
-  <object id="41" gid="119" x="162.5" y="60" width="16" height="16"/>
-  <object id="42" gid="119" x="180" y="62.5" width="16" height="16"/>
+  <object id="25" gid="43" x="40" y="45" width="160" height="24"/>
+  <object id="35" gid="44" x="75" y="55" width="16" height="16"/>
+  <object id="36" gid="44" x="57.5" y="60" width="16" height="16"/>
+  <object id="37" gid="44" x="92.5" y="57.5" width="16" height="16"/>
+  <object id="38" gid="44" x="127.5" y="55" width="16" height="16"/>
+  <object id="39" gid="44" x="110" y="55" width="16" height="16"/>
+  <object id="40" gid="44" x="145" y="57.5" width="16" height="16"/>
+  <object id="41" gid="44" x="162.5" y="55" width="16" height="16"/>
+  <object id="42" gid="44" x="180" y="57.5" width="16" height="16"/>
  </objectgroup>
- <objectgroup draworder="index" name="Object Layer 1">
+ <objectgroup draworder="index" id="3" name="Object Layer 1">
   <object id="3" name="hiscore" x="0" y="5" width="240" height="10" visible="0">
    <properties>
     <property name="text" value="HI SCORE 0"/>
    </properties>
   </object>
   <object id="11" name="camera" type="Camera" x="0" y="0" width="240" height="320" visible="0"/>
-  <object id="17" name="instructions" x="20" y="80" width="200" height="136">
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">ARROW keys: MOVE
+  <object id="17" name="instructions" x="20" y="60" width="200" height="190">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">${joy_x}: MOVE
 
-Z key:   FIRE wine shots
-
-X key:   FOCUS
+${joy_fire}:   FIRE wine shots
+${joy_focus}:   FOCUS
          to resist drunk
-
-C key:   VOMIT BOMB
+${joy_bomb}:   VOMIT BOMB
          with 1 or more
 
-
-ESC key: PAUSE game
-
+${joy_pausemenu}: PAUSE game
 F2 key:  RESET level
-
 Alt-F4:  QUIT</text>
   </object>
-  <object id="18" name="quit" x="0" y="250" width="240" height="10">
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">or ESC back to main title</text>
+  <object id="18" name="quit" x="20" y="280" width="200" height="30">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center">or ESC back to main title</text>
   </object>
-  <object id="19" name="copyright" x="0" y="290" width="240" height="30">
+  <object id="19" name="copyright" x="0" y="290" width="240" height="30" visible="0">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">© 2018 IoriBranford
 
 Twitter: @ioribranford</text>
   </object>
-  <object id="43" gid="143" x="215" y="150" width="18" height="12" rotation="270"/>
+  <object id="43" gid="68" x="215" y="165" width="18" height="12" rotation="-90"/>
  </objectgroup>
- <objectgroup name="stagemenu">
+ <objectgroup id="4" name="stagemenu">
   <properties>
    <property name="script" value="MenuDrunk"/>
   </properties>
-  <object id="31" name="caravan" type="UIButton" x="40" y="220" width="160" height="24">
+  <object id="31" name="caravan" type="UIButton" x="20" y="250" width="200" height="30">
    <properties>
     <property name="action" value="startGame"/>
     <property name="nextmap" type="file" value="winetasting.lua"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">PRESS Z TO START</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">PRESS ${joy_fire} TO START</text>
   </object>
  </objectgroup>
- <objectgroup name="curtain">
+ <objectgroup id="5" name="curtain">
   <properties>
    <property name="script" value="Curtain"/>
   </properties>

@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local UIGauge = class()
+local UIGauge = class(require("Script"))
 function UIGauge:_init(object)
 	self.object = object
 	self.fillrect = self.object

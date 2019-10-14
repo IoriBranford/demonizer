@@ -1,6 +1,6 @@
 local levity = require "levity"
 
-local TitleLayer = class()
+local TitleLayer = class(require("Script"))
 
 function TitleLayer:_init(layer)
 	self.title = layer

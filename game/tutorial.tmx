@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="21" nextobjectid="133">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="22" nextobjectid="135">
  <properties>
   <property name="cameraid" type="int" value="2"/>
-  <property name="music" type="file" value="mus/04 - Pick Me Up Boy!.vgz"/>
+  <property name="music" type="file" value="mus/tutorial.vgm"/>
   <property name="nextmap" type="file" value="demonrealm.lua"/>
   <property name="overlaymap" type="file" value="gameplay.lua"/>
   <property name="playerid" type="int" value="1"/>
-  <property name="startbombs" type="int" value="0"/>
+  <property name="startbombs" type="float" value="0.6"/>
  </properties>
  <tileset firstgid="1" source="img/player.tsx"/>
  <tileset firstgid="29" source="img/basic_terrain.tsx"/>
  <tileset firstgid="413" source="img/trees.tsx"/>
  <tileset firstgid="416" source="img/trees_tall.tsx"/>
  <tileset firstgid="419" source="img/forest.tsx"/>
- <tileset firstgid="451" source="img/bushes.tsx"/>
- <tileset firstgid="466" source="img/human/enemy/Pikeman.tsx"/>
- <tileset firstgid="490" source="img/human/enemy/PikemanF.tsx"/>
- <tileset firstgid="514" source="img/catapult.tsx"/>
+ <tileset firstgid="483" source="img/bushes.tsx"/>
+ <tileset firstgid="498" source="img/human/enemy/Pikeman.tsx"/>
+ <tileset firstgid="522" source="img/human/enemy/PikemanF.tsx"/>
+ <tileset firstgid="546" source="img/catapult.tsx"/>
  <layer id="1" name="dirt" width="15" height="20">
   <data encoding="base64" compression="zlib">
    eJyVk1EOAyEIBbn/nbzF8k84SW3iJFO62aYkRFcZlIebEVHb1/Y849uv7a31Pmt1xtBeyeH7fLfmZpmX4nIwqZzEwebhGZmn1pZYzqVG1zad+FYejDu38qCPNUjFmrU28wzrMNlUPPeEnXmIwVZ8amHt7u5tNsXMfvg899nnuseu2T2ibuvsPpLX74Px0h52jXXuPN+Y85udb8C831rfsOyht7U2Q36shrufrsG6xeCtrf9D69HxbfNfL93VOZ7MNZqvH9y/9gJnbsmE
@@ -39,18 +39,18 @@
  </layer>
  <layer id="5" name="bushes" width="15" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYCAfnGWkQDOZ4NQA2AkDF8i0m1x9QxWA4ujICPIzKB8MRF6gFJAaR+jqYen6OAnmYMu/yOaiy6PnHQBocAy3
+   eJxjYCAfvGWkQDOZ4NUA2AkDH8i0m1x9QxWA4ujJCPIzKB8MRF6gFJAaR+jqYen6OQnmYMu/yOaiy6PnHQCYnQ63
   </data>
  </layer>
  <objectgroup id="6" name="camera" locked="1">
   <object id="2" name="camera" type="Camera" x="0" y="0" width="240" height="320"/>
  </objectgroup>
  <objectgroup id="8" name="goodluck">
-  <object id="16" name="text" x="32" y="16" width="176" height="8">
+  <object id="16" name="text" x="32" y="16" width="176" height="32">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">OK ! GOOD LUCK !!</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">OK! GOOD LUCK!!!</text>
   </object>
   <object id="17" name="goodluck" type="Trigger" x="392" y="0" width="8" height="8">
    <properties>
@@ -71,16 +71,16 @@
     <property name="playerrestrictfire" value="none"/>
    </properties>
   </object>
-  <object id="15" name="text" x="32" y="16" width="176" height="48">
+  <object id="15" name="text" x="32" y="16" width="176" height="96">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Bomb = ${joy_bomb}
-Deals area damage and captures humans
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">${joy_bomb} = BOMB
 
-RECHARGE by capturing and holding blue souls</text>
+Blows away enemies AND bullets!
+Keep capturing blue souls to refill!</text>
   </object>
-  <object id="92" name="catapult" type="Catapult" gid="516" x="120" y="-24" width="72" height="72">
+  <object id="92" name="catapult" type="Catapult" gid="548" x="120" y="-24" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="firebullet" value=""/>
@@ -88,7 +88,7 @@ RECHARGE by capturing and holding blue souls</text>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="95" name="catapult" type="Catapult" gid="516" x="72" y="-24" width="72" height="72">
+  <object id="95" name="catapult" type="Catapult" gid="548" x="72" y="-24" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="firebullet" value=""/>
@@ -96,7 +96,7 @@ RECHARGE by capturing and holding blue souls</text>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="97" name="catapult" type="Catapult" gid="516" x="168" y="-24" width="72" height="72">
+  <object id="97" name="catapult" type="Catapult" gid="548" x="168" y="-24" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="firebullet" value=""/>
@@ -104,7 +104,7 @@ RECHARGE by capturing and holding blue souls</text>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="99" name="catapult" type="Catapult" gid="516" x="144" y="-80" width="72" height="72">
+  <object id="99" name="catapult" type="Catapult" gid="548" x="144" y="-80" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="firebullet" value=""/>
@@ -112,7 +112,7 @@ RECHARGE by capturing and holding blue souls</text>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="100" name="catapult" type="Catapult" gid="516" x="192" y="-80" width="72" height="72">
+  <object id="100" name="catapult" type="Catapult" gid="548" x="192" y="-80" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="firebullet" value=""/>
@@ -120,7 +120,7 @@ RECHARGE by capturing and holding blue souls</text>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="101" name="catapult" type="Catapult" gid="516" x="48" y="-80" width="72" height="72">
+  <object id="101" name="catapult" type="Catapult" gid="548" x="48" y="-80" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="firebullet" value=""/>
@@ -128,7 +128,7 @@ RECHARGE by capturing and holding blue souls</text>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="102" name="catapult" type="Catapult" gid="516" x="96" y="-80" width="72" height="72">
+  <object id="102" name="catapult" type="Catapult" gid="548" x="96" y="-80" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="firebullet" value=""/>
@@ -136,7 +136,7 @@ RECHARGE by capturing and holding blue souls</text>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="103" name="catapult" type="Catapult" gid="516" x="120" y="-136" width="72" height="72">
+  <object id="103" name="catapult" type="Catapult" gid="548" x="120" y="-136" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="firebullet" value=""/>
@@ -144,7 +144,7 @@ RECHARGE by capturing and holding blue souls</text>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="104" name="catapult" type="Catapult" gid="516" x="72" y="-136" width="72" height="72">
+  <object id="104" name="catapult" type="Catapult" gid="548" x="72" y="-136" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="firebullet" value=""/>
@@ -152,7 +152,7 @@ RECHARGE by capturing and holding blue souls</text>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="105" name="catapult" type="Catapult" gid="516" x="168" y="-136" width="72" height="72">
+  <object id="105" name="catapult" type="Catapult" gid="548" x="168" y="-136" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="firebullet" value=""/>
@@ -163,253 +163,217 @@ RECHARGE by capturing and holding blue souls</text>
   <object id="127" name="path" x="120" y="-16">
    <polyline points="0,0 0,160"/>
   </object>
-  <object id="129" name="bomblabel" x="0" y="272" width="104" height="8">
-   <properties>
-    <property name="initiallayer" value="tutorialtext"/>
-   </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">BOMBS (MAX 3)</text>
-  </object>
  </objectgroup>
  <objectgroup id="10" name="powergrab">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="36" name="pikeman" type="Pikeman" gid="472" x="-8" y="88" width="32" height="32">
+  <object id="36" name="pikeman" type="Pikeman" gid="504" x="-8" y="88" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="37" name="pikeman" type="Pikeman" gid="472" x="248" y="72" width="32" height="32">
+  <object id="37" name="pikeman" type="Pikeman" gid="504" x="248" y="72" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="38" name="pikeman" type="Pikeman" gid="472" x="248" y="88" width="32" height="32">
+  <object id="38" name="pikeman" type="Pikeman" gid="504" x="248" y="88" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="39" name="pikeman" type="Pikeman" gid="472" x="-32" y="88" width="32" height="32">
+  <object id="39" name="pikeman" type="Pikeman" gid="504" x="-32" y="88" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="46" name="pikeman" type="Pikeman" gid="472" x="-56" y="72" width="32" height="32">
+  <object id="46" name="pikeman" type="Pikeman" gid="504" x="-56" y="72" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="47" name="pikeman" type="Pikeman" gid="472" x="-56" y="88" width="32" height="32">
+  <object id="47" name="pikeman" type="Pikeman" gid="504" x="-56" y="88" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="50" name="pikeman" type="Pikeman" gid="472" x="-8" y="72" width="32" height="32">
+  <object id="50" name="pikeman" type="Pikeman" gid="504" x="-8" y="72" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="42" name="pikeman" type="Pikeman" gid="472" x="296" y="88" width="32" height="32">
+  <object id="42" name="pikeman" type="Pikeman" gid="504" x="296" y="88" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="45" name="pikeman" type="Pikeman" gid="472" x="-80" y="104" width="32" height="32">
+  <object id="45" name="pikeman" type="Pikeman" gid="504" x="-80" y="104" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="43" name="pikeman" type="Pikeman" gid="472" x="248" y="104" width="32" height="32">
+  <object id="43" name="pikeman" type="Pikeman" gid="504" x="248" y="104" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="41" name="pikeman" type="Pikeman" gid="472" x="-8" y="104" width="32" height="32">
+  <object id="41" name="pikeman" type="Pikeman" gid="504" x="-8" y="104" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="72" name="pikeman" type="Pikeman" gid="472" x="-56" y="104" width="32" height="32">
+  <object id="72" name="pikeman" type="Pikeman" gid="504" x="-56" y="104" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="73" name="pikeman" type="Pikeman" gid="472" x="272" y="88" width="32" height="32">
+  <object id="73" name="pikeman" type="Pikeman" gid="504" x="272" y="88" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="74" name="pikeman" type="Pikeman" gid="472" x="320" y="120" width="32" height="32">
+  <object id="74" name="pikeman" type="Pikeman" gid="504" x="320" y="120" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="76" name="pikeman" type="Pikeman" gid="472" x="-80" y="120" width="32" height="32">
+  <object id="76" name="pikeman" type="Pikeman" gid="504" x="-80" y="120" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="77" name="pikeman" type="Pikeman" gid="472" x="272" y="72" width="32" height="32">
+  <object id="77" name="pikeman" type="Pikeman" gid="504" x="272" y="72" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="79" name="pikeman" type="Pikeman" gid="472" x="296" y="120" width="32" height="32">
+  <object id="79" name="pikeman" type="Pikeman" gid="504" x="296" y="120" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="80" name="pikeman" type="Pikeman" gid="472" x="320" y="104" width="32" height="32">
+  <object id="80" name="pikeman" type="Pikeman" gid="504" x="320" y="104" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="81" name="pikeman" type="Pikeman" gid="472" x="-56" y="120" width="32" height="32">
+  <object id="81" name="pikeman" type="Pikeman" gid="504" x="-56" y="120" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="82" name="pikeman" type="Pikeman" gid="472" x="248" y="56" width="32" height="32">
+  <object id="82" name="pikeman" type="Pikeman" gid="504" x="248" y="56" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="83" name="pikeman" type="Pikeman" gid="472" x="-32" y="72" width="32" height="32">
+  <object id="83" name="pikeman" type="Pikeman" gid="504" x="-32" y="72" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="85" name="pikeman" type="Pikeman" gid="472" x="-32" y="104" width="32" height="32">
+  <object id="85" name="pikeman" type="Pikeman" gid="504" x="-32" y="104" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="88" name="pikeman" type="Pikeman" gid="472" x="296" y="104" width="32" height="32">
+  <object id="88" name="pikeman" type="Pikeman" gid="504" x="296" y="104" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="89" name="pikeman" type="Pikeman" gid="472" x="272" y="104" width="32" height="32">
+  <object id="89" name="pikeman" type="Pikeman" gid="504" x="272" y="104" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="90" name="pikeman" type="Pikeman" gid="472" x="-8" y="56" width="32" height="32">
+  <object id="90" name="pikeman" type="Pikeman" gid="504" x="-8" y="56" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="119" name="pikeman" type="Pikeman" gid="472" x="296" y="72" width="32" height="32">
+  <object id="119" name="pikeman" type="Pikeman" gid="504" x="296" y="72" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="120" name="pikeman" type="Pikeman" gid="472" x="248" y="120" width="32" height="32">
+  <object id="120" name="pikeman" type="Pikeman" gid="504" x="248" y="120" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="121" name="pikeman" type="Pikeman" gid="472" x="-8" y="120" width="32" height="32">
+  <object id="121" name="pikeman" type="Pikeman" gid="504" x="-8" y="120" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="122" name="pikeman" type="Pikeman" gid="472" x="272" y="120" width="32" height="32">
+  <object id="122" name="pikeman" type="Pikeman" gid="504" x="272" y="120" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="123" name="pikeman" type="Pikeman" gid="472" x="-32" y="120" width="32" height="32">
+  <object id="123" name="pikeman" type="Pikeman" gid="504" x="-32" y="120" width="32" height="32">
    <properties>
     <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
@@ -421,11 +385,11 @@ RECHARGE by capturing and holding blue souls</text>
     <property name="playerrestrictmove" value="x"/>
    </properties>
   </object>
-  <object id="125" name="text" x="32" y="16" width="176" height="56">
+  <object id="125" name="text" x="32" y="16" width="176" height="96">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">POWER GRAB during alt fire ! (${joy_focus})
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">POWER GRAB during alt fire ! (${joy_focus})
 
 (WARNING: Teammates doing Power Grab are vulnerable)</text>
   </object>
@@ -443,13 +407,27 @@ RECHARGE by capturing and holding blue souls</text>
     <property name="clearobjectlayer" value="tutorialtext"/>
    </properties>
   </object>
-  <object id="117" name="text" x="32" y="16" width="176" height="56">
+  <object id="117" name="text" x="32" y="16" width="176" height="96">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Your POWER CIRCLES appear during alt fire (${joy_focus})
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">Your POWER CIRCLES appear during alt fire (${joy_focus})
 
 Any team member with full power circle will unlock...</text>
+  </object>
+ </objectgroup>
+ <objectgroup id="21" name="fillbomb">
+  <object id="133" name="fillbomb" type="Trigger" x="320" y="16" width="8" height="8">
+   <properties>
+    <property name="clearitemstriggerid" type="int" value="10"/>
+    <property name="clearobjectlayer" value="tutorialtext"/>
+   </properties>
+  </object>
+  <object id="134" name="text" x="32" y="16" width="176" height="96">
+   <properties>
+    <property name="initiallayer" value="tutorialtext"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">Capture enough blue souls to fill a meter and make a BOMB!</text>
   </object>
  </objectgroup>
  <objectgroup id="13" name="focus">
@@ -459,119 +437,97 @@ Any team member with full power circle will unlock...</text>
   <object id="7" name="focus" type="Trigger" x="304" y="0" width="8" height="8">
    <properties>
     <property name="clearobjectlayer" value="tutorialtext"/>
-    <property name="cleartriggerid" type="int" value="118"/>
-    <property name="playerrestrictmove" value="y"/>
+    <property name="cleartriggerid" type="int" value="133"/>
     <property name="wingmenrestrictcapture" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="13" name="text" x="32" y="16" width="176" height="56">
+  <object id="13" name="text" x="32" y="16" width="176" height="152">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Alt Fire = ${joy_focus}
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">${joy_focus} = ALT FIRE
 
-Friends LOCK-ON enemy
-
-MOVE SLOW for precise dodging</text>
+Your team will LOCK-ON to enemies.
+Slows your movement to help you dodge through tight bullet gaps.</text>
   </object>
-  <object id="40" name="pikeman" type="Pikeman" gid="472" x="-24" y="64" width="32" height="32">
+  <object id="40" name="pikeman" type="Pikeman" gid="504" x="0" y="96" width="32" height="32">
    <properties>
-    <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="49" name="pikeman" type="Pikeman" gid="472" x="-24" y="200" width="32" height="32">
+  <object id="49" name="pikeman" type="Pikeman" gid="504" x="-24" y="232" width="32" height="32">
    <properties>
-    <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="78" name="pikeman" type="Pikeman" gid="472" x="264" y="200" width="32" height="32">
+  <object id="78" name="pikeman" type="Pikeman" gid="504" x="264" y="232" width="32" height="32">
    <properties>
-    <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="84" name="pikeman" type="Pikeman" gid="472" x="-24" y="136" width="32" height="32">
+  <object id="84" name="pikeman" type="Pikeman" gid="504" x="-16" y="168" width="32" height="32">
    <properties>
-    <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="86" name="pikeman" type="Pikeman" gid="472" x="264" y="136" width="32" height="32">
+  <object id="86" name="pikeman" type="Pikeman" gid="504" x="256" y="168" width="32" height="32">
    <properties>
-    <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="91" name="pikeman" type="Pikeman" gid="472" x="264" y="64" width="32" height="32">
+  <object id="91" name="pikeman" type="Pikeman" gid="504" x="240" y="96" width="32" height="32">
    <properties>
-    <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="48" name="pikeman" type="Pikeman" gid="472" x="-24" y="168" width="32" height="32">
+  <object id="48" name="pikeman" type="Pikeman" gid="504" x="-24" y="200" width="32" height="32">
    <properties>
-    <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="44" name="pikeman" type="Pikeman" gid="472" x="264" y="104" width="32" height="32">
+  <object id="44" name="pikeman" type="Pikeman" gid="504" x="248" y="136" width="32" height="32">
    <properties>
-    <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="71" name="pikeman" type="Pikeman" gid="472" x="-24" y="104" width="32" height="32">
+  <object id="71" name="pikeman" type="Pikeman" gid="504" x="-8" y="136" width="32" height="32">
    <properties>
-    <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="75" name="pikeman" type="Pikeman" gid="472" x="264" y="168" width="32" height="32">
+  <object id="75" name="pikeman" type="Pikeman" gid="504" x="264" y="200" width="32" height="32">
    <properties>
-    <property name="faceangle" type="float" value="90"/>
-    <property name="firebullet" value=""/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="106" x="-24" y="64">
+  <object id="106" x="0" y="96">
    <polyline points="0,0 72,80"/>
   </object>
-  <object id="107" x="-24" y="144">
+  <object id="107" x="-16" y="176">
    <polyline points="0,-8 72,32"/>
   </object>
-  <object id="108" x="-24" y="184">
+  <object id="108" x="-24" y="216">
    <polyline points="0,16 72,24"/>
   </object>
-  <object id="109" x="264" y="64">
+  <object id="109" x="240" y="96">
    <polyline points="0,0 -72,80"/>
   </object>
-  <object id="110" x="264" y="144">
+  <object id="110" x="256" y="176">
    <polyline points="0,-8 -72,32"/>
   </object>
-  <object id="111" x="264" y="200">
+  <object id="111" x="264" y="232">
    <polyline points="0,0 -72,8"/>
   </object>
-  <object id="113" x="-24" y="104">
+  <object id="113" x="-8" y="136">
    <polyline points="0,0 72,56"/>
   </object>
-  <object id="114" x="-24" y="168">
+  <object id="114" x="-24" y="200">
    <polyline points="0,0 72,24"/>
   </object>
-  <object id="115" x="264" y="104">
+  <object id="115" x="248" y="136">
    <polyline points="0,0 -72,56"/>
   </object>
-  <object id="116" x="264" y="168">
+  <object id="116" x="264" y="200">
    <polyline points="0,0 -72,24"/>
   </object>
  </objectgroup>
@@ -585,61 +541,52 @@ MOVE SLOW for precise dodging</text>
     <property name="clearobjectlayer" value="tutorialtext"/>
    </properties>
   </object>
-  <object id="12" name="text" x="32" y="16" width="176" height="48">
+  <object id="12" name="text" x="32" y="16" width="176" height="136">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Capture RED SOUL humans to DEMONIZE !
-
-Up to 4 teammates can shoot and capture with you</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">Capture RED SOUL humans to DEMONIZE and bring them to your side!</text>
   </object>
-  <object id="24" name="pikeman" type="Pikeman" gid="496" x="96" y="-32" width="32" height="32">
+  <object id="24" name="pikeman" type="Pikeman" gid="528" x="96" y="-32" width="32" height="32">
    <properties>
     <property name="defeatitem" value="ItemWingman"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="25" name="pikeman" type="Pikeman" gid="496" x="144" y="-32" width="32" height="32">
+  <object id="25" name="pikeman" type="Pikeman" gid="528" x="144" y="-32" width="32" height="32">
    <properties>
     <property name="defeatitem" value="ItemWingman"/>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="66" name="pikeman" type="Pikeman" gid="472" x="168" y="-16" width="32" height="32">
+  <object id="66" name="pikeman" type="Pikeman" gid="504" x="168" y="-16" width="32" height="32">
    <properties>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="67" name="pikeman" type="Pikeman" gid="472" x="72" y="-16" width="32" height="32">
+  <object id="67" name="pikeman" type="Pikeman" gid="504" x="72" y="-16" width="32" height="32">
    <properties>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="68" name="pikeman" type="Pikeman" gid="472" x="96" y="-16" width="32" height="32">
+  <object id="68" name="pikeman" type="Pikeman" gid="504" x="96" y="-16" width="32" height="32">
    <properties>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="69" name="pikeman" type="Pikeman" gid="472" x="144" y="-16" width="32" height="32">
+  <object id="69" name="pikeman" type="Pikeman" gid="504" x="144" y="-16" width="32" height="32">
    <properties>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="70" name="pikeman" type="Pikeman" gid="472" x="120" y="-16" width="32" height="32">
+  <object id="70" name="pikeman" type="Pikeman" gid="504" x="120" y="-16" width="32" height="32">
    <properties>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
@@ -658,53 +605,49 @@ Up to 4 teammates can shoot and capture with you</text>
     <property name="clearobjectlayer" value="tutorialtext"/>
    </properties>
   </object>
-  <object id="11" name="text" x="32" y="16" width="176" height="64">
+  <object id="11" name="text" x="32" y="16" width="176" height="136">
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">←/→ = ${joy_x}
-↑/↓ = ${joy_y}
-Fire = ${joy_fire}
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">Using the controller:
+${joy_x} = MOVE
+${joy_fire} = FIRE
 
-SHOOT enemy then move to CAPTURE humans for points towards 1UP</text>
+SHOOT enemies before they shoot you!
+Knock them out and pick them up!</text>
   </object>
-  <object id="18" name="pikeman" type="Pikeman" gid="472" x="72" y="-16" width="32" height="32">
+  <object id="18" name="pikeman" type="Pikeman" gid="504" x="72" y="-16" width="32" height="32">
    <properties>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="19" name="pikeman" type="Pikeman" gid="472" x="96" y="-16" width="32" height="32">
+  <object id="19" name="pikeman" type="Pikeman" gid="504" x="96" y="-16" width="32" height="32">
    <properties>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="20" name="pikeman" type="Pikeman" gid="472" x="120" y="-16" width="32" height="32">
+  <object id="20" name="pikeman" type="Pikeman" gid="504" x="120" y="-16" width="32" height="32">
    <properties>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="21" name="pikeman" type="Pikeman" gid="472" x="168" y="-16" width="32" height="32">
+  <object id="21" name="pikeman" type="Pikeman" gid="504" x="168" y="-16" width="32" height="32">
    <properties>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="22" name="pikeman" type="Pikeman" gid="472" x="144" y="-16" width="32" height="32">
+  <object id="22" name="pikeman" type="Pikeman" gid="504" x="144" y="-16" width="32" height="32">
    <properties>
-    <property name="firebullet" value=""/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
   <object id="23" name="path" x="120" y="-16">
-   <polyline points="0,0 0,160"/>
+   <polyline points="0,0 0,176"/>
   </object>
  </objectgroup>
  <objectgroup id="16" name="welcome">
@@ -712,7 +655,7 @@ SHOOT enemy then move to CAPTURE humans for points towards 1UP</text>
    <properties>
     <property name="initiallayer" value="tutorialtext"/>
    </properties>
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">Welcome to DEMONIZER !</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">Welcome to DEMONIZER!</text>
   </object>
   <object id="4" name="welcome" type="Trigger" x="8" y="0" width="224" height="8">
    <properties>

@@ -3,7 +3,7 @@ local Object = require "levity.object"
 local ShmupWingman -- delayed require to avoid circular dependency
 local ShmupMap = require "ShmupMap"
 
-local ShmupStatus = class()
+local ShmupStatus = class(require("Script"))
 
 ShmupStatus.MaxLives = 9
 ShmupStatus.DefaultStartBombs = 1
@@ -79,6 +79,9 @@ function ShmupStatus:_init(layer)
 			caravanrules.visible = false
 		end
 	end
+
+	self.objects.activetriggers.text = ""
+	self.activetriggertimes = {}
 end
 
 function ShmupStatus:getScoreId()
@@ -106,7 +109,6 @@ end
 
 function ShmupStatus:wingmanReserved(wingmanid, wingmangid)
 	self.reservegids[#self.reservegids + 1] = wingmangid
-	self:updateReserves()
 end
 
 function ShmupStatus:hasReserves()
@@ -132,11 +134,11 @@ function ShmupStatus:extendEarned()
 end
 
 function ShmupStatus:playerRespawned()
-	if not levity.scripts:call(levity.map.name, "isTutorial") then
+	if not self:call(levity.map.name, "isTutorial") then
 		self.numlives = self.numlives - 1
 		self:updateLives()
+		self:addBombPieces(ShmupStatus.PiecesPerBomb/2)
 	end
-	self:addBombPieces(ShmupStatus.PiecesPerBomb/2)
 end
 
 function ShmupStatus:hasBombs()
@@ -181,19 +183,26 @@ function ShmupStatus:getLivesRightEdge()
 	end
 end
 
+function ShmupStatus:getBackupCaptureHeight()
+	local score = self.objects.score
+	local totalmultiplier = score and self:call(score.id, "getTotalMultiplier") or 0
+	return 30 + (totalmultiplier/2)
+end
+
 function ShmupStatus:updateBombs()
 	local numbombpieces = self.numbombpieces
+	local maxbombs = levity.map.properties.maxbombs or ShmupStatus.DefaultMaxBombs
 	for i = 1, ShmupStatus.DefaultMaxBombs do
 		local bomb = self.objects["bomb"..i]
 		if not bomb then
 			break
 		end
 
-		bomb.visible = numbombpieces > 0
+		bomb.visible = i <= maxbombs --numbombpieces > 0
 
 		if bomb.visible then
 			local fill = math.min(1, numbombpieces / ShmupStatus.PiecesPerBomb)
-			levity.scripts:call(bomb.id, "setFill", fill)
+			self:send(bomb.id, "setFill", fill)
 		end
 
 		numbombpieces = numbombpieces - ShmupStatus.PiecesPerBomb
@@ -250,11 +259,18 @@ function ShmupStatus:updateTimeLeft(dt)
 	end
 end
 
+function ShmupStatus:setPrompt(promptname, visible)
+	local prompt = self.objects[promptname]
+	if prompt then
+		prompt.visible = visible
+	end
+end
+
 function ShmupStatus:beginMove(dt)
 	if levity.map.paused then
 		return
 	end
-	local totalmultiplier = levity.scripts:call(self.objects.score.id,
+	local totalmultiplier = self:call(self.objects.score.id,
 							"getTotalMultiplier")
 
 	if not self.pausebombcharge then
@@ -265,39 +281,69 @@ function ShmupStatus:beginMove(dt)
 	local playerid = levity.map.properties.playerid
 
 	if self:hasReserves()
-	and levity.scripts:call("playerteam", "roomForWingmen") then
+	and self:call("playerteam", "roomForWingmen") then
 		local wingmangid = self.reservegids[#self.reservegids]
 
-		local camera = levity.map.objects[levity.map.properties.cameraid]
-		local x, y = camera.body:getWorldCenter()
-		for _, fixture in ipairs(camera.body:getFixtureList()) do
-			local _, _, _, b = fixture:getBoundingBox()
-			y = math.max(y, b)
-		end
-
+		local x, y = self:call("playerteam", "getBackupWingmanPosition")
 		local wingmanid = ShmupWingman.create(levity.map, wingmangid,
 							x, y, nil, nil)
 
 		self.reservegids[#self.reservegids] = nil
-		self:updateReserves()
 	end
 
 	if self.timeleft and not self.pausetimer then
 		self.timeleft = self.timeleft - dt
 		if self.timeleft <= 0 then
 			self.numlives = 0
-			levity.scripts:send(playerid, "kill")
+			self:send(playerid, "kill")
 			self.timeleft = nil
 			self.objects.timer.visible = false
 		else
 			self:updateTimeLeft(dt)
 		end
 	end
+
+	self:updateActiveTriggers(dt)
+	self:updateReserves()
+end
+
+function ShmupStatus:triggerActivated(triggerid)
+	if self:call(triggerid, "hasActivatedIds") then
+		self.activetriggertimes[triggerid] = 0
+	end
+end
+
+function ShmupStatus:triggerCleared(triggerid)
+	self.activetriggertimes[triggerid] = nil
+end
+
+local ActiveTriggerFormat = "%s %0.1fs"
+function ShmupStatus:updateActiveTriggers(dt)
+	local text = ""
+	for id, time in pairs(self.activetriggertimes) do
+		time = time + dt
+		self.activetriggertimes[id] = time
+		local trigger = levity.map.objects[id]
+		if trigger then
+			text = text..ActiveTriggerFormat:format(trigger.layer.name, time)..'\n'
+		else
+			self.activetriggertimes[id] = nil
+		end
+	end
+	self.objects.activetriggers.text = text
 end
 
 function ShmupStatus:beginDraw()
 	self.layer.offsetx = levity.camera.x
 	self.layer.offsety = levity.camera.y
+end
+
+function ShmupStatus:dialogueStarted()
+	self.pausebombcharge = true
+end
+
+function ShmupStatus:dialogueFinished()
+	self.pausebombcharge = false
 end
 
 function ShmupStatus:playerWon()
@@ -308,7 +354,7 @@ ShmupStatus.playerLost = ShmupStatus.playerWon
 
 function ShmupStatus:nextMap(nextmapfile, nextmapdata)
 	if nextmapdata and nextmapdata.playerwon
-	and not levity.scripts:call(levity.map.name, "isTutorial") then
+	and not self:call(levity.map.name, "isTutorial") then
 		nextmapdata.status = {
 			numlives = self.numlives,
 			numbombpieces = self.numbombpieces,

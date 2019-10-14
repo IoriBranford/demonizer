@@ -1,150 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="18" height="245" tilewidth="16" tileheight="16" infinite="0" nextlayerid="78" nextobjectid="328">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-down" width="18" height="270" tilewidth="16" tileheight="16" infinite="0" nextlayerid="229" nextobjectid="564">
  <properties>
   <property name="cameraid" type="int" value="2"/>
-  <property name="music" type="file" value="mus/09 - Blue Sky Laundry.vgz"/>
+  <property name="music" type="file" value="mus/village.vgm"/>
   <property name="nextmap" type="file" value="chapel.lua"/>
   <property name="overlaymap" type="file" value="gameplay.lua"/>
   <property name="playerid" type="int" value="1"/>
  </properties>
  <tileset firstgid="1" source="img/basic_terrain.tsx"/>
  <tileset firstgid="385" source="img/forest.tsx"/>
- <tileset firstgid="417" source="img/thatched-roof.tsx"/>
- <tileset firstgid="673" source="img/cottage.tsx"/>
- <tileset firstgid="929" source="img/fence_alt.tsx"/>
- <tileset firstgid="947" source="img/crops.tsx"/>
- <tileset firstgid="982" source="img/catapult.tsx"/>
- <tileset firstgid="1006" source="img/human/enemy/Archer.tsx"/>
- <tileset firstgid="1030" source="img/human/enemy/CatapultOperator.tsx"/>
- <tileset firstgid="1042" source="img/human/enemy/Militia.tsx"/>
- <tileset firstgid="1066" source="img/human/enemy/CatapultOperatorF.tsx"/>
- <tileset firstgid="1078" source="img/human/enemy/HeavyMilitia.tsx"/>
- <tileset firstgid="1102" source="img/human/enemy/ArcherF.tsx"/>
- <tileset firstgid="1126" source="img/doors_opening.tsx"/>
- <tileset firstgid="1141" source="img/sparks_huge.tsx"/>
- <tileset firstgid="1161" source="img/human/civilian/townfolk-adult-f-002.tsx"/>
- <tileset firstgid="1173" source="img/human/enemy/MilitiaCaptain.tsx"/>
- <tileset firstgid="1197" source="img/sandbags.tsx"/>
- <tileset firstgid="1200" source="img/human/civilian/townfolk-child-m-001.tsx"/>
- <tileset firstgid="1212" source="img/human/civilian/townfolk-child-m-002.tsx"/>
- <tileset firstgid="1224" source="img/human/civilian/townfolk-adult-f-001.tsx"/>
- <tileset firstgid="1236" source="img/human/enemy/Swordsman.tsx"/>
- <tileset firstgid="1260" source="img/human/enemy/SwordsmanF.tsx"/>
- <tileset firstgid="1284" source="img/house.tsx"/>
- <tileset firstgid="1368" source="img/human/enemy/Lord.tsx"/>
- <tileset firstgid="1416" source="img/armorsuit/armorbody.tsx"/>
- <tileset firstgid="1419" source="img/armorsuit/armorleftarm.tsx"/>
- <tileset firstgid="1422" source="img/armorsuit/armorrightarm.tsx"/>
- <tileset firstgid="1425" source="img/trees_tall.tsx"/>
- <tileset firstgid="1428" source="img/trees.tsx"/>
- <tileset firstgid="1431" source="img/player.tsx"/>
- <tileset firstgid="1459" source="img/explosion_giant.tsx"/>
- <objectgroup id="1" name="unused" visible="0">
-  <object id="125" type="Trigger" x="0" y="-48" width="16" height="16"/>
-  <object id="85" name="path" x="0" y="2272">
-   <polyline points="-8,0 48,0"/>
-  </object>
-  <object id="84" name="path" x="248" y="2272">
-   <polyline points="-8,0 48,0"/>
-  </object>
-  <object id="101" name="militia" type="Militia" gid="1045" x="0" y="2400" width="32" height="32">
-   <properties>
-    <property name="pathid" value="fields_paths"/>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="102" name="militia" type="Militia" gid="1045" x="-32" y="2400" width="32" height="32">
-   <properties>
-    <property name="pathid" value="fields_paths"/>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="4" name="path" x="-56" y="392">
-   <polyline points="0,336 0,-400"/>
-  </object>
-  <object id="276" name="heavy" type="HeavyMilitia" gid="1081" x="56" y="-16" width="32" height="32">
-   <properties>
-    <property name="defeatitemlaunch" type="bool" value="true"/>
-    <property name="pathid" value="277"/>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="275" name="heavy" type="HeavyMilitia" gid="1081" x="232" y="-16" width="32" height="32">
-   <properties>
-    <property name="defeatitemlaunch" type="bool" value="true"/>
-    <property name="pathid" value="277"/>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
- </objectgroup>
- <layer id="2" name="dirt" width="18" height="245">
+ <tileset firstgid="449" source="img/thatched-roof.tsx"/>
+ <tileset firstgid="705" source="img/cottage.tsx"/>
+ <tileset firstgid="961" source="img/fence_alt.tsx"/>
+ <tileset firstgid="979" source="img/crops.tsx"/>
+ <tileset firstgid="1014" source="img/catapult.tsx"/>
+ <tileset firstgid="1038" source="img/human/enemy/Archer.tsx"/>
+ <tileset firstgid="1062" source="img/human/enemy/CatapultOperator.tsx"/>
+ <tileset firstgid="1074" source="img/human/enemy/Militia.tsx"/>
+ <tileset firstgid="1098" source="img/human/enemy/CatapultOperatorF.tsx"/>
+ <tileset firstgid="1110" source="img/human/enemy/HeavyMilitia.tsx"/>
+ <tileset firstgid="1134" source="img/human/enemy/ArcherF.tsx"/>
+ <tileset firstgid="1158" source="img/doors_opening.tsx"/>
+ <tileset firstgid="1173" source="img/sparks_huge.tsx"/>
+ <tileset firstgid="1193" source="img/human/civilian/townfolk-adult-f-002.tsx"/>
+ <tileset firstgid="1205" source="img/human/enemy/MilitiaCaptain.tsx"/>
+ <tileset firstgid="1229" source="img/sandbags.tsx"/>
+ <tileset firstgid="1247" source="img/human/civilian/townfolk-child-m-001.tsx"/>
+ <tileset firstgid="1259" source="img/human/civilian/townfolk-child-m-002.tsx"/>
+ <tileset firstgid="1271" source="img/human/civilian/townfolk-adult-f-001.tsx"/>
+ <tileset firstgid="1283" source="img/human/enemy/Swordsman.tsx"/>
+ <tileset firstgid="1307" source="img/human/enemy/SwordsmanF.tsx"/>
+ <tileset firstgid="1331" source="img/house.tsx"/>
+ <tileset firstgid="1415" source="img/human/enemy/Lord.tsx"/>
+ <tileset firstgid="1463" source="img/armorsuit/armorbody.tsx"/>
+ <tileset firstgid="1466" source="img/armorsuit/armorleftarm.tsx"/>
+ <tileset firstgid="1469" source="img/armorsuit/armorrightarm.tsx"/>
+ <tileset firstgid="1472" source="img/trees_tall.tsx"/>
+ <tileset firstgid="1475" source="img/trees.tsx"/>
+ <tileset firstgid="1478" source="img/player.tsx"/>
+ <tileset firstgid="1506" source="img/explosion_giant.tsx"/>
+ <tileset firstgid="1522" source="img/human/enemy/Pikeman.tsx"/>
+ <tileset firstgid="1546" source="img/human/enemy/PikemanF.tsx"/>
+ <tileset firstgid="1570" source="img/friend/kappa.tsx"/>
+ <tileset firstgid="1582" source="img/well_with_grate.tsx"/>
+ <layer id="164" name="dirt" width="18" height="270">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
- <layer id="3" name="dirtdeco" width="18" height="245">
+ <layer id="165" name="dirtdeco" width="18" height="270">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
- <layer id="4" name="grass" width="18" height="245">
+ <layer id="166" name="grass" width="18" height="270">
   <data encoding="base64" compression="zlib">
-   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
+   eJztnMty3cYRhoek5B1LKu6iSNlZtx1FUjvKONzxEu9IHutB7DxFKvs8gB4gLxi0OV/hP51uDAahYpXjqZo6JDBo9HT/fZkGBpellLuxfyz97dnYr8d+NvbLsX8Z+/MVdE7H/mHsN0LnZCU/Rue+0rhdyc9xpXNWeVo7L+PHZHtZeTJZHa6kc1Vp3Vbe1ujrqF77odKyvlY+xsdZmea3Zl5HlYbxY7K5En6+H/u7sb8e+4uxv6/HXtVjr+sx6BgN09N97X+q1/258mh63JYHXB3Xe11X3l/WsX8pk77B9W2Z8PRk7E/H/mnsP4z9fOyb2r+r425qv6/3eFLPP5WxFzMyOXdjrR80rlnazh+Bxu+9gbX/thl2DIOGV3D8Zmb823pvP8ZwBa4Nx4bLOds3XxHZ41AecHVQJh87Z7NH9Z4vA57MDs2uzhbQwVeY7XlfY+fwaXvlwaayNlTebf4aG0xu2G2Lht7X84MPMTpLfSvxT/mxWHZfJl/TQ0flOJRJVz383AT3ZW6RLn0z3Zo8vwT3Nf9heFySLyDjbTL2tNJpxQ3kaX400i10WnHsWZniQiQDYnWLHxtnssG+1VeoXbTkY7I8qDx5ezV9mU0szReg9UHGv6q8WAwyu1gaP47rfYmJW+k9MR5M2/0va7+tvSd3ITckT/hUu/kyxYP5gXdl8rU2f9XzUK/Zr9dnzWT/89h/Gfu/xv63sj6n/fvY/1n7P8q8P3hf+fXYhO9s3jSuY94m496c4bzStvsYxl9Wvpb4VE/H9GF6MJt60nm9NmxhbS5PM31gt8yrpw1l1zey5unl6bzyQv5pmN6WZb7Z84Pvg5dtWebDfDuqvFjH75jOevGD72DddL+CF3yo8UG+Y7+98iF/Oau/5ODWe+Y1lAefwbXfWjN/tzZnxWeazzA8rlnnkn8Z9s7KhEEfG5fQIG9ifXrdyZPhz3DHXFiDwVdPHsV8wDLzuu+gQ951J/RYn/bMayhTfDe7uKw0yVd7bIwc7rJMtQDk1VtTILeHH2TeW7thHYB88UNr6BgP6Gtb+vRFG8okb/hZWyMzWuTMRqsnF/PNdNebz2Vt/xFo/D80rTm9KFNuab9an3onv1GcslhNLcnwZNg0uzF93tRz1D/xYZFdn5ZdfLOWt3j9XT2Hb8COIjpH9R7UqA7KlGMdlwmrB2XyoZE9DuUBS+CJmhj1MWpljOP/P9of7ffYWH/hN/AZ3i+8LZMfeVX7+zLlZBd7D3ZrtjiMf29qt+Mah6LzZqen9fiPlc6vtaHx77/WznHaUXD+RI4z/rRB5zihcyx0Pib303ll/HL8c6Xbmld0/nm9/3ZvWk+36ETzsvPm4/ZlXCSfkwYdPU+d+LTy91PtnwO9R+fBHTjgeQL1Ax/3h/LgrznH8wmTzyDyMrovyi5mFc+cJwbyfAa5Kn48Xj0Oo/OnQud5ImfNpzOcIv/PdXykdy/nOfwgz4iOrwtHdIiXc/dTfjI7peFH1tL5vuoOP9Oy98yOFT8nCT8tfX0su/jB3j3ufR3fn4/8GHYL9n1eMsi5TZn0rPjB3ngeyVra24Wew77hc1PvG9mFzutZcP6wTPVBWuanWnKmEada+srsRvGT2WmLH65rxS/FfYRDvb/iZ25ec3hW/LTsK9MDdD4L3QivKufIzxMfDJfk19SoNuU/61x2Xn0854eyG7++laa2xLsAGl94H+C1dM2hWJd9GmX0w14ee9RX+RzKjp/vPdC4Gvu106HHUGYzdt/LSgM6WezJMPqx0o/oZJjNMPhM6NyN/X4v99HZcTB4W2kYpvChET9zNkOOsl92n5VH2EePWe4DblTv+HpvG6xPn8r9Lyp9r/e17/94fWmMJZ+ifqv1WH3HJdN7FBPAYRQrlA56z3A4h0/Vuz6TmsN/dHwQvai9Z3jO6OizP/R+kozP1jDYXaT3OXtcau/kMhFu53x8pPdBcKw1lXM5rjhXOuhdYzWyV3/7Qrrao9r7RvS+FIea8+6LDWQ561wO8VZ4VHvP/EzmDzN7n8N/liNEes/84RzOM/zM5ciR387sPco5stza27vijXzC1wDJm8Eo4/n/W2vgX98rJI/QGg15CDm+5ib4H7BIzPB+Olr7KgbBoeqeMarnKIf12FE6h8JPRod7+ZgT8ePxG9HxMfDOYXEpnV/fA5DrDVv+fQifS0e1k0Gu2yRYYMym7NZG5p4da8zueU6NDwZbip/e92Qy/KB3/CWxMsL8HH5Yl/h8OapNzuHnUOhkej9M6Ch+ltjFiYyJ8KP1sDm7gB995zfDzxydLI/0sRY6GZ7hR3Ne4qDGQnhmrvoug9Y8TM4Zfnqewy7xP1r7VjyyrmvRUd/Si0PFj2JjiV9V/OAf7PdiAR2PH/SQybBFxzd8CPnUmwYdXYfo2hr9awzz6y2fH3jsKH5UZ+QL6ls1b8h8Ri8WfczJsEh8V/tRH+7zOcWPz6fm4rvmzXTNm4grPj/1cXAQeXG95iTk0XN+lVq+vpf+OtB7lJ9GeWpL71E9w+MwknNEZw6HUd6c0RkEf7r2t/9Zz7T0vuSdG+8ziDvqhy9KHJe1njWUKV8h//bjqNlmODyR++B3I3uP1k9RXWCJvbf8zxJ7j2q/rbpYpvdWvhH5jcje/bM3H5ePA70rzrRmiz98Wnbrt6yjdC/Q3HvLvQ28aQ6YvUeo9YBXZfcZn2IgWvtoi+JEhJ8oZ/B05vS9NG604kREJ5rXGjrZOzkZnbugZ37Ir5V83AFvrXWN1pP8szL1I5pDZPjRNY7iqAc/kd/5X+En4qcVb5bisBX/HgOHPfiJ4pZfN3mfFb3TpfUhruMXzKgPyt6d8+sFfQcvw4+uj3Q9tRY/piOt56zVl8lWaz5r/Ybx0FprL6FjPJwsoJPh53lAZ87/EM8UF9Z1DQVvg2BGc6ZNmfJWv358I3TgR/cSgzVwlOFH14aKgV78oKNzN8fHiBdr6DyWH/ua8StaL+m6W2sY+s6Sbxq/tOZhXdc/ioksfvn6byt+RbW7NfnP18w31ug9mtcafnrjYMv/+HnN+R9yIK0DR/gZyu77EuqD9J1vfR88ws9bGavvK2i992vlPxkOf6u8N1sXfEv+Zw4/msPoM64MPzqesZtg7G/dep5ZZM38pO37yuyg1bAT2wvGvqI134Fh7x/7H9bsJWIf4lWZ9mh/6KQDDduncVN2v02T7UOPGnuprx0d9pAu3f9lcuF7LdDiGy493ytg3xf7TKDJ/pUldHTP31WZ9sfxPYjoexFRYz8+32zZlmlfLXSW7Pc9rvdnTwz7/ZA792jNjT1/yJh+JseNr5b+j2Qu7L9hvx/fAgGTc3JCV1/KrpyQFXuSltBhr7J+QwhZ6zznZMTe5/sy2Sb3P5PfFh2+dYEc2A/Fd5+w/da3knReyINv+Gwrr5xvyYe9neynxO7BFPu0W99LQcf4QN0Xhs216Oj+Lr6NZNf8Gwhn09k=
   </data>
  </layer>
- <layer id="5" name="grassdeco" width="18" height="245">
+ <layer id="167" name="grassdeco" width="18" height="270">
   <data encoding="base64" compression="zlib">
-   eJzt3EEKwjAQheH26Kb1ALrT09qAwaHUUPueOMj/QTdixmQyGbqJw6CbxhwxqmKKM4++WG4nYV51rDI+mg1x6lwccXp7dR5fT++zvWMd30UutX5cPcghngnHvIrQz0roGa7eoaypmOfiou7T1nhlzxzanBw92u0b+T4iw5lwiuddidGosdZ5UWtxSvxul4HzrGfsG/hf7neCLD0ZAAAAAAAAAAAAAAAAAAAAAACgR73D47wfd1meqyHebYlxN9xBdXDekTqSa+d/Jmx9pqxvfnMv+5OYvZrZs/b2++uaablWarI881NjqTUZ7bm3FHO4tYYj+7Zewy/Pa9zbBzDDNYE=
+   eJzt3N8OgiAUx3F9dNEeoO7qaZMtFmNIyvktib6fzZsmRw7/wgscBrtptMdYBDG8WRTHjbo6qVna25dV9JfnBHF8DEWflfrqMr6v0m+5uu2570hM/IdW1w6l3nJUrYst6jm3M5T++85q697mY0qx30BZa/veuC6q/WZtflNUVjXHLXvfULa1eWGtT658bTu11jY9U717q+IEtWPACd6V47XGmleah3Wd9vVhfmxjz4xf1coaCgAAAAAAAAAAAAAAAAAAAAAA8E3WMxCqMxn+XNJ1vW6CePc1xsP4PRkV5RmTmrNxqufn+nkxniVcNr6Tc6TOpTGzJ064Jx0zoa0tY3J+tY9/hnVMpnE/icdKLoeasZTmcOZ8jfv2Cf+uOA0=
   </data>
  </layer>
- <layer id="6" name="crops" width="18" height="245">
+ <layer id="168" name="crops" width="18" height="270">
   <data encoding="base64" compression="zlib">
-   eJztkulqxDAMBhf0/i/Uk17QbkufqZSyxEejtbRJ7Ghn4PthJI2JlcMBAAAAAAAAAAAAYF2Okp+/ZUrJXO1DxvO09p6rRfWMtq+19g455Tt/yZSSudp/++rtae09V4vqGW1fa+0dcj5lSsrv26XvV57L2aieOVo8LfTyHGWK1ZPO7sXTwiWza3P67kv+jTIp7/KXufPonjlaPC308pzqZU+LJ52N6gGdN8njreFpr5VYepfCe6flfZbyvEqePXk0NI+FHh7vneXcnjwvkmcLj4bmsWDxaL2W2hYey3eM5tF4ljxeLB6t11K7Ro/GUrvswZPk2cKj9VpqUT2g8yh1PDN4dE9UHqSOZwaP7onKvdTxzODRPVG5kzqeGTy6Jyq3Usczg0f3ROVG6nhm8OgeAACAa+YHdPvyHQ==
+   eJztmIFy2jAMhnvn93+6lnYHND26rSWB7RnGzvjQNEv6FbuwZvrudIHU/iw5SXF8dxcEQRAEQRAEQRAEQRAEQRAEQRDcgveUQ+J7yoF4fnbyaPkcb5CP5vmdz7FTPqjHul6IZ6nsUw6JHymHxc7wvKUciGfXydMjn33HfHp4rOt17bqWymvKIfE15UA845U8E+AZDc/UKZ8JzMeaZ9QzAtcL8QQfw6Ey99I1k85/Szk40j0knZc80rPh9UjPhuapIc2D9cyg7a1nuAfI/xLE0ePZ7emp1SX9Nku/tVIu0lrBWkP8S57a/aZ5avMmPY+9PF6s3xiUHg4N6X67xnWvzb/X472+0nltHrx59ho3uA7ae33Zy9D2Io6kjbTvUTza3gjaho4n5XPsNJa1j0Md/+veCLrfpfW3rpcnD+0+LOvQQ5LXksi9UTzSupZ6NA4kn9q6H4XW1Oqx6upNa8695vAA3BsIyByWvQNtDwGZF+ppWa+XdXrruh+py5uP5ZnAdto4U2P9fP5a8uHXtKUuq29Z73vfkzmv6c9o8dCc0LYcq66R5avtr2j58Lrn7hPQMcYGT0sOt6TsByDvXbtkv7chf98n+/3Geu+iYXmQcax21r5JvDfZvJzm6AsLC97+hQQ9h3j4+NyB5MP71BzeuiQHmg/PY6kMp9qeWFjw9gM5DuT7nLGfmAv1SK7BURfPf2jweOf0s/KY/g6L53SJWv/H89+QsZ9Zn9rR66nlgtYlObx18ZyWyirl2J5jBdRa+tC+9LhyeLZK/3LOotaP+xCPlM+WBerxjP1ZeUiX2JyPFhvWnn7eODx07FoU11zPhn1HPbwfr3eOZ6msT7Xdk1gDta7TJe4r/ctnC9pnXfns9dTyoL45nprXUxfaJwiCIAiWzC/QuHYd
   </data>
  </layer>
- <layer id="7" name="houses" width="18" height="245">
+ <layer id="169" name="houses" width="18" height="270">
   <data encoding="base64" compression="zlib">
-   eJzt1cEKgkAQgOFFs3N16VJBL+A7WA8ZHaNDRKfoENEDSfgAEl5ycRcW0VXcApP/g8Flmx1wnCUh8M+mgRBBQ8icOiMjR8bcWFftydxxRb1JKS9Uz7UKc0/XnNXUkXnLUug65f2wps5C/b6yvHuXXKCNxBPi5XU/H3tFjSyPt0OdVNXY+EJs/e51Ir+oMSSnvC8XFYnX/Zvd8zNPFZnDN9M93qmn6zfrEz3PstfnL8yz7PXDoU7U0x67zGFszLHLHKbGeZcemT0eGuYZaOdg/M82xdFyB67qnuz9Imzrm6WOvis637bmLgEAAAAAAAAAAAAAAAAAAAAAAADAb30AM4NMNg==
+   eJzt1z9Lw0AYx/F4QUQ6qYNIJ/UlqLNWwUUFrXMH9ZWIr0B8NY7VwcGpOjg4qW/EO3JHzofkkjtQEvl+4EdD+uShvT9pmmXos735LNtuiKmps+XVmBx6x1XnTO1ORb9dUTexr6c2/jnXc1TTx9Qdi7g+8vykps+Rff8k8N1TaoG/tJ//zEHefM2crlEiY5HzFn2WdM2yyKXIVYs+67pmQ6RrHlSRRxV33UjMz4sq8hrZ50zMz6cq8hXZ50LMT9fErmWjaT23WctG03pus5aNPqxnN055wmebqnI/uHFaSegzU+V+cOO0mdDnQ5X7Af0y0PO9aOf8JmLur23tQl70GOqs2XN3EX1ube2q7eHv85Q+7v76H7gxftL76tlmkMfPmRubN339u80wYc7kGFfdm2PmDED3yWfomGdDn3yGjnk29IXuP0Cqqfc725TQ/9CZ/Y29z4uEjkP/Q906d/WhY9Y/AAAAAAAAAAAAAAAAAAAAAAAAAPyubx3UYCs=
   </data>
  </layer>
- <layer id="8" name="housedeco" width="18" height="245">
+ <layer id="170" name="housedeco" width="18" height="270">
   <data encoding="base64" compression="zlib">
-   eJztzLEKwjAUBdAOPhFcSnHoZhfddbf//1kmJMMbqnRykHPgkXDzcoeBf7DEvuzT32PfPZfzVuba5x4tqw7xvbPuTf19Lucj7T6jZdWYOrfMqad6lfupz5ryMXXudYk2AAAAAAAAAAAAAAAAAAAAAPzWGyEZA5A=
+   eJztzLEKwjAUBdAu74ukCC6lOHSri+662/9fTUiGN6h0cpBz4JFw83KHgX9wiX3Zp79j3z2V81pm7XOLllWH+N5Z9+b+vpTznnYf0bJqSp3vLKmnepb7sc+W8il17nWONgAAAAAAAAAAAAAAAAAAAAAAAL/yAoFXCRI=
+  </data>
+ </layer>
+ <layer id="205" name="well" width="18" height="270">
+  <data encoding="base64" compression="zlib">
+   eJztzLcRgEAUQ8EfXTmYBJNg+m8K1cBFMLszL5SqAADgm4ZWNaYpze39z5Ltmra0d/wc2Z7pSnfHDwAAAAAAAAAAAAAAAAAAAPAvDy1NAuM=
+  </data>
+ </layer>
+ <layer id="171" name="midbosscover_mid" width="18" height="270">
+  <data encoding="base64" compression="zlib">
+   eJzt0DEKgDAMBdAMuf/9bNWzmK1jLTgUeQ8+hJ9MiQAAAAAAgH31jDgrV+XO0R81t3y//7PZL1bvAAAAAAAAAAAAAAAAgG89XzgWtA==
   </data>
  </layer>
  <objectgroup id="9" name="ground"/>
- <layer id="10" name="fence" width="18" height="245">
+ <layer id="172" name="midbosscover_high" width="18" height="270">
   <data encoding="base64" compression="zlib">
-   eJztyqERACAMALHesf8STABMiGkdaBCJefMRAAAAAAAAAAAAAAAAAAAA8F5v547szK7LVwXgTxvUCwX7
+   eJzt0DkKwDAMBEAV/v/TcpDzOVGXQArbnYsZWBDsVooAAAAAAIDXXCKWzFr+3VTa+yNzZq7M/dluee8d/ahqv2jZ1X7RuwMAAAAAAAAAAAAAAADG9AA1vCT3
   </data>
  </layer>
- <layer id="11" name="rooftops" width="18" height="245">
+ <layer id="206" name="wellfront" width="18" height="270">
   <data encoding="base64" compression="zlib">
-   eJzt1FsuBEEUxvHqTiZ4dInLM2EBxngd5uLR5QUrwXoICyAsgGEBDEvALnyd6UpKxaSnz0yQzP+XfOlJus7JpPpUOddTrTh3oNQqvd+7yl6U/eC9Xxsblz4NpRmlNWCfdv6urmz1yXbl+9pYPVhXpMxa4Dd9Js5dKldJ+dpz1Vwo78pU6tytnneGPtequVEm1KOj56PyZOhzr5qHpNejq7wqb4Y+z6p5yXv8tVntyZxyqBwpH4ntmy2rdkU5UU6VydT2zdZVU1U28nQS2zdrqLaptPJ0h/xmoxDO87H+07yykJbvE87zmbKqrBn6hPOc7XVN2TT0Cec52+u2smPoE7LOod9jX2+dQ7/Hvt46h+Ee+3vDMofhHv+HeyMT3h3DzHN4dwwzz/HdYZ3n+O4YxTxjvE1rfmZKzNCi1i79sN6flUH1O0vxWSlKv7MUn5WicJYAAAAAAAAAAAAAAAAAAAAAAAAAYLx8AQ/uaDQ=
+   eJztzLcRgEAUQ8EfXUGYBJNg+m8J1cBFMLszL5SqAADgm4ZWNaYpze39z5Ltmra0d/wc2Z7pSnfHDwAAAAAAAAAAAAAAAAAAAPAvD1YhAxM=
   </data>
  </layer>
+ <layer id="173" name="fence" width="18" height="270">
+  <data encoding="base64" compression="zlib">
+   eJztyqERACAMALHesf9STABMhGkdaBCJefMRAAAAAAAAAAAAAAAAAAAAAAC81Nu5Izuz6/JVAfjTBlx8Bxs=
+  </data>
+ </layer>
+ <layer id="174" name="rooftops" width="18" height="270">
+  <data encoding="base64" compression="zlib">
+   eJzt1tsuQ0EUBuBtJw2eRF06xOGa8ACUB6hyWS2ibhyu8ATa5yE8AOEBnB7A6dY/aSdWV/e0M7VV1P8lfyLp6krNrJm9o6gun4miI6SQqf+9jxyoHIrPba32X/qUkS2Vbc8+O43PisimI6VMc61WFHWdhNQS/UWV+Ct7yBQyHbvrzwei6AIZRM2QSFWkhiwgi236XKPHDTKCmqxITmUFWW3T5x49HpBHlULcnHVko02fF3znFXlTSYvv+koTqJtEdsUe+a6vNIe6eeRM7JHv+kpLqFtW++O7vlIedWtqf9ISMstGp3n2XWufefZZa5959lnrn55ns0bDyCV6XgX01TNt1mgUuUWPu4A+eqbtOj0hzwF99EzbdXpHPgL66Jmm3rDnNWQW7ZmX5z3bxSzaMy/PuzyzvrOYdOblmfWdxaQz/1uSnl0Vdcf67FnSs6uq7lifPUt6duXi1nu2054lPbsKces9G3p/UG918z5myLk23y8jp4HvY4ad6+PG909S6pPW7yn16f/13T7mHqrF3b2HG657KOQ93HDdQyHv4dQ/xrDn4wH7PoPa2YR6O+e+XPPvmnNXXPPvmnNXOP9ERERERERERERERERERERERERERERERERERP/LJ3LC2Zo=
+  </data>
+ </layer>
+ <objectgroup id="215" name="enemygrouptemplate">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="505" name="trigger" type="Trigger" x="176" y="4328" width="112" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="ground"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup id="12" name="fleepaths">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="321" x="72" y="696">
+  <object id="321" x="88" y="1096">
    <polyline points="0,0 -112,128"/>
   </object>
-  <object id="322" x="208" y="696">
+  <object id="322" x="208" y="1096">
    <polyline points="0,0 112,136"/>
   </object>
-  <object id="323" x="48" y="224">
+  <object id="323" x="48" y="624">
    <polyline points="0,0 -88,0"/>
   </object>
-  <object id="324" x="248" y="224">
+  <object id="324" x="240" y="624">
    <polyline points="0,0 88,0"/>
+  </object>
+  <object id="440" x="64" y="880">
+   <polyline points="0,0 -96,-8"/>
+  </object>
+  <object id="441" x="224" y="880">
+   <polyline points="0,0 96,-8"/>
+  </object>
+  <object id="471" x="376" y="232">
+   <polyline points="0,0 -32,0 -120,0"/>
+  </object>
+  <object id="472" x="-104" y="232">
+   <polyline points="0,0 40,0 136,0"/>
   </object>
  </objectgroup>
  <objectgroup id="13" name="roofobjects">
-  <object id="270" name="chimney" gid="1302" x="96" y="72" width="16" height="16"/>
-  <object id="271" name="chimney" gid="1290" x="96" y="56" width="16" height="16"/>
-  <object id="272" name="chimney" gid="1290" x="176" y="56" width="16" height="16"/>
-  <object id="273" name="chimney" gid="1302" x="176" y="72" width="16" height="16"/>
+  <object id="270" name="chimney" gid="1349" x="96" y="72" width="16" height="16"/>
+  <object id="271" name="chimney" gid="1337" x="96" y="56" width="16" height="16"/>
+  <object id="272" name="chimney" gid="1337" x="176" y="56" width="16" height="16"/>
+  <object id="273" name="chimney" gid="1349" x="176" y="72" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="14" name="bossbackup_path">
   <properties>
@@ -158,24 +166,24 @@
   </object>
  </objectgroup>
  <objectgroup id="15" name="boss_swordsmen2">
-  <object id="309" name="boss_swordsmen2" type="Trigger" x="0" y="-80">
+  <object id="309" name="boss_swordsmen2" type="Trigger" x="0" y="-104">
    <properties>
     <property name="activateobjectslayer" value="roofobjects"/>
     <property name="cancelondefeatedid" type="int" value="267"/>
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="310" name="swordsman" type="Swordsman" gid="1239" x="152" y="144" width="24" height="32">
+  <object id="310" name="swordsman" gid="1286" x="152" y="144" width="24" height="32">
    <properties>
     <property name="initiallayer" value="ground"/>
    </properties>
   </object>
-  <object id="311" name="swordsman" type="Swordsman" gid="1239" x="136" y="144" width="24" height="32">
+  <object id="311" name="swordsman" gid="1286" x="136" y="144" width="24" height="32">
    <properties>
     <property name="initiallayer" value="ground"/>
    </properties>
   </object>
-  <object id="312" name="archer" type="Archer" gid="1012" x="232" y="-120" width="32" height="32">
+  <object id="312" name="archer" gid="1044" x="232" y="-120" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathfinder" value="linear1way"/>
@@ -183,7 +191,7 @@
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="313" name="archer" type="Archer" gid="1012" x="56" y="-120" width="32" height="32">
+  <object id="313" name="archer" gid="1044" x="56" y="-120" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathfinder" value="linear1way"/>
@@ -191,14 +199,14 @@
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="314" name="heavy" type="HeavyMilitia" gid="1084" x="56" y="-16" width="32" height="32">
+  <object id="314" name="heavy" gid="1116" x="56" y="-16" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathid" value="bossbackup_path"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="315" name="heavy" type="HeavyMilitia" gid="1084" x="232" y="-16" width="32" height="32">
+  <object id="315" name="heavy" gid="1116" x="232" y="-16" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathid" value="bossbackup_path"/>
@@ -207,7 +215,7 @@
   </object>
  </objectgroup>
  <objectgroup id="16" name="boss_swordsmen1">
-  <object id="291" name="boss_swordsmen1" type="Trigger" x="0" y="-64">
+  <object id="291" name="boss_swordsmen1" type="Trigger" x="0" y="-88">
    <properties>
     <property name="activateobjectslayer" value="roofobjects"/>
     <property name="cancelondefeatedid" type="int" value="267"/>
@@ -215,12 +223,12 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="306" name="swordsman" type="Swordsman" gid="1239" x="136" y="144" width="32" height="32">
+  <object id="306" name="swordsman" gid="1286" x="136" y="144" width="32" height="32">
    <properties>
     <property name="initiallayer" value="ground"/>
    </properties>
   </object>
-  <object id="307" name="archer" type="Archer" gid="1012" x="232" y="-120" width="32" height="32">
+  <object id="307" name="archer" gid="1044" x="232" y="-120" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathfinder" value="linear1way"/>
@@ -228,7 +236,7 @@
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="308" name="archer" type="Archer" gid="1012" x="56" y="-120" width="32" height="32">
+  <object id="308" name="archer" gid="1044" x="56" y="-120" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathfinder" value="linear1way"/>
@@ -236,28 +244,28 @@
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="305" name="swordsman" type="Swordsman" gid="1239" x="152" y="144" width="32" height="32">
+  <object id="305" name="swordsman" gid="1286" x="152" y="144" width="32" height="32">
    <properties>
     <property name="initiallayer" value="ground"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="17" name="boss_heavy3">
-  <object id="285" name="heavy" type="HeavyMilitia" gid="1084" x="232" y="-16" width="32" height="32">
+  <object id="285" name="heavy" gid="1116" x="232" y="-16" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathid" value="bossbackup_path"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="286" name="heavy" type="HeavyMilitia" gid="1084" x="56" y="-16" width="32" height="32">
+  <object id="286" name="heavy" gid="1116" x="56" y="-16" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathid" value="bossbackup_path"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="290" name="boss_heavy3" type="Trigger" x="0" y="-48">
+  <object id="290" name="boss_heavy3" type="Trigger" x="0" y="-72">
    <properties>
     <property name="activateobjectslayer" value="roofobjects"/>
     <property name="cancelondefeatedid" type="int" value="267"/>
@@ -265,7 +273,7 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="288" name="archer" type="Archer" gid="1012" x="56" y="-120" width="32" height="32">
+  <object id="288" name="archer" gid="1044" x="56" y="-120" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathfinder" value="linear1way"/>
@@ -273,7 +281,7 @@
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="287" name="archer" type="Archer" gid="1012" x="232" y="-120" width="32" height="32">
+  <object id="287" name="archer" gid="1044" x="232" y="-120" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathfinder" value="linear1way"/>
@@ -283,21 +291,21 @@
   </object>
  </objectgroup>
  <objectgroup id="18" name="boss_heavy2">
-  <object id="284" name="heavy" type="HeavyMilitia" gid="1084" x="56" y="-16" width="32" height="32">
+  <object id="284" name="heavy" gid="1116" x="56" y="-16" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathid" value="bossbackup_path"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="283" name="heavy" type="HeavyMilitia" gid="1084" x="232" y="-16" width="32" height="32">
+  <object id="283" name="heavy" gid="1116" x="232" y="-16" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathid" value="bossbackup_path"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="289" name="boss_heavy2" type="Trigger" x="0" y="-32">
+  <object id="289" name="boss_heavy2" type="Trigger" x="0" y="-56">
    <properties>
     <property name="activateobjectslayer" value="roofobjects"/>
     <property name="cancelondefeatedid" type="int" value="267"/>
@@ -307,7 +315,7 @@
   </object>
  </objectgroup>
  <objectgroup id="19" name="boss_heavy1">
-  <object id="280" name="boss_heavy1" type="Trigger" x="0" y="-16">
+  <object id="280" name="boss_heavy1" type="Trigger" x="0" y="-40">
    <properties>
     <property name="activateobjectslayer" value="roofobjects"/>
     <property name="cancelondefeatedid" type="int" value="267"/>
@@ -315,14 +323,14 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="281" name="heavy" type="HeavyMilitia" gid="1084" x="232" y="-16" width="32" height="32">
+  <object id="281" name="heavy" gid="1116" x="232" y="-16" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathid" value="bossbackup_path"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="282" name="heavy" type="HeavyMilitia" gid="1084" x="56" y="-16" width="32" height="32">
+  <object id="282" name="heavy" gid="1116" x="56" y="-16" width="32" height="32">
    <properties>
     <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="pathid" value="bossbackup_path"/>
@@ -331,8 +339,8 @@
   </object>
  </objectgroup>
  <objectgroup id="20" name="boss_arms">
-  <object id="278" name="armor_leftarm" type="LordArmorLeftArmShot" gid="1419" x="144" y="-10" width="16" height="32"/>
-  <object id="279" name="armor_rightarm" type="LordArmorRightArmShot" gid="1422" x="144" y="-10" width="16" height="32"/>
+  <object id="278" name="armor_leftarm" type="LordArmorLeftArmShot" gid="1466" x="144" y="-10" width="16" height="32"/>
+  <object id="279" name="armor_rightarm" type="LordArmorRightArmShot" gid="1469" x="144" y="-10" width="16" height="32"/>
   <object id="303" name="boss_arms" type="Trigger" x="0" y="0">
    <properties>
     <property name="activateobjectslayer" value="roofobjects"/>
@@ -346,25 +354,106 @@
   <object id="200" name="rightarmtrigger" type="Trigger" x="0" y="0" width="96" height="96"/>
   <object id="304" name="sideattacktrigger" type="Trigger" x="0" y="0" width="288" height="96"/>
  </objectgroup>
- <objectgroup id="22" name="boss">
-  <object id="265" name="boss_trigger" type="Trigger" x="0" y="0">
+ <objectgroup id="25" name="bosshouse_doors">
+  <object id="261" name="door" gid="1168" x="136" y="144" width="16" height="32"/>
+  <object id="262" name="door" gid="2147484816" x="152" y="144" width="16" height="32"/>
+  <object id="263" name="storehouse_doors" type="Trigger" x="128" y="128" width="32" height="32">
    <properties>
-    <property name="activateobjectslayer" value="roofobjects"/>
-    <property name="cleartowin" type="bool" value="true"/>
-    <property name="musicfile" type="file" value="mus/10 - Creeping Thing.vgz"/>
+    <property name="activateobjectslayer" value="ground"/>
    </properties>
-   <polyline points="0,0 288,0"/>
   </object>
-  <object id="267" name="boss" type="LordArmored" gid="1386" x="144" y="-16" width="32" height="32">
+ </objectgroup>
+ <objectgroup id="22" name="boss">
+  <object id="267" name="boss" type="LordArmored" gid="1433" x="144" y="-16" width="32" height="32">
    <properties>
     <property name="pathid" value="boss_path"/>
     <property name="rideid" type="int" value="269"/>
    </properties>
   </object>
-  <object id="269" name="armor_body" type="LordArmorBodyAttack" gid="1416" x="144" y="-10" width="32" height="32">
+  <object id="269" name="armor_body" type="LordArmorBodyEnter" gid="1463" x="144" y="-10" width="32" height="32"/>
+  <object id="482" type="Trigger" x="0" y="-16" width="336" height="16">
    <properties>
-    <property name="pathid" value="boss_armor_path"/>
+    <property name="activateobjectslayer" value="roofobjects"/>
+    <property name="cleartowin" type="bool" value="true"/>
+    <property name="dialogue" type="bool" value="true"/>
+    <property name="timelinespeed" type="float" value="16"/>
    </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="208" name="bosstalk1">
+  <object id="483" type="Trigger" x="328" y="0" width="8" height="8">
+   <properties>
+    <property name="dialogue" type="bool" value="true"/>
+    <property name="timelinespeed" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="485" name="bubble" type="Polygon" x="64" y="88">
+   <polygon points="0,-8 -16,8 -16,88 0,104 96,104 104,104 112,104 160,104 176,88 176,8 160,-8 64,-8 72,-32 48,-8"/>
+  </object>
+  <object id="486" name="text" x="56" y="96" width="176" height="88">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">Guess I'll be needing a new hunting party...
+But that bounty on your head will buy a hunting army.</text>
+  </object>
+ </objectgroup>
+ <objectgroup id="212" name="Copy of bosstalk1">
+  <object id="494" type="Trigger" x="328" y="8" width="8" height="8">
+   <properties>
+    <property name="dialogue" type="bool" value="true"/>
+    <property name="timelinespeed" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="495" name="bubble" type="Polygon" x="64" y="88">
+   <polygon points="0,-8 -16,8 -16,88 0,104 96,104 88,136 112,104 160,104 176,88 176,8 160,-8 64,-8 56,-8 48,-8"/>
+  </object>
+  <object id="496" name="text" x="56" y="96" width="176" height="88">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">Why does some stupid money make you want to hurt us?
+I don't understand it!</text>
+  </object>
+ </objectgroup>
+ <objectgroup id="214" name="Copy of Copy of bosstalk1">
+  <object id="500" type="Trigger" x="328" y="16" width="8" height="8">
+   <properties>
+    <property name="dialogue" type="bool" value="true"/>
+    <property name="timelinespeed" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="501" name="bubble" type="Polygon" x="64" y="88">
+   <polygon points="0,-8 -16,8 -16,88 0,104 96,104 88,136 112,104 160,104 176,88 176,8 160,-8 64,-8 56,-8 48,-8"/>
+  </object>
+  <object id="502" name="text" x="56" y="96" width="176" height="88">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">We could have been friends.
+We had so many nice things we could have shared with you!</text>
+  </object>
+ </objectgroup>
+ <objectgroup id="211" name="Copy of bosstalk1">
+  <object id="491" type="Trigger" x="328" y="24" width="8" height="8">
+   <properties>
+    <property name="dialogue" type="bool" value="true"/>
+    <property name="timelinespeed" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="492" name="bubble" type="Polygon" x="64" y="88">
+   <polygon points="0,-8 -16,8 -16,88 0,104 96,104 104,104 112,104 160,104 176,88 176,8 160,-8 64,-8 72,-32 48,-8"/>
+  </object>
+  <object id="493" name="text" x="56" y="96" width="176" height="88">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">Charity from a monster?
+
+God forbid a man sink so low!</text>
+  </object>
+ </objectgroup>
+ <objectgroup id="210" name="Copy of bosstalk1">
+  <object id="488" type="Trigger" x="328" y="32" width="8" height="8">
+   <properties>
+    <property name="dialogue" type="bool" value="true"/>
+    <property name="timelinespeed" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="489" name="bubble" type="Polygon" x="64" y="88">
+   <polygon points="0,-8 -16,8 -16,88 0,104 96,104 104,104 112,104 160,104 176,88 176,8 160,-8 64,-8 72,-32 48,-8"/>
+  </object>
+  <object id="490" name="text" x="56" y="96" width="176" height="88">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">It's His will that we fight for what's ours!
+The only nice thing I need is your corpse for that bounty!</text>
   </object>
  </objectgroup>
  <objectgroup id="23" name="boss_path">
@@ -383,17 +472,33 @@
    <polyline points="0,0 -24,8 0,16 24,8 0,0"/>
   </object>
  </objectgroup>
- <objectgroup id="25" name="bosshouse_doors">
-  <object id="261" name="door" gid="1136" x="136" y="144" width="16" height="32"/>
-  <object id="262" name="door" gid="2147484784" x="152" y="144" width="16" height="32"/>
-  <object id="263" name="storehouse_doors" type="Trigger" x="128" y="128" width="32" height="32">
-   <properties>
-    <property name="activateobjectslayer" value="ground"/>
-   </properties>
+ <objectgroup id="209" name="bossenter">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="484" x="144" y="-8">
+   <polyline points="0,16 0,48"/>
   </object>
  </objectgroup>
  <objectgroup id="26" name="preboss">
-  <object id="264" name="preboss" type="Trigger" x="0" y="208">
+  <object id="264" name="bossmusic" type="Trigger" x="0" y="48">
+   <properties>
+    <property name="activateobjects" type="bool" value="false"/>
+    <property name="musicfile" type="file" value="mus/Big_Armor.vgm"/>
+   </properties>
+   <polyline points="0,0 288,0"/>
+  </object>
+  <object id="302" name="tree" gid="1475" x="288" y="176" width="64" height="64"/>
+  <object id="301" name="tree" gid="1475" x="288" y="16" width="64" height="64"/>
+  <object id="300" name="tree" gid="1472" x="280" y="144" width="48" height="80"/>
+  <object id="299" name="tree" gid="1475" x="288" y="96" width="64" height="64"/>
+  <object id="298" name="tree" gid="1472" x="280" y="64" width="48" height="80"/>
+  <object id="297" name="tree" gid="1475" x="0" y="176" width="64" height="64"/>
+  <object id="296" name="tree" gid="1472" x="8" y="144" width="48" height="80"/>
+  <object id="295" name="tree" gid="1475" x="0" y="16" width="64" height="64"/>
+  <object id="294" name="tree" gid="1475" x="0" y="96" width="64" height="64"/>
+  <object id="293" name="tree" gid="1472" x="8" y="64" width="48" height="80"/>
+  <object id="481" name="warning" type="Trigger" x="0" y="240">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
     <property name="musicfade" type="bool" value="true"/>
@@ -401,102 +506,319 @@
    </properties>
    <polyline points="0,0 288,0"/>
   </object>
-  <object id="302" name="tree" gid="1428" x="288" y="176" width="64" height="64"/>
-  <object id="301" name="tree" gid="1428" x="288" y="16" width="64" height="64"/>
-  <object id="300" name="tree" gid="1425" x="280" y="144" width="48" height="80"/>
-  <object id="299" name="tree" gid="1428" x="288" y="96" width="64" height="64"/>
-  <object id="298" name="tree" gid="1425" x="280" y="64" width="48" height="80"/>
-  <object id="297" name="tree" gid="1428" x="0" y="176" width="64" height="64"/>
-  <object id="296" name="tree" gid="1425" x="8" y="144" width="48" height="80"/>
-  <object id="295" name="tree" gid="1428" x="0" y="16" width="64" height="64"/>
-  <object id="294" name="tree" gid="1428" x="0" y="96" width="64" height="64"/>
-  <object id="293" name="tree" gid="1425" x="8" y="64" width="48" height="80"/>
  </objectgroup>
- <objectgroup id="27" name="swordsmen4">
-  <object id="256" name="swordsman" type="Swordsman" gid="1239" x="216" y="240" width="32" height="32"/>
-  <object id="118" name="swordsman" type="Swordsman" gid="1239" x="72" y="240" width="32" height="32"/>
-  <object id="257" name="swordsmen4" type="Trigger" x="112" y="152" width="64" height="104">
+ <objectgroup id="188" name="swordsmenbounds">
+  <object id="469" type="EnemyBounds" x="-8" y="592">
+   <polygon points="0,8 56,8 72,-64 72,-128 56,-160 56,-200 88,-224 88,-304 0,-304"/>
+  </object>
+  <object id="470" type="EnemyBounds" x="296" y="280">
+   <polygon points="0,8 -88,8 -88,88 -72,120 -72,168 -88,200 -88,248 -56,264 -56,320 0,320"/>
+  </object>
+  <object id="320" name="bounds" type="EnemyBounds" x="160" y="496">
+   <polygon points="160,160 96,160 96,240 80,288 80,328 160,336"/>
+  </object>
+  <object id="439" name="bounds" type="EnemyBounds" x="160" y="496">
+   <polygon points="136,400 80,416 80,592 136,592"/>
+  </object>
+  <object id="316" name="bounds" type="EnemyBounds" x="160" y="496">
+   <polygon points="-168,608 -112,608 -112,416 -168,400"/>
+  </object>
+  <object id="438" name="bounds" type="EnemyBounds" x="160" y="496">
+   <polygon points="-184,352 -112,344 -112,272 -128,208 -128,160 -184,160"/>
+  </object>
+  <object id="473" type="EnemyBounds" x="112" y="632">
+   <polygon points="0,-16 0,24 16,32 48,32 64,24 64,-16 48,-24 16,-24"/>
+  </object>
+  <object id="319" name="bounds" type="EnemyBounds" x="160" y="96">
+   <polyline points="-184,104 -128,96 -80,96 -32,80 -32,32 0,32 0,80 48,96 96,96 152,112"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="187" name="archers4">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="456" x="80" y="520">
+   <polyline points="0,0 -104,0"/>
+  </object>
+  <object id="457" x="312" y="520">
+   <polyline points="0,0 -120,0"/>
+  </object>
+  <object id="458" x="-24" y="440">
+   <polyline points="0,0 112,0"/>
+  </object>
+  <object id="459" x="312" y="440">
+   <polyline points="0,0 -88,0 -112,-24"/>
+  </object>
+  <object id="460" x="-16" y="360">
+   <polyline points="0,0 88,0"/>
+  </object>
+  <object id="461" x="312" y="360">
+   <polyline points="0,0 -112,0"/>
+  </object>
+  <object id="462" gid="1044" x="48" y="520" width="32" height="32">
+   <properties>
+    <property name="pathspeedfunction" value="ncos"/>
+   </properties>
+  </object>
+  <object id="463" gid="1044" x="312" y="520" width="32" height="32">
+   <properties>
+    <property name="pathspeedfunction" value="ncos"/>
+   </properties>
+  </object>
+  <object id="464" gid="1044" x="224" y="440" width="32" height="32">
+   <properties>
+    <property name="pathspeedfunction" value="ncos"/>
+   </properties>
+  </object>
+  <object id="465" gid="1044" x="8" y="440" width="32" height="32">
+   <properties>
+    <property name="pathspeedfunction" value="ncos"/>
+   </properties>
+  </object>
+  <object id="466" gid="1044" x="24" y="360" width="32" height="32">
+   <properties>
+    <property name="pathspeedfunction" value="ncos"/>
+   </properties>
+  </object>
+  <object id="467" gid="1044" x="280" y="360" width="32" height="32">
+   <properties>
+    <property name="pathspeedfunction" value="ncos"/>
+   </properties>
+  </object>
+  <object id="468" type="Trigger" x="128" y="336" width="32" height="256">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="258" name="swordswoman" type="Swordsman" gid="1263" x="144" y="208" width="32" height="32">
+ </objectgroup>
+ <objectgroup id="27" name="pikemen1">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="257" name="phalanx" type="Trigger" x="112" y="800" width="64" height="8">
    <properties>
-    <property name="defeatitem" value="ItemWingman"/>
+    <property name="activateobjectslayer" value="ground"/>
+   </properties>
+  </object>
+  <object id="416" gid="1528" x="0" y="864" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="417" gid="1528" x="-24" y="864" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="418" gid="1528" x="-48" y="864" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="419" gid="1528" x="-72" y="864" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="420" gid="1528" x="-96" y="864" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="421" gid="1528" x="456" y="832" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="422" gid="1528" x="432" y="832" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="423" gid="1528" x="408" y="832" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="424" gid="1528" x="384" y="832" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="425" gid="1528" x="360" y="832" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="426" x="-8" y="864">
+   <polyline points="8,0 144,24 328,336"/>
+  </object>
+  <object id="427" x="288" y="848">
+   <polyline points="72,-16 -136,24 -320,368"/>
+  </object>
+  <object id="428" gid="1528" x="-8" y="848" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="429" gid="1528" x="-32" y="848" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="430" gid="1552" x="-56" y="848" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="431" gid="1528" x="-80" y="848" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="432" gid="1528" x="-104" y="848" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="433" gid="1528" x="464" y="816" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="434" gid="1528" x="440" y="816" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="435" gid="1552" x="416" y="816" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="436" gid="1528" x="392" y="816" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="437" gid="1528" x="368" y="816" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="207" name="wellprisoner">
+  <object id="475" type="FriendPrisoner" gid="1570" x="136" y="632" width="32" height="32">
+   <properties>
+    <property name="rideshield" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="477" type="Trigger" x="104" y="648" width="80" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="ground"/>
+    <property name="savefriendsbonus" type="int" value="20000"/>
+   </properties>
+  </object>
+  <object id="478" name="destroywell" type="Trigger" x="-16" y="632" width="8" height="8">
+   <properties>
+    <property name="explodetilelayers">well
+wellfront</property>
+   </properties>
+  </object>
+  <object id="479" type="BombTrigger" x="120" y="616" width="48" height="32">
+   <properties>
+    <property name="defeattriggerid" type="int" value="478"/>
+   </properties>
+  </object>
+  <object id="480" type="FriendPrisoner" gid="1570" x="152" y="632" width="32" height="32">
+   <properties>
+    <property name="rideshield" type="bool" value="true"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="28" name="swordsmen3">
-  <object id="251" name="swordsman" type="Swordsman" gid="1239" x="200" y="336" width="32" height="32"/>
-  <object id="252" name="swordsman" type="Swordsman" gid="1239" x="232" y="336" width="32" height="32"/>
-  <object id="253" name="swordsmen3" type="Trigger" x="160" y="232" width="72" height="120">
+  <object id="251" name="swordsman" gid="1289" x="224" y="696" width="32" height="32"/>
+  <object id="252" name="swordsman" gid="1289" x="208" y="776" width="32" height="32"/>
+  <object id="253" name="swordsmen3" type="Trigger" x="160" y="688" width="72" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="29" name="swordsmen2">
-  <object id="104" name="swordsman" type="Swordsman" gid="1239" x="88" y="400" width="32" height="32"/>
-  <object id="250" name="swordsmen2" type="Trigger" x="56" y="232" width="72" height="184">
+  <object id="104" name="swordsman" gid="1289" x="80" y="792" width="32" height="32"/>
+  <object id="250" name="swordsmen2" type="Trigger" x="56" y="752" width="72" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="255" name="swordsman" type="Swordsman" gid="1239" x="56" y="400" width="32" height="32"/>
+  <object id="255" name="swordsman" gid="1289" x="64" y="696" width="32" height="32"/>
  </objectgroup>
- <objectgroup id="30" name="swordsmenheavy1">
+ <objectgroup id="30" name="heavy7">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="105" name="heavy" type="HeavyMilitia" gid="1084" x="120" y="504" width="32" height="32">
+  <object id="105" name="heavy" gid="1116" x="120" y="904" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="115" name="swordsman" type="Swordsman" gid="1239" x="152" y="504" width="32" height="32"/>
-  <object id="117" name="swordsman" type="Swordsman" gid="1239" x="136" y="504" width="32" height="32"/>
-  <object id="143" name="swordsmenheavy1" type="Trigger" x="128" y="152" width="32" height="368">
+  <object id="143" name="swordsmenheavy1" type="Trigger" x="136" y="656" width="16" height="264">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="127" name="heavypath" x="136" y="504">
-   <polyline points="8,0 8,64 8,-56 40,-120 -24,-248 8,-312"/>
+  <object id="127" name="heavypath" x="136" y="904">
+   <polyline points="8,0 8,48 8,-56 24,-88 -8,-152 8,-184 8,112"/>
   </object>
-  <object id="254" name="heavy" type="HeavyMilitia" gid="1084" x="168" y="504" width="32" height="32">
+  <object id="254" name="heavy" gid="1116" x="168" y="904" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="266" name="bounds" type="EnemyBounds" x="160" y="96">
-   <polyline points="0,32 0,80 96,80 152,112"/>
+ </objectgroup>
+ <objectgroup id="228" name="heavy8">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="558" name="heavy" gid="1116" x="0" y="608" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
   </object>
-  <object id="320" name="bounds" type="EnemyBounds" x="160" y="96">
-   <polyline points="160,160 96,160 96,240 80,288 80,336 96,368 96,400 80,432 80,496 96,576 184,688"/>
+  <object id="559" name="swordsmenheavy1" type="Trigger" x="136" y="288" width="16" height="264">
+   <properties>
+    <property name="activateobjectslayer" value="ground"/>
+   </properties>
   </object>
-  <object id="316" name="bounds" type="EnemyBounds" x="160" y="96">
-   <polyline points="-184,688 -128,592 -128,528 -112,496 -112,416 -128,384 -112,352 -112,272 -128,208 -128,160 -184,160"/>
+  <object id="561" name="heavy" gid="1116" x="288" y="608" width="32" height="32">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
   </object>
-  <object id="319" name="bounds" type="EnemyBounds" x="160" y="96">
-   <polyline points="-184,104 -128,80 -32,80 -32,32 0,32"/>
+  <object id="562" x="120" y="536">
+   <polyline points="-120,80 -56,80 -8,-8 -16,-136 -8,-240 -40,-280 -168,-288"/>
+  </object>
+  <object id="563" x="168" y="536">
+   <polyline points="120,80 56,80 8,-8 16,-136 8,-240 40,-280 160,-280"/>
   </object>
  </objectgroup>
- <layer id="31" name="storehouse2ndfloor" width="18" height="245">
+ <layer id="175" name="storehouse2ndfloor" width="18" height="270">
   <data encoding="base64" compression="zlib">
-   eJztzMEJwCAQBMDDdG4V2k4qS0QEf+rLzwwsB8uxEQAAAJx6U0R++p3TtH5H+f/qImVja7UxAgAAAAAAAAAAAAAAAAA3fWlqEQ0=
+   eJztzLEJgEAMBdCg+y/hBndi4TpOch5aBKt0Nu/BJ/BJEgEAAAAAUHctEdv6zJxp9hXt3usp55vc7YVf/XNzpOQeAAAAAAAAAAAAAAAAAP40ACjwE/o=
   </data>
  </layer>
  <objectgroup id="32" name="storehouse2ndpaths">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="197" x="-24" y="768" visible="0">
+  <object id="197" x="-24" y="1168" visible="0">
    <properties>
     <property name="cost" type="float" value="3"/>
    </properties>
    <polyline points="0,0 -24,0"/>
   </object>
-  <object id="198" x="336" y="776" visible="0">
+  <object id="198" x="336" y="1176" visible="0">
    <properties>
     <property name="cost" type="float" value="3"/>
    </properties>
@@ -504,28 +826,28 @@
   </object>
  </objectgroup>
  <objectgroup id="33" name="storehouse2ndobjects">
-  <object id="192" name="civilian" gid="1164" x="112" y="768" width="24" height="32">
+  <object id="192" name="civilian" gid="1196" x="112" y="1168" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="136"/>
    </properties>
   </object>
-  <object id="193" name="civilian" gid="1227" x="176" y="768" width="24" height="32">
+  <object id="193" name="civilian" gid="1274" x="176" y="1168" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="136"/>
    </properties>
   </object>
-  <object id="206" name="storehouse2ndobjects" type="Trigger" x="72" y="752" width="144" height="32"/>
-  <object id="236" name="civilian" gid="1203" x="96" y="768" width="24" height="32">
+  <object id="206" name="storehouse2ndobjects" type="Trigger" x="72" y="1152" width="144" height="32"/>
+  <object id="236" name="civilian" gid="1250" x="96" y="1168" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="136"/>
    </properties>
   </object>
-  <object id="237" name="civilian" gid="1215" x="192" y="768" width="24" height="32">
+  <object id="237" name="civilian" gid="1262" x="192" y="1168" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="136"/>
    </properties>
   </object>
-  <object id="136" name="bombtrigger" type="BombTrigger" x="80" y="784" width="128" height="8">
+  <object id="136" name="bombtrigger" type="BombTrigger" x="80" y="1184" width="128" height="8">
    <properties>
     <property name="defeattriggerid" type="int" value="259"/>
     <property name="iscover" type="bool" value="true"/>
@@ -533,160 +855,160 @@
    </properties>
   </object>
  </objectgroup>
- <layer id="34" name="storehouse2nddestroyed" width="18" height="245" visible="0">
+ <layer id="176" name="storehouse2nddestroyed" width="18" height="270">
   <data encoding="base64" compression="zlib">
-   eJztyrEJACAQBEHhO7MjsQMr10ARTDQzmYELDjYlAAAAfihxb+pDk0fTZtdibzk/AAAAAAAAAAAAAAAAAPzQARVgBE4=
+   eJztykEKABAARFHlpm4kN3BSFqRsWLF5r2Yx9UMAAAAAAHgrx3NTLprUmzq6Gtem/QMAAAAAAAAAAAAAAADADw0QigVu
   </data>
  </layer>
- <layer id="35" name="storehouse2ndfront" width="18" height="245">
+ <layer id="177" name="storehouse2ndfront" width="18" height="270">
   <data encoding="base64" compression="zlib">
-   eJztzsEJgEAMBMBgOrMftZLT3qxIxfPvoSDCDOxzN4kAAAD4l7U788bGk62jN2TEWDNl+9Z1v+zduWbJtr/6vBcAAAAAAAAAAAAAAAAA+NIGBkEQqw==
+   eJztzsEJgEAMBMBgOrUftZLT3qxAxfPvoSDCDOxzN4kAAAAAAP5i7c68sfFk6+gNGTHWTNm+dd0ve3euWbLtrz7vBQAAAAAAAAAAAAAAAAC+tAG56hRr
   </data>
  </layer>
- <layer id="36" name="storehouseroof" width="18" height="245">
+ <layer id="178" name="storehouseroof" width="18" height="270">
   <data encoding="base64" compression="zlib">
-   eJzt0cEJgDAQRcEl7YgNKFqAov2XYy5CEInEXGfg35Z32QgAAIC6IUWMqb8x5y0drbux5x0/W2Xj1tp6a7S2pkrj2VorN9tHo2ydnT8EAAAAAAAAAAAAAAAAgB4X+48IXQ==
+   eJzt0TEKgDAQRcGQ64kXUPQAit6/NE0giEZi2hn43fKaDQEAAAAAeDPEEMbY35jTlo5Wbuxpx89W2chaW0+N1tZUadxba+Vm+2iUrbPzhwAAAAAAAAAAAAAAAADQ4wIECQyd
   </data>
  </layer>
  <objectgroup id="37" name="storehouse2nddestruction" visible="0">
-  <object id="326" name="giantexplosion" type="Spark" gid="1459" x="144" y="776" width="256" height="256"/>
-  <object id="168" name="walldebris" type="Debris" gid="834" x="88" y="784" width="16" height="16">
+  <object id="326" name="giantexplosion" type="Spark" gid="1506" x="144" y="1176" width="256" height="256"/>
+  <object id="168" name="walldebris" type="Debris" gid="866" x="88" y="1184" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="-180"/>
    </properties>
   </object>
-  <object id="169" name="walldebris" type="Debris" gid="834" x="104" y="768" width="16" height="16">
+  <object id="169" name="walldebris" type="Debris" gid="866" x="104" y="1168" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="-120"/>
     <property name="vely" type="float" value="-160"/>
    </properties>
   </object>
-  <object id="170" name="walldebris" type="Debris" gid="834" x="136" y="768" width="16" height="16">
+  <object id="170" name="walldebris" type="Debris" gid="866" x="136" y="1168" width="16" height="16">
    <properties>
     <property name="vely" type="float" value="-160"/>
    </properties>
   </object>
-  <object id="171" name="walldebris" type="Debris" gid="887" x="120" y="784" width="16" height="16">
+  <object id="171" name="walldebris" type="Debris" gid="919" x="120" y="1184" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="-60"/>
    </properties>
   </object>
-  <object id="172" name="walldebris" type="Debris" gid="834" x="168" y="768" width="16" height="16">
+  <object id="172" name="walldebris" type="Debris" gid="866" x="168" y="1168" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="120"/>
     <property name="vely" type="float" value="-160"/>
    </properties>
   </object>
-  <object id="173" name="walldebris" type="Debris" gid="889" x="152" y="784" width="16" height="16">
+  <object id="173" name="walldebris" type="Debris" gid="921" x="152" y="1184" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="60"/>
    </properties>
   </object>
-  <object id="174" name="walldebris" type="Debris" gid="722" x="120" y="752" width="16" height="16">
+  <object id="174" name="walldebris" type="Debris" gid="754" x="120" y="1152" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="-60"/>
     <property name="vely" type="float" value="-200"/>
    </properties>
   </object>
-  <object id="175" name="walldebris" type="Debris" gid="834" x="184" y="784" width="16" height="16">
+  <object id="175" name="walldebris" type="Debris" gid="866" x="184" y="1184" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="180"/>
    </properties>
   </object>
-  <object id="176" name="walldebris" type="Debris" gid="722" x="152" y="752" width="16" height="16">
+  <object id="176" name="walldebris" type="Debris" gid="754" x="152" y="1152" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="60"/>
     <property name="vely" type="float" value="-200"/>
    </properties>
   </object>
-  <object id="177" name="roofdebris" type="Debris" gid="555" x="104" y="736" width="16" height="16">
+  <object id="177" name="roofdebris" type="Debris" gid="587" x="104" y="1136" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="-120"/>
     <property name="vely" type="float" value="-240"/>
    </properties>
   </object>
-  <object id="178" name="roofdebris" type="Debris" gid="555" x="88" y="752" width="16" height="16">
+  <object id="178" name="roofdebris" type="Debris" gid="587" x="88" y="1152" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="-180"/>
     <property name="vely" type="float" value="-200"/>
    </properties>
   </object>
-  <object id="179" name="roofdebris" type="Debris" gid="555" x="72" y="768" width="16" height="16">
+  <object id="179" name="roofdebris" type="Debris" gid="587" x="72" y="1168" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="-240"/>
     <property name="vely" type="float" value="-160"/>
    </properties>
   </object>
-  <object id="180" name="roofdebris" type="Debris" gid="587" x="88" y="768" width="16" height="16">
+  <object id="180" name="roofdebris" type="Debris" gid="619" x="88" y="1168" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="-180"/>
     <property name="vely" type="float" value="-160"/>
    </properties>
   </object>
-  <object id="181" name="roofdebris" type="Debris" gid="587" x="104" y="752" width="16" height="16">
+  <object id="181" name="roofdebris" type="Debris" gid="619" x="104" y="1152" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="-120"/>
     <property name="vely" type="float" value="-200"/>
    </properties>
   </object>
-  <object id="182" name="windowdebris" type="Debris" gid="871" x="120" y="768" width="16" height="16">
+  <object id="182" name="windowdebris" type="Debris" gid="903" x="120" y="1168" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="-60"/>
     <property name="vely" type="float" value="-160"/>
    </properties>
   </object>
-  <object id="183" name="windowdebris" type="Debris" gid="873" x="152" y="768" width="16" height="16">
+  <object id="183" name="windowdebris" type="Debris" gid="905" x="152" y="1168" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="60"/>
     <property name="vely" type="float" value="-160"/>
    </properties>
   </object>
-  <object id="184" name="roofdebris" type="Debris" gid="587" x="72" y="784" width="16" height="16">
+  <object id="184" name="roofdebris" type="Debris" gid="619" x="72" y="1184" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="-240"/>
    </properties>
   </object>
-  <object id="185" name="roofdebris" type="Debris" gid="557" x="168" y="736" width="16" height="16">
+  <object id="185" name="roofdebris" type="Debris" gid="589" x="168" y="1136" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="120"/>
     <property name="vely" type="float" value="-240"/>
    </properties>
   </object>
-  <object id="186" name="roofdebris" type="Debris" gid="589" x="168" y="752" width="16" height="16">
+  <object id="186" name="roofdebris" type="Debris" gid="621" x="168" y="1152" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="120"/>
     <property name="vely" type="float" value="-200"/>
    </properties>
   </object>
-  <object id="187" name="roofdebris" type="Debris" gid="589" x="184" y="768" width="16" height="16">
+  <object id="187" name="roofdebris" type="Debris" gid="621" x="184" y="1168" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="180"/>
     <property name="vely" type="float" value="-160"/>
    </properties>
   </object>
-  <object id="188" name="roofdebris" type="Debris" gid="557" x="184" y="752" width="16" height="16">
+  <object id="188" name="roofdebris" type="Debris" gid="589" x="184" y="1152" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="180"/>
     <property name="vely" type="float" value="-200"/>
    </properties>
   </object>
-  <object id="189" name="roofdebris" type="Debris" gid="589" x="200" y="784" width="16" height="16">
+  <object id="189" name="roofdebris" type="Debris" gid="621" x="200" y="1184" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="240"/>
    </properties>
   </object>
-  <object id="190" name="roofdebris" type="Debris" gid="557" x="200" y="768" width="16" height="16">
+  <object id="190" name="roofdebris" type="Debris" gid="589" x="200" y="1168" width="16" height="16">
    <properties>
     <property name="velx" type="float" value="240"/>
     <property name="vely" type="float" value="-160"/>
    </properties>
   </object>
-  <object id="191" name="roofdebris" type="Debris" gid="572" x="136" y="736" width="16" height="16">
+  <object id="191" name="roofdebris" type="Debris" gid="604" x="136" y="1136" width="16" height="16">
    <properties>
     <property name="vely" type="float" value="-240"/>
    </properties>
   </object>
-  <object id="259" name="storehouse2nddestruction" type="Trigger" x="-24" y="752" width="16" height="32">
+  <object id="259" name="storehouse2nddestruction" type="Trigger" x="-24" y="1152" width="16" height="32">
    <properties>
     <property name="activateobjectslayer" value="sparks"/>
     <property name="hidelayers">storehouse2ndfront
@@ -695,456 +1017,442 @@ storehouseroof</property>
    </properties>
   </object>
  </objectgroup>
- <layer id="38" name="model houses" width="18" height="245" visible="0">
-  <data encoding="base64" compression="zlib">
-   eJzt0jEKwkAQBdAhOVn0kB4hBA8g4oFEcoAgNm4TGHCzbGfzHvxm+N38CAAAAODIc4hYU17Db2cut2vKUuls5fZJeVc6t3J7pNwrnWmMOKWcx+POpdGhX+u/PfvYtf7bs49dawM9+wAAAAAAAAAAAAAAAIB/+QI51ibS
-  </data>
- </layer>
- <layer id="39" name="model rooftops" width="18" height="245" visible="0">
-  <data encoding="base64" compression="zlib">
-   eJzt0M9NAkEYQPHZuaBnCBQgkQIQKEDQEtAKhArEejRaAAQKELAA/5WgViDeeMfNCpvsnkx8v+Qlk/m+zGFCkCRJkiT9V7dJCHf0QZ/0Rff0kBTbmXKe0Tdt6IfmtCi5U4khHNBhLLfzyHlJq1Rreiq488z5hV5TvdF7wZ2/rMr/1WhIF3RJdWrE/FnWEXdNuqIRjemYWjF/tu+da5rQzY53ds2y2tydUCdVl3oxf5Z1yl2fBqnO6DzmzyRJkiRJkiRJkiRJkiRJkiRJkiT9tgUl6kQh
-  </data>
- </layer>
- <objectgroup id="40" name="storehouse_doors" visible="0">
-  <object id="128" name="door" gid="1137" x="88" y="848" width="16" height="32"/>
-  <object id="129" name="door" gid="2147484785" x="104" y="848" width="16" height="32"/>
-  <object id="130" name="storehouse_doors" type="Trigger" x="72" y="832" width="144" height="32">
+ <objectgroup id="40" name="storehouse_doors">
+  <object id="128" name="door" gid="1169" x="88" y="1248" width="16" height="32"/>
+  <object id="129" name="door" gid="2147484817" x="104" y="1248" width="16" height="32"/>
+  <object id="130" name="storehouse_doors" type="Trigger" x="72" y="1232" width="144" height="32">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="132" name="door" gid="2147484785" x="200" y="848" width="16" height="32"/>
-  <object id="133" name="door" gid="1137" x="184" y="848" width="16" height="32"/>
-  <object id="134" name="door" gid="1137" x="136" y="848" width="16" height="32"/>
-  <object id="135" name="door" gid="2147484785" x="152" y="848" width="16" height="32"/>
+  <object id="132" name="door" gid="2147484817" x="200" y="1248" width="16" height="32"/>
+  <object id="133" name="door" gid="1169" x="184" y="1248" width="16" height="32"/>
+  <object id="134" name="door" gid="1169" x="136" y="1248" width="16" height="32"/>
+  <object id="135" name="door" gid="2147484817" x="152" y="1248" width="16" height="32"/>
  </objectgroup>
  <objectgroup id="41" name="postmidboss">
-  <object id="325" type="Trigger" x="296" y="736" width="8" height="8">
+  <object id="325" type="Trigger" x="296" y="1136" width="8" height="8">
    <properties>
     <property name="cameraspeed" value="60"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup draworder="index" id="42" name="midboss_backup">
-  <object id="246" name="midboss_backup" type="Trigger" x="-24" y="800" width="16" height="32">
+  <object id="246" name="midboss_backup" type="Trigger" x="-24" y="1200" width="16" height="32">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="108" name="archer" type="Archer" gid="1012" x="96" y="848" width="32" height="32">
+  <object id="108" name="archer" gid="1044" x="96" y="1248" width="32" height="32">
    <properties>
     <property name="pathid" value="midboss"/>
    </properties>
   </object>
-  <object id="107" name="archer" type="Archer" gid="1012" x="192" y="848" width="32" height="32">
+  <object id="107" name="archer" gid="1044" x="192" y="1248" width="32" height="32">
    <properties>
     <property name="pathid" value="midboss"/>
    </properties>
   </object>
-  <object id="116" name="archer" type="Archer" gid="1012" x="144" y="848" width="32" height="32">
+  <object id="116" name="archer" gid="1044" x="144" y="1248" width="32" height="32">
    <properties>
     <property name="pathid" value="midboss"/>
    </properties>
   </object>
-  <object id="247" name="archer" type="Archer" gid="1012" x="144" y="848" width="32" height="32">
+  <object id="247" name="archer" gid="1044" x="144" y="1248" width="32" height="32">
    <properties>
     <property name="pathid" value="midboss"/>
    </properties>
   </object>
-  <object id="248" name="archer" type="Archer" gid="1012" x="192" y="848" width="32" height="32">
+  <object id="248" name="archer" gid="1044" x="192" y="1248" width="32" height="32">
    <properties>
     <property name="pathid" value="midboss"/>
    </properties>
   </object>
-  <object id="249" name="archer" type="Archer" gid="1012" x="96" y="848" width="32" height="32">
+  <object id="249" name="archer" gid="1044" x="96" y="1248" width="32" height="32">
+   <properties>
+    <property name="pathid" value="midboss"/>
+   </properties>
+  </object>
+  <object id="449" name="archer" gid="1044" x="96" y="1248" width="32" height="32">
+   <properties>
+    <property name="pathid" value="midboss"/>
+   </properties>
+  </object>
+  <object id="450" name="archer" gid="1044" x="192" y="1248" width="32" height="32">
+   <properties>
+    <property name="pathid" value="midboss"/>
+   </properties>
+  </object>
+  <object id="451" name="archer" gid="1044" x="144" y="1248" width="32" height="32">
+   <properties>
+    <property name="pathid" value="midboss"/>
+   </properties>
+  </object>
+  <object id="452" name="archer" gid="1044" x="144" y="1248" width="32" height="32">
+   <properties>
+    <property name="pathid" value="midboss"/>
+   </properties>
+  </object>
+  <object id="453" name="archer" gid="1044" x="192" y="1248" width="32" height="32">
+   <properties>
+    <property name="pathid" value="midboss"/>
+   </properties>
+  </object>
+  <object id="454" name="archer" gid="1044" x="96" y="1248" width="32" height="32">
    <properties>
     <property name="pathid" value="midboss"/>
    </properties>
   </object>
  </objectgroup>
+ <objectgroup id="126" name="midbossgroundpath">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="444" x="48" y="1336">
+   <polygon points="8,0 40,-64 96,-64 152,-64 184,0 96,0"/>
+  </object>
+  <object id="446" x="88" y="1272">
+   <polyline points="0,0 -72,0"/>
+  </object>
+  <object id="447" x="200" y="1272">
+   <polyline points="0,0 72,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="125" name="midbossdescentpath">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="442" x="136" y="1168">
+   <polyline points="8,80 8,0 -40,80"/>
+  </object>
+  <object id="443" x="136" y="1168">
+   <polyline points="8,0 56,80"/>
+  </object>
+  <object id="448" name="descentcover" type="EnemyCover" x="80" y="1200" width="128" height="32"/>
+ </objectgroup>
  <objectgroup id="43" name="midboss">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="194" name="heavy" type="HeavyMilitia" gid="1084" x="64" y="936" width="32" height="32">
-   <properties>
-    <property name="pathfinder" value="random"/>
-   </properties>
-  </object>
-  <object id="195" name="heavy" type="HeavyMilitia" gid="1084" x="224" y="936" width="32" height="32">
-   <properties>
-    <property name="pathfinder" value="random"/>
-   </properties>
-  </object>
-  <object id="202" name="midboss" type="MilitiaCaptainNormalAttack1" gid="1179" x="96" y="784" width="32" height="32">
+  <object id="202" name="midboss" type="MilitiaCaptainNormalAttack1" gid="1211" x="96" y="1184" width="32" height="32">
    <properties>
     <property name="backuptriggerid" type="int" value="246"/>
-    <property name="defeatitemlaunch" type="bool" value="true"/>
     <property name="initiallayer" value="storehouse2ndobjects"/>
    </properties>
   </object>
-  <object id="98" name="archer" type="Archer" gid="1012" x="272" y="872" width="32" height="32">
+  <object id="98" name="archer" gid="1044" x="272" y="1272" width="32" height="32">
    <properties>
     <property name="pathfinder" value="random"/>
    </properties>
   </object>
-  <object id="113" name="archer" type="Archer" gid="1012" x="16" y="872" width="32" height="32">
+  <object id="113" name="archer" gid="1044" x="16" y="1272" width="32" height="32">
    <properties>
     <property name="pathfinder" value="random"/>
    </properties>
   </object>
-  <object id="114" name="archer" type="Archer" gid="1012" x="144" y="880" width="32" height="32">
+  <object id="114" name="archer" gid="1044" x="144" y="1280" width="32" height="32">
    <properties>
     <property name="pathfinder" value="random"/>
    </properties>
   </object>
-  <object id="327" type="Trigger" x="0" y="728" width="288" height="8">
+  <object id="327" type="Trigger" x="0" y="1128" width="288" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
     <property name="cameraspeed" value="0"/>
     <property name="cleartriggerid" type="int" value="325"/>
    </properties>
   </object>
-  <object id="205" x="240" y="880">
+  <object id="205" x="240" y="1280">
    <polyline points="-64,0 -96,0"/>
   </object>
-  <object id="204" x="144" y="880">
+  <object id="204" x="144" y="1280">
    <polyline points="0,0 -32,0"/>
   </object>
-  <object id="221" x="56" y="944">
-   <polyline points="8,0 24,-48"/>
+  <object id="221" x="56" y="1336">
+   <polyline points="8,0 24,-40"/>
   </object>
-  <object id="222" x="56" y="944">
-   <polyline points="8,0 72,0"/>
+  <object id="222" x="56" y="1336">
+   <polyline points="8,0 64,-8"/>
   </object>
-  <object id="223" x="232" y="944">
-   <polyline points="-8,0 -72,0"/>
+  <object id="223" x="232" y="1336">
+   <polyline points="-8,0 -64,-8"/>
   </object>
-  <object id="224" x="232" y="944">
-   <polyline points="-8,0 -24,-48"/>
+  <object id="224" x="232" y="1336">
+   <polyline points="-8,0 -24,-40"/>
   </object>
-  <object id="225" x="72" y="880">
+  <object id="225" x="72" y="1280">
    <polyline points="40,0 -56,0"/>
   </object>
-  <object id="226" x="216" y="880">
+  <object id="226" x="216" y="1280">
    <polyline points="-40,0 56,0"/>
   </object>
-  <object id="227" x="-16" y="880">
+  <object id="228" x="304" y="1280">
    <polyline points="0,0 0,48"/>
   </object>
-  <object id="228" x="304" y="880">
-   <polyline points="0,0 0,48"/>
-  </object>
-  <object id="196" x="176" y="784">
+  <object id="196" x="176" y="1184">
    <polyline points="-48,-16 -56,0"/>
   </object>
-  <object id="199" x="160" y="784">
+  <object id="199" x="160" y="1184">
    <polyline points="24,0 8,0"/>
   </object>
-  <object id="238" x="152" y="784">
+  <object id="238" x="152" y="1184">
    <polyline points="-32,0 -48,0"/>
   </object>
-  <object id="239" x="184" y="792">
+  <object id="239" x="184" y="1192">
    <polyline points="-16,0 -64,0"/>
   </object>
-  <object id="240" x="192" y="768">
+  <object id="240" x="192" y="1168">
    <polyline points="-32,0 -64,0"/>
   </object>
-  <object id="241" x="168" y="752">
+  <object id="241" x="168" y="1152">
    <polyline points="-40,0 -40,8"/>
   </object>
-  <object id="242" x="208" y="776">
+  <object id="242" x="208" y="1176">
    <polyline points="-48,-8 -40,8"/>
   </object>
-  <object id="243" x="184" y="752">
+  <object id="243" x="184" y="1152">
    <polyline points="-40,0 -40,8"/>
   </object>
  </objectgroup>
- <layer id="44" name="midboss_cover" width="18" height="245">
-  <data encoding="base64" compression="zlib">
-   eJzt0KENACAMRUEE+29CWRGBIQWBJOTOVHzVVwoAAADwuqjz9rpv7WKLw/aTSH+eWqxyl9/7AAAAAAAAAAAAAAAAwAsGJ+oIWQ==
-  </data>
- </layer>
- <objectgroup id="46" name="militia9b">
+ <objectgroup id="226" name="heavy6b">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="140" name="militia" type="Militia" gid="1048" x="240" y="1192" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="152" name="militia" type="Militia" gid="1048" x="240" y="1168" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="151" name="militia" type="Militia" gid="1048" x="240" y="1216" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="235" name="militia9b" type="Trigger" x="128" y="1224" width="96" height="8">
+  <object id="544" name="trigger" type="Trigger" x="88" y="1320" width="112" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="90" name="path" x="256" y="1216">
-   <polyline points="-16,0 -16,112"/>
+  <object id="194" name="heavy" gid="1116" x="64" y="1336" width="32" height="32">
+   <properties>
+    <property name="pathfinder" value="random"/>
+    <property name="pathid" value="midboss"/>
+   </properties>
+  </object>
+  <object id="195" name="heavy" gid="1116" x="224" y="1336" width="32" height="32">
+   <properties>
+    <property name="pathfinder" value="random"/>
+    <property name="pathid" value="midboss"/>
+   </properties>
   </object>
  </objectgroup>
- <objectgroup id="47" name="militia9a">
+ <objectgroup id="124" name="heavy6">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="148" name="militia" type="Militia" gid="1048" x="48" y="1264" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
+  <object id="411" gid="1116" x="32" y="1576" width="32" height="32"/>
+  <object id="412" gid="1116" x="256" y="1576" width="32" height="32"/>
+  <object id="413" x="32" y="1576">
+   <polyline points="0,0 0,40 32,8 64,8 80,-8 80,-120 64,-136 -56,-136"/>
   </object>
-  <object id="149" name="militia" type="Militia" gid="1048" x="48" y="1240" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
+  <object id="414" x="256" y="1576">
+   <polyline points="0,0 0,40 -32,8 -64,8 -80,-8 -80,-120 -64,-136 56,-136"/>
   </object>
-  <object id="142" name="militia" type="Militia" gid="1048" x="48" y="1216" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="234" name="militia9a" type="Trigger" x="88" y="1272" width="96" height="8">
+  <object id="415" name="heavy6" type="Trigger" x="64" y="1576" width="160" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
-  </object>
-  <object id="91" name="path" x="40" y="1248">
-   <polyline points="8,16 8,80"/>
   </object>
  </objectgroup>
- <objectgroup id="49" name="catapult4">
+ <objectgroup id="49" name="catapult5">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="25" name="catapult" type="Catapult" gid="984" x="144" y="1200" width="72" height="72">
+  <object id="25" name="catapult" gid="1016" x="160" y="1576" width="72" height="72">
    <properties>
-    <property name="faceangle" type="float" value="90"/>
+    <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="26" name="catapult4" type="Trigger" x="128" y="1088" width="32" height="224">
+  <object id="26" name="catapult4" type="Trigger" x="88" y="1640" width="112" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="27" name="path" x="144" y="1200">
+  <object id="27" name="path" x="144" y="1600">
+   <polyline points="0,0 0,72 0,-96 0,160"/>
+  </object>
+  <object id="123" name="operator" gid="1065" x="160" y="1544" width="24" height="32"/>
+  <object id="404" name="catapult" gid="1016" x="128" y="1624" width="72" height="72">
+   <properties>
+    <property name="pathmode" value="relative"/>
+   </properties>
+  </object>
+  <object id="405" name="operator" gid="1065" x="128" y="1592" width="24" height="32"/>
+ </objectgroup>
+ <objectgroup id="123" name="militia9">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="140" name="militia" gid="1080" x="320" y="1824" width="32" height="32"/>
+  <object id="152" name="militia" gid="1080" x="312" y="1688" width="32" height="32"/>
+  <object id="151" name="militia" gid="1080" x="288" y="1688" width="32" height="32"/>
+  <object id="148" name="militia" gid="1080" x="-56" y="1688" width="32" height="32"/>
+  <object id="149" name="militia" gid="1080" x="0" y="1824" width="32" height="32"/>
+  <object id="142" name="militia" gid="1080" x="-32" y="1688" width="32" height="32"/>
+  <object id="234" name="militia9" type="Trigger" x="96" y="1696" width="96" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="ground"/>
+   </properties>
+  </object>
+  <object id="91" name="path" x="-8" y="1672">
+   <polyline points="8,16 72,80 104,80 128,104 128,312"/>
+  </object>
+  <object id="406" x="288" y="1688">
+   <polyline points="0,0 -64,64 -96,64 -120,88 -120,296"/>
+  </object>
+  <object id="407" x="0" y="1824">
+   <polyline points="0,0 64,-56 96,-56 120,-32 120,176"/>
+  </object>
+  <object id="408" x="288" y="1824">
+   <polyline points="0,0 -56,-56 -96,-56 -120,-32 -120,176"/>
+  </object>
+  <object id="409" name="militia" gid="1080" x="344" y="1824" width="32" height="32"/>
+  <object id="410" name="militia" gid="1080" x="-24" y="1824" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup id="50" name="catapult4">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="22" name="catapult" gid="1016" x="144" y="1824" width="72" height="72"/>
+  <object id="23" name="path" x="144" y="1824">
    <polyline points="0,0 0,32 0,-96 0,128"/>
   </object>
-  <object id="123" name="operator" type="CatapultOperator" gid="1033" x="144" y="1168" width="24" height="32">
-   <properties>
-    <property name="rideid" type="int" value="25"/>
-   </properties>
+  <object id="124" name="operator" gid="1101" x="144" y="1792" width="24" height="32"/>
+  <object id="398" gid="1022" x="-16" y="1936" width="72" height="72"/>
+  <object id="399" gid="1018" x="304" y="1936" width="72" height="72"/>
+  <object id="400" gid="1062" x="-40" y="1936" width="24" height="32"/>
+  <object id="401" gid="1068" x="328" y="1936" width="24" height="32"/>
+  <object id="402" x="-16" y="1936">
+   <polyline points="0,0 96,16"/>
   </object>
- </objectgroup>
- <objectgroup id="50" name="catapult3">
-  <properties>
-   <property name="script" value="PathGraph"/>
-  </properties>
-  <object id="22" name="catapult" type="Catapult" gid="984" x="144" y="1440" width="72" height="72">
-   <properties>
-    <property name="faceangle" type="float" value="90"/>
-   </properties>
+  <object id="403" x="304" y="1936">
+   <polyline points="0,0 -96,16"/>
   </object>
-  <object id="24" name="catapult3" type="Trigger" x="128" y="1328" width="32" height="224">
-   <properties>
-    <property name="activateobjectslayer" value="ground"/>
-   </properties>
-  </object>
-  <object id="23" name="path" x="144" y="1440">
-   <polyline points="0,0 0,32 0,-96 0,128"/>
-  </object>
-  <object id="124" name="operator" type="CatapultOperator" gid="1033" x="144" y="1408" width="24" height="32">
-   <properties>
-    <property name="rideid" type="int" value="22"/>
-   </properties>
-  </object>
- </objectgroup>
- <objectgroup id="48" name="heavy4">
-  <properties>
-   <property name="script" value="PathGraph"/>
-  </properties>
-  <object id="28" name="heavy" type="HeavyMilitia" gid="1084" x="256" y="1504" width="32" height="32"/>
-  <object id="29" name="heavy" type="HeavyMilitia" gid="1084" x="32" y="1504" width="32" height="32"/>
-  <object id="32" name="heavy4" type="Trigger" x="72" y="1120" width="32" height="464">
-   <properties>
-    <property name="activateobjectslayer" value="ground"/>
-   </properties>
-  </object>
-  <object id="30" name="path" x="32" y="1504">
-   <polyline points="0,0 0,64 0,-144 224,-144 224,-368 272,-368"/>
-  </object>
-  <object id="31" name="path" x="256" y="1504">
-   <polyline points="0,0 0,64 0,-160 -224,-160 -224,-368 -272,-368"/>
-  </object>
- </objectgroup>
- <objectgroup id="51" name="heavycatapult1_path"/>
- <objectgroup id="52" name="jumpingarcher">
-  <properties>
-   <property name="script" value="PathGraph"/>
-  </properties>
-  <object id="155" name="archer" type="Archer" gid="1108" x="144" y="1704" width="32" height="32">
-   <properties>
-    <property name="defeatitem" value="ItemWingman"/>
-    <property name="defeatitemlaunch" type="bool" value="true"/>
-    <property name="health" type="int" value="40"/>
-    <property name="pathfinder" value="random1way"/>
-    <property name="pathspeed" value="180"/>
-    <property name="score" type="int" value="750"/>
-    <property name="strafearc" type="float" value="180"/>
-   </properties>
-  </object>
-  <object id="157" name="jumpingarcher" type="Trigger" x="112" y="1600" width="64" height="120">
-   <properties>
-    <property name="activateobjectslayer" value="ground"/>
-   </properties>
-  </object>
-  <object id="154" name="jump" x="56" y="1664">
-   <properties>
-    <property name="beziercurve" type="bool" value="true"/>
-   </properties>
-   <polyline points="8,0 40,-48 88,-32"/>
-  </object>
-  <object id="156" name="jump" x="136" y="1664">
-   <properties>
-    <property name="beziercurve" type="bool" value="true"/>
-   </properties>
-   <polyline points="8,-32 56,-48 88,0"/>
-  </object>
-  <object id="158" name="jump" x="136" y="1736">
-   <properties>
-    <property name="beziercurve" type="bool" value="true"/>
-   </properties>
-   <polyline points="8,-32 48,-72 88,-72"/>
-  </object>
-  <object id="159" name="jump" x="56" y="1736">
-   <properties>
-    <property name="beziercurve" type="bool" value="true"/>
-   </properties>
-   <polyline points="8,-72 48,-72 88,-32"/>
-  </object>
-  <object id="160" name="jump" x="136" y="1736">
-   <properties>
-    <property name="beziercurve" type="bool" value="true"/>
-   </properties>
-   <polyline points="8,-32 56,-48 88,0"/>
-  </object>
-  <object id="161" name="jump" x="56" y="1808">
-   <properties>
-    <property name="beziercurve" type="bool" value="true"/>
-   </properties>
-   <polyline points="8,-72 48,-72 88,-32"/>
-  </object>
-  <object id="162" name="jump" x="56" y="1736">
-   <properties>
-    <property name="beziercurve" type="bool" value="true"/>
-   </properties>
-   <polyline points="8,0 40,-48 88,-32"/>
-  </object>
-  <object id="163" name="jump" x="136" y="1808">
-   <properties>
-    <property name="beziercurve" type="bool" value="true"/>
-   </properties>
-   <polyline points="8,-32 48,-72 88,-72"/>
-  </object>
- </objectgroup>
- <objectgroup id="53" name="militia8b">
-  <object id="147" name="militia" type="Militia" gid="1048" x="0" y="1696" width="32" height="32">
-   <properties>
-    <property name="pathid" value="militia8a"/>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="150" name="militia" type="Militia" gid="1048" x="312" y="1696" width="32" height="32">
-   <properties>
-    <property name="pathid" value="militia8a"/>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="153" name="militia8b" type="Trigger" x="112" y="1640" width="96" height="8">
+  <object id="474" name="heavy4" type="Trigger" x="128" y="1768" width="32" height="104">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="54" name="militia8a">
+ <objectgroup id="48" name="heavy5">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="145" name="militia" type="Militia" gid="1048" x="16" y="1688" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="146" name="militia" type="Militia" gid="1048" x="296" y="1688" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="233" name="militia8a" type="Trigger" x="80" y="1704" width="96" height="8">
+  <object id="28" name="heavy" gid="1116" x="240" y="1904" width="32" height="32"/>
+  <object id="29" name="heavy" gid="1116" x="48" y="1904" width="32" height="32"/>
+  <object id="32" name="heavy4" type="Trigger" x="112" y="1912" width="64" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="92" name="path" x="0" y="1696">
-   <polyline points="8,0 72,0"/>
+  <object id="394" x="48" y="1904">
+   <polyline points="0,0 16,16 64,16 88,-8 64,-32 64,-112 48,-128 16,-128 0,-112 0,-32.6667 -16,-16 -16,72 0,88 0,128"/>
   </object>
-  <object id="93" name="path" x="232" y="1696">
-   <polyline points="-16,0 72,0"/>
+  <object id="396" x="240" y="1904">
+   <polyline points="0,0 -16,16 -64,16 -88,-8 -64,-32 -64,-112 -48,-128 -16,-128 0,-112 0,-32 16,-16 16,72 0,88 0,128"/>
   </object>
  </objectgroup>
- <objectgroup id="55" name="militia7">
+ <objectgroup id="120" name="militia8b">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="141" name="militia" type="Militia" gid="1048" x="8" y="1904" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="139" name="militia" type="Militia" gid="1048" x="280" y="1904" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="144" name="militia7" type="Trigger" x="112" y="1888" width="64" height="32">
+  <object id="147" name="militia" gid="1080" x="0" y="2056" width="32" height="32"/>
+  <object id="150" name="militia" gid="1080" x="224" y="2040" width="32" height="32"/>
+  <object id="365" name="militia" gid="1080" x="288" y="2056" width="32" height="32"/>
+  <object id="145" name="militia" gid="1080" x="64" y="2040" width="32" height="32"/>
+  <object id="233" name="militia8a" type="Trigger" x="96" y="2048" width="96" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="88" name="path" x="0" y="1904">
-   <polyline points="8,0 64,0"/>
+  <object id="366" x="0" y="2056">
+   <polyline points="0,0 48,32 48,56 64,72 112,72 128,88 128,264"/>
   </object>
-  <object id="89" name="path" x="232" y="1904">
-   <polyline points="-8,0 48,0"/>
+  <object id="367" x="288" y="2048">
+   <polyline points="0,8 -48,40 -48,64 -64,80 -112,80 -128,96 -128,272"/>
   </object>
-  <object id="137" name="path" x="-16" y="2016">
-   <polyline points="8,0 72,0"/>
+  <object id="368" x="48" y="1984">
+   <polyline points="16,56 16,112 32,128 72,128 88,144 88,328"/>
   </object>
-  <object id="138" name="path" x="248" y="2016">
-   <polyline points="-16,0 48,0"/>
+  <object id="369" x="240" y="1984">
+   <polyline points="-16,56 -16,112 -32,128 -72,128 -88,144 -88,328"/>
   </object>
+  <object id="382" x="0" y="2184">
+   <polyline points="0,0 16,0 32,-16 32,-88 64,-120 64,-184 32,-216 -24,-216"/>
+  </object>
+  <object id="383" x="288" y="2184">
+   <polyline points="0,0 -16,0 -32,-16 -32,-88 -64,-120 -64,-184 -32,-216 24,-216"/>
+  </object>
+  <object id="384" name="militia" gid="1080" x="0" y="2184" width="32" height="32"/>
+  <object id="385" name="militia" gid="1080" x="288" y="2184" width="32" height="32"/>
+  <object id="390" gid="1080" x="136" y="2048" width="32" height="32"/>
+  <object id="391" gid="1080" x="152" y="2048" width="32" height="32"/>
+  <object id="392" x="136" y="2048">
+   <polyline points="0,0 -8,32 -8,80 0,88 0,280"/>
+  </object>
+  <object id="393" x="152" y="2048">
+   <polyline points="0,0 8,32 8,80 0,88 0,280"/>
+  </object>
+  <object id="551" gid="1080" x="136" y="2016" width="32" height="32"/>
+  <object id="552" gid="1080" x="152" y="2016" width="32" height="32"/>
  </objectgroup>
- <objectgroup id="56" name="heavy3">
+ <objectgroup id="227" name="militia8a">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="17" name="heavy" type="HeavyMilitia" gid="1084" x="-8" y="2024" width="32" height="32"/>
-  <object id="18" name="heavy" type="HeavyMilitia" gid="1084" x="296" y="2024" width="32" height="32"/>
-  <object id="19" name="path" x="-8" y="2024">
-   <polyline points="0,0 88,0 88,-208 216,-208 216,-448 320,-448"/>
+  <object id="545" name="trigger" type="Trigger" x="88" y="2240" width="112" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="ground"/>
+   </properties>
   </object>
-  <object id="20" name="path" x="296" y="2024">
-   <polyline points="0,0 -88,0 -88,-224 -216,-224 -216,-448 -320,-448"/>
+  <object id="388" gid="1080" x="0" y="2280" width="32" height="32"/>
+  <object id="389" gid="1080" x="288" y="2296" width="32" height="32"/>
+  <object id="546" x="16" y="2312">
+   <polyline points="-112,-16 16,-16 56,-56 200,-56 240,-16 272,-16 296,-16 320,-16 344,-16"/>
   </object>
-  <object id="21" name="heavy3" type="Trigger" x="128" y="1568" width="32" height="456">
+  <object id="547" x="288" y="2280">
+   <polyline points="72,0 -24,0 -64,-40 -224,-40 -264,0 -288,0 -320,0 -352,0 -384,0"/>
+  </object>
+  <object id="548" gid="1080" x="-32" y="2280" width="32" height="32"/>
+  <object id="549" gid="1080" x="-64" y="2280" width="32" height="32"/>
+  <object id="550" gid="1080" x="-96" y="2280" width="32" height="32"/>
+  <object id="553" gid="1080" x="312" y="2296" width="32" height="32"/>
+  <object id="554" gid="1080" x="336" y="2296" width="32" height="32"/>
+  <object id="555" gid="1080" x="360" y="2296" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup id="122" name="catapult3">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="372" gid="1014" x="-16" y="2424" width="72" height="72"/>
+  <object id="373" gid="1018" x="304" y="2424" width="72" height="72"/>
+  <object id="374" gid="1062" x="-40" y="2416" width="24" height="32"/>
+  <object id="375" gid="1068" x="328" y="2416" width="24" height="32"/>
+  <object id="376" x="-16" y="2424">
+   <polyline points="0,0 80,0"/>
+  </object>
+  <object id="377" x="304" y="2424">
+   <polyline points="0,0 -80,0"/>
+  </object>
+  <object id="381" name="trigger" type="Trigger" x="128" y="2344" width="32" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="ground"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="121" name="heavy4">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="146" gid="1116" x="152" y="2376" width="32" height="32"/>
+  <object id="371" gid="1116" x="136" y="2376" width="32" height="32"/>
+  <object id="378" x="136" y="2376">
+   <polyline points="0,0 -16,16 -64,16 -80,0 -80,-88 -64,-104 -16,-104 0,-88 0,24 -48,72 -48,184"/>
+  </object>
+  <object id="379" x="152" y="2344" rotation="180">
+   <polyline points="0,-32 -16,-48 -64,-48 -80,-32 -80,56 -64,72 -16,72 0,56 0,-56 -48,-104 -48,-216"/>
+  </object>
+  <object id="380" name="heavy4" type="Trigger" x="128" y="2352" width="32" height="32">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
@@ -1154,445 +1462,433 @@ storehouseroof</property>
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="111" name="archer" type="Archer" gid="1012" x="208" y="2128" width="32" height="32">
+  <object id="111" name="archer" gid="1044" x="312" y="2560" width="32" height="32">
    <properties>
-    <property name="pathmode" value="relative"/>
+    <property name="pathspeedfunction" value="ncos"/>
    </properties>
   </object>
-  <object id="112" name="archer" type="Archer" gid="1012" x="80" y="2128" width="32" height="32">
+  <object id="112" name="archer" gid="1044" x="-24" y="2560" width="32" height="32">
    <properties>
-    <property name="pathmode" value="relative"/>
+    <property name="pathspeedfunction" value="ncos"/>
    </properties>
   </object>
-  <object id="122" name="trigger" type="Trigger" x="120" y="2024" width="48" height="160">
+  <object id="122" name="trigger" type="Trigger" x="144" y="2440" width="16" height="104">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="97" name="archer" type="Archer" gid="1108" x="176" y="2168" width="32" height="32">
+  <object id="97" name="archer" gid="1140" x="192" y="2536" width="32" height="32">
    <properties>
-    <property name="defeatitem" value="ItemWingman"/>
-    <property name="pathmode" value="relative"/>
+    <property name="pathspeedfunction" value="ncos"/>
    </properties>
   </object>
-  <object id="81" name="path" x="0" y="2216">
+  <object id="81" name="path" x="0" y="2616">
    <polyline points="112,-48 176,-48"/>
   </object>
-  <object id="86" name="path" x="248" y="2184">
-   <polyline points="-40,-24 -40,-144 8,-144"/>
+  <object id="86" name="path" x="352" y="2584">
+   <polyline points="-40,-24 -128,-24 -128,-136 -40,-136"/>
   </object>
-  <object id="87" name="path" x="96" y="2160">
-   <polyline points="-16,0 -16,-120 -64,-120"/>
+  <object id="87" name="path" x="-32" y="2560">
+   <polyline points="8,0 96,0 96,-112 8,-112"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="56" name="heavy3">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="17" name="heavy" gid="1116" x="64" y="2664" width="32" height="32"/>
+  <object id="18" name="heavy" gid="1116" x="224" y="2664" width="32" height="32"/>
+  <object id="19" name="path" x="-8" y="2672">
+   <polyline points="88,8 88,-48 104,-64 200,-64 216,-80 216,-224 232,-240 320,-240"/>
+  </object>
+  <object id="20" name="path" x="296" y="2672">
+   <polyline points="-88,8 -88,-64 -104,-80 -200,-80 -216,-96 -216,-224 -232,-240 -320,-240"/>
+  </object>
+  <object id="21" name="heavy3" type="Trigger" x="128" y="2440" width="16" height="216">
+   <properties>
+    <property name="activateobjectslayer" value="ground"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="55" name="militia7">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="141" name="militia" gid="1080" x="0" y="2816" width="32" height="32"/>
+  <object id="139" name="militia" gid="1080" x="-32" y="2816" width="32" height="32"/>
+  <object id="144" name="militia7" type="Trigger" x="112" y="2752" width="32" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="ground"/>
+   </properties>
+  </object>
+  <object id="364" name="militia" gid="1080" x="-64" y="2816" width="32" height="32"/>
+  <object id="526" name="militia" gid="1080" x="-96" y="2816" width="32" height="32"/>
+  <object id="527" name="militia" gid="1080" x="-128" y="2816" width="32" height="32"/>
+  <object id="543" x="0" y="2816">
+   <polyline points="0,0 64,0 80,-16 80,-56 96,-72 192,-72 248,-16 344,-16"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="225" name="militia7b">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="535" name="militia" gid="1080" x="424" y="2696" width="32" height="32"/>
+  <object id="536" name="militia" gid="1080" x="392" y="2696" width="32" height="32"/>
+  <object id="537" name="militia7" type="Trigger" x="128" y="2664" width="32" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="ground"/>
+   </properties>
+  </object>
+  <object id="539" name="militia" gid="1080" x="360" y="2696" width="32" height="32"/>
+  <object id="540" name="militia" gid="1080" x="328" y="2696" width="32" height="32"/>
+  <object id="541" name="militia" gid="1080" x="296" y="2696" width="32" height="32"/>
+  <object id="542" x="296" y="2696">
+   <polyline points="0,0 -56,0 -80,24 -200,24 -232,56 -232,96 -256,120 -336,120"/>
   </object>
  </objectgroup>
  <objectgroup id="58" name="archers2">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="119" name="trigger" type="Trigger" x="112" y="2184" width="64" height="104">
+  <object id="119" name="trigger" type="Trigger" x="144" y="2776" width="32" height="88">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="109" name="archer" type="Archer" gid="1012" x="80" y="2200" width="32" height="32">
+  <object id="109" name="archer" gid="1140" x="-72" y="2928" width="32" height="32">
    <properties>
-    <property name="pathmode" value="relative"/>
+    <property name="pathspeedfunction" value="ncos"/>
    </properties>
   </object>
-  <object id="110" name="archer" type="Archer" gid="1012" x="256" y="2272" width="32" height="32">
+  <object id="110" name="archer" gid="1044" x="-32" y="2928" width="32" height="32">
    <properties>
-    <property name="pathmode" value="relative"/>
+    <property name="pathspeedfunction" value="ncos"/>
    </properties>
   </object>
-  <object id="126" name="path" x="272" y="2272">
-   <polyline points="-16,0 -64,0 -64,-72"/>
+  <object id="525" x="-8" y="2928">
+   <polyline points="-24,0 56,0 72,-16 72,-80 56,-96 -24,-96"/>
   </object>
-  <object id="232" name="path" x="152" y="2272">
-   <polyline points="-120,0 -72,0 -72,-72"/>
+ </objectgroup>
+ <objectgroup id="119" name="militia6">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="356" name="militia" gid="1080" x="192" y="2896" width="32" height="32"/>
+  <object id="357" name="militia" gid="1080" x="216" y="2840" width="32" height="32"/>
+  <object id="359" name="militia" gid="1080" x="216" y="2872" width="32" height="32"/>
+  <object id="361" name="militia6" type="Trigger" x="144" y="2888" width="16" height="8">
+   <properties>
+    <property name="activateobjectslayer" value="ground"/>
+   </properties>
   </object>
+  <object id="362" x="168" y="2896">
+   <polyline points="0,0 24,0 48,-24 48,-56 72,-80 104,-80"/>
+  </object>
+  <object id="363" x="-24" y="2816">
+   <polyline points="360,224 136,224 104,192 104,96 120,80 192,80"/>
+  </object>
+  <object id="523" name="militia" gid="1080" x="240" y="2816" width="32" height="32"/>
+  <object id="524" name="militia" gid="1080" x="272" y="2816" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="59" name="heavy2">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="15" name="heavy" type="HeavyMilitia" gid="1084" x="96" y="2416" width="32" height="32"/>
-  <object id="14" name="path" x="80" y="2408">
-   <polyline points="16,8 16,56 16,-88 112,-88 112,-224 16,-224 16,-384 112,-384 112,8"/>
-  </object>
-  <object id="16" name="heavy2" type="Trigger" x="128" y="2024" width="32" height="408">
+  <object id="15" name="heavy" gid="1116" x="200" y="2864" width="32" height="32"/>
+  <object id="16" name="heavy2" type="Trigger" x="128" y="2888" width="16" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
+  </object>
+  <object id="355" x="200" y="2864">
+   <polyline points="0,0 -16,16 -96,16 -112,0 -112,-48 -128,-64 -224,-64"/>
   </object>
  </objectgroup>
  <objectgroup id="60" name="archers1">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="103" name="archer" type="Archer" gid="1012" x="80" y="2464" width="32" height="32">
+  <object id="103" name="archer" gid="1140" x="352" y="3048" width="32" height="32">
    <properties>
-    <property name="pathmode" value="relative"/>
+    <property name="pathspeedfunction" value="ncos"/>
    </properties>
   </object>
-  <object id="106" name="archer" type="Archer" gid="1012" x="208" y="2480" width="32" height="32">
+  <object id="106" name="archer" gid="1044" x="320" y="3048" width="32" height="32">
    <properties>
-    <property name="pathmode" value="relative"/>
+    <property name="pathspeedfunction" value="ncos"/>
    </properties>
   </object>
-  <object id="120" name="trigger" type="Trigger" x="112" y="2376" width="64" height="192">
+  <object id="120" name="trigger" type="Trigger" x="112" y="3064" width="64" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="82" name="path" x="88" y="2416">
-   <polyline points="-8,-32 -8,144"/>
-  </object>
-  <object id="83" name="path" x="232" y="2368">
-   <polyline points="-24,16 -24,192"/>
+  <object id="83" name="path" x="328" y="3040">
+   <polyline points="-8,8 -112,8 -112,112 -8,112"/>
   </object>
  </objectgroup>
- <objectgroup id="61" name="militia6">
+ <objectgroup id="118" name="militia5">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="94" name="militia" type="Militia" gid="1048" x="120" y="2616" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="95" name="militia" type="Militia" gid="1048" x="168" y="2616" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="96" name="trigger" type="Trigger" x="112" y="2608" width="64" height="56">
+  <object id="96" name="trigger" type="Trigger" x="112" y="3072" width="64" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="99" name="militia" type="Militia" gid="1048" x="136" y="2608" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
+  <object id="94" name="militia" gid="1080" x="200" y="3056" width="32" height="32"/>
+  <object id="95" name="militia" gid="1080" x="200" y="2992" width="32" height="32"/>
+  <object id="99" name="militia" gid="1080" x="200" y="3024" width="32" height="32"/>
+  <object id="100" name="militia" gid="1080" x="-64" y="3168" width="32" height="32"/>
+  <object id="353" x="0" y="3056" rotation="180">
+   <polyline points="0,-112 -192,-112 -216,-88 -216,-24 -232,-8 -312,-8"/>
   </object>
-  <object id="100" name="militia" type="Militia" gid="1048" x="152" y="2608" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
+  <object id="354" x="200" y="3096">
+   <polyline points="0,-40 0,32 -24,56 -88,56 -112,32 -112,-24 -128,-40 -232,-40"/>
   </object>
-  <object id="78" name="path" x="48" y="2616">
-   <polyline points="8,16 32,16 48,0 72,0"/>
-  </object>
-  <object id="79" name="path" x="200" y="2616">
-   <polyline points="-32,0 -8,0 8,16 32,16"/>
-  </object>
+  <object id="71" name="militia" gid="1080" x="0" y="3168" width="32" height="32"/>
+  <object id="74" name="militia" gid="1080" x="-32" y="3168" width="32" height="32"/>
+  <object id="519" name="militia" gid="1080" x="-96" y="3168" width="32" height="32"/>
+  <object id="520" name="militia" gid="1080" x="-128" y="3168" width="32" height="32"/>
+  <object id="521" name="militia" gid="1080" x="200" y="2960" width="32" height="32"/>
+  <object id="522" name="militia" gid="1080" x="200" y="2928" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="62" name="heavy1">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="8" name="heavy" type="HeavyMilitia" gid="1084" x="96" y="2744" width="32" height="32"/>
-  <object id="10" name="heavy1" type="Trigger" x="96" y="2464" width="32" height="304">
+  <object id="8" name="heavy" gid="1116" x="88" y="3144" width="32" height="32"/>
+  <object id="10" name="heavy1" type="Trigger" x="128" y="3144" width="32" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="9" name="path" x="80" y="2704">
-   <polyline points="16,40 16,72 16,-96 112,-96 112,-240 16,-240 16,88"/>
+  <object id="9" name="path" x="72" y="3104">
+   <polyline points="16,40 16,72 16,-48 32,-64 112,-64 128,-48 128,32 160,64 232,64"/>
   </object>
  </objectgroup>
  <objectgroup id="63" name="catapult2">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="11" name="catapult" type="Catapult" gid="984" x="144" y="3032" width="72" height="72">
-   <properties>
-    <property name="faceangle" type="float" value="90"/>
-   </properties>
-  </object>
-  <object id="12" name="path" x="144" y="3032">
+  <object id="11" name="catapult" gid="1016" x="136" y="3384" width="72" height="72"/>
+  <object id="12" name="path" x="136" y="3384">
    <polyline points="0,0 0,32 0,-184"/>
   </object>
-  <object id="13" name="trigger" type="Trigger" x="128" y="2808" width="32" height="248">
+  <object id="13" name="trigger" type="Trigger" x="128" y="3256" width="32" height="216">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="33" name="operator" type="CatapultOperator" gid="1069" x="144" y="3000" width="24" height="32">
-   <properties>
-    <property name="defeatitem" value="ItemWingman"/>
-    <property name="rideid" type="int" value="11"/>
-   </properties>
+  <object id="33" name="operator" gid="1101" x="136" y="3352" width="24" height="32"/>
+  <object id="350" name="catapult" gid="1016" x="152" y="3448" width="72" height="72"/>
+  <object id="351" name="path" x="152" y="3448">
+   <polyline points="0,0 0,32 0,-184"/>
   </object>
+  <object id="352" name="operator" gid="1065" x="152" y="3416" width="24" height="32"/>
  </objectgroup>
- <objectgroup id="64" name="militia5">
+ <objectgroup id="216" name="Copy of enemygrouptemplate">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="71" name="militia" type="Militia" gid="1048" x="112" y="2880" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="72" name="militia" type="Militia" gid="1048" x="176" y="2880" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="73" name="militia" type="Militia" gid="1048" x="-8" y="2896" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="74" name="militia" type="Militia" gid="1048" x="296" y="2896" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="77" name="trigger" type="Trigger" x="112" y="2856" width="64" height="40">
+  <object id="506" name="trigger" type="Trigger" x="88" y="3536" width="112" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="230" name="militia" type="Militia" gid="1048" x="112" y="2864" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
+  <object id="348" gid="1080" x="112" y="3528" width="32" height="32"/>
+  <object id="349" gid="1080" x="176" y="3464" width="32" height="32"/>
+  <object id="507" gid="1080" x="112" y="3496" width="32" height="32"/>
+  <object id="508" gid="1080" x="176" y="3432" width="32" height="32"/>
+  <object id="509" gid="1080" x="328" y="3560" width="32" height="32"/>
+  <object id="510" gid="1080" x="0" y="3560" width="32" height="32"/>
+  <object id="511" gid="1080" x="-24" y="3560" width="32" height="32"/>
+  <object id="512" gid="1080" x="352" y="3560" width="32" height="32"/>
+  <object id="513" gid="1080" x="376" y="3560" width="32" height="32"/>
+  <object id="514" gid="1080" x="-48" y="3560" width="32" height="32"/>
+  <object id="515" x="112" y="3528">
+   <polyline points="0,0 0,48 64,64 64,120 96,152 232,152"/>
   </object>
-  <object id="231" name="militia" type="Militia" gid="1048" x="176" y="2864" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
+  <object id="516" x="0" y="3560">
+   <polyline points="0,0 80,0 96,16 96,104 80,120 -56,120"/>
   </object>
-  <object id="69" name="path" x="184" y="2896">
-   <polyline points="-8,-16 -8,8 24,8"/>
+  <object id="517" x="176" y="3464">
+   <polyline points="0,0 0,112 -64,128 -64,216 -80,232 -232,232"/>
   </object>
-  <object id="70" name="path" x="112" y="2848">
-   <polyline points="0,32 0,56 -32,56"/>
-  </object>
-  <object id="80" name="path" x="0" y="2896">
-   <polyline points="-8,0 64,0"/>
-  </object>
-  <object id="229" name="path" x="232" y="2896">
-   <polyline points="-8,0 64,0"/>
+  <object id="518" x="304" y="3560">
+   <polyline points="24,0 -96,0 -112,16 -112,104 -96,120 48,120"/>
   </object>
  </objectgroup>
  <objectgroup id="65" name="militia4">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="60" name="militia" type="Militia" gid="1048" x="96" y="3008" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="61" name="militia" type="Militia" gid="1048" x="192" y="3008" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="62" name="militia" type="Militia" gid="1048" x="96" y="2992" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="63" name="militia" type="Militia" gid="1048" x="192" y="2992" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="68" name="trigger" type="Trigger" x="112" y="2976" width="64" height="40">
+  <object id="60" name="militia" gid="1080" x="-32" y="3296" width="32" height="32"/>
+  <object id="61" name="militia" gid="1080" x="328" y="3296" width="32" height="32"/>
+  <object id="62" name="militia" gid="1080" x="-8" y="3296" width="32" height="32"/>
+  <object id="63" name="militia" gid="1080" x="352" y="3296" width="32" height="32"/>
+  <object id="68" name="trigger" type="Trigger" x="88" y="3320" width="112" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="54" name="path" x="96" y="2928">
-   <polyline points="0,80 0,104 -16,104"/>
+  <object id="338" x="-8" y="3296">
+   <polyline points="0,0 88,0 104,16 104,104 88,120 -192,120"/>
   </object>
-  <object id="55" name="path" x="208" y="2928">
-   <polyline points="-16,80 -16,104 0,104"/>
+  <object id="339" x="296" y="3296">
+   <polyline points="0,0 -88,0 -104,16 -104,104 -88,120 208,120"/>
   </object>
+  <object id="340" x="0" y="3424">
+   <polyline points="0,0 96,0 112,-16 112,-120 96,-136 -200,-136"/>
+  </object>
+  <object id="342" gid="1080" x="-32" y="3424" width="32" height="32"/>
+  <object id="343" gid="1080" x="288" y="3424" width="32" height="32"/>
+  <object id="344" x="288" y="3424">
+   <polyline points="0,0 -96,0 -112,-16 -112,-120 -96,-136 216,-136"/>
+  </object>
+  <object id="345" gid="1080" x="-56" y="3424" width="32" height="32"/>
+  <object id="346" gid="1080" x="312" y="3424" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="66" name="militia3">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="56" name="militia" type="Militia" gid="1048" x="120" y="3136" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="57" name="militia" type="Militia" gid="1048" x="168" y="3136" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="58" name="militia" type="Militia" gid="1048" x="104" y="3152" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="59" name="militia" type="Militia" gid="1048" x="184" y="3152" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="67" name="trigger" type="Trigger" x="112" y="3104" width="64" height="64">
+  <object id="56" name="militia" gid="1080" x="112" y="3632" width="32" height="32"/>
+  <object id="57" name="militia" gid="1080" x="176" y="3680" width="32" height="32"/>
+  <object id="58" name="militia" gid="1080" x="112" y="3664" width="32" height="32"/>
+  <object id="59" name="militia" gid="1080" x="176" y="3648" width="32" height="32"/>
+  <object id="75" name="militia" gid="1080" x="0" y="3680" width="32" height="32"/>
+  <object id="76" name="militia" gid="1080" x="304" y="3680" width="32" height="32"/>
+  <object id="67" name="trigger" type="Trigger" x="88" y="3688" width="112" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="75" name="militia" type="Militia" gid="1048" x="136" y="3120" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
+  <object id="332" x="0" y="3680">
+   <polyline points="0,0 80,0 96,16 96,112 80,128 -96,128"/>
   </object>
-  <object id="76" name="militia" type="Militia" gid="1048" x="152" y="3120" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
+  <object id="333" x="288" y="3680">
+   <polyline points="0,0 -80,0 -96,16 -96,112 -80,128 72,128"/>
   </object>
-  <object id="52" name="path" x="112" y="3128">
-   <polyline points="-40,24 -8,24"/>
+  <object id="336" x="112" y="3648">
+   <polyline points="0,32 0,160 -16,176 -192,176"/>
   </object>
-  <object id="53" name="path" x="192" y="3136">
-   <polyline points="24,16 -8,16"/>
+  <object id="337" x="176" y="3648">
+   <polyline points="0,32 0,160 16,176 168,176"/>
   </object>
  </objectgroup>
  <objectgroup id="67" name="militia2">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="48" name="militia" type="Militia" gid="1048" x="112" y="3248" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="49" name="militia" type="Militia" gid="1048" x="192" y="3256" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="66" name="trigger" type="Trigger" x="112" y="3240" width="64" height="40">
+  <object id="48" name="militia" gid="1080" x="112" y="3792" width="32" height="32"/>
+  <object id="49" name="militia" gid="1080" x="176" y="3744" width="32" height="32"/>
+  <object id="66" name="trigger" type="Trigger" x="88" y="3800" width="112" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="65" name="militia" type="Militia" gid="1048" x="176" y="3248" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
+  <object id="65" name="militia" gid="1080" x="176" y="3776" width="32" height="32"/>
+  <object id="64" name="militia" gid="1080" x="112" y="3760" width="32" height="32"/>
+  <object id="503" x="112" y="3792">
+   <polyline points="0,0 0,72 88,136 240,136"/>
   </object>
-  <object id="64" name="militia" type="Militia" gid="1048" x="96" y="3256" width="32" height="32">
-   <properties>
-    <property name="pathmode" value="relative"/>
-   </properties>
-  </object>
-  <object id="50" name="path" x="96" y="3248">
-   <polyline points="0,8 0,32 -24,32"/>
-  </object>
-  <object id="51" name="path" x="208" y="3248">
-   <polyline points="-16,8 -16,32 8,32"/>
+  <object id="504" x="176" y="3792">
+   <polyline points="0,0 0,40 -64,128 -112,144 -256,144"/>
   </object>
  </objectgroup>
  <objectgroup id="69" name="catapult1">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="5" name="catapult" type="Catapult" gid="984" x="144" y="3352" width="72" height="72">
-   <properties>
-    <property name="faceangle" type="float" value="90"/>
-   </properties>
+  <object id="5" name="catapult" gid="1016" x="144" y="3776" width="72" height="72"/>
+  <object id="6" name="path" x="144" y="3776">
+   <polyline points="0,0 0,32 0,-144"/>
   </object>
-  <object id="6" name="path" x="144" y="3352">
-   <polyline points="0,0 0,32 0,-160"/>
-  </object>
-  <object id="7" name="trigger" type="Trigger" x="128" y="3152" width="32" height="224">
+  <object id="7" name="trigger" type="Trigger" x="128" y="3608" width="32" height="192">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="34" name="operator" type="CatapultOperator" gid="1069" x="144" y="3320" width="24" height="32">
-   <properties>
-    <property name="defeatitem" value="ItemWingman"/>
-    <property name="rideid" type="int" value="5"/>
-   </properties>
-  </object>
+  <object id="34" name="operator" gid="1101" x="144" y="3744" width="24" height="32"/>
  </objectgroup>
  <objectgroup id="70" name="militia1b">
-  <object id="39" type="Militia" gid="1048" x="168" y="3432" width="32" height="32">
+  <properties>
+   <property name="script" value="PathGraph"/>
+  </properties>
+  <object id="39" gid="1080" x="160" y="3856" width="32" height="32">
    <properties>
-    <property name="pathid" value="militia1a"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="40" type="Militia" gid="1048" x="160" y="3456" width="32" height="32">
+  <object id="40" gid="1080" x="176" y="3864" width="32" height="32">
    <properties>
-    <property name="pathid" value="militia1a"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="38" type="Militia" gid="1048" x="192" y="3456" width="32" height="32">
+  <object id="38" gid="1080" x="192" y="3872" width="32" height="32">
    <properties>
-    <property name="pathid" value="militia1a"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="36" type="Militia" gid="1048" x="120" y="3432" width="32" height="32">
+  <object id="36" gid="1080" x="128" y="3856" width="32" height="32">
    <properties>
-    <property name="pathid" value="militia1a"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="37" type="Militia" gid="1048" x="128" y="3456" width="32" height="32">
+  <object id="37" gid="1080" x="112" y="3864" width="32" height="32">
    <properties>
-    <property name="pathid" value="militia1a"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="35" type="Militia" gid="1048" x="96" y="3456" width="32" height="32">
+  <object id="35" gid="1080" x="96" y="3872" width="32" height="32">
    <properties>
-    <property name="pathid" value="militia1a"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="46" name="trigger" type="Trigger" x="88" y="3448" width="112" height="32">
+  <object id="46" name="trigger" type="Trigger" x="64" y="3880" width="160" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
+  </object>
+  <object id="328" x="112" y="3840">
+   <polyline points="0,24 0,88 -48,112"/>
+  </object>
+  <object id="329" x="176" y="3840">
+   <polyline points="0,24 0,88 48,112"/>
   </object>
  </objectgroup>
  <objectgroup id="71" name="militia1a">
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="41" type="Militia" gid="1048" x="184" y="3480" width="32" height="32">
+  <object id="41" gid="1080" x="184" y="3904" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="42" type="Militia" gid="1048" x="104" y="3480" width="32" height="32">
+  <object id="42" gid="1080" x="104" y="3904" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="43" type="Militia" gid="1048" x="128" y="3496" width="32" height="32">
+  <object id="43" gid="1080" x="128" y="3896" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="47" type="Militia" gid="1048" x="160" y="3496" width="32" height="32">
+  <object id="47" gid="1080" x="160" y="3896" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="45" name="trigger" type="Trigger" x="112" y="3480" width="64" height="32">
+  <object id="45" name="trigger" type="Trigger" x="64" y="3904" width="160" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="44" name="path" x="144" y="3520">
-   <polyline points="0,-24 0,24"/>
+  <object id="44" name="path" x="144" y="3920">
+   <polyline points="0,0 0,56"/>
   </object>
  </objectgroup>
  <objectgroup id="72" name="militia1_path">
@@ -1601,7 +1897,7 @@ storehouseroof</property>
   </properties>
  </objectgroup>
  <objectgroup id="73" name="camera">
-  <object id="2" name="camera" type="Camera" x="24" y="3600" width="240" height="320">
+  <object id="2" name="camera" type="Camera" x="24" y="4000" width="240" height="320">
    <properties>
     <property name="pathid" value="camera_path"/>
    </properties>
@@ -1612,7 +1908,7 @@ storehouseroof</property>
    <property name="script" value="PathGraph"/>
   </properties>
   <object id="3" name="path" x="24" y="3280">
-   <polyline points="0,320 0,-3280"/>
+   <polyline points="0,-3272 0,-3280"/>
   </object>
  </objectgroup>
  <objectgroup id="75" name="sparks"/>
@@ -1621,6 +1917,6 @@ storehouseroof</property>
   <properties>
    <property name="script" value="PlayerTeam"/>
   </properties>
-  <object id="1" name="player" gid="1431" x="144" y="3952" width="64" height="64"/>
+  <object id="1" name="player" gid="1478" x="144" y="4352" width="64" height="64"/>
  </objectgroup>
 </map>
