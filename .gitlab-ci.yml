@@ -95,7 +95,7 @@ before_script:
                 - ./make-game.sh
                 - ./make-windows.sh
         cache:
-                key: "${PROJECT}-win${ARCH_BITS}"
+                key: "${PROJECT}-win-${ARCH_BITS}"
                 paths:
                         - "love-${LOVE_VERSION}-win${ARCH_BITS}.zip"
                         - "libgme_0.6.2_msvc12.zip"
@@ -114,7 +114,7 @@ before_script:
                 - apk add wget
                 - ./make-dev-windows.sh
         cache:
-                key: "${PROJECT}-win${ARCH_BITS}"
+                key: "${PROJECT}-win-${ARCH_BITS}"
                 paths:
                         - "love-${LOVE_VERSION}-win${ARCH_BITS}.zip"
                         - "libgme_0.6.2_msvc12.zip"
@@ -123,13 +123,13 @@ before_script:
                 paths:
                         - "${PROJECT_TITLE}"
 
-.build-macosx: &build-macosx
+.build-osx: &build-osx
         <<: *debian
         stage: build
         image: fzwoch/osxcross
         variables:
                 CFBundleIdentifier: "${APPLICATION_ID_BASE}"
-                <<: &build-macosx-variables
+                <<: &build-osx-variables
                         NSHumanReadableCopyright: "${COPYRIGHT}"
                         INSTALL_NAME_TOOL: x86_64-apple-darwin12-install_name_tool
         script:
@@ -137,12 +137,12 @@ before_script:
                 - ./make-game.sh
                 - ./make-macosx.sh
         cache:
-                key: "${PROJECT}-macosx"
+                key: "${PROJECT}-osx"
                 paths:
                         - "love-${LOVE_VERSION}-macosx-x64.zip"
                         - "game-music-emu-0.6.1.yosemite.bottle.tar.gz"
         artifacts:
-                name: "${PROJECT}-${VERSION}-macosx"
+                name: "${PROJECT}-${VERSION}-osx"
                 paths:
                         - "${PROJECT_TITLE}.app"
                 expire_in: 1 week
@@ -168,38 +168,38 @@ before_script:
                         - "${PROJECT_TITLE_NOSPACE}.apk"
                 expire_in: 1 week
 
-full-data:
+data:
         <<: *build-data
         <<: *full
 
-full-lin64:
+linux-x86_64:
         <<: *build-linux
         <<: *full
         variables:
                 ARCH: "x86_64"
 
-full-lin32:
+linux-i686:
         <<: *build-linux
         <<: *full
         image: i386/debian:stretch-slim
         variables:
                 ARCH: "i686"
 
-full-win64:
+win-64:
         <<: *build-windows
         <<: *full
 
-full-win32:
+win-32:
         <<: *build-windows
         <<: *full
         variables:
                 ARCH_BITS: "32"
 
-full-macosx:
-        <<: *build-macosx
+osx:
+        <<: *build-osx
         <<: *full
 
-full-android:
+android:
         <<: *build-android
         <<: *full
 
@@ -209,14 +209,14 @@ demo-data:
         variables:
                 <<: *demo-variables
 
-demo-lin64:
+demo-linux-x86_64:
         <<: *build-linux
         <<: *demo
         variables:
                 ARCH: "x86_64"
                 <<: *demo-variables
 
-demo-lin32:
+demo-linux-i686:
         <<: *build-linux
         <<: *demo
         image: i386/debian:stretch-slim
@@ -224,26 +224,26 @@ demo-lin32:
                 ARCH: "i686"
                 <<: *demo-variables
 
-demo-win64:
+demo-win-64:
         <<: *build-windows
         <<: *demo
         variables:
                 <<: *demo-variables
                 ARCH_BITS: "64"
 
-demo-win32:
+demo-win-32:
         <<: *build-windows
         <<: *demo
         variables:
                 <<: *demo-variables
                 ARCH_BITS: "32"
 
-demo-macosx:
-        <<: *build-macosx
+demo-osx:
+        <<: *build-osx
         <<: *demo
         variables:
                 <<: *demo-variables
-                <<: *build-macosx-variables
+                <<: *build-osx-variables
                 CFBundleIdentifier: "${APPLICATION_ID_BASE}demo"
 
 demo-android:
@@ -253,11 +253,11 @@ demo-android:
                 <<: *demo-variables
                 APPLICATION_ID: "${APPLICATION_ID_BASE}demo"
 
-dev-win64:
+dev-win-64:
         <<: *build-dev-windows
         <<: *full
 
-dev-win32:
+dev-win-32:
         <<: *build-dev-windows
         <<: *full
         variables:
