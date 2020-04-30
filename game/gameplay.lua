@@ -1,18 +1,19 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.5",
+  tiledversion = "1.3.3",
   orientation = "orthogonal",
   renderorder = "right-up",
   width = 15,
   height = 20,
   tilewidth = 16,
   tileheight = 16,
-  nextlayerid = 18,
-  nextobjectid = 57,
+  nextlayerid = 20,
+  nextobjectid = 64,
   properties = {
     ["delayinitobjects"] = true,
     ["enemydefeatsound"] = "snd/knockout.ogg",
+    ["enemyguardsound"] = "snd/parry.ogg",
     ["enemyhitsound"] = "snd/hit.ogg",
     ["losemusic"] = "mus/gameover.vgm",
     ["script"] = "ShmupMap",
@@ -51,8 +52,13 @@ return {
       tiles = {
         {
           id = 0,
+          properties = {
+            ["color"] = "#ffaadfff",
+            ["direction"] = "up"
+          },
           objectGroup = {
             type = "objectgroup",
+            id = 2,
             name = "",
             visible = true,
             opacity = 1,
@@ -72,10 +78,7 @@ return {
                 height = 24,
                 rotation = 0,
                 visible = true,
-                properties = {
-                  ["color"] = "#ffaadfff",
-                  ["direction"] = "up"
-                }
+                properties = {}
               }
             }
           }
@@ -299,335 +302,8 @@ return {
       tiles = {}
     },
     {
-      name = "powergauge",
-      firstgid = 88,
-      filename = "img/powergauge.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      columns = 4,
-      image = "img/powergauge.png",
-      imagewidth = 128,
-      imageheight = 32,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      grid = {
-        orientation = "orthogonal",
-        width = 32,
-        height = 32
-      },
-      properties = {
-        ["commoncollision"] = 0
-      },
-      terrains = {},
-      tilecount = 4,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "notfull"
-          },
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "power1",
-                type = "",
-                shape = "ellipse",
-                x = 17,
-                y = 0,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 2,
-                name = "power2",
-                type = "",
-                shape = "ellipse",
-                x = 21,
-                y = 2,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 3,
-                name = "power3",
-                type = "",
-                shape = "ellipse",
-                x = 24,
-                y = 5,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 4,
-                name = "power4",
-                type = "",
-                shape = "ellipse",
-                x = 27,
-                y = 8,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 5,
-                name = "power5",
-                type = "",
-                shape = "ellipse",
-                x = 29,
-                y = 12,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 6,
-                name = "power6",
-                type = "",
-                shape = "ellipse",
-                x = 29,
-                y = 17,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 7,
-                name = "power7",
-                type = "",
-                shape = "ellipse",
-                x = 27,
-                y = 21,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 8,
-                name = "power8",
-                type = "",
-                shape = "ellipse",
-                x = 24,
-                y = 24,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 9,
-                name = "power9",
-                type = "",
-                shape = "ellipse",
-                x = 21,
-                y = 27,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 10,
-                name = "power10",
-                type = "",
-                shape = "ellipse",
-                x = 17,
-                y = 29,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 11,
-                name = "power18",
-                type = "",
-                shape = "ellipse",
-                x = 5,
-                y = 5,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 12,
-                name = "power14",
-                type = "",
-                shape = "ellipse",
-                x = 2,
-                y = 21,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 13,
-                name = "power15",
-                type = "",
-                shape = "ellipse",
-                x = 0,
-                y = 17,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 14,
-                name = "power16",
-                type = "",
-                shape = "ellipse",
-                x = 0,
-                y = 12,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 15,
-                name = "power12",
-                type = "",
-                shape = "ellipse",
-                x = 8,
-                y = 27,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 16,
-                name = "power11",
-                type = "",
-                shape = "ellipse",
-                x = 12,
-                y = 29,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 17,
-                name = "power13",
-                type = "",
-                shape = "ellipse",
-                x = 5,
-                y = 24,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 18,
-                name = "power17",
-                type = "",
-                shape = "ellipse",
-                x = 2,
-                y = 8,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 19,
-                name = "power19",
-                type = "",
-                shape = "ellipse",
-                x = 8,
-                y = 2,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 20,
-                name = "power20",
-                type = "",
-                shape = "ellipse",
-                x = 12,
-                y = 0,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              }
-            }
-          }
-        },
-        {
-          id = 1,
-          properties = {
-            ["name"] = "full"
-          },
-          animation = {
-            {
-              tileid = 1,
-              duration = 67
-            },
-            {
-              tileid = 2,
-              duration = 67
-            },
-            {
-              tileid = 3,
-              duration = 67
-            }
-          }
-        }
-      }
-    },
-    {
       name = "sparks_huge",
-      firstgid = 92,
+      firstgid = 88,
       filename = "img/sparks_huge.tsx",
       tilewidth = 96,
       tileheight = 96,
@@ -779,7 +455,7 @@ return {
     },
     {
       name = "sparks_med",
-      firstgid = 112,
+      firstgid = 108,
       filename = "img/sparks_med.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -870,7 +546,7 @@ return {
     },
     {
       name = "sparks_small",
-      firstgid = 124,
+      firstgid = 120,
       filename = "img/sparks_small.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -945,7 +621,7 @@ return {
     },
     {
       name = "demonization",
-      firstgid = 140,
+      firstgid = 136,
       filename = "img/demonization.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1072,7 +748,7 @@ return {
     },
     {
       name = "demonbomb",
-      firstgid = 148,
+      firstgid = 144,
       filename = "img/demonbomb.tsx",
       tilewidth = 128,
       tileheight = 128,
@@ -1164,7 +840,7 @@ return {
     },
     {
       name = "demonshots",
-      firstgid = 156,
+      firstgid = 152,
       filename = "img/demonshots.tsx",
       tilewidth = 32,
       tileheight = 16,
@@ -1244,7 +920,7 @@ return {
     },
     {
       name = "humanshots",
-      firstgid = 160,
+      firstgid = 156,
       filename = "img/humanshots.tsx",
       tilewidth = 32,
       tileheight = 16,
@@ -1629,12 +1305,18 @@ return {
               }
             }
           }
+        },
+        {
+          id = 53,
+          properties = {
+            ["name"] = "barbed"
+          }
         }
       }
     },
     {
       name = "crosshair",
-      firstgid = 216,
+      firstgid = 212,
       filename = "img/crosshair.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1660,7 +1342,7 @@ return {
     },
     {
       name = "item",
-      firstgid = 220,
+      firstgid = 216,
       filename = "img/item.tsx",
       tilewidth = 48,
       tileheight = 24,
@@ -1734,7 +1416,7 @@ return {
     },
     {
       name = "gameover",
-      firstgid = 223,
+      firstgid = 219,
       filename = "img/gameover.tsx",
       tilewidth = 192,
       tileheight = 40,
@@ -1760,7 +1442,7 @@ return {
     },
     {
       name = "ko",
-      firstgid = 224,
+      firstgid = 220,
       filename = "img/human/ko.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -2109,7 +1791,10 @@ return {
         },
         {
           id = 52,
-          type = "ItemScore"
+          type = "ItemScore",
+          properties = {
+            ["name"] = "Bishop"
+          }
         },
         {
           id = 53,
@@ -2135,11 +1820,17 @@ return {
         },
         {
           id = 57,
-          type = "ItemWingman"
+          type = "ItemWingman",
+          properties = {
+            ["name"] = "Townfolk-Adult-F-005"
+          }
         },
         {
           id = 58,
-          type = "ItemWingman"
+          type = "ItemWingman",
+          properties = {
+            ["name"] = "Townfolk-Adult-F-006"
+          }
         },
         {
           id = 59,
@@ -2181,7 +1872,7 @@ return {
     },
     {
       name = "converted",
-      firstgid = 296,
+      firstgid = 292,
       filename = "img/human/converted.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -2213,8 +1904,8 @@ return {
         ["rowname11"] = "townfolk-adult-f-001",
         ["rowname12"] = "townfolk-adult-f-002",
         ["rowname13"] = "townfolk-adult-f-003",
-        ["rowname14"] = "townfolk-adult-f-005",
-        ["rowname15"] = "townfolk-adult-f-006",
+        ["rowname14"] = "Townfolk-Adult-F-005",
+        ["rowname15"] = "Townfolk-Adult-F-006",
         ["rowname16"] = "FireArcherF",
         ["rowname17"] = "AssassinF",
         ["rowname2"] = "DancerF",
@@ -2282,7 +1973,10 @@ return {
         },
         {
           id = 1,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "ArcherF"
+          }
         },
         {
           id = 2,
@@ -2306,7 +2000,10 @@ return {
         },
         {
           id = 7,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "CatapultOperatorF"
+          }
         },
         {
           id = 8,
@@ -2348,7 +2045,10 @@ return {
         },
         {
           id = 13,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "DancerF"
+          }
         },
         {
           id = 14,
@@ -2372,7 +2072,10 @@ return {
         },
         {
           id = 19,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "MageF"
+          }
         },
         {
           id = 20,
@@ -2396,7 +2099,10 @@ return {
         },
         {
           id = 25,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "PikemanF"
+          }
         },
         {
           id = 26,
@@ -2420,7 +2126,10 @@ return {
         },
         {
           id = 31,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "PriestF"
+          }
         },
         {
           id = 32,
@@ -2444,7 +2153,10 @@ return {
         },
         {
           id = 37,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "SailorF"
+          }
         },
         {
           id = 38,
@@ -2468,7 +2180,10 @@ return {
         },
         {
           id = 43,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "SwordsmanF"
+          }
         },
         {
           id = 44,
@@ -2492,7 +2207,10 @@ return {
         },
         {
           id = 49,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "aristocrate-f-01"
+          }
         },
         {
           id = 50,
@@ -2534,7 +2252,10 @@ return {
         },
         {
           id = 55,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "aristocrate-f-02"
+          }
         },
         {
           id = 56,
@@ -2576,7 +2297,10 @@ return {
         },
         {
           id = 61,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "aristocrate-f-03"
+          }
         },
         {
           id = 62,
@@ -2600,7 +2324,10 @@ return {
         },
         {
           id = 67,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "townfolk-adult-f-001"
+          }
         },
         {
           id = 68,
@@ -2624,7 +2351,10 @@ return {
         },
         {
           id = 73,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "townfolk-adult-f-002"
+          }
         },
         {
           id = 74,
@@ -2666,7 +2396,10 @@ return {
         },
         {
           id = 79,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "townfolk-adult-f-003"
+          }
         },
         {
           id = 80,
@@ -2690,7 +2423,10 @@ return {
         },
         {
           id = 85,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "Townfolk-Adult-F-005"
+          }
         },
         {
           id = 86,
@@ -2714,7 +2450,10 @@ return {
         },
         {
           id = 91,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "Townfolk-Adult-F-006"
+          }
         },
         {
           id = 92,
@@ -2738,7 +2477,10 @@ return {
         },
         {
           id = 97,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "FireArcherF"
+          }
         },
         {
           id = 98,
@@ -2755,12 +2497,39 @@ return {
         {
           id = 101,
           type = "PlayerWingman"
+        },
+        {
+          id = 102,
+          type = "PlayerWingman"
+        },
+        {
+          id = 103,
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "AssassinF"
+          }
+        },
+        {
+          id = 104,
+          type = "PlayerWingman"
+        },
+        {
+          id = 105,
+          type = "PlayerWingman"
+        },
+        {
+          id = 106,
+          type = "PlayerWingman"
+        },
+        {
+          id = 107,
+          type = "PlayerWingman"
         }
       }
     },
     {
       name = "countdown",
-      firstgid = 404,
+      firstgid = 400,
       filename = "img/countdown.tsx",
       tilewidth = 16,
       tileheight = 20,
@@ -2805,7 +2574,7 @@ return {
     },
     {
       name = "go",
-      firstgid = 407,
+      firstgid = 403,
       filename = "img/go.tsx",
       tilewidth = 64,
       tileheight = 32,
@@ -2831,7 +2600,7 @@ return {
     },
     {
       name = "emotes",
-      firstgid = 408,
+      firstgid = 404,
       filename = "img/emotes.tsx",
       tilewidth = 24,
       tileheight = 16,
@@ -3004,7 +2773,7 @@ return {
     },
     {
       name = "winebomb",
-      firstgid = 432,
+      firstgid = 428,
       filename = "img/winebomb.tsx",
       tilewidth = 18,
       tileheight = 12,
@@ -3064,6 +2833,227 @@ return {
             {
               tileid = 1,
               duration = 67
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "title_demonization",
+      firstgid = 430,
+      filename = "img/title_demonization.tsx",
+      tilewidth = 32,
+      tileheight = 24,
+      spacing = 0,
+      margin = 0,
+      columns = 8,
+      image = "img/title_demonization.png",
+      imagewidth = 256,
+      imageheight = 48,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 24
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 16,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 100
+            },
+            {
+              tileid = 2,
+              duration = 150
+            },
+            {
+              tileid = 4,
+              duration = 100
+            },
+            {
+              tileid = 6,
+              duration = 150
+            }
+          }
+        },
+        {
+          id = 1,
+          animation = {
+            {
+              tileid = 1,
+              duration = 100
+            },
+            {
+              tileid = 3,
+              duration = 150
+            },
+            {
+              tileid = 5,
+              duration = 100
+            },
+            {
+              tileid = 7,
+              duration = 150
+            }
+          }
+        },
+        {
+          id = 8,
+          animation = {
+            {
+              tileid = 8,
+              duration = 100
+            },
+            {
+              tileid = 10,
+              duration = 150
+            },
+            {
+              tileid = 12,
+              duration = 100
+            },
+            {
+              tileid = 14,
+              duration = 150
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "title",
+      firstgid = 446,
+      filename = "img/title.tsx",
+      tilewidth = 200,
+      tileheight = 50,
+      spacing = 0,
+      margin = 0,
+      columns = 1,
+      image = "img/title.png",
+      imagewidth = 200,
+      imageheight = 50,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 200,
+        height = 50
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "powergauge",
+      firstgid = 447,
+      filename = "img/powergauge.tsx",
+      tilewidth = 128,
+      tileheight = 16,
+      spacing = 0,
+      margin = 0,
+      columns = 1,
+      image = "img/powergauge.png",
+      imagewidth = 128,
+      imageheight = 16,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 128,
+        height = 16
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {
+        {
+          id = 0,
+          properties = {
+            ["color"] = "#c05100ff",
+            ["colorlevel1"] = "#c05100ff",
+            ["colorlevel2"] = "#c0a200ff",
+            ["colorlevel3"] = "#c0d900ff",
+            ["colorlevel4"] = "#c0ff00b7",
+            ["colorlevel5"] = "#c0ff0044",
+            ["direction"] = "right",
+            ["script"] = "UIGauge"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            id = 2,
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "fill",
+                type = "",
+                shape = "rectangle",
+                x = 25,
+                y = 9,
+                width = 10,
+                height = 4,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 2,
+                name = "fill",
+                type = "",
+                shape = "rectangle",
+                x = 35,
+                y = 7,
+                width = 20,
+                height = 6,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 3,
+                name = "fill",
+                type = "",
+                shape = "rectangle",
+                x = 55,
+                y = 5,
+                width = 30,
+                height = 8,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              },
+              {
+                id = 4,
+                name = "fill",
+                type = "",
+                shape = "rectangle",
+                x = 85,
+                y = 3,
+                width = 40,
+                height = 10,
+                rotation = 0,
+                visible = true,
+                properties = {}
+              }
             }
           }
         }
@@ -3245,6 +3235,18 @@ return {
     },
     {
       type = "objectgroup",
+      id = 18,
+      name = "dialogue",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {}
+    },
+    {
+      type = "objectgroup",
       id = 9,
       name = "status",
       visible = true,
@@ -3258,6 +3260,7 @@ return {
         ["gosound"] = "snd/extend.ogg",
         ["maxmultipliersound"] = "snd/maxed.ogg",
         ["newbombsound"] = "snd/thankyou.ogg",
+        ["powerupsound"] = "snd/powerup.ogg",
         ["script"] = "ShmupStatus"
       },
       objects = {
@@ -3271,7 +3274,7 @@ return {
           width = 16,
           height = 20,
           rotation = 0,
-          gid = 406,
+          gid = 402,
           visible = true,
           properties = {}
         },
@@ -3567,7 +3570,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 432,
+          gid = 428,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3583,7 +3586,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 432,
+          gid = 428,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3599,7 +3602,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 432,
+          gid = 428,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3615,7 +3618,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 432,
+          gid = 428,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3631,7 +3634,7 @@ return {
           width = 18,
           height = 12,
           rotation = -90,
-          gid = 432,
+          gid = 428,
           visible = false,
           properties = {
             ["collidable"] = false
@@ -3663,7 +3666,7 @@ return {
           type = "",
           shape = "text",
           x = 56,
-          y = 280,
+          y = 264,
           width = 176,
           height = 32,
           rotation = 0,
@@ -3682,7 +3685,7 @@ return {
           type = "",
           shape = "text",
           x = 8,
-          y = 280,
+          y = 264,
           width = 224,
           height = 32,
           rotation = 0,
@@ -3693,6 +3696,38 @@ return {
           color = { 255, 255, 255 },
           halign = "right",
           valign = "bottom",
+          properties = {}
+        },
+        {
+          id = 62,
+          name = "powergauge",
+          type = "",
+          shape = "rectangle",
+          x = 108,
+          y = 316,
+          width = 128,
+          height = 16,
+          rotation = 0,
+          gid = 447,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 63,
+          name = "powerlevel",
+          type = "",
+          shape = "text",
+          x = 104,
+          y = 300,
+          width = 28,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          text = "Lv1",
+          fontfamily = "Unifont",
+          wrap = true,
+          color = { 255, 255, 255 },
+          valign = "center",
           properties = {}
         }
       }
@@ -3998,7 +4033,7 @@ return {
           width = 192,
           height = 40,
           rotation = 0,
-          gid = 223,
+          gid = 219,
           visible = true,
           properties = {}
         },
@@ -4085,6 +4120,94 @@ return {
           height = 64,
           rotation = 0,
           gid = 22,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 19,
+      name = "attract",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 57,
+          name = "start",
+          type = "",
+          shape = "text",
+          x = 0,
+          y = 256,
+          width = 240,
+          height = 16,
+          rotation = 0,
+          visible = true,
+          text = "PRESS ANY KEY OR BUTTON",
+          fontfamily = "Unifont",
+          wrap = true,
+          color = { 255, 255, 255 },
+          halign = "center",
+          valign = "center",
+          properties = {}
+        },
+        {
+          id = 58,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 12,
+          y = 72,
+          width = 32,
+          height = 24,
+          rotation = 0,
+          gid = 430,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 59,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 196,
+          y = 72,
+          width = 32,
+          height = 24,
+          rotation = 0,
+          gid = 431,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 60,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 114,
+          y = 97,
+          width = 32,
+          height = 24,
+          rotation = 0,
+          gid = 438,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 61,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 20,
+          y = 97,
+          width = 200,
+          height = 50,
+          rotation = 0,
+          gid = 446,
           visible = true,
           properties = {}
         }

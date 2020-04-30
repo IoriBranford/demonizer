@@ -25,7 +25,7 @@ function Trigger:_init(object)
 	self.playerentered = false
 	self.waittriggertimer = nil
 	object.layer.visible = false
-	for _, fixture in pairs(self.object.body:getFixtureList()) do
+	for _, fixture in pairs(self.object.body:getFixtures()) do
 		fixture:setMask(TriggerMask)
 	end
 end
@@ -128,6 +128,12 @@ function Trigger:applyCameraSpeed()
 	end
 end
 
+function Trigger:clearActivatedEnemies()
+	for id, _ in pairs(self.activatedids) do
+		self:send(id, "defeat", "clear")
+	end
+end
+
 function Trigger:activate()
 	if self.activatedonce then
 		return
@@ -139,6 +145,14 @@ function Trigger:activate()
 	if self.properties.activateonce then
 		self.activatedonce = true
 	end
+
+	local clearlayerenemies = self.properties.clearlayerenemies
+	if clearlayerenemies then
+		for _, object in pairs(self.object.layer.objects) do
+			self:send(object.id, "clearActivatedEnemies")
+		end
+	end
+
 	local activateobjects = self.properties.activateobjects
 	if activateobjects then
 		self:activateObjects(activateobjects)
@@ -218,7 +232,7 @@ function Trigger:activate()
 		end
 	end
 
-	for _, contact in pairs(self.object.body:getContactList()) do
+	for _, contact in pairs(self.object.body:getContacts()) do
 		-- contact does not mean they are touching,
 		-- only that they are close enough for detailed collision check
 		if contact:isTouching() then
@@ -236,11 +250,15 @@ function Trigger:activate()
 
 	local waittriggerid = self.properties.waittriggerid
 	local waittriggertime = self.properties.waittriggertime
+	local timelinespeed = self.properties.timelinespeed
 	if waittriggerid then
 		self.properties.waittriggerid = tonumber(waittriggerid) or waittriggerid
 		if waittriggertime then
 			self.waittriggertimer = 0
 		end
+	elseif timelinespeed > 0 then
+		self.properties.waittriggertime = self.object.height / timelinespeed
+		self.waittriggertimer = 0
 	end
 
 	local clearobjectlayer = self.properties.clearobjectlayer
@@ -325,6 +343,9 @@ local function isActivatedById(self, id)
 	local activatedbyid = self.properties.activatedbyid
 	if activatedbyid == "camera" then
 		activatedbyid = levity.map.properties.cameraid
+	end
+	if activatedbyid == "player" then
+		activatedbyid = levity.map.properties.playerid
 	end
 	return activatedbyid == id or activatedbyid == "all"
 end
@@ -523,16 +544,18 @@ function Trigger:friendKilled(friendid)
 	end
 end
 
-function Trigger:someoneDiscarded(id)
+function Trigger:objectDiscarded(id)
 	if not self.activatedids[id] then
 		return
 	end
 
 	self.activatedids[id] = nil
 
-	if not self:isCleared() then
+	if self.cleared or not self:isCleared() then
 		return
 	end
+
+	self.cleared = true
 
 	self:broadcast("triggerCleared", self.id)
 

@@ -30,6 +30,10 @@ function TargetLock:setLockTargetId(targetid)
 	self.locktargetid = targetid
 end
 
+function TargetLock:getLockTargetId()
+	return self.locktargetid
+end
+
 function TargetLock:npcDefeated(id)
 	if self.locktargetid == id then
 		self:setLockTargetId(nil)
@@ -61,7 +65,7 @@ function TargetLock:beginDraw()
 		local twhalf, thhalf = tileset.tilewidth/2, tileset.tileheight/2
 		local cx, cy = targetbody:getWorldCenter()
 		local l, t, r, b = cx-twhalf, cy-thhalf, cx+twhalf, cy+thhalf
-		for _,fixture in pairs(targetbody:getFixtureList()) do
+		for _,fixture in pairs(targetbody:getFixtures()) do
 			local fl, ft, fr, fb = fixture:getBoundingBox()
 			l = math.min(fl, l)
 			t = math.min(ft, t)

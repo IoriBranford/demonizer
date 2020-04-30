@@ -16,13 +16,13 @@ function EnemyPrincess:defeatCoroutine(dt)
 
 	self.typechanger:setType("Princess")
 	self.properties.pathspeed = 0
-	local kogid = self:getDefeatDropGid()
+	local kogid = self:getDefeatDropGid(self.object)
 	if kogid then
 		self.object:setGid(kogid, true, "dynamic", false)
 	end
 
 	local defeatspark = self.properties.defeatspark or "SparkDefeatMed"
-	for _, fixture in ipairs(self.body:getFixtureList()) do
+	for _, fixture in ipairs(self.body:getFixtures()) do
 		local l, t, r, b = fixture:getBoundingBox()
 		local x = l + (r-l)*.5
 		local y = t + (b-t)*.5

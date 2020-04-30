@@ -8,7 +8,7 @@ function FreeCam:_init(object)
 	self.vx = 0
 	self.vy = 0
 	self.object.body:setFixedRotation(true)
-	for _, fixture in ipairs(self.object.body:getFixtureList()) do
+	for _, fixture in ipairs(self.object.body:getFixtures()) do
 		fixture:setSensor(true)
 	end
 

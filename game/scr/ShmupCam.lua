@@ -17,7 +17,7 @@ function ShmupCam:_init(object)
 	self.object.visible = false
 	self.body:setFixedRotation(true)
 
-	for _, fixture in ipairs(self.body:getFixtureList()) do
+	for _, fixture in ipairs(self.body:getFixtures()) do
 		fixture:setFriction(0)
 		fixture:setCategory(ShmupCollision.Category_Camera)
 	end
@@ -49,7 +49,7 @@ function ShmupCam:getBoundingBox()
 	local top = math_huge
 	local right = -math_huge
 	local bottom = -math_huge
-	local fixtures = self.body:getFixtureList()
+	local fixtures = self.body:getFixtures()
 	for i = 1, #fixtures do
 		local l, t, r, b = fixtures[i]:getBoundingBox()
 		left = math_min(left, l)

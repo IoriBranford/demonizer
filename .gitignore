@@ -20,10 +20,21 @@ history.db
 *.love
 *.exe
 *.dll
+*.so
+*.dylib
 *.AppImage
+*.AppDir
+*.app
+*.deb
+*.jar
+*.apk
+*.tar.*
 squashfs-root
 bin*/
-love-android-sdl2/
+love-apk-src/
+game-apk/
+apktool
+appimagetool
 
 **/ignore/**/*
 

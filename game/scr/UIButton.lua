@@ -1,4 +1,5 @@
 local levity = require "levity"
+local Progress = require "Progress"
 
 local UIButton = class(require("Script"))
 function UIButton:_init(object)
@@ -110,13 +111,13 @@ function UIButton:beginDraw()
 
 	if self.locked then
 		for i = 1, 4 do
-			self.object.color[i] = 0x80
+			self.object.color[i] = .5
 		end
 		levity.setColorARGB(self.properties.lockedfillcolor or "#80202020")
 		love.graphics.rectangle("fill", x, y, w, h)
 	else
 		for i = 1, 4 do
-			self.object.color[i] = 0xff
+			self.object.color[i] = 1
 		end
 		if self.pressed then
 			levity.setColorARGB(self.properties.pressfillcolor or "#807359a5")
@@ -129,7 +130,7 @@ function UIButton:beginDraw()
 		end
 	end
 
-	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
+	love.graphics.setColor(1, 1, 1, 1)
 end
 
 function UIButton:drawPressedOutline()
@@ -137,11 +138,24 @@ function UIButton:drawPressedOutline()
 				self.object.width, self.object.height
 	levity.setColorARGB(self.properties.presslinecolor or "#ffa478ff")
 	love.graphics.rectangle("line", x, y, w, h)
-	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
+	love.graphics.setColor(1, 1, 1, 1)
 end
 
 function UIButton:initLock_startGame()
-	self:setLock(not love.filesystem.exists(self.properties.nextmap))
+	local nextmap = self.properties.nextmap
+	self.object.visible = self.object.visible and not
+		(levity.prefs.exhibit and nextmap:find("options"))
+	self.object.visible = self.object.visible and not
+		(nextmap:find("final") and not Progress.isUnlocked(nextmap))
+	local locked = not love.filesystem.getInfo(nextmap)
+		or not Progress.isUnlocked(nextmap)
+	if locked then
+		local text = self.object.text
+		if text then
+			self.object.text = text:gsub(".", "?")
+		end
+	end
+	self:setLock(locked)
 end
 
 function UIButton:initLock_changeMenu()
@@ -154,6 +168,7 @@ UIButton.joystickadded = UIButton.initLock_changeMenu
 UIButton.joystickremoved = UIButton.initLock_changeMenu
 
 function UIButton:playerExit()
+	levity.map.properties.attractmodewaittime = nil
 	self:send(levity.map.properties.playerid, "startExit")
 
 	local menu = self.object.layer
@@ -197,6 +212,7 @@ end
 
 function UIButton:resetPrefs()
 	levity.prefs.reset()
+	levity.prefs.applyDisplayMode()
 	self:broadcast("prefsReset")
 end
 

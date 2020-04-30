@@ -12,10 +12,15 @@ levity.showversion = true
 levity:setSystemFont("fnt/Press Start 2P_8.fnt")
 
 function levity.initDefaultPrefs(dp)
+	love.graphics.setLineStyle("rough")
 	dp._version = 1
+	dp.basewindowwidth = 240
+	dp.basewindowheight = 320
 	dp.canvasscale = 6
 	dp.canvasscaleint = true
 	dp.canvasscalesoft = false
+	dp.musicvolume = 0.5
+	dp.soundvolume = 0.5
 
 	dp.key_left = "left"
 	dp.key_right = "right"

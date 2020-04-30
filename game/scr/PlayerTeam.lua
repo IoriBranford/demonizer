@@ -1,7 +1,8 @@
 local levity = require "levity"
+local ShmupPlayer = require "ShmupPlayer"
 local ShmupWingman = require "ShmupWingman"
 local Item = require "Item"
-local PlayerPower = require "PlayerPower"
+local Targeting = require "Targeting"
 
 --- Manager of player and wingmen
 -- - Formation positions
@@ -36,7 +37,7 @@ function PlayerTeam:_init(layer)
 
 	local nextmapcaptivenames = nextmapplayerteam.captivenames
 	self.captivegids = levity.map:tileNamesToGids(nextmapcaptivenames) or {}
-	self.powergaugeids = {}
+	self.targetlock = levity.scripts:newScript(layer.name, "TargetLock", layer)
 end
 
 function PlayerTeam:initQuery()
@@ -45,9 +46,6 @@ function PlayerTeam:initQuery()
 	if scoreid then
 		mult = self:call(scoreid, "getMultiplier", self.playerid)
 	end
-
-	self.powergaugeids[PlayerTeam.PlayerIndex] =
-			PlayerPower.create(self.playerid, self.layer, mult)
 end
 
 PlayerTeam.PlayerIndex = "player"
@@ -87,9 +85,6 @@ function PlayerTeam:makeWingmanActive(i)
 			initmult = self:call(scoreid, "initMultiplier", i)
 		end
 		local wingmanid = self.wingmanids[i]
-		local powergaugeid = self.powergaugeids[i]
-		powergaugeid = PlayerPower.create(wingmanid, self.layer, initmult)
-		self.powergaugeids[i] = powergaugeid
 	end
 end
 
@@ -99,18 +94,19 @@ function PlayerTeam:wingmanJoined(wingmanid)
 	self:makeWingmanActive(i)
 end
 
+function PlayerTeam:isWingmanActive(wingmanid)
+	local i = self:getMemberIndex(wingmanid)
+	return i and  0 < i and i <= self.MaxActiveWingmen
+end
+
 function PlayerTeam:isWingmanActiveOrBackup(wingmanid)
 	local i = self:getMemberIndex(wingmanid)
-	if i then
-		return 0 < i and i <= self.MaxWingmen
-	end
+	return i and 0 < i and i <= self.MaxWingmen
 end
 
 function PlayerTeam:isWingmanBackup(wingmanid)
 	local i = self:getMemberIndex(wingmanid)
-	if i then
-		return self.MaxActiveWingmen < i and i <= self.MaxWingmen
-	end
+	return i and self.MaxActiveWingmen < i and i <= self.MaxWingmen
 end
 
 function PlayerTeam:getMemberId(i)
@@ -160,7 +156,7 @@ function PlayerTeam:getBackupWingmanPosition(backupi)
 	return x, y
 end
 
-function PlayerTeam:getWingmanPosition(wingmanid)
+function PlayerTeam:getWingmanPosition(wingmanid, leaderid)
 	local i = self:getMemberIndex(wingmanid)
 	if not i then
 		return
@@ -175,9 +171,10 @@ function PlayerTeam:getWingmanPosition(wingmanid)
 		return self:getBackupWingmanPosition(i)
 	end
 
-	local player = levity.map.objects[self.playerid]
-
-	local wmx, wmy = player.body:getWorldCenter()
+	leaderid = leaderid or self.playerid
+	local target = levity.map.objects[leaderid]
+		or levity.map.objects[self.playerid]
+	local wmx, wmy = target.body:getWorldCenter()
 	local offset
 
 	if self:call(self.playerid, "isFocused") then
@@ -187,8 +184,17 @@ function PlayerTeam:getWingmanPosition(wingmanid)
 	end
 
 	if offset then
-		wmx = wmx + offset[1]
-		wmy = wmy + offset[2]
+		local ox, oy = offset[1], offset[2]
+		if leaderid ~= self.playerid then
+			local player = levity.map.objects[self.playerid]
+			local px, py = player.body:getWorldCenter()
+			local angle = math.atan2(wmx - px, -wmy + py)
+			local sina = math.sin(angle)
+			local cosa = math.cos(angle)
+			ox, oy = ox*cosa - oy*sina, ox*sina + oy*cosa
+		end
+		wmx = wmx + ox
+		wmy = wmy + oy
 
 		if self:call(self.playerid, "isKilled") then
 			local angle = math.pi * .5
@@ -202,12 +208,22 @@ function PlayerTeam:getWingmanPosition(wingmanid)
 	return wmx, wmy
 end
 
-function PlayerTeam:endMove(dt)
-	local focused = self:call(self.playerid, "isFocused")
-	for _, id in pairs(self.powergaugeids) do
-		local gauge = levity.map.objects[id]
-		if gauge then
-			gauge.visible = focused
+function PlayerTeam:beginMove(dt)
+	local tid1, tid2 = self:call(self.playerid, "updateFocusTargets")
+	if tid1 or tid2 then
+		for i, id in pairs(self.wingmanids) do
+			local offset = self.focuswingmanpositions[i]
+			local tid
+			if offset and offset[1] > 0 then
+				tid = tid2 or tid1
+			else
+				tid = tid1 or tid2
+			end
+
+			if tid ~= self:call(id, "getLockTargetId") then
+				self:send(id, "setLockTargetId", tid)
+				break
+			end
 		end
 	end
 end
@@ -253,9 +269,6 @@ function PlayerTeam:forgetWingman(wingmanid)
 
 		table.remove(self.wingmanids, i)
 		if isActiveWingmanIndex(i) then
-			levity:discardObject(self.powergaugeids[i])
-			table.remove(self.powergaugeids, i)
-
 			if #self.wingmanids >= PlayerTeam.MaxActiveWingmen then
 				self:makeWingmanActive(PlayerTeam.MaxActiveWingmen)
 			end
@@ -293,6 +306,17 @@ function PlayerTeam:nextMap(nextmapfile, nextmapdata)
 			captivenames = istutorial and nil or
 				levity.map:tileGidsToNames(self.captivegids)
 		}
+	end
+end
+
+function PlayerTeam:isWingmanGoingToCapture(id)
+	if not id then
+		return
+	end
+	for i = 1, #self.wingmanids do
+		if id == self:call(self.wingmanids[i], "getTargetCaptiveId") then
+			return true
+		end
 	end
 end
 

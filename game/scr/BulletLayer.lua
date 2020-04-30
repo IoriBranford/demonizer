@@ -13,15 +13,15 @@ function BulletLayer:beginDraw()
 		local glow = 1 + math.cos(love.timer.getTime()*glowspeed*math.pi*2)
 		local glowstrength = self.properties.glowstrength or 1
 		glow = glow * glowstrength
-		r = 0x100 + r*glow
-		g = 0x100 + g*glow
-		b = 0x100 + b*glow
+		r = 1 + r*glow
+		g = 1 + g*glow
+		b = 1 + b*glow
 		love.graphics.setColor(r, g, b)
 	end
 end
 
 function BulletLayer:endDraw()
-	love.graphics.setColor(0xff, 0xff, 0xff)
+	love.graphics.setColor(1, 1, 1)
 end
 
 return BulletLayer

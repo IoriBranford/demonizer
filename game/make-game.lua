@@ -70,6 +70,8 @@ local function findAssetsInTable(assets, properties)
 			if checkAsset(filename) then
 				assets[filename] = filename
 			end
+		elseif type(filename)=="table" then
+			findAssetsInTable(assets, filename)
 		end
 	end
 end
@@ -90,6 +92,12 @@ local function findAssetsInXML(tag, node)
 		end
 	end
 end
+
+love = {}
+local conf = { window = {}, modules = {} }
+require "conf"
+love.conf(conf)
+findAssetsInTable(assets, conf)
 
 for _, gamefilename in pairs(gamefilelist) do
 	local extension = gamefilename:sub(-4, -1)
@@ -131,8 +139,7 @@ end
 
 os_execute('find scr -name "*.lua" | '..zipcommand..'-@')
 os_execute('find fnt -name "*.png" -o -name "*.fnt" -o -name "*.ttf" | '..zipcommand..'-@')
-os_execute('find levity -name "examples" -prune -o -name "tests" -prune -o -name "*.lua" | '..zipcommand..'-@')
-os_execute('find levity/SDL_GameControllerDB -name "*.txt" | '..zipcommand..'-@')
+os_execute('find levity -name "examples" -prune -o -name "tests" -prune -o -name "*.lua" -o -name "gamecontrollerdb.txt" | '..zipcommand..'-@')
 os_execute('git describe --tags --always > version')
 os_execute(zipcommand..'version')
 

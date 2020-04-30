@@ -1,7 +1,7 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.4",
+  tiledversion = "1.3.2",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 15,
@@ -16,7 +16,8 @@ return {
     ["nextmap"] = "demonrealm.lua",
     ["overlaymap"] = "gameplay.lua",
     ["playerid"] = 1,
-    ["startbombs"] = 0.6
+    ["startbombs"] = 0.6,
+    ["winmusic"] = "none"
   },
   tilesets = {
     {
@@ -54,6 +55,7 @@ return {
           },
           objectGroup = {
             type = "objectgroup",
+            id = 5,
             name = "",
             visible = true,
             opacity = 1,
@@ -81,7 +83,7 @@ return {
                 id = 7,
                 name = "wingman1",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 8,
                 y = 40,
                 width = 0,
@@ -94,7 +96,7 @@ return {
                 id = 8,
                 name = "wingman2",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 56,
                 y = 40,
                 width = 0,
@@ -107,7 +109,7 @@ return {
                 id = 10,
                 name = "wingman3",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 16,
                 y = 16,
                 width = 0,
@@ -120,7 +122,7 @@ return {
                 id = 11,
                 name = "wingman4",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 48,
                 y = 16,
                 width = 0,
@@ -133,9 +135,9 @@ return {
                 id = 12,
                 name = "focuswingman1",
                 type = "",
-                shape = "ellipse",
-                x = 0,
-                y = 8,
+                shape = "point",
+                x = 12,
+                y = 24,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -146,9 +148,9 @@ return {
                 id = 13,
                 name = "focuswingman2",
                 type = "",
-                shape = "ellipse",
-                x = 64,
-                y = 8,
+                shape = "point",
+                x = 52,
+                y = 24,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -159,9 +161,9 @@ return {
                 id = 14,
                 name = "focuswingman3",
                 type = "",
-                shape = "ellipse",
-                x = 16,
-                y = -24,
+                shape = "point",
+                x = 0,
+                y = 12,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -172,9 +174,9 @@ return {
                 id = 15,
                 name = "focuswingman4",
                 type = "",
-                shape = "ellipse",
-                x = 48,
-                y = -24,
+                shape = "point",
+                x = 64,
+                y = 12,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -2715,6 +2717,300 @@ return {
           }
         }
       }
+    },
+    {
+      name = "HeavyMilitia",
+      firstgid = 570,
+      filename = "img/human/enemy/HeavyMilitia.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 6,
+      image = "img/human/enemy/HeavyMilitia.png",
+      imagewidth = 192,
+      imageheight = 160,
+      tileoffset = {
+        x = -16,
+        y = 16
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {
+        ["colstype"] = "state",
+        ["column_attack"] = 3,
+        ["column_fire"] = 5,
+        ["column_move"] = 0,
+        ["commonanimation"] = 0,
+        ["commoncollision"] = 0,
+        ["numdirections"] = 4,
+        ["rowstype"] = "direction"
+      },
+      terrains = {},
+      tilecount = 30,
+      tiles = {
+        {
+          id = 0,
+          type = "HeavyMilitia",
+          properties = {
+            ["name"] = "east"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 6,
+                y = 8,
+                width = 20,
+                height = 20,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true,
+                  ["sensor"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            },
+            {
+              tileid = 2,
+              duration = 125
+            },
+            {
+              tileid = 1,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 1,
+          type = "HeavyMilitia"
+        },
+        {
+          id = 2,
+          type = "HeavyMilitia"
+        },
+        {
+          id = 3,
+          type = "HeavyMilitia",
+          properties = {
+            ["nextanim"] = "fire_east"
+          },
+          animation = {
+            {
+              tileid = 3,
+              duration = 125
+            },
+            {
+              tileid = 4,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 4,
+          type = "HeavyMilitia"
+        },
+        {
+          id = 5,
+          type = "HeavyMilitia",
+          properties = {
+            ["name"] = "fire_east",
+            ["nextanim"] = "east"
+          },
+          animation = {
+            {
+              tileid = 5,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 6,
+          type = "HeavyMilitia",
+          properties = {
+            ["name"] = "south"
+          }
+        },
+        {
+          id = 7,
+          type = "HeavyMilitia"
+        },
+        {
+          id = 8,
+          type = "HeavyMilitia"
+        },
+        {
+          id = 9,
+          type = "HeavyMilitia",
+          properties = {
+            ["nextanim"] = "fire_south"
+          },
+          animation = {
+            {
+              tileid = 9,
+              duration = 125
+            },
+            {
+              tileid = 10,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 10,
+          type = "HeavyMilitia"
+        },
+        {
+          id = 11,
+          type = "HeavyMilitia",
+          properties = {
+            ["name"] = "fire_south",
+            ["nextanim"] = "south"
+          },
+          animation = {
+            {
+              tileid = 11,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 12,
+          type = "HeavyMilitia",
+          properties = {
+            ["name"] = "west"
+          }
+        },
+        {
+          id = 13,
+          type = "HeavyMilitia"
+        },
+        {
+          id = 14,
+          type = "HeavyMilitia"
+        },
+        {
+          id = 15,
+          type = "HeavyMilitia",
+          properties = {
+            ["nextanim"] = "fire_west"
+          },
+          animation = {
+            {
+              tileid = 15,
+              duration = 125
+            },
+            {
+              tileid = 16,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 16,
+          type = "HeavyMilitia"
+        },
+        {
+          id = 17,
+          type = "HeavyMilitia",
+          properties = {
+            ["name"] = "fire_west",
+            ["nextanim"] = "west"
+          },
+          animation = {
+            {
+              tileid = 17,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 18,
+          type = "HeavyMilitia",
+          properties = {
+            ["name"] = "north"
+          }
+        },
+        {
+          id = 19,
+          type = "HeavyMilitia"
+        },
+        {
+          id = 20,
+          type = "HeavyMilitia"
+        },
+        {
+          id = 21,
+          type = "HeavyMilitia",
+          properties = {
+            ["nextanim"] = "fire_north"
+          },
+          animation = {
+            {
+              tileid = 21,
+              duration = 125
+            },
+            {
+              tileid = 22,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 22,
+          type = "HeavyMilitia"
+        },
+        {
+          id = 23,
+          type = "HeavyMilitia",
+          properties = {
+            ["name"] = "fire_north",
+            ["nextanim"] = "north"
+          },
+          animation = {
+            {
+              tileid = 23,
+              duration = 125
+            }
+          }
+        },
+        {
+          id = 24,
+          type = "HeavyMilitia_Guard"
+        },
+        {
+          id = 25,
+          type = "HeavyMilitia_Guard"
+        },
+        {
+          id = 26,
+          type = "HeavyMilitia_Guard"
+        }
+      }
     }
   },
   layers = {
@@ -2733,7 +3029,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJyVk1EOAyEIBbn/nbzF8k84SW3iJFO62aYkRFcZlIebEVHb1/Y849uv7a31Pmt1xtBeyeH7fLfmZpmX4nIwqZzEwebhGZmn1pZYzqVG1zad+FYejDu38qCPNUjFmrU28wzrMNlUPPeEnXmIwVZ8amHt7u5tNsXMfvg899nnuseu2T2ibuvsPpLX74Px0h52jXXuPN+Y85udb8C831rfsOyht7U2Q36shrufrsG6xeCtrf9D69HxbfNfL93VOZ7MNZqvH9y/9gJnbsmE"
+      data = "eAGtj0EOw0AIA/P/P/UXzd3qS+qJmAhF6q1IFmCMlz2P40jxKs7J1O/iMz08NVwmN907cIJdgB6ObE2PB5FCP2o0vGO9e/zgAZECLftma3o5b8lom66Z95HV75zy+HEDGZ1Bn4KZPuzSZ6Cv2tJX6KWWfr+R6b2f3pBD763uPn3UuMs9IrPPzq+74Q3qFL5JjRd5/4c3AbyBDk0WvBU/95mzi97wPfXpwFt8h6w/MwNu82mPN/rtQa1/yyvo1ThLOffh1OAHjD1DD3yDDNxJa/RGWmygY64HM2v5UnekFTx7vOP7+jBLQf8M9/RPBd4Kp8dzb/d4+MdMzR71P+MLZ27JhA=="
     },
     {
       type = "tilelayer",
@@ -2750,7 +3046,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJytkcENwDAIA9l/1TBEvxXKGUPrDxEQg03EHXnJHVFzceC9Qb5i3alyT3fOEonX4aC/yk/lf+3b3OWr9y6H8sDZt+shn1x9dBPizmBuqpGGTpuaM8l3fmzuOK3/hQdoiywr"
+      data = "eAGlj0EOgDAQAvv/r+ojDNFJCKGtRi+7wsDqGP05i3w8WvMKXiU6ZPpe4Y3Id2iyE8nu9OFmE54Jl73obe6ydCWnrqbB+y1x6C3jrO9kXPu6v+nIb/JMeu3+jmm+bvid1ouWnL+3bmnO0KM581oPvOdzX91JdtWnnlmXcitPvp7ZP9zu3of7Oy9oiywr"
     },
     {
       type = "tilelayer",
@@ -2767,7 +3063,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJylksEOwiAQRPePjOfas3rW/gSUq8DfdycMKScjI8kkbMJjZmE3m19XV3FdRDa7NoF9/ckm1+J6Cmw0rWf0+3EFm88N32ott+IL7i34gt2t5VYzq/0m8rP9gkXmKPj2t6oCC99AXvHFG2OuZuby7lqt/S34X3N3bidbyMP79sW/c5VcsHOmUefhDugx7FeeKzwb6V/snLFMpWHf84XBB/UBMo0msA=="
+      data = "eAGl0zsOwkAMhOHcCFEDNaSGXIJHC+H2zFe4RMJLpFGy0v47Y6+zTP1nG2SNNn10wr6iZYA9/8k+wu+iuenN9xaN1KzeZ3SNujXzfUdyd3vNF3eJur7YeyR3l63Mo/XKrOZuvXxldk/dzNUrvl2Wr1rl7rI1G+aqM5fH7D9E7tYd/Zq7OH3C8sXz3kff/ovi+ODUWzNt7X+uM5xzirxJTvt52et++FvXjOFJD+u78mGp1h8yjSaw"
     },
     {
       type = "tilelayer",
@@ -2784,7 +3080,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBgFwxmsZqSvfevobN9IBaB4XUtBWK8hUy96/JKSvkhxL7q5MD4AN6gGxA=="
+      data = "eAFjYBgFwzkEVjPS13fr6GwffX03eGwDxetaCsJ6DZl60eOXlPRFinvRzYXxATeoBsQ="
     },
     {
       type = "tilelayer",
@@ -2801,7 +3097,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYCAfvGWkQDOZ4NUA2AkDH8i0m1x9QxWA4ujJCPIzKB8MRF6gFJAaR+jqYen6OQnmYMu/yOaiy6PnHQCYnQ63"
+      data = "eAFjYCAfvGUkXy+5Ol8NgJ0wt34g025y9cHsHWo0KI6ekBlWQ82vIPeC8sFA5AVKw4rUOEJXD0vXz0mIa2z5F9lcdHmYHTC/AgCYnQ63"
     },
     {
       type = "objectgroup",
@@ -3898,7 +4194,7 @@ return {
           height = 152,
           rotation = 0,
           visible = true,
-          text = "${joy_focus} = ALT FIRE\n\nYour team will LOCK-ON to enemies.\nSlows your movement to help you dodge through tight bullet gaps.",
+          text = "${joy_focus} = ALT FIRE\n\nYour team will LOCK ON to enemies hit by your targeting beam!",
           fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
@@ -3909,14 +4205,14 @@ return {
         {
           id = 40,
           name = "pikeman",
-          type = "Pikeman",
+          type = "",
           shape = "rectangle",
           x = 0,
-          y = 96,
+          y = 64,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 504,
+          gid = 576,
           visible = true,
           properties = {
             ["pathspeed"] = "360"
@@ -3925,14 +4221,14 @@ return {
         {
           id = 49,
           name = "pikeman",
-          type = "Pikeman",
+          type = "",
           shape = "rectangle",
           x = -24,
-          y = 232,
+          y = 200,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 504,
+          gid = 576,
           visible = true,
           properties = {
             ["pathspeed"] = "360"
@@ -3941,14 +4237,14 @@ return {
         {
           id = 78,
           name = "pikeman",
-          type = "Pikeman",
+          type = "",
           shape = "rectangle",
           x = 264,
-          y = 232,
+          y = 200,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 504,
+          gid = 576,
           visible = true,
           properties = {
             ["pathspeed"] = "360"
@@ -3957,14 +4253,14 @@ return {
         {
           id = 84,
           name = "pikeman",
-          type = "Pikeman",
+          type = "",
           shape = "rectangle",
           x = -16,
-          y = 168,
+          y = 136,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 504,
+          gid = 576,
           visible = true,
           properties = {
             ["pathspeed"] = "360"
@@ -3973,14 +4269,14 @@ return {
         {
           id = 86,
           name = "pikeman",
-          type = "Pikeman",
+          type = "",
           shape = "rectangle",
           x = 256,
-          y = 168,
+          y = 136,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 504,
+          gid = 576,
           visible = true,
           properties = {
             ["pathspeed"] = "360"
@@ -3989,14 +4285,14 @@ return {
         {
           id = 91,
           name = "pikeman",
-          type = "Pikeman",
+          type = "",
           shape = "rectangle",
           x = 240,
-          y = 96,
+          y = 64,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 504,
+          gid = 576,
           visible = true,
           properties = {
             ["pathspeed"] = "360"
@@ -4005,14 +4301,14 @@ return {
         {
           id = 48,
           name = "pikeman",
-          type = "Pikeman",
+          type = "",
           shape = "rectangle",
           x = -24,
-          y = 200,
+          y = 168,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 504,
+          gid = 576,
           visible = true,
           properties = {
             ["pathspeed"] = "360"
@@ -4021,14 +4317,14 @@ return {
         {
           id = 44,
           name = "pikeman",
-          type = "Pikeman",
+          type = "",
           shape = "rectangle",
           x = 248,
-          y = 136,
+          y = 104,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 504,
+          gid = 576,
           visible = true,
           properties = {
             ["pathspeed"] = "360"
@@ -4037,14 +4333,14 @@ return {
         {
           id = 71,
           name = "pikeman",
-          type = "Pikeman",
+          type = "",
           shape = "rectangle",
           x = -8,
-          y = 136,
+          y = 104,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 504,
+          gid = 576,
           visible = true,
           properties = {
             ["pathspeed"] = "360"
@@ -4053,14 +4349,14 @@ return {
         {
           id = 75,
           name = "pikeman",
-          type = "Pikeman",
+          type = "",
           shape = "rectangle",
           x = 264,
-          y = 200,
+          y = 168,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 504,
+          gid = 576,
           visible = true,
           properties = {
             ["pathspeed"] = "360"
@@ -4072,7 +4368,7 @@ return {
           type = "",
           shape = "polyline",
           x = 0,
-          y = 96,
+          y = 64,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4089,7 +4385,7 @@ return {
           type = "",
           shape = "polyline",
           x = -16,
-          y = 176,
+          y = 144,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4106,7 +4402,7 @@ return {
           type = "",
           shape = "polyline",
           x = -24,
-          y = 216,
+          y = 184,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4123,7 +4419,7 @@ return {
           type = "",
           shape = "polyline",
           x = 240,
-          y = 96,
+          y = 64,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4140,7 +4436,7 @@ return {
           type = "",
           shape = "polyline",
           x = 256,
-          y = 176,
+          y = 144,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4157,7 +4453,7 @@ return {
           type = "",
           shape = "polyline",
           x = 264,
-          y = 232,
+          y = 200,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4174,7 +4470,7 @@ return {
           type = "",
           shape = "polyline",
           x = -8,
-          y = 136,
+          y = 104,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4191,7 +4487,7 @@ return {
           type = "",
           shape = "polyline",
           x = -24,
-          y = 200,
+          y = 168,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4208,7 +4504,7 @@ return {
           type = "",
           shape = "polyline",
           x = 248,
-          y = 136,
+          y = 104,
           width = 0,
           height = 0,
           rotation = 0,
@@ -4225,7 +4521,7 @@ return {
           type = "",
           shape = "polyline",
           x = 264,
-          y = 200,
+          y = 168,
           width = 0,
           height = 0,
           rotation = 0,

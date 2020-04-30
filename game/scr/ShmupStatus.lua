@@ -15,6 +15,7 @@ ShmupStatus.PiecesPerCaptivePerSec = 1/64
 ShmupStatus.MaxReserves = 15
 ShmupStatus.TimerWarningSecs = 30
 ShmupStatus.CountdownSecs = 3
+local PowerLevels = { 10, 30, 60, 100 }
 
 function ShmupStatus:_init(layer)
 	self.layer = layer
@@ -37,6 +38,7 @@ function ShmupStatus:_init(layer)
 	local startbombs = levity.map.properties.startbombs or ShmupStatus.DefaultStartBombs
 	local startbombpieces = nextmapstatus.numbombpieces or startbombs*ShmupStatus.PiecesPerBomb
 	self.numbombpieces = math.min(startbombpieces, maxbombs*ShmupStatus.PiecesPerBomb)
+	self.power = nextmapstatus.power or levity.map.properties.startpower or 0
 
 	self.reservegids = levity.map:tileNamesToGids(nextmapstatus.reservenames) or {}
 	nextmapdata.status = nil
@@ -103,6 +105,7 @@ function ShmupStatus:addBombPieces(addpieces)
 end
 
 function ShmupStatus:humanCaptured()
+	self:addPower(1)
 	self:addBombPieces(1)
 	self:updateBombs()
 end
@@ -135,6 +138,7 @@ end
 
 function ShmupStatus:playerRespawned()
 	if not self:call(levity.map.name, "isTutorial") then
+		self:resetPower()
 		self.numlives = self.numlives - 1
 		self:updateLives()
 		self:addBombPieces(ShmupStatus.PiecesPerBomb/2)
@@ -253,10 +257,64 @@ function ShmupStatus:updateTimeLeft(dt)
 			timer.color[2] = 0
 			timer.color[3] = 0
 		else
-			timer.color[2] = 0xff
-			timer.color[3] = 0xff
+			timer.color[2] = 1
+			timer.color[3] = 1
 		end
 	end
+end
+
+function ShmupStatus:addPower(power)
+	local powergauge = self.objects.powergauge
+	local level = self:getPowerLevel()
+	power = self.power + power
+	local maxpower = PowerLevels[#PowerLevels]
+	self.power = math.min(power, maxpower)
+	self:send(powergauge.id, "setFill", self.power/maxpower)
+
+	local newlevel = self:getPowerLevel()
+	if self.power < maxpower then
+		powergauge.properties.color = powergauge.properties["colorlevel"..newlevel]
+	end
+	local powerlevel = self.objects.powerlevel
+	if powerlevel then
+		if self.power >= maxpower then
+			powerlevel.text = "MAX"
+		else
+			powerlevel.text = "Lv"..newlevel
+		end
+	end
+	if level < newlevel then
+		levity.bank:play(self.properties.powerupsound)
+	end
+end
+
+function ShmupStatus:resetPower()
+	self:addPower(-self.power)
+end
+
+function ShmupStatus:getPowerLevel()
+	for i = #PowerLevels, 1, -1 do
+		if self.power >= PowerLevels[i] then
+			return i
+		end
+	end
+	return 0
+end
+
+function ShmupStatus:getNumPlayerShots()
+	return self:getPowerLevel() >= 1 and 2 or 1
+end
+
+function ShmupStatus:canWingmenGrab()
+	return self:getPowerLevel() >= 2
+end
+
+function ShmupStatus:canWingmenAttack()
+	return self:getPowerLevel() >= 4
+end
+
+function ShmupStatus:isPlayerPullingAllItems()
+	return self:getPowerLevel() >= 3
 end
 
 function ShmupStatus:setPrompt(promptname, visible)
@@ -270,6 +328,15 @@ function ShmupStatus:beginMove(dt)
 	if levity.map.paused then
 		return
 	end
+
+	self:addPower(0)
+	local maxpower = PowerLevels[#PowerLevels]
+	if self.power >= maxpower then
+		local powergauge = self.objects.powergauge
+		local i = (math.floor(love.timer.getTime()*60) % 5) + 1
+		powergauge.properties.color = powergauge.properties["colorlevel"..i]
+	end
+
 	local totalmultiplier = self:call(self.objects.score.id,
 							"getTotalMultiplier")
 
@@ -356,6 +423,7 @@ function ShmupStatus:nextMap(nextmapfile, nextmapdata)
 	if nextmapdata and nextmapdata.playerwon
 	and not self:call(levity.map.name, "isTutorial") then
 		nextmapdata.status = {
+			power = self.power,
 			numlives = self.numlives,
 			numbombpieces = self.numbombpieces,
 			reservenames = levity.map:tileGidsToNames(self.reservegids)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="HeavyMilitia" tilewidth="32" tileheight="32" tilecount="24" columns="6">
+<tileset version="1.2" tiledversion="1.3.1" name="HeavyMilitia" tilewidth="32" tileheight="32" tilecount="30" columns="6">
  <tileoffset x="-16" y="16"/>
  <properties>
   <property name="colstype" value="state"/>
@@ -11,7 +11,7 @@
   <property name="numdirections" type="int" value="4"/>
   <property name="rowstype" value="direction"/>
  </properties>
- <image source="HeavyMilitia.png" width="192" height="128"/>
+ <image source="HeavyMilitia.png" width="192" height="160"/>
  <tile id="0" type="HeavyMilitia">
   <properties>
    <property name="name" value="east"/>
@@ -131,4 +131,7 @@
    <frame tileid="23" duration="125"/>
   </animation>
  </tile>
+ <tile id="24" type="HeavyMilitia_Guard"/>
+ <tile id="25" type="HeavyMilitia_Guard"/>
+ <tile id="26" type="HeavyMilitia_Guard"/>
 </tileset>

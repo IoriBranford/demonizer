@@ -58,6 +58,8 @@ function MenuMap:_init(map)
 		self.map.layers[self.currentmenuid].visible = false
 		self:changeMenu(osspecificmenu)
 	end
+
+	self.screeneffect = levity.scripts:newScript(self.map.name, "ScreenEffectDrunk", map)
 end
 
 function MenuMap:changeMenu(nextmenu)
@@ -87,12 +89,31 @@ function MenuMap:goBack()
 		self:changeMenu(prevmenu)
 	elseif prevmap then
 		levity:setNextMap(prevmap)
-	else
+	elseif not levity.prefs.exhibit then
 		love.event.quit()
 	end
 end
 
 function MenuMap:endMove(dt)
+	local attracttime = self.properties.attractmodewaittime
+	if attracttime then
+		attracttime = attracttime - dt
+		self.properties.attractmodewaittime = attracttime
+		if attracttime <= 0 then
+			local attractmaps = {
+				"demonrealm.lua", "village.lua"
+			}
+			for mapfile in ipairs({"chapel.lua", "cave.lua"}) do
+				if love.filesystem.getInfo(mapfile) then
+					attractmaps[#attractmaps+1] = mapfile
+				end
+			end
+			local nextmap = attractmaps[love.math.random(#attractmaps)]
+			levity:setNextMap(nextmap, {attractmode=true})
+			return
+		end
+	end
+
 	self:doChangeMenu(self.nextmenu)
 
 	if self:call("curtain", "finishedClosing") then
@@ -116,10 +137,10 @@ end
 
 function MenuMap:keypressed_f12()
 	local filename = os.date("shot_%Y-%m-%d_%H-%M-%S")
-	if love.filesystem.exists(filename) then
+	if love.filesystem.getInfo(filename) then
 		for i = 1, 999 do
 			local newfilename = filename..'_'..i
-			if not love.filesystem.exists(newfilename) then
+			if not love.filesystem.getInfo(newfilename) then
 				filename = newfilename
 				break
 			end

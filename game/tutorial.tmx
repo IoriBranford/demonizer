@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="22" nextobjectid="135">
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="22" nextobjectid="135">
+ <editorsettings>
+  <export target="tutorial.lua" format="lua"/>
+ </editorsettings>
  <properties>
   <property name="cameraid" type="int" value="2"/>
   <property name="music" type="file" value="mus/tutorial.vgm"/>
@@ -7,6 +10,7 @@
   <property name="overlaymap" type="file" value="gameplay.lua"/>
   <property name="playerid" type="int" value="1"/>
   <property name="startbombs" type="float" value="0.6"/>
+  <property name="winmusic" type="file" value="none"/>
  </properties>
  <tileset firstgid="1" source="img/player.tsx"/>
  <tileset firstgid="29" source="img/basic_terrain.tsx"/>
@@ -17,29 +21,30 @@
  <tileset firstgid="498" source="img/human/enemy/Pikeman.tsx"/>
  <tileset firstgid="522" source="img/human/enemy/PikemanF.tsx"/>
  <tileset firstgid="546" source="img/catapult.tsx"/>
+ <tileset firstgid="570" source="img/human/enemy/HeavyMilitia.tsx"/>
  <layer id="1" name="dirt" width="15" height="20">
   <data encoding="base64" compression="zlib">
-   eJyVk1EOAyEIBbn/nbzF8k84SW3iJFO62aYkRFcZlIebEVHb1/Y849uv7a31Pmt1xtBeyeH7fLfmZpmX4nIwqZzEwebhGZmn1pZYzqVG1zad+FYejDu38qCPNUjFmrU28wzrMNlUPPeEnXmIwVZ8amHt7u5tNsXMfvg899nnuseu2T2ibuvsPpLX74Px0h52jXXuPN+Y85udb8C831rfsOyht7U2Q36shrufrsG6xeCtrf9D69HxbfNfL93VOZ7MNZqvH9y/9gJnbsmE
+   eAGtj0EOw0AIA/P/P/UXzd3qS+qJmAhF6q1IFmCMlz2P40jxKs7J1O/iMz08NVwmN907cIJdgB6ObE2PB5FCP2o0vGO9e/zgAZECLftma3o5b8lom66Z95HV75zy+HEDGZ1Bn4KZPuzSZ6Cv2tJX6KWWfr+R6b2f3pBD763uPn3UuMs9IrPPzq+74Q3qFL5JjRd5/4c3AbyBDk0WvBU/95mzi97wPfXpwFt8h6w/MwNu82mPN/rtQa1/yyvo1ThLOffh1OAHjD1DD3yDDNxJa/RGWmygY64HM2v5UnekFTx7vOP7+jBLQf8M9/RPBd4Kp8dzb/d4+MdMzR71P+MLZ27JhA==
   </data>
  </layer>
  <layer id="2" name="dirtdeco" width="15" height="20">
   <data encoding="base64" compression="zlib">
-   eJytkcENwDAIA9l/1TBEvxXKGUPrDxEQg03EHXnJHVFzceC9Qb5i3alyT3fOEonX4aC/yk/lf+3b3OWr9y6H8sDZt+shn1x9dBPizmBuqpGGTpuaM8l3fmzuOK3/hQdoiywr
+   eAGlj0EOgDAQAvv/r+ojDNFJCKGtRi+7wsDqGP05i3w8WvMKXiU6ZPpe4Y3Id2iyE8nu9OFmE54Jl73obe6ydCWnrqbB+y1x6C3jrO9kXPu6v+nIb/JMeu3+jmm+bvid1ouWnL+3bmnO0KM581oPvOdzX91JdtWnnlmXcitPvp7ZP9zu3of7Oy9oiywr
   </data>
  </layer>
  <layer id="3" name="grass" width="15" height="20">
   <data encoding="base64" compression="zlib">
-   eJylksEOwiAQRPePjOfas3rW/gSUq8DfdycMKScjI8kkbMJjZmE3m19XV3FdRDa7NoF9/ckm1+J6Cmw0rWf0+3EFm88N32ott+IL7i34gt2t5VYzq/0m8rP9gkXmKPj2t6oCC99AXvHFG2OuZuby7lqt/S34X3N3bidbyMP79sW/c5VcsHOmUefhDugx7FeeKzwb6V/snLFMpWHf84XBB/UBMo0msA==
+   eAGl0zsOwkAMhOHcCFEDNaSGXIJHC+H2zFe4RMJLpFGy0v47Y6+zTP1nG2SNNn10wr6iZYA9/8k+wu+iuenN9xaN1KzeZ3SNujXzfUdyd3vNF3eJur7YeyR3l63Mo/XKrOZuvXxldk/dzNUrvl2Wr1rl7rI1G+aqM5fH7D9E7tYd/Zq7OH3C8sXz3kff/ovi+ODUWzNt7X+uM5xzirxJTvt52et++FvXjOFJD+u78mGp1h8yjSaw
   </data>
  </layer>
  <layer id="4" name="grassdeco" width="15" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFwxmsZqSvfevobN9IBaB4XUtBWK8hUy96/JKSvkhxL7q5MD4AN6gGxA==
+   eAFjYBgFwzkEVjPS13fr6GwffX03eGwDxetaCsJ6DZl60eOXlPRFinvRzYXxATeoBsQ=
   </data>
  </layer>
  <layer id="5" name="bushes" width="15" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYCAfvGWkQDOZ4NUA2AkDH8i0m1x9QxWA4ujJCPIzKB8MRF6gFJAaR+jqYen6OQnmYMu/yOaiy6PnHQCYnQ63
+   eAFjYCAfvGUkXy+5Ol8NgJ0wt34g025y9cHsHWo0KI6ekBlWQ82vIPeC8sFA5AVKw4rUOEJXD0vXz0mIa2z5F9lcdHmYHTC/AgCYnQ63
   </data>
  </layer>
  <objectgroup id="6" name="camera" locked="1">
@@ -447,87 +452,86 @@ Any team member with full power circle will unlock...</text>
    </properties>
    <text fontfamily="Unifont" wrap="1" color="#ffffff">${joy_focus} = ALT FIRE
 
-Your team will LOCK-ON to enemies.
-Slows your movement to help you dodge through tight bullet gaps.</text>
+Your team will LOCK ON to enemies hit by your targeting beam!</text>
   </object>
-  <object id="40" name="pikeman" type="Pikeman" gid="504" x="0" y="96" width="32" height="32">
+  <object id="40" name="pikeman" gid="576" x="0" y="64" width="32" height="32">
    <properties>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="49" name="pikeman" type="Pikeman" gid="504" x="-24" y="232" width="32" height="32">
+  <object id="49" name="pikeman" gid="576" x="-24" y="200" width="32" height="32">
    <properties>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="78" name="pikeman" type="Pikeman" gid="504" x="264" y="232" width="32" height="32">
+  <object id="78" name="pikeman" gid="576" x="264" y="200" width="32" height="32">
    <properties>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="84" name="pikeman" type="Pikeman" gid="504" x="-16" y="168" width="32" height="32">
+  <object id="84" name="pikeman" gid="576" x="-16" y="136" width="32" height="32">
    <properties>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="86" name="pikeman" type="Pikeman" gid="504" x="256" y="168" width="32" height="32">
+  <object id="86" name="pikeman" gid="576" x="256" y="136" width="32" height="32">
    <properties>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="91" name="pikeman" type="Pikeman" gid="504" x="240" y="96" width="32" height="32">
+  <object id="91" name="pikeman" gid="576" x="240" y="64" width="32" height="32">
    <properties>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="48" name="pikeman" type="Pikeman" gid="504" x="-24" y="200" width="32" height="32">
+  <object id="48" name="pikeman" gid="576" x="-24" y="168" width="32" height="32">
    <properties>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="44" name="pikeman" type="Pikeman" gid="504" x="248" y="136" width="32" height="32">
+  <object id="44" name="pikeman" gid="576" x="248" y="104" width="32" height="32">
    <properties>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="71" name="pikeman" type="Pikeman" gid="504" x="-8" y="136" width="32" height="32">
+  <object id="71" name="pikeman" gid="576" x="-8" y="104" width="32" height="32">
    <properties>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="75" name="pikeman" type="Pikeman" gid="504" x="264" y="200" width="32" height="32">
+  <object id="75" name="pikeman" gid="576" x="264" y="168" width="32" height="32">
    <properties>
     <property name="pathspeed" value="360"/>
    </properties>
   </object>
-  <object id="106" x="0" y="96">
+  <object id="106" x="0" y="64">
    <polyline points="0,0 72,80"/>
   </object>
-  <object id="107" x="-16" y="176">
+  <object id="107" x="-16" y="144">
    <polyline points="0,-8 72,32"/>
   </object>
-  <object id="108" x="-24" y="216">
+  <object id="108" x="-24" y="184">
    <polyline points="0,16 72,24"/>
   </object>
-  <object id="109" x="240" y="96">
+  <object id="109" x="240" y="64">
    <polyline points="0,0 -72,80"/>
   </object>
-  <object id="110" x="256" y="176">
+  <object id="110" x="256" y="144">
    <polyline points="0,-8 -72,32"/>
   </object>
-  <object id="111" x="264" y="232">
+  <object id="111" x="264" y="200">
    <polyline points="0,0 -72,8"/>
   </object>
-  <object id="113" x="-8" y="136">
+  <object id="113" x="-8" y="104">
    <polyline points="0,0 72,56"/>
   </object>
-  <object id="114" x="-24" y="200">
+  <object id="114" x="-24" y="168">
    <polyline points="0,0 72,24"/>
   </object>
-  <object id="115" x="248" y="136">
+  <object id="115" x="248" y="104">
    <polyline points="0,0 -72,56"/>
   </object>
-  <object id="116" x="264" y="200">
+  <object id="116" x="264" y="168">
    <polyline points="0,0 -72,24"/>
   </object>
  </objectgroup>

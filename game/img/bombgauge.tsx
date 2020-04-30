@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="bombgauge" tilewidth="16" tileheight="32" tilecount="16" columns="8">
+<tileset version="1.2" tiledversion="1.3.2" name="bombgauge" tilewidth="16" tileheight="32" tilecount="16" columns="8">
  <properties>
   <property name="commoncollision" type="int" value="0"/>
   <property name="row_full" type="int" value="1"/>
@@ -7,13 +7,12 @@
  </properties>
  <image source="bombgauge.png" width="128" height="64"/>
  <tile id="0">
-  <objectgroup draworder="index">
-   <object id="1" name="fill" x="6" y="4" width="4" height="24">
-    <properties>
-     <property name="color" type="color" value="#ffaadfff"/>
-     <property name="direction" value="up"/>
-    </properties>
-   </object>
+  <properties>
+   <property name="color" type="color" value="#ffaadfff"/>
+   <property name="direction" value="up"/>
+  </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="fill" x="6" y="4" width="4" height="24"/>
   </objectgroup>
  </tile>
  <tile id="8">

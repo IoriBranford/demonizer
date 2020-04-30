@@ -21,7 +21,7 @@ function ParticleLayer:_init(layer)
 	self.particles:setEmissionRate(properties.emissionrate or 0)
 	self.particles:setSpread(math.rad(properties.spread or 360))
 	self.particles:setOffset(tileset.tilewidth/2, tileset.tileheight/2)
-	self.particles:setAreaSpread(
+	self.particles:setEmissionArea(
 		self.properties.areaspreadtype or "ellipse",
 		self.properties.areaspreadw or tileset.tilewidth,
 		self.properties.areaspreadh or tileset.tileheight)

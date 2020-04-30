@@ -32,7 +32,7 @@ function ComicPanelCovers:drawOver()
 			end
 		end
 	end
-	love.graphics.setColor(0xff,0xff,0xff)
+	love.graphics.setColor(1,1,1)
 end
 
 return ComicPanelCovers

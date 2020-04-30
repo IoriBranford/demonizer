@@ -29,7 +29,7 @@ local levity = require "levity"
 local Tiles = require "levity.tiles"
 local ShmupCollision = require "ShmupCollision"
 local ShmupBullet = require "ShmupBullet"
-local Item = require "Item"
+local Item
 local pl_tablex = require "pl.tablex"
 
 --preload component scripts
@@ -74,6 +74,7 @@ local CollisionCategory = { }
 local CollisionMask = { }
 
 function NPC:_init(object)
+	Item = Item or require "Item"
 	self.object = object
 	self.id = object.id
 	self.body = object.body
@@ -82,7 +83,8 @@ function NPC:_init(object)
 	self.oncamera = nil
 	-- nil = never entered camera
 	-- false = exited camera
-	self.oncameraedge = 0
+	self.oncameraedge = nil
+	self.timescrossedcameraedge = 0
 
 	self.facing = levity.scripts:newScript(self.id, "Facing", self.object)
 	self.ride = levity.scripts:newScript(self.id, "Ride", self.object)
@@ -151,9 +153,6 @@ function NPC:_init(object)
 	else
 		pl_tablex.copy(CollisionMask, EnemyMask)
 		if self.health then
-			if self.properties.immuneplayershot then
-				CollisionMask[#CollisionMask+1] = ShmupCollision.Category_PlayerShot
-			end
 			if self.properties.immuneplayerbomb then
 				CollisionMask[#CollisionMask+1] = ShmupCollision.Category_PlayerBomb
 			end
@@ -194,7 +193,7 @@ function NPC:initQuery()
 end
 
 function NPC:refreshFixtures(category, mask)
-	for _, fixture in ipairs(self.body:getFixtureList()) do
+	for _, fixture in ipairs(self.body:getFixtures()) do
 		fixture:setCategory(category)
 		fixture:setMask(mask)
 	end
@@ -204,9 +203,13 @@ function NPC:isOnCamera()
 	return self.oncamera
 end
 
+function NPC:isOnCameraEdge()
+	return self.oncameraedge
+end
+
 function NPC:canTakeDamage()
 	local playerid = levity.map.properties.playerid
-	return self.oncamera and self.oncameraedge ~= 1
+	return self.oncamera and self.timescrossedcameraedge ~= 1
 		and not self.properties.invulnerable
 		and self.health and not self.health:isDefeated()
 		and self.shields < 1
@@ -276,9 +279,34 @@ function NPC:beginMove(dt)
 		end
 	end
 
-	if self.ride and not self.mover then
+	if not self.mover then
 		local vx, vy = self.body:getLinearVelocity()
-		self.ride:updateRidersVelocity(dt, vx, vy)
+		if self.ride then
+			self.ride:updateRidersVelocity(dt, vx, vy)
+			vx, vy = self.body:getLinearVelocity()
+		end
+		local accelmag = self.properties.accelmag
+		local acceldir = self.properties.acceldir
+		local accelx = self.properties.accelx
+		local accely = self.properties.accely
+
+		if accelmag and acceldir then
+			if acceldir == "forward" then
+				acceldir = math.atan2(vy, vx)
+			elseif acceldir == "reverse" then
+				acceldir = math.atan2(-vy, -vx)
+			else
+				acceldir = math.rad(acceldir)
+			end
+			accelx = accelmag * math.cos(acceldir)
+			accely = accelmag * math.sin(acceldir)
+		end
+
+		if accelx or accely then
+			accelx = accelx or 0
+			accely = accely or 0
+			self.body:setLinearVelocity(vx + accelx*dt, vy + accely*dt)
+		end
 	end
 
 	local particlelayer = self.properties.particlelayer
@@ -358,9 +386,11 @@ function NPC:endMove(dt)
 			speed = math.hypot(vx, vy)
 		end
 
-		local arc = math.rad(self.properties.strafearc
+		local arc = self.properties.strafearc
+		arc = arc --and math.min(arc, 135)
 			or rideseat and rideseat.properties.strafearc
-			or 0)
+			or 0
+		arc = math.rad(arc)
 
 		local target = self.shooter
 			and self.shooter:getTargetObject(self.properties.firetargetid)
@@ -394,6 +424,8 @@ function NPC:endMove(dt)
 		self.facing:faceAngle(faceangle)
 		if self.properties.facerotate then
 			self.body:setAngle(faceangle)
+		else
+			self.body:setAngle(0)
 		end
 	end
 
@@ -415,32 +447,68 @@ function NPC:endMove(dt)
 	end
 
 	local fadeoutspeed = self.properties.fadeoutspeed
+	local fadepulsespeed = self.properties.fadepulsespeed
 	if fadeoutspeed then
-		local alpha = self.fadealpha or 0xff
-		alpha = alpha - dt*fadeoutspeed*0xff
+		local alpha = self.fadealpha or 1
+		alpha = alpha - dt*fadeoutspeed*1
 		self.fadealpha = alpha
 		if alpha <= 0 then
 			self:send(self.id, "discard")
 		end
+	elseif fadepulsespeed then
+		local fadetimer = self.fadetimer or 0
+		fadepulsespeed = tonumber(fadepulsespeed) or 1
+		self.fadealpha = 1 * math.cos(fadepulsespeed*fadetimer*math.pi)
+		self.fadetimer = fadetimer + dt
+	else
+		self.fadealpha = nil
 	end
+	self.object.anitimescale = self.properties.anitimescale or 1
 end
 
 function NPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 	if self.properties.friendly then
 		return
 	end
-	if not self.health or self.cover and self.cover:fixtureHasCover(myfixture) then
-		self:send(self.id, "suppress")
-	else
-		local bulletproperties = otherfixture:getBody():getUserData().properties
-		local damage = bulletproperties.damage or 1
-		if self:canTakeDamage() then
-			self.health:addDamage(damage)
-			bulletproperties.damage = 0
-		end
+	if not self.health then
+		return
+	end
+	if self.cover and self.cover:fixtureHasCover(myfixture) then
+		return
+	end
 
+	local otherdata = otherfixture:getBody():getUserData()
+	local bullet = otherdata.object
+
+	local immuneplayershot = self.properties.immuneplayershot
+	if immuneplayershot then
+		local excepttype = self.properties.immuneplayershotexcepttype
+		if not excepttype or excepttype == "" then
+			return
+		end
+		local t = bullet.type
+		if t == "" then
+			local tile = bullet.tile
+			t = tile and tile.type
+		end
+		if t ~= excepttype then
+			return
+		end
+	end
+	local bulletproperties = bullet.properties
+	local damage = bulletproperties.damage or 1
+	local cantakedamage = self:canTakeDamage()
+	local hitspark
+	if cantakedamage then
+		self.health:addDamage(damage)
+		bulletproperties.damage = 0
+	elseif self.properties.invulnerable then
+		hitspark = "SparkGuard"
+	end
+
+	if self.oncamera then
 		local hx, hy = contact:getPositions()
-		local hitspark = self.properties.hitspark
+		hitspark = hitspark or self.properties.hitspark
 		if hx and hy then
 			self.health:createContactHitFX(contact, myfixture, hitspark)
 		else
@@ -448,6 +516,8 @@ function NPC:beginContact_PlayerShot(myfixture, otherfixture, contact)
 			self.health:createHitFX(cx, cy, nil, hitspark)
 		end
 	end
+
+	self:send(bullet.id, "onHit")
 end
 
 function NPC:beginContact_PlayerBomb(myfixture, otherfixture, contact)
@@ -484,8 +554,10 @@ function NPC:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 end
 
 function NPC:beginContact_EnemyTeam(myfixture, otherfixture, contact)
-	local otherid = otherfixture:getBody():getUserData().id
-	local otherproperties = otherfixture:getBody():getUserData().properties
+	local otherdata = otherfixture:getBody():getUserData()
+	local otherid = otherdata.id
+	local otherproperties = otherdata.properties
+	local otherobject = otherdata.object
 	if otherproperties.isshield then
 		self.shields = self.shields + 1
 	end
@@ -498,13 +570,37 @@ function NPC:beginContact_EnemyTeam(myfixture, otherfixture, contact)
 	end
 
 	if self.properties.rideid == "colliding" then
-		self:send(otherid, "addRider", self.id)
-		if self:call(otherid, "isRider", self.id) then
-			self.properties.rideid = otherid
+		local ridestypes = self.properties.ridestypes
+		local rideid
+		if ridestypes then
+			local othertype = otherobject.type
+			if othertype == "" then
+				othertype = otherobject.tile and otherobject.tile.type
+			end
+			for typ in ridestypes:gmatch("%w+") do
+				if othertype == typ then
+					rideid = otherid
+					break
+				end
+			end
+		else
+			rideid = otherid
+		end
+		if rideid then
+			self:send(rideid, "addRider", self.id)
+			if self:call(rideid, "isRider", self.id) then
+				self.properties.rideid = rideid
+			end
 		end
 	end
-	if self.properties.enemytouchdefeat then
-		self:send(self.id, "defeat", "enemytouchdefeat")
+	if not otherproperties.immuneenemytouch then
+		if self.properties.enemytouchdefeatself then
+			self:send(self.id, "defeat", "enemytouchdefeatself")
+		end
+		local damageother = self.properties.enemytouchdamageother
+		if damageother then
+			self:send(otherid, "addDamage", damageother)
+		end
 	end
 end
 
@@ -524,8 +620,8 @@ function NPC:beginContact(myfixture, otherfixture, contact)
 		elseif category == ShmupCollision.Category_Camera then
 			self.oncamera = true
 		elseif category == ShmupCollision.Category_CameraEdge then
-			self.oncamera = true
-			self.oncameraedge = self.oncameraedge + 1
+			self.oncameraedge = true
+			self.timescrossedcameraedge = self.timescrossedcameraedge + 1
 		elseif category == ShmupCollision.Category_EnemyCover then
 			if self.properties.coverdefeat then
 				self:send(self.id, "defeat", "coverdefeat")
@@ -564,7 +660,7 @@ function NPC:preSolve(myfixture, otherfixture, contact)
 end
 
 function NPC:isLastContactWithBody(otherbody, lastcontact)
-	for _, contact in pairs(self.body:getContactList()) do
+	for _, contact in pairs(self.body:getContacts()) do
 		if contact ~= lastcontact and contact:isTouching() then
 			local fix1, fix2 = contact:getFixtures()
 			local myfix, otherfix = fix1, fix2
@@ -573,6 +669,23 @@ function NPC:isLastContactWithBody(otherbody, lastcontact)
 				otherfix = fix1
 			end
 			if otherfix:getBody() == otherbody then
+				return false
+			end
+		end
+	end
+	return true
+end
+
+function NPC:isLastContactWithFixture(fixture, lastcontact)
+	for _, contact in pairs(self.body:getContacts()) do
+		if contact ~= lastcontact and contact:isTouching() then
+			local fix1, fix2 = contact:getFixtures()
+			local myfix, otherfix = fix1, fix2
+			if fix1:getBody() ~= self.body then
+				myfix = fix2
+				otherfix = fix1
+			end
+			if otherfix == fixture then
 				return false
 			end
 		end
@@ -601,8 +714,13 @@ function NPC:beginContact_EnemyShot(myfixture, otherfixture, contact)
 	if self.properties.hypnotistid then
 		return
 	end
+	if not self.health then
+		return
+	end
 
-	local bulletproperties = otherfixture:getBody():getUserData().properties
+	local otherdata = otherfixture:getBody():getUserData()
+	local bullet = otherdata.object
+	local bulletproperties = otherdata.properties
 	self.health:addDamage(bulletproperties.damage or 1)
 
 	local hx, hy = contact:getPositions()
@@ -613,6 +731,8 @@ function NPC:beginContact_EnemyShot(myfixture, otherfixture, contact)
 		local cx, cy = otherfixture:getBody():getWorldCenter()
 		self.health:createHitFX(cx, cy, nil, hitspark)
 	end
+
+	self:send(bullet.id, "onHit")
 end
 
 function NPC:endContact_EnemyTeam(myfixture, otherfixture, contact)
@@ -650,9 +770,9 @@ function NPC:endContact(myfixture, otherfixture, contact)
 				self.oncamera = false
 			end
 		elseif category == ShmupCollision.Category_CameraEdge then
-			self.oncameraedge = self.oncameraedge + 1
-			if self:isLastContactWithBody(otherfixture:getBody(), contact) then
-				self.oncamera = false
+			self.timescrossedcameraedge = self.timescrossedcameraedge + 1
+			if self:isLastContactWithFixture(otherfixture, contact) then
+				self.oncameraedge = false
 			end
 		end
 	end
@@ -662,6 +782,14 @@ function NPC:enemyDefeated(enemyid)
 	local deltafiretime = self.properties.enemydefeatedchangefiretime
 	local firetime = self.properties.firetime
 	if deltafiretime and type(firetime) == "number" then
+		local requiredtype = self.properties.enemydefeatedchangefiretimetype
+		local enemy = levity.map.objects[enemyid]
+		if requiredtype and enemy then
+			local type = enemy.type or (enemy.tile and enemy.tile.type)
+			if type and not type:find(requiredtype) then
+				return
+			end
+		end
 		firetime = firetime + deltafiretime
 		self.properties.firetime = math.max(0.125, firetime)
 	end
@@ -752,7 +880,7 @@ function NPC:npcGone(npcid)
 end
 
 function NPC:getDefeatDropGid(object, flipx, flipy)
-	object = object or self.object
+	--object = object or self.object
 	local tileset = object.tile and object.tile.tileset
 	local defeatdroptileset = object.properties.defeatdroptileset or tileset
 	tileset = tileset and levity.map.tilesets[tileset]
@@ -778,14 +906,30 @@ local function getProperty(object, parent, key, default)
 end
 
 function NPC:objectDropDefeatItem(object, parent)
+	if not self.oncamera then
+		return
+	end
 	local flipx, flipy
 	local gid = object.gid or parent and parent.gid
 	if gid then
 		flipx, flipy = Tiles.getGidFlip(gid)
 	end
 	local itemgid = self:getDefeatDropGid(object, flipx, flipy)
-			or self:getDefeatDropGid(parent, flipx, flipy)
-	if itemgid and self.oncamera then
+			--or self:getDefeatDropGid(parent, flipx, flipy)
+	if itemgid then
+		if self.properties.defeated == "clear" then
+			local tile = levity.map.tiles[itemgid]
+			if not tile then
+				return
+			end
+			if tile.properties.script ~= "Item"
+			and not tile.properties.defeated
+			and not tile.properties.friendly
+			and not self.properties.defeatdroponclear
+			then
+				return
+			end
+		end
 		local itemlayer = getProperty(object, parent, "defeatdroplayer",
 						self.object.layer)
 		local item = levity.map:newObject(itemlayer)
@@ -795,6 +939,8 @@ function NPC:objectDropDefeatItem(object, parent)
 						parent.gid, object, true)
 			item.x = ox + parent.x
 			item.y = oy + parent.y
+		elseif gid then
+			item.x, item.y = object.body:getPosition()
 		else
 			item.x, item.y = object.body:getWorldCenter()
 		end
@@ -814,22 +960,23 @@ function NPC:objectDropDefeatItem(object, parent)
 		local giveitemtoid = getProperty(object, parent, "giveitemtoid")
 		item.properties.pulledbyid = giveitemtoid
 		--item.properties.rideid = not launched and self.properties.rideid
+		return item
 	end
 end
 
+--- Defeat
+--@param withwhat Cause of defeat; "clear" is important as it can affect defeated enemy behavior
+--@param giveitemtoid ID of who should get dropped item(s)
 function NPC:defeat(withwhat, giveitemtoid)
 	if self.properties.defeated then
 		return
 	end
-	if withwhat == "clear" and self.properties.immunetoclearenemies then
+	local friendly = self.properties.friendly
+	if withwhat == "clear" and
+	(friendly or self.properties.immunetoclearenemies) then
 		return
 	end
-	if self.properties.immuneplayershot
-	and self.properties.immuneplayertouch
-	and withwhat ~= "bomb" then
-		return
-	end
-	self.properties.defeated = true
+	self.properties.defeated = withwhat or true
 	if giveitemtoid then
 		self.properties.giveitemtoid = giveitemtoid
 	end
@@ -841,13 +988,16 @@ function NPC:defeat(withwhat, giveitemtoid)
 		self.properties.firebullet = false
 	end
 
-	local friendly = self.properties.friendly
 	if friendly then
 		self:broadcast("friendKilled", self.id)
 	else
 		local score = self.properties.score
 		self:broadcast("pointsScored", score or 100)
 		self:broadcast("enemyDefeated", self.id)
+		local t = self.object.type or
+			self.object.tile and self.object.tile.type or
+			""
+		self:broadcast("enemyTypeDefeated", t)
 	end
 	self:broadcast("npcDefeated", self.id)
 
@@ -879,6 +1029,10 @@ end
 function NPC:tileObjectDefeatSparks(defeatspark)
 	local tile = self.object.tile
 	local tileobjects = tile and tile.objectGroup and tile.objectGroup.objects
+	if not tileobjects then
+		tile = levity.map.tiles[self.object.gid]
+		tileobjects = tile and tile.objectGroup and tile.objectGroup.objects
+	end
 	if not tileobjects or #tileobjects < 1 then
 		return false
 	end
@@ -900,12 +1054,29 @@ function NPC:tileObjectDefeatSparks(defeatspark)
 	return numsparks > 0
 end
 
+function NPC:tileObjectDropItems()
+	local gid = self.object.gid
+	local tile = self.object.tile
+	local tileobjects = tile and tile.objectGroup and tile.objectGroup.objects
+	local x, y = self.body:getPosition()
+	if tileobjects then
+		local flipx, flipy = Tiles.getGidFlip(gid)
+		local numdropped = 0
+		for _, object in ipairs(tileobjects) do
+			if self:objectDropDefeatItem(object, self.object) then
+				numdropped = numdropped + 1
+			end
+		end
+		return numdropped > 0
+	end
+end
+
 function NPC:defeatDefaultCoroutine()
 	if self.health then
 		self.health:createDefeatFX()
 	end
 
-	for _, fixture in ipairs(self.body:getFixtureList()) do
+	for _, fixture in ipairs(self.body:getFixtures()) do
 		fixture:setMask(NPC.InvulnerableMask)
 	end
 
@@ -931,16 +1102,7 @@ function NPC:defeatDefaultCoroutine()
 						timeinterval)
 	end
 
-	local gid = self.object.gid
-	local tile = self.object.tile
-	local tileobjects = tile and tile.objectGroup and tile.objectGroup.objects
-	local x, y = self.body:getPosition()
-	if tileobjects then
-		local flipx, flipy = Tiles.getGidFlip(gid)
-		for _, object in ipairs(tileobjects) do
-			self:objectDropDefeatItem(object, self.object)
-		end
-	else
+	if not self:tileObjectDropItems() then
 		self:dropDefeatItem()
 	end
 
@@ -999,25 +1161,29 @@ function NPC:discard()
 	end
 
 	levity:discardObject(self.id)
-	self:send(self.properties.triggerid, "someoneDiscarded", self.id)
+	self:send(self.properties.triggerid, "objectDiscarded", self.id)
+	self:send(levity.map.properties.playerid, "objectDiscarded", self.id)
 	self:broadcast("npcGone", self.id)
 end
 
 function NPC:beginDraw()
 	local healthpercent = self.health and self.health:getHealthPercent() or 1
-	local wound = 0xff*healthpercent
+	local healthsin = math.sin(love.timer.getTime()*math.pi/healthpercent)
+	local wound = 1*(healthpercent + (1-healthpercent)*healthsin*healthsin)
 	local color = self.object.color
 	if not color then
-		color = {}
+		color = {1, 1, 1, 1}
 		self.object.color = color
 	end
-	color[1] = 0xff
-	color[2] = wound
-	color[3] = wound
-	color[4] = self.fadealpha or 0xff
+	color[4] = self.fadealpha or 1
 	if self.health and self.health:isHealing() then
-		local flash = 1.5 + math.cos(30*math.pi*love.timer.getTime())
-		color[2] = 0xff * flash
+		color[1] = wound 
+		color[2] = 1
+		color[3] = wound
+	else
+		color[1] = 1
+		color[2] = wound
+		color[3] = wound
 	end
 	if self.shooter and (self.shooter:isAttacking() or self.shooter:isWarning())
 	or self.rescuer and self.rescuer:isRescuing()
@@ -1028,7 +1194,9 @@ function NPC:beginDraw()
 		end
 	end
 	if self.cover and self.cover:hasCover() then
-		color[4] = color[4] * .5
+		for i = 1,3 do
+			color[i] = color[i] / 4
+		end
 	end
 end
 

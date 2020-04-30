@@ -1,7 +1,7 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.4",
+  tiledversion = "1.3.3",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 18,
@@ -9,7 +9,7 @@ return {
   tilewidth = 16,
   tileheight = 16,
   nextlayerid = 768,
-  nextobjectid = 570,
+  nextobjectid = 572,
   properties = {
     ["cameraid"] = 1,
     ["music"] = "mus/demonrealm.vgm",
@@ -1426,7 +1426,7 @@ return {
       columns = 5,
       image = "img/fire.png",
       imagewidth = 480,
-      imageheight = 256,
+      imageheight = 384,
       tileoffset = {
         x = -48,
         y = 24
@@ -1438,7 +1438,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 10,
+      tilecount = 15,
       tiles = {
         {
           id = 0,
@@ -1461,10 +1461,10 @@ return {
                 name = "",
                 type = "CollisionEnemy",
                 shape = "ellipse",
-                x = 24,
-                y = 36,
-                width = 48,
-                height = 48,
+                x = 16,
+                y = 56,
+                width = 60,
+                height = 60,
                 rotation = 0,
                 visible = true,
                 properties = {}
@@ -1532,7 +1532,7 @@ return {
                 type = "CollisionEnemy",
                 shape = "ellipse",
                 x = 24,
-                y = 40,
+                y = 72,
                 width = 48,
                 height = 48,
                 rotation = 0,
@@ -1579,12 +1579,57 @@ return {
         {
           id = 9,
           type = "Fire"
+        },
+        {
+          id = 10,
+          type = "FireExtinguished_Ground",
+          properties = {
+            ["name"] = "ground_extinguished"
+          },
+          animation = {
+            {
+              tileid = 10,
+              duration = 100
+            },
+            {
+              tileid = 11,
+              duration = 100
+            },
+            {
+              tileid = 12,
+              duration = 100
+            },
+            {
+              tileid = 13,
+              duration = 100
+            },
+            {
+              tileid = 14,
+              duration = 100
+            }
+          }
+        },
+        {
+          id = 11,
+          type = "FireExtinguished_Ground"
+        },
+        {
+          id = 12,
+          type = "FireExtinguished_Ground"
+        },
+        {
+          id = 13,
+          type = "FireExtinguished_Ground"
+        },
+        {
+          id = 14,
+          type = "FireExtinguished_Ground"
         }
       }
     },
     {
       name = "catapult",
-      firstgid = 480,
+      firstgid = 485,
       filename = "img/catapult.tsx",
       tilewidth = 72,
       tileheight = 72,
@@ -1853,7 +1898,7 @@ return {
     },
     {
       name = "black_harpy",
-      firstgid = 504,
+      firstgid = 509,
       filename = "img/friend/black_harpy.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -1981,7 +2026,7 @@ return {
     },
     {
       name = "devil_bug",
-      firstgid = 516,
+      firstgid = 521,
       filename = "img/friend/devil_bug.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2109,7 +2154,7 @@ return {
     },
     {
       name = "ghost",
-      firstgid = 528,
+      firstgid = 533,
       filename = "img/friend/ghost.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2237,7 +2282,7 @@ return {
     },
     {
       name = "goblin",
-      firstgid = 540,
+      firstgid = 545,
       filename = "img/friend/goblin.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2365,7 +2410,7 @@ return {
     },
     {
       name = "harpy",
-      firstgid = 552,
+      firstgid = 557,
       filename = "img/friend/harpy.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2493,7 +2538,7 @@ return {
     },
     {
       name = "holstaurus",
-      firstgid = 564,
+      firstgid = 569,
       filename = "img/friend/holstaurus.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -2621,7 +2666,7 @@ return {
     },
     {
       name = "honey_bee",
-      firstgid = 576,
+      firstgid = 581,
       filename = "img/friend/honey_bee.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2749,7 +2794,7 @@ return {
     },
     {
       name = "siren",
-      firstgid = 588,
+      firstgid = 593,
       filename = "img/friend/siren.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -2877,7 +2922,7 @@ return {
     },
     {
       name = "werebat",
-      firstgid = 600,
+      firstgid = 605,
       filename = "img/friend/werebat.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -3005,7 +3050,7 @@ return {
     },
     {
       name = "weresheep",
-      firstgid = 612,
+      firstgid = 617,
       filename = "img/friend/weresheep.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -3133,7 +3178,7 @@ return {
     },
     {
       name = "youko",
-      firstgid = 624,
+      firstgid = 629,
       filename = "img/friend/youko.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -3261,7 +3306,7 @@ return {
     },
     {
       name = "Archer",
-      firstgid = 636,
+      firstgid = 641,
       filename = "img/human/enemy/Archer.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -3541,7 +3586,7 @@ return {
     },
     {
       name = "CatapultOperator",
-      firstgid = 660,
+      firstgid = 665,
       filename = "img/human/enemy/CatapultOperator.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -3667,7 +3712,7 @@ return {
     },
     {
       name = "PikemanF",
-      firstgid = 672,
+      firstgid = 677,
       filename = "img/human/enemy/PikemanF.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -3949,7 +3994,7 @@ return {
     },
     {
       name = "Pikeman",
-      firstgid = 696,
+      firstgid = 701,
       filename = "img/human/enemy/Pikeman.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -4231,7 +4276,7 @@ return {
     },
     {
       name = "Princess",
-      firstgid = 720,
+      firstgid = 725,
       filename = "img/human/enemy/Princess.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -4312,7 +4357,7 @@ return {
     },
     {
       name = "SwordsmanF",
-      firstgid = 732,
+      firstgid = 737,
       filename = "img/human/enemy/SwordsmanF.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -4594,7 +4639,7 @@ return {
     },
     {
       name = "Swordsman",
-      firstgid = 756,
+      firstgid = 761,
       filename = "img/human/enemy/Swordsman.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -4876,7 +4921,7 @@ return {
     },
     {
       name = "ArcherF",
-      firstgid = 780,
+      firstgid = 785,
       filename = "img/human/enemy/ArcherF.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -5158,7 +5203,7 @@ return {
     },
     {
       name = "rocks_wide",
-      firstgid = 804,
+      firstgid = 809,
       filename = "img/rocks_wide.tsx",
       tilewidth = 64,
       tileheight = 48,
@@ -5256,7 +5301,7 @@ return {
     },
     {
       name = "player",
-      firstgid = 812,
+      firstgid = 817,
       filename = "img/player.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -5289,6 +5334,7 @@ return {
           },
           objectGroup = {
             type = "objectgroup",
+            id = 5,
             name = "",
             visible = true,
             opacity = 1,
@@ -5316,7 +5362,7 @@ return {
                 id = 7,
                 name = "wingman1",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 8,
                 y = 40,
                 width = 0,
@@ -5329,7 +5375,7 @@ return {
                 id = 8,
                 name = "wingman2",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 56,
                 y = 40,
                 width = 0,
@@ -5342,7 +5388,7 @@ return {
                 id = 10,
                 name = "wingman3",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 16,
                 y = 16,
                 width = 0,
@@ -5355,7 +5401,7 @@ return {
                 id = 11,
                 name = "wingman4",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 48,
                 y = 16,
                 width = 0,
@@ -5368,9 +5414,9 @@ return {
                 id = 12,
                 name = "focuswingman1",
                 type = "",
-                shape = "ellipse",
-                x = 0,
-                y = 8,
+                shape = "point",
+                x = 12,
+                y = 24,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5381,9 +5427,9 @@ return {
                 id = 13,
                 name = "focuswingman2",
                 type = "",
-                shape = "ellipse",
-                x = 64,
-                y = 8,
+                shape = "point",
+                x = 52,
+                y = 24,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5394,9 +5440,9 @@ return {
                 id = 14,
                 name = "focuswingman3",
                 type = "",
-                shape = "ellipse",
-                x = 16,
-                y = -24,
+                shape = "point",
+                x = 0,
+                y = 12,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5407,9 +5453,9 @@ return {
                 id = 15,
                 name = "focuswingman4",
                 type = "",
-                shape = "ellipse",
-                x = 48,
-                y = -24,
+                shape = "point",
+                x = 64,
+                y = 12,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5723,7 +5769,7 @@ return {
     },
     {
       name = "arachne",
-      firstgid = 840,
+      firstgid = 845,
       filename = "img/friend/arachne.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -5851,7 +5897,7 @@ return {
     },
     {
       name = "blue_slime",
-      firstgid = 852,
+      firstgid = 857,
       filename = "img/friend/blue_slime.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -5979,7 +6025,7 @@ return {
     },
     {
       name = "giant_ant",
-      firstgid = 864,
+      firstgid = 869,
       filename = "img/friend/giant_ant.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -6107,7 +6153,7 @@ return {
     },
     {
       name = "CatapultOperatorF",
-      firstgid = 876,
+      firstgid = 881,
       filename = "img/human/enemy/CatapultOperatorF.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -6233,7 +6279,7 @@ return {
     },
     {
       name = "HeavyMilitia",
-      firstgid = 888,
+      firstgid = 893,
       filename = "img/human/enemy/HeavyMilitia.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -6242,7 +6288,7 @@ return {
       columns = 6,
       image = "img/human/enemy/HeavyMilitia.png",
       imagewidth = 192,
-      imageheight = 128,
+      imageheight = 160,
       tileoffset = {
         x = -16,
         y = 16
@@ -6263,7 +6309,7 @@ return {
         ["rowstype"] = "direction"
       },
       terrains = {},
-      tilecount = 24,
+      tilecount = 30,
       tiles = {
         {
           id = 0,
@@ -6510,6 +6556,18 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 24,
+          type = "HeavyMilitia_Guard"
+        },
+        {
+          id = 25,
+          type = "HeavyMilitia_Guard"
+        },
+        {
+          id = 26,
+          type = "HeavyMilitia_Guard"
         }
       }
     }
@@ -6530,7 +6588,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "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"
+      data = "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"
     },
     {
       type = "tilelayer",
@@ -6547,7 +6605,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzFWFty7TAIy/43lyyp049MPVwJhCBz+WmPY4PNQzyu67ru64+eC9NtfH/AWofu8P8D1qt7KGemdAO5aA/6//2d6a2rP/Wtp1xVxvlWRgov9F72u2s7RX7UuUvs7mhd8Q1HJvIntrf6PtHLHf5OaMJDOZvpzH1HFRsMIyZ+cV//ys3s9wh8kQ8w/1V4Vf7G5DPMVPWl2nGKA137RV2i8+qaIi9+c3LUk3zL7oByTBYHnZiL9p3iaMe/FT/OfJjJYbbp+KiDW68MxTczyvardmK+2q0rKt7KuiIP5XzmHy7WbLwdkfLubg2t5iIHrzMcUmKN2eiMVccXujl9UmM4+7t13rSGe/WZYapT53dzOdIzupuTjxVS36T0Q6pNGC81F228/32T6mOT3Huude7p1LPo3DRnT+ckXVL06viaKlOJu26+dHooZZbBcPqrfFzxq+JJnX2cPKOM6gz6rZyp5GQ1k4L7av+g+hbT54nHG3Okr85n+lDt7ux33qP0gm7N4tR2bDY6sVVVC3XroW7+YviB3reJb0pttZWTkJ3ZjKmSx9amPTHDNYRLqCePZ6dzV5bb1HnmpJ7v3OukrRpVzWvTtzDq5MH4zfXx7owtylRwqbqPOkNk9pnGZEZf8GbzQWXfuxf5QVXLMYxh8hF1sDKe685hGI+s9r3D3upO599sT6SNnOjof6OeemWfetzCtGpecf51cqd632mcnv5TxZfjR45fdWpeRb8d/4z7XyxBOnL8GtHJ060nVAxAstWag+W3qkdXecU9HX5fkTMD+CXUU3TnO/+DNnviSK6PIlln/KH4RXHkzG9cWykzJYa7094mowovt3yzim+1z+rIUnhms4eLrFXnzrUODm7ZV8GVaPcT9yf3yeKlE++buL+RW7Zye8Zf8f+vYlXpPzZIweGsb0Z2yOr8Sn61XmHvV3ph3yb9ajV7qGo/tH8iN8NchEeqPTewA80NIi4iuzj3UXHX7RudmaBD23kM8Vb4/wCPceGL"
+      data = "eAHFkAtuFUEQA3P/y8GRwIpKKpnumd0ExEqhPy675/Hx8fHx4/cf30+aqjBvdFhqRV5HbgZMT473HYIGS2Xf/N+Yk00+9zoXPXv3zPbRd+3Mbe78E/f2RrJv+WRud7M34761zLd7Yfx1njX6ZD7h4LfaGcxUfJl7h/bd39d+z9PNkx5t8vDWUyWXemJv2ncynnib8UxPvb0VPfzJg9b/vz07j36r3CQ73JaHZnbKjd4ZmXsX75MsM51hLXn5uG/NfWd8uv58Cx4qXNctr7lt3vzb3fD2uOfG0x186navtSm7mc6yp7V4+VrLjJcKw4w3Mxq7U4XtevJYm+5bT09279s7cf17JoZctM5F3/bormR5d+rhc4M/+Dd34znx3KFyo6t157lvD/ONcTae1G1vZupzj5vUcO4zk9/7aE++J74nTN/iXb33TO4TNj5zeJ1Hb86+3sOnOq85z+43v7PS46Had+udFbZn/GR3Rb9VfDcOHb7fk33v8KTi8+5Nn+ztBtl9n/3pzo3ZMu2b3mafe94y7dBO1Xc3Lozz3cfD/CTLfPf2uw/nj3u3nfXu+U1TFqzfMHHW8aROLDuq+a2f2O2mM9rXM+y2R6fCUdn/q7r9Rt/fmH6TPa15dp49Ww9v3Xndbxw5zWeOdtJhXNPn2+59qp//PmHM3/rknTLzW046+f7Nzfc8ebJzBkzXEzPd6R3+7On7BnOYJ1x4svoeWdRwE8Mu+saQ8aSS94SdmM2fPb+1fe3p+Tv8LauzM7cnc7/99n/dPHectTGwVN/y29zDPq2Tl/dEax1ty28+3Mkz3YjHOfTU6Nv3hInXnHtys9vebX5jyEmFoXo3cd6l9z203vUMt9XmeVv29PHSm0/PXxg+e/FRYZ7W9nE/+9aciUbFB8Oe+W09+ftWsqfd6Wby+0bP+Lc9+lfr9Obe+bY1793zlmkXbdvjcw3bN2/+8BPjnXvfS2/NvTW/Kfues/vq11k9fyW3f0cyptyJg7WGd9rxvjD5M+OeDPit2mPm5o/vifeUQ0aYjeMGrN/YvdnWmGGYqdt99NQb4+wbS+5TDn57R24nizy/xd63PXn4mMl3RYO91fB4yNk8cJt+2yefG2Qxx8suPXtqdv211jO8c9lR47npT9lwp6zo/Ubz6aPDoHmXDPbp3354k0lPBneZt3rjNj33Ni23/J6Jyy6Mufimz8yUFY+ZKcO7N6x9b/p+Z89bFm+jhsPr3eb/X/vb21rv+fRufv/G3HTfCgtPJTec2ezNw011ypq4267vwzufHpa5K96/UZPNvSnvpE38tuM3tE5+9I2J56R1JuyTTNi8g7c4b9o5d/J5N/mdnx6Gt7T+diaH3Mkfxnr69jFP/m3XHt9orTOs29dczzfWufbefGad8cbnjFOffN9oFu10+6R1Xs8n7+1tnXWa+86UzW91DjtqNLKozU/7aecsZ6TnHnXTe/923t6VHGvuTzem93rnnpxkT3v0rtNbJr937uOfMtjDwlD9jqc7e9xP/ujZ5483sEtlZy89NRzftENL7TxmM+lvORMfz1vfdr/ze+bOV/2d55ns7G75vwCPceGL"
     },
     {
       type = "tilelayer",
@@ -6564,7 +6622,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "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"
+      data = "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"
     },
     {
       type = "tilelayer",
@@ -6581,7 +6639,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmtkOhCAMReHzhfnoiXFMCDGhaKGVOSfxzehty3JZQvBJjiGkKHt3i8fjkWyoS5o/T3wMNde10sjf+Y031iJ19EEAALCHMbvNbJ9h6QNnkxT9uFdfPxvyoIPl+qLGk5YWvXPKyPFOsy881fmmGgLAPP7J81my4nrnnONoQwAAAAB97OvzER5qRc8J4AX2uwHWZnN6v+iupqsxyzq+0vtYa/GiYSR34ivPkK7akNS/pom1bs3PrXOxMiatMzRpzPX/NNcHVvu1rdilOW7pl/qy/LsD4uV8VFNHnaMnNddsL3u+vz3IJZY="
+      data = "eAHtmQEOwyAIRd3x1+3QK1lICCHFVqxov0ljVxU+D6s2KyVn+bxK2farprz3fnRlLBTHqFLLb5Q+y+93IC+dqwh+bINrK+asz0jzjLqz8oQuEAABEOhNAGu2T/juc4Y+W/gK5+1B8y/qPB5lZ16af+XgEJPBu9/7I9WZtBzppLaze0rP9S7yXWjVOVMOvRyjHQRAII5A69oSp2RtS2f3phlo8B6HOTRDtqARBEAABEAABEAgEwH6Pu9xhlrxzJkpb9DybAL8/fNsCogeBNYlQO94xn30qiZrzbpqKyrr8uwzWgvFlEFDFFvLzpX45H9I1hySObR88jPpW95ze2Rt6ZT2ZUzyOd/LmLy+PMara2PW/qQWz4fXHmnL8yXbvdh1zHKsvPf0e3lnW2SH+tb65XG96kgdmpH+fSaGlrHaD/H+AT3IJZY="
     },
     {
       type = "tilelayer",
@@ -6598,7 +6656,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztWlduwzAMde5/mrRpU7gZPVqVD6IEIW46Vgo9QIANrcdhipK1LDV4OyzLeyung6398dDvs7bn71YurXy08tnKuZUvYdxeH4xre7+1cm/lx8gP+lg5aDJSDpz83Hwgo6Yzq8y9PlZgjh6bU2COXpvTdqDP3tiSzXvt1oTNKSQOmqy4HoP6juZbuN7iOxi0HsaO+g4de2Jiog9ujYi098b7zPowEUd0LQWAD1TYbcT4nMk3MF7Nt6VvG+cJlpjBfds4T5DaRXl62+L5PXsACZ49gASNu1SP6yzcpXqoe3VY/duSj1v8u8IHKLzrtQSrP2f2KVivGb3QuKHNZeHK6dFrw2geQ22ZsSnmIHHxxBTPnFL9xMSe2CNmPgMQ77LnSBDvtly3Jv78sGJvsQ7mg+ciH7wnffC/f+uj6PkBeh6ewYjnABPPQcU/kAcq167MPzno/0B2P3hNyNOTIRIfORn2iI89mSI26sk0Qu6j7b889tP2X9X2e/bam/1ffkraHXM8FvpNNvYAtj6L8vKENrSflye04fpt5YfcfQB4t+qDuw8A7159ROTV7oBcSD3X3sL1lpCtQlYOkfjH3ZfwwnKeaeGwRXyQdOvRv6ZbSf9YxoydsYzRdY7KnPE/LHN2/d37W+C4ZHnhvCXDC3hU6GhN2IvqI6MfysHLaSQuo/IahYvGI7IX4HhU8vIgykPi4OXGcYhw4+aL6IibT+Oh2cd6H1jSTe8/o5bbcbwqdLN2+EUR8eOeDnt3WrWxLfmxV0bgls0bgdsvhUYr3w=="
+      data = "eAHtWItuHCEMvPz/17Rpk6rvTwtWNMpoZBsbUHtNF4ljjV9j42Xhbrcz7ePD7fY4+qfRK+3DkPN0vo75b6N/H/3z6E+jP4/+ZfSoeTos+2Po/hz91+i/EzueThUD6+KZY1QMzOOcRf4Q4yxn8K3+MI8R9izP3cYYO2uufhhjd80Zg9UG8gkfbDtbc0/OclOpO/jKxqzuNAa1w3zmIVbkXmPI+NCBvVkdKB+2sV6wszKa7atdGbgy4GcA75q+s7702x7oyet7HNnAfFceete4lwE+C6xYQs2sfNfV3z3uz15tK+4KfeL7VfFzSgbr6sXP54RMDliid5vPESYbycGON1b8Q28my/47dwDY98bOHcDTx9wMe8ZnntnjOGGfx4wPHsv/i8+cE90Dub6zeyDiRk50D+T6zu4EsNMdsxi6tqIY1M7OPYXzmt1T1KfSnFflgWZflTX07rlmi31V1rCaR+DEqGvp7buQnY2MIfvuqE+1y3zlKc0+lWc0+B7vmrsy8KcywDWt+34XA2pa9/2unRPy2O929mfDgf1uZ38+Ec97t4E63K1By5PV4T3VoJ2dZ+fnbH1Rg3Z23jk/I8c731LgvMd3/V7ybDlCrpGvndFyfbX/MwM7+wZnbGffYDv2jG/rKjbTt8b7WuUu8ar19mv6q82LAe9sZ3+MYvgb+6MX08oaeTGdrJ/VNeP18Wwwf3aOwPp4dmwO/FPniA62CBPmK9hW1t3DuLrujNHsnmpeja/Y9mp8xU6k08WJ/2RUr4sT+2ik561xFMNsntdYccMP6lD5kW0Pt/lBHXr8yJbNA0dnT4+wcrx8r4zkK1j5XlmRPx1rZI9jjWR0nvOgvA7NeejomSxjwDvVtWHyjAHvlM1nddSptex/SPOT5Z9jnH3nzFbUOMbV75zGHP1vHGHgeY6Zn1mm+qy4qnqe3Eksu7iAxXDieWXtgGNnvZArw7GKBTjwXikNH5VRMSg9s6G+lZ7pM199K82ys2fFofRMn/mKQ2mW9Z7Vt9KeTjSnvpWO9Gxe/c7ozJb6ndGZrR0cancVR4aB33eVU/9GRxii+WwvivxF8x4ezKn/2Tz46ktp7EOQ52+tnicUA9P6fedvLZ8n4EdxgMaouKDnjYzD+EZjVFyvnPpvBwesejlkHNUYZzlciRHYMOK+AuzVEdheAIVGK98="
     },
     {
       type = "objectgroup",
@@ -6627,7 +6685,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztWtlOAzEMpP//D6ACPYBC+USSBwszcnymEKEdKWq32WzGY69zNK+7u7u3Vi6tHFo5tnJq5dyKhJf2+6vQpuO+fT608t7KRyvXVj4Hz0FQGw8HAvVH2Lfvj608CRx43TNrI/XHbcQ2aD/yR5uJo9TGC86Rc0H7LZ04x4jPkcOZ6Rn1Od5HelocLFupXuNg2crrOTB2rNji9Z7YIUj19Oxs7OCzN2zYIGM0RkTvt95zRPT+DfPg8bMGioGq31bNz953wcIqse2dM2m5gM8TrJyhvdt8npDNAdi/ZpvGFfvHOdI+md8iawANls5aPa/LzMGkulUxO76tNZg3vmfEACIyXmu6eOKZ2nt1kcB11XSxfMh19fTl4TrSMerD7DwGfZkdd9CXGpdITon0qdVv2PCXiK5xRqisWQ5wf8933nFLe+axmJ87KN/dctza8B2H1bUFxWF1bUHxNyMGT5Ni8FqMwRXedcR/1LmDtK5i1X2ADToq8cxRiWcOiufquNoRXUtI7Tuy60H+H1MWkg2Z/CjZkMmP6JeMjySbMj6SbFph7mOtv7z+s9Zft9h/93Kz/O7llvG7xDHjd+RIe4XV3NOfW809BC33ZHnydlGe50G7aI6ke0btJB9L9vJrqX507gPPA9C1V4/ReQC6tvTQzoB0e7Fess06A3KB+pFtHt/x+ur+aGV+z3XI5r/ReYkoB89+pofDLfKDpq1Hf7JR09bSn9tYWcdxG7PjHNqcjT+0uTr+rrTW5VwqvDiXKi/iUdWIeMza58/qg3pk9FmJy6q8VuFi8cisBSQes3n9hj4ahwg3jUOG26i/qEaj/vB3aW5n+cdzHtjSRvqf0ZrbjXhVtaHrbA5CDTNjhaShdKbVejZqeL/7yTFjI3GrzhuJ26wzDjP2/Dq+AJVlVoU="
+      data = "eAHtmIluFTEMRcv//wOIHcr6icSqjnp75dhJBhUEb6Q0z/F27TieTO9f3N19GePrGO/H+DDGxzE+jZE9n8f6/RiuE7Ivx/qrMb6N8X2MH2P8HGPlQWcFA/bwB/16+HozxtsxsAcG5b0TTJk/jRF76Cgvcsbj/lgHo+YM3uqsGCM2sGC7s4OcYvT9q/Y87CuGqA3ymdmu9lwxhBz57OoOP7NY4Vd15zG4LeUrj1jJvcdQ8dEJe8RK7tXHjI/tmY7bmNH4nvFv67cM/O8Z4Kzpma1yMpPnrK2e2V35CtONt5cB3qV7Wo/S1IDeBR6567+ogXWN55FcPQsdmtWz0Nm5yuee0NlhX7P49Z5QyYUP9jWLX+8RlVyF1f3H/Xv2uKzKuX+/D4Yuj8uyns3cvzPezlqFPexUfOV12Cu+8nawP6fs767v2XcgMWlOvAdqfVffBNjanXVfuz5e5aWKAUzod98pyGez9o3qOwVfmY1Y07zOZNRXt4dhw79zsau+Vvbw9DvX9zLru2CqZt/LrO+i7z5ZZ1Y+a9nsPl1G+c670bcMPGcGtKa7nlnh0pr2vl/pBS96kz7R77qep/LZb/rdlf4cdul3VX/O/N/W9jJAHV6pwfBIHe7WoKOl/qr7s+s4TQ3G3dnvzy5b0dRg3J2v3J/J8em7FIzkuHqXItvN/2KeI2Zy3cXf8cl1J3fj/10ZuNI3NJIrfUPt0Dc4b8rb/a19beVbwu3zvte+tvItgR1iCP3TJ4uBM7vTH7MYOLM7/ZGYiOekfrKYTuoni4n6Ad+fmHV/Mv/Kr+4Ruj+ZHeVfvUdgfxVbt++r2E72PcN4su+OMezG4zX+sLr+N+xmNb5u4VEyq3G4pzhVbxcnfdT1Kpzg1Zk+OtPL9lhxY0vrMOP7Hjtu/FCHzsePz44bP9Sh813fsYKDnu58p8NehhUc9HT9rszkw06HNWT0u3JFPnRmj8c6k8vWNQ8eayafrWkeMn63BgbNQ6fjfMXAmXKZFVoxcKZCjzrKbKzknxipo8xOl3+NsXrPZbZ1TWM8fc95zLP/G6vf7LfHfPp/Y2w7LtZ3Z8e1qx/yikV/7+6dYtHfJ3sHjtP9Ig/gON0vcHCunMZPN4ODc+V0px989+30io2Qcd9Or9pBznE4jVw3Ow6nO/3gu2+nV2yEjPt2urPjfjt6Zs/9dvTMDuunONBnvoKjwqDn3eXwzVxh0PPucuj7PPM3W3d96Jk/X+ddi17M7stp+hA6+q7V+4T7cpo+hB191+p9Ar7jgGZ2XOj57DigmR2X6zvtOVzFoXayHCqO1Rg9h4EtHjCexAg2Zr5XHiyv/wUbM98r6xaeSmqtPeXsUb8AlWVWhQ=="
     },
     {
       type = "tilelayer",
@@ -6644,7 +6702,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt08EJgEAMBMCz//782Iz4EA5BPLlgIsw0kM2StAYAAPG2JTtBXX032T1Fz8/e585Mrqo78S+zd/TlHb6ZVeE/zgwjWdagvE+zKvQCjPGvZDrur9INVsoSqVrPAAAAAABwtQO1ehLk"
+      data = "eAHt1TsKgDAMAFC9//1cvIw4CHVpCQla5bmotPn0EXFZXAQIECBAgAABAgTqBfa1PudfMrY27fMb56uuX52vyiTTVya2qn95vi+QnaNsfEQwUiuyN9JDZO/Vw3XvxW5F/6ZRrdF6r0drBAg8K+B7fdZbtbvAOX8zzeBMvdylcm+zOedOI5oAAQIECBAgQIAAAQIECBAgQIAAAQIE/ihwALV6EuQ="
     },
     {
       type = "objectgroup",
@@ -6679,7 +6737,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {
             ["rideid"] = 134
@@ -6695,7 +6753,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 482,
+          gid = 487,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -6713,7 +6771,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {
             ["rideid"] = 136
@@ -6729,7 +6787,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 482,
+          gid = 487,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -6785,7 +6843,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 762,
+          gid = 767,
           visible = true,
           properties = {}
         },
@@ -6799,7 +6857,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 762,
+          gid = 767,
           visible = true,
           properties = {}
         },
@@ -6813,7 +6871,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathid"] = 117
@@ -6829,7 +6887,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathid"] = 118
@@ -6845,7 +6903,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {
             ["rideid"] = 75
@@ -6861,7 +6919,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 482,
+          gid = 487,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -6913,7 +6971,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathid"] = 35,
@@ -6930,7 +6988,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathid"] = 117
@@ -6946,7 +7004,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathid"] = 118
@@ -7018,7 +7076,7 @@ return {
           width = 64,
           height = 48,
           rotation = 0,
-          gid = 804,
+          gid = 809,
           visible = true,
           properties = {}
         },
@@ -7032,7 +7090,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 738,
+          gid = 743,
           visible = true,
           properties = {
             ["defeatitem"] = "ItemWingman",
@@ -7050,7 +7108,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 762,
+          gid = 767,
           visible = true,
           properties = {
             ["firetargetid"] = "340",
@@ -7069,7 +7127,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 762,
+          gid = 767,
           visible = true,
           properties = {
             ["firetargetid"] = "345",
@@ -7157,7 +7215,9 @@ return {
       offsetx = 0,
       offsety = 0,
       draworder = "topdown",
-      properties = {},
+      properties = {
+        ["script"] = "BulletLayer"
+      },
       objects = {}
     },
     {
@@ -7195,7 +7255,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 812,
+          gid = 817,
           visible = true,
           properties = {}
         }
@@ -7234,8 +7294,8 @@ return {
     {
       type = "objectgroup",
       id = 761,
-      name = "bosstalk1",
-      visible = true,
+      name = "Amy: Ange?",
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -7276,10 +7336,10 @@ return {
           x = 56,
           y = 112,
           width = 176,
-          height = 80,
+          height = 88,
           rotation = 0,
           visible = true,
-          text = "Ange?\n\nAnge! Is that you?",
+          text = "Ange? Is that you?\nWhat happened to you?\nWhy are you doing this to us?",
           fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
@@ -7326,7 +7386,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 726,
+          gid = 731,
           visible = true,
           properties = {}
         },
@@ -7450,8 +7510,8 @@ return {
     {
       type = "objectgroup",
       id = 762,
-      name = "bosstalk2",
-      visible = true,
+      name = "Ange: Amelia...",
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -7498,7 +7558,7 @@ return {
           height = 88,
           rotation = 0,
           visible = true,
-          text = "Amelia? ... So it's too late. You're one of them now.\nI was hoping we... I wouldn't have to-",
+          text = "Amelia?! ... I'm too late. You're cursed now.\nI've failed as your sister...I'm so sorry.",
           fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
@@ -7525,8 +7585,8 @@ return {
     {
       type = "objectgroup",
       id = 763,
-      name = "bosstalk3",
-      visible = true,
+      name = "Amy: What curse?",
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -7570,10 +7630,10 @@ return {
           x = 56,
           y = 112,
           width = 176,
-          height = 80,
+          height = 88,
           rotation = 0,
           visible = true,
-          text = "Why are you doing this to us?\nDid Da-... Did Father make you do this?!",
+          text = "Cursed? What curse?!\nWe were all so happy living together--\nHow can it be a curse?",
           fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
@@ -7600,8 +7660,8 @@ return {
     {
       type = "objectgroup",
       id = 764,
-      name = "bosstalk4",
-      visible = true,
+      name = "Ange: The demon curse",
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -7648,7 +7708,7 @@ return {
           height = 88,
           rotation = 0,
           visible = true,
-          text = "We must take this land or our people will starve to death!\nTurn around and I'll let you go.",
+          text = "The demon curse on this land since our Kingdom's beginning!\nWe've already lost too many girls like you!",
           fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
@@ -7675,8 +7735,8 @@ return {
     {
       type = "objectgroup",
       id = 765,
-      name = "bosstalk5",
-      visible = true,
+      name = "Amy: Then leave!",
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -7723,7 +7783,7 @@ return {
           height = 88,
           rotation = 0,
           visible = true,
-          text = "NO! I won't let anyone get hurt anymore!\n\nLet me go talk to him!",
+          text = "If you don't want to be like us, why don't you leave us alone? Why don't you go somewhere else?!",
           fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
@@ -7750,8 +7810,8 @@ return {
     {
       type = "objectgroup",
       id = 766,
-      name = "bosstalk6",
-      visible = true,
+      name = "Ange: We can't!",
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -7798,7 +7858,7 @@ return {
           height = 88,
           rotation = 0,
           visible = true,
-          text = "You know I can't do that.\n\nI'm sorry...Amelia...",
+          text = "We have nowhere else.\nWe have no choice!\n\nAmelia, I love you.\nGod rest your soul!",
           fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
@@ -8046,7 +8106,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 894,
+          gid = 899,
           visible = true,
           properties = {
             ["fleeing"] = true
@@ -8062,7 +8122,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 894,
+          gid = 899,
           visible = true,
           properties = {
             ["fleeing"] = true
@@ -8078,7 +8138,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 894,
+          gid = 899,
           visible = true,
           properties = {
             ["fleeing"] = true
@@ -8094,7 +8154,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 894,
+          gid = 899,
           visible = true,
           properties = {
             ["fleeing"] = true
@@ -8197,7 +8257,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 482,
+          gid = 487,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -8214,7 +8274,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {}
         },
@@ -8290,7 +8350,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 642,
+          gid = 647,
           visible = true,
           properties = {
             ["pathmode"] = "relative",
@@ -8307,7 +8367,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 642,
+          gid = 647,
           visible = true,
           properties = {
             ["pathmode"] = "relative",
@@ -8324,7 +8384,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 642,
+          gid = 647,
           visible = true,
           properties = {
             ["pathmode"] = "relative",
@@ -8364,7 +8424,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {}
         },
@@ -8378,7 +8438,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 481,
+          gid = 486,
           visible = true,
           properties = {
             ["faceangle"] = 45,
@@ -8398,7 +8458,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {}
         },
@@ -8412,7 +8472,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 483,
+          gid = 488,
           visible = true,
           properties = {
             ["faceangle"] = 135,
@@ -8460,7 +8520,7 @@ return {
           width = 64,
           height = 48,
           rotation = 0,
-          gid = 805,
+          gid = 810,
           visible = true,
           properties = {
             ["iscover"] = true
@@ -8476,7 +8536,7 @@ return {
           width = 64,
           height = 48,
           rotation = 0,
-          gid = 804,
+          gid = 809,
           visible = true,
           properties = {
             ["iscover"] = true
@@ -8522,7 +8582,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -8536,7 +8596,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -8550,7 +8610,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -8564,7 +8624,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -8578,7 +8638,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -8592,7 +8652,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -8663,7 +8723,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 482,
+          gid = 487,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -8680,7 +8740,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {}
         },
@@ -8711,7 +8771,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 482,
+          gid = 487,
           visible = true,
           properties = {
             ["faceangle"] = 90,
@@ -8728,7 +8788,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {}
         },
@@ -8795,7 +8855,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 642,
+          gid = 647,
           visible = true,
           properties = {
             ["pathspeedfunction"] = "nsin"
@@ -8811,7 +8871,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 642,
+          gid = 647,
           visible = true,
           properties = {
             ["pathspeedfunction"] = "nsin"
@@ -8860,7 +8920,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 786,
+          gid = 791,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -8929,7 +8989,7 @@ return {
           width = 64,
           height = 48,
           rotation = 0,
-          gid = 804,
+          gid = 809,
           visible = true,
           properties = {
             ["iscover"] = true
@@ -8975,7 +9035,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 894,
+          gid = 899,
           visible = true,
           properties = {
             ["pathspeedweighted"] = true
@@ -8991,7 +9051,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 894,
+          gid = 899,
           visible = true,
           properties = {
             ["pathspeedweighted"] = true
@@ -9193,7 +9253,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9207,7 +9267,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9221,7 +9281,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9235,7 +9295,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9249,7 +9309,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9263,7 +9323,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9277,7 +9337,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9291,7 +9351,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9347,7 +9407,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9361,7 +9421,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9503,7 +9563,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9517,7 +9577,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9531,7 +9591,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9545,7 +9605,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9559,7 +9619,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9573,7 +9633,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9587,7 +9647,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9601,7 +9661,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9615,7 +9675,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9629,7 +9689,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -9698,7 +9758,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9714,7 +9774,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9730,7 +9790,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9761,7 +9821,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9777,7 +9837,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9813,7 +9873,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 481,
+          gid = 486,
           visible = true,
           properties = {}
         },
@@ -9844,7 +9904,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {}
         }
@@ -9893,7 +9953,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9909,7 +9969,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9940,7 +10000,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9956,7 +10016,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9972,7 +10032,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9988,7 +10048,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 483,
+          gid = 488,
           visible = true,
           properties = {}
         },
@@ -10019,7 +10079,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {}
         }
@@ -10065,7 +10125,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -10081,7 +10141,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -10097,7 +10157,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -10128,7 +10188,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -10144,7 +10204,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -10171,7 +10231,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1312,
+          y = 1248,
           width = 288,
           height = 16,
           rotation = 0,
@@ -10181,30 +10241,72 @@ return {
           }
         },
         {
-          id = 463,
+          id = 461,
           name = "",
           type = "",
           shape = "rectangle",
-          x = -8,
-          y = 1520,
+          x = 144,
+          y = 1168,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 762,
+          gid = 743,
           visible = true,
           properties = {}
         },
         {
-          id = 464,
+          id = 468,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 264,
+          y = 1248,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 767,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 469,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 32,
+          y = 1256,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 767,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 570,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 1248,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 767,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 571,
           name = "",
           type = "",
           shape = "rectangle",
           x = 296,
-          y = 1528,
+          y = 1240,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 762,
+          gid = 767,
           visible = true,
           properties = {}
         }
@@ -10227,7 +10329,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 0,
-          y = 1360,
+          y = 1336,
           width = 288,
           height = 16,
           rotation = 0,
@@ -10242,11 +10344,11 @@ return {
           type = "",
           shape = "rectangle",
           x = 40,
-          y = 1360,
+          y = 1336,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 762,
+          gid = 767,
           visible = true,
           properties = {}
         },
@@ -10256,53 +10358,39 @@ return {
           type = "",
           shape = "rectangle",
           x = 232,
-          y = 1360,
+          y = 1336,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 762,
+          gid = 767,
           visible = true,
           properties = {}
         },
         {
-          id = 461,
+          id = 463,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 144,
-          y = 1168,
+          x = -8,
+          y = 1504,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 738,
+          gid = 767,
           visible = true,
           properties = {}
         },
         {
-          id = 468,
+          id = 464,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 288,
-          y = 1224,
+          x = 296,
+          y = 1512,
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 762,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 469,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = -16,
-          y = 1248,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          gid = 762,
+          gid = 767,
           visible = true,
           properties = {}
         }
@@ -10344,7 +10432,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 762,
+          gid = 767,
           visible = true,
           properties = {}
         },
@@ -10358,7 +10446,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 762,
+          gid = 767,
           visible = true,
           properties = {}
         }
@@ -10462,9 +10550,9 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 136,
-          y = 1312,
+          y = 1248,
           width = 16,
-          height = 128,
+          height = 192,
           rotation = 0,
           visible = true,
           properties = {}
@@ -10566,7 +10654,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 482,
+          gid = 487,
           visible = true,
           properties = {}
         },
@@ -10580,7 +10668,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 879,
+          gid = 884,
           visible = true,
           properties = {}
         },
@@ -10594,7 +10682,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 642,
+          gid = 647,
           visible = true,
           properties = {
             ["pathfinder"] = "linear1way"
@@ -10610,7 +10698,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 642,
+          gid = 647,
           visible = true,
           properties = {}
         },
@@ -10704,7 +10792,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 482,
+          gid = 487,
           visible = true,
           properties = {}
         },
@@ -10718,7 +10806,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 482,
+          gid = 487,
           visible = true,
           properties = {}
         },
@@ -10766,7 +10854,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {}
         },
@@ -10780,7 +10868,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {}
         }
@@ -10824,7 +10912,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 482,
+          gid = 487,
           visible = true,
           properties = {}
         },
@@ -10838,7 +10926,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {}
         },
@@ -10899,7 +10987,7 @@ return {
           width = 72,
           height = 72,
           rotation = 0,
-          gid = 482,
+          gid = 487,
           visible = true,
           properties = {}
         },
@@ -10913,7 +11001,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 663,
+          gid = 668,
           visible = true,
           properties = {}
         },
@@ -10976,7 +11064,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 540,
+          gid = 545,
           visible = true,
           properties = {
             ["emotetileid"] = "help",
@@ -10996,7 +11084,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 762,
+          gid = 767,
           visible = true,
           properties = {
             ["firetargetid"] = "340",
@@ -11015,7 +11103,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 762,
+          gid = 767,
           visible = true,
           properties = {
             ["firetargetid"] = "345",
@@ -11034,7 +11122,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["emotetileid"] = "help",
@@ -11124,7 +11212,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 642,
+          gid = 647,
           visible = true,
           properties = {
             ["pathfinder"] = "linear1way"
@@ -11164,7 +11252,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 642,
+          gid = 647,
           visible = true,
           properties = {
             ["pathfinder"] = "linear1way"
@@ -11210,7 +11298,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 642,
+          gid = 647,
           visible = true,
           properties = {
             ["pathfinder"] = "linear1way"
@@ -11249,7 +11337,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 642,
+          gid = 647,
           visible = true,
           properties = {
             ["pathfinder"] = "linear1way"
@@ -11295,7 +11383,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -11309,7 +11397,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -11323,7 +11411,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -11337,7 +11425,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -11419,7 +11507,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -11433,7 +11521,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -11447,7 +11535,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -11512,7 +11600,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -11526,7 +11614,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -11540,7 +11628,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {}
         },
@@ -11604,7 +11692,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "377"
@@ -11620,7 +11708,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "378"
@@ -11636,7 +11724,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "377"
@@ -11671,7 +11759,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "378"
@@ -11736,7 +11824,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "377"
@@ -11752,7 +11840,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "378"
@@ -11808,7 +11896,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 840,
+          gid = 845,
           visible = true,
           properties = {
             ["emotetileid"] = "sweat",
@@ -11825,7 +11913,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 864,
+          gid = 869,
           visible = true,
           properties = {
             ["emotetileid"] = "sweat",
@@ -11842,7 +11930,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "377"
@@ -11858,7 +11946,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 678,
+          gid = 683,
           visible = true,
           properties = {
             ["firetargetid"] = "378"
@@ -11904,7 +11992,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 540,
+          gid = 545,
           visible = true,
           properties = {
             ["emotetileid"] = "sweat",
@@ -11922,7 +12010,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 852,
+          gid = 857,
           visible = true,
           properties = {
             ["emotetileid"] = "sweat",
@@ -11941,7 +12029,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "72",
@@ -11958,7 +12046,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "72",
@@ -11975,7 +12063,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "72",
@@ -11992,7 +12080,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "72",
@@ -12096,7 +12184,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 516,
+          gid = 521,
           visible = true,
           properties = {
             ["emotetileid"] = "sweat",
@@ -12115,7 +12203,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 528,
+          gid = 533,
           visible = true,
           properties = {
             ["emotetileid"] = "sweat",
@@ -12134,7 +12222,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "62"
@@ -12150,7 +12238,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "61"
@@ -12251,7 +12339,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 564,
+          gid = 569,
           visible = true,
           properties = {
             ["emotetileid"] = "sweat",
@@ -12286,7 +12374,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "65"
@@ -12332,7 +12420,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 612,
+          gid = 617,
           visible = true,
           properties = {
             ["emotetileid"] = "sweat",
@@ -12350,7 +12438,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 702,
+          gid = 707,
           visible = true,
           properties = {
             ["firetargetid"] = "71"
@@ -12398,7 +12486,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 504,
+          gid = 509,
           visible = true,
           properties = {
             ["emotetileid"] = "sweat",
@@ -12417,7 +12505,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 552,
+          gid = 557,
           visible = true,
           properties = {
             ["emotetileid"] = "sweat",
@@ -12436,7 +12524,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 576,
+          gid = 581,
           visible = true,
           properties = {
             ["emotetileid"] = "sweat",
@@ -12455,7 +12543,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 588,
+          gid = 593,
           visible = true,
           properties = {
             ["emotetileid"] = "sweat",
@@ -12474,7 +12562,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 600,
+          gid = 605,
           visible = true,
           properties = {
             ["emotetileid"] = "sweat",

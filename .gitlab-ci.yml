@@ -6,15 +6,14 @@ variables:
         PROJECT_TITLE: Demonizer
         PROJECT_TITLE_NOSPACE: Demonizer
         DESCRIPTION: "Demonic corruption fantasy shmup"
-        COPYRIGHT: "© 2019 IoriBranford"
+        COPYRIGHT: "© 2020 IoriBranford"
         APPLICATION_ID_BASE: "io.itch.ioribranford.demonizer"
-        LOVE_VERSION: "0.10.2"
+        LOVE_VERSION: "11.3"
         SCREEN_ORIENTATION: "sensorPortrait"
         GAME_TYPE: full
         VERSION: "${CI_COMMIT_REF_NAME}"
         GIT_DEPTH: "1"
-        # GIT_SUBMODULE_STRATEGY: recursive
-        # broken by https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/2148
+        GIT_SUBMODULE_STRATEGY: recursive
 
 # Fill in the demo info if providing a demo
 .demo:
@@ -40,29 +39,22 @@ image: alpine:latest
 
 before_script:
         - apk add --update git zip luajit
-        - git submodule sync --recursive
-        - git submodule update --init --recursive
-          # workaround https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/issues/2148
 
 .debian:
         <<: &debian
                 before_script:
                         - apt-get update
                         - apt-get install -y -qq git zip luajit
-                        - git submodule sync --recursive
-                        - git submodule update --init --recursive
 
 .build-data: &build-data
         stage: build
         script:
                 - apk add wget xz
                 - ./make-game.sh
-                - mv ${GAME_TYPE}.love "${PROJECT}-${GAME_TYPE}.love"
         artifacts:
                 name: "${PROJECT}-${VERSION}-data"
                 paths:
-                        - "${PROJECT}-${GAME_TYPE}.love"
-                expire_in: 1 week
+                        - "${GAME_ASSET}"
 
 .build-linux: &build-linux
         <<: *debian
@@ -70,19 +62,17 @@ before_script:
         image: debian:stretch-slim
         script:
                 - apt-get install -y -qq file wget fuse libglib2.0-0
-                - ./make-game.sh
                 - ./make-linux.sh
         cache:
                 key: "${PROJECT}-linux-${ARCH}"
                 paths:
                         - "love-${LOVE_VERSION}-${ARCH}.AppImage"
-                        - "appimagetool-${ARCH}.AppImage"
+                        - "appimagetool"
                         - "*.deb"
         artifacts:
                 name: "${PROJECT}-${VERSION}-linux-${ARCH}"
                 paths:
                         - ${PROJECT_TITLE_NOSPACE}-${ARCH}.AppImage
-                expire_in: 1 week
 
 .build-windows: &build-windows
         <<: *debian
@@ -90,21 +80,21 @@ before_script:
         stage: build
         variables:
                 ARCH_BITS: "64"
+                GAME_DIR: "${PROJECT_TITLE}"
+                ICO: "appicon.ico"
         script:
-                - apt-get install -y -qq wget xz-utils xvfb
-                - ./make-game.sh
+                - apt-get install -y -qq wget
                 - ./make-windows.sh
         cache:
                 key: "${PROJECT}-win-${ARCH_BITS}"
                 paths:
-                        - "love-${LOVE_VERSION}-win${ARCH_BITS}.zip"
-                        - "libgme_0.6.2_msvc12.zip"
-                        - "resource_hacker.zip"
+                        - "love-${LOVE_VERSION}-win${ARCH_BITS}"
+                        - "bin"
+                        - "rcedit-x64.exe"
         artifacts:
-                name: "${PROJECT}-${VERSION}-win${ARCH_BITS}"
+                name: "${PROJECT}-${VERSION}-win-${ARCH_BITS}"
                 paths:
                         - "${PROJECT_TITLE}"
-                expire_in: 1 week
 
 .build-dev-windows: &build-dev-windows
         stage: build
@@ -116,10 +106,10 @@ before_script:
         cache:
                 key: "${PROJECT}-win-${ARCH_BITS}"
                 paths:
-                        - "love-${LOVE_VERSION}-win${ARCH_BITS}.zip"
-                        - "libgme_0.6.2_msvc12.zip"
+                        - "love-${LOVE_VERSION}-win${ARCH_BITS}"
+                        - "bin"
         artifacts:
-                name: "${PROJECT}-dev-win${ARCH_BITS}"
+                name: "${PROJECT}-dev-win-${ARCH_BITS}"
                 paths:
                         - "${PROJECT_TITLE}"
 
@@ -133,42 +123,44 @@ before_script:
                         NSHumanReadableCopyright: "${COPYRIGHT}"
                         INSTALL_NAME_TOOL: x86_64-apple-darwin12-install_name_tool
         script:
-                - apt-get install -y -qq wget xz-utils
-                - ./make-game.sh
+                - apt-get install -y -qq wget
                 - ./make-macosx.sh
         cache:
                 key: "${PROJECT}-osx"
                 paths:
-                        - "love-${LOVE_VERSION}-macosx-x64.zip"
-                        - "game-music-emu-0.6.1.yosemite.bottle.tar.gz"
+                        - "love.app"
+                        - "game-music-emu"
         artifacts:
                 name: "${PROJECT}-${VERSION}-osx"
                 paths:
                         - "${PROJECT_TITLE}.app"
-                expire_in: 1 week
 
 .build-android: &build-android
         <<: *debian
         stage: build
-        image: lakoo/android-ndk:26-28.0.2-r17b
+        image: lakoo/android-ndk:28-28.0.3-r19c
         variables:
                 APPLICATION_ID: "${APPLICATION_ID_BASE}"
+                GRADLE_USER_HOME: "$CI_PROJECT_DIR/.gradle"
         script:
                 - apt-get install -y -qq make file
-                - ./make-game.sh
-                - ./configure-android.sh
                 - ./make-android.sh
         cache:
                 key: "${PROJECT}-android"
                 paths:
-                        - love-android-sdl2
+                        - love-apk-src
+                        - apktool.jar
+                        - uber-apk-signer.jar
+                        - apktool
+                        - .gradle
         artifacts:
                 name: "${PROJECT}-${VERSION}-android"
                 paths:
                         - "${PROJECT_TITLE_NOSPACE}.apk"
-                expire_in: 1 week
 
 data:
+        variables:
+                GAME_ASSET: "${PROJECT}-${GAME_TYPE}.love"
         <<: *build-data
         <<: *full
 
@@ -204,10 +196,11 @@ android:
         <<: *full
 
 demo-data:
-        <<: *build-data
-        <<: *demo
         variables:
                 <<: *demo-variables
+                GAME_ASSET: "${PROJECT}-${GAME_TYPE}.love"
+        <<: *build-data
+        <<: *demo
 
 demo-linux-x86_64:
         <<: *build-linux

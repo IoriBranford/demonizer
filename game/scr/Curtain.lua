@@ -23,13 +23,13 @@ function Curtain:drawOver()
 		return
 	end
 
-	love.graphics.setColor(0, 0, 0, 0xff)
+	love.graphics.setColor(0, 0, 0, 1)
 	local camera = levity.camera
 	local width = (camera.w - self.openwidth)*.5
 	love.graphics.rectangle("fill", camera.x, camera.y, width, camera.h)
 	love.graphics.rectangle("fill", camera.x + (camera.w + self.openwidth)*.5,
 		camera.y, width, camera.h)
-	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
+	love.graphics.setColor(1, 1, 1, 1)
 end
 
 function Curtain:isOpeningOrClosing()

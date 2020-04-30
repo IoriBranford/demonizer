@@ -12,12 +12,13 @@ then
 fi
 
 PROJECT=${PROJECT:=${PWD##*/}}
+BUTLER=${BUTLER:=butler}
 
 publish() {
 	CHANNEL=$1
 	FILE=${PROJECT}-${VERSION}-${CHANNEL}.zip
 	if [ -e ${FILE} ]
-	then butler push --userversion ${VERSION} ${FILE} ${ORG}/${PROJECT}:${CHANNEL}
+	then $BUTLER push --userversion ${VERSION} ${FILE} ${ORG}/${PROJECT}:${CHANNEL}
 	fi
 }
 

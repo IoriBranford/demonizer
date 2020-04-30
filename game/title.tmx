@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="10" tileheight="10" infinite="0" nextlayerid="17" nextobjectid="51">
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="24" height="32" tilewidth="10" tileheight="10" infinite="0" nextlayerid="17" nextobjectid="51">
+ <editorsettings>
+  <export target="title.lua" format="lua"/>
+ </editorsettings>
  <properties>
+  <property name="attractmodewaittime" type="float" value="6"/>
   <property name="cameraid" type="int" value="11"/>
   <property name="nextmap" type="file" value="mainmenu.lua"/>
   <property name="playerid" type="int" value="42"/>
@@ -11,11 +15,10 @@
  <tileset firstgid="42" source="img/title.tsx"/>
  <tileset firstgid="43" source="img/player.tsx"/>
  <tileset firstgid="71" source="img/human/converted.tsx"/>
- <tileset firstgid="173" source="img/demonization.tsx"/>
- <tileset firstgid="181" source="img/powergauge.tsx"/>
- <tileset firstgid="185" source="img/playerhitbox.tsx"/>
- <tileset firstgid="186" source="img/crosshair.tsx"/>
- <tileset firstgid="190" source="img/particles.tsx"/>
+ <tileset firstgid="179" source="img/demonization.tsx"/>
+ <tileset firstgid="187" source="img/playerhitbox.tsx"/>
+ <tileset firstgid="188" source="img/crosshair.tsx"/>
+ <tileset firstgid="192" source="img/particles.tsx"/>
  <layer id="8" name="Tile Layer 1" width="24" height="32">
   <properties>
    <property name="script" value="InfiniteScrollLayer"/>
@@ -25,7 +28,7 @@
    <property name="tilewrap" type="bool" value="true"/>
   </properties>
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3RNxKAQBADwcN7Dm/+/1EmXsItiKSqTpROCP8sQYoMOQrnZ1eiQo0GrfOz69BjwIjo/OwmzFiwYnN+djsOnLhwOz879VVf9VVf9VVf9X1PfdXX0/erPd/SQyoADAAA
+   H4sIAAAAAAAEA72RSW5CQRQDPzMhzAQI978otW3LuxK05MWz5OpFTdN33oxv5mRBlmRFTMd8eGuuDdmSH7IjpmM+vF+uPTmQIzkR0zEf3pnrQq7kRv6I6ZgP7871IE/yT17EdMyHZ1y27QDnMC7bNvnGZdsm37hs2+Qbl22b/ObIdMlvjkyX/ObIdMlvjkyX/ObIdMk3Lts2+cZl2ybfuGzb5BuXbZt847Jtk98cmS75zZHpkt8cmS75zZHpkt8cmS75xmXbJt+4bNvkG5dtm3zjsm2Tb1y2bfI/db8B39JDKgAMAAA=
   </data>
  </layer>
  <objectgroup draworder="index" id="2" name="info">
@@ -46,7 +49,7 @@ C key: BOMB</text>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">PRESS Z TO START</text>
   </object>
   <object id="19" name="copyright" x="0" y="270" width="240" height="40">
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">© 2019 IoriBranford
+   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center">© 2020 IoriBranford
 
 ioribranford.itch.io</text>
   </object>
@@ -103,10 +106,10 @@ ioribranford.itch.io</text>
     <property name="demonizationid" type="int" value="49"/>
    </properties>
   </object>
-  <object id="47" gid="177" x="75" y="450" width="64" height="64"/>
-  <object id="48" gid="177" x="80" y="485" width="64" height="64"/>
-  <object id="49" gid="177" x="155" y="485" width="64" height="64"/>
-  <object id="50" gid="177" x="170" y="450" width="64" height="64"/>
+  <object id="47" gid="183" x="75" y="450" width="64" height="64"/>
+  <object id="48" gid="183" x="80" y="485" width="64" height="64"/>
+  <object id="49" gid="183" x="155" y="485" width="64" height="64"/>
+  <object id="50" gid="183" x="170" y="450" width="64" height="64"/>
  </objectgroup>
  <imagelayer id="6" name="qr" visible="0" offsetx="190" offsety="270">
   <image source="img/qr-website.png" width="50" height="50"/>

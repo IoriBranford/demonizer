@@ -45,8 +45,8 @@ function ShmupTouchControls:touchpressed(touch, x, y, dx, dy)
 	self.numtouches = self.numtouches + 1
 
 	if self.numtouches == 1 then
-		self:call(self.playerid, "buttonchanged",
-					ShmupPlayer.Button_Fire, true)
+--		self:call(self.playerid, "buttonchanged",
+--					ShmupPlayer.Button_Fire, true)
 		self:call(self.playerid, "buttonchanged",
 					ShmupPlayer.Button_Focus, true)
 	end
@@ -95,8 +95,8 @@ function ShmupTouchControls:touchreleased(touch, x, y, dx, dy)
 	self.numtouches = self.numtouches - 1
 
 	if self.numtouches == 0 then
-		self:call(self.playerid, "buttonchanged",
-					ShmupPlayer.Button_Fire, false)
+--		self:call(self.playerid, "buttonchanged",
+--					ShmupPlayer.Button_Fire, false)
 		self:call(self.playerid, "buttonchanged",
 					ShmupPlayer.Button_Focus, false)
 	end

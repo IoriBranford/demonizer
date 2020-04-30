@@ -3,67 +3,111 @@ local levity = require "levity"
 local UIGauge = class(require("Script"))
 function UIGauge:_init(object)
 	self.object = object
-	self.fillrect = self.object
+	self.properties = object.properties
+
+	local x = math.huge
+	local y = math.huge
+	local w = 0
+	local h = 0
 
 	if self.object.tile then
+		local x2 = -math.huge
+		local y2 = -math.huge
+		local rects = {}
 		local objectgroup = self.object.tile.objectGroup
-		for _, object in ipairs(objectgroup.objects) do
-			if object.name == "fill" then
-				self.fillrect = object
-				break
+		local gid = self.object.gid
+		for _, shape in ipairs(objectgroup.objects) do
+			if shape.shape == "rectangle" then
+				local rect = {
+					width = shape.width,
+					height = shape.height
+				}
+				rects[#rects+1] = rect
+
+				local rectx, recty = levity.map:getTileShapePosition(gid, shape)
+				rect.x = rectx
+				rect.y = recty
+
+				x = math.min(x, rectx)
+				y = math.min(y, recty)
+				x2 = math.max(x2, rectx + rect.width)
+				y2 = math.max(y2, recty + rect.height)
 			end
 		end
+		w = x2 - x
+		h = y2 - y
+		x = x + object.x
+		y = y + object.y
+
+		self.stencil = #rects > 1 and function()
+			for i = 1, #rects do
+				local rect = rects[i]
+				love.graphics.rectangle("fill",
+					object.x + rect.x, object.y + rect.y,
+					rect.width, rect.height)
+			end
+		end
+	else
+		x = self.object.x
+		y = self.object.y
+		w = self.object.width
+		h = self.object.height
 	end
 
-	self.direction = self.object.properties.direction
-		or self.fillrect.properties.direction
-		or "right"
-
-	local color = self.object.properties.color
-		or self.fillrect.properties.color
-		or "#ffffffff"
-
-	local a, r, g, b = string.match(color, "#(%x%x)(%x%x)(%x%x)(%x%x)")
-	self.a = tonumber("0x"..a)
-	self.r = tonumber("0x"..r)
-	self.g = tonumber("0x"..g)
-	self.b = tonumber("0x"..b)
-
-	self:setFill(0)
+	self.minx = x
+	self.miny = y
+	self.maxw = w
+	self.maxh = h
+	self.x = x
+	self.y = y
+	self.w = w
+	self.h = h
 end
 
-function UIGauge:setFill(fill)
-	self.fill = fill
+function UIGauge:setFill(amount)
+	local x = self.minx
+	local y = self.miny
+	local w = self.maxw
+	local h = self.maxh
 
-	local gid = self.object.gid
-	self.x = self.object.x
-	self.y = self.object.y
-	if gid then
-		local fillx, filly = levity.map:getTileShapePosition(gid, self.fillrect)
-		self.x = self.x + fillx
-		self.y = self.y + filly
-	end
-	self.w = self.fillrect.width
-	self.h = self.fillrect.height
-
-	if self.direction == "left" then
-		self.x = self.x + self.w*(1 - self.fill)
-		self.w = self.w*self.fill
-	elseif self.direction == "up" then
-		self.y = self.y + self.h*(1 - self.fill)
-		self.h = self.h*self.fill
-	elseif self.direction == "right" then
-		self.w = self.w*self.fill
+	local direction = self.properties.direction
+	if direction == "left" then
+		self.x = x + w*(1 - amount)
+		self.y = y
+		self.w = w*amount
+		self.h = h
+	elseif direction == "up" then
+		self.x = x
+		self.y = y + h*(1 - amount)
+		self.w = w
+		self.h = h*amount
+	elseif direction == "right" then
+		self.x = x
+		self.y = y
+		self.w = w*amount
+		self.h = h
 	else
-		self.h = self.h*self.fill
+		self.x = x
+		self.y = y
+		self.w = w
+		self.h = h*amount
 	end
 end
 
 function UIGauge:beginDraw()
 	if self.w > 0 and self.h > 0 then
-		love.graphics.setColor(self.r, self.g, self.b, self.a)
+		if self.stencil then
+			love.graphics.stencil(self.stencil, "replace", 1)
+			love.graphics.setStencilTest("greater", 0)
+		end
+		local color = self.object.properties.color or "#ffffffff"
+		local a, r, g, b = levity.parseARGB(color)
+		love.graphics.setColor(r,g,b,a)
 		love.graphics.rectangle("fill", self.x, self.y, self.w, self.h)
-		love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
+		love.graphics.setColor(1, 1, 1, 1)
+		if self.stencil then
+			love.graphics.setStencilTest()
+		end
 	end
 end
 

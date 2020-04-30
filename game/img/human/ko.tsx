@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.4" name="ko" tilewidth="24" tileheight="32" tilecount="72" columns="18">
+<tileset version="1.2" tiledversion="1.3.1" name="ko" tilewidth="24" tileheight="32" tilecount="72" columns="18">
  <tileoffset x="-12" y="16"/>
  <properties>
   <property name="commoncollision" type="int" value="0"/>
@@ -185,7 +185,11 @@
    <property name="name" value="HighPriest"/>
   </properties>
  </tile>
- <tile id="52" type="ItemScore"/>
+ <tile id="52" type="ItemScore">
+  <properties>
+   <property name="name" value="Bishop"/>
+  </properties>
+ </tile>
  <tile id="53" type="ItemScore"/>
  <tile id="54" type="ItemWingman">
   <properties>
@@ -198,8 +202,16 @@
   </properties>
  </tile>
  <tile id="56" type="ItemWingman"/>
- <tile id="57" type="ItemWingman"/>
- <tile id="58" type="ItemWingman"/>
+ <tile id="57" type="ItemWingman">
+  <properties>
+   <property name="name" value="Townfolk-Adult-F-005"/>
+  </properties>
+ </tile>
+ <tile id="58" type="ItemWingman">
+  <properties>
+   <property name="name" value="Townfolk-Adult-F-006"/>
+  </properties>
+ </tile>
  <tile id="59" type="ItemWingman"/>
  <tile id="60" type="ItemWingman"/>
  <tile id="61" type="ItemWingman"/>

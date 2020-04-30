@@ -18,9 +18,6 @@
 --------------------------------------------------------------------------------
 --
 local io_open = io.open
-local xml = require "pl.xml"
-local xml_parse = xml.parse
-local xml_walk = xml.walk
 local args = {...}
 
 local gamefilelistfilename = args[1]
@@ -56,6 +53,16 @@ msgstr ""
 
 local strings = {}
 
+local function addString(srcmapfile, oid, s)
+	if not s or strings[s] then
+		return
+	end
+	strings[s] = true
+	s = s:gsub('\n', '\\n')
+	s = s:gsub('"', '\\"')
+	potfile:write(string.format(format, srcmapfile, oid, s))
+end
+
 for _, gamefilename in pairs(gamefilelist) do
 	local extension = gamefilename:sub(-4, -1)
 	if extension == ".lua" then
@@ -67,17 +74,7 @@ for _, gamefilename in pairs(gamefilelist) do
 				if objects then
 					for i = 1, #objects do
 						local object = objects[i]
-						local s = object.text
-						if s and not strings[s] then
-							strings[s] = true
-							s = s:gsub('\n', '\\n')
-							potfile:write(
-								string.format(
-								format,
-								srcmapfile,
-								object.id,
-								s))
-						end
+						addString(srcmapfile, object.id, object.text)
 					end
 				end
 			end

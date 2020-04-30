@@ -12,6 +12,14 @@ function MenuPause:_init(layer)
 	layer.visible = false
 end
 
+function MenuPause:windowfocused(focus)
+	if not levity.map.paused and not focus
+	and not levity.map.properties.attractmode then
+		self:togglePause(true)
+		self:setMouseCursorMode(true)
+	end
+end
+
 function MenuPause:togglePause(withmenu)
 	local pause = not levity.map.paused and self:canPause()
 	levity.map.paused = pause
@@ -77,7 +85,7 @@ function MenuPause:drawUnder()
 	love.graphics.rectangle("fill",
 		self.layer.x, self.layer.y,
 		levity.camera.w, levity.camera.h)
-	love.graphics.setColor(0xff, 0xff, 0xff, 0xff)
+	love.graphics.setColor(1, 1, 1, 1)
 end
 ]]
 --function MenuPause:endDraw()

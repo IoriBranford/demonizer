@@ -21,7 +21,19 @@ local function beginMove(self, dt)
 end
 
 local function loopedAnimation(self)
-	levity:discardObject(self.object.id)
+	self:discard()
+end
+
+local function PlayerBomb_beginContact(self, myfixture, otherfixture, contact)
+	for i = 1, select("#", otherfixture:getCategory()) do
+		local category = select(i, otherfixture:getCategory())
+
+		if category == ShmupCollision.Category_EnemyShot then
+			local otherdata = otherfixture:getBody():getUserData()
+			local otherid = otherdata and otherdata.id
+			self:send(otherid, "onHit")
+		end
+	end
 end
 
 local ShmupBullet = class(require("Script"))
@@ -31,7 +43,7 @@ function ShmupBullet:_init(object)
 	self.body = object.body
 	self.body:setBullet(true)
 	self.body:setFixedRotation(true)
-	for _, fixture in ipairs(self.body:getFixtureList()) do
+	for _, fixture in ipairs(self.body:getFixtures()) do
 		fixture:setSensor(true)
 		local category = self.properties.category
 		fixture:setCategory(category)
@@ -57,6 +69,9 @@ function ShmupBullet:_init(object)
 					ShmupCollision.Category_EnemyBounds,
 					ShmupCollision.Category_BonusMaze
 					)
+			levity.scripts:scriptAddEventFunc(self,
+					self.object.id,
+					"beginContact", PlayerBomb_beginContact)
 		else
 			fixture:setMask(ShmupCollision.Category_Camera,
 					ShmupCollision.Category_CameraEdge,
@@ -70,10 +85,12 @@ function ShmupBullet:_init(object)
 	end
 
 	local properties = self.properties
+	local velx = properties.velx
+	local vely = properties.vely
 
 	self.body:setLinearVelocity(
-		properties.velx or 0,
-		properties.vely or 0)
+		velx or 0,
+		vely or 0)
 	properties.velx = nil
 	properties.vely = nil
 
@@ -87,6 +104,19 @@ function ShmupBullet:_init(object)
 		levity.scripts:scriptAddEventFunc(self,
 				self.object.id,
 				"beginMove", beginMove)
+	end
+
+	local accelmag = properties.accelmag
+	local acceldir = properties.acceldir
+
+	if accelmag and acceldir then
+		if acceldir == "forward" then
+			acceldir = math.atan2(vely, velx)
+		elseif acceldir == "reverse" then
+			acceldir = math.atan2(-vely, -velx)
+		end
+		properties.accelx = accelmag * math.cos(acceldir)
+		properties.accely = accelmag * math.sin(acceldir)
 	end
 
 	if properties.accelx or properties.accely then
@@ -113,30 +143,9 @@ end
 
 ShmupBullet.MaxTime = 10
 
-function ShmupBullet:beginContact(myfixture, otherfixture, contact)
-	for i = 1, select("#", otherfixture:getCategory()) do
-		local category = select(i, otherfixture:getCategory())
-
-		if category == ShmupCollision.Category_PlayerTeam
-		or category == ShmupCollision.Category_PlayerBomb
-		or category == ShmupCollision.Category_EnemyTeam
-		then
-			local otherdata = otherfixture:getBody():getUserData()
-			local otherid = otherdata and otherdata.id
-			local otherproperties = otherdata and otherdata.properties
-			local otherhascover = otherid and self:call(otherid, "fixtureHasCover", otherfixture)
-			local otherhypnotized = otherproperties and otherproperties.hypnotistid
-			local passhypnotized = self.properties.category == ShmupCollision.Category_EnemyShot
-			local otherfriendly = otherproperties and otherproperties.friendly
-			local passfriendly = self.properties.category == ShmupCollision.Category_PlayerShot
-			if not otherhascover and not self.properties.persist
-			and not (otherhypnotized and passhypnotized)
-			and not (otherfriendly and passfriendly)
-			then
-				levity:discardObject(self.object.id)
-				break
-			end
-		end
+function ShmupBullet:onHit()
+	if not self.properties.persist then
+		self:discard()
 	end
 end
 
@@ -146,21 +155,29 @@ end
 
 function ShmupBullet:endMove(dt)
 	local x, y = self.body:getPosition()
-	local x1, y1 = levity.camera.x, levity.camera.y
-	local x2, y2 = x1 + levity.camera.w, y1 + levity.camera.h
+	local w = levity.map.width*levity.map.tilewidth
+	local h = levity.camera.h
+	local x1, y1 = 0, levity.camera.y
+	local x2, y2 = x1 + w, y1 + h
 	y1 = y1 + (y1-y2)/4 -- let bullets with gravity go off the top slightly and come back down
 	if x < x1 or x > x2 or y < y1 or y > y2 then
-		levity:discardObject(self.object.id)
+		self:discard()
 	elseif type(self.time) == "number" then
 		self.time = self.time - dt
 		if self.time <= 0 then
-			levity:discardObject(self.object.id)
+			self:discard()
 		end
 	end
 end
 
 function ShmupBullet:allBulletsCleared()
-	levity:discardObject(self.object.id)
+	self:discard()
+end
+
+function ShmupBullet:discard()
+	local id = self.object.id
+	levity:discardObject(id)
+	self:broadcast("objectDiscarded", id)
 end
 
 --- Bullet params
@@ -179,12 +196,7 @@ end
 -- @field collidable
 -- @table BulletParams
 
-function ShmupBullet.create(params, x, y, vx, vy, layer, keepupwithcamera, silent)
-	ShmupBullet.fireOverTime(params, x, y, vx, vy, layer, 1, 1, keepupwithcamera, silent)
-end
-
-local NewBulletProperties = {}
-function ShmupBullet.fireOverTime(params, x, y, velx, vely, layer, time, interval, keepupwithcamera, silent)
+function ShmupBullet.create(params, x, y, velx, vely, layer, keepupwithcamera, silent)
 	local bullettype
 
 	if type(params) == "string" then
@@ -202,30 +214,12 @@ function ShmupBullet.fireOverTime(params, x, y, velx, vely, layer, time, interva
 		rotation = math.deg(math.atan2(vely, velx))
 	end
 	if keepupwithcamera then
-		local camvelx, camvely = levity.scripts:call(
+		local camvx, camvy = levity.scripts:call(
 				levity.map.properties.cameraid, "getVelocity")
-		if camvely then
-			--velx = velx + camvelx
-			vely = vely + camvely
+		if camvy then
+			--velx = velx + camvx
+			vely = vely + camvy
 		end
-	end
-
-	for k,_ in pairs(NewBulletProperties) do
-		NewBulletProperties[k] = nil
-	end
-	NewBulletProperties.velx = velx
-	NewBulletProperties.vely = vely
-	if not bullettype then
-		NewBulletProperties.script = "ShmupBullet"
-		NewBulletProperties.category = params.category
-		NewBulletProperties.damage = params.damage
-		NewBulletProperties.accelx = params.accelx
-		NewBulletProperties.accely = params.accely
-		NewBulletProperties.lifetime = params.lifetime
-		NewBulletProperties.persist = params.persist
-		NewBulletProperties.coroutine = params.coroutine
-		NewBulletProperties.animated = params.animated
-		NewBulletProperties.collidable = params.collidable
 	end
 
 	local tilesetid, tileid = params.tileset, params.tileid or 0
@@ -235,22 +229,61 @@ function ShmupBullet.fireOverTime(params, x, y, velx, vely, layer, time, interva
 		layer = levity.map.layers[layer]
 	end
 
+	local shot = levity.map:newObject(layer)
+	local tile = levity.map.tiles[gid]
+	local t = tile and tile.type or ""
+	if t == "" then
+		shot.type = bullettype
+	else
+		shot.type = ""
+	end
+	shot.x = x
+	shot.y = y
+	shot.rotation = rotation
+	shot.gid = gid
+	local properties = shot.properties
+	shot.properties.velx = velx
+	shot.properties.vely = vely
+	if not bullettype then
+		shot.properties.script = "ShmupBullet"
+		shot.properties.category = params.category
+		shot.properties.damage = params.damage
+		shot.properties.accelx = params.accelx
+		shot.properties.accely = params.accely
+		shot.properties.lifetime = params.lifetime
+		shot.properties.persist = params.persist
+		shot.properties.coroutine = params.coroutine
+		shot.properties.animated = params.animated
+		shot.properties.collidable = params.collidable
+	end
+
+	if not silent then
+		levity.bank:play(params.sound)
+	end
+
+	return shot
+end
+
+function ShmupBullet.fireOverTime(params, x, y, velx, vely, layer, time, interval, keepupwithcamera, silent)
+	local bullettype
+
+	if type(params) == "string" then
+		bullettype = params
+		params = levity.map.objecttypes[params]
+	end
+
+	if math.hypotsq(velx, vely) < 4 then
+		local speed = params.speed or 0
+		velx = speed*velx
+		vely = speed*vely
+	end
+
 	while time >= interval do
 		time = time - interval
-
-		local shot = levity.map:newObject(layer)
-		shot.type = bullettype
+		local shot = ShmupBullet.create(params, x, y, velx, vely, layer,
+						keepupwithcamera, silent)
 		shot.x = x + velx * time
 		shot.y = y + vely * time
-		shot.rotation = rotation
-		shot.gid = gid
-		for k,v in pairs(NewBulletProperties) do
-			shot.properties[k] = v
-		end
-
-		if not silent then
-			levity.bank:play(params.sound)
-		end
 	end
 
 	return time
@@ -279,13 +312,13 @@ function Coroutines.PlayerBomb_FireShrapnel(self)
 	end
 end
 
-function ShmupBullet.explodeTileLayer(tilelayer, debrislayer, explosioncenterx, explosioncentery)
+function ShmupBullet.explodeTileLayer(tilelayer, debrislayer, explosioncenterx, explosioncentery,
+	regionx, regiony, regionw, regionh)
 	local map = levity.map
 	debrislayer = debrislayer or "sparks"
 	if type(debrislayer) ~= "table" then
 		debrislayer = map.layers[debrislayer]
 	end
-	tilelayer.visible = false
 	local tw = levity.map.tilewidth
 	local th = levity.map.tileheight
 	local camera = levity.camera
@@ -297,27 +330,38 @@ function ShmupBullet.explodeTileLayer(tilelayer, debrislayer, explosioncenterx, 
 	explosioncentery = explosioncentery or ch
 	local cx = levity.camera.x + explosioncenterx
 	local cy = levity.camera.y + explosioncentery
-	for r, row in pairs(tilelayer.data) do
-		local y = r * th + tloy
-		for c, tile in pairs(row) do
-			local debris = map:newObject(debrislayer)
-			local x = c * tw + tlox - tw
-			debris.type = "Debris"
-			debris.gid = tile.gid
-			local ox = -tile.width/2
-			local oy = tile.height/2
-			debris.tileoffsetx = ox
-			debris.tileoffsety = oy
-			debris.x = x - ox
-			debris.y = y - oy
-			local velx = (x - cx)*1.5
-			local vely = (y - cy)*4
-			debris.properties.velx = velx
-			debris.properties.vely = vely
-			local particles = tile.properties.explodeparticles
-			if particles then
-				levity.scripts:send(particles, "emit", 4,
-					x - ox, y - oy, math.atan2(vely, velx))
+	regionx = regionx or 1
+	regiony = regiony or 1
+	local regionx2 = regionx - 1 + (regionw or levity.map.width)
+	local regiony2 = regiony - 1 + (regionh or levity.map.height)
+	local data = tilelayer.data
+
+	for r, row in pairs(data) do
+		if regiony <= r and r <= regiony2 then
+			local y = r * th + tloy
+			for c, tile in pairs(row) do
+				if regionx <= c and c <= regionx2 then
+					local debris = map:newObject(debrislayer)
+					local x = c * tw + tlox - tw
+					debris.type = "Debris"
+					debris.gid = tile.gid
+					local ox = -tile.width/2
+					local oy = tile.height/2
+					debris.properties.tileoffsetx = ox
+					debris.properties.tileoffsety = oy
+					debris.x = x - ox
+					debris.y = y - oy
+					local velx = (x - cx)*1.5
+					local vely = (y - cy)*4
+					debris.properties.velx = velx
+					debris.properties.vely = vely
+					local particles = tile.properties.explodeparticles
+					if particles then
+						levity.scripts:send(particles, "emit", 4,
+						x - ox, y - oy, math.atan2(vely, velx))
+					end
+					levity.map:setLayerTile(tilelayer.name, c, r, nil)
+				end
 			end
 		end
 	end

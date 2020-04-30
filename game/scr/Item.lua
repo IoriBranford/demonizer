@@ -12,8 +12,10 @@
 --@table Properties
 
 local levity = require "levity"
+local ShmupBullet = require "ShmupBullet"
 local ShmupCollision = require "ShmupCollision"
 local ShmupWingman = require "ShmupWingman"
+local NPC = require "NPC"
 
 local NumItems = 0
 
@@ -22,12 +24,20 @@ function Item:_init(object)
 	self.object = object
 	self.id = object.id
 	self.body = object.body
+	self.body:setFixedRotation(true)
 	self.properties = object.properties
 
-	for _, fixture in ipairs(self.object.body:getFixtureList()) do
-		fixture:setCategory(ShmupCollision.Category_EnemyTeam)
-		fixture:setMask(Item.Mask)
-		fixture:setSensor(true)
+	local friendly = self.properties.friendly
+	local category = friendly and ShmupCollision.Category_PlayerTeam
+		or ShmupCollision.Category_EnemyTeam
+	local mask = friendly and Item.FriendlyMask or Item.Mask
+
+	local pathid = self.properties.pathid
+
+	for _, fixture in ipairs(self.object.body:getFixtures()) do
+		fixture:setCategory(category)
+		fixture:setMask(mask)
+		fixture:setSensor(pathid ~= "player")
 	end
 
 	self.discarded = false
@@ -40,11 +50,21 @@ function Item:_init(object)
 		self.accely = 0
 	end
 
-	local pathid = self.properties.pathid
+	if self.properties.health and self.properties.health >= 1 then
+		self.health = levity.scripts:newScript(self.id, "Health", self.object)
+		self.facing = levity.scripts:newScript(self.id, "Facing", self.object)
+	end
+
 	local pathfinder = self.properties.pathfinder
 	if pathid and pathfinder then
 		self.mover = levity.scripts:newScript(self.id, "Mover",
 							self.object)
+	end
+
+	local emotetileset = self.properties.emotetileset
+	local emotetileid = self.properties.emotetileid
+	if emotetileset or emotetileid then
+		self.emote = levity.scripts:newScript(self.id, "Emote", object)
 	end
 
 	self:pullTo(self.properties.pulledbyid)
@@ -61,10 +81,19 @@ Item.MaxReleasedCaptives = 10
 Item.ReleaseLaunchVelY = -240
 
 Item.Mask = {
+	ShmupCollision.Category_CameraEdge,
 	ShmupCollision.Category_PlayerShot,
 	ShmupCollision.Category_EnemyShot,
 	ShmupCollision.Category_EnemyCover,
 	ShmupCollision.Category_EnemyBounds,
+	ShmupCollision.Category_BonusMaze
+}
+
+Item.FriendlyMask = {
+	ShmupCollision.Category_CameraEdge,
+	ShmupCollision.Category_PlayerShot,
+	ShmupCollision.Category_EnemyTeam,
+	ShmupCollision.Category_EnemyCover,
 	ShmupCollision.Category_BonusMaze
 }
 
@@ -111,10 +140,8 @@ function Item:beginMove(dt)
 	else
 		local capturepulldistsq
 
-		if self:call(playerid, "isFocused")
-		and self:call(playerid, "isPoweredUp")
-		then
-			capturepulldistsq = Item.EnhancedCapturePullDistSq
+		if self:call("status", "isPlayerPullingAllItems") then
+			capturepulldistsq = math.huge
 		else
 			capturepulldistsq = Item.CapturePullDistSq
 		end
@@ -163,19 +190,27 @@ function Item:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 		return
 	end
 
-	local otherproperties = otherfixture:getBody():getUserData().properties
+	local otherdata = otherfixture:getBody():getUserData()
+	local otherproperties = otherdata.properties
 	if otherproperties and not otherproperties.picksupitems then
 		return
 	end
 
+	local captorid = otherdata.id
+	--if captorid ~= levity.map.properties.playerid then
+	--	local targetcaptiveid = self:call(captorid, "getTargetCaptiveId") or self.id
+	--	if targetcaptiveid == self.id then
+	--		self:pullTo(captorid)
+	--		self:send(captorid, "setTargetCaptiveId", self.id)
+	--	end
+	--	return
+	--end
+
 	local itemtype = self.properties.itemtype
 
-	local captorid
 	if self:call(levity.map.name, "isTutorial")
 	or itemtype == "wingman" then
 		captorid = levity.map.properties.playerid
-	else
-		captorid = otherfixture:getBody():getUserData().id
 	end
 
 	if itemtype == "wingman" then
@@ -203,7 +238,7 @@ function Item:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 		levity.bank:play(capturesound)
 	end
 
-	self:discard()
+	self:send(self.id, "discard")
 end
 
 function Item:beginContact_EnemyTeam(myfixture, otherfixture, contact)
@@ -220,8 +255,10 @@ function Item:beginContact(myfixture, otherfixture, contact)
 			self:beginContact_PlayerTeam(myfixture, otherfixture, contact)
 		elseif category == ShmupCollision.Category_PlayerBomb then
 			self:beginContact_PlayerBomb(myfixture, otherfixture, contact)
-		elseif category == ShmupCollision.Category_EnemyTeam then
-			self:beginContact_EnemyTeam(myfixture, otherfixture, contact)
+		--elseif category == ShmupCollision.Category_EnemyTeam then
+		--	self:beginContact_EnemyTeam(myfixture, otherfixture, contact)
+		elseif category == ShmupCollision.Category_EnemyShot then
+			NPC.beginContact_EnemyShot(self, myfixture, otherfixture, contact)
 		end
 	end
 end
@@ -232,14 +269,14 @@ function Item:endContact_EnemyTeam(myfixture, otherfixture, contact)
 	end
 end
 
-function Item:endContact(myfixture, otherfixture, contact)
-	for i = 1, select("#", otherfixture:getCategory()) do
-		local category = select(i, otherfixture:getCategory())
-		if category == ShmupCollision.Category_EnemyTeam then
-			self:endContact_EnemyTeam(myfixture, otherfixture, contact)
-		end
-	end
-end
+--function Item:endContact(myfixture, otherfixture, contact)
+--	for i = 1, select("#", otherfixture:getCategory()) do
+--		local category = select(i, otherfixture:getCategory())
+--		if category == ShmupCollision.Category_EnemyTeam then
+--			self:endContact_EnemyTeam(myfixture, otherfixture, contact)
+--		end
+--	end
+--end
 
 function Item:endMove(dt)
 	local x, y = self.body:getWorldCenter()
@@ -256,19 +293,28 @@ function Item:endMove(dt)
 	local itemtype = self.properties.itemtype
 
 	if self:canBeCaptured() then
-		local itemtile = itemtype
+		local itemtile = self.properties.itemtileid or itemtype
 
 		if not self.itemsprite then
 			self.itemsprite = self:call(self.properties.itemslayer or "items", "add",
 				itemtile, px, py)
 		end
 
-		self:send(self.properties.itemslayer or "items", "set", self.itemsprite,
+		if self.itemsprite then
+			self:send(self.properties.itemslayer or "items", "set", self.itemsprite,
 				itemtile, px, py)
+		end
 	else
 		if self.itemsprite then
 			self:send(self.properties.itemslayer or "items", "remove", self.itemsprite)
 			self.itemsprite = nil
+		end
+	end
+
+	if self.mover and self.facing then
+		local vx, vy = self.body:getLinearVelocity()
+		if vx ~= 0 or vy ~= 0 then
+			self:send(self.id, "faceAngle", math.atan2(vy, vx))
 		end
 	end
 
@@ -291,14 +337,15 @@ function Item:endMove(dt)
 	end
 
 	if offbottom or offleft or offright then
-		if itemtype == "score" or itemtype == "wingman" then
+		if (itemtype == "score" or itemtype == "wingman")
+		and not self.properties.friendly then
 			if not self:canBeCaptured() then
 				self:broadcast("humanFled", self.id)
 			else
-				self:die(bloodangle)
+				self:defeat("fall", nil, bloodangle)
 			end
+			self:send(self.id, "discard")
 		end
-		self:discard()
 	end
 end
 
@@ -337,8 +384,13 @@ function Item:isBeingRescued()
 	return self.rescuerid ~= nil or self:isPulledByRescuer()
 end
 
+function Item:isPulledBy(id)
+	return self.pulledbyid == id
+end
+
 function Item:isPulledByRescuer()
-	return self.pulledbyid and self.pulledbyid ~= levity.map.properties.playerid
+	return self.pulledbyid
+		and not self:call("playerteam", "getMemberIndex", self.pulledbyid)
 end
 
 function Item:isBeingRescuedBy(rescuerid)
@@ -349,6 +401,9 @@ function Item:pullTo(pullerid)
 	local puller = levity.map.objects[pullerid]
 	if puller then
 		self.object:setLayer(puller.layer)
+		for _, fixture in ipairs(self.object.body:getFixtures()) do
+			fixture:setSensor(true)
+		end
 	end
 	self.pulledbyid = pullerid
 end
@@ -368,22 +423,34 @@ function Item:playerKilled()
 	end
 end
 
-function Item:die(bloodangle)
-	local x, y = self.object.body:getWorldCenter()
-	self:send("deathparticles", "emit", 16, x, y,
-				bloodangle or math.pi*1.5)
+function Item:defeat(cause, giveitemtoid, bloodangle)
+	if cause ~= "fall" and cause ~= "hit" then
+		return
+	end
+	if self.health then
+		self.health:createDefeatFX()
+		local defeatspark = self.properties.defeatspark
+		if levity.map.objecttypes[defeatspark] then
+			local sparkx, sparky = self.body:getWorldCenter()
+			ShmupBullet.create(defeatspark, sparkx, sparky, 0, 0, "sparks")
+		end
+	else
+		local x, y = self.object.body:getWorldCenter()
+		self:send(self.properties.defeatparticles or "deathparticles",
+			"emit", 16, x, y, bloodangle or math.pi*1.5)
+	end
 
 	local lostsound = self.properties.lostsound
 	if lostsound then
 		levity.bank:play(lostsound)
 	end
 
-	self:discard()
+	self:send(self.id, "discard")
 	self:broadcast("humanDied", self.id)
 end
 
 function Item:endTrigger()
-	--self:discard()
+	--self:send(self.id, "discard")
 	return true
 end
 
@@ -406,8 +473,9 @@ function Item:discard()
 	end
 	local triggerid = self.properties.triggerid
 	if triggerid then
-		self:send(triggerid, "someoneDiscarded", self.id)
+		self:send(triggerid, "objectDiscarded", self.id)
 	end
+	self:send(levity.map.properties.playerid, "objectDiscarded", self.id)
 	levity:discardObject(self.id)
 	NumItems = NumItems - 1
 	if NumItems < 1 then
@@ -424,6 +492,8 @@ end
 function Item:playerEntering(entranceid)
 	self:allItemsPulled()
 end
+
+Item.beginDraw = NPC.beginDraw
 
 function Item.releaseCaptives(captivegids, captives, x, y, layer)
 	captives = captives or Item.MaxReleasedCaptives

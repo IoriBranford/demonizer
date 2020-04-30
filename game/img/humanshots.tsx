@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.4" name="humanshots" tilewidth="32" tileheight="16" tilecount="56" columns="4">
+<tileset version="1.2" tiledversion="1.3.1" name="humanshots" tilewidth="32" tileheight="16" tilecount="56" columns="4">
  <tileoffset x="-24" y="8"/>
  <properties>
   <property name="commoncollision" type="int" value="0"/>
@@ -172,5 +172,10 @@
     <ellipse/>
    </object>
   </objectgroup>
+ </tile>
+ <tile id="53">
+  <properties>
+   <property name="name" value="barbed"/>
+  </properties>
  </tile>
 </tileset>

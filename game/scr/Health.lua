@@ -16,10 +16,6 @@ function Health:_init(object)
 	self.health = object.properties.health or 8
 	self.movedamage = 0
 	self.ishealing = false
-	local healthleak = self.properties.healthleak
-	if healthleak then
-		self:addDPS(self.id, healthleak)
-	end
 end
 
 local function isDefeated(health)
@@ -149,11 +145,23 @@ function Health:endMove(dt)
 	local damage = 0
 	local cantakedamage = self:call(self.id, "canTakeDamage")
 
-	local totaldps = 0
-	if cantakedamage ~= false then
+	local healthleak = self.properties.healthleak or 0
+	local totaldps = healthleak
+	local hitspark
+	if cantakedamage == false then
+		if self.properties.invulnerable then
+			hitspark = "SparkGuard"
+		end
+	else
+		local tutorial = self:call(levity.map.name, "isTutorial")
 		if self.dpssources then
+			local playerid = levity.map.properties.playerid
 			for id, dps in pairs(self.dpssources) do
 				totaldps = totaldps + dps
+				if not tutorial and id == playerid and dps > 0 then
+					self:send("status", "addBombPieces",
+						math.min(dps*dt, 0.25))
+				end
 			end
 		end
 
@@ -172,8 +180,8 @@ function Health:endMove(dt)
 	self.ishealing = damage < 0
 
 	local health = self.health - damage
-	if damage > 0 and totaldps > 0 then
-		self:createHitFX()
+	if damage > 0 and totaldps - healthleak > 0 then
+		self:createHitFX(nil, nil, nil, hitspark)
 	elseif damage < 0 then
 		self:createHealFX()
 	end

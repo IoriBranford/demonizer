@@ -4,5 +4,6 @@ img/road02_a_rules.txt
 img/town02_a_rules.txt
 img/town03_a_rules.txt
 img/town04_f_rules.txt
+img/town06_b_rules.txt
 img/basic_terrain_rules.txt
 img/cave_waterelectricity.tmx

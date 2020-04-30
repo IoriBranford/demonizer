@@ -10,7 +10,7 @@ function TakingCover:_init(object)
 end
 
 function TakingCover:hasCover()
-	for i, fixture in pairs(self.body:getFixtureList()) do
+	for i, fixture in pairs(self.body:getFixtures()) do
 		if self:fixtureHasCover(fixture) then
 			return true
 		end

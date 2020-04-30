@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="32" tilewidth="10" tileheight="10" infinite="0" nextlayerid="11" nextobjectid="49">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="24" height="32" tilewidth="10" tileheight="10" infinite="0" nextlayerid="11" nextobjectid="66">
+ <editorsettings>
+  <export target="options.lua" format="lua"/>
+ </editorsettings>
  <properties>
   <property name="music" type="file" value="mus/submenu.vgm"/>
   <property name="prevmap" type="file" value="mainmenu.lua"/>
@@ -15,7 +18,7 @@
    <property name="tilewrap" type="bool" value="true"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt0TcSgEAQA8HDew5v/v9RJl7CLYikqk6UTgj/LEGKDDkK52dXokKNBq3zs+vQY8CI6PzsJsxYsGJzfnY7Dpy4cDs/O/VVX/VVX/VVX/V9T33V19P3qz1GYh55
+   eAG9kUluQkEUAz8zIcwECPe/KLVty7sStOTFs+TqRU3Td96Mb+ZkQZZkRUzHfHhrrg3Zkh+yI6ZjPrxfrj05kCM5EdMxH96Z60Ku5Eb+iOmYD+/O9SBP8k9exHTMh2dctu0A5zAu2zb5xmXbJt+4bNvkG5dtm/zmyHTJb45Ml/zmyHTJb45Ml/zmyHTJNy7bNvnGZdsm37hs2+Qbl22bfOOybZPfHJku+c2R6ZLfHJku+c2R6ZLfHJku+cZl2ybfuGzb5BuXbZt847Jtk29ctm3yP3W/AUZiHnk=
   </data>
  </layer>
  <objectgroup id="2" name="Object Layer 3" visible="0">
@@ -25,52 +28,37 @@
   <properties>
    <property name="script" value="MenuPrefs"/>
   </properties>
-  <object id="2" name="cancel" type="UIButton" x="30" y="264" width="180" height="20" visible="0">
+  <object id="2" name="cancel" x="30" y="264" width="180" height="20" visible="0">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">cancel</text>
   </object>
-  <object id="1" name="fullscreen" type="UIBoolean" x="30" y="20" width="180" height="20" visible="0">
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">fullscreen</text>
+  <object id="1" name="fullscreen" x="20" y="90" width="120" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Fullscreen</text>
   </object>
-  <object id="3" name="vsync" type="UIBoolean" x="30" y="40" width="180" height="20" visible="0">
-   <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">vsync</text>
+  <object id="3" name="vsync" x="20" y="110" width="120" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Vsync</text>
   </object>
-  <object id="5" name="volume" type="UIOption" x="20" y="200" width="200" height="20">
-   <properties>
-    <property name="increment" type="float" value="0.25"/>
-    <property name="max" type="float" value="1"/>
-    <property name="units" value="percent"/>
-   </properties>
-   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Volume ${volume}</text>
+  <object id="5" name="soundvolume" x="20" y="240" width="120" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Sound volume</text>
   </object>
-  <object id="6" name="canvasscale" type="UIOption" x="20" y="110" width="200" height="20">
-   <properties>
-    <property name="increment" type="float" value="1"/>
-    <property name="max" type="float" value="6"/>
-    <property name="min" type="float" value="1"/>
-   </properties>
-   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Max pixel scale ${canvasscale}</text>
+  <object id="6" name="canvasscale" x="20" y="130" width="120" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Resolution</text>
   </object>
-  <object id="9" name="rotation" type="UIOption" x="20" y="170" width="200" height="20">
-   <properties>
-    <property name="increment" type="float" value="90"/>
-    <property name="max" type="float" value="270"/>
-    <property name="min" type="float" value="0"/>
-   </properties>
-   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Rotation (cw) ${rotation}</text>
+  <object id="9" name="rotation" x="20" y="190" width="120" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Rotation (cw)</text>
   </object>
-  <object id="7" name="back" type="UIButton" x="20" y="280" width="200" height="20">
+  <object id="7" name="back" type="UIButton" x="20" y="290" width="200" height="20">
    <properties>
     <property name="action" value="goBack"/>
    </properties>
    <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Back</text>
   </object>
-  <object id="8" name="default" type="UIButton" x="20" y="260" width="200" height="20">
+  <object id="8" name="default" type="UIButton" x="20" y="270" width="200" height="20">
    <properties>
     <property name="action" value="resetPrefs"/>
    </properties>
    <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Reset defaults</text>
   </object>
-  <object id="19" name="controller" type="UIButton" x="20" y="80" width="200" height="20">
+  <object id="19" name="controller" type="UIButton" x="20" y="40" width="200" height="20">
    <properties>
     <property name="action" value="changeMenu"/>
     <property name="nextmenu" value="options_controller"/>
@@ -84,14 +72,61 @@
    </properties>
    <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Keyboard</text>
   </object>
-  <object id="32" name="menutitle" x="30" y="20" width="180" height="20">
+  <object id="32" name="menutitle" x="30" y="10" width="180" height="20">
    <text fontfamily="Lady Radical" wrap="1" color="#ffffff" halign="center" valign="center">OPTIONS</text>
   </object>
-  <object id="44" name="canvasscaleint" type="UIBoolean" x="20" y="130" width="200" height="20">
-   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Integer scale ${canvasscaleint}</text>
+  <object id="44" name="canvasscaleint" x="20" y="150" width="120" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Integer scale</text>
   </object>
-  <object id="45" name="canvasscalesoft" type="UIBoolean" x="20" y="150" width="200" height="20">
-   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Soft scale ${canvasscalesoft}</text>
+  <object id="45" name="canvasscalesoft" x="20" y="170" width="120" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Soft scale</text>
+  </object>
+  <object id="49" name="fullscreen" type="UIBoolean" x="140" y="90" width="80" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">${fullscreen}</text>
+  </object>
+  <object id="50" name="vsync" type="UIBoolean" x="140" y="110" width="80" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">${vsync}</text>
+  </object>
+  <object id="51" name="canvasscale" type="UIOption" x="140" y="130" width="80" height="20">
+   <properties>
+    <property name="increment" type="float" value="1"/>
+    <property name="max" type="float" value="6"/>
+    <property name="min" type="float" value="1"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">${canvasscale}x</text>
+  </object>
+  <object id="52" name="rotation" type="UIOption" x="140" y="190" width="80" height="20">
+   <properties>
+    <property name="increment" type="float" value="90"/>
+    <property name="max" type="float" value="270"/>
+    <property name="min" type="float" value="0"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">${rotation}</text>
+  </object>
+  <object id="53" name="canvasscaleint" type="UIBoolean" x="140" y="150" width="80" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">${canvasscaleint}</text>
+  </object>
+  <object id="54" name="canvasscalesoft" type="UIBoolean" x="140" y="170" width="80" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">${canvasscalesoft}</text>
+  </object>
+  <object id="55" name="soundvolume" type="UIOption" x="140" y="240" width="80" height="20">
+   <properties>
+    <property name="increment" type="float" value="0.125"/>
+    <property name="max" type="float" value="1"/>
+    <property name="units" value="percent"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">${soundvolume}</text>
+  </object>
+  <object id="60" name="musicvolume" type="UIOption" x="140" y="220" width="80" height="20">
+   <properties>
+    <property name="increment" type="float" value="0.125"/>
+    <property name="max" type="float" value="1"/>
+    <property name="units" value="percent"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">${musicvolume}</text>
+  </object>
+  <object id="61" name="musicvolume" x="20" y="220" width="120" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Music volume</text>
   </object>
  </objectgroup>
  <objectgroup id="4" name="options_mobile" visible="0">
@@ -113,34 +148,57 @@
    </properties>
    <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Back</text>
   </object>
-  <object id="38" name="canvasscale" type="UIOption" x="20" y="110" width="200" height="20">
-   <properties>
-    <property name="increment" type="float" value="1"/>
-    <property name="max" type="float" value="6"/>
-    <property name="min" type="float" value="1"/>
-   </properties>
-   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Max pixel scale ${canvasscale}</text>
+  <object id="38" name="canvasscale" x="20" y="90" width="150" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Resolution</text>
   </object>
-  <object id="39" name="volume" type="UIOption" x="20" y="200" width="200" height="20">
-   <properties>
-    <property name="increment" type="float" value="0.25"/>
-    <property name="max" type="float" value="1"/>
-    <property name="units" value="percent"/>
-   </properties>
-   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Volume ${volume}</text>
-  </object>
-  <object id="42" name="controller" type="UIButton" x="20" y="80" width="200" height="20">
+  <object id="42" name="controller" type="UIButton" x="20" y="50" width="200" height="20">
    <properties>
     <property name="action" value="changeMenu"/>
     <property name="nextmenu" value="options_controller"/>
    </properties>
    <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">Controller</text>
   </object>
-  <object id="46" name="canvasscaleint" type="UIBoolean" x="20" y="130" width="200" height="20">
-   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Integer scale ${canvasscaleint}</text>
+  <object id="46" name="canvasscaleint" x="20" y="110" width="150" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Integer scale</text>
   </object>
-  <object id="47" name="canvasscalesoft" type="UIBoolean" x="20" y="150" width="200" height="20">
-   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Soft scale ${canvasscalesoft}</text>
+  <object id="47" name="canvasscalesoft" x="20" y="130" width="150" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Soft scale</text>
+  </object>
+  <object id="57" name="canvasscalesoft" type="UIBoolean" x="170" y="130" width="50" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">${canvasscalesoft}</text>
+  </object>
+  <object id="58" name="canvasscaleint" type="UIBoolean" x="170" y="110" width="50" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">${canvasscaleint}</text>
+  </object>
+  <object id="59" name="canvasscale" type="UIOption" x="170" y="90" width="50" height="20">
+   <properties>
+    <property name="increment" type="float" value="1"/>
+    <property name="max" type="float" value="6"/>
+    <property name="min" type="float" value="1"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">${canvasscale}x</text>
+  </object>
+  <object id="62" name="soundvolume" x="20" y="200" width="120" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Sound volume</text>
+  </object>
+  <object id="63" name="soundvolume" type="UIOption" x="140" y="200" width="80" height="20">
+   <properties>
+    <property name="increment" type="float" value="0.125"/>
+    <property name="max" type="float" value="1"/>
+    <property name="units" value="percent"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">${soundvolume}</text>
+  </object>
+  <object id="64" name="musicvolume" type="UIOption" x="140" y="180" width="80" height="20">
+   <properties>
+    <property name="increment" type="float" value="0.125"/>
+    <property name="max" type="float" value="1"/>
+    <property name="units" value="percent"/>
+   </properties>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">${musicvolume}</text>
+  </object>
+  <object id="65" name="musicvolume" x="20" y="180" width="120" height="20">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Music volume</text>
   </object>
  </objectgroup>
  <objectgroup id="5" name="options_keyboard" visible="0">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="player" tilewidth="64" tileheight="64" tilecount="28" columns="4">
+<tileset version="1.2" tiledversion="1.3.2" name="player" tilewidth="64" tileheight="64" tilecount="28" columns="4">
  <tileoffset x="-32" y="32"/>
  <properties>
   <property name="commoncollision" type="int" value="0"/>
@@ -9,7 +9,7 @@
   <properties>
    <property name="name" value="forward"/>
   </properties>
-  <objectgroup draworder="index">
+  <objectgroup draworder="index" id="5">
    <object id="4" name="body" x="28" y="28" width="8" height="8">
     <properties>
      <property name="collidable" type="bool" value="true"/>
@@ -17,28 +17,28 @@
     <ellipse/>
    </object>
    <object id="7" name="wingman1" x="8" y="40">
-    <ellipse/>
+    <point/>
    </object>
    <object id="8" name="wingman2" x="56" y="40">
-    <ellipse/>
+    <point/>
    </object>
    <object id="10" name="wingman3" x="16" y="16">
-    <ellipse/>
+    <point/>
    </object>
    <object id="11" name="wingman4" x="48" y="16">
-    <ellipse/>
+    <point/>
    </object>
-   <object id="12" name="focuswingman1" x="0" y="8">
-    <ellipse/>
+   <object id="12" name="focuswingman1" x="12" y="24">
+    <point/>
    </object>
-   <object id="13" name="focuswingman2" x="64" y="8">
-    <ellipse/>
+   <object id="13" name="focuswingman2" x="52" y="24">
+    <point/>
    </object>
-   <object id="14" name="focuswingman3" x="16" y="-24">
-    <ellipse/>
+   <object id="14" name="focuswingman3" x="0" y="12">
+    <point/>
    </object>
-   <object id="15" name="focuswingman4" x="48" y="-24">
-    <ellipse/>
+   <object id="15" name="focuswingman4" x="64" y="12">
+    <point/>
    </object>
   </objectgroup>
   <animation>

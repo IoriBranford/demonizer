@@ -19,24 +19,24 @@ fi
 
 PROJECT=${PROJECT:=${PWD##*/}}
 
-URL=https://gitlab.com/api/v4/projects/$ORG%2F$PROJECT/jobs/artifacts/$VERSION/download
-
 download() {
-	JOB=$1
-	wget -O $PROJECT-$VERSION-$JOB.zip --content-disposition --header "PRIVATE-TOKEN: $(cat pat)" "$URL?job=$JOB"
+	TAG=$1
+	JOB=$2
+	URL="https://gitlab.com/api/v4/projects/$ORG%2F$PROJECT/jobs/artifacts/$TAG/download?job=$JOB"
+	curl -Lk -o $PROJECT-$VERSION-$JOB.zip --header "PRIVATE-TOKEN: $(cat pat)" "$URL"
 }
 
-download win-64
-download win-32
-download linux-x86_64
-download linux-i686
-download macosx
-download android
-download data
-download demo-win-64
-download demo-win-32
-download demo-linux-x86_64
-download demo-linux-i686
-download demo-macosx
-download demo-android
-download demo-data
+download ${VERSION} win-64
+download ${VERSION} win-32
+download ${VERSION} linux-x86_64
+download ${VERSION} linux-i686
+download ${VERSION} osx
+download ${VERSION} android
+download ${VERSION} data
+download ${VERSION}-demo demo-win-64
+download ${VERSION}-demo demo-win-32
+download ${VERSION}-demo demo-linux-x86_64
+download ${VERSION}-demo demo-linux-i686
+download ${VERSION}-demo demo-osx
+download ${VERSION}-demo demo-android
+download ${VERSION}-demo demo-data

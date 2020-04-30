@@ -19,7 +19,7 @@ function Door:_init(object)
 	self.contacts = 0
 	self.object = object
 	self.properties = object.properties
-	for _, fixture in pairs(self.object.body:getFixtureList()) do
+	for _, fixture in pairs(self.object.body:getFixtures()) do
 		fixture:setMask(Door.Mask)
 	end
 end

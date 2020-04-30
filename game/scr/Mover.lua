@@ -103,6 +103,10 @@ function SpeedFunctions.halfabssin(t, min, max)
 	return SpeedFunctions.abssin(t/2, min, max)
 end
 
+function SpeedFunctions.random(t, min, max)
+	return min + love.math.random(max-min)
+end
+
 function Mover:getPathId(pathid)
 	if type(pathid) == "string" then
 		if pathid == "player" then

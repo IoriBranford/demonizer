@@ -11,7 +11,7 @@ local InitialRank = .25
 local ShmupMap = class(require("Script"))
 
 local function setFilterFromProperties(body)
-	for _, fixture in ipairs(body:getFixtureList()) do
+	for _, fixture in ipairs(body:getFixtures()) do
 		local userdata = fixture:getUserData()
 		if userdata then
 			local properties = userdata.properties
@@ -111,6 +111,16 @@ function ShmupMap:_init(map)
 	love.mouse.setVisible(false)
 	love.mouse.setRelativeMode(true)
 
+	local nextmapdata = levity.nextmapdata or {}
+
+	local playerid = self.properties.playerid
+	self.properties.attractmode = nextmapdata.attractmode
+	if self.properties.attractmode then
+		self.map.objects[playerid].properties.script = "ShmupPlayerAI"
+	end
+
+	local csv = "id,type,tileset,defeatscore,capturescore"
+	local totalcapturescore = 0
 	for _, layer in ipairs(self.map.layers) do
 		if layer.type == "dynamiclayer" then
 			local istrigger = nil
@@ -141,7 +151,13 @@ function ShmupMap:_init(map)
 					loadBulletSounds(objecttype)
 				end
 
+				local typ = object.type
+				local tilesetname
 				if object.tile then
+					tilesetname = map.tilesets[object.tile.tileset].name
+					if not objecttype then
+						typ = object.tile.type
+					end
 					objecttype = map.objecttypes[object.tile.type]
 					if objecttype then
 						loadBulletSounds(objecttype)
@@ -156,9 +172,32 @@ function ShmupMap:_init(map)
 						end
 					end
 				end
+
+				local score = object.properties.score or 0
+				local capturescore = 0
+				score = score + (object.properties.defeatenemiesbonus or 0)
+				score = score + (object.properties.savefriendsbonus or 0)
+				score = score + (object.properties.mazegoalbonus or 0)
+				local kotile
+				if object.properties.defeatdroptileset == "ko" then
+					local kotileid = object.properties.defeatdroptileid or tilesetname
+					kotile = map:getTile("ko", kotileid)
+				end
+				if typ == "ItemScore"
+				or kotile and kotile.type == "ItemScore" then
+					if totalcapturescore < 10000 then
+						totalcapturescore = totalcapturescore + 100
+					end
+					capturescore = totalcapturescore
+				end
+				if map.objecttypes[typ] or tilesetname or score > 0 or capturescore > 0 then
+					csv = csv .. string.format("\n%d,%s,%s,%d,%d",
+						object.id, typ, tilesetname, score, capturescore)
+				end
 			end
 		end
 	end
+	--love.filesystem.write(levity.mapfile .. ".csv", csv)
 	self.map:loadObjectTypeSounds("PlayerWingman", levity.bank)
 
 	local music = self.map.properties.music
@@ -180,13 +219,14 @@ function ShmupMap:_init(map)
 	self.properties.blurdiry = 0
 	self.screeneffect = levity.scripts:newScript(self.map.name, "ScreenEffectDrunk", map)
 
-	local nextmapdata = levity.nextmapdata or {}
 	local checkpointid = nextmapdata.checkpointid
 	if checkpointid then
-		local playerid = self.properties.playerid
 		self:send(playerid, "moveToAndActivate", checkpointid)
 		self.properties.checkpointid = checkpointid
 	end
+
+	local attractlayer = self.map.layers["attract"]
+	attractlayer.visible = self.properties.attractmode
 end
 
 function ShmupMap:replaceJoystickWithKeyboard()
@@ -247,6 +287,7 @@ end
 local DumbUILayers = {
 	"tutorialtext",
 	"talk",
+	"attract"
 }
 
 function ShmupMap:beginDraw()
@@ -263,29 +304,30 @@ function ShmupMap:getRank()
 	return self.rank
 end
 
-function ShmupMap:keypressed_f12()
+local function captureScreenshot(screenshotdata)
 	local filename = os.date("shot_%Y-%m-%d_%H-%M-%S")
-	if love.filesystem.exists(filename) then
+	if love.filesystem.getInfo(filename) then
 		for i = 1, 999 do
 			local newfilename = filename..'_'..i
-			if not love.filesystem.exists(newfilename) then
+			if not love.filesystem.getInfo(newfilename) then
 				filename = newfilename
 				break
 			end
 		end
 	end
 
-	local screenshotdata = love.graphics.newScreenshot()
 	screenshotdata:encode("png", filename..".png")
+end
 
-	--print("Screenshot folder is full")
+function ShmupMap:keypressed_f12()
+	love.graphics.captureScreenshot(captureScreenshot)
 end
 
 function ShmupMap:playerWon()
 	self.playerwon = true
-	if self:isTutorial() then
-	else
-		levity.bank:changeMusic(self.properties.winmusic, "emu")
+	local winmusic = self.properties.winmusic or "none"
+	if love.filesystem.getInfo(winmusic) then
+		levity.bank:changeMusic(winmusic, "emu")
 	end
 end
 
@@ -308,8 +350,12 @@ function ShmupMap:getPlayer()
 end
 
 function ShmupMap:nextMap(nextmapfile, nextmapdata)
-	if nextmapdata and not nextmapdata.playerwon then
-		nextmapdata.checkpointid = self.properties.checkpointid
+	if nextmapdata then
+		if nextmapdata.playerwon then
+			nextmapdata.checkpointid = nil
+		else
+			nextmapdata.checkpointid = self.properties.checkpointid
+		end
 	end
 end
 

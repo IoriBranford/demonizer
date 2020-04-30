@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="57">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-up" compressionlevel="0" width="15" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="20" nextobjectid="64">
+ <editorsettings>
+  <export target="gameplay.lua" format="lua"/>
+ </editorsettings>
  <properties>
   <property name="delayinitobjects" type="bool" value="true"/>
   <property name="enemydefeatsound" type="file" value="snd/knockout.ogg"/>
+  <property name="enemyguardsound" type="file" value="snd/parry.ogg"/>
   <property name="enemyhitsound" type="file" value="snd/hit.ogg"/>
   <property name="losemusic" type="file" value="mus/gameover.vgm"/>
   <property name="script" value="ShmupMap"/>
@@ -14,29 +18,31 @@
  <tileset firstgid="21" source="img/touchmarkers.tsx"/>
  <tileset firstgid="23" source="img/particles.tsx"/>
  <tileset firstgid="87" source="img/playerhitbox.tsx"/>
- <tileset firstgid="88" source="img/powergauge.tsx"/>
- <tileset firstgid="92" source="img/sparks_huge.tsx"/>
- <tileset firstgid="112" source="img/sparks_med.tsx"/>
- <tileset firstgid="124" source="img/sparks_small.tsx"/>
- <tileset firstgid="140" source="img/demonization.tsx"/>
- <tileset firstgid="148" source="img/demonbomb.tsx"/>
- <tileset firstgid="156" source="img/demonshots.tsx"/>
- <tileset firstgid="160" source="img/humanshots.tsx"/>
- <tileset firstgid="216" source="img/crosshair.tsx"/>
- <tileset firstgid="220" source="img/item.tsx"/>
- <tileset firstgid="223" source="img/gameover.tsx"/>
- <tileset firstgid="224" source="img/human/ko.tsx"/>
- <tileset firstgid="296" source="img/human/converted.tsx"/>
- <tileset firstgid="404" source="img/countdown.tsx"/>
- <tileset firstgid="407" source="img/go.tsx"/>
- <tileset firstgid="408" source="img/emotes.tsx"/>
- <tileset firstgid="432" source="img/winebomb.tsx"/>
- <objectgroup id="1" name="items" opacity="0.75">
+ <tileset firstgid="88" source="img/sparks_huge.tsx"/>
+ <tileset firstgid="108" source="img/sparks_med.tsx"/>
+ <tileset firstgid="120" source="img/sparks_small.tsx"/>
+ <tileset firstgid="136" source="img/demonization.tsx"/>
+ <tileset firstgid="144" source="img/demonbomb.tsx"/>
+ <tileset firstgid="152" source="img/demonshots.tsx"/>
+ <tileset firstgid="156" source="img/humanshots.tsx"/>
+ <tileset firstgid="212" source="img/crosshair.tsx"/>
+ <tileset firstgid="216" source="img/item.tsx"/>
+ <tileset firstgid="219" source="img/gameover.tsx"/>
+ <tileset firstgid="220" source="img/human/ko.tsx"/>
+ <tileset firstgid="292" source="img/human/converted.tsx"/>
+ <tileset firstgid="400" source="img/countdown.tsx"/>
+ <tileset firstgid="403" source="img/go.tsx"/>
+ <tileset firstgid="404" source="img/emotes.tsx"/>
+ <tileset firstgid="428" source="img/winebomb.tsx"/>
+ <tileset firstgid="430" source="img/title_demonization.tsx"/>
+ <tileset firstgid="446" source="img/title.tsx"/>
+ <tileset firstgid="447" source="img/powergauge.tsx"/>
+ <objectgroup id="1" name="items" locked="1" opacity="0.75">
   <properties>
    <property name="script" value="ItemsLayer"/>
   </properties>
  </objectgroup>
- <objectgroup id="15" name="healparticles">
+ <objectgroup id="15" name="healparticles" locked="1">
   <properties>
    <property name="areaspreadh" type="float" value="16"/>
    <property name="areaspreadw" type="float" value="16"/>
@@ -49,7 +55,7 @@
    <property name="tileset" value="particles"/>
   </properties>
  </objectgroup>
- <objectgroup id="2" name="enemyfireparticles">
+ <objectgroup id="2" name="enemyfireparticles" locked="1">
   <properties>
    <property name="lifetime" type="float" value="0.25"/>
    <property name="script" value="ParticleLayer"/>
@@ -60,7 +66,7 @@
    <property name="tileset" value="particles"/>
   </properties>
  </objectgroup>
- <objectgroup id="3" name="defeatparticles">
+ <objectgroup id="3" name="defeatparticles" locked="1">
   <properties>
    <property name="lifetime" type="float" value="0.5"/>
    <property name="script" value="ParticleLayer"/>
@@ -70,7 +76,7 @@
    <property name="tileset" value="particles"/>
   </properties>
  </objectgroup>
- <objectgroup id="4" name="damageparticles">
+ <objectgroup id="4" name="damageparticles" locked="1">
   <properties>
    <property name="lifetime" type="float" value="0.25"/>
    <property name="script" value="ParticleLayer"/>
@@ -81,7 +87,7 @@
    <property name="tileset" value="particles"/>
   </properties>
  </objectgroup>
- <objectgroup id="5" name="guardparticles">
+ <objectgroup id="5" name="guardparticles" locked="1">
   <properties>
    <property name="lifetime" type="float" value="0.25"/>
    <property name="script" value="ParticleLayer"/>
@@ -92,7 +98,7 @@
    <property name="tileset" value="particles"/>
   </properties>
  </objectgroup>
- <objectgroup id="6" name="launchbombparticles">
+ <objectgroup id="6" name="launchbombparticles" locked="1">
   <properties>
    <property name="lifetime" type="float" value="0.12"/>
    <property name="maxparticles" value="4"/>
@@ -103,7 +109,7 @@
    <property name="tileset" value="playerhitbox"/>
   </properties>
  </objectgroup>
- <objectgroup id="7" name="deathparticles">
+ <objectgroup id="7" name="deathparticles" locked="1">
   <properties>
    <property name="lifetime" type="float" value="0.5"/>
    <property name="script" value="ParticleLayer"/>
@@ -114,7 +120,7 @@
    <property name="tileset" value="particles"/>
   </properties>
  </objectgroup>
- <objectgroup draworder="index" id="8" name="npcshots">
+ <objectgroup draworder="index" id="8" name="npcshots" locked="1">
   <properties>
    <property name="glowcolor" type="color" value="#ff00ffff"/>
    <property name="glowspeed" type="float" value="8"/>
@@ -122,16 +128,18 @@
    <property name="script" value="BulletLayer"/>
   </properties>
  </objectgroup>
- <objectgroup draworder="index" id="9" name="status">
+ <objectgroup id="18" name="dialogue" locked="1"/>
+ <objectgroup draworder="index" id="9" name="status" locked="1">
   <properties>
    <property name="countdownsound" type="file" value="snd/equip.ogg"/>
    <property name="extendsound" type="file" value="snd/extend.ogg"/>
    <property name="gosound" type="file" value="snd/extend.ogg"/>
    <property name="maxmultipliersound" type="file" value="snd/maxed.ogg"/>
    <property name="newbombsound" type="file" value="snd/thankyou.ogg"/>
+   <property name="powerupsound" type="file" value="snd/powerup.ogg"/>
    <property name="script" value="ShmupStatus"/>
   </properties>
-  <object id="42" name="countdown" gid="406" x="120" y="168" width="16" height="20"/>
+  <object id="42" name="countdown" gid="402" x="120" y="168" width="16" height="20"/>
   <object id="41" name="timer" x="4" y="48" width="40" height="8">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff">mm:ss</text>
   </object>
@@ -183,27 +191,27 @@ GOOD LUCK!!!</property>
 
 GOOD LUCK!!!</text>
   </object>
-  <object id="49" name="winebomb1" gid="432" x="8" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="49" name="winebomb1" gid="428" x="8" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="50" name="winebomb2" gid="432" x="24" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="50" name="winebomb2" gid="428" x="24" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="51" name="winebomb3" gid="432" x="40" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="51" name="winebomb3" gid="428" x="40" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="52" name="winebomb4" gid="432" x="56" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="52" name="winebomb4" gid="428" x="56" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="53" name="winebomb5" gid="432" x="72" y="312" width="18" height="12" rotation="-90" visible="0">
+  <object id="53" name="winebomb5" gid="428" x="72" y="312" width="18" height="12" rotation="-90" visible="0">
    <properties>
     <property name="collidable" type="bool" value="false"/>
    </properties>
@@ -211,16 +219,20 @@ GOOD LUCK!!!</text>
   <object id="54" name="activetriggers" x="0" y="272" width="240" height="48" visible="0">
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="right" valign="bottom">activetriggers</text>
   </object>
-  <object id="55" name="continueprompt" x="56" y="280" width="176" height="32" visible="0">
+  <object id="55" name="continueprompt" x="56" y="264" width="176" height="32" visible="0">
    <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="right" valign="bottom">PRESS ${joy_fire} TO CONTINUE
 ${joy_pausemenu} TO SKIP</text>
   </object>
-  <object id="56" name="battleprompt" x="8" y="280" width="224" height="32" visible="0">
+  <object id="56" name="battleprompt" x="8" y="264" width="224" height="32" visible="0">
    <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="right" valign="bottom">PRESS ${joy_fire} OR ${joy_pausemenu}
 TO START BATTLE</text>
   </object>
+  <object id="62" name="powergauge" gid="447" x="108" y="316" width="128" height="16"/>
+  <object id="63" name="powerlevel" x="104" y="300" width="28" height="16">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" valign="center">Lv1</text>
+  </object>
  </objectgroup>
- <objectgroup id="10" name="results">
+ <objectgroup id="10" name="results" locked="1">
   <properties>
    <property name="script" value="ShmupResults"/>
   </properties>
@@ -273,7 +285,7 @@ TO START BATTLE</text>
    <text fontfamily="Press Start 2P" pixelsize="8" wrap="1" color="#ffffff" halign="right">timetotal</text>
   </object>
  </objectgroup>
- <objectgroup id="11" name="pausemenu" visible="0">
+ <objectgroup id="11" name="pausemenu" visible="0" locked="1">
   <properties>
    <property name="pausesound" type="file" value="snd/pause.ogg"/>
    <property name="script" value="MenuPause"/>
@@ -301,11 +313,11 @@ TO START BATTLE</text>
    <text fontfamily="Lady Radical" wrap="1" color="#ffffff" halign="center" valign="center">PAUSE</text>
   </object>
  </objectgroup>
- <objectgroup id="12" name="gameovermenu" visible="0">
+ <objectgroup id="12" name="gameovermenu" visible="0" locked="1">
   <properties>
    <property name="script" value="MenuGameOver"/>
   </properties>
-  <object id="38" name="gameover" gid="223" x="120" y="112" width="192" height="40"/>
+  <object id="38" name="gameover" gid="219" x="120" y="112" width="192" height="40"/>
   <object id="39" name="restart" type="UIButton" x="48" y="144" width="144" height="32">
    <properties>
     <property name="action" value="restartMap"/>
@@ -320,14 +332,23 @@ TO START BATTLE</text>
    <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">END GAME</text>
   </object>
  </objectgroup>
- <objectgroup id="13" name="touchcontrols" visible="0">
+ <objectgroup id="13" name="touchcontrols" visible="0" locked="1">
   <properties>
    <property name="script" value="ShmupTouchControls"/>
   </properties>
   <object id="22" name="move" gid="21" x="0" y="0" width="64" height="64"/>
   <object id="23" name="focus" gid="22" x="0" y="0" width="64" height="64"/>
  </objectgroup>
- <objectgroup id="14" name="curtain">
+ <objectgroup id="19" name="attract">
+  <object id="57" name="start" x="0" y="256" width="240" height="16">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff" halign="center" valign="center">PRESS ANY KEY OR BUTTON</text>
+  </object>
+  <object id="58" gid="430" x="12" y="72" width="32" height="24"/>
+  <object id="59" gid="431" x="196" y="72" width="32" height="24"/>
+  <object id="60" gid="438" x="114" y="97" width="32" height="24"/>
+  <object id="61" gid="446" x="20" y="97" width="200" height="50"/>
+ </objectgroup>
+ <objectgroup id="14" name="curtain" locked="1">
   <properties>
    <property name="script" value="Curtain"/>
   </properties>

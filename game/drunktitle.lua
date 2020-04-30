@@ -1,7 +1,7 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.4",
+  tiledversion = "1.3.2",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 24,
@@ -448,7 +448,7 @@ return {
       },
       encoding = "base64",
       compression = "gzip",
-      data = "H4sIAAAAAAAACu3RNxKAQBADwcN7Dm/+/1EmXsItiKSqTpROCP8sQYoMOQrnZ1eiQo0GrfOz69BjwIjo/OwmzFiwYnN+djsOnLhwOz879VVf9VVf9VVf9X1PfdXX0/erPd/SQyoADAAA"
+      data = "H4sIAAAAAAAEA72RSW5CQRQDPzMhzAQI978otW3LuxK05MWz5OpFTdN33oxv5mRBlmRFTMd8eGuuDdmSH7IjpmM+vF+uPTmQIzkR0zEf3pnrQq7kRv6I6ZgP7871IE/yT17EdMyHZ1y27QDnMC7bNvnGZdsm37hs2+Qbl22b/ObIdMlvjkyX/ObIdMlvjkyX/ObIdMk3Lts2+cZl2ybfuGzb5BuXbZt847Jtk98cmS75zZHpkt8cmS75zZHpkt8cmS75xmXbJt+4bNvkG5dtm3zjsm2Tb1y2bfI/db8B39JDKgAMAAA="
     },
     {
       type = "objectgroup",

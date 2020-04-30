@@ -16,7 +16,7 @@ function Lord:defeatCoroutine(dt)
 	self.health:createDefeatFX()
 	self.typechanger:setType("Lord")
 
-	for _, fixture in ipairs(self.body:getFixtureList()) do
+	for _, fixture in ipairs(self.body:getFixtures()) do
 		fixture:setMask(NPC.InvulnerableMask)
 	end
 

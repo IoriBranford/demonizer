@@ -59,7 +59,7 @@ end
 function EnemyHighPriest:defeatCoroutine(dt)
 	self.health:createDefeatFX()
 
-	for _, fixture in ipairs(self.body:getFixtureList()) do
+	for _, fixture in ipairs(self.body:getFixtures()) do
 		fixture:setMask(NPC.InvulnerableMask)
 	end
 	self.properties.takescover = false

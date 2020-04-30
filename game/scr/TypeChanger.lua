@@ -4,8 +4,8 @@
 
 --- Properties
 --@field nexttype
---@field nexttypeevent "timePassed", "shotsFired", "coverUpdated", "rideDestroyed", "riderDestroyed", "allRidersDestroyed", "triggerActivated", "playerEnteredTrigger", "playerExitedTrigger", "triggerEnemiesCleared", "reachedDest", "fireTargetGone", "playerBehind", "playerInFront", "dialogueFinished"
---@field nexttypeparam time, number of shots fired, number of cover objects, trigger ID, dest X
+--@field nexttypeevent "timePassed", "shotsFired", "coverUpdated", "rideDestroyed", "riderDestroyed", "allRidersDestroyed", "triggerActivated", "playerEnteredTrigger", "playerExitedTrigger", "triggerEnemiesCleared", "reachedDest", "fireTargetGone", "playerBehind", "playerInFront", "dialogueStarted", "dialogueFinished", "enemyTypeDefeated"
+--@field nexttypeparam time, number of shots fired, number of cover objects, trigger ID, dialogueStarted layer name, dest X, dialogue layer started, enemy type defeated
 --@field nexttypeparam2 dest Y
 --@field typesound Sound file to play on changing to this type
 --@table Properties
@@ -47,6 +47,19 @@ function TypeChanger:changeIfNilOrEqual2(param1, param2)
 		self:setType(self.properties.nexttype)
 	end
 end
+function TypeChanger:changeIfStringMatch(param)
+	if type(param) ~= "string" then
+		print('type(param) ~= "string"', param)
+		return
+	end
+	if type(self.properties.nexttypeparam) ~= "string" then
+		print('type(self.properties.nexttypeparam) ~= "string"', self.properties.nexttypeparam)
+		return
+	end
+	if param:find(self.properties.nexttypeparam) then
+		self:setType(self.properties.nexttype)
+	end
+end
 
 local function AddEventFunction(e, f)
 	TypeChanger[e] = function(self, ...)
@@ -72,7 +85,9 @@ AddEventFunction("reachedDest", TypeChanger.changeIfNilOrEqual2)
 AddEventFunction("fireTargetGone", TypeChanger.changeState)
 AddEventFunction("playerBehind", TypeChanger.changeState)
 AddEventFunction("playerInFront", TypeChanger.changeState)
+AddEventFunction("dialogueStarted", TypeChanger.changeIfNilOrEqual)
 AddEventFunction("dialogueFinished", TypeChanger.changeState)
+AddEventFunction("enemyTypeDefeated", TypeChanger.changeIfStringMatch)
 
 function TypeChanger:endMove(dt)
 	self:timePassed(dt)

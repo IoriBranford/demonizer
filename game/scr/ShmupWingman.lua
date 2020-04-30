@@ -8,6 +8,7 @@ require "TargetLock"
 local ShmupWingman = class(require("Script"))
 function ShmupWingman:_init(object)
 	self.object = object
+	self.id = object.id
 	self.properties = self.object.properties
 	self.object.body:setFixedRotation(true)
 	self.object.body:setBullet(true)
@@ -15,8 +16,8 @@ function ShmupWingman:_init(object)
 	self.bombmeleetimer = nil
 
 	self:refreshFixtures()
-	self:setEnemyShotCollision(true)
-	self:setCaptureEnabled(not self:isConverting())
+	self.takesbullets = true
+	self.properties.picksupitems = not self:isConverting()
 
 	self.converttimer = self:isConverting() and 0 or nil
 
@@ -24,16 +25,16 @@ function ShmupWingman:_init(object)
 
 	self.targetlock = levity.scripts:newScript(object.id, "TargetLock", object)
 	self.targetcaptiveid = nil
-	self.health = self.properties.health or ShmupWingman.DefaultMaxHealth
-	self.poweredup = self.properties.poweredup or false
+	self.health = self.properties.health
 
 	self.facing = levity.scripts:newScript(object.id, "Facing", self.object)
 
-	self.afterimage = levity.scripts:newScript(self.object.id, "AfterImage", self.object)
+	self.afterimage = levity.scripts:newScript(self.id, "AfterImage", self.object)
+	self.emote = levity.scripts:newScript(self.id, "Emote", self.object)
 end
 
 function ShmupWingman:initQuery()
-	self:broadcast("wingmanJoined", self.object.id)
+	self:broadcast("wingmanJoined", self.id)
 
 	local demonization = levity.map.objects[self.properties.demonizationid]
 	if demonization then
@@ -51,7 +52,6 @@ ShmupWingman.BaseMask = {
 	ShmupCollision.Category_BonusMaze
 }
 
-ShmupWingman.DefaultMaxHealth = 4
 ShmupWingman.DefaultConvertTime = 1
 ShmupWingman.DemonizationOffset = 1/64 --to ensure correct draw order for demonization vfx
 --ShmupWingman.ConvertShake = 4
@@ -65,40 +65,22 @@ function ShmupWingman:isConverting()
 	return self.properties.captorid ~= nil
 end
 
-function ShmupWingman:isPoweredUp()
-	return self.poweredup
-end
-
 function ShmupWingman:refreshFixtures()
-	for _, fixture in pairs(self.object.body:getFixtureList()) do
+	for _, fixture in pairs(self.object.body:getFixtures()) do
 		fixture:setSensor(true)
 		fixture:setCategory(ShmupCollision.Category_PlayerTeam)
 		fixture:setMask(ShmupWingman.BaseMask)
 	end
 end
 
-function ShmupWingman:setEnemyShotCollision(enemyshotcollision)
-	for _, fixture in pairs(self.object.body:getFixtureList()) do
-		ShmupCollision.setFixtureMask(fixture,
-			ShmupCollision.Category_EnemyShot, enemyshotcollision)
-	end
-end
-
-function ShmupWingman:setCaptureEnabled(enabled)
-	for _, fixture in pairs(self.object.body:getFixtureList()) do
-		ShmupCollision.setFixtureMask(fixture,
-			ShmupCollision.Category_EnemyTeam, enabled)
-	end
-end
-
 function ShmupWingman:setBombMelee(enabled)
 	if enabled then
-		for _, fixture in pairs(self.object.body:getFixtureList()) do
+		for _, fixture in pairs(self.object.body:getFixtures()) do
 			fixture:setCategory(ShmupCollision.Category_PlayerTeam,
 				ShmupCollision.Category_PlayerBomb)
 		end
 	else
-		for _, fixture in pairs(self.object.body:getFixtureList()) do
+		for _, fixture in pairs(self.object.body:getFixtures()) do
 			fixture:setCategory(ShmupCollision.Category_PlayerTeam)
 		end
 	end
@@ -108,24 +90,24 @@ function ShmupWingman:kill()
 	local x, y = self.object.body:getWorldCenter()
 	self:send("deathparticles", "emit", 32, x, y, math.pi*1.5)
 
-	levity:discardObject(self.object.id)
-	if self.properties.demonizationid then
-		levity:discardObject(self.properties.demonizationid)
-	end
+	self:send(self.id, "discard")
 
-	self:broadcast("wingmanKilled", self.object.id)
+	self:broadcast("wingmanKilled", self.id)
 
 	local x, y = self.object.body:getWorldCenter()
 	ShmupBullet.create(self.properties.defeatspark or "FriendlyDeath",
 				x, y, 0, 0, "sparks")
 	local istutorial = self:call(levity.mapfile, "isTutorial")
 	if istutorial then
-		self:broadcast("wingmanReserved", self.object.id, self.object.gid)
+		self:broadcast("wingmanReserved", self.id, self.object.gid)
 	end
 end
 
 function ShmupWingman:heal(healing)
-	self.health = math.min(self.health + healing, self.properties.health or ShmupWingman.DefaultMaxHealth)
+	if not self.health then
+		return
+	end
+	self.health = math.min(self.health + healing, self.properties.health)
 end
 
 function ShmupWingman:humanCaptured(humanid)
@@ -149,10 +131,17 @@ function ShmupWingman:getConvertTimer()
 end
 
 function ShmupWingman:beginContact_EnemyShot(myfixture, otherfixture, contact)
+	if not self.takesbullets then
+		return
+	end
+
+	local otherdata = otherfixture:getBody():getUserData()
+
 	if not self:isConverting()
 	and not self.bombmeleetimer
-	and self.health >= 1 then
-		local otherdata = otherfixture:getBody():getUserData()
+	and self.health and self.health >= 1 then
+		self.hitstuntimer = self.properties.hitstuntime
+		--self.emote:setEmote("emotes", "oww")
 		local otherproperties = otherdata and otherdata.properties
 		local damage = otherproperties and otherproperties.damage or 1
 		if damage > 0 then
@@ -166,6 +155,9 @@ function ShmupWingman:beginContact_EnemyShot(myfixture, otherfixture, contact)
 		end
 		levity.bank:play(self.properties.hitsound);
 	end
+
+	local otherid = otherdata.id
+	self:send(otherid, "onHit")
 end
 
 function ShmupWingman:beginContact(myfixture, otherfixture, contact)
@@ -197,6 +189,14 @@ function ShmupWingman:setAfterImage(enabled)
 	end
 end
 
+function ShmupWingman:getTargetCaptiveId()
+	return self.targetcaptiveid
+end
+
+function ShmupWingman:setTargetCaptiveId(id)
+	self.targetcaptiveid = id
+end
+
 function ShmupWingman:playerBombed()
 	self.bombmeleetimer = 0
 	self.properties.damage = self.properties.bombmeleedps or 15
@@ -205,7 +205,11 @@ function ShmupWingman:playerBombed()
 end
 
 function ShmupWingman:playerKilled()
-	self:setCaptureEnabled(false)
+	self.properties.picksupitems = false
+end
+
+function ShmupWingman:playerRespawned()
+	self.properties.picksupitems = true
 end
 
 function ShmupWingman:updateDemonization(dt)
@@ -219,7 +223,7 @@ function ShmupWingman:updateDemonization(dt)
 			self.object.tile.properties.name, 0))
 		self:faceDirectionY(-1)
 		self:refreshFixtures()
-		self:setCaptureEnabled(true)
+		self.properties.picksupitems = true
 	end
 end
 
@@ -230,6 +234,9 @@ function ShmupWingman:getNormalBulletVelocity()
 	local playercx, playercy = player.body:getWorldCenter()
 	local vx, vy = 0, -1
 	vx = (cx - playercx)/levity.camera.w
+	if self:call(playerid, "isFocused") then
+		vx = -vx
+	end
 	return vx, vy
 end
 
@@ -252,14 +259,14 @@ end
 function ShmupWingman:updateFiring(dt)
 	if self.firetimer >= ShmupPlayer.BulletInterval then
 		local playerid = levity.map.properties.playerid
-		local locktargetid
-		if self:call(playerid, "isFocused") then
-			locktargetid = self:findTarget_rectangle("canBeLockTarget")
-		end
+		local locktargetid = self.targetlock:getLockTargetId()
+		--if self:call(playerid, "isFocused") then
+		--	locktargetid = self:findTarget_rectangle("canBeLockTarget")
+		--end
 
-		self.targetlock:setLockTargetId(locktargetid)
+		--self.targetlock:setLockTargetId(locktargetid)
 
-		local vx, vy 
+		local vx, vy
 		if locktargetid then
 			vx, vy = self:getLockBulletVelocity(locktargetid)
 		else
@@ -318,10 +325,20 @@ end
 
 function ShmupWingman:beginMove(dt)
 	local body = self.object.body
+	local cx, cy = body:getWorldCenter()
 
+	local hitstuntimer = self.hitstuntimer
+	if hitstuntimer then
+		hitstuntimer = hitstuntimer - dt
+		if hitstuntimer <= 0 then
+			hitstuntimer = nil
+			self.emote:setEmote()
+		end
+		self:send("deathparticles", "emit", 1, cx, cy, math.pi*.5)
+		self.hitstuntimer = hitstuntimer
+	end
 	local playerid = levity.map.properties.playerid
 
-	local cx, cy = body:getWorldCenter()
 	local destx, desty = cx, cy
 	local captive
 
@@ -336,39 +353,64 @@ function ShmupWingman:beginMove(dt)
 		and self.bombmeleetimer < bombmeleetime
 		and targetallowed
 	local focused = not self.bombmeleetimer and self:call(playerid, "isFocused")
-	local backup = self:call("playerteam", "isWingmanBackup", self.object.id)
+	local backup = self:call("playerteam", "isWingmanBackup", self.id)
 
-	if bombmeleecantarget then
-		if not self.targetcaptiveid
-		or not self:call(self.targetcaptiveid, "canBeBombMeleeTarget")
-		then
-			self.targetcaptiveid = self:findTarget_onscreen("canBeBombMeleeTarget")
+	local leaderid = playerid
+	local targetcaptiveid = self.targetcaptiveid
+	local cangrab = not focused and self:call("status", "canWingmenGrab")
+
+	if hitstuntimer then
+		if self:call(targetcaptiveid, "isPulledBy", self.id) then
+			self:send(targetcaptiveid, "cancelPull")
 		end
-	elseif focused and self.poweredup and targetallowed then
-		if not self.targetcaptiveid
-		or not self:call(self.targetcaptiveid, "canBeCaptured")
+		targetcaptiveid = nil
+	elseif bombmeleecantarget then
+		if not targetcaptiveid
+		or not self:call(targetcaptiveid, "canBeBombMeleeTarget")
 		then
-			self.targetcaptiveid = self:findTarget_rectangle("canBeCaptured")
+			targetcaptiveid = self:findTarget_onscreen("canBeBombMeleeTarget")
+			if targetcaptiveid then
+				local angle = love.math.random()*2*math.pi
+				self.destoffsetx = 12 * math.cos(angle)
+				self.destoffsety = 12 * math.sin(angle)
+			end
 		end
+	elseif cangrab and targetallowed then
+		if not targetcaptiveid
+		or not self:call(targetcaptiveid, "canBeCaptured")
+		then
+			targetcaptiveid = self:findTarget_rectangle("canBeCaptured")
+		end
+		leaderid = self:call("playerteam", "getLockTargetId") or playerid
 	elseif backup and targetallowed then
-		if not self.targetcaptiveid
-		or not self:call(self.targetcaptiveid, "canBeCaptured")
+		if not targetcaptiveid
+		or not self:call(targetcaptiveid, "canBeCaptured")
 		then
 			local searchh = self:call("status", "getBackupCaptureHeight")
-			self.targetcaptiveid = self:findTarget_onscreen("canBeCaptured", searchh)
+			targetcaptiveid = self:findTarget_onscreen("canBeCaptured", searchh)
 		end
-	else
+	elseif not self:call(targetcaptiveid, "isPulledBy", self.id) then
 		local healrate = self.properties.unfocusedhealrate or 1
 		self:heal(healrate * dt)
-		self.targetcaptiveid = nil
+		targetcaptiveid = nil
 	end
 
-	if self.targetcaptiveid then
-		captive = levity.map.objects[self.targetcaptiveid]
+	if targetcaptiveid then
+		captive = levity.map.objects[targetcaptiveid]
 	end
+
+	local locktargetid = self.targetlock:getLockTargetId()
+	local active = self:call("playerteam", "isWingmanActive", self.id)
+	local canattack = active and not hitstuntimer and not focused
+		and self:call("status", "canWingmenAttack")
 
 	if captive then
-		destx, desty = captive.body:getWorldCenter()
+		if self:call(targetcaptiveid, "isPulledBy", self.id) then
+			local player = levity.map.objects[playerid]
+			destx, desty = player.body:getWorldCenter()
+		else
+			destx, desty = captive.body:getWorldCenter()
+		end
 	elseif converting then
 		local captorid = self.properties.captorid
 		local captor = levity.map.objects[captorid]
@@ -381,32 +423,59 @@ function ShmupWingman:beginMove(dt)
 			local convertdist = self.properties.convertdist or 16
 			desty = desty - convertdist*(1+demonizationpct)
 		end
-	else
-		destx, desty = self:call("playerteam",
-				"getWingmanPosition", self.object.id)
+	elseif canattack and locktargetid then
+		local locktarget = levity.map.objects[locktargetid]
+		if locktarget then
+			destx, desty = locktarget.body:getWorldCenter()
+			local dx, dy = destx-cx, desty-cy
+			local dist = math.hypot(dx, dy)
+			local s = -32/dist
+			self.destoffsetx = dx*s
+			self.destoffsety = dy*s
+		end
 		destx = destx or cx
 		desty = desty or cy
-		self.targetcaptiveid = nil
+
+	else
+		destx, desty = self:call("playerteam", "getWingmanPosition",
+			self.id, leaderid)
+		destx = destx or cx
+		desty = desty or cy
+		targetcaptiveid = nil
 	end
 
-	self:setEnemyShotCollision(
-		converting
-		or self.targetcaptiveid
-		or self.bombmeleetimer)
-		--and not self:call(self.targetcaptiveid, "is_a",
+	self.takesbullets = not self.hitstuntimer and
+		(converting
+		or (self.health and targetcaptiveid)
+		or (canattack and locktargetid)
+		--or leaderid ~= playerid           -
+		or self.bombmeleetimer
+		--and not self:call(targetcaptiveid, "is_a",
 		--				ShmupWingman))
+		)
 
-	local distx, disty = destx - cx, desty - cy
+	local ox = self.destoffsetx or 0
+	local oy = self.destoffsety or 0
+	local distx = destx + ox - cx
+	local disty = desty + oy - cy
 	local distsq = math.hypotsq(distx, disty)
 	local speed = self.properties.speed or 320
 	if self.bombmeleetimer then
 		speed = speed*2
+	else
+		self.destoffsetx = nil
+		self.destoffsety = nil
 	end
 	local speedsq = speed*speed
 	if distsq < speedsq * dt * dt then
 		local vx1 = distx / dt
 		local vy1 = disty / dt
 		body:setLinearVelocity(vx1, vy1)
+		if bombmeleecantarget then
+			targetcaptiveid = nil
+			self.destoffsetx = nil
+			self.destoffsety = nil
+		end
 	else
 		speed = speed / math.sqrt(distsq)
 		local vx1 = distx * speed
@@ -414,11 +483,14 @@ function ShmupWingman:beginMove(dt)
 		body:setLinearVelocity(vx1, vy1)
 	end
 
+	self.leaderid = leaderid
+	self.targetcaptiveid = targetcaptiveid
+
 	if converting then
 	elseif captive then
-		self:faceDirectionY(disty)
+		self:faceDirectionY(desty - cy)
 	elseif playerkilled
-	or not self:call("playerteam", "isWingmanActiveOrBackup", self.object.id)
+	or not self:call("playerteam", "isWingmanActiveOrBackup", self.id)
 	then
 		self:faceDirectionY(1)
 	elseif not self:call(playerid, "isFiring") then
@@ -451,25 +523,15 @@ function ShmupWingman:faceDirectionY(diry)
 end
 
 function ShmupWingman:endMove(dt)
-	local scoreid = self:call("status", "getScoreId")
-	if scoreid and not self.poweredup then
-		self.poweredup = self:call(scoreid, "isMaxMultiplier",
-							self.object.id)
-		if self.poweredup then
-			levity.bank:play(self.properties.maxmultipliersound)
-			levity.bank:play(self.properties.powerupsound)
-		end
-	end
-
 	if self.bombmeleetimer then
 		self.bombmeleetimer = self.bombmeleetimer + dt
 		local bombmeleetime = self.properties.bombmeleetime or 2
 		if self.bombmeleetimer >= bombmeleetime then
 			--TODO Bomb collision and other continuous collision
 			--responses should switch from using callbacks
-			--to iterating over contacts after world update 
+			--to iterating over contacts after world update
 			local bombmeleecontact
-			for _, contact in pairs(self.object.body:getContactList()) do
+			for _, contact in pairs(self.object.body:getContacts()) do
 				local fix1, fix2 = contact:getFixtures()
 				local myfix, otherfix
 				if fix1:getBody() == self.object.body then
@@ -508,28 +570,41 @@ function ShmupWingman:endMove(dt)
 
 	if self:isConverting() then
 		self:updateDemonization(dt)
-	elseif self.oncamera then
+	else
 		local playerid = levity.map.properties.playerid
 		local firing =  self:call(playerid, "isFiring")
 		local focused =  self:call(playerid, "isFocused")
+		local locktargetid = self.targetlock:getLockTargetId()
+		local active = self:call("playerteam", "isWingmanActive", self.id)
+		local canattack = active and not focused and self:call("status", "canWingmenAttack")
+		local canlock = firing and (canattack or focused)
 
-		if not (firing and focused) then
+		if not canlock
+		or locktargetid and not self:call(locktargetid, "canBeLockTarget")
+		then
 			self.targetlock:setLockTargetId(nil)
+			locktargetid = nil
 		end
 
-		if firing then
+		if firing and canattack then
+			if not locktargetid then
+				locktargetid = self:findTarget_onscreen("canBeLockTarget")
+			end
+			self.targetlock:setLockTargetId(locktargetid)
+		end
+
+		if self.oncamera and firing then
 			self:updateFiring(dt)
 		else
 			self.firetimer = ShmupPlayer.BulletInterval
 		end
-	else
-		if not self:call("playerteam", "isWingmanActiveOrBackup", self.object.id) then
+
+		if not self.oncamera
+		and not self:call("playerteam", "isWingmanActiveOrBackup", self.id)
+		then
 			self:broadcast("wingmanReserved",
-						self.object.id, self.object.gid)
-			levity:discardObject(self.object.id)
-			if demonization then
-				levity:discardObject(demonization.id)
-			end
+						self.id, self.object.gid)
+			self:send(self.id, "discard")
 		end
 	end
 end
@@ -537,28 +612,31 @@ end
 function ShmupWingman:beginDraw()
 	local color = self.object.color or {}
 	for i=1,4 do
-		color[i] = 0xff
+		color[i] = 1
 	end
 
 	local maxhealth = self.properties.health or ShmupWingman.DefaultMaxHealth
-	local healthpercent = self.health / maxhealth
-	local wound = 0xff*healthpercent
-	if self:isConverting() or self.bombmeleetimer then
-		local flashrate = 30 * (self.bombmeleetimer or self.converttimer)
-		local flash = 0x80 * (math.cos(flashrate*math.pi) + 3)
+	local healthpercent = self.health and self.health / maxhealth or 1
+	local wound = 1*healthpercent
+	local timer = self.hitstuntimer or self.bombmeleetimer or self.converttimer
+	if timer then
+		local flashrate = 30 * (timer)
+		local flash = .5 * (math.cos(flashrate*math.pi) + 3)
 		color[1] = flash
-		color[3] = flash
-	elseif self.targetcaptiveid then
+		if not self.hitstuntimer then
+			color[3] = flash
+		end
+	elseif self.takesbullets then--or self.leaderid ~= levity.map.properties.playerid then
 		color[2] = wound
 		color[3] = wound
 	elseif healthpercent < 1 then
 		color[1] = wound
 		color[3] = wound
-		color[4] = 0x80
+		color[4] = .5
 	else
-		color[1] = 0x1ff
-		color[3] = 0x1ff
-		color[4] = 0x80
+		color[1] = 2
+		color[3] = 2
+		color[4] = .5
 	end
 
 	self.object.color = color
@@ -572,7 +650,7 @@ function ShmupWingman:beginDraw()
 end
 
 function ShmupWingman:playerWon()
-	self:setEnemyShotCollision(false)
+	self.takesbullets = false
 end
 
 function ShmupWingman:startWinBonus()
@@ -583,9 +661,15 @@ end
 
 function ShmupWingman:getNextMapData()
 	return {
-		tilename = levity.map:tileGidsToNames({self.object.gid}),
-		poweredup = self.poweredup
+		tilename = levity.map:tileGidsToNames({self.object.gid})
 	}
+end
+
+function ShmupWingman:discard()
+	levity:discardObject(self.id)
+	if self.properties.demonizationid then
+		levity:discardObject(self.properties.demonizationid)
+	end
 end
 
 function ShmupWingman.create(map, gid, x, y, captorid, captiveid,
@@ -606,7 +690,8 @@ function ShmupWingman.create(map, gid, x, y, captorid, captiveid,
 
 	if nextmapdata then
 		gid = levity.map:tileNamesToGids(nextmapdata.tilename)[1]
-		wingman.properties.poweredup = nextmapdata.poweredup
+	else
+		wingman.properties.animated = false
 	end
 
 	wingman.gid = gid

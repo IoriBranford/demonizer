@@ -7,7 +7,7 @@ local EnemyFlyingArmorBoss = class(NPC)
 function EnemyFlyingArmorBoss:defeatCoroutine()
 	self.health:createDefeatFX()
 
-	for _, fixture in ipairs(self.body:getFixtureList()) do
+	for _, fixture in ipairs(self.body:getFixtures()) do
 		fixture:setMask(NPC.InvulnerableMask)
 	end
 

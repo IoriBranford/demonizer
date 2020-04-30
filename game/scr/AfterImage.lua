@@ -21,7 +21,7 @@ function AfterImage:beginMove(dt)
 	self.timer = (self.timer or 0) + dt
 	while self.timer >= AfterImageTime do
 		AfterImageParams.gid = self.object.tile.gid
-		ShmupBullet.create(AfterImageParams, self.object.x, self.object.y, 0, 0, "sparks")
+		ShmupBullet.create(AfterImageParams, self.object.x, self.object.y, 0, 0, self.object.layer)
 		self.timer = self.timer - AfterImageTime
 	end
 end

@@ -1,7 +1,7 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.5",
+  tiledversion = "1.3.2",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 18,
@@ -2783,7 +2783,7 @@ return {
       columns = 6,
       image = "img/human/enemy/HeavyMilitia.png",
       imagewidth = 192,
-      imageheight = 128,
+      imageheight = 160,
       tileoffset = {
         x = -16,
         y = 16
@@ -2804,7 +2804,7 @@ return {
         ["rowstype"] = "direction"
       },
       terrains = {},
-      tilecount = 24,
+      tilecount = 30,
       tiles = {
         {
           id = 0,
@@ -3051,12 +3051,24 @@ return {
               duration = 125
             }
           }
+        },
+        {
+          id = 24,
+          type = "HeavyMilitia_Guard"
+        },
+        {
+          id = 25,
+          type = "HeavyMilitia_Guard"
+        },
+        {
+          id = 26,
+          type = "HeavyMilitia_Guard"
         }
       }
     },
     {
       name = "ArcherF",
-      firstgid = 1134,
+      firstgid = 1140,
       filename = "img/human/enemy/ArcherF.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -3338,7 +3350,7 @@ return {
     },
     {
       name = "doors_opening",
-      firstgid = 1158,
+      firstgid = 1164,
       filename = "img/doors_opening.tsx",
       tilewidth = 16,
       tileheight = 32,
@@ -3488,7 +3500,7 @@ return {
     },
     {
       name = "sparks_huge",
-      firstgid = 1173,
+      firstgid = 1179,
       filename = "img/sparks_huge.tsx",
       tilewidth = 96,
       tileheight = 96,
@@ -3640,7 +3652,7 @@ return {
     },
     {
       name = "townfolk-adult-f-002",
-      firstgid = 1193,
+      firstgid = 1199,
       filename = "img/human/civilian/townfolk-adult-f-002.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -3766,7 +3778,7 @@ return {
     },
     {
       name = "MilitiaCaptain",
-      firstgid = 1205,
+      firstgid = 1211,
       filename = "img/human/enemy/MilitiaCaptain.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -4048,7 +4060,7 @@ return {
     },
     {
       name = "sandbags",
-      firstgid = 1229,
+      firstgid = 1235,
       filename = "img/sandbags.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -4091,7 +4103,7 @@ return {
     },
     {
       name = "townfolk-child-m-001",
-      firstgid = 1247,
+      firstgid = 1253,
       filename = "img/human/civilian/townfolk-child-m-001.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -4217,7 +4229,7 @@ return {
     },
     {
       name = "townfolk-child-m-002",
-      firstgid = 1259,
+      firstgid = 1265,
       filename = "img/human/civilian/townfolk-child-m-002.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -4343,7 +4355,7 @@ return {
     },
     {
       name = "townfolk-adult-f-001",
-      firstgid = 1271,
+      firstgid = 1277,
       filename = "img/human/civilian/townfolk-adult-f-001.tsx",
       tilewidth = 24,
       tileheight = 32,
@@ -4469,7 +4481,7 @@ return {
     },
     {
       name = "Swordsman",
-      firstgid = 1283,
+      firstgid = 1289,
       filename = "img/human/enemy/Swordsman.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -4751,7 +4763,7 @@ return {
     },
     {
       name = "SwordsmanF",
-      firstgid = 1307,
+      firstgid = 1313,
       filename = "img/human/enemy/SwordsmanF.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -5033,7 +5045,7 @@ return {
     },
     {
       name = "house",
-      firstgid = 1331,
+      firstgid = 1337,
       filename = "img/house.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -5237,7 +5249,7 @@ return {
     },
     {
       name = "Lord",
-      firstgid = 1415,
+      firstgid = 1421,
       filename = "img/human/enemy/Lord.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -5460,7 +5472,7 @@ return {
     },
     {
       name = "armorbody",
-      firstgid = 1463,
+      firstgid = 1469,
       filename = "img/armorsuit/armorbody.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -5536,7 +5548,7 @@ return {
     },
     {
       name = "armorleftarm",
-      firstgid = 1466,
+      firstgid = 1472,
       filename = "img/armorsuit/armorleftarm.tsx",
       tilewidth = 16,
       tileheight = 32,
@@ -5612,7 +5624,7 @@ return {
     },
     {
       name = "armorrightarm",
-      firstgid = 1469,
+      firstgid = 1475,
       filename = "img/armorsuit/armorrightarm.tsx",
       tilewidth = 16,
       tileheight = 32,
@@ -5688,7 +5700,7 @@ return {
     },
     {
       name = "trees_tall",
-      firstgid = 1472,
+      firstgid = 1478,
       filename = "img/trees_tall.tsx",
       tilewidth = 48,
       tileheight = 80,
@@ -5758,7 +5770,7 @@ return {
     },
     {
       name = "trees",
-      firstgid = 1475,
+      firstgid = 1481,
       filename = "img/trees.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -5815,7 +5827,7 @@ return {
     },
     {
       name = "player",
-      firstgid = 1478,
+      firstgid = 1484,
       filename = "img/player.tsx",
       tilewidth = 64,
       tileheight = 64,
@@ -5848,6 +5860,7 @@ return {
           },
           objectGroup = {
             type = "objectgroup",
+            id = 5,
             name = "",
             visible = true,
             opacity = 1,
@@ -5875,7 +5888,7 @@ return {
                 id = 7,
                 name = "wingman1",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 8,
                 y = 40,
                 width = 0,
@@ -5888,7 +5901,7 @@ return {
                 id = 8,
                 name = "wingman2",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 56,
                 y = 40,
                 width = 0,
@@ -5901,7 +5914,7 @@ return {
                 id = 10,
                 name = "wingman3",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 16,
                 y = 16,
                 width = 0,
@@ -5914,7 +5927,7 @@ return {
                 id = 11,
                 name = "wingman4",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 48,
                 y = 16,
                 width = 0,
@@ -5927,9 +5940,9 @@ return {
                 id = 12,
                 name = "focuswingman1",
                 type = "",
-                shape = "ellipse",
-                x = 0,
-                y = 8,
+                shape = "point",
+                x = 12,
+                y = 24,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5940,9 +5953,9 @@ return {
                 id = 13,
                 name = "focuswingman2",
                 type = "",
-                shape = "ellipse",
-                x = 64,
-                y = 8,
+                shape = "point",
+                x = 52,
+                y = 24,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5953,9 +5966,9 @@ return {
                 id = 14,
                 name = "focuswingman3",
                 type = "",
-                shape = "ellipse",
-                x = 16,
-                y = -24,
+                shape = "point",
+                x = 0,
+                y = 12,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -5966,9 +5979,9 @@ return {
                 id = 15,
                 name = "focuswingman4",
                 type = "",
-                shape = "ellipse",
-                x = 48,
-                y = -24,
+                shape = "point",
+                x = 64,
+                y = 12,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -6282,7 +6295,7 @@ return {
     },
     {
       name = "explosion_giant",
-      firstgid = 1506,
+      firstgid = 1512,
       filename = "img/explosion_giant.tsx",
       tilewidth = 256,
       tileheight = 256,
@@ -6379,7 +6392,7 @@ return {
     },
     {
       name = "Pikeman",
-      firstgid = 1522,
+      firstgid = 1528,
       filename = "img/human/enemy/Pikeman.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -6661,7 +6674,7 @@ return {
     },
     {
       name = "PikemanF",
-      firstgid = 1546,
+      firstgid = 1552,
       filename = "img/human/enemy/PikemanF.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -6943,7 +6956,7 @@ return {
     },
     {
       name = "kappa",
-      firstgid = 1570,
+      firstgid = 1576,
       filename = "img/friend/kappa.tsx",
       tilewidth = 32,
       tileheight = 32,
@@ -7071,7 +7084,7 @@ return {
     },
     {
       name = "well_with_grate",
-      firstgid = 1582,
+      firstgid = 1588,
       filename = "img/well_with_grate.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -7112,7 +7125,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "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"
+      data = "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"
     },
     {
       type = "tilelayer",
@@ -7129,7 +7142,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "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"
+      data = "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"
     },
     {
       type = "tilelayer",
@@ -7146,7 +7159,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "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"
+      data = "eAHt28uSHUcRBmBhMDvChHbcvBsbe4fA2sluzU6yYSfZ8CDAUxDseQA9AC9Ifkfnn0jVVPc53VIEClBFpKq7Ln/l5c+snlHMswcPHrwseVyyt31SG74t+arkWcmrkp+X7G1/qA2PSr4rCc7v94LUevrA+b6ELi9Kjujzu9oHh110OmoXffiWTXTiq5+V7G1wnpfAYhPdjsTr4Xmv/bDIUf/Qg39gsO+IXfSBQR++YWP0uannL0o+K/llyZclxn5TYowY02KXOPEz+UWJfb8qoaM4/lCCV+LrLGfS/dcl1n5akniH1+wMn35Szx+XfF3yTcmTkqdn+Wn11tlPPDvDHmvsy9rbel5rMPtae35csrVnDWsch/2hbXsgXNtedXkWr3EQX8Pjzze2/bbmnD2uwavwGo/x8nHJWlMrZvm41Dhe4ZJ5mFs5K6dwWG6MOt3UmLxi4yUcuSaH5F5yux5PzRybzP+oRE6ttaUm6M7+fjfwW/L2EkYtPTXnjvqkhsjdLf++Rnj9L1+P+rjL+C215vXK7X+D0+Ox1JbEao8+9O/+cXJsm8XSfG9iy5/iOp6rfuCjmI1zNfRGi4/5YbaWn+B0m98AOL/En+rojB/BGbk1YvGxuMjJkc/Wmr9GH+v4JvmdO6iGTvdT8mJmszVpfCm+dBrzVbzkBG5d8k8tOd1DsB619eoOXdxB8uLa+0PcnJs7Ufwi1+hSy08tnHY++wibyCXf1JK7Jr7s4m+9u5eoZZ0P6sAXZ/FtwP4e56Xe7fmoxP61xvd/Lflbyb9L/l5yiVu15F6j9z9K/nWWf1Y/5mUN3TU8om/X2eRSQu81u2vq1LIvdvPxtTE/Q5x4xKfOelWCA/Tqfq7Xiw23xUMcXpbI3aNNPMKbI3HIueLBJjyKXZm7pl9qUa+NcHB6r058Qxd5Ic9wWn5dU5tr2V1b6gkO/0YXON735GktP90PdCF8rRezvfxJ7aBPvoH36sLH6hY92EIX/V7/4I3aShe972h5RPbYtdT6j8777H3fmpp39Js1NVPNwEf5sZfP+f7CPb4OB92zasc1LRjiZL+cSOz36IR/eBdb4HmOXo/r+Zrm7oo99sKMXTCvxcHB2BI8+8keu5Zan/v9RT2rO/wDm257ckz98Q0Hw34Sf11rV205Nf7u+rCJbVv33Gnj8A8c9hD7U4eO4NAh8eJzeHvtWmpP/B196LYXp7Y8WEryzQxrz7dYLX+jiZ1YvQ1GANW0PXUw+/7feveR+uhbRp3V513tzXjqsP7zkrG5q+VK+ISbclA88dWc3pje+Cyv4XR+W4/z7ms8M4er8jp5NMN5WPPOIPbiOx3Uf/kYrhq35quSWT4uNY5L4ROOumt9M3r2Lel5KbEm7/X4oX3wwP+cB9QG+Z+6kZox1gXfPKkjevJlSb7JbqvIy1u5uNTz07MY7/fQbF6eqhP2/akEjm+a7+r5j2fJeA2fmnowzsPJeNaf6s8GDn1mOBmHQ//gdn26XWv6ZvwvhUO/vHecXu9m82qc838oDN/06tNsXceJ/uM5T2qvupY280+vmzOcPu8+wR849PvzWdjb/QNnNh/e4Qlc+rExvz9Ina6hU1vq36cl5s15vi3hn/CHv+DiMp7mDuz3XOatwXVr8Dl+7fwZ+dz9nHM7383Hr3Dok/ceD+Nps3k48T9/Wh/9Os7o55HP9oU/8ecMp8d1pg8c8eHztOi3po9zR336OeLD70dxxFHs8IcfZnqP8Rr1sS9xFC/6zfS5FC848WtwvI+87ziJS88b58dv4SG/h+/Jjf57rqXmxcWcPnGOHcnH+IvP8J7/x7zoc57NR0/YzuXnMS+6Xewe58VhKfm4JC36df70eM3i2fmee2qGM+ozi3v8gT/Wz867pE/2pf5YHx50uzrvE98+Hxx6dv6Mene7Zjjhc3DoM/NP9+Ns3r7ghz/hwcjXWnpqM747h1/lAV7m+xoPCE7pb0vSlnroNT7zxmG8b63n0k0p593dkvtFjTMunyKpfb6hjFn7dfnomxK+n+VYYjvmVmrGk9oL43nJt2ecxHDk2izm4eCzM0ZwjK9xejZOT/gznJk+WT9yPbkUnJel1/clazV6bTwcfFF7YTwt3fALF2f6bOWMWoyPeCjOqZEz7ieO4x1An/AED3rc4cN2Bj31csM4nb0Ta4zjyRj3XiNq+qpG//g5cefPm5Lwk6542r/9jYXTuctHnPBn5K1xPBnH4//gJO7BGXmyNk5//knc4z9x3+L/DH+pPYlLz/cZf8K3GU5+ZoKRuEfPcX34M45bL16zuG/l44jDb/wTPyfu9J/xeWt8hgN/KQmP+S95h88ZTx8+R5/EPfmCZ/E93vk2wc/UWn3Px8QdPkncR77Rc8ZD49GT7vCdG56v+XMcF0dxj56Je3g+rmfvjJ/hw7VxX+MVfLyNn3vcZ3x27mwczizuxtd4OBunJ3ujT+LO/zMehv9jXbV+zPfONzHEAz25LRFfa8JB43hiPHW2Ht+rhoME13FRy3eEsczLFZzLN75cyVjqT7jIdxp/9/wYf7a1ho/DQfvxp3Moazqvx++PrEnMgxEcnNNGvnQcPNM6d0acrBn5O8NxVtcHDzsXnXUNjjWpPfY/rfd+9wSn87d/U0fnpe2DMWtLDYa/OQeHcRe/Zy3cSa2crZmN4U/4NfInOs/2jWNb/EncUy+dQ8Lpzvmx9iT2vn3VCE0s1vgcnbf4E3224p41I07nT86i81peRGdrZvwR18R0Ky+iz5NajxORerzXtnBSE8ZNucc6f+Cs8Tn6pP6IJQy1I/Una+iMz2wleEyMqcsaP6/Vn/jwtPDCP1v8iT54SF+20jl81Kf2buEk7vyzl4edP7Friz+J18if1Ad9+LOFE9vDn8Shtt9r1+CMm1JD+JNv3U9bOGxP7eH38C/8CYdy/6/x0PzIHXtTN3L3iBnb2R3fySHv5LZkzPWOEZzErJavNrzod84MRzxyv6cW8gE/JgfVpxEn/NH7uZn9Wzx0jvlee+xlc+yXi7F/rY7x31JiX8R+sU78PMufrbpKX3HPvtg7xp3eWzj0wa9eM2ZxFy/2r9llfubnHrPcPc5b42H0GeM1w1kKh+8I3xM+9Z6fZ0acMe7J59qy2ug7xt0ZiV/iPruXk8/iuZRYa6/cIeFs1sl3+bNWD/k559izlu/sgrMWr/D9UtwTjzUc+lyT78mfNRznXIMTnq3h5JxLcU+9W+Nh/DfGvfNM/PFsKfEsnplPnG9rTL3Me2JfQ++kiX84pBaEE7l/+yE39RK+WJu99vS6kWe/b+WnsYnTyJvs6Xma5/y+dYYzxil7Zn3qx4hz6Z4YseDM7DqCgydj26qDvf7k2f2zhjPyL3s63/DOO47h29jwD+/MW+c59QcHwhl97qA1/liDO1kXHiX+vV/jDz//t/gzi7v6/i54uBX3kYPej/Aw8e/9Gn9m91b2dQ7gRSQ/R9TQXcOf8Cb70oczvQZ5zu9V7kDqYfx5IVzSd97kOf/fA+OmJJhvwx8xCgeO5Hv28m1y9gh/spcO7j7t0v03cqjXVTq4G7UtnMS/9/n+tbfj8NVa/cEXHOi88J760/2z1Lh6k/X2ZL/Yk9xFuNP50/XBAXPhTWrPFn/ik64Pu/bWn8RILnQb99aNxL1g7hrd9uKEh3cg9XAEZ6bPVh3rvMnzWv3B7TX+9DsLF8Kj+Lbbxee4Y10k9xcOzDixdn9Znz0451mfmtN79SdxryV37cj3zyxeR+rPLF5H4j6z64g+ya8759TDEf7M/MOuNf6EM+GB915/uj5LvYRf2efdc+pOuKCW4NOMP+4vc9ZaFzHWeZPnd/n9M4vXVp0f74qj3xt7cI7oM+PzEf7McLb4k/so/El9mdWfRXxLrEkfvtXQe9XyjfQ2St3UZn/3tZYHl7CTJ5/WQn+L8KxkVicu4eBB/s4CDtmLw5b8/TQsujzaiRMMf+vh7zLsh/WqZO3v0GvqXlNf/S0H6TjPz2MzDtfUvcYvL0vYEix/12GMjtf6SL7yqX1sCibdro2ZWIszf7DD+dEFtvdZba/hNxrf8Cdhk316egXnmr/3ZZPz6RJ92AWL5IxLPuJjZ8fH2Q874/S6FH84sYU+2c/HfBafw9zyU2IV/eMnesGnC7xrcKyxR0/iH8/dzi0fqa3scaaz+/mxUU+2cMSdL+IHehH2waSPnm6PS9Ya/1iT/fbAJcbomvlLfmYTsYce9sPxTtiEF1v5Sh974h/rvadnL30u4TysNTnXevrY8x8IZ9PZ"
     },
     {
       type = "tilelayer",
@@ -7163,7 +7176,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt3N8OgiAUx3F9dNEeoO7qaZMtFmNIyvktib6fzZsmRw7/wgscBrtptMdYBDG8WRTHjbo6qVna25dV9JfnBHF8DEWflfrqMr6v0m+5uu2570hM/IdW1w6l3nJUrYst6jm3M5T++85q697mY0qx30BZa/veuC6q/WZtflNUVjXHLXvfULa1eWGtT658bTu11jY9U717q+IEtWPACd6V47XGmleah3Wd9vVhfmxjz4xf1coaCgAAAAAAAAAAAAAAAAAAAAAA8E3WMxCqMxn+XNJ1vW6CePc1xsP4PRkV5RmTmrNxqufn+nkxniVcNr6Tc6TOpTGzJ064Jx0zoa0tY3J+tY9/hnVMpnE/icdKLoeasZTmcOZ8jfv2Cf+uOA0="
+      data = "eAHtm0FuAyEMRZOjt0kP0O7a0wYvLFHLoBm+pYzQQxpNYeyP/QykG243vX3cdY1ngYZF8SjS+Ww6VTHpdP4rKLzNV/HvIzFGajONiprNavXV5vDH4/W+vUfNYjti5/5nbN2H954EZutxl4x3y7HqXLxifXfO7R28Z79972K9236MdZ0xj7b01wgY4yutoz6Wivor+dm+9niq9rjyv6/7VnBZWy25lxpP5u+55jOORzOtsTVfFAKrNYpzVum47uoaMD91n/t5YbGoecU8em3P9czb4omaZ/x3t1Vrvzsf8rsuAfWsiZlxTkQi9CEAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACELgiAfUORNWdDLuX9N2en/ao7bdp/Ak6lXekVL49i5W7cVXzZ3W2eBRW5p/pnol5tmaO6LhNXDPOeqbf1yb723IzPjZH1M/sj45lzKKvx2/jWQ799+g76sccMt2R72w86s5s/ZvXzfov/644DQ=="
     },
     {
       type = "tilelayer",
@@ -7180,7 +7193,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztmIFy2jAMhnvn93+6lnYHND26rSWB7RnGzvjQNEv6FbuwZvrudIHU/iw5SXF8dxcEQRAEQRAEQRAEQRAEQRAEQRDcgveUQ+J7yoF4fnbyaPkcb5CP5vmdz7FTPqjHul6IZ6nsUw6JHymHxc7wvKUciGfXydMjn33HfHp4rOt17bqWymvKIfE15UA845U8E+AZDc/UKZ8JzMeaZ9QzAtcL8QQfw6Ey99I1k85/Szk40j0knZc80rPh9UjPhuapIc2D9cyg7a1nuAfI/xLE0ePZ7emp1SX9Nku/tVIu0lrBWkP8S57a/aZ5avMmPY+9PF6s3xiUHg4N6X67xnWvzb/X472+0nltHrx59ho3uA7ae33Zy9D2Io6kjbTvUTza3gjaho4n5XPsNJa1j0Md/+veCLrfpfW3rpcnD+0+LOvQQ5LXksi9UTzSupZ6NA4kn9q6H4XW1Oqx6upNa8695vAA3BsIyByWvQNtDwGZF+ppWa+XdXrruh+py5uP5ZnAdto4U2P9fP5a8uHXtKUuq29Z73vfkzmv6c9o8dCc0LYcq66R5avtr2j58Lrn7hPQMcYGT0sOt6TsByDvXbtkv7chf98n+/3Geu+iYXmQcax21r5JvDfZvJzm6AsLC97+hQQ9h3j4+NyB5MP71BzeuiQHmg/PY6kMp9qeWFjw9gM5DuT7nLGfmAv1SK7BURfPf2jweOf0s/KY/g6L53SJWv/H89+QsZ9Zn9rR66nlgtYlObx18ZyWyirl2J5jBdRa+tC+9LhyeLZK/3LOotaP+xCPlM+WBerxjP1ZeUiX2JyPFhvWnn7eODx07FoU11zPhn1HPbwfr3eOZ6msT7Xdk1gDta7TJe4r/ctnC9pnXfns9dTyoL45nprXUxfaJwiCIAiWzC/QuHYd"
+      data = "eAHtmImKHDEMRAfy/1+Xk5zkvvMNccE+EEKy3D0mm2ElEGrLpZJcPbPbPZdLWyvQCrQCrUAr0Aq0Aq1AK9AKtAKtQCvQCrQCrUAr0Aq0Aq1AK9AKtAKtwH0o8PXR5SLP7PPYk1cmjj8T3BGe2Ty/7mGe2bk0j7yyFX1WeWb6SOcVnmreW93/Ns4vz+z32JNX9r7g+TL25ZWJR57ZEZ7ZuVZ5xLFrnh081f361+fK7tOt5z+M+y7P7OPYk1cmju8T3E6eH5M+zKlZZvOIY8e5xLMyT6XzKo/OVN2vlXnQqeNeBX6O++Mtu2dZ/tPgkHvLPkNZPuNRX7m3ozzCH+XxPbXOdMjmiTiUy/DZnBnPmfzK35KKVxw7vrs7eaJzZf+bs2eI7EzZM1CWz/TL8Fl+J48+W96yvspLI2/Z93EXj+9XrbPvY1Xn9yNtPOaadfZ5y3TLemX4LC+e6D5m+DP5jD/Kz3SI8LN5MnyUn/XNtO78XgVm7/X8tjL7LUJ7cChGBg/xGoztF/Ew645e2XnoSw9F9X2IhgZnz452O3gsVzQPz7N6xo6ej1XDHMQZD3wRZlYPnjkUo+d+cFXUHJarwmf7nIeY4Xbmmf0spz33NRpaHs101tCOGPHoeZZn7Oj5WDUrulie7Bk56u9zmgG/hsfOk53L947WzEKMMOToeaYf/JbjzPnhUbRczLgabb144FqtB2fnIRdF3huy996oJspRT4wwKznV25lmNRbrcZZDOG+8nzAv6whnufw+9TYKf9RsD2Y5w8McZ2qPzrwTr/cA3gX0bjEz7YP1ON5LVvbBKHqDh1jtM9MMt9Kn4hFHxKNcNquf6aGv3w2tXjivNPF4ceDsaV2ZsL6/XXNd8YCDz6+ZqeIBBw9ry6dcZcLjcFQ1t7r/dpz1ufPqLB4PhyIuTGXUeT6tj/JkXDa/Mo/ta2vt9QqPP1NVc6v7z8a98l6d5c2owX0ta+1XJqxwtsbm2DvKAx9xlQccdVEUpjLqLF9Vc6v7T4ce8td3ruvKqCGqFg5yipVRk9WzX/FQb3tTS06YyqiBz0Zd46s8R3pXnP/r/pOhC/7q7rqaFRxR9Vwrcl3x0DeLcJ3lYQ74V3l8HWviGZ6q5lb3X477/di41pUJg9taXVu+ioday2Wv2V/lAW/nsHxneCwnvKs8aKHY1gq0Aq1AK9AKPGQF/gLQuHYd"
     },
     {
       type = "tilelayer",
@@ -7197,7 +7210,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt1z9Lw0AYx/F4QUQ6qYNIJ/UlqLNWwUUFrXMH9ZWIr0B8NY7VwcGpOjg4qW/EO3JHzofkkjtQEvl+4EdD+uShvT9pmmXos735LNtuiKmps+XVmBx6x1XnTO1ORb9dUTexr6c2/jnXc1TTx9Qdi7g+8vykps+Rff8k8N1TaoG/tJ//zEHefM2crlEiY5HzFn2WdM2yyKXIVYs+67pmQ6RrHlSRRxV33UjMz4sq8hrZ50zMz6cq8hXZ50LMT9fErmWjaT23WctG03pus5aNPqxnN055wmebqnI/uHFaSegzU+V+cOO0mdDnQ5X7Af0y0PO9aOf8JmLur23tQl70GOqs2XN3EX1ube2q7eHv85Q+7v76H7gxftL76tlmkMfPmRubN339u80wYc7kGFfdm2PmDED3yWfomGdDn3yGjnk29IXuP0Cqqfc725TQ/9CZ/Y29z4uEjkP/Q906d/WhY9Y/AAAAAAAAAAAAAAAAAAAAAAAAAPyubx3UYCs="
+      data = "eAHtl7FKQzEUhmNFRJzUQcRJfQp1aou6uLQFd+uTiE8gPo2jOjg4qYODk/oi/gdyIATbm1ykWvgO/OQmPflv8+Wk9zYEYp4JHC+FcNAgy5kU+3Gu5ZhOY+v9fMzudSjlcZTNvYg+Z2pN5uNj7nmisTzMx/KGmdwnH7fcn3wGcf5IbVPU5DZ58TkEfpNAbzGEVH31m2JBOZ1MQ/VTjQp81pSznmmsfqqLAp8d5exmalrDrD+/74RgepBqoqt19RK9aL7ptdJnII90fz413/RV6XMun3R/atYyi9yUVUkt23dqqueSWjafpnouqWXzmYd67qgOTItSbdyp5vw8+PnfaOHzLB8/D7uab9pr4fMhHz8PtWsh/28JrGq/V+KeX1Xs/WXMXVZrHtvSVhy7iW3Jyq5j7qZa8xhLfs7b+Pjva8m9/3uOM37U+XqKMta1e+aM3+TxHmWsa/fMfZyx7ZWrzZ79d/58PwhAIISuznkvU1/92hhoTvoObdel74bpvab9/qR5XEOghoC9V/tztqmd9j/U3qvtOXur+jZNu572P9Tr3H3sWTvp2p+/NeslFwIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEygl8Ay44YYc="
     },
     {
       type = "tilelayer",
@@ -7214,7 +7227,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzLEKwjAUBdAu74ukCC6lOHSri+662/9fTUiGN6h0cpBz4JFw83KHgX9wiX3Zp79j3z2V81pm7XOLllWH+N5Z9+b+vpTznnYf0bJqSp3vLKmnepb7sc+W8il17nWONgAAAAAAAAAAAAAAAAAAAAAAAL/yAoFXCRI="
+      data = "eAHt0LEKwkAMBuBbfCgRwUXEwU0X3e2u7w/mx7tBKro5yBdIc01zgX6tiX8QOC3mf/GuN59qLXOrfn9T9Vx57Hmpml5iWfXTzszt+uyh6rWfc3eqc3qJbdWx89l5fWZu7MmXW72ve96rjsiesXP0vtV93UkKAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgMCvBB4/mwnG"
     },
     {
       type = "tilelayer",
@@ -7231,7 +7244,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzLcRgEAUQ8EfXTmYBJNg+m8K1cBFMLszL5SqAADgm4ZWNaYpze39z5Ltmra0d/wc2Z7pSnfHDwAAAAAAAAAAAAAAAAAAAPAvDy1NAuM="
+      data = "eAHt0LkNgEAMRUFHVMSRcCQc/XfEr2E3AWksvdCWPFWGAAECBAgQIECAwD8FxqFqSnNaUuus2d3Sno6OO2d2r3Snp+NO6x/2CBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAgW8KvGqLAys="
     },
     {
       type = "tilelayer",
@@ -7248,7 +7261,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt0DEKgDAMBdAMuf/9bNWzmK1jLTgUeQ8+hJ9MiQAAAAAAgH31jDgrV+XO0R81t3y//7PZL1bvAAAAAAAAAAAAAAAAgG89XzgWtA=="
+      data = "eAHt0DkOwDAIBEAK//+LOR+SbajtIkUUDdIKS0DhqVIECBAgQIAAAQIECBAgQIAAAQIECBAgQOC7AseoOpMruZOuLe89WZ333R/7zKL/vLrX+zoBAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAu8IPF/AF1A="
     },
     {
       type = "objectgroup",
@@ -7277,7 +7290,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt0DkKwDAMBEAV/v/TcpDzOVGXQArbnYsZWBDsVooAAAAAAIDXXCKWzFr+3VTa+yNzZq7M/dluee8d/ahqv2jZ1X7RuwMAAAAAAAAAAAAAAADG9AA1vCT3"
+      data = "eAHt0DsKxDAMBUAXuf/pNgm7+ZwlrxGBLWKXKUbwsLFkY6Y1RYAAAQIECBAgQIAAAQIECBAgQIAAAQIEboF5am1J1uS/Pjkb7W+Z3ZMjOZOqb/a/ZLRf99629izqv09zPYt6Y3Su5q0ECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECLxL4ALItiX/"
     },
     {
       type = "tilelayer",
@@ -7294,7 +7307,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzLcRgEAUQ8EfXUGYBJNg+m8J1cBFMLszL5SqAADgm4ZWNaYpze39z5Ltmra0d/wc2Z7pSnfHDwAAAAAAAAAAAAAAAAAAAPAvD1YhAxM="
+      data = "eAHt0LkNgEAMRUFH1MSRcCQc/ffDr2E3AWksvdCWPFWGAAECBAgQIECAwD8FxqFqSnNaUuus2d3Sno6OO2d2r3Snp+NO6x/2CBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAgW8KvJNfA1s="
     },
     {
       type = "tilelayer",
@@ -7311,7 +7324,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztyqERACAMALHesf9STABMhGkdaBCJefMRAAAAAAAAAAAAAAAAAAAAAAC81Nu5Izuz6/JVAfjTBlx8Bxs="
+      data = "eAHt0DEKACAIBdCg+1+qE1QnasiWwNnluXwQRXytKQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBCoFBj9Xv9zRn9F7mTu7VX+4DYBAgQI5AIHXHwHGw=="
     },
     {
       type = "tilelayer",
@@ -7328,7 +7341,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt1tsuQ0EUBuBtJw2eRF06xOGa8ACUB6hyWS2ibhyu8ATa5yE8AOEBnB7A6dY/aSdWV/e0M7VV1P8lfyLp6krNrJm9o6gun4miI6SQqf+9jxyoHIrPba32X/qUkS2Vbc8+O43PisimI6VMc61WFHWdhNQS/UWV+Ct7yBQyHbvrzwei6AIZRM2QSFWkhiwgi236XKPHDTKCmqxITmUFWW3T5x49HpBHlULcnHVko02fF3znFXlTSYvv+koTqJtEdsUe+a6vNIe6eeRM7JHv+kpLqFtW++O7vlIedWtqf9ISMstGp3n2XWufefZZa5959lnrn55ns0bDyCV6XgX01TNt1mgUuUWPu4A+eqbtOj0hzwF99EzbdXpHPgL66Jmm3rDnNWQW7ZmX5z3bxSzaMy/PuzyzvrOYdOblmfWdxaQz/1uSnl0Vdcf67FnSs6uq7lifPUt6duXi1nu2054lPbsKces9G3p/UG918z5myLk23y8jp4HvY4ad6+PG909S6pPW7yn16f/13T7mHqrF3b2HG657KOQ93HDdQyHv4dQ/xrDn4wH7PoPa2YR6O+e+XPPvmnNXXPPvmnNXOP9ERERERERERERERERERERERERERERERERERP/LJ3LC2Zo="
+      data = "eAHtllsuBEEUhptEjJXg0SUuz4QFuC3ALeKJhJnhFcMKsB7CAggLcFuA26v/RJ/JSWVKn55uiYy/kj9VPVPn9MxX/6mqJPluGz1J0oA2IRkfQIeBjvCs3+vcNLzZ/Zc8NbCoB9pz8tlP5+2g342ois+Fpc5tAk4HGivzslqeuVm5+D0J/EUCte4kUdUxHoPGoVi76EqSS6gXcypGZxirzjGegWahWLtBjluoH3MGjBYwtlrE8xIUaw/I8Qg9BVpFjNUantd/yPOK+DfoPVDsvXk/F8YevjbvCGJGoSqkaySMPXxtninETEOnkK6RMs7ia/PMIX4e0ljplXEWX5tnGXErJlZylNWUk5d1lp+9rD1+9rD2+NnD+rf9LLXfB12hXq4hbws9LbU/CN0hx32OPKGntf6fkeMlR57Q01r/H8jxmSNP6GkvD84rRkDPoDxe1JrXWOnFh6I8XtSa11jp1YfSe73YqubVh9J7vdiq5ovRbT86rHPdlytgpPKsWVjnen5Z5p41C+tczzC7Xp41C+tczz+7XnnWrH3CjCxCQPzovSPY91hfS/w2dAJl3XdtDhmrrxtp/HFJecr6PVsl/Z6/9r+K8pE7tNwJZR/y3g3t2sf2Ic/d0OaJ7UOeu6HNw3FnEBiCH4chb5vA3MkW83Vf8uaJ7Xsxn+u5G/Yx/8d8rudu2NP/3pXjPBIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARIgARLoDAJfw2zbtg=="
     },
     {
       type = "objectgroup",
@@ -7534,7 +7547,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 1349,
+          gid = 1355,
           visible = true,
           properties = {}
         },
@@ -7548,7 +7561,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 1337,
+          gid = 1343,
           visible = true,
           properties = {}
         },
@@ -7562,7 +7575,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 1337,
+          gid = 1343,
           visible = true,
           properties = {}
         },
@@ -7576,7 +7589,7 @@ return {
           width = 16,
           height = 16,
           rotation = 0,
-          gid = 1349,
+          gid = 1355,
           visible = true,
           properties = {}
         }
@@ -7672,7 +7685,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1286,
+          gid = 1292,
           visible = true,
           properties = {
             ["initiallayer"] = "ground"
@@ -7688,7 +7701,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1286,
+          gid = 1292,
           visible = true,
           properties = {
             ["initiallayer"] = "ground"
@@ -7812,7 +7825,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1286,
+          gid = 1292,
           visible = true,
           properties = {
             ["initiallayer"] = "ground"
@@ -7866,7 +7879,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1286,
+          gid = 1292,
           visible = true,
           properties = {
             ["initiallayer"] = "ground"
@@ -8143,7 +8156,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 1466,
+          gid = 1472,
           visible = true,
           properties = {}
         },
@@ -8157,7 +8170,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 1469,
+          gid = 1475,
           visible = true,
           properties = {}
         },
@@ -8256,7 +8269,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 1168,
+          gid = 1174,
           visible = true,
           properties = {}
         },
@@ -8270,7 +8283,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 2147484816,
+          gid = 2147484822,
           visible = true,
           properties = {}
         },
@@ -8312,7 +8325,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1433,
+          gid = 1439,
           visible = true,
           properties = {
             ["pathid"] = "boss_path",
@@ -8329,7 +8342,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1463,
+          gid = 1469,
           visible = true,
           properties = {}
         },
@@ -8357,7 +8370,7 @@ return {
       type = "objectgroup",
       id = 208,
       name = "bosstalk1",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -8386,7 +8399,7 @@ return {
           type = "Polygon",
           shape = "polygon",
           x = 64,
-          y = 88,
+          y = 104,
           width = 0,
           height = 0,
           rotation = 0,
@@ -8415,12 +8428,12 @@ return {
           type = "",
           shape = "text",
           x = 56,
-          y = 96,
+          y = 112,
           width = 176,
           height = 88,
           rotation = 0,
           visible = true,
-          text = "Guess I'll be needing a new hunting party...\nBut that bounty on your head will buy a hunting army.",
+          text = "Guess I'll be needing a new hunting party...\nBut that bounty on your head will buy a whole army.",
           fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
@@ -8432,7 +8445,7 @@ return {
       type = "objectgroup",
       id = 212,
       name = "Copy of bosstalk1",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -8461,7 +8474,7 @@ return {
           type = "Polygon",
           shape = "polygon",
           x = 64,
-          y = 88,
+          y = 104,
           width = 0,
           height = 0,
           rotation = 0,
@@ -8490,7 +8503,7 @@ return {
           type = "",
           shape = "text",
           x = 56,
-          y = 96,
+          y = 112,
           width = 176,
           height = 88,
           rotation = 0,
@@ -8507,7 +8520,7 @@ return {
       type = "objectgroup",
       id = 214,
       name = "Copy of Copy of bosstalk1",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -8536,7 +8549,7 @@ return {
           type = "Polygon",
           shape = "polygon",
           x = 64,
-          y = 88,
+          y = 104,
           width = 0,
           height = 0,
           rotation = 0,
@@ -8565,12 +8578,12 @@ return {
           type = "",
           shape = "text",
           x = 56,
-          y = 96,
+          y = 112,
           width = 176,
           height = 88,
           rotation = 0,
           visible = true,
-          text = "We could have been friends.\nWe had so many nice things we could have shared with you!",
+          text = "We could have been your friends.\nWe had so much to share with you!",
           fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
@@ -8582,7 +8595,7 @@ return {
       type = "objectgroup",
       id = 211,
       name = "Copy of bosstalk1",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -8611,7 +8624,7 @@ return {
           type = "Polygon",
           shape = "polygon",
           x = 64,
-          y = 88,
+          y = 104,
           width = 0,
           height = 0,
           rotation = 0,
@@ -8640,12 +8653,12 @@ return {
           type = "",
           shape = "text",
           x = 56,
-          y = 96,
+          y = 112,
           width = 176,
           height = 88,
           rotation = 0,
           visible = true,
-          text = "Charity from a monster?\n\nGod forbid a man sink so low!",
+          text = "Charity from a monster!\n\nGod forbid a man sink so low!",
           fontfamily = "Unifont",
           wrap = true,
           color = { 255, 255, 255 },
@@ -8657,7 +8670,7 @@ return {
       type = "objectgroup",
       id = 210,
       name = "Copy of bosstalk1",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -8686,7 +8699,7 @@ return {
           type = "Polygon",
           shape = "polygon",
           x = 64,
-          y = 88,
+          y = 104,
           width = 0,
           height = 0,
           rotation = 0,
@@ -8715,7 +8728,7 @@ return {
           type = "",
           shape = "text",
           x = 56,
-          y = 96,
+          y = 112,
           width = 176,
           height = 88,
           rotation = 0,
@@ -8871,7 +8884,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1475,
+          gid = 1481,
           visible = true,
           properties = {}
         },
@@ -8885,7 +8898,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1475,
+          gid = 1481,
           visible = true,
           properties = {}
         },
@@ -8899,7 +8912,7 @@ return {
           width = 48,
           height = 80,
           rotation = 0,
-          gid = 1472,
+          gid = 1478,
           visible = true,
           properties = {}
         },
@@ -8913,7 +8926,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1475,
+          gid = 1481,
           visible = true,
           properties = {}
         },
@@ -8927,7 +8940,7 @@ return {
           width = 48,
           height = 80,
           rotation = 0,
-          gid = 1472,
+          gid = 1478,
           visible = true,
           properties = {}
         },
@@ -8941,7 +8954,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1475,
+          gid = 1481,
           visible = true,
           properties = {}
         },
@@ -8955,7 +8968,7 @@ return {
           width = 48,
           height = 80,
           rotation = 0,
-          gid = 1472,
+          gid = 1478,
           visible = true,
           properties = {}
         },
@@ -8969,7 +8982,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1475,
+          gid = 1481,
           visible = true,
           properties = {}
         },
@@ -8983,7 +8996,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1475,
+          gid = 1481,
           visible = true,
           properties = {}
         },
@@ -8997,7 +9010,7 @@ return {
           width = 48,
           height = 80,
           rotation = 0,
-          gid = 1472,
+          gid = 1478,
           visible = true,
           properties = {}
         },
@@ -9481,7 +9494,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9497,7 +9510,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9513,7 +9526,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9529,7 +9542,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9545,7 +9558,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9561,7 +9574,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9577,7 +9590,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9593,7 +9606,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9609,7 +9622,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9625,7 +9638,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9677,7 +9690,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9693,7 +9706,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9709,7 +9722,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1552,
+          gid = 1558,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9725,7 +9738,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9741,7 +9754,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9757,7 +9770,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9773,7 +9786,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9789,7 +9802,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1552,
+          gid = 1558,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9805,7 +9818,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9821,7 +9834,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1528,
+          gid = 1534,
           visible = true,
           properties = {
             ["pathmode"] = "relative"
@@ -9850,7 +9863,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1570,
+          gid = 1576,
           visible = true,
           properties = {
             ["rideshield"] = true
@@ -9912,7 +9925,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1570,
+          gid = 1576,
           visible = true,
           properties = {
             ["rideshield"] = true
@@ -9941,7 +9954,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1289,
+          gid = 1295,
           visible = true,
           properties = {}
         },
@@ -9955,7 +9968,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1289,
+          gid = 1295,
           visible = true,
           properties = {}
         },
@@ -9997,7 +10010,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1289,
+          gid = 1295,
           visible = true,
           properties = {}
         },
@@ -10026,7 +10039,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1289,
+          gid = 1295,
           visible = true,
           properties = {}
         }
@@ -10237,7 +10250,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzLEJgEAMBdCg+y/hBndi4TpOch5aBKt0Nu/BJ/BJEgEAAAAAUHctEdv6zJxp9hXt3usp55vc7YVf/XNzpOQeAAAAAAAAAAAAAAAAAP40ACjwE/o="
+      data = "eAHt0DEOgDAIAECi//+EP1DTwe/4EmFjaxe3IyGlQBguQhAgQIAAAQIECBAgQIAAAQIECBAgQGBd4N0ijj2i3p51oforcebe1fLJurL37vzPou9XPVr22eyOOQECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQ+FPgAyjwE/o="
     },
     {
       type = "objectgroup",
@@ -10313,7 +10326,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1196,
+          gid = 1202,
           visible = true,
           properties = {
             ["rideid"] = 136
@@ -10329,7 +10342,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1274,
+          gid = 1280,
           visible = true,
           properties = {
             ["rideid"] = 136
@@ -10358,7 +10371,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1250,
+          gid = 1256,
           visible = true,
           properties = {
             ["rideid"] = 136
@@ -10374,7 +10387,7 @@ return {
           width = 24,
           height = 32,
           rotation = 0,
-          gid = 1262,
+          gid = 1268,
           visible = true,
           properties = {
             ["rideid"] = 136
@@ -10414,7 +10427,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztykEKABAARFHlpm4kN3BSFqRsWLF5r2Yx9UMAAAAAAHgrx3NTLprUmzq6Gtem/QMAAAAAAAAAAAAAAADADw0QigVu"
+      data = "eAHt0EEKABAQBVDlpm4kN3BSlNnYsLJ6Sr+ZftRLySFAgAABAgQIECBAgAABAgQIECBAgMBfgZrv/7WHTpmdvnsr48br5xx7SYAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIEfgoMEIoFbg=="
     },
     {
       type = "tilelayer",
@@ -10431,7 +10444,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztzsEJgEAMBMBgOrUftZLT3qxAxfPvoSDCDOxzN4kAAAAAAP5i7c68sfFk6+gNGTHWTNm+dd0ve3euWbLtrz7vBQAAAAAAAAAAAAAAAAC+tAG56hRr"
+      data = "eAHt0MENgCAMBdBGN3UfdRJ0NycQErgjejF5TX56oQVehCJAgAABAgQIECBAgAABAgQIECBA4C8C1xRR8qbajtZHdpXZdY7Yavbcn76r3Z/y7FFz1j29u5Z8vicjfzRDgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgS+ErgBueoUaw=="
     },
     {
       type = "tilelayer",
@@ -10448,7 +10461,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzt0TEKgDAQRcGQ64kXUPQAit6/NE0giEZi2hn43fKaDQEAAAAAeDPEEMbY35jTlo5Wbuxpx89W2chaW0+N1tZUadxba+Vm+2iUrbPzhwAAAAAAAAAAAAAAAADQ4wIECQyd"
+      data = "eAHt0LEJgDAQQNHgeuICig6g6P6lSXFgYRQVu3cQ0hyf5KVkCBAgQIAAAQIECBAgQIAAAQIECBCoCbRNSl0+X6Y0hnzGD61oLLmxvmwdG/Gfp62zxtNWn99fPMpfahPvmi525ptGtEtru+jEnpsAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECPwlsAMECQyd"
     },
     {
       type = "objectgroup",
@@ -10471,7 +10484,7 @@ return {
           width = 256,
           height = 256,
           rotation = 0,
-          gid = 1506,
+          gid = 1512,
           visible = true,
           properties = {}
         },
@@ -10915,7 +10928,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 1169,
+          gid = 1175,
           visible = true,
           properties = {}
         },
@@ -10929,7 +10942,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 2147484817,
+          gid = 2147484823,
           visible = true,
           properties = {}
         },
@@ -10958,7 +10971,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 2147484817,
+          gid = 2147484823,
           visible = true,
           properties = {}
         },
@@ -10972,7 +10985,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 1169,
+          gid = 1175,
           visible = true,
           properties = {}
         },
@@ -10986,7 +10999,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 1169,
+          gid = 1175,
           visible = true,
           properties = {}
         },
@@ -11000,7 +11013,7 @@ return {
           width = 16,
           height = 32,
           rotation = 0,
-          gid = 2147484817,
+          gid = 2147484823,
           visible = true,
           properties = {}
         }
@@ -11410,7 +11423,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1211,
+          gid = 1217,
           visible = true,
           properties = {
             ["backuptriggerid"] = 246,
@@ -13387,7 +13400,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1140,
+          gid = 1146,
           visible = true,
           properties = {
             ["pathspeedfunction"] = "ncos"
@@ -13838,7 +13851,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1140,
+          gid = 1146,
           visible = true,
           properties = {
             ["pathspeedfunction"] = "ncos"
@@ -14114,7 +14127,7 @@ return {
           width = 32,
           height = 32,
           rotation = 0,
-          gid = 1140,
+          gid = 1146,
           visible = true,
           properties = {
             ["pathspeedfunction"] = "ncos"
@@ -15845,7 +15858,7 @@ return {
           width = 64,
           height = 64,
           rotation = 0,
-          gid = 1478,
+          gid = 1484,
           visible = true,
           properties = {}
         }

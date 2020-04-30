@@ -179,6 +179,22 @@ function UIMenu:keypressed(key)
 	if not self.layer.visible then
 		return
 	end
+	self:setMouseCursorMode(false)
+	if key == prefs.key_pausemenu then
+		self:send(levity.mapfile, "goBack")
+	elseif key == prefs.key_up or key == "up" then
+		self:moveCursor(-1, 0)
+	elseif key == prefs.key_down or key == "down" then
+		self:moveCursor(1, #self.objects + 1)
+	elseif key == prefs.key_fire or key == "return" then
+		self.isactivatekeypressed = true
+	end
+end
+
+function UIMenu:keyreleased(key)
+	if not self.layer.visible then
+		return
+	end
 	if self.bindinginputtype then
 		if key == prefs.key_pausemenu then
 			self:cancelBindingInput()
@@ -187,19 +203,15 @@ function UIMenu:keypressed(key)
 		end
 		return
 	end
-	self:setMouseCursorMode(false)
-	if key == prefs.key_pausemenu then
-		self:send(levity.mapfile, "goBack")
-	elseif key == prefs.key_up or key == "up" then
-		self:moveCursor(-1, 0)
-	elseif key == prefs.key_down or key == "down" then
-		self:moveCursor(1, #self.objects + 1)
-	elseif key == prefs.key_left or key == "left" then
+	if key == prefs.key_left or key == "left" then
 		self:changeCursorOption(-1)
 	elseif key == prefs.key_right or key == "right" then
 		self:changeCursorOption(1)
 	elseif key == prefs.key_fire or key == "return" then
-		self:activateCursorButton()
+		if self.isactivatekeypressed then
+			self:activateCursorButton()
+		end
+		self.isactivatekeypressed = false
 	end
 end
 

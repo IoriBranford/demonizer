@@ -47,7 +47,7 @@ end
 
 function ItemsLayer:beginDraw()
 	local sin = 1 + 0.5*math.sin(math.pi*15*love.timer.getTime())
-	love.graphics.setColor(0xff*sin, 0xff*sin, 0xff*sin)
+	love.graphics.setColor(1*sin, 1*sin, 1*sin)
 end
 
 function ItemsLayer:drawOver()
@@ -55,7 +55,7 @@ function ItemsLayer:drawOver()
 end
 
 function ItemsLayer:endDraw()
-	love.graphics.setColor(0xff, 0xff, 0xff)
+	love.graphics.setColor(1, 1, 1)
 end
 
 return ItemsLayer

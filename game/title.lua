@@ -1,7 +1,7 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.4",
+  tiledversion = "1.3.2",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 24,
@@ -11,6 +11,7 @@ return {
   nextlayerid = 17,
   nextobjectid = 51,
   properties = {
+    ["attractmodewaittime"] = 6,
     ["cameraid"] = 11,
     ["nextmap"] = "mainmenu.lua",
     ["playerid"] = 42,
@@ -194,6 +195,7 @@ return {
           },
           objectGroup = {
             type = "objectgroup",
+            id = 5,
             name = "",
             visible = true,
             opacity = 1,
@@ -221,7 +223,7 @@ return {
                 id = 7,
                 name = "wingman1",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 8,
                 y = 40,
                 width = 0,
@@ -234,7 +236,7 @@ return {
                 id = 8,
                 name = "wingman2",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 56,
                 y = 40,
                 width = 0,
@@ -247,7 +249,7 @@ return {
                 id = 10,
                 name = "wingman3",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 16,
                 y = 16,
                 width = 0,
@@ -260,7 +262,7 @@ return {
                 id = 11,
                 name = "wingman4",
                 type = "",
-                shape = "ellipse",
+                shape = "point",
                 x = 48,
                 y = 16,
                 width = 0,
@@ -273,9 +275,9 @@ return {
                 id = 12,
                 name = "focuswingman1",
                 type = "",
-                shape = "ellipse",
-                x = 0,
-                y = 8,
+                shape = "point",
+                x = 12,
+                y = 24,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -286,9 +288,9 @@ return {
                 id = 13,
                 name = "focuswingman2",
                 type = "",
-                shape = "ellipse",
-                x = 64,
-                y = 8,
+                shape = "point",
+                x = 52,
+                y = 24,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -299,9 +301,9 @@ return {
                 id = 14,
                 name = "focuswingman3",
                 type = "",
-                shape = "ellipse",
-                x = 16,
-                y = -24,
+                shape = "point",
+                x = 0,
+                y = 12,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -312,9 +314,9 @@ return {
                 id = 15,
                 name = "focuswingman4",
                 type = "",
-                shape = "ellipse",
-                x = 48,
-                y = -24,
+                shape = "point",
+                x = 64,
+                y = 12,
                 width = 0,
                 height = 0,
                 rotation = 0,
@@ -660,8 +662,8 @@ return {
         ["rowname11"] = "townfolk-adult-f-001",
         ["rowname12"] = "townfolk-adult-f-002",
         ["rowname13"] = "townfolk-adult-f-003",
-        ["rowname14"] = "townfolk-adult-f-005",
-        ["rowname15"] = "townfolk-adult-f-006",
+        ["rowname14"] = "Townfolk-Adult-F-005",
+        ["rowname15"] = "Townfolk-Adult-F-006",
         ["rowname16"] = "FireArcherF",
         ["rowname17"] = "AssassinF",
         ["rowname2"] = "DancerF",
@@ -729,7 +731,10 @@ return {
         },
         {
           id = 1,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "ArcherF"
+          }
         },
         {
           id = 2,
@@ -753,7 +758,10 @@ return {
         },
         {
           id = 7,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "CatapultOperatorF"
+          }
         },
         {
           id = 8,
@@ -795,7 +803,10 @@ return {
         },
         {
           id = 13,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "DancerF"
+          }
         },
         {
           id = 14,
@@ -819,7 +830,10 @@ return {
         },
         {
           id = 19,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "MageF"
+          }
         },
         {
           id = 20,
@@ -843,7 +857,10 @@ return {
         },
         {
           id = 25,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "PikemanF"
+          }
         },
         {
           id = 26,
@@ -867,7 +884,10 @@ return {
         },
         {
           id = 31,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "PriestF"
+          }
         },
         {
           id = 32,
@@ -891,7 +911,10 @@ return {
         },
         {
           id = 37,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "SailorF"
+          }
         },
         {
           id = 38,
@@ -915,7 +938,10 @@ return {
         },
         {
           id = 43,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "SwordsmanF"
+          }
         },
         {
           id = 44,
@@ -939,7 +965,10 @@ return {
         },
         {
           id = 49,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "aristocrate-f-01"
+          }
         },
         {
           id = 50,
@@ -981,7 +1010,10 @@ return {
         },
         {
           id = 55,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "aristocrate-f-02"
+          }
         },
         {
           id = 56,
@@ -1023,7 +1055,10 @@ return {
         },
         {
           id = 61,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "aristocrate-f-03"
+          }
         },
         {
           id = 62,
@@ -1047,7 +1082,10 @@ return {
         },
         {
           id = 67,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "townfolk-adult-f-001"
+          }
         },
         {
           id = 68,
@@ -1071,7 +1109,10 @@ return {
         },
         {
           id = 73,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "townfolk-adult-f-002"
+          }
         },
         {
           id = 74,
@@ -1113,7 +1154,10 @@ return {
         },
         {
           id = 79,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "townfolk-adult-f-003"
+          }
         },
         {
           id = 80,
@@ -1137,7 +1181,10 @@ return {
         },
         {
           id = 85,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "Townfolk-Adult-F-005"
+          }
         },
         {
           id = 86,
@@ -1161,7 +1208,10 @@ return {
         },
         {
           id = 91,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "Townfolk-Adult-F-006"
+          }
         },
         {
           id = 92,
@@ -1185,7 +1235,10 @@ return {
         },
         {
           id = 97,
-          type = "PlayerWingman"
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "FireArcherF"
+          }
         },
         {
           id = 98,
@@ -1201,6 +1254,33 @@ return {
         },
         {
           id = 101,
+          type = "PlayerWingman"
+        },
+        {
+          id = 102,
+          type = "PlayerWingman"
+        },
+        {
+          id = 103,
+          type = "PlayerWingman",
+          properties = {
+            ["name"] = "AssassinF"
+          }
+        },
+        {
+          id = 104,
+          type = "PlayerWingman"
+        },
+        {
+          id = 105,
+          type = "PlayerWingman"
+        },
+        {
+          id = 106,
+          type = "PlayerWingman"
+        },
+        {
+          id = 107,
           type = "PlayerWingman"
         }
       }
@@ -1333,335 +1413,8 @@ return {
       }
     },
     {
-      name = "powergauge",
-      firstgid = 187,
-      filename = "img/powergauge.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      columns = 4,
-      image = "img/powergauge.png",
-      imagewidth = 128,
-      imageheight = 32,
-      tileoffset = {
-        x = -16,
-        y = 16
-      },
-      grid = {
-        orientation = "orthogonal",
-        width = 32,
-        height = 32
-      },
-      properties = {
-        ["commoncollision"] = 0
-      },
-      terrains = {},
-      tilecount = 4,
-      tiles = {
-        {
-          id = 0,
-          properties = {
-            ["name"] = "notfull"
-          },
-          objectGroup = {
-            type = "objectgroup",
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            draworder = "index",
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "power1",
-                type = "",
-                shape = "ellipse",
-                x = 17,
-                y = 0,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 2,
-                name = "power2",
-                type = "",
-                shape = "ellipse",
-                x = 21,
-                y = 2,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 3,
-                name = "power3",
-                type = "",
-                shape = "ellipse",
-                x = 24,
-                y = 5,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 4,
-                name = "power4",
-                type = "",
-                shape = "ellipse",
-                x = 27,
-                y = 8,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 5,
-                name = "power5",
-                type = "",
-                shape = "ellipse",
-                x = 29,
-                y = 12,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 6,
-                name = "power6",
-                type = "",
-                shape = "ellipse",
-                x = 29,
-                y = 17,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 7,
-                name = "power7",
-                type = "",
-                shape = "ellipse",
-                x = 27,
-                y = 21,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 8,
-                name = "power8",
-                type = "",
-                shape = "ellipse",
-                x = 24,
-                y = 24,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 9,
-                name = "power9",
-                type = "",
-                shape = "ellipse",
-                x = 21,
-                y = 27,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 10,
-                name = "power10",
-                type = "",
-                shape = "ellipse",
-                x = 17,
-                y = 29,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 11,
-                name = "power18",
-                type = "",
-                shape = "ellipse",
-                x = 5,
-                y = 5,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 12,
-                name = "power14",
-                type = "",
-                shape = "ellipse",
-                x = 2,
-                y = 21,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 13,
-                name = "power15",
-                type = "",
-                shape = "ellipse",
-                x = 0,
-                y = 17,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 14,
-                name = "power16",
-                type = "",
-                shape = "ellipse",
-                x = 0,
-                y = 12,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 15,
-                name = "power12",
-                type = "",
-                shape = "ellipse",
-                x = 8,
-                y = 27,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 16,
-                name = "power11",
-                type = "",
-                shape = "ellipse",
-                x = 12,
-                y = 29,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 17,
-                name = "power13",
-                type = "",
-                shape = "ellipse",
-                x = 5,
-                y = 24,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 18,
-                name = "power17",
-                type = "",
-                shape = "ellipse",
-                x = 2,
-                y = 8,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 19,
-                name = "power19",
-                type = "",
-                shape = "ellipse",
-                x = 8,
-                y = 2,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              },
-              {
-                id = 20,
-                name = "power20",
-                type = "",
-                shape = "ellipse",
-                x = 12,
-                y = 0,
-                width = 4,
-                height = 4,
-                rotation = 0,
-                visible = true,
-                properties = {}
-              }
-            }
-          }
-        },
-        {
-          id = 1,
-          properties = {
-            ["name"] = "full"
-          },
-          animation = {
-            {
-              tileid = 1,
-              duration = 67
-            },
-            {
-              tileid = 2,
-              duration = 67
-            },
-            {
-              tileid = 3,
-              duration = 67
-            }
-          }
-        }
-      }
-    },
-    {
       name = "playerhitbox",
-      firstgid = 191,
+      firstgid = 187,
       filename = "img/playerhitbox.tsx",
       tilewidth = 8,
       tileheight = 8,
@@ -1687,7 +1440,7 @@ return {
     },
     {
       name = "crosshair",
-      firstgid = 192,
+      firstgid = 188,
       filename = "img/crosshair.tsx",
       tilewidth = 16,
       tileheight = 16,
@@ -1713,7 +1466,7 @@ return {
     },
     {
       name = "particles",
-      firstgid = 196,
+      firstgid = 192,
       filename = "img/particles.tsx",
       tilewidth = 4,
       tileheight = 4,
@@ -1835,7 +1588,7 @@ return {
       },
       encoding = "base64",
       compression = "gzip",
-      data = "H4sIAAAAAAAAA+3RNxKAQBADwcN7Dm/+/1EmXsItiKSqTpROCP8sQYoMOQrnZ1eiQo0GrfOz69BjwIjo/OwmzFiwYnN+djsOnLhwOz879VVf9VVf9VVf9X1PfdXX0/erPd/SQyoADAAA"
+      data = "H4sIAAAAAAAEA72RSW5CQRQDPzMhzAQI978otW3LuxK05MWz5OpFTdN33oxv5mRBlmRFTMd8eGuuDdmSH7IjpmM+vF+uPTmQIzkR0zEf3pnrQq7kRv6I6ZgP7871IE/yT17EdMyHZ1y27QDnMC7bNvnGZdsm37hs2+Qbl22b/ObIdMlvjkyX/ObIdMlvjkyX/ObIdMk3Lts2+cZl2ybfuGzb5BuXbZt847Jtk98cmS75zZHpkt8cmS75zZHpkt8cmS75xmXbJt+4bNvkG5dtm3zjsm2Tb1y2bfI/db8B39JDKgAMAAA="
     },
     {
       type = "objectgroup",
@@ -1924,7 +1677,7 @@ return {
           height = 40,
           rotation = 0,
           visible = true,
-          text = "© 2019 IoriBranford\n\nioribranford.itch.io",
+          text = "© 2020 IoriBranford\n\nioribranford.itch.io",
           fontfamily = "Press Start 2P",
           pixelsize = 8,
           wrap = true,

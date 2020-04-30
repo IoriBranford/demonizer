@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="18" height="170" tilewidth="16" tileheight="16" infinite="0" nextlayerid="768" nextobjectid="570">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="18" height="170" tilewidth="16" tileheight="16" infinite="0" nextlayerid="768" nextobjectid="572">
+ <editorsettings>
+  <export target="demonrealm.lua" format="lua"/>
+ </editorsettings>
  <properties>
   <property name="cameraid" type="int" value="1"/>
   <property name="music" type="file" value="mus/demonrealm.vgm"/>
@@ -13,89 +16,89 @@
  <tileset firstgid="464" source="img/trees.tsx"/>
  <tileset firstgid="467" source="img/trees_tall.tsx"/>
  <tileset firstgid="470" source="img/fire.tsx"/>
- <tileset firstgid="480" source="img/catapult.tsx"/>
- <tileset firstgid="504" source="img/friend/black_harpy.tsx"/>
- <tileset firstgid="516" source="img/friend/devil_bug.tsx"/>
- <tileset firstgid="528" source="img/friend/ghost.tsx"/>
- <tileset firstgid="540" source="img/friend/goblin.tsx"/>
- <tileset firstgid="552" source="img/friend/harpy.tsx"/>
- <tileset firstgid="564" source="img/friend/holstaurus.tsx"/>
- <tileset firstgid="576" source="img/friend/honey_bee.tsx"/>
- <tileset firstgid="588" source="img/friend/siren.tsx"/>
- <tileset firstgid="600" source="img/friend/werebat.tsx"/>
- <tileset firstgid="612" source="img/friend/weresheep.tsx"/>
- <tileset firstgid="624" source="img/friend/youko.tsx"/>
- <tileset firstgid="636" source="img/human/enemy/Archer.tsx"/>
- <tileset firstgid="660" source="img/human/enemy/CatapultOperator.tsx"/>
- <tileset firstgid="672" source="img/human/enemy/PikemanF.tsx"/>
- <tileset firstgid="696" source="img/human/enemy/Pikeman.tsx"/>
- <tileset firstgid="720" source="img/human/enemy/Princess.tsx"/>
- <tileset firstgid="732" source="img/human/enemy/SwordsmanF.tsx"/>
- <tileset firstgid="756" source="img/human/enemy/Swordsman.tsx"/>
- <tileset firstgid="780" source="img/human/enemy/ArcherF.tsx"/>
- <tileset firstgid="804" source="img/rocks_wide.tsx"/>
- <tileset firstgid="812" source="img/player.tsx"/>
- <tileset firstgid="840" source="img/friend/arachne.tsx"/>
- <tileset firstgid="852" source="img/friend/blue_slime.tsx"/>
- <tileset firstgid="864" source="img/friend/giant_ant.tsx"/>
- <tileset firstgid="876" source="img/human/enemy/CatapultOperatorF.tsx"/>
- <tileset firstgid="888" source="img/human/enemy/HeavyMilitia.tsx"/>
+ <tileset firstgid="485" source="img/catapult.tsx"/>
+ <tileset firstgid="509" source="img/friend/black_harpy.tsx"/>
+ <tileset firstgid="521" source="img/friend/devil_bug.tsx"/>
+ <tileset firstgid="533" source="img/friend/ghost.tsx"/>
+ <tileset firstgid="545" source="img/friend/goblin.tsx"/>
+ <tileset firstgid="557" source="img/friend/harpy.tsx"/>
+ <tileset firstgid="569" source="img/friend/holstaurus.tsx"/>
+ <tileset firstgid="581" source="img/friend/honey_bee.tsx"/>
+ <tileset firstgid="593" source="img/friend/siren.tsx"/>
+ <tileset firstgid="605" source="img/friend/werebat.tsx"/>
+ <tileset firstgid="617" source="img/friend/weresheep.tsx"/>
+ <tileset firstgid="629" source="img/friend/youko.tsx"/>
+ <tileset firstgid="641" source="img/human/enemy/Archer.tsx"/>
+ <tileset firstgid="665" source="img/human/enemy/CatapultOperator.tsx"/>
+ <tileset firstgid="677" source="img/human/enemy/PikemanF.tsx"/>
+ <tileset firstgid="701" source="img/human/enemy/Pikeman.tsx"/>
+ <tileset firstgid="725" source="img/human/enemy/Princess.tsx"/>
+ <tileset firstgid="737" source="img/human/enemy/SwordsmanF.tsx"/>
+ <tileset firstgid="761" source="img/human/enemy/Swordsman.tsx"/>
+ <tileset firstgid="785" source="img/human/enemy/ArcherF.tsx"/>
+ <tileset firstgid="809" source="img/rocks_wide.tsx"/>
+ <tileset firstgid="817" source="img/player.tsx"/>
+ <tileset firstgid="845" source="img/friend/arachne.tsx"/>
+ <tileset firstgid="857" source="img/friend/blue_slime.tsx"/>
+ <tileset firstgid="869" source="img/friend/giant_ant.tsx"/>
+ <tileset firstgid="881" source="img/human/enemy/CatapultOperatorF.tsx"/>
+ <tileset firstgid="893" source="img/human/enemy/HeavyMilitia.tsx"/>
  <layer id="40" name="dirt" width="18" height="170">
   <data encoding="base64" compression="zlib">
-   eJydmFuOKyEMRNn/LtgF/CNW0Au6c6VYOjld9CTzEU0eYIxdrqqeq7U2fl7957Ve7///na+//fW+1tTv+/X3ev1+4eVY47V+Yt8M+7Y+8zUQZyDOCmtTnIH1Hffiq/LiPeo999a6jnxYn629tebCGsap/VO/D/x+4fwLZ/CuzIf3mIjtGvEM1rTjc2/vuQ3FrngTsSoOz2Y8xjCGWB/iqO7M3jlG6j37ttWzhJ8V4nB/V5x5ONv5GUdcz7lwTj3E+ctrKabjsr++i2ejcmZPRrvjmxgglnZ7z6Pw41jsN//ybNbOM7hxdr221pDX+H6E2Hw/W8ZU16tyMEfMcDb5qLBV8Zd+Z784I8yBtV9Yy+9Yd88GczdHsI7uT9c+3ok9sd5wT91jt/v9OIuMlXiDcVhL9o3fLb03L3bF8Z2MKcbxjJkvWQPyytJ3E/HSPVhP1933dR7WEPdp6HzyGc9hLy/FIk7ZP/aK+ZHDT9p+wnXiHsc5eZ+h81OtrL/s/9DnqTism7mWNWAc34V8sEIc62/iEM59nZV4PvWcdba3Sbo+FHMpzokv6KFYH+OcM8j3PLv0eWlf8rK8j3Xqau/18yzaTxI39fJ5nC3WhL4i+ZHkgz07XEdu5JmfzBd9qOvt/dZv8jPvZP+Q/It12jn3dr9Xek5wj5LvoZYwVvKcxI/nmXPnM1wD88Ju9xoZf5e+o5bYy5ibko54jhNvUIOYL+tPH2GN8F1YG3ODucqekD7nCVPsHXNjLslH8Hf3PnEM75C8BePYN3ouiC3Wkh6aM8Y6ckY9L577NO/G+wovc5zjcF7NSye/UWsuxD/xJefNc8dnHnNq4kv7rnQn4zSt4Yz1EIu4NbendfSWvptnIfFc8jSJc8yt1i73wTxBPHDm3QPOfdJMexJyh/2O8XzyxOw9Mcf45jj6Lnt0P4N47pMGJd22v0i58I5D57H/5HTXn55jaA9zIl8xJ3IC8bHDWT6H/Jd4nNrO/rL25n3X2txln8qZG4p/eiagJzhhgmuWzvQcEiP2CvZHSf/NY0k3rZXJD3PWOcez3TFoPjg9F7m+rutudxwQlwmH5AN6Ctam6swc2SvHsudh7tYmc5A50vexfpkTzSHGop8Ziqd9BnMkn7kGG/utx9RV63Dyi4W95HlZC2uS55ra7r5O7ecZjLOwn7W2D0gxmJPzudo7PpbWOg/yetJuY9s9sj+2D+Aa58W9vnPFM+8wX35vjWQ8YnA9rDNHGFfkRXKVNZkcxP3Uwx5ip/n384Fz8My51+bYpHH0Zca9vQH74NqTP6x1zMm45gwlPiTvnzSe9bV+JYzyM+9H3SZnWgc9E5xfew3PfOJk8zo5Mn1H78xZmzrT9U88z5qxnp655ENrtrifuDZHE9+sQ/I+Jw+TYpx0y77M9yL+ps71fBH3xqtnmfmQg+gr7EV5nrnKfLrCOmso9YK45DNp4ib7i+TJXCfy4NYezgrP5NyYU42j9Fxufib+E47t5+xvyY1JF4xh12YpnnFpDrbnJN+RB/3/BPfb3mEoVpodPhNbFxLPWi89K9Zt3tHab3x4nkeIz1p5ZtlvctKJL3gGZylpEbGRuJO9WjqPMe3N7F8dt/Ly/zf8OznE+PTM0BvU7/YCrE/iMvqoVCPmlPBuTuN66ys53DzD+TnNG/MnnslVxpJrZgzZR9izrXbPi/1bOv/0jEnflbxgP8R1fZmvfXPSCeLTc8w8zA321ayVa+D99mQpJ2tdzbjx5p4nb8wa+jnHPsteb2r9QIykFdYS5pk8BzmUz6TWt8St1kr213unvucZjrPb+yyYu5lH0jXPFOtvvWGdzEPJA3gt63Z6xnIc6os5lPhxvimOvZR1NT1fpTjmJu7hvFg3Euebd5wLY5/iPPHc1u+nGPad1hHqg++VvFXyv9YZc3GKk7SY8fj3dC8/o3ieyAUnDJonqUuuzVMudU97At6tfku6mfBDHdz6TC4+4ZkYMqcaN/RwTzjyHZ/m8qlv1tz9hzjmbvbt2zjEyyez+YQlPledPM6nNaJ/fKrBJ3F+y+W3ulVtGPMJe09xrNHfxiGO3btv+j+1z17c+H/Khxxk3iCWTvmZj4ntre9TTT1LrInrYz76B6Po57E=
+   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
   </data>
  </layer>
  <layer id="41" name="dirtdeco" width="18" height="170">
   <data encoding="base64" compression="zlib">
-   eJzFWFty7TAIy/43lyyp049MPVwJhCBz+WmPY4PNQzyu67ru64+eC9NtfH/AWofu8P8D1qt7KGemdAO5aA/6//2d6a2rP/Wtp1xVxvlWRgov9F72u2s7RX7UuUvs7mhd8Q1HJvIntrf6PtHLHf5OaMJDOZvpzH1HFRsMIyZ+cV//ys3s9wh8kQ8w/1V4Vf7G5DPMVPWl2nGKA137RV2i8+qaIi9+c3LUk3zL7oByTBYHnZiL9p3iaMe/FT/OfJjJYbbp+KiDW68MxTczyvardmK+2q0rKt7KuiIP5XzmHy7WbLwdkfLubg2t5iIHrzMcUmKN2eiMVccXujl9UmM4+7t13rSGe/WZYapT53dzOdIzupuTjxVS36T0Q6pNGC81F228/32T6mOT3Huude7p1LPo3DRnT+ckXVL06viaKlOJu26+dHooZZbBcPqrfFzxq+JJnX2cPKOM6gz6rZyp5GQ1k4L7av+g+hbT54nHG3Okr85n+lDt7ux33qP0gm7N4tR2bDY6sVVVC3XroW7+YviB3reJb0pttZWTkJ3ZjKmSx9amPTHDNYRLqCePZ6dzV5bb1HnmpJ7v3OukrRpVzWvTtzDq5MH4zfXx7owtylRwqbqPOkNk9pnGZEZf8GbzQWXfuxf5QVXLMYxh8hF1sDKe685hGI+s9r3D3upO599sT6SNnOjof6OeemWfetzCtGpecf51cqd632mcnv5TxZfjR45fdWpeRb8d/4z7XyxBOnL8GtHJ060nVAxAstWag+W3qkdXecU9HX5fkTMD+CXUU3TnO/+DNnviSK6PIlln/KH4RXHkzG9cWykzJYa7094mowovt3yzim+1z+rIUnhms4eLrFXnzrUODm7ZV8GVaPcT9yf3yeKlE++buL+RW7Zye8Zf8f+vYlXpPzZIweGsb0Z2yOr8Sn61XmHvV3ph3yb9ajV7qGo/tH8iN8NchEeqPTewA80NIi4iuzj3UXHX7RudmaBD23kM8Vb4/wCPceGL
+   eAHFkAtuFUEQA3P/y8GRwIpKKpnumd0ExEqhPy675/Hx8fHx4/cf30+aqjBvdFhqRV5HbgZMT473HYIGS2Xf/N+Yk00+9zoXPXv3zPbRd+3Mbe78E/f2RrJv+WRud7M34761zLd7Yfx1njX6ZD7h4LfaGcxUfJl7h/bd39d+z9PNkx5t8vDWUyWXemJv2ncynnib8UxPvb0VPfzJg9b/vz07j36r3CQ73JaHZnbKjd4ZmXsX75MsM51hLXn5uG/NfWd8uv58Cx4qXNctr7lt3vzb3fD2uOfG0x186navtSm7mc6yp7V4+VrLjJcKw4w3Mxq7U4XtevJYm+5bT09279s7cf17JoZctM5F3/bormR5d+rhc4M/+Dd34znx3KFyo6t157lvD/ONcTae1G1vZupzj5vUcO4zk9/7aE++J74nTN/iXb33TO4TNj5zeJ1Hb86+3sOnOq85z+43v7PS46Had+udFbZn/GR3Rb9VfDcOHb7fk33v8KTi8+5Nn+ztBtl9n/3pzo3ZMu2b3mafe94y7dBO1Xc3Lozz3cfD/CTLfPf2uw/nj3u3nfXu+U1TFqzfMHHW8aROLDuq+a2f2O2mM9rXM+y2R6fCUdn/q7r9Rt/fmH6TPa15dp49Ww9v3Xndbxw5zWeOdtJhXNPn2+59qp//PmHM3/rknTLzW046+f7Nzfc8ebJzBkzXEzPd6R3+7On7BnOYJ1x4svoeWdRwE8Mu+saQ8aSS94SdmM2fPb+1fe3p+Tv8LauzM7cnc7/99n/dPHectTGwVN/y29zDPq2Tl/dEax1ty28+3Mkz3YjHOfTU6Nv3hInXnHtys9vebX5jyEmFoXo3cd6l9z203vUMt9XmeVv29PHSm0/PXxg+e/FRYZ7W9nE/+9aciUbFB8Oe+W09+ftWsqfd6Wby+0bP+Lc9+lfr9Obe+bY1793zlmkXbdvjcw3bN2/+8BPjnXvfS2/NvTW/Kfues/vq11k9fyW3f0cyptyJg7WGd9rxvjD5M+OeDPit2mPm5o/vifeUQ0aYjeMGrN/YvdnWmGGYqdt99NQb4+wbS+5TDn57R24nizy/xd63PXn4mMl3RYO91fB4yNk8cJt+2yefG2Qxx8suPXtqdv211jO8c9lR47npT9lwp6zo/Ubz6aPDoHmXDPbp3354k0lPBneZt3rjNj33Ni23/J6Jyy6Mufimz8yUFY+ZKcO7N6x9b/p+Z89bFm+jhsPr3eb/X/vb21rv+fRufv/G3HTfCgtPJTec2ezNw011ypq4267vwzufHpa5K96/UZPNvSnvpE38tuM3tE5+9I2J56R1JuyTTNi8g7c4b9o5d/J5N/mdnx6Gt7T+diaH3Mkfxnr69jFP/m3XHt9orTOs29dczzfWufbefGad8cbnjFOffN9oFu10+6R1Xs8n7+1tnXWa+86UzW91DjtqNLKozU/7aecsZ6TnHnXTe/923t6VHGvuTzem93rnnpxkT3v0rtNbJr937uOfMtjDwlD9jqc7e9xP/ujZ5483sEtlZy89NRzftENL7TxmM+lvORMfz1vfdr/ze+bOV/2d55ns7G75vwCPceGL
   </data>
  </layer>
  <layer id="42" name="grass" width="18" height="170">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer id="43" name="grassdeco" width="18" height="170">
   <data encoding="base64" compression="zlib">
-   eJztmtkOhCAMReHzhfnoiXFMCDGhaKGVOSfxzehty3JZQvBJjiGkKHt3i8fjkWyoS5o/T3wMNde10sjf+Y031iJ19EEAALCHMbvNbJ9h6QNnkxT9uFdfPxvyoIPl+qLGk5YWvXPKyPFOsy881fmmGgLAPP7J81my4nrnnONoQwAAAAB97OvzER5qRc8J4AX2uwHWZnN6v+iupqsxyzq+0vtYa/GiYSR34ivPkK7akNS/pom1bs3PrXOxMiatMzRpzPX/NNcHVvu1rdilOW7pl/qy/LsD4uV8VFNHnaMnNddsL3u+vz3IJZY=
+   eAHtmQEOwyAIRd3x1+3QK1lICCHFVqxov0ljVxU+D6s2KyVn+bxK2farprz3fnRlLBTHqFLLb5Q+y+93IC+dqwh+bINrK+asz0jzjLqz8oQuEAABEOhNAGu2T/juc4Y+W/gK5+1B8y/qPB5lZ16af+XgEJPBu9/7I9WZtBzppLaze0rP9S7yXWjVOVMOvRyjHQRAII5A69oSp2RtS2f3phlo8B6HOTRDtqARBEAABEAABEAgEwH6Pu9xhlrxzJkpb9DybAL8/fNsCogeBNYlQO94xn30qiZrzbpqKyrr8uwzWgvFlEFDFFvLzpX45H9I1hySObR88jPpW95ze2Rt6ZT2ZUzyOd/LmLy+PMara2PW/qQWz4fXHmnL8yXbvdh1zHKsvPf0e3lnW2SH+tb65XG96kgdmpH+fSaGlrHaD/H+AT3IJZY=
   </data>
  </layer>
  <layer id="55" name="forest_mid" width="18" height="170">
   <data encoding="base64" compression="zlib">
-   eJztWlduwzAMde5/mrRpU7gZPVqVD6IEIW46Vgo9QIANrcdhipK1LDV4OyzLeyung6398dDvs7bn71YurXy08tnKuZUvYdxeH4xre7+1cm/lx8gP+lg5aDJSDpz83Hwgo6Yzq8y9PlZgjh6bU2COXpvTdqDP3tiSzXvt1oTNKSQOmqy4HoP6juZbuN7iOxi0HsaO+g4de2Jiog9ujYi098b7zPowEUd0LQWAD1TYbcT4nMk3MF7Nt6VvG+cJlpjBfds4T5DaRXl62+L5PXsACZ49gASNu1SP6yzcpXqoe3VY/duSj1v8u8IHKLzrtQSrP2f2KVivGb3QuKHNZeHK6dFrw2geQ22ZsSnmIHHxxBTPnFL9xMSe2CNmPgMQ77LnSBDvtly3Jv78sGJvsQ7mg+ciH7wnffC/f+uj6PkBeh6ewYjnABPPQcU/kAcq167MPzno/0B2P3hNyNOTIRIfORn2iI89mSI26sk0Qu6j7b889tP2X9X2e/bam/1ffkraHXM8FvpNNvYAtj6L8vKENrSflye04fpt5YfcfQB4t+qDuw8A7159ROTV7oBcSD3X3sL1lpCtQlYOkfjH3ZfwwnKeaeGwRXyQdOvRv6ZbSf9YxoydsYzRdY7KnPE/LHN2/d37W+C4ZHnhvCXDC3hU6GhN2IvqI6MfysHLaSQuo/IahYvGI7IX4HhU8vIgykPi4OXGcYhw4+aL6IibT+Oh2cd6H1jSTe8/o5bbcbwqdLN2+EUR8eOeDnt3WrWxLfmxV0bgls0bgdsvhUYr3w==
+   eAHtWItuHCEMvPz/17Rpk6rvTwtWNMpoZBsbUHtNF4ljjV9j42Xhbrcz7ePD7fY4+qfRK+3DkPN0vo75b6N/H/3z6E+jP4/+ZfSoeTos+2Po/hz91+i/EzueThUD6+KZY1QMzOOcRf4Q4yxn8K3+MI8R9izP3cYYO2uufhhjd80Zg9UG8gkfbDtbc0/OclOpO/jKxqzuNAa1w3zmIVbkXmPI+NCBvVkdKB+2sV6wszKa7atdGbgy4GcA75q+s7702x7oyet7HNnAfFceete4lwE+C6xYQs2sfNfV3z3uz15tK+4KfeL7VfFzSgbr6sXP54RMDliid5vPESYbycGON1b8Q28my/47dwDY98bOHcDTx9wMe8ZnntnjOGGfx4wPHsv/i8+cE90Dub6zeyDiRk50D+T6zu4EsNMdsxi6tqIY1M7OPYXzmt1T1KfSnFflgWZflTX07rlmi31V1rCaR+DEqGvp7buQnY2MIfvuqE+1y3zlKc0+lWc0+B7vmrsy8KcywDWt+34XA2pa9/2unRPy2O929mfDgf1uZ38+Ec97t4E63K1By5PV4T3VoJ2dZ+fnbH1Rg3Z23jk/I8c731LgvMd3/V7ybDlCrpGvndFyfbX/MwM7+wZnbGffYDv2jG/rKjbTt8b7WuUu8ar19mv6q82LAe9sZ3+MYvgb+6MX08oaeTGdrJ/VNeP18Wwwf3aOwPp4dmwO/FPniA62CBPmK9hW1t3DuLrujNHsnmpeja/Y9mp8xU6k08WJ/2RUr4sT+2ik561xFMNsntdYccMP6lD5kW0Pt/lBHXr8yJbNA0dnT4+wcrx8r4zkK1j5XlmRPx1rZI9jjWR0nvOgvA7NeejomSxjwDvVtWHyjAHvlM1nddSptex/SPOT5Z9jnH3nzFbUOMbV75zGHP1vHGHgeY6Zn1mm+qy4qnqe3Eksu7iAxXDieWXtgGNnvZArw7GKBTjwXikNH5VRMSg9s6G+lZ7pM199K82ys2fFofRMn/mKQ2mW9Z7Vt9KeTjSnvpWO9Gxe/c7ozJb6ndGZrR0cancVR4aB33eVU/9GRxii+WwvivxF8x4ezKn/2Tz46ktp7EOQ52+tnicUA9P6fedvLZ8n4EdxgMaouKDnjYzD+EZjVFyvnPpvBwesejlkHNUYZzlciRHYMOK+AuzVEdheAIVGK98=
   </data>
  </layer>
  <objectgroup id="30" name="ground"/>
  <layer id="53" name="forest_high" width="18" height="170">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer id="168" name="fire" width="18" height="170">
   <data encoding="base64" compression="zlib">
-   eJzt08EJgEAMBMCz//782Iz4EA5BPLlgIsw0kM2StAYAAPG2JTtBXX032T1Fz8/e585Mrqo78S+zd/TlHb6ZVeE/zgwjWdagvE+zKvQCjPGvZDrur9INVsoSqVrPAAAAAABwtQO1ehLk
+   eAHt1TsKgDAMAFC9//1cvIw4CHVpCQla5bmotPn0EXFZXAQIECBAgAABAgTqBfa1PudfMrY27fMb56uuX52vyiTTVya2qn95vi+QnaNsfEQwUiuyN9JDZO/Vw3XvxW5F/6ZRrdF6r0drBAg8K+B7fdZbtbvAOX8zzeBMvdylcm+zOedOI5oAAQIECBAgQIAAAQIECBAgQIAAAQIE/ihwALV6EuQ=
   </data>
  </layer>
  <objectgroup id="57" name="airobjects"/>
  <objectgroup id="5" name="unused">
-  <object id="131" name="operator" type="CatapultOperator" gid="663" x="224" y="496" width="24" height="32">
+  <object id="131" name="operator" type="CatapultOperator" gid="668" x="224" y="496" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="134"/>
    </properties>
   </object>
-  <object id="136" name="catapult" type="Catapult" gid="482" x="64" y="528" width="72" height="72">
+  <object id="136" name="catapult" type="Catapult" gid="487" x="64" y="528" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="offscreenshot" type="bool" value="true"/>
     <property name="pathid" type="int" value="135"/>
    </properties>
   </object>
-  <object id="132" name="operator" type="CatapultOperator" gid="663" x="64" y="496" width="24" height="32">
+  <object id="132" name="operator" type="CatapultOperator" gid="668" x="64" y="496" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="136"/>
    </properties>
   </object>
-  <object id="134" name="catapult" type="Catapult" gid="482" x="224" y="528" width="72" height="72">
+  <object id="134" name="catapult" type="Catapult" gid="487" x="224" y="528" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="offscreenshot" type="bool" value="true"/>
@@ -114,24 +117,24 @@
    </properties>
    <polyline points="-16,16 -16,64"/>
   </object>
-  <object id="98" name="swordsman" type="Swordsman" gid="762" x="176" y="816" width="32" height="32"/>
-  <object id="108" name="swordsman" type="Swordsman" gid="762" x="300" y="752" width="32" height="32"/>
-  <object id="119" name="pikeman" type="Pikeman" gid="702" x="96" y="480" width="32" height="32">
+  <object id="98" name="swordsman" type="Swordsman" gid="767" x="176" y="816" width="32" height="32"/>
+  <object id="108" name="swordsman" type="Swordsman" gid="767" x="300" y="752" width="32" height="32"/>
+  <object id="119" name="pikeman" type="Pikeman" gid="707" x="96" y="480" width="32" height="32">
    <properties>
     <property name="pathid" type="int" value="117"/>
    </properties>
   </object>
-  <object id="126" name="pikeman" type="Pikeman" gid="702" x="192" y="480" width="32" height="32">
+  <object id="126" name="pikeman" type="Pikeman" gid="707" x="192" y="480" width="32" height="32">
    <properties>
     <property name="pathid" type="int" value="118"/>
    </properties>
   </object>
-  <object id="88" name="operator" type="CatapultOperator" gid="663" x="144" y="896" width="24" height="32">
+  <object id="88" name="operator" type="CatapultOperator" gid="668" x="144" y="896" width="24" height="32">
    <properties>
     <property name="rideid" type="int" value="75"/>
    </properties>
   </object>
-  <object id="75" name="catapult" type="Catapult" gid="482" x="144" y="928" width="72" height="72">
+  <object id="75" name="catapult" type="Catapult" gid="487" x="144" y="928" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="pathid" type="int" value="87"/>
@@ -149,18 +152,18 @@
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="39" name="pikeman" type="Pikeman" gid="702" x="192" y="1216" width="32" height="32">
+  <object id="39" name="pikeman" type="Pikeman" gid="707" x="192" y="1216" width="32" height="32">
    <properties>
     <property name="pathid" type="int" value="35"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="13" name="pikeman" type="Pikeman" gid="702" x="96" y="512" width="24" height="32">
+  <object id="13" name="pikeman" type="Pikeman" gid="707" x="96" y="512" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="117"/>
    </properties>
   </object>
-  <object id="23" name="pikeman" type="Pikeman" gid="702" x="192" y="512" width="24" height="32">
+  <object id="23" name="pikeman" type="Pikeman" gid="707" x="192" y="512" width="24" height="32">
    <properties>
     <property name="pathid" type="int" value="118"/>
    </properties>
@@ -169,15 +172,15 @@
   <object id="46" name="tree" gid="465" x="112" y="528" width="64" height="64"/>
   <object id="192" name="tree" gid="465" x="144" y="544" width="64" height="64"/>
   <object id="93" name="tree" gid="465" x="176" y="528" width="64" height="64"/>
-  <object id="333" name="rock" type="DestructibleCover" gid="804" x="144" y="1032" width="64" height="48"/>
-  <object id="114" name="swordswoman" gid="738" x="144" y="1520" width="32" height="32">
+  <object id="333" name="rock" type="DestructibleCover" gid="809" x="144" y="1032" width="64" height="48"/>
+  <object id="114" name="swordswoman" gid="743" x="144" y="1520" width="32" height="32">
    <properties>
     <property name="defeatitem" value="ItemWingman"/>
     <property name="firetargetid" value="345"/>
     <property name="pathid" value="345"/>
    </properties>
   </object>
-  <object id="103" name="swordsman" gid="762" x="0" y="1544" width="32" height="32">
+  <object id="103" name="swordsman" gid="767" x="0" y="1544" width="32" height="32">
    <properties>
     <property name="firetargetid" value="340"/>
     <property name="nexttypeparam" type="int" value="8"/>
@@ -185,7 +188,7 @@
     <property name="pathid" value="340"/>
    </properties>
   </object>
-  <object id="104" name="swordsman" gid="762" x="296" y="1640" width="32" height="32">
+  <object id="104" name="swordsman" gid="767" x="296" y="1640" width="32" height="32">
    <properties>
     <property name="firetargetid" value="345"/>
     <property name="nexttypeparam" type="int" value="8"/>
@@ -219,13 +222,17 @@
    <polyline points="0,-1264 0,-1272"/>
   </object>
  </objectgroup>
- <objectgroup id="33" name="sparks"/>
+ <objectgroup id="33" name="sparks">
+  <properties>
+   <property name="script" value="BulletLayer"/>
+  </properties>
+ </objectgroup>
  <objectgroup draworder="index" id="34" name="playershots"/>
  <objectgroup id="35" name="playerteam">
   <properties>
    <property name="script" value="PlayerTeam"/>
   </properties>
-  <object id="3" name="player" gid="812" x="144" y="2752" width="64" height="64"/>
+  <object id="3" name="player" gid="817" x="144" y="2752" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="767" name="bosstalkstart">
   <object id="561" type="Trigger" x="0" y="-16" width="304" height="16">
@@ -236,14 +243,14 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="761" name="bosstalk1">
+ <objectgroup id="761" name="Amy: Ange?" visible="0">
   <object id="544" name="bubble" type="Polygon" x="64" y="104">
    <polygon points="0,-8 -16,8 -16,88 0,104 96,104 88,136 112,104 160,104 176,88 176,8 160,-8"/>
   </object>
-  <object id="543" name="text" x="56" y="112" width="176" height="80">
-   <text fontfamily="Unifont" wrap="1" color="#ffffff">Ange?
-
-Ange! Is that you?</text>
+  <object id="543" name="text" x="56" y="112" width="176" height="88">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">Ange? Is that you?
+What happened to you?
+Why are you doing this to us?</text>
   </object>
   <object id="562" name="trigger" type="Trigger" x="296" y="0" width="8" height="8">
    <properties>
@@ -256,7 +263,7 @@ Ange! Is that you?</text>
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="159" name="boss" type="PrincessEnter" gid="726" x="144" y="-16" width="24" height="32"/>
+  <object id="159" name="boss" type="PrincessEnter" gid="731" x="144" y="-16" width="24" height="32"/>
   <object id="347" type="Trigger" x="296" y="8" width="16" height="8">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
@@ -282,13 +289,13 @@ Ange! Is that you?</text>
    <polyline points="80,-96 16,-104 0,0 -16,-104 -80,-96"/>
   </object>
  </objectgroup>
- <objectgroup id="762" name="bosstalk2">
+ <objectgroup id="762" name="Ange: Amelia..." visible="0">
   <object id="546" name="bubble" type="Polygon" x="64" y="104">
    <polygon points="0,-8 -16,8 -16,88 0,104 96,104 104,104 112,104 160,104 176,88 176,8 160,-8 64,-8 72,-40 48,-8"/>
   </object>
   <object id="545" name="text" x="56" y="112" width="176" height="88">
-   <text fontfamily="Unifont" wrap="1" color="#ffffff">Amelia? ... So it's too late. You're one of them now.
-I was hoping we... I wouldn't have to-</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">Amelia?! ... I'm too late. You're cursed now.
+I've failed as your sister...I'm so sorry.</text>
   </object>
   <object id="563" name="trigger" type="Trigger" x="296" y="16" width="8" height="8">
    <properties>
@@ -297,13 +304,14 @@ I was hoping we... I wouldn't have to-</text>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="763" name="bosstalk3">
+ <objectgroup id="763" name="Amy: What curse?" visible="0">
   <object id="547" name="bubble" type="Polygon" x="64" y="104">
    <polygon points="0,-8 -16,8 -16,88 0,104 96,104 88,136 112,104 160,104 176,88 176,8 160,-8 64,-8 56,-8 48,-8"/>
   </object>
-  <object id="548" name="text" x="56" y="112" width="176" height="80">
-   <text fontfamily="Unifont" wrap="1" color="#ffffff">Why are you doing this to us?
-Did Da-... Did Father make you do this?!</text>
+  <object id="548" name="text" x="56" y="112" width="176" height="88">
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">Cursed? What curse?!
+We were all so happy living together--
+How can it be a curse?</text>
   </object>
   <object id="564" name="trigger" type="Trigger" x="296" y="24" width="8" height="8">
    <properties>
@@ -312,13 +320,13 @@ Did Da-... Did Father make you do this?!</text>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="764" name="bosstalk4">
+ <objectgroup id="764" name="Ange: The demon curse" visible="0">
   <object id="549" name="bubble" type="Polygon" x="64" y="104">
    <polygon points="0,-8 -16,8 -16,88 0,104 96,104 104,104 112,104 160,104 176,88 176,8 160,-8 64,-8 72,-40 48,-8"/>
   </object>
   <object id="550" name="text" x="56" y="112" width="176" height="88">
-   <text fontfamily="Unifont" wrap="1" color="#ffffff">We must take this land or our people will starve to death!
-Turn around and I'll let you go.</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">The demon curse on this land since our Kingdom's beginning!
+We've already lost too many girls like you!</text>
   </object>
   <object id="565" name="trigger" type="Trigger" x="296" y="32" width="8" height="8">
    <properties>
@@ -327,14 +335,12 @@ Turn around and I'll let you go.</text>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="765" name="bosstalk5">
+ <objectgroup id="765" name="Amy: Then leave!" visible="0">
   <object id="551" name="bubble" type="Polygon" x="64" y="104">
    <polygon points="0,-8 -16,8 -16,88 0,104 96,104 88,136 112,104 160,104 176,88 176,8 160,-8 64,-8 56,-8 48,-8"/>
   </object>
   <object id="552" name="text" x="56" y="112" width="176" height="88">
-   <text fontfamily="Unifont" wrap="1" color="#ffffff">NO! I won't let anyone get hurt anymore!
-
-Let me go talk to him!</text>
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">If you don't want to be like us, why don't you leave us alone? Why don't you go somewhere else?!</text>
   </object>
   <object id="566" name="trigger" type="Trigger" x="296" y="40" width="8" height="8">
    <properties>
@@ -343,14 +349,16 @@ Let me go talk to him!</text>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="766" name="bosstalk6">
+ <objectgroup id="766" name="Ange: We can't!" visible="0">
   <object id="553" name="bubble" type="Polygon" x="64" y="104">
    <polygon points="0,-8 -16,8 -16,88 0,104 96,104 104,104 112,104 160,104 176,88 176,8 160,-8 64,-8 72,-40 48,-8"/>
   </object>
   <object id="554" name="text" x="56" y="112" width="176" height="88">
-   <text fontfamily="Unifont" wrap="1" color="#ffffff">You know I can't do that.
+   <text fontfamily="Unifont" wrap="1" color="#ffffff">We have nowhere else.
+We have no choice!
 
-I'm sorry...Amelia...</text>
+Amelia, I love you.
+God rest your soul!</text>
   </object>
   <object id="567" name="trigger" type="Trigger" x="296" y="48" width="8" height="8">
    <properties>
@@ -404,22 +412,22 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="511" gid="894" x="-24" y="360" width="32" height="32">
+  <object id="511" gid="899" x="-24" y="360" width="32" height="32">
    <properties>
     <property name="fleeing" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="512" gid="894" x="-8" y="304" width="32" height="32">
+  <object id="512" gid="899" x="-8" y="304" width="32" height="32">
    <properties>
     <property name="fleeing" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="514" gid="894" x="288" y="272" width="32" height="32">
+  <object id="514" gid="899" x="288" y="272" width="32" height="32">
    <properties>
     <property name="fleeing" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="515" gid="894" x="312" y="328" width="32" height="32">
+  <object id="515" gid="899" x="312" y="328" width="32" height="32">
    <properties>
     <property name="fleeing" type="bool" value="true"/>
    </properties>
@@ -441,13 +449,13 @@ I'm sorry...Amelia...</text>
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="210" name="catapult" gid="482" x="144" y="312" width="72" height="72">
+  <object id="210" name="catapult" gid="487" x="144" y="312" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="offscreenshot" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="211" name="operator" gid="663" x="144" y="280" width="24" height="32"/>
+  <object id="211" name="operator" gid="668" x="144" y="280" width="24" height="32"/>
   <object id="212" name="path" x="96" y="200">
    <polyline points="48,112 48,176"/>
   </object>
@@ -466,19 +474,19 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="57" name="archer" gid="642" x="144" y="456" width="32" height="32">
+  <object id="57" name="archer" gid="647" x="144" y="456" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
     <property name="pathspeedfunction" value="ncos"/>
    </properties>
   </object>
-  <object id="58" name="archer" gid="642" x="256" y="424" width="32" height="32">
+  <object id="58" name="archer" gid="647" x="256" y="424" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
     <property name="pathspeedfunction" value="ncos"/>
    </properties>
   </object>
-  <object id="56" name="archer" gid="642" x="48" y="416" width="32" height="32">
+  <object id="56" name="archer" gid="647" x="48" y="416" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
     <property name="pathspeedfunction" value="ncos"/>
@@ -490,8 +498,8 @@ I'm sorry...Amelia...</text>
    </properties>
    <polyline points="4,40 36,40 68,88 132,88 164,40 212,40"/>
   </object>
-  <object id="84" name="operator" gid="663" x="48" y="360" width="24" height="32"/>
-  <object id="80" name="catapult" gid="481" x="64" y="384" width="72" height="72">
+  <object id="84" name="operator" gid="668" x="48" y="360" width="24" height="32"/>
+  <object id="80" name="catapult" gid="486" x="64" y="384" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="45"/>
     <property name="offscreenshot" type="bool" value="true"/>
@@ -500,8 +508,8 @@ I'm sorry...Amelia...</text>
     <property name="pathspeedmin" type="float" value="0"/>
    </properties>
   </object>
-  <object id="85" name="operator" gid="663" x="240" y="360" width="24" height="32"/>
-  <object id="81" name="catapult" gid="483" x="224" y="384" width="72" height="72">
+  <object id="85" name="operator" gid="668" x="240" y="360" width="24" height="32"/>
+  <object id="81" name="catapult" gid="488" x="224" y="384" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="135"/>
     <property name="offscreenshot" type="bool" value="true"/>
@@ -517,12 +525,12 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="335" gid="805" x="120" y="480" width="64" height="48">
+  <object id="335" gid="810" x="120" y="480" width="64" height="48">
    <properties>
     <property name="iscover" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="336" gid="804" x="168" y="480" width="64" height="48">
+  <object id="336" gid="809" x="168" y="480" width="64" height="48">
    <properties>
     <property name="iscover" type="bool" value="true"/>
    </properties>
@@ -537,12 +545,12 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="20" name="pikeman" gid="702" x="176" y="536" width="32" height="32"/>
-  <object id="10" name="pikeman" gid="702" x="112" y="536" width="32" height="32"/>
-  <object id="125" name="pikemanleader" gid="702" x="184" y="568" width="32" height="32"/>
-  <object id="123" name="pikeman" gid="702" x="168" y="504" width="32" height="32"/>
-  <object id="122" name="pikeman" gid="702" x="120" y="504" width="32" height="32"/>
-  <object id="120" name="pikemanleader" gid="702" x="104" y="568" width="32" height="32"/>
+  <object id="20" name="pikeman" gid="707" x="176" y="536" width="32" height="32"/>
+  <object id="10" name="pikeman" gid="707" x="112" y="536" width="32" height="32"/>
+  <object id="125" name="pikemanleader" gid="707" x="184" y="568" width="32" height="32"/>
+  <object id="123" name="pikeman" gid="707" x="168" y="504" width="32" height="32"/>
+  <object id="122" name="pikeman" gid="707" x="120" y="504" width="32" height="32"/>
+  <object id="120" name="pikemanleader" gid="707" x="104" y="568" width="32" height="32"/>
   <object id="118" name="path" x="192" y="352">
    <polyline points="0,248 72,464 48,512 16,664"/>
   </object>
@@ -552,23 +560,23 @@ I'm sorry...Amelia...</text>
   <object id="503" name="path" x="88" y="504">
    <polyline points="-16,16 -16,72"/>
   </object>
-  <object id="504" name="catapult" gid="482" x="72" y="528" width="72" height="72">
+  <object id="504" name="catapult" gid="487" x="72" y="528" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="offscreenshot" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="505" name="operator" gid="663" x="72" y="496" width="24" height="32"/>
+  <object id="505" name="operator" gid="668" x="72" y="496" width="24" height="32"/>
   <object id="506" name="path" x="232" y="504">
    <polyline points="-16,16 -16,72"/>
   </object>
-  <object id="507" name="catapult" gid="482" x="216" y="528" width="72" height="72">
+  <object id="507" name="catapult" gid="487" x="216" y="528" width="72" height="72">
    <properties>
     <property name="faceangle" type="float" value="90"/>
     <property name="offscreenshot" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="508" name="operator" gid="663" x="216" y="496" width="24" height="32"/>
+  <object id="508" name="operator" gid="668" x="216" y="496" width="24" height="32"/>
   <object id="509" x="88" y="600">
    <polyline points="8,0 16,-32 24,-64 32,-96"/>
   </object>
@@ -580,12 +588,12 @@ I'm sorry...Amelia...</text>
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="50" name="archer" gid="642" x="-8" y="816" width="32" height="32">
+  <object id="50" name="archer" gid="647" x="-8" y="816" width="32" height="32">
    <properties>
     <property name="pathspeedfunction" value="nsin"/>
    </properties>
   </object>
-  <object id="51" name="archer" gid="642" x="296" y="784" width="32" height="32">
+  <object id="51" name="archer" gid="647" x="296" y="784" width="32" height="32">
    <properties>
     <property name="pathspeedfunction" value="nsin"/>
    </properties>
@@ -598,7 +606,7 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="148" name="archer" gid="786" x="144" y="672" width="32" height="32">
+  <object id="148" name="archer" gid="791" x="144" y="672" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
@@ -613,7 +621,7 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="334" name="rock" gid="804" x="136" y="816" width="64" height="48">
+  <object id="334" name="rock" gid="809" x="136" y="816" width="64" height="48">
    <properties>
     <property name="iscover" type="bool" value="true"/>
    </properties>
@@ -628,12 +636,12 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="521" gid="894" x="96" y="856" width="32" height="32">
+  <object id="521" gid="899" x="96" y="856" width="32" height="32">
    <properties>
     <property name="pathspeedweighted" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="522" gid="894" x="184" y="848" width="32" height="32">
+  <object id="522" gid="899" x="184" y="848" width="32" height="32">
    <properties>
     <property name="pathspeedweighted" type="bool" value="true"/>
    </properties>
@@ -690,22 +698,22 @@ I'm sorry...Amelia...</text>
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="195" name="pikemanleader" gid="702" x="304" y="760" width="32" height="32"/>
-  <object id="196" name="pikeman" gid="702" x="192" y="696" width="32" height="32"/>
-  <object id="197" name="pikeman" gid="702" x="-16" y="760" width="32" height="32"/>
-  <object id="198" name="pikemanleader" gid="702" x="96" y="696" width="32" height="32"/>
-  <object id="200" name="pikeman" gid="702" x="192" y="656" width="32" height="32"/>
-  <object id="201" name="pikeman" gid="702" x="-48" y="728" width="32" height="32"/>
-  <object id="202" name="pikeman" gid="702" x="336" y="728" width="32" height="32"/>
-  <object id="203" name="pikeman" gid="702" x="96" y="656" width="32" height="32"/>
+  <object id="195" name="pikemanleader" gid="707" x="304" y="760" width="32" height="32"/>
+  <object id="196" name="pikeman" gid="707" x="192" y="696" width="32" height="32"/>
+  <object id="197" name="pikeman" gid="707" x="-16" y="760" width="32" height="32"/>
+  <object id="198" name="pikemanleader" gid="707" x="96" y="696" width="32" height="32"/>
+  <object id="200" name="pikeman" gid="707" x="192" y="656" width="32" height="32"/>
+  <object id="201" name="pikeman" gid="707" x="-48" y="728" width="32" height="32"/>
+  <object id="202" name="pikeman" gid="707" x="336" y="728" width="32" height="32"/>
+  <object id="203" name="pikeman" gid="707" x="96" y="656" width="32" height="32"/>
   <object id="318" name="path" x="32" y="608">
    <polyline points="-48,152 -16,176 40,192 56,232 24,264 24,480"/>
   </object>
   <object id="319" name="path" x="136" y="608">
    <polyline points="168,152 144,176 56,184 56,232 88,256 88,480"/>
   </object>
-  <object id="499" name="pikeman" gid="702" x="-80" y="696" width="32" height="32"/>
-  <object id="500" name="pikeman" gid="702" x="368" y="696" width="32" height="32"/>
+  <object id="499" name="pikeman" gid="707" x="-80" y="696" width="32" height="32"/>
+  <object id="500" name="pikeman" gid="707" x="368" y="696" width="32" height="32"/>
   <object id="501" x="96" y="696">
    <polyline points="0,0 8,64 0,136 0,400"/>
   </object>
@@ -733,16 +741,16 @@ I'm sorry...Amelia...</text>
   <object id="482" x="208" y="928">
    <polyline points="8,8 32,80 104,96 104,144 -8,208 -48,264 -48,456"/>
   </object>
-  <object id="483" gid="702" x="56" y="936" width="32" height="32"/>
-  <object id="484" gid="702" x="216" y="936" width="32" height="32"/>
-  <object id="488" gid="702" x="56" y="904" width="32" height="32"/>
-  <object id="489" gid="702" x="216" y="904" width="32" height="32"/>
-  <object id="490" gid="702" x="184" y="928" width="32" height="32"/>
-  <object id="491" gid="702" x="184" y="896" width="32" height="32"/>
-  <object id="492" gid="702" x="184" y="864" width="32" height="32"/>
-  <object id="493" gid="702" x="88" y="864" width="32" height="32"/>
-  <object id="494" gid="702" x="88" y="896" width="32" height="32"/>
-  <object id="495" gid="702" x="88" y="928" width="32" height="32"/>
+  <object id="483" gid="707" x="56" y="936" width="32" height="32"/>
+  <object id="484" gid="707" x="216" y="936" width="32" height="32"/>
+  <object id="488" gid="707" x="56" y="904" width="32" height="32"/>
+  <object id="489" gid="707" x="216" y="904" width="32" height="32"/>
+  <object id="490" gid="707" x="184" y="928" width="32" height="32"/>
+  <object id="491" gid="707" x="184" y="896" width="32" height="32"/>
+  <object id="492" gid="707" x="184" y="864" width="32" height="32"/>
+  <object id="493" gid="707" x="88" y="864" width="32" height="32"/>
+  <object id="494" gid="707" x="88" y="896" width="32" height="32"/>
+  <object id="495" gid="707" x="88" y="928" width="32" height="32"/>
   <object id="496" x="88" y="928">
    <polyline points="0,0 -8,48 16,112 24,192 -24,448"/>
   </object>
@@ -754,17 +762,17 @@ I'm sorry...Amelia...</text>
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="26" name="pikeman" gid="702" x="336" y="1056" width="32" height="32">
+  <object id="26" name="pikeman" gid="707" x="336" y="1056" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="28" name="pikeman" gid="702" x="304" y="1072" width="32" height="32">
+  <object id="28" name="pikeman" gid="707" x="304" y="1072" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="32" name="pikeman" gid="702" x="320" y="1064" width="32" height="32">
+  <object id="32" name="pikeman" gid="707" x="320" y="1064" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
@@ -774,12 +782,12 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="31" name="pikeman" gid="702" x="352" y="1048" width="32" height="32">
+  <object id="31" name="pikeman" gid="707" x="352" y="1048" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="29" name="pikeman" gid="702" x="368" y="1040" width="32" height="32">
+  <object id="29" name="pikeman" gid="707" x="368" y="1040" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
@@ -790,11 +798,11 @@ I'm sorry...Amelia...</text>
    </properties>
    <polyline points="64,88 -64,152 -64,512"/>
   </object>
-  <object id="430" gid="481" x="32" y="1048" width="72" height="72"/>
+  <object id="430" gid="486" x="32" y="1048" width="72" height="72"/>
   <object id="432" x="32" y="1048">
    <polyline points="0,0 40,40"/>
   </object>
-  <object id="435" gid="663" x="16" y="1024" width="24" height="32"/>
+  <object id="435" gid="668" x="16" y="1024" width="24" height="32"/>
  </objectgroup>
  <objectgroup id="26" name="pikemencatapult2">
   <properties>
@@ -806,12 +814,12 @@ I'm sorry...Amelia...</text>
    </properties>
    <polyline points="-72,-48 56,16 56,432"/>
   </object>
-  <object id="6" name="leader" gid="702" x="-48" y="1072" width="32" height="32">
+  <object id="6" name="leader" gid="707" x="-48" y="1072" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="12" name="pikeman" gid="702" x="-16" y="1088" width="32" height="32">
+  <object id="12" name="pikeman" gid="707" x="-16" y="1088" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
@@ -821,26 +829,26 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="30" name="pikeman" gid="702" x="-80" y="1056" width="32" height="32">
+  <object id="30" name="pikeman" gid="707" x="-80" y="1056" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="16" name="leader" gid="702" x="-32" y="1080" width="32" height="32">
+  <object id="16" name="leader" gid="707" x="-32" y="1080" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="22" name="pikeman" gid="702" x="-64" y="1064" width="32" height="32">
+  <object id="22" name="pikeman" gid="707" x="-64" y="1064" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="431" gid="483" x="256" y="1048" width="72" height="72"/>
+  <object id="431" gid="488" x="256" y="1048" width="72" height="72"/>
   <object id="433" x="256" y="1048">
    <polyline points="0,0 -40,40"/>
   </object>
-  <object id="434" gid="663" x="272" y="1024" width="24" height="32"/>
+  <object id="434" gid="668" x="272" y="1024" width="24" height="32"/>
  </objectgroup>
  <objectgroup id="27" name="pikemencatapult1">
   <properties>
@@ -849,17 +857,17 @@ I'm sorry...Amelia...</text>
   <object id="35" name="path" x="144" y="1160">
    <polyline points="0,-8 0,368"/>
   </object>
-  <object id="36" name="leader" gid="702" x="112" y="1144" width="32" height="32">
+  <object id="36" name="leader" gid="707" x="112" y="1144" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="37" name="pikeman" gid="702" x="176" y="1144" width="32" height="32">
+  <object id="37" name="pikeman" gid="707" x="176" y="1144" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="38" name="pikeman" gid="702" x="144" y="1152" width="32" height="32">
+  <object id="38" name="pikeman" gid="707" x="144" y="1152" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
@@ -869,12 +877,12 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="27" name="pikeman" gid="702" x="208" y="1136" width="32" height="32">
+  <object id="27" name="pikeman" gid="707" x="208" y="1136" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="33" name="pikeman" gid="702" x="80" y="1136" width="32" height="32">
+  <object id="33" name="pikeman" gid="707" x="80" y="1136" width="32" height="32">
    <properties>
     <property name="pathmode" value="relative"/>
    </properties>
@@ -884,25 +892,27 @@ I'm sorry...Amelia...</text>
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="462" name="trigger" type="Trigger" x="0" y="1312" width="288" height="16">
+  <object id="462" name="trigger" type="Trigger" x="0" y="1248" width="288" height="16">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="463" gid="762" x="-8" y="1520" width="32" height="32"/>
-  <object id="464" gid="762" x="296" y="1528" width="32" height="32"/>
+  <object id="461" gid="743" x="144" y="1168" width="32" height="32"/>
+  <object id="468" gid="767" x="264" y="1248" width="32" height="32"/>
+  <object id="469" gid="767" x="32" y="1256" width="32" height="32"/>
+  <object id="570" gid="767" x="0" y="1248" width="32" height="32"/>
+  <object id="571" gid="767" x="296" y="1240" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="17" name="swordsmen2">
-  <object id="110" type="Trigger" x="0" y="1360" width="288" height="16">
+  <object id="110" type="Trigger" x="0" y="1336" width="288" height="16">
    <properties>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="459" gid="762" x="40" y="1360" width="32" height="32"/>
-  <object id="460" gid="762" x="232" y="1360" width="32" height="32"/>
-  <object id="461" gid="738" x="144" y="1168" width="32" height="32"/>
-  <object id="468" gid="762" x="288" y="1224" width="32" height="32"/>
-  <object id="469" gid="762" x="-16" y="1248" width="32" height="32"/>
+  <object id="459" gid="767" x="40" y="1336" width="32" height="32"/>
+  <object id="460" gid="767" x="232" y="1336" width="32" height="32"/>
+  <object id="463" gid="767" x="-8" y="1504" width="32" height="32"/>
+  <object id="464" gid="767" x="296" y="1512" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="18" name="swordsmen1">
   <object id="105" type="Trigger" x="0" y="1424" width="288" height="16">
@@ -910,8 +920,8 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="457" gid="762" x="96" y="1424" width="32" height="32"/>
-  <object id="458" gid="762" x="192" y="1424" width="32" height="32"/>
+  <object id="457" gid="767" x="96" y="1424" width="32" height="32"/>
+  <object id="458" gid="767" x="192" y="1424" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="439" name="swordsmenbounds">
   <object id="454" type="EnemyBounds" x="-24" y="1280">
@@ -926,7 +936,7 @@ I'm sorry...Amelia...</text>
   <object id="466" type="EnemyBounds" x="296" y="1616">
    <polygon points="96,-40 -72,40 -88,96 -40,160 96,184"/>
   </object>
-  <object id="467" name="trigger" type="Trigger" x="136" y="1312" width="16" height="128"/>
+  <object id="467" name="trigger" type="Trigger" x="136" y="1248" width="16" height="192"/>
   <object id="470" type="EnemyBounds" x="-8" y="1144">
    <polygon points="24,0 40,24 48,56 48,80 -24,88 -24,-8"/>
   </object>
@@ -946,14 +956,14 @@ I'm sorry...Amelia...</text>
   <object id="442" x="144" y="1480">
    <polyline points="0,0 0,40"/>
   </object>
-  <object id="439" gid="482" x="144" y="1480" width="72" height="72"/>
-  <object id="440" gid="879" x="144" y="1448" width="24" height="32"/>
-  <object id="443" gid="642" x="-32" y="1632" width="32" height="32">
+  <object id="439" gid="487" x="144" y="1480" width="72" height="72"/>
+  <object id="440" gid="884" x="144" y="1448" width="24" height="32"/>
+  <object id="443" gid="647" x="-32" y="1632" width="32" height="32">
    <properties>
     <property name="pathfinder" value="linear1way"/>
    </properties>
   </object>
-  <object id="444" gid="642" x="336" y="1688" width="32" height="32"/>
+  <object id="444" gid="647" x="336" y="1688" width="32" height="32"/>
   <object id="447" x="-48" y="1640">
    <polygon points="16,-8 48,-80 128,-24 128,-8 112,8 88,16 136,24 136,48 112,56 72,56 40,24"/>
   </object>
@@ -970,16 +980,16 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="423" gid="482" x="224" y="1600" width="72" height="72"/>
-  <object id="424" gid="482" x="80" y="1568" width="72" height="72"/>
+  <object id="423" gid="487" x="224" y="1600" width="72" height="72"/>
+  <object id="424" gid="487" x="80" y="1568" width="72" height="72"/>
   <object id="425" x="232" y="1576">
    <polyline points="-8,24 -40,88"/>
   </object>
   <object id="426" x="80" y="1560">
    <polyline points="0,8 24,96"/>
   </object>
-  <object id="427" gid="663" x="80" y="1536" width="24" height="32"/>
-  <object id="428" gid="663" x="224" y="1568" width="24" height="32"/>
+  <object id="427" gid="668" x="80" y="1536" width="24" height="32"/>
+  <object id="428" gid="668" x="224" y="1568" width="24" height="32"/>
  </objectgroup>
  <objectgroup id="117" name="catapult2">
   <properties>
@@ -990,8 +1000,8 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="419" gid="482" x="112" y="1656" width="72" height="72"/>
-  <object id="420" gid="663" x="112" y="1624" width="24" height="32"/>
+  <object id="419" gid="487" x="112" y="1656" width="72" height="72"/>
+  <object id="420" gid="668" x="112" y="1624" width="24" height="32"/>
   <object id="421" x="112" y="1656">
    <polyline points="0,0 8,56"/>
   </object>
@@ -1005,8 +1015,8 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="415" gid="482" x="184" y="1704" width="72" height="72"/>
-  <object id="416" gid="663" x="184" y="1672" width="24" height="32"/>
+  <object id="415" gid="487" x="184" y="1704" width="72" height="72"/>
+  <object id="416" gid="668" x="184" y="1672" width="24" height="32"/>
   <object id="417" x="184" y="1704">
    <polyline points="0,0 -8,48"/>
   </object>
@@ -1022,7 +1032,7 @@ I'm sorry...Amelia...</text>
     <property name="soundfile" type="file" value="snd/hyaa.ogg"/>
    </properties>
   </object>
-  <object id="340" gid="540" x="56" y="1792" width="32" height="32">
+  <object id="340" gid="545" x="56" y="1792" width="32" height="32">
    <properties>
     <property name="emotetileid" value="help"/>
     <property name="emotetileset" value="emotes"/>
@@ -1031,7 +1041,7 @@ I'm sorry...Amelia...</text>
     <property name="pathfinder" value="linearDown"/>
    </properties>
   </object>
-  <object id="109" name="swordsman" gid="762" x="-32" y="1800" width="32" height="32">
+  <object id="109" name="swordsman" gid="767" x="-32" y="1800" width="32" height="32">
    <properties>
     <property name="firetargetid" value="340"/>
     <property name="nexttypeparam" type="int" value="4"/>
@@ -1039,7 +1049,7 @@ I'm sorry...Amelia...</text>
     <property name="pathid" value="340"/>
    </properties>
   </object>
-  <object id="339" name="swordsman" gid="762" x="-16" y="1776" width="32" height="32">
+  <object id="339" name="swordsman" gid="767" x="-16" y="1776" width="32" height="32">
    <properties>
     <property name="firetargetid" value="345"/>
     <property name="nexttypeparam" type="int" value="4"/>
@@ -1047,7 +1057,7 @@ I'm sorry...Amelia...</text>
     <property name="pathid" value="345"/>
    </properties>
   </object>
-  <object id="345" gid="564" x="64" y="1776" width="32" height="32">
+  <object id="345" gid="569" x="64" y="1776" width="32" height="32">
    <properties>
     <property name="emotetileid" value="help"/>
     <property name="emotetileset" value="emotes"/>
@@ -1072,7 +1082,7 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="408" gid="642" x="-8" y="1880" width="32" height="32">
+  <object id="408" gid="647" x="-8" y="1880" width="32" height="32">
    <properties>
     <property name="pathfinder" value="linear1way"/>
    </properties>
@@ -1080,7 +1090,7 @@ I'm sorry...Amelia...</text>
   <object id="409" x="0" y="1904">
    <polyline points="0,0 40,104 112,112 88,56 32,40 32,16 72,0 56,-32 -24,-48"/>
   </object>
-  <object id="410" gid="642" x="0" y="1904" width="32" height="32">
+  <object id="410" gid="647" x="0" y="1904" width="32" height="32">
    <properties>
     <property name="pathfinder" value="linear1way"/>
    </properties>
@@ -1095,7 +1105,7 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="396" gid="642" x="224" y="1944" width="32" height="32">
+  <object id="396" gid="647" x="224" y="1944" width="32" height="32">
    <properties>
     <property name="pathfinder" value="linear1way"/>
    </properties>
@@ -1103,7 +1113,7 @@ I'm sorry...Amelia...</text>
   <object id="397" x="144" y="1888">
    <polyline points="80,56 32,72 32,96 80,128 80,152 32,168 32,192 168,224"/>
   </object>
-  <object id="398" gid="642" x="224" y="1920" width="32" height="32">
+  <object id="398" gid="647" x="224" y="1920" width="32" height="32">
    <properties>
     <property name="pathfinder" value="linear1way"/>
    </properties>
@@ -1118,10 +1128,10 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="403" gid="702" x="160" y="1960" width="32" height="32"/>
-  <object id="405" gid="702" x="152" y="1984" width="32" height="32"/>
-  <object id="392" gid="702" x="0" y="2080" width="32" height="32"/>
-  <object id="393" gid="702" x="-32" y="2064" width="32" height="32"/>
+  <object id="403" gid="707" x="160" y="1960" width="32" height="32"/>
+  <object id="405" gid="707" x="152" y="1984" width="32" height="32"/>
+  <object id="392" gid="707" x="0" y="2080" width="32" height="32"/>
+  <object id="393" gid="707" x="-32" y="2064" width="32" height="32"/>
   <object id="526" x="0" y="2080">
    <polyline points="0,0 104,96 168,384"/>
   </object>
@@ -1138,9 +1148,9 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="400" gid="702" x="296" y="2040" width="32" height="32"/>
-  <object id="401" gid="702" x="320" y="2024" width="32" height="32"/>
-  <object id="402" gid="702" x="344" y="2008" width="32" height="32"/>
+  <object id="400" gid="707" x="296" y="2040" width="32" height="32"/>
+  <object id="401" gid="707" x="320" y="2024" width="32" height="32"/>
+  <object id="402" gid="707" x="344" y="2008" width="32" height="32"/>
   <object id="406" x="288" y="2032">
    <polyline points="8,8 -96,64 -96,112 -152,184 -208,344 -128,456"/>
   </object>
@@ -1154,9 +1164,9 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="389" gid="702" x="136" y="2048" width="32" height="32"/>
-  <object id="390" gid="702" x="128" y="2024" width="32" height="32"/>
-  <object id="391" gid="702" x="120" y="2000" width="32" height="32"/>
+  <object id="389" gid="707" x="136" y="2048" width="32" height="32"/>
+  <object id="390" gid="707" x="128" y="2024" width="32" height="32"/>
+  <object id="391" gid="707" x="120" y="2000" width="32" height="32"/>
   <object id="394" x="104" y="1984">
    <polyline points="32,64 0,152 0,248 40,344 40,456"/>
   </object>
@@ -1170,17 +1180,17 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="380" gid="702" x="-16" y="2096" width="32" height="32">
+  <object id="380" gid="707" x="-16" y="2096" width="32" height="32">
    <properties>
     <property name="firetargetid" value="377"/>
    </properties>
   </object>
-  <object id="381" gid="702" x="304" y="2096" width="32" height="32">
+  <object id="381" gid="707" x="304" y="2096" width="32" height="32">
    <properties>
     <property name="firetargetid" value="378"/>
    </properties>
   </object>
-  <object id="382" gid="702" x="-48" y="2080" width="32" height="32">
+  <object id="382" gid="707" x="-48" y="2080" width="32" height="32">
    <properties>
     <property name="firetargetid" value="377"/>
    </properties>
@@ -1188,7 +1198,7 @@ I'm sorry...Amelia...</text>
   <object id="383" x="-16" y="2096">
    <polyline points="0,0 96,64 144,160 144,448"/>
   </object>
-  <object id="384" gid="702" x="336" y="2080" width="32" height="32">
+  <object id="384" gid="707" x="336" y="2080" width="32" height="32">
    <properties>
     <property name="firetargetid" value="378"/>
    </properties>
@@ -1206,12 +1216,12 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="367" gid="702" x="120" y="2112" width="32" height="32">
+  <object id="367" gid="707" x="120" y="2112" width="32" height="32">
    <properties>
     <property name="firetargetid" value="377"/>
    </properties>
   </object>
-  <object id="364" gid="702" x="168" y="2112" width="32" height="32">
+  <object id="364" gid="707" x="168" y="2112" width="32" height="32">
    <properties>
     <property name="firetargetid" value="378"/>
    </properties>
@@ -1222,24 +1232,24 @@ I'm sorry...Amelia...</text>
   <object id="373" x="160" y="2112">
    <polyline points="32,16 48,48 48,80 0,176 0,672"/>
   </object>
-  <object id="377" gid="840" x="96" y="2128" width="64" height="64">
+  <object id="377" gid="845" x="96" y="2128" width="64" height="64">
    <properties>
     <property name="emotetileid" value="sweat"/>
     <property name="pathspeed" value="120"/>
    </properties>
   </object>
-  <object id="378" gid="864" x="192" y="2128" width="64" height="64">
+  <object id="378" gid="869" x="192" y="2128" width="64" height="64">
    <properties>
     <property name="emotetileid" value="sweat"/>
     <property name="pathspeed" value="120"/>
    </properties>
   </object>
-  <object id="386" gid="702" x="136" y="2088" width="32" height="32">
+  <object id="386" gid="707" x="136" y="2088" width="32" height="32">
    <properties>
     <property name="firetargetid" value="377"/>
    </properties>
   </object>
-  <object id="387" gid="678" x="152" y="2088" width="32" height="32">
+  <object id="387" gid="683" x="152" y="2088" width="32" height="32">
    <properties>
     <property name="firetargetid" value="378"/>
    </properties>
@@ -1254,14 +1264,14 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="63" gid="540" x="144" y="2176" width="32" height="32">
+  <object id="63" gid="545" x="144" y="2176" width="32" height="32">
    <properties>
     <property name="emotetileid" value="sweat"/>
     <property name="pathmode" value="relative"/>
     <property name="pathspeed" value="120"/>
    </properties>
   </object>
-  <object id="72" gid="852" x="144" y="2200" width="32" height="32">
+  <object id="72" gid="857" x="144" y="2200" width="32" height="32">
    <properties>
     <property name="emotetileid" value="sweat"/>
     <property name="health" type="int" value="10"/>
@@ -1269,25 +1279,25 @@ I'm sorry...Amelia...</text>
     <property name="pathspeed" value="120"/>
    </properties>
   </object>
-  <object id="366" gid="702" x="184" y="2128" width="32" height="32">
+  <object id="366" gid="707" x="184" y="2128" width="32" height="32">
    <properties>
     <property name="firetargetid" value="72"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="368" gid="702" x="104" y="2128" width="32" height="32">
+  <object id="368" gid="707" x="104" y="2128" width="32" height="32">
    <properties>
     <property name="firetargetid" value="72"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="369" gid="702" x="104" y="2152" width="32" height="32">
+  <object id="369" gid="707" x="104" y="2152" width="32" height="32">
    <properties>
     <property name="firetargetid" value="72"/>
     <property name="pathmode" value="relative"/>
    </properties>
   </object>
-  <object id="370" gid="702" x="184" y="2152" width="32" height="32">
+  <object id="370" gid="707" x="184" y="2152" width="32" height="32">
    <properties>
     <property name="firetargetid" value="72"/>
     <property name="pathmode" value="relative"/>
@@ -1312,7 +1322,7 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="61" gid="516" x="152" y="2248" width="32" height="32">
+  <object id="61" gid="521" x="152" y="2248" width="32" height="32">
    <properties>
     <property name="emotetileid" value="sweat"/>
     <property name="health" type="int" value="10"/>
@@ -1320,7 +1330,7 @@ I'm sorry...Amelia...</text>
     <property name="pathspeed" value="120"/>
    </properties>
   </object>
-  <object id="62" gid="528" x="136" y="2232" width="32" height="32">
+  <object id="62" gid="533" x="136" y="2232" width="32" height="32">
    <properties>
     <property name="emotetileid" value="sweat"/>
     <property name="health" type="int" value="10"/>
@@ -1328,12 +1338,12 @@ I'm sorry...Amelia...</text>
     <property name="pathspeed" value="120"/>
    </properties>
   </object>
-  <object id="358" gid="702" x="112" y="2192" width="32" height="32">
+  <object id="358" gid="707" x="112" y="2192" width="32" height="32">
    <properties>
     <property name="firetargetid" value="62"/>
    </properties>
   </object>
-  <object id="359" gid="702" x="176" y="2192" width="32" height="32">
+  <object id="359" gid="707" x="176" y="2192" width="32" height="32">
    <properties>
     <property name="firetargetid" value="61"/>
    </properties>
@@ -1357,7 +1367,7 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="65" gid="564" x="208" y="2288" width="32" height="32">
+  <object id="65" gid="569" x="208" y="2288" width="32" height="32">
    <properties>
     <property name="emotetileid" value="sweat"/>
     <property name="health" type="int" value="10"/>
@@ -1367,7 +1377,7 @@ I'm sorry...Amelia...</text>
   <object id="354" x="112" y="2288">
    <polyline points="0,480 96,0"/>
   </object>
-  <object id="355" gid="702" x="216" y="2240" width="32" height="32">
+  <object id="355" gid="707" x="216" y="2240" width="32" height="32">
    <properties>
     <property name="firetargetid" value="65"/>
    </properties>
@@ -1382,14 +1392,14 @@ I'm sorry...Amelia...</text>
     <property name="activateobjectslayer" value="ground"/>
    </properties>
   </object>
-  <object id="71" gid="612" x="80" y="2320" width="32" height="32">
+  <object id="71" gid="617" x="80" y="2320" width="32" height="32">
    <properties>
     <property name="emotetileid" value="sweat"/>
     <property name="health" type="int" value="10"/>
     <property name="pathspeed" value="120"/>
    </properties>
   </object>
-  <object id="352" gid="702" x="72" y="2272" width="32" height="32">
+  <object id="352" gid="707" x="72" y="2272" width="32" height="32">
    <properties>
     <property name="firetargetid" value="71"/>
    </properties>
@@ -1402,7 +1412,7 @@ I'm sorry...Amelia...</text>
   <properties>
    <property name="script" value="PathGraph"/>
   </properties>
-  <object id="60" gid="504" x="176" y="2352" width="64" height="64">
+  <object id="60" gid="509" x="176" y="2352" width="64" height="64">
    <properties>
     <property name="emotetileid" value="sweat"/>
     <property name="pathfinder" value="linearDown"/>
@@ -1410,7 +1420,7 @@ I'm sorry...Amelia...</text>
     <property name="pathspeed" type="float" value="300"/>
    </properties>
   </object>
-  <object id="64" gid="552" x="184" y="2312" width="64" height="64">
+  <object id="64" gid="557" x="184" y="2312" width="64" height="64">
    <properties>
     <property name="emotetileid" value="sweat"/>
     <property name="pathfinder" value="linearDown"/>
@@ -1418,7 +1428,7 @@ I'm sorry...Amelia...</text>
     <property name="pathspeed" type="float" value="300"/>
    </properties>
   </object>
-  <object id="66" gid="576" x="112" y="2352" width="64" height="64">
+  <object id="66" gid="581" x="112" y="2352" width="64" height="64">
    <properties>
     <property name="emotetileid" value="sweat"/>
     <property name="pathfinder" value="linearDown"/>
@@ -1426,7 +1436,7 @@ I'm sorry...Amelia...</text>
     <property name="pathspeed" type="float" value="300"/>
    </properties>
   </object>
-  <object id="69" gid="588" x="96" y="2320" width="64" height="64">
+  <object id="69" gid="593" x="96" y="2320" width="64" height="64">
    <properties>
     <property name="emotetileid" value="sweat"/>
     <property name="pathfinder" value="linearDown"/>
@@ -1434,7 +1444,7 @@ I'm sorry...Amelia...</text>
     <property name="pathspeed" type="float" value="300"/>
    </properties>
   </object>
-  <object id="70" gid="600" x="144" y="2336" width="64" height="64">
+  <object id="70" gid="605" x="144" y="2336" width="64" height="64">
    <properties>
     <property name="emotetileid" value="sweat"/>
     <property name="pathfinder" value="linearDown"/>

@@ -25,6 +25,9 @@ end
 
 function UIOption:set(value)
 	levity.prefs.set(self.object.name, value)
+	if levity.prefs.isdisplaymodepref[self.object.name] then
+		levity.prefs.applyDisplayMode()
+	end
 	self:broadcast("refreshValue")
 end
 
